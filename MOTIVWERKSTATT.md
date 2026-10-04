@@ -57,3 +57,9 @@ Das Öffnen eines anderen Motivs oder eine neue Bilderkennung fragt nach, bevor 
 Nach **Im Spiel testen** im Level-Werkzeug **Export** wählen und die fertige JSON-Datei im Projektordner `levels/` speichern. Ein eigener Dateiname ist erlaubt; ein bestehendes Level muss nicht ersetzt werden. **ArrowWay.cmd** ist der richtige Spielstarter. Über **Alle Levels** oder die Levelauswahl erscheinen zusätzliche gültige Exporte als sofort spielbare eigene Motive. Das erneute Öffnen der Übersicht liest neue Dateien ein. Ein Spiel, das noch mit einer älteren Version läuft, muss einmal neu gestartet werden.
 
 **Speichern** in der Motivwerkstatt sichert einen bearbeitbaren Entwurf. **Export** nach dem Spieltest schreibt dagegen die spielbare Leveldatei. JSON-Dateien außerhalb von `levels/` erscheinen nicht automatisch im Spiel.
+
+## Katalogmotive nachbearbeiten
+
+Jedes der 500 Motive lässt sich über **Öffnen → Bild, Motiv oder Level-Datei** als JSON aus `collections/levels/` laden. [CATALOG.md](CATALOG.md) verlinkt alle Dateien. Einzelne Pfeile auswählen und umfärben, löschen oder zeichnen; ebenso lassen sich Flächen ergänzen und freie Bereiche füllen. **Gesamtansicht** zeigt das Zusammenspiel ohne hervorgehobene Auswahl.
+
+Eine persönliche Variante unter eigenem Namen in `levels/` exportieren. Sie erscheint im Spiel unter **Eigene Motive**; ein erneuter Katalogaufbau kann diese separate Variante nicht überschreiben.

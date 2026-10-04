@@ -12,7 +12,7 @@ Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze f
 
 **Alle Levels** öffnet die Motivübersicht. Dort siehst du deinen Fortschritt und kannst freigeschaltete Puzzles wählen. **Weiter spielen** bringt dich zum laufenden Puzzle zurück, ohne es neu zu starten. Gesperrte Puzzles werden der Reihe nach freigeschaltet; geschaffte Puzzles bleiben markiert. Nach dem letzten Level kommst du wieder zur Übersicht.
 
-Oben in der Übersicht kannst du zwischen **Alle Motive**, **Erste Neonreise**, fünf neuen Sammlungen und deinen **Eigenen Motiven** wählen. **Zurück / Weiter** blättert durch Seiten mit höchstens zwölf Vorschauen. Die 28 neuen Sammlungsbilder sind sofort spielbar. **Nächstes Puzzle** führt innerhalb der gewählten Sammlung weiter. Die Bilder und Themen findest du in [COLLECTIONS.md](COLLECTIONS.md).
+Oben in der Übersicht kannst du zwischen **Alle Motive**, **Erste Neonreise**, 29 Sammlungen und deinen **Eigenen Motiven** wählen. **Zurück / Weiter** blättert durch Seiten mit höchstens zwölf Vorschauen. Die 500 Sammlungsbilder sind sofort spielbar. **Nächstes Puzzle** führt innerhalb der gewählten Sammlung weiter. Die Bilder und Themen findest du in [COLLECTIONS.md](COLLECTIONS.md).
 
 Die **Suche** findet Titel, Sammlungen und Themen, auch ohne Großschreibung oder Umlaute. Beispielsweise **Van Gogh**, **Pflanzen**, **Meer** oder **Palme** eingeben. **Thema** grenzt die Auswahl über Sammlungsgrenzen hinweg ein. **Alle Fortschritte** bietet zusätzlich die Ansichten **Noch nicht geschafft**, **Geschafft** und **Spielbar**.
 
@@ -33,3 +33,5 @@ Unter Windows `Level-Werkzeug.cmd` doppelklicken. Die **Motivwerkstatt** öffnet
 Die vollständige Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md). Unter `examples/` liegen Vorlagen zum Ausprobieren. Nach dem Spieltest **Export** wählen und einen eigenen JSON-Dateinamen im Ordner `levels/` speichern. **ArrowWay.cmd** starten und **Alle Levels** öffnen: zusätzliche Exporte erscheinen automatisch als direkt spielbare eigene Motive. Die ursprünglichen neun Spielslots müssen nicht ersetzt werden.
 
 Spielstände und lokale Sicherungen liegen unter `%APPDATA%\Godot\app_userdata\ArrowWay\`. Tests verwenden separate Dateien mit dem Präfix `test_`.
+
+Alle Titel, Vorschauen und bearbeitbaren Leveldateien stehen in [CATALOG.md](CATALOG.md).

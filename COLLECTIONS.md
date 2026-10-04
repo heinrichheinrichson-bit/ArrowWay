@@ -1,26 +1,10 @@
-# ArrowWay · Motivsammlungen
+# Die ArrowWay-Sammlungen
 
-Ab Version 0.11.0 gibt es neben den neun Einstiegspuzzles **28 weitere spielbare Motive in fünf Sammlungen**. Im Spiel **Alle Levels** öffnen und oben eine Sammlung wählen. Die neuen Sammlungen sind sofort zugänglich. Geschaffte Motive werden gespeichert; **Nächstes Puzzle** bleibt in der Sammlung und kehrt nach ihrem letzten Motiv zur Übersicht zurück.
+Der Katalog enthält **500 Motive in 29 Sammlungen**, zusätzlich zu den neun Einstiegspuzzles und eigenen Exporten. [CATALOG.md](CATALOG.md) enthält alle Titel, Dateilinks und die mit dem Spielrenderer erzeugten Sammlungsvorschauen.
 
-| Sammlung | Motive |
-|---|---|
-| Weltreise in Neon · 6 | Pariser Lichter, Goldene Pyramiden, Tor zum Abendrot, Wind über Holland, Licht an der Küste, Prater bei Nacht |
-| Naturzauber · 6 | Tulpe im Morgenlicht, Kaktus in der Sonne, Glückspilz, Palme am Strand, Schildkrötenreise, Spiegel der Alpen |
-| Kleine Genussmomente · 6 | Knackiger Apfel, Erdbeerzeit, Drei Kugeln Glück, Kleine Kaffeepause, Kirschen im Sommer, Lime & Neon |
-| Kosmische Reise · 6 | Sternenlicht, Mondnacht, Auf zu den Sternen, Ringe des Saturn, Kometenschweif, Besuch aus dem All |
-| Meisterwerke neu gedacht · 4 | Sonnenblumen in Türkis, Die große Neonwelle, Goldenes Korn, Brücke über Seerosen |
+Halloween, Weihnachten, Winter und Ostern stehen neben Technik, Computern, Smartphones, Skylines, Fahrzeugen, Meerestieren, Vögeln, Blumen, Essen, Musik, Sport, Spielzeug, Reisen, Fantasy und Landschaften. Verwandte Motive bilden bewusst Serien mit unterschiedlichen Formen, Teilflächen und Details.
 
-Die Kunstsammlung interpretiert Motive wie Sonnenblumen, Korn, Wellen und Seerosen als vereinfachte Pfeilbilder. Alle Motive haben breite Farbflächen, gerundete Neonpfeile und automatisch abgestimmte Farbverläufe. Jeder belegte Rasterpunkt gehört genau einem Pfeil. Sämtliche Puzzles sind vollständig lösbar und wurden zusätzlich über die tatsächliche Spiellogik durchgespielt. Das Spielgefühl und die Schwierigkeit brauchen weiterhin menschliche Spieltests.
-
-![Weltreise](previews/collection-world.png)
-
-![Naturzauber](previews/collection-garden.png)
-
-![Genussmomente](previews/collection-taste.png)
-
-![Kosmische Reise](previews/collection-space.png)
-
-![Kunstmotive](previews/collection-art.png)
+Alle 500 gelieferten Dateien sind vollständig und ohne überlappende Pfeile gefüllt. Ihre Lösungsfolgen wurden durch die tatsächliche Spiellogik gespielt; außerdem wurden sämtliche Dateien im Editor geöffnet und Einzelpfeilfarben mit Rückgängig in jeder Sammlung geprüft. Die automatische Prüfung ersetzt keine menschliche Bewertung von Schönheit, Schwierigkeit und Spielgefühl. Dafür lassen sich alle Motive anschließend feinjustieren.
 
 ## Bibliothek für viele Motive
 
@@ -46,8 +30,7 @@ godot --path . --script res://tools/preview_collections.gd -- --test
 godot --headless --path . --script res://tests/test_collections.gd -- --test
 ```
 
-Der Generator überschreibt die gelieferten Sammlungsdateien. Bearbeitete Varianten vorher unter eigenem Namen sichern. Die Vorschauen werden mit dem tatsächlichen Neonrenderer erzeugt und benötigen einen Grafikrenderer.
+Der Generator verwendet unveränderte, geprüfte Dateien erneut und erzeugt geänderte Rezepte neu. `--rebuild` erzwingt eine vollständige Neuerstellung. Dabei werden die gelieferten Sammlungsdateien überschrieben. Bearbeitete Varianten vorher unter eigenem Namen sichern. Die Vorschauen werden mit dem tatsächlichen Neonrenderer erzeugt und benötigen einen Grafikrenderer.
 
-## Vorgemerkte spätere Themen
 
-Weihnachten, Winter, Halloween, Schwimmbad und Sommer, Fußball mit Turnierthemen, Sport und Boxen, Fahrzeuge sowie Landschaften und Berge. Diese Themen sind noch keine fertigen Sammlungen. Gute Startmotive wären Weihnachtskugel, Schneemann, Kürbis, Schwimmring, Fußballschuh, Boxhandschuhe, Cabrio, Heißluftballon und Bergsee. Breite Silhouetten und wenige gut unterscheidbare Farbflächen haben Vorrang vor kleinen Details.
+Die Ausgangsmotive werden mit `python tools/build_catalog_masks.py` aufgebaut; anschließend erzeugt der Godot-Generator die Pfeile. `python tools/write_catalog_index.py` aktualisiert die vollständige Übersicht.

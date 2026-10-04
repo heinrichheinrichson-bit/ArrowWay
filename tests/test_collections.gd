@@ -13,7 +13,9 @@ func require(ok: bool, message: String) -> void:
 
 func run() -> void:
 	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
-	require(catalog.levels.size() == 28, "All 28 authored motifs appear in the catalog")
+	require(catalog.levels.size() == 500, "All 500 authored motifs appear in the catalog")
+	var titles := {}
+	var masks := {}
 	var scene := LibraryHarness.new()
 	scene.scan_user_exports = true
 	root.add_child(scene)
@@ -22,6 +24,19 @@ func run() -> void:
 		groups[entry.collection.id] = int(groups.get(entry.collection.id, 0)) + 1
 		var document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(entry.path))
 		var motif := CustomMotif.decode(document.motif)
+		require(not titles.has(entry.title), "Motif titles are unique: " + entry.title)
+		titles[entry.title] = true
+		var cells: Array = motif.cells.keys()
+		cells.sort_custom(func(a: Vector2i, b: Vector2i): return a.y < b.y if a.y != b.y else a.x < b.x)
+		var parts := {}
+		var canonical: Array = []
+		for cell in cells:
+			var part: int = motif.cells[cell]
+			if not parts.has(part): parts[part] = parts.size()
+			canonical.append([cell.x,cell.y,parts[part]])
+		var signature := JSON.stringify(canonical).sha256_text()
+		require(not masks.has(signature), "Motif geometry and region layout are unique: " + entry.title)
+		masks[signature] = entry.title
 		var paths := CustomMotif.decode_paths(document.paths, motif)
 		require(not paths.is_empty(), "Complete, non-overlapping, valid and solvable motif: " + entry.title)
 		require(CustomMotif.isolated(motif).is_empty(), "No isolated raster points: " + entry.title)
@@ -37,7 +52,10 @@ func run() -> void:
 		require(scene.completed.has(scene.level), "Completion is recorded independently")
 		var next: int = scene.next_collection_level(scene.level)
 		require(next < 0 or scene.level_collection(next).id == entry.collection.id, "Next puzzle stays within its collection")
-	require(groups == {"world":6,"garden":6,"taste":6,"space":6,"art":4}, "Five complete collections have the intended counts")
+		if titles.size() % 50 == 0: print("PLAYED ",titles.size(),"/500")
+	var expected := {"world":6,"garden":6,"taste":6,"space":6,"art":4,"cozy":12}
+	for id in ["halloween","christmas","winter","easter","technology","computers","skylines","smartphones","vehicles","ocean","animals","birds","bakery","fruit","flowers","workshop","music","sports","toys","travel","fantasy","landscapes","cosmos"]: expected[id] = 20
+	require(groups == expected, "29 complete collections have the intended counts")
 	require(scene.unlocked == 0, "Completing collections does not change campaign unlocks")
 	scene.collection_filter = "all"
 	scene.gallery_page = 0
@@ -84,5 +102,5 @@ func run() -> void:
 	require(cards.get_child_count() == 4 and cards.get_child(0).number == 996, "Last page of a thousand-entry index has the correct remaining entries")
 	require(scene.gallery.get_child(6).disabled, "Next page is disabled at the end of a large index")
 	for name in ["progress.cfg","settings.cfg"]: DirAccess.remove_absolute(scene.storage_prefix + name)
-	print("PASS 28 collections: complete coverage, all real gameplay solutions, gradients, pagination, filtering, next puzzle and progress" if failures == 0 else "%d FAILURES" % failures)
+	print("PASS 500 motifs: unique geometry, complete coverage, all real gameplay solutions, gradients, pagination, filtering, next puzzle and progress" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

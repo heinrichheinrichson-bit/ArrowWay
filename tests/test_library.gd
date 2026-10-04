@@ -27,13 +27,14 @@ func run() -> void:
 	var search: LineEdit = scene.gallery.get_node("LibrarySearch")
 	search.grab_focus()
 	await process_frame
-	for character in "palme":
+	var typed_query := "palme am strand"
+	for character in typed_query:
 		var event := InputEventKey.new()
 		event.pressed = true; event.unicode = character.unicode_at(0)
 		root.push_input(event,true)
 	await process_frame
-	require(scene.library_query == "palme" and cards(scene).get_child_count() == 1, "Actual typing searches the catalog immediately")
-	require(search.has_focus() and search.caret_column == 5, "Refreshing results preserves input focus and caret")
+	require(scene.library_query == typed_query and cards(scene).get_child_count() == 1, "Actual typing searches the catalog immediately")
+	require(search.has_focus() and search.caret_column == typed_query.length(), "Refreshing results preserves input focus and caret")
 	require(cards(scene).get_child(0).title == "Palme am Strand", "Search selects the correct matching motif")
 	await process_frame
 	var palm_index: int = cards(scene).get_child(0).number

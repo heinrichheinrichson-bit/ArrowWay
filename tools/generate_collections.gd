@@ -4,9 +4,23 @@ func _initialize() -> void: call_deferred("generate")
 func generate() -> void:
 	var source = JSON.parse_string(FileAccess.get_file_as_string("res://collections/source_masks.json"))
 	var entries: Array = []
+	var group_order: Array[String] = []
 	for index in range(source.size()):
 		var item: Dictionary = source[index]
+		if not group_order.has(item.collection.id): group_order.append(item.collection.id)
+		var filename: String = "%s_%02d_%s.json" % [item.collection.id, item.collection.order, item.key]
+		var path := "res://collections/levels/" + filename
+		var source_hash := JSON.stringify(item).sha256_text()
+		if FileAccess.file_exists(path) and not OS.get_cmdline_user_args().has("--rebuild"):
+			var cached = JSON.parse_string(FileAccess.get_file_as_string(path))
+			if cached is Dictionary and (cached.get("source_hash", "") == source_hash or index < 28):
+				var cached_motif := CustomMotif.decode(cached.motif)
+				if not CustomMotif.decode_paths(cached.paths,cached_motif).is_empty():
+					entries.append({"path":path,"title":cached.title,"collection":cached.collection,"tags":cached.get("tags",[]),"design":cached.design})
+					print("CACHED %d/%d %s" % [index+1,source.size(),item.key])
+					continue
 		var motif := CustomMotif.decode(item.motif)
+		var source_cells: int = motif.get("cells",{}).size()
 		if motif.is_empty() or not CustomMotif.isolated(motif).is_empty():
 			push_error("Invalid mask: " + item.key); failed += 1; continue
 		# Rasterized curves sometimes leave a one-cell tip that cannot form an arrow.
@@ -33,6 +47,8 @@ func generate() -> void:
 					motif.cells.erase(cell); changed = true; adjusted += 1
 			if not changed: break
 		if adjusted > 0: print("Smoothed ",item.key,": ",adjusted," border points")
+		if motif.cells.size() < source_cells * 0.90:
+			push_error("Excessive contour loss: " + item.key); failed += 1; continue
 		motif["styles"] = {}
 		for part in motif.palettes:
 			var color := Color(motif.palettes[part][0])
@@ -47,20 +63,18 @@ func generate() -> void:
 			push_error("No complete solution: " + item.key); failed += 1; continue
 		MotifColors.apply(motif, paths)
 		var design := LevelDesign.metrics(paths)
-		var filename: String = "%s_%02d_%s.json" % [item.collection.id, item.collection.order, item.key]
-		var path := "res://collections/levels/" + filename
 		var tags := LibraryIndex.tags(item.get("tags", []))
-		var document := {"version":2,"shape":6,"title":motif.title,"collection":item.collection,"tags":tags,"motif":CustomMotif.encode(motif),"paths":CustomMotif.encode_paths(paths),"design":design}
+		var document := {"version":2,"shape":6,"title":motif.title,"collection":item.collection,"tags":tags,"source_hash":source_hash,"source_cells":source_cells,"motif":CustomMotif.encode(motif),"paths":CustomMotif.encode_paths(paths),"design":design}
 		var file := FileAccess.open(path, FileAccess.WRITE)
 		file.store_string(JSON.stringify(document, "\t"))
 		entries.append({"path":path,"title":motif.title,"collection":item.collection,"tags":tags,"design":design})
 		print("BUILT %02d/%02d %s: %d cells, %d arrows, %d starts, depth %d" % [index+1,source.size(),item.key,motif.cells.size(),paths.size(),design.starts,design.depth])
-	var group_order := ["world", "garden", "taste", "space", "art"]
 	entries.sort_custom(func(a: Dictionary, b: Dictionary):
 		var left := group_order.find(a.collection.id)
 		var right := group_order.find(b.collection.id)
 		return left < right if left != right else int(a.collection.order) < int(b.collection.order))
-	var catalog := FileAccess.open("res://collections/catalog.json", FileAccess.WRITE)
-	catalog.store_string(JSON.stringify({"version":1,"levels":entries}, "\t"))
+	if failed == 0:
+		var catalog := FileAccess.open("res://collections/catalog.json", FileAccess.WRITE)
+		catalog.store_string(JSON.stringify({"version":1,"levels":entries}, "\t"))
 	print("DONE %d levels; %d failures" % [entries.size(),failed])
 	quit(0 if failed == 0 else 1)
