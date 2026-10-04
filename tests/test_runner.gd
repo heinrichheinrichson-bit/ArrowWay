@@ -146,7 +146,7 @@ func run() -> void:
 	scene.leave_editor()
 	await process_frame
 	var free := ArrowPuzzle.solution(scene.arrows)[0]
-	mouse_click(scene.arrows[free].points[0])
+	mouse_click(scene.board.get_global_transform() * scene.arrows[free].points[0])
 	require(scene.arrows[free].escaping, "Mouse events must reach the playfield through the UI")
 	scene.reset()
 	await process_frame
@@ -165,7 +165,7 @@ func run() -> void:
 	free = ArrowPuzzle.solution(scene.arrows)[0]
 	var touch := InputEventScreenTouch.new()
 	touch.pressed = true
-	touch.position = scene.arrows[free].points[0]
+	touch.position = scene.board.get_global_transform() * scene.arrows[free].points[0]
 	root.push_input(touch, true)
 	require(scene.arrows[free].escaping, "Touch events must reach the playfield")
 	scene.testing = false

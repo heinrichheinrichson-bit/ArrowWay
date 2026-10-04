@@ -8,7 +8,9 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.13.1
+## Aktueller Stand · 0.14.0
+
+- **Große Spielansicht für Hochformat und Touch**: Das Motiv nutzt den verfügbaren Platz ohne Dropdownliste, Sound-Schalter oder laufende Erklärungstexte. Oben bleiben drei Symbole mit 48 × 48 großen Trefferflächen; der nächste Schritt erscheint erst nach dem Abschluss. Die Motive skalieren ohne Verzerrung mit dem Bildschirm. Versetzte Tipps wählen den nächstgelegenen vorhandenen Pfeil mit erweitertem Abstand. Hauptmenü, Motivbibliothek und Soundeinstellungen sind getrennte Ansichten; Neustart nach begonnenem Spiel erfordert eine Bestätigung.
 
 - **Neonkunstwerk zum Abschluss**: Nach dem letzten entkommenen Pfeil bringt eine weiche Lichtwelle die ursprünglichen Pfeilbahnen samt individuellen Farben und Verläufen zurück. Ein kurzer Leuchtimpuls geht in ein helles Standbild über; nach 1,95 Sekunden ist das nächste Puzzle verfügbar. Neustart und Levelwechsel setzen die Darstellung zurück.
 
@@ -75,6 +77,7 @@ godot --headless --path . --script res://tests/test_collections.gd -- --test
 godot --headless --path . --script res://tests/test_library.gd -- --test
 godot --headless --path . --script res://tests/test_catalog_editing.gd -- --test
 godot --headless --path . --script res://tests/test_completion.gd -- --test
+godot --headless --path . --script res://tests/test_mobile_play.gd -- --test
 ```
 
 Die Serie lässt sich mit `godot --headless --path . --script res://tools/build_series.gd -- --test` neu erstellen. Das überschreibt `levels/01.json` bis `levels/09.json`; eigene Änderungen an diesen Dateien vorher separat sichern.
@@ -84,6 +87,8 @@ Bei einer portablen Installation `godot` durch den vollständigen Pfad zur Godot
 Geprüft werden vollständige Lösungsfolgen aller neun Levels, vollständige Füllung weiterer Generator-Seeds, überlappungsfreie Formen, Verflechtung ohne verlorene oder doppelte Zellen, die Bewertung der Level, Motivfarben, gerundete Geometrie, Entkommensrichtungen, blockierte Klicks, Hinweise, Rückmeldung neu geöffneter Wege, zyklische Abhängigkeiten, Selbstblockaden, Editorzeichnung und Richtungswechsel, JSON-Rundlauf, Testmodus und Rückkehr sowie ungültige Speicherdateien. Maus- und Touch-Ereignisse werden durch die tatsächliche Eingabeverarbeitung geschickt. Die Übersicht wird mit echten Mausklicks geprüft, einschließlich Sperren, Rückkehr und gespeichertem Abschlussstatus. Zusätzlich werden sanfter Anlauf, schnelle aufeinanderfolgende Züge, Pegel und stille Klangenden sowie die gespeicherte Toneinstellung geprüft. Testdateien sind von normalen Spielständen getrennt.
 
 ## Nächste Ausbaustufen
+
+Für dichte Motive ist Zwei-Finger-Zoom mit Verschieben vorgemerkt. Eine Zoomgeste muss dabei einen begonnenen Pfeiltipp abbrechen, damit kein Pfeil versehentlich entkommt. Die aktuelle Version nutzt automatische Vergrößerung und erweiterte Trefferflächen; die Bedienung wird bisher am Desktop in verschiedenen Bildschirmformaten geprüft.
 
 Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smartphones und das Spielgefühl der neuen Serie müssen noch geprüft werden. Die erste lokale Bildanalyse arbeitet mit klaren Umrissen, Farbflächen und Transparenz. Allgemeine Fotoerkennung, automatische Benennung von Bildteilen, feinere beziehungsweise variable Raster, eine komfortable Bibliothek für eigene Motive und Veröffentlichung stehen noch aus. Die Verflechtung verbessert die rechnerischen Kennzahlen und die Vielfalt der Pfade; eine angenehme Schwierigkeitskurve muss anschließend mit Spieltests abgestimmt werden.
 

@@ -23,6 +23,7 @@ func run() -> void:
 	require(scene.next_button.visible and scene.next_button.disabled, "Next action waits for the artwork reveal")
 	for time in [0.0, 0.65, 1.3, 2.2]:
 		scene.win_time = time
+		scene._process(0.0)
 		scene.board._process(0.0)
 		for index in scene.arrows.size():
 			var stroke: ColorRect = scene.board.strokes[index]

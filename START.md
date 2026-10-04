@@ -8,11 +8,11 @@ Auf diesem PC kannst du auch einfach `ArrowWay.cmd` doppelklicken.
 
 ## Spielen
 
-Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze frei ist, kann er entkommen. Blockierte Pfade federn kurz zurück und blinken rot. Neu geöffnete Wege leuchten kurz stärker in ihrer eigenen Farbe. **Hinweis** lässt einen freien Pfad weiß leuchten. Sobald alle Pfade entfernt sind, erscheint **Nächstes Puzzle**. Freigeschaltete Levels bleiben lokal gespeichert. Die kurzen Klänge kannst du oben mit **Ton: An/Aus** abschalten; diese Einstellung bleibt ebenfalls gespeichert.
+Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze frei ist, kann er entkommen. Blockierte Pfade federn kurz zurück und blinken rot. Neu geöffnete Wege leuchten kurz stärker in ihrer eigenen Farbe. Die Glühbirne oben rechts lässt einen freien Pfad weiß leuchten; der kreisförmige Pfeil daneben startet das Rätsel neu. Nach begonnenem Spiel wird der Neustart bestätigt. Sobald alle Pfade entfernt sind, erscheint **Weiter**. Freigeschaltete Levels bleiben lokal gespeichert. Soundeffekte schaltest du im **Hauptmenü → Einstellungen** ein oder aus; die Einstellung bleibt gespeichert.
 
-**Alle Levels** öffnet die Motivübersicht. Dort siehst du deinen Fortschritt und kannst freigeschaltete Puzzles wählen. **Weiter spielen** bringt dich zum laufenden Puzzle zurück, ohne es neu zu starten. Gesperrte Puzzles werden der Reihe nach freigeschaltet; geschaffte Puzzles bleiben markiert. Nach dem letzten Level kommst du wieder zur Übersicht.
+Das Spiel startet im Hauptmenü: **Weiter spielen** öffnet das laufende Puzzle, **Motive entdecken** die Motivbibliothek. Der Zurück-Pfeil oben links führt aus dem Puzzle ins Hauptmenü. Dort siehst du deinen Fortschritt und kannst freigeschaltete Puzzles wählen. **Weiter spielen** bringt dich zum laufenden Puzzle zurück, ohne es neu zu starten. Gesperrte Puzzles werden der Reihe nach freigeschaltet; geschaffte Puzzles bleiben markiert. Nach dem letzten Level kommst du wieder zur Übersicht.
 
-Oben in der Übersicht kannst du zwischen **Alle Motive**, **Erste Neonreise**, 29 Sammlungen und deinen **Eigenen Motiven** wählen. **Zurück / Weiter** blättert durch Seiten mit höchstens zwölf Vorschauen. Die 500 Sammlungsbilder sind sofort spielbar. **Nächstes Puzzle** führt innerhalb der gewählten Sammlung weiter. Die Bilder und Themen findest du in [COLLECTIONS.md](COLLECTIONS.md).
+Oben in der Übersicht kannst du zwischen **Alle Motive**, **Erste Neonreise**, 29 Sammlungen und deinen **Eigenen Motiven** wählen. **Zurück / Weiter** blättert durch Seiten mit höchstens zwölf Vorschauen. Die 500 Sammlungsbilder sind sofort spielbar. **Weiter** führt innerhalb der gewählten Sammlung weiter. Die Bilder und Themen findest du in [COLLECTIONS.md](COLLECTIONS.md).
 
 Die **Suche** findet Titel, Sammlungen und Themen, auch ohne Großschreibung oder Umlaute. Beispielsweise **Van Gogh**, **Pflanzen**, **Meer** oder **Palme** eingeben. **Thema** grenzt die Auswahl über Sammlungsgrenzen hinweg ein. **Alle Fortschritte** bietet zusätzlich die Ansichten **Noch nicht geschafft**, **Geschafft** und **Spielbar**.
 
@@ -35,3 +35,5 @@ Die vollständige Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md). Unt
 Spielstände und lokale Sicherungen liegen unter `%APPDATA%\Godot\app_userdata\ArrowWay\`. Tests verwenden separate Dateien mit dem Präfix `test_`.
 
 Alle Titel, Vorschauen und bearbeitbaren Leveldateien stehen in [CATALOG.md](CATALOG.md).
+
+Die Spielansicht passt das Motiv an den verfügbaren Bildschirm an. Zwei-Finger-Zoom und Verschieben sind für einen späteren Ausbau vorgesehen; die aktuelle Version vergrößert automatisch und erleichtert versetzte Fingertipps. Auf echten Smartphones müssen Touchgefühl und Bildschirmränder anschließend noch geprüft werden.

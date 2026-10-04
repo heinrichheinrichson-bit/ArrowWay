@@ -35,6 +35,10 @@ var controls: Array[Control] = []
 var next_button: Button
 var level_picker: OptionButton
 var panel: Control
+var board_clip: Control
+var home_menu: Control
+var compact_buttons: Array[Button] = []
+var play_title: Label
 var board: Node2D
 var generation_seed := 9121
 var clock_time := 0.0
@@ -68,6 +72,7 @@ func _ready() -> void:
 	if preferences.load(storage_prefix + "settings.cfg") == OK:
 		feedback.set_enabled(bool(preferences.get_value("audio", "enabled", true)))
 	var clip := Control.new()
+	board_clip = clip
 	clip.position = Vector2(20, 165)
 	clip.size = Vector2(500, 510)
 	clip.clip_contents = true
@@ -119,12 +124,15 @@ func _ready() -> void:
 	panel.theme = theme
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(panel)
+	get_viewport().size_changed.connect(update_play_layout)
 	reset()
 	if authoring:
 		enter_editor()
 		open_studio()
 	elif startup_args.has("--library"):
 		open_gallery()
+	elif not startup_args.has("--test") and requested < 0:
+		open_home()
 
 func button(label: String, x: float, y: float, width: float, action: Callable) -> Button:
 	var b := Button.new()
@@ -198,6 +206,7 @@ func build_controls() -> void:
 		panel.remove_child(c)
 		c.queue_free()
 	controls.clear()
+	compact_buttons.clear()
 	next_button = null
 	sound_button = button("Ton: An" if feedback.enabled else "Ton: Aus", 402, 30, 108, toggle_sound)
 	if editor:
@@ -262,6 +271,153 @@ func build_controls() -> void:
 			picker.visible = false
 		next_button = button("Zurück zum Editor" if testing else "Nächstes Puzzle", 130, 805, 280, enter_editor if testing else advance)
 		next_button.visible = false
+	if compact_play():
+		for control in controls: control.hide()
+		compact_buttons.append(button("‹", 0, 0, 48, open_home))
+		compact_buttons.append(button("↻", 0, 0, 48, request_restart))
+		compact_buttons.append(button("?", 0, 0, 48, show_hint))
+		var icon_paths := ["<path d='M15 5L8 12l7 7'/>", "<path d='M19 8a8 8 0 1 0 1 7'/><path d='M19 3v5h-5'/>", "<path d='M9 18h6m-5 3h4M8 14a6 6 0 1 1 8 0l-1 3H9z'/>"]
+		for index in compact_buttons.size():
+			var image := Image.new()
+			image.load_svg_from_string("<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='#b7c9dc' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'>" + icon_paths[index] + "</g></svg>")
+			compact_buttons[index].text = ""
+			compact_buttons[index].icon = ImageTexture.create_from_image(image)
+		play_title = Label.new()
+		play_title.text = level_title(level)
+		play_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		play_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		play_title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		play_title.add_theme_font_size_override("font_size", 16)
+		play_title.modulate = Color("#9aabc2")
+		play_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		panel.add_child(play_title)
+		controls.append(play_title)
+		compact_buttons[0].tooltip_text = "Hauptmenü"
+		compact_buttons[1].tooltip_text = "Neu beginnen"
+		compact_buttons[2].tooltip_text = "Hinweis"
+		next_button.text = "Weiter"
+	update_play_layout()
+
+func compact_play() -> bool:
+	return not editor and not authoring
+
+func update_play_layout() -> void:
+	if not is_instance_valid(board): return
+	var viewport_size := get_viewport_rect().size
+	if is_instance_valid(home_menu):
+		home_menu.size = viewport_size
+		home_menu.get_child(0).size = viewport_size
+		home_menu.get_child(1).position.y = viewport_size.y * 0.22
+		home_menu.get_child(1).size.x = viewport_size.x
+		for index in range(3):
+			home_menu.get_child(index + 2).position = Vector2((viewport_size.x - 280) * 0.5, viewport_size.y * 0.42 + index * 70)
+	if is_instance_valid(gallery):
+		gallery.position.x = maxf(0, (viewport_size.x - 540) * 0.5)
+		gallery.size = Vector2(540, viewport_size.y)
+		gallery.get_child(0).position.x = -gallery.position.x
+		gallery.get_child(0).size = viewport_size
+		gallery.get_child(3).size.y = maxf(160, viewport_size.y - 423)
+		for control in gallery.get_children():
+			if control.position.y >= 700 or control.has_meta("footer_y"):
+				if not control.has_meta("footer_y"): control.set_meta("footer_y", control.position.y)
+				control.position.y = float(control.get_meta("footer_y")) + viewport_size.y - 850
+	if not compact_play():
+		board_clip.position = Vector2(20, 165)
+		board_clip.size = Vector2(500, 510)
+		board.position = -board_clip.position
+		board.scale = Vector2.ONE
+		queue_redraw()
+		return
+	var size := get_viewport_rect().size
+	var area := Rect2(12, 76, size.x - 24, size.y - 162)
+	var bounds := Rect2()
+	var first := true
+	for arrow in arrows:
+		for point in arrow.points:
+			if first: bounds = Rect2(point, Vector2.ZERO); first = false
+			else: bounds = bounds.expand(point)
+	bounds = bounds.grow(20)
+	var zoom := minf(area.size.x / maxf(bounds.size.x, 1), area.size.y / maxf(bounds.size.y, 1))
+	board_clip.position = area.position
+	board_clip.size = area.size
+	board.scale = Vector2.ONE * zoom
+	board.position = area.size * 0.5 - bounds.get_center() * zoom
+	if compact_buttons.size() == 3:
+		compact_buttons[0].position = Vector2(16, 16)
+		compact_buttons[1].position = Vector2(size.x - 120, 16)
+		compact_buttons[2].position = Vector2(size.x - 64, 16)
+		for control in compact_buttons: control.size = Vector2(48, 48)
+		play_title.position = Vector2(76, 16)
+		play_title.size = Vector2(maxf(0, size.x - 208), 48)
+	if is_instance_valid(next_button):
+		next_button.position = Vector2((size.x - 220) * 0.5, size.y - 64)
+		next_button.size = Vector2(220, 48)
+		next_button.visible = win_time >= 0
+		next_button.disabled = win_time >= 0 and win_time < 1.95
+	queue_redraw()
+
+func request_restart() -> void:
+	if cleared == 0 and not arrows.any(func(a): return a.escaping):
+		reset()
+		return
+	var dialog := ConfirmationDialog.new()
+	dialog.title = "Neu beginnen?"
+	dialog.dialog_text = "Dieses Rätsel wird zurückgesetzt."
+	dialog.ok_button_text = "Neu beginnen"
+	dialog.cancel_button_text = "Weiter spielen"
+	dialog.confirmed.connect(reset)
+	dialog.confirmed.connect(dialog.queue_free)
+	dialog.canceled.connect(dialog.queue_free)
+	add_child(dialog)
+	dialog.popup_centered()
+
+func close_home() -> void:
+	if is_instance_valid(home_menu):
+		panel.remove_child(home_menu)
+		home_menu.queue_free()
+	home_menu = null
+
+func open_home() -> void:
+	if is_instance_valid(home_menu): return
+	home_menu = Control.new()
+	home_menu.size = get_viewport_rect().size
+	panel.add_child(home_menu)
+	var background := ColorRect.new()
+	background.color = Color("#080e19")
+	background.size = home_menu.size
+	home_menu.add_child(background)
+	var heading := Label.new()
+	heading.text = "ARROW WAY"
+	heading.add_theme_font_size_override("font_size", 36)
+	heading.position = Vector2(0, home_menu.size.y * 0.22)
+	heading.size.x = home_menu.size.x
+	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	home_menu.add_child(heading)
+	var actions := [close_home, func(): close_home(); open_gallery(), open_settings]
+	var titles := ["Weiter spielen", "Motive entdecken", "Einstellungen"]
+	for index in titles.size():
+		var item := Button.new()
+		item.text = titles[index]
+		item.position = Vector2((home_menu.size.x - 280) * 0.5, home_menu.size.y * 0.42 + index * 70)
+		item.size = Vector2(280, 54)
+		item.pressed.connect(actions[index])
+		home_menu.add_child(item)
+
+func open_settings() -> void:
+	var dialog := AcceptDialog.new()
+	dialog.title = "Einstellungen"
+	dialog.dialog_text = ""
+	var toggle := CheckButton.new()
+	toggle.text = "Soundeffekte"
+	toggle.button_pressed = feedback.enabled
+	toggle.toggled.connect(func(_enabled): toggle_sound())
+	dialog.add_child(toggle)
+	dialog.min_size = Vector2i(300, 140)
+	toggle.position = Vector2(24, 36)
+	dialog.confirmed.connect(dialog.queue_free)
+	dialog.canceled.connect(dialog.queue_free)
+	add_child(dialog)
+	dialog.popup_centered()
 
 func close_gallery() -> void:
 	if is_instance_valid(gallery):
@@ -415,6 +571,7 @@ func open_gallery() -> void:
 		refresh_gallery(true))
 	gallery.add_child(clear)
 	refresh_gallery()
+	update_play_layout()
 	if gallery_view_key == library_view_key(): scroll.set_deferred("scroll_vertical", gallery_scroll)
 	back.grab_focus()
 
@@ -585,11 +742,12 @@ func advance() -> void:
 	reset()
 
 func _process(delta: float) -> void:
-	if is_instance_valid(gallery):
+	if is_instance_valid(gallery) or is_instance_valid(home_menu):
 		return
 	clock_time += delta
 	if win_time >= 0.0:
 		win_time += delta
+		if compact_buttons.size() == 3: compact_buttons[2].disabled = true
 		next_button.disabled = win_time < 1.95
 	display_progress = lerpf(display_progress, float(cleared) / maxf(arrows.size(), 1.0), 1.0 - exp(-delta * 12.0))
 	for a in arrows:
@@ -649,16 +807,23 @@ func mark_releases() -> void:
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_instance_valid(home_menu):
+		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE: close_home()
+		return
 	if is_instance_valid(gallery) and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		close_gallery()
 		get_viewport().set_input_as_handled()
 		return
 	if generating:
 		return
+	if not editor and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		open_home()
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		click_at(event.position)
+		if event.device == InputEvent.DEVICE_ID_EMULATION: return
+		click_at(board.get_global_transform().affine_inverse() * event.position)
 	elif event is InputEventScreenTouch and event.pressed:
-		click_at(event.position)
+		click_at(board.get_global_transform().affine_inverse() * event.position)
 	elif editor and event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ENTER:
 			finish_draft()
@@ -669,7 +834,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pick(pos: Vector2) -> int:
 	var chosen := -1
-	var nearest := 9.0
+	var nearest := 9.0 if editor else maxf(9.0, 18.0 / board.scale.x)
 	for index in range(arrows.size()):
 		var a := arrows[index]
 		if a.removed or a.escaping:
@@ -683,7 +848,7 @@ func pick(pos: Vector2) -> int:
 	return chosen
 
 func click_at(pos: Vector2) -> void:
-	if is_instance_valid(gallery):
+	if is_instance_valid(gallery) or is_instance_valid(home_menu):
 		return
 	if editor:
 		if draw_tool:
@@ -1052,6 +1217,11 @@ func text_at(text: String, pos: Vector2, size: int, color: Color, width: float =
 	draw_string(ThemeDB.fallback_font, pos, text, HORIZONTAL_ALIGNMENT_LEFT if width < 0 else HORIZONTAL_ALIGNMENT_CENTER, width, size, color)
 
 func _draw() -> void:
+	if compact_play():
+		var size := get_viewport_rect().size
+		if win_time >= 0:
+			text_at("Geschafft", Vector2(0, size.y - 78), 17, Color("#d9fff3"), size.x)
+		return
 	var box := StyleBoxFlat.new()
 	box.bg_color = Color("#080d18")
 	box.set_corner_radius_all(22)
