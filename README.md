@@ -8,15 +8,19 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.14.0
+## Aktueller Stand · 0.15.0-dev
+
+Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
+
+- **Deine Reise**: ein nach oben führender Neonpfad mit sieben großen Themenstationen. Erreichte Stationen entfalten ihre Sammlungen als Abzweigungen; zukünftige Themen bleiben dezent sichtbar, ihre Inhalte verborgen. Große Motivkarten zeigen die echten Neonkunstwerke. Wischen, sanftes Ausgleiten und gespeicherte Kartenpositionen erleichtern die Navigation. [Ansichten und Freischaltungen](JOURNEY.md).
 
 - **Große Spielansicht für Hochformat und Touch**: Das Motiv nutzt den verfügbaren Platz ohne Dropdownliste, Sound-Schalter oder laufende Erklärungstexte. Oben bleiben drei Symbole mit 48 × 48 großen Trefferflächen; der nächste Schritt erscheint erst nach dem Abschluss. Die Motive skalieren ohne Verzerrung mit dem Bildschirm. Versetzte Tipps wählen den nächstgelegenen vorhandenen Pfeil mit erweitertem Abstand. Hauptmenü, Motivbibliothek und Soundeinstellungen sind getrennte Ansichten; Neustart nach begonnenem Spiel erfordert eine Bestätigung.
 
 - **Neonkunstwerk zum Abschluss**: Nach dem letzten entkommenen Pfeil bringt eine weiche Lichtwelle die ursprünglichen Pfeilbahnen samt individuellen Farben und Verläufen zurück. Ein kurzer Leuchtimpuls geht in ein helles Standbild über; nach 1,95 Sekunden ist das nächste Puzzle verfügbar. Neustart und Levelwechsel setzen die Darstellung zurück.
 
-- **Motivbibliothek** mit sofortiger Suche nach Titel, Sammlung und Themen, Sternfavoriten und Filtern für geschaffte, offene oder spielbare Motive. Filter lassen sich kombinieren und mit **Alles zeigen** zurücksetzen. Favoriten bleiben beim Neustart erhalten; beim Zurückkehren bleibt die Position in der Übersicht erhalten.
+- **Suche & Favoriten** für bereits freigeschaltete Motive mit sofortiger Suche nach Titel, Sammlung und Themen, Sternfavoriten und Filtern für geschaffte, offene oder spielbare Motive. Filter lassen sich kombinieren und mit **Alles zeigen** zurücksetzen. Favoriten bleiben beim Neustart erhalten; beim Zurückkehren bleibt die Position in der Übersicht erhalten.
 
-- **500 Motive in 29 Sammlungen**: unter anderem Halloween, Weihnachten, Winter, Ostern, Technik, Computer, Smartphones, Skylines, Tiere, Fahrzeuge, Musik und Landschaften. Sofort spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle 500 Motive und Vorschauen](CATALOG.md).
+- **500 Motive in 29 Sammlungen**: unter anderem Halloween, Weihnachten, Winter, Ostern, Technik, Computer, Smartphones, Skylines, Tiere, Fahrzeuge, Musik und Landschaften. Über die Reise nach und nach spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle 500 Motive und Vorschauen](CATALOG.md).
 - **Sammlungsfilter und zwölf Vorschauen pro Seite** halten die Übersicht auch bei großen Bibliotheken überschaubar. Der Katalog lädt nur Metadaten; der Wechsel zum nächsten Puzzle bleibt innerhalb der Sammlung.
 
 - Neun gestaltete Levels mit 25–39 Pfaden, jeweils vollständig gefüllten Motiven und allen vier Pfeilrichtungen.
@@ -99,3 +103,5 @@ Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smar
 ![Bild zu Pfeilpuzzle](previews/studio-filled.png)
 
 ![Automatische Farbgestaltung](previews/color-studio.png)
+
+Die neue Reise wird separat mit `godot --path . --script res://tests/test_journey.gd -- --test` geprüft: Freischaltungen, alte Spielstände, Touchbedienung und Erreichbarkeit aller Katalogmotive.

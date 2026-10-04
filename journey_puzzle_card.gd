@@ -1,0 +1,67 @@
+extends Button
+
+var game: Node2D
+var index := 0
+var accent := Color("#68eed2")
+var hero := false
+var complete := false
+var preview: Node2D
+
+func _ready() -> void:
+	for state in ["normal","hover","pressed","focus"]: add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	clip_contents = true
+	var document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(game.level_path(index)))
+	var motif := CustomMotif.decode(document.motif) if int(document.shape) == 6 else CustomMotif.from_shape(int(document.shape))
+	preview = Node2D.new()
+	preview.set_script(load("res://motif_preview.gd"))
+	preview.rounder = game
+	preview.motif = motif
+	preview.arrows = CustomMotif.decode_paths(document.paths,motif,false)
+	add_child(preview)
+	var bounds := Rect2()
+	var first := true
+	for arrow in preview.arrows:
+		for point in arrow.points:
+			if first: bounds = Rect2(point,Vector2.ZERO); first = false
+			else: bounds = bounds.expand(point)
+	bounds = bounds.grow(20)
+	var area := Rect2(18,18,size.x-36,size.y-(98 if hero else 82))
+	var zoom := minf(area.size.x/maxf(bounds.size.x,1),area.size.y/maxf(bounds.size.y,1))
+	preview.scale = Vector2.ONE*zoom
+	preview.position = area.get_center()-bounds.get_center()*zoom
+	preview.modulate.a = 0.82 if complete else 1.0
+	var title := Label.new()
+	title.text = game.level_title(index)
+	title.position = Vector2(18,size.y-(62 if hero else 58))
+	title.size = Vector2(size.x-36,28)
+	title.add_theme_font_size_override("font_size",22 if hero else 16)
+	title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(title)
+	var caption := Label.new()
+	caption.text = "Schon zum Leuchten gebracht" if complete else ("Dein nächstes Kunstwerk" if hero else "Entdecken")
+	if hero and index==game.level and (game.cleared>0 or game.mistakes>0 or game.arrows.any(func(arrow): return arrow.escaping)): caption.text="Weiter spielen"
+	caption.position = Vector2(12,size.y-31)
+	caption.size.x = size.x-24
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	caption.add_theme_font_size_override("font_size",12)
+	caption.modulate = Color("#8298ae")
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(caption)
+	pressed.connect(func(): game.start_journey_puzzle(index))
+
+func _draw() -> void:
+	var panel := StyleBoxFlat.new()
+	panel.bg_color = Color("#10202e") if hero else Color("#0d1927")
+	panel.set_corner_radius_all(24)
+	panel.set_border_width_all(1)
+	panel.border_color = Color(accent,0.42 if is_hovered() or has_focus() else (0.22 if hero else 0.10))
+	panel.shadow_color = Color(0,0,0,0.18)
+	panel.shadow_size = 10
+	panel.shadow_offset = Vector2(0,5)
+	draw_style_box(panel,Rect2(Vector2.ONE,size-Vector2(2,2)))
+	if complete:
+		draw_circle(Vector2(size.x-24,24),9,Color(accent,0.15))
+		draw_polyline(PackedVector2Array([Vector2(size.x-29,24),Vector2(size.x-25,28),Vector2(size.x-19,20)]),accent,1.5,true)

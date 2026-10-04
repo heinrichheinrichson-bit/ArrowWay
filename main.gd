@@ -37,6 +37,12 @@ var level_picker: OptionButton
 var panel: Control
 var board_clip: Control
 var home_menu: Control
+var journey: Control
+var journey_mode := not OS.get_cmdline_user_args().has("--test") and not OS.get_cmdline_user_args().has("--editor-tool")
+var journey_index_revision := 0
+var journey_seen: Array[String] = []
+var journey_legacy_paths: Array[String] = []
+var journey_scroll_memory := {}
 var compact_buttons: Array[Button] = []
 var play_title: Label
 var board: Node2D
@@ -110,6 +116,11 @@ func _ready() -> void:
 				completed.append(index)
 		var custom_path: String = config.get_value("game", "custom_level", "")
 		if level_files.has(custom_path): level = level_files.find(custom_path)
+		for id in config.get_value("game", "journey_seen", []):
+			if id is String: journey_seen.append(id)
+		for path in config.get_value("game", "journey_legacy_paths", []):
+			if path is String and level_files.has(path): journey_legacy_paths.append(path)
+		if journey_mode and not bool(config.get_value("game", "journey_migrated", false)) and level_files.has(custom_path) and not custom_path.is_empty(): journey_legacy_paths.append(custom_path)
 		for path in config.get_value("game", "completed_custom", []):
 			var index := level_files.find(str(path))
 			if index >= TITLES.size() and not completed.has(index): completed.append(index)
@@ -129,8 +140,9 @@ func _ready() -> void:
 	if authoring:
 		enter_editor()
 		open_studio()
-	elif startup_args.has("--library"):
-		open_gallery()
+	elif startup_args.has("--library") or startup_args.has("--journey"):
+		if journey_mode: open_journey()
+		else: open_gallery()
 	elif not startup_args.has("--test") and requested < 0:
 		open_home()
 
@@ -154,9 +166,11 @@ func level_shape(index: int) -> int:
 	return SHAPES[index] if index < SHAPES.size() else 1
 
 func level_available(index: int) -> bool:
+	if journey_mode and not authoring: return JourneyProgress.level_open(self,index)
 	return index >= TITLES.size() or index <= unlocked
 
 func discover_levels(include_user_exports: bool = true, directory: String = "") -> void:
+	journey_index_revision += 1
 	if directory.is_empty(): directory = catalog_directory
 	var current_path := level_path(level) if not level_files.is_empty() else ""
 	var completed_paths: Array[String] = []
@@ -273,7 +287,7 @@ func build_controls() -> void:
 		next_button.visible = false
 	if compact_play():
 		for control in controls: control.hide()
-		compact_buttons.append(button("‹", 0, 0, 48, open_home))
+		compact_buttons.append(button("‹", 0, 0, 48, open_current_journey if journey_mode else open_home))
 		compact_buttons.append(button("↻", 0, 0, 48, request_restart))
 		compact_buttons.append(button("?", 0, 0, 48, show_hint))
 		var icon_paths := ["<path d='M15 5L8 12l7 7'/>", "<path d='M19 8a8 8 0 1 0 1 7'/><path d='M19 3v5h-5'/>", "<path d='M9 18h6m-5 3h4M8 14a6 6 0 1 1 8 0l-1 3H9z'/>"]
@@ -292,7 +306,7 @@ func build_controls() -> void:
 		play_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		panel.add_child(play_title)
 		controls.append(play_title)
-		compact_buttons[0].tooltip_text = "Hauptmenü"
+		compact_buttons[0].tooltip_text = "Dein Weg" if journey_mode else "Hauptmenü"
 		compact_buttons[1].tooltip_text = "Neu beginnen"
 		compact_buttons[2].tooltip_text = "Hinweis"
 		next_button.text = "Weiter"
@@ -304,7 +318,10 @@ func compact_play() -> bool:
 func update_play_layout() -> void:
 	if not is_instance_valid(board): return
 	var viewport_size := get_viewport_rect().size
-	if is_instance_valid(home_menu):
+	if is_instance_valid(journey): journey.relayout()
+	if is_instance_valid(home_menu) and home_menu.has_method("relayout"):
+		home_menu.relayout()
+	elif is_instance_valid(home_menu):
 		home_menu.size = viewport_size
 		home_menu.get_child(0).size = viewport_size
 		home_menu.get_child(1).position.y = viewport_size.y * 0.22
@@ -379,6 +396,16 @@ func close_home() -> void:
 
 func open_home() -> void:
 	if is_instance_valid(home_menu): return
+	if journey_mode:
+		close_journey()
+		close_gallery()
+		refresh_journey_catalog()
+		home_menu = Control.new()
+		home_menu.set_script(load("res://journey_view.gd"))
+		home_menu.game = self
+		home_menu.screen = "home"
+		panel.add_child(home_menu)
+		return
 	home_menu = Control.new()
 	home_menu.size = get_viewport_rect().size
 	panel.add_child(home_menu)
@@ -419,6 +446,56 @@ func open_settings() -> void:
 	add_child(dialog)
 	dialog.popup_centered()
 
+func close_journey() -> void:
+	if is_instance_valid(journey):
+		journey_scroll_memory=journey.scroll_positions.duplicate(true)
+		if is_instance_valid(journey.scroller):
+			var key: String="%s:%d:%s:%s" % [journey.screen,journey.world,journey.group,journey.history]
+			journey_scroll_memory[key]=journey.scroller.get_meta("wanted_scroll",journey.scroller.scroll_vertical)
+		panel.remove_child(journey)
+		journey.queue_free()
+	journey = null
+
+func open_current_journey() -> void:
+	var group: String=level_collection(level).id
+	open_journey(JourneyProgress.world_index(group),group)
+
+func refresh_journey_catalog() -> void:
+	var previous_path:=level_path(level)
+	discover_levels()
+	if not level_files.has(previous_path):
+		level=0
+		reset()
+
+func open_journey(selected_world := -1, selected_group := "") -> void:
+	if not journey_mode:
+		open_home()
+		return
+	close_home()
+	close_gallery()
+	close_journey()
+	refresh_journey_catalog()
+	journey = Control.new()
+	journey.set_script(load("res://journey_view.gd"))
+	journey.game = self
+	journey.world = selected_world
+	journey.group = selected_group
+	journey.scroll_positions=journey_scroll_memory.duplicate(true)
+	journey.screen = "collection" if not selected_group.is_empty() else ("world" if selected_world >= 0 else "map")
+	panel.add_child(journey)
+
+func remember_journey_stations(ids: Array[String]) -> void:
+	var changed := false
+	for id in ids:
+		if not journey_seen.has(id): journey_seen.append(id); changed = true
+	if changed: save_progress()
+
+func start_journey_puzzle(index: int) -> void:
+	if not level_available(index): return
+	close_journey()
+	close_home()
+	select_gallery_level(index)
+
 func close_gallery() -> void:
 	if is_instance_valid(gallery):
 		gallery_scroll = gallery.get_child(3).scroll_vertical
@@ -450,12 +527,13 @@ func open_gallery() -> void:
 	background.size = gallery.size
 	gallery.add_child(background)
 	var heading := Label.new()
-	heading.text = "MOTIVBIBLIOTHEK"
+	heading.text = "DEINE ENTDECKUNGEN" if journey_mode else "MOTIVBIBLIOTHEK"
 	heading.position = Vector2(30, 28)
 	heading.add_theme_font_size_override("font_size", 24)
 	gallery.add_child(heading)
 	var progress := Label.new()
 	progress.text = "%d / %d Puzzles geschafft · Dein Tempo zählt" % [completed.size(), level_count()]
+	if journey_mode: progress.text="Deine freigeschalteten Kunstwerke · Suche & Favoriten"
 	progress.position = Vector2(30, 73)
 	progress.add_theme_font_size_override("font_size", 14)
 	gallery.add_child(progress)
@@ -471,6 +549,7 @@ func open_gallery() -> void:
 	scroll.add_child(grid)
 	var collections := {"all":"Alle Motive", "base":"Erste Neonreise"}
 	for index in range(level_count()):
+		if journey_mode and not level_available(index): continue
 		var group := level_collection(index)
 		collections[group.id] = group.title
 	if not collections.has(collection_filter):
@@ -506,10 +585,10 @@ func open_gallery() -> void:
 	page_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	gallery.add_child(page_label)
 	var back := Button.new()
-	back.text = "Weiter spielen"
+	back.text = "Zur Reise" if journey_mode else "Weiter spielen"
 	back.position = Vector2(150, 787)
 	back.size = Vector2(240, 40)
-	back.pressed.connect(close_gallery)
+	back.pressed.connect(func(): close_gallery(); open_journey()) if journey_mode else back.pressed.connect(close_gallery)
 	gallery.add_child(back)
 	var search := LineEdit.new()
 	search.name = "LibrarySearch"
@@ -545,6 +624,7 @@ func open_gallery() -> void:
 	tag_filter.fit_to_longest_item = false
 	var tag_ids: Array[String] = [""]
 	for index in range(level_count()):
+		if journey_mode and not level_available(index): continue
 		for tag in level_tags(index):
 			if not tag_ids.has(tag): tag_ids.append(tag)
 	tag_ids.sort()
@@ -586,6 +666,7 @@ func level_tags(index: int) -> Array[String]:
 func matching_library_levels() -> Array[int]:
 	var result: Array[int] = []
 	for index in range(level_count()):
+		if journey_mode and not level_available(index): continue
 		var group := level_collection(index)
 		if collection_filter != "all" and collection_filter != group.id: continue
 		if favorites_only and not favorite_paths.has(level_path(index)): continue
@@ -703,6 +784,9 @@ func reset() -> void:
 
 func save_progress() -> void:
 	var config := ConfigFile.new()
+	config.set_value("game", "journey_seen", journey_seen)
+	config.set_value("game", "journey_legacy_paths", journey_legacy_paths)
+	config.set_value("game", "journey_migrated", journey_mode)
 	config.set_value("game", "unlocked", unlocked)
 	config.set_value("game", "level", level)
 	config.set_value("game", "completed", completed)
@@ -721,6 +805,7 @@ func toggle_sound() -> void:
 	preferences.save(storage_prefix + "settings.cfg")
 
 func next_collection_level(index: int) -> int:
+	if journey_mode: return JourneyProgress.next_open(self,index)
 	if index < TITLES.size():
 		return index + 1 if index < TITLES.size() - 1 else -1
 	var group: String = level_collection(index).id
@@ -729,6 +814,17 @@ func next_collection_level(index: int) -> int:
 	return -1
 
 func advance() -> void:
+	if journey_mode:
+		var group: String = level_collection(level).id
+		var world := JourneyProgress.world_index(group)
+		var count := JourneyProgress.group_done(self,group)
+		var next := JourneyProgress.next_open(self,level)
+		if group != "custom" and count > 0 and count % 3 == 0:
+			open_journey(-1 if world == 0 or JourneyProgress.frontier(self) > world else world)
+		elif next >= 0: start_journey_puzzle(next)
+		elif group=="custom": open_journey(-1,"custom")
+		else: open_journey(world if world > 0 else -1)
+		return
 	var next := next_collection_level(level)
 	if next < 0:
 		collection_filter = level_collection(level).id
@@ -742,7 +838,7 @@ func advance() -> void:
 	reset()
 
 func _process(delta: float) -> void:
-	if is_instance_valid(gallery) or is_instance_valid(home_menu):
+	if is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey):
 		return
 	clock_time += delta
 	if win_time >= 0.0:
@@ -771,6 +867,7 @@ func _process(delta: float) -> void:
 					if not testing:
 						if next_collection_level(level) < 0:
 							next_button.text = "Zur Levelübersicht"
+						if journey_mode: next_button.text = "Weiterreisen"
 						if not completed.has(level):
 							completed.append(level)
 						if level < TITLES.size(): unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
@@ -807,6 +904,9 @@ func mark_releases() -> void:
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_instance_valid(journey):
+		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE: journey.go_back()
+		return
 	if is_instance_valid(home_menu):
 		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE: close_home()
 		return
@@ -848,7 +948,7 @@ func pick(pos: Vector2) -> int:
 	return chosen
 
 func click_at(pos: Vector2) -> void:
-	if is_instance_valid(gallery) or is_instance_valid(home_menu):
+	if is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey):
 		return
 	if editor:
 		if draw_tool:
@@ -1238,6 +1338,7 @@ func _draw() -> void:
 	text_at(detail, Vector2(20, 724), 12, Color("#8296b0"), 500)
 
 func level_collection(index: int) -> Dictionary:
+	if journey_mode and index >= TITLES.size() and level_path(index).begins_with("res://levels/"): return {"id":"custom","title":"Eigene Motive"}
 	if index < TITLES.size(): return {"id":"base","title":"Erste Neonreise"}
 	var data: Dictionary = catalog_metadata.get(level_path(index), {})
 	var group: Dictionary = data.get("collection", {}) if data.get("collection", {}) is Dictionary else {}

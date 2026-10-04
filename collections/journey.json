@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "initial_puzzles": 3,
+  "worlds": [
+    {
+      "id": "beginning",
+      "title": "Das erste Licht",
+      "subtitle": "Hier beginnt deine Reise",
+      "color": "68eed2",
+      "icon": "spark",
+      "groups": [
+        "base"
+      ],
+      "gate": 3
+    },
+    {
+      "id": "nature",
+      "title": "Natur",
+      "subtitle": "Wo das Licht Wurzeln schlägt",
+      "color": "78efad",
+      "icon": "tree",
+      "groups": [
+        "garden",
+        "animals",
+        "birds",
+        "flowers",
+        "ocean",
+        "landscapes"
+      ],
+      "gate": 5
+    },
+    {
+      "id": "celebrations",
+      "title": "Feste & Jahreszeiten",
+      "subtitle": "Kleine Wunder im Jahreskreis",
+      "color": "ffbe79",
+      "icon": "moon",
+      "groups": [
+        "winter",
+        "christmas",
+        "halloween",
+        "easter"
+      ],
+      "gate": 5
+    },
+    {
+      "id": "discovery",
+      "title": "Technik & Weltall",
+      "subtitle": "Neugier kennt keine Grenzen",
+      "color": "88c8ff",
+      "icon": "planet",
+      "groups": [
+        "space",
+        "technology",
+        "computers",
+        "smartphones",
+        "cosmos",
+        "workshop"
+      ],
+      "gate": 5
+    },
+    {
+      "id": "travel",
+      "title": "Unterwegs",
+      "subtitle": "Lichter hinter dem Horizont",
+      "color": "c1a0ff",
+      "icon": "city",
+      "groups": [
+        "world",
+        "skylines",
+        "vehicles",
+        "travel"
+      ],
+      "gate": 5
+    },
+    {
+      "id": "comfort",
+      "title": "Genuss & Gemütlichkeit",
+      "subtitle": "Die kleinen Freuden des Lebens",
+      "color": "ff99b6",
+      "icon": "cup",
+      "groups": [
+        "taste",
+        "bakery",
+        "fruit",
+        "cozy"
+      ],
+      "gate": 5
+    },
+    {
+      "id": "imagination",
+      "title": "Kunst & Freizeit",
+      "subtitle": "Raum für deine Fantasie",
+      "color": "ddadff",
+      "icon": "palette",
+      "groups": [
+        "art",
+        "music",
+        "sports",
+        "toys",
+        "fantasy"
+      ],
+      "gate": 5
+    }
+  ]
+}
