@@ -1,13 +1,16 @@
 extends SceneTree
 
-# Rebuild the six curated layouts offline. Run with -- --test to isolate progress files.
+# Rebuild the nine curated layouts offline. Run with -- --test to isolate progress files.
 const RECIPES := [
 	[1, 5514, 6, 1800],
 	[2, 5163, 8, 2000],
 	[0, 4817, 12, 2000],
 	[1, 4990, 10, 2000],
 	[2, 5682, 4, 2000],
-	[0, 5336, 6, 2000]]
+	[0, 5336, 6, 2000],
+	[3, 6301, 8, 2000],
+	[4, 7124, 12, 1600],
+	[5, 8245, 5, 2200]]
 
 func _initialize() -> void:
 	call_deferred("build")
@@ -17,6 +20,8 @@ func build() -> void:
 	var game = load("res://main.tscn").instantiate()
 	root.add_child(game)
 	for i in range(RECIPES.size()):
+		if OS.get_cmdline_user_args().has("--new-only") and i < 6:
+			continue
 		var recipe: Array = RECIPES[i]
 		game.level = i
 		game.shape_index = recipe[0]

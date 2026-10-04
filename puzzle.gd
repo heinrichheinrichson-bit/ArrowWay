@@ -35,6 +35,21 @@ static func mask(shape: int) -> Dictionary:
 					var v := Vector2((sx - 9.0) / 8.0, (12.0 - sy) / 8.0)
 					var base := v.x * v.x + v.y * v.y - 1.0
 					inside = base * base * base - v.x * v.x * v.y * v.y * v.y <= 0.0
+				3: # Butterfly: two broad wings on each side of a narrow body.
+					var dx := absf(sx - 9.0)
+					inside = pow((dx - 4.2) / 4.0, 2) + pow((sy - 7.0) / 5.5, 2) <= 1.0
+					inside = inside or pow((dx - 3.5) / 3.3, 2) + pow((sy - 15.0) / 5.0, 2) <= 1.0
+					inside = inside or (dx <= 0.9 and sy >= 3 and sy <= 20)
+				4: # Fish with a broad triangular tail.
+					inside = pow((sx - 7.5) / 6.5, 2) + pow((sy - 11.0) / 6.0, 2) <= 1.0
+					inside = inside or (sx >= 12 and sx <= 18 and absf(sy - 11.0) <= (sx - 11) * 0.85)
+				5: # Flower with six overlapping petals, stem and leaves.
+					for petal in range(6):
+						var center := Vector2(9, 8) + Vector2.from_angle(petal * TAU / 6.0) * 3.7
+						inside = inside or Vector2(sx, sy).distance_squared_to(center) <= 12.0
+					inside = inside or (absf(sx - 9) <= 0.9 and sy >= 10 and sy <= 22)
+					inside = inside or pow((sx - 6.7) / 3.1, 2) + pow((sy - 16.0) / 1.7, 2) <= 1.0
+					inside = inside or pow((sx - 11.3) / 3.1, 2) + pow((sy - 18.0) / 1.7, 2) <= 1.0
 			if inside:
 				result[Vector2i(x, y)] = true
 	return result

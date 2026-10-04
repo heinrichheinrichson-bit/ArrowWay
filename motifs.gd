@@ -4,6 +4,14 @@ extends RefCounted
 static func region(shape: int, cell: Vector2i) -> int:
 	var x := cell.x * 18.0 / 28.0
 	var y := cell.y * 22.0 / 32.0
+	if shape == 3:
+		return 1 if absf(x - 9) <= 0.9 else 0
+	if shape == 4:
+		return 1 if x >= 13 else 0
+	if shape == 5:
+		if y > 13:
+			return 1
+		return 2 if Vector2(x, y).distance_squared_to(Vector2(9, 8)) <= 6.5 else 0
 	if shape == 1:
 		return 1 if y > 18 and x >= 8 and x <= 10 else 0
 	if shape == 0:
@@ -21,6 +29,12 @@ static func region(shape: int, cell: Vector2i) -> int:
 static func color_for(shape: int, part: int, index: int) -> Color:
 	var colors: Array
 	match shape:
+		3:
+			colors = ["#ffe18a", "#ffc260"] if part == 1 else ["#a875ff", "#c06bff", "#ff72ca", "#867dff"]
+		4:
+			colors = ["#ffae55", "#ffd26f"] if part == 1 else ["#36dcff", "#51bfff", "#61f0e9", "#69a8ff"]
+		5:
+			colors = ["#45ef81", "#89f35d"] if part == 1 else (["#ffe064", "#ffc54b"] if part == 2 else ["#ff65ad", "#ff87d0", "#e671ff"])
 		1:
 			colors = ["#b97836", "#dc914b", "#eeac61"] if part == 1 else ["#20f58a", "#4cff6f", "#85ef44", "#16dfad", "#a4ff69"]
 		0:

@@ -1,8 +1,8 @@
 extends Node2D
 
 const SPEED := 950.0
-const TITLES := ["Erste Lichtung", "Herzenswege", "Das erste Haus", "Winterlabyrinth", "Herzklopfen", "Haus bei Nacht"]
-const SHAPES := [1, 2, 0, 1, 2, 0]
+const TITLES := ["Erste Lichtung", "Herzenswege", "Das erste Haus", "Winterlabyrinth", "Herzklopfen", "Haus bei Nacht", "Flügeltanz", "Meerespause", "Neonblüte"]
+const SHAPES := [1, 2, 0, 1, 2, 0, 3, 4, 5]
 var arrows: Array[Dictionary] = []
 var editor_data: Array[Dictionary] = []
 var draft := PackedVector2Array()
@@ -33,6 +33,9 @@ var feedback: FeedbackAudio
 var sound_button: Button
 var win_time := -1.0
 var display_progress := 0.0
+var completed: Array[int] = []
+var gallery: Control
+const MOODS := ["Zum Ankommen", "Ruhig entdecken", "Verflochten", "Neue Wege", "Knifflig", "Für Tüftler", "Flügel entfalten", "Verschnaufpause", "Blüte für Tüftler"]
 
 static func escape_distance(time: float) -> float:
 	const RAMP := 0.12
@@ -73,6 +76,9 @@ func _ready() -> void:
 	if config.load(storage_prefix + "progress.cfg") == OK:
 		unlocked = clampi(int(config.get_value("game", "unlocked", 0)), 0, TITLES.size() - 1)
 		level = clampi(int(config.get_value("game", "level", 0)), 0, unlocked)
+		for index in config.get_value("game", "completed", range(unlocked)):
+			if index is int and index >= 0 and index < TITLES.size() and not completed.has(index):
+				completed.append(index)
 	var ui := CanvasLayer.new()
 	add_child(ui)
 	panel = Control.new()
@@ -104,7 +110,7 @@ func build_controls() -> void:
 		var shapes := OptionButton.new()
 		shapes.position = Vector2(30, 101)
 		shapes.size = Vector2(240, 38)
-		for name in ["Haus", "Weihnachtsbaum", "Herz"]:
+		for name in ["Haus", "Weihnachtsbaum", "Herz", "Schmetterling", "Fisch", "Blume"]:
 			shapes.add_item(name)
 		shapes.select(shape_index)
 		shapes.tooltip_text = "Neue Schablone auswählen; ersetzt die aktuellen Pfade."
@@ -136,7 +142,10 @@ func build_controls() -> void:
 		picker.item_selected.connect(func(index: int): level = index; testing = false; reset())
 		panel.add_child(picker)
 		controls.append(picker)
-		picker.size.x = 480
+		picker.size.x = 352
+		var gallery_button := button("Alle Levels", 394, 101, 116, open_gallery)
+		gallery_button.visible = not authoring
+		gallery_button.disabled = testing
 		button("Neustart", 90, 751, 165, reset)
 		button("Hinweis", 285, 751, 165, show_hint)
 		if authoring:
@@ -144,6 +153,82 @@ func build_controls() -> void:
 			picker.visible = false
 		next_button = button("Zurück zum Editor" if testing else "Nächstes Puzzle", 130, 805, 280, enter_editor if testing else advance)
 		next_button.visible = false
+
+func close_gallery() -> void:
+	if is_instance_valid(gallery):
+		panel.remove_child(gallery)
+		gallery.queue_free()
+	gallery = null
+
+func select_gallery_level(index: int) -> void:
+	if index < 0 or index > unlocked or index >= TITLES.size():
+		return
+	close_gallery()
+	if index != level:
+		level = index
+		testing = false
+		reset()
+		save_progress()
+
+func open_gallery() -> void:
+	if editor or testing or is_instance_valid(gallery):
+		return
+	gallery = Control.new()
+	gallery.size = Vector2(540, 850)
+	feedback.stop_all()
+	panel.add_child(gallery)
+	var background := ColorRect.new()
+	background.color = Color("#080e19")
+	background.size = gallery.size
+	gallery.add_child(background)
+	var heading := Label.new()
+	heading.text = "DEINE NEONREISE"
+	heading.position = Vector2(30, 28)
+	heading.add_theme_font_size_override("font_size", 24)
+	gallery.add_child(heading)
+	var progress := Label.new()
+	progress.text = "%d / %d Puzzles geschafft · Dein Tempo zählt" % [completed.size(), TITLES.size()]
+	progress.position = Vector2(30, 73)
+	progress.add_theme_font_size_override("font_size", 14)
+	gallery.add_child(progress)
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(30, 112)
+	scroll.size = Vector2(480, 643)
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	gallery.add_child(scroll)
+	var grid := GridContainer.new()
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 12)
+	grid.add_theme_constant_override("v_separation", 12)
+	scroll.add_child(grid)
+	for index in range(TITLES.size()):
+		var card := Button.new()
+		card.set_script(load("res://level_card.gd"))
+		card.custom_minimum_size = Vector2(228, 170)
+		card.set("number", index)
+		card.set("title", TITLES[index])
+		card.set("subtitle", MOODS[index])
+		card.set("selected", index == level)
+		card.set("complete", completed.has(index))
+		card.disabled = index > unlocked
+		var document = JSON.parse_string(FileAccess.get_file_as_string("res://levels/%02d.json" % (index + 1)))
+		var thumbnail: Array[Dictionary] = []
+		if document is Dictionary:
+			for path in document.paths:
+				var points := PackedVector2Array()
+				for xy in path.points:
+					points.append(Vector2(xy[0], xy[1]))
+				thumbnail.append({"points": rounded_points(points), "color": Color(path.color)})
+		card.set("paths", thumbnail)
+		card.pressed.connect(select_gallery_level.bind(index))
+		grid.add_child(card)
+	var back := Button.new()
+	back.text = "Weiter spielen"
+	back.position = Vector2(150, 787)
+	back.size = Vector2(240, 40)
+	back.pressed.connect(close_gallery)
+	gallery.add_child(back)
+	back.grab_focus()
 
 func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
@@ -180,6 +265,7 @@ func save_progress() -> void:
 	var config := ConfigFile.new()
 	config.set_value("game", "unlocked", unlocked)
 	config.set_value("game", "level", level)
+	config.set_value("game", "completed", completed)
 	config.save(storage_prefix + "progress.cfg")
 
 func toggle_sound() -> void:
@@ -190,12 +276,17 @@ func toggle_sound() -> void:
 	preferences.save(storage_prefix + "settings.cfg")
 
 func advance() -> void:
+	if level == TITLES.size() - 1:
+		open_gallery()
+		return
 	level = level + 1 if level < TITLES.size() - 1 else 0
 	unlocked = maxi(unlocked, level)
 	save_progress()
 	reset()
 
 func _process(delta: float) -> void:
+	if is_instance_valid(gallery):
+		return
 	clock_time += delta
 	if win_time >= 0.0:
 		win_time += delta
@@ -218,6 +309,10 @@ func _process(delta: float) -> void:
 					detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
 					next_button.visible = true
 					if not testing:
+						if level == TITLES.size() - 1:
+							next_button.text = "Zur Levelübersicht"
+						if not completed.has(level):
+							completed.append(level)
 						unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
 						level_picker.set_item_disabled(unlocked, false)
 						save_progress()
@@ -252,6 +347,10 @@ func mark_releases() -> void:
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_instance_valid(gallery) and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		close_gallery()
+		get_viewport().set_input_as_handled()
+		return
 	if generating:
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -282,6 +381,8 @@ func pick(pos: Vector2) -> int:
 	return chosen
 
 func click_at(pos: Vector2) -> void:
+	if is_instance_valid(gallery):
+		return
 	if editor:
 		if draw_tool:
 			add_draft(pos)
@@ -492,11 +593,11 @@ func read_custom(path: String = "") -> bool:
 	status = "Die Puzzle-Datei ist ungültig."
 	if not data is Dictionary or data.get("version") != 1 or not data.get("shape") is float and not data.get("shape") is int:
 		return false
-	if not data.get("paths") is Array or data.paths.size() > 200 or int(data.shape) < 0 or int(data.shape) > 2:
+	if not data.get("paths") is Array or data.paths.size() > 200 or int(data.shape) < 0 or int(data.shape) > 5:
 		return false
 	var loaded: Array[Dictionary] = []
 	var occupied := {}
-	var shape := clampi(int(data.get("shape", 0)), 0, 2)
+	var shape := clampi(int(data.get("shape", 0)), 0, 5)
 	var allowed := ArrowPuzzle.mask(shape)
 	for a in data.paths:
 		if not a is Dictionary or not a.get("points") is Array or a.points.size() < 2 or a.points.size() > 500:

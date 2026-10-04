@@ -23,7 +23,7 @@ func run() -> void:
 	var scene = load("res://main.tscn").instantiate()
 	root.add_child(scene)
 	var series_metrics: Array[Dictionary] = []
-	for level in range(6):
+	for level in range(scene.TITLES.size()):
 		scene.level = level
 		scene.testing = false
 		scene.reset()
@@ -130,7 +130,7 @@ func run() -> void:
 	file.store_string('{"paths":[{"points":[[1,2],[1,2]]}]}')
 	file.close()
 	require(not scene.read_custom(), "Malformed paths must be rejected")
-	for shape in range(3):
+	for shape in range(6):
 		for seed_value in range(10):
 			var generated := ArrowPuzzle.generate(shape, seed_value * 731 + 8)
 			require(ArrowPuzzle.solution(generated).size() == generated.size(), "Additional generator seeds must remain solvable")
@@ -201,6 +201,46 @@ func run() -> void:
 	scene.reset()
 	require(not scene.feedback.enabled, "Restart preserves mute")
 	scene.toggle_sound()
+	scene.level = 0
+	scene.reset()
+	scene.unlocked = 0
+	scene.open_gallery()
+	await process_frame
+	require(is_instance_valid(scene.gallery), "Gallery opens")
+	var scroll: ScrollContainer = scene.gallery.get_child(3)
+	var cards: GridContainer = scroll.get_child(0)
+	require(cards.get_child_count() == scene.TITLES.size(), "Gallery includes every motif")
+	require(not cards.get_child(0).disabled and cards.get_child(1).disabled, "Gallery respects unlocks")
+	var pending: int = scene.free_paths()[0]
+	scene.click_at(scene.arrows[pending].points[0])
+	require(not scene.arrows[pending].escaping, "Gallery prevents underlying puzzle input")
+	scene.select_gallery_level(8)
+	require(is_instance_valid(scene.gallery) and scene.level == 0, "Locked levels cannot be selected")
+	scene.close_gallery()
+	scene.click_at(scene.arrows[pending].points[0])
+	scene._process(0.03)
+	var distance: float = scene.arrows[pending].travel
+	scene.open_gallery()
+	scene._process(0.5)
+	require(scene.arrows[pending].travel == distance, "Overview pauses the running puzzle")
+	scene.select_gallery_level(0)
+	require(scene.arrows[pending].escaping and scene.arrows[pending].travel == distance, "Returning to the same level preserves the move")
+	scene.level = scene.TITLES.size() - 1
+	scene.advance()
+	require(is_instance_valid(scene.gallery) and scene.level == scene.TITLES.size() - 1, "Final level leads back to the overview")
+	scene.close_gallery()
+	scene.level = 0
+	scene.reset()
+	scene.unlocked = 8
+	scene.open_gallery()
+	await process_frame
+	scroll = scene.gallery.get_child(3)
+	cards = scroll.get_child(0)
+	var card: Button = cards.get_child(1)
+	mouse_click(card.global_position + Vector2(110, 60))
+	require(scene.level == 1 and not is_instance_valid(scene.gallery), "Gallery cards accept real mouse input")
+	var saved := ConfigFile.new()
+	require(saved.load(scene.storage_prefix + "progress.cfg") == OK and saved.get_value("game", "completed", []).size() == scene.TITLES.size(), "Completed motifs persist")
 	scene.level = 0
 	scene.reset()
 	var starts: Array[int] = scene.free_paths()
