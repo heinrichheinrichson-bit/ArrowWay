@@ -1,7 +1,9 @@
 class_name MotifBuilder
 extends RefCounted
 
-static func region(shape: int, cell: Vector2i) -> int:
+static func region(shape: int, cell: Vector2i, motif: Dictionary = {}) -> int:
+	if shape == 6:
+		return int(motif.get("cells", {}).get(cell, -1))
 	var x := cell.x * 18.0 / 28.0
 	var y := cell.y * 22.0 / 32.0
 	if shape == 3:
@@ -26,7 +28,10 @@ static func region(shape: int, cell: Vector2i) -> int:
 		return 3
 	return 0
 
-static func color_for(shape: int, part: int, index: int) -> Color:
+static func color_for(shape: int, part: int, index: int, motif: Dictionary = {}) -> Color:
+	if shape == 6:
+		var palette: Array = motif.get("palettes", {}).get(part, ["#65e5ff"])
+		return Color(palette[index % palette.size()])
 	var colors: Array
 	match shape:
 		3:
@@ -48,22 +53,23 @@ static func color_for(shape: int, part: int, index: int) -> Color:
 			colors = ["#ff347b", "#ff548e", "#ff72bb", "#f537a8", "#ff91c9"]
 	return Color(colors[index % colors.size()])
 
-static func generate(shape: int, seed_value: int) -> Array[Dictionary]:
-	var expected := ArrowPuzzle.mask(shape).size()
+static func generate(shape: int, seed_value: int, motif: Dictionary = {}) -> Array[Dictionary]:
+	var expected := ArrowPuzzle.mask(shape, motif).size()
 	# Reject incomplete packings instead of shipping empty boundary cells.
-	for attempt in range(64):
-		var candidate := build(shape, seed_value + attempt * 83)
+	for attempt in range(24 if shape == 6 else 64):
+		var candidate := build(shape, seed_value + attempt * 83, motif)
 		var covered := {}
 		for arrow in candidate:
 			for point in arrow.points:
 				covered[ArrowPuzzle.grid(point)] = true
 		if covered.size() == expected and ArrowPuzzle.solution(candidate).size() == candidate.size():
 			return candidate
-	push_error("No complete solvable motif packing found")
+	if shape != 6:
+		push_error("No complete solvable motif packing found")
 	return []
 
-static func build(shape: int, seed_value: int) -> Array[Dictionary]:
-	var cells := ArrowPuzzle.mask(shape)
+static func build(shape: int, seed_value: int, motif: Dictionary = {}) -> Array[Dictionary]:
+	var cells := ArrowPuzzle.mask(shape, motif)
 	var chains: Array = []
 	# Uniform lane spacing, with short bands interlocking into longer serpentine paths.
 	var band_width := 7 + int(seed_value % 3)
@@ -74,10 +80,10 @@ static func build(shape: int, seed_value: int) -> Array[Dictionary]:
 			if not cells.has(cell):
 				x += 1
 				continue
-			var part := region(shape, cell)
+			var part := region(shape, cell, motif)
 			var bucket := x / band_width
 			var run: Array[Vector2i] = []
-			while x < ArrowPuzzle.COLS and cells.has(Vector2i(x, y)) and region(shape, Vector2i(x, y)) == part and x / band_width == bucket:
+			while x < ArrowPuzzle.COLS and cells.has(Vector2i(x, y)) and region(shape, Vector2i(x, y), motif) == part and x / band_width == bucket:
 				run.append(Vector2i(x, y))
 				x += 1
 			var merged := false
@@ -139,7 +145,7 @@ static func build(shape: int, seed_value: int) -> Array[Dictionary]:
 		var direction := points[-1] - points[-2]
 		if (center < 14 and direction.x > 0) or (center >= 14 and direction.x < 0):
 			points.reverse()
-		result.append(ArrowPuzzle.make_arrow(points, color_for(shape, chain.part, result.size())))
+		result.append(ArrowPuzzle.make_arrow(points, color_for(shape, chain.part, result.size(), motif)))
 	# Choose a free endpoint at every step; this gives a constructive solution certificate.
 	var remaining: Array[int] = []
 	for i in range(result.size()):
@@ -181,9 +187,9 @@ static func build(shape: int, seed_value: int) -> Array[Dictionary]:
 			result.append(ArrowPuzzle.make_arrow(stuck.slice(split), result[index].color))
 			continue
 		remaining.erase(found)
-	return close_gaps(result, cells, shape)
+	return close_gaps(result, cells, shape, motif)
 
-static func close_gaps(data: Array[Dictionary], cells: Dictionary, shape: int) -> Array[Dictionary]:
+static func close_gaps(data: Array[Dictionary], cells: Dictionary, shape: int, motif: Dictionary = {}) -> Array[Dictionary]:
 	var used := {}
 	for a in data:
 		for point in a.points:
@@ -195,7 +201,7 @@ static func close_gaps(data: Array[Dictionary], cells: Dictionary, shape: int) -
 		var accepted := false
 		for i in range(data.size()):
 			var p: PackedVector2Array = data[i].points
-			if region(shape, ArrowPuzzle.grid(p[0])) != region(shape, cell):
+			if region(shape, ArrowPuzzle.grid(p[0]), motif) != region(shape, cell, motif):
 				continue
 			for k in range(p.size()):
 				if point.distance_to(p[k]) != ArrowPuzzle.CELL:

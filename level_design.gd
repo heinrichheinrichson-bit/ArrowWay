@@ -34,8 +34,8 @@ static func score(data: Array[Dictionary], target: int) -> float:
 	# Start choices dominate; length and dependency depth break ties.
 	return -absf(m.starts - target) * 80.0 + minf(m.depth, 16) * 4.0 + minf(m.edges, 130) * 0.1 + minf(m.longest, 65) * 0.25
 
-static func refine(shape: int, seed_value: int, target: int, attempts: int = 350) -> Array[Dictionary]:
-	var data := ArrowPuzzle.generate(shape, seed_value)
+static func refine(shape: int, seed_value: int, target: int, attempts: int = 350, motif: Dictionary = {}) -> Array[Dictionary]:
+	var data := ArrowPuzzle.generate(shape, seed_value, motif)
 	if data.is_empty():
 		return data
 	var rng := RandomNumberGenerator.new()
@@ -60,7 +60,7 @@ static func refine(shape: int, seed_value: int, target: int, attempts: int = 350
 			for point in p:
 				for offset in [Vector2.UP, Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT]:
 					var owner := int(owners.get(point + offset * ArrowPuzzle.CELL, i))
-					if owner != i and not neighbors.has(owner) and MotifBuilder.region(shape, ArrowPuzzle.grid(p[0])) == MotifBuilder.region(shape, ArrowPuzzle.grid(data[owner].points[0])):
+					if owner != i and not neighbors.has(owner) and MotifBuilder.region(shape, ArrowPuzzle.grid(p[0]), motif) == MotifBuilder.region(shape, ArrowPuzzle.grid(data[owner].points[0]), motif):
 						neighbors.append(owner)
 			if neighbors.is_empty():
 				continue

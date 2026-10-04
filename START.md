@@ -16,7 +16,7 @@ Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze f
 
 Das Werkzeug ist für die Erstellung unserer Levels gedacht. Es gehört nicht zur Spieleroberfläche.
 
-Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path . -- --editor-tool` starten. Spiel und Werkzeug können in getrennten Fenstern laufen.
+Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path . -- --editor-tool` starten. Spiel und Werkzeug können in getrennten Fenstern laufen. Das Werkzeug öffnet jetzt automatisch die **Motivwerkstatt** für Bildimport und Flächenbearbeitung. **Bild & Flächen** öffnet sie später erneut. Die Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md); unter `examples/` liegen Hausumrisse und eine transparente Palme zum Ausprobieren.
 
 ## Eigenes Puzzle bauen
 
@@ -29,7 +29,7 @@ Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path .
 7. **Prüfen** testet die Lösbarkeit. Bei einer Blockade werden die nach den möglichen Zügen verbleibenden Pfade rot markiert.
 8. **Testen** startet das Puzzle; **Im Editor** bringt dich zur bearbeitbaren Version zurück.
 9. **Speichern** sichert einen Entwurf lokal; **Laden** öffnet ihn wieder im Werkzeug.
-10. **Export** schreibt eine fertige JSON-Datei. Im Projekt liegen die neun Spielslots `levels/01.json` bis `levels/09.json`. Exportiere in einen dieser Slots und starte das Spiel neu, um das Motiv dort zu spielen. Der Titel gehört aktuell zum jeweiligen Slot.
+10. **Export** schreibt eine fertige JSON-Datei. Im Projekt liegen die neun Spielslots `levels/01.json` bis `levels/09.json`. Exportiere in einen dieser Slots und starte das Spiel neu, um das Motiv dort zu spielen. Der Titel wird aus der Leveldatei übernommen.
 
 Es gibt aktuell einen lokalen Speicherplatz für Entwürfe. Neue Speicherung ersetzt diesen Platz. Änderungen werden erst durch **Speichern** oder **Export** dauerhaft gesichert. Der Wechsel der Schablone ersetzt die aktuellen Pfade.
 

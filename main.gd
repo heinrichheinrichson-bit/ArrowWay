@@ -35,6 +35,9 @@ var win_time := -1.0
 var display_progress := 0.0
 var completed: Array[int] = []
 var gallery: Control
+var motif := {}
+var studio: Window
+var studio_draft := {}
 const MOODS := ["Zum Ankommen", "Ruhig entdecken", "Verflochten", "Neue Wege", "Knifflig", "Für Tüftler", "Flügel entfalten", "Verschnaufpause", "Blüte für Tüftler"]
 
 static func escape_distance(time: float) -> float:
@@ -88,6 +91,7 @@ func _ready() -> void:
 	reset()
 	if authoring:
 		enter_editor()
+		open_studio()
 
 func button(label: String, x: float, y: float, width: float, action: Callable) -> Button:
 	var b := Button.new()
@@ -99,6 +103,10 @@ func button(label: String, x: float, y: float, width: float, action: Callable) -
 	controls.append(b)
 	return b
 
+func level_title(index: int) -> String:
+	var data = JSON.parse_string(FileAccess.get_file_as_string("res://levels/%02d.json" % (index + 1)))
+	return str(data.get("title", TITLES[index])).left(80) if data is Dictionary else TITLES[index]
+
 func build_controls() -> void:
 	for c in controls:
 		panel.remove_child(c)
@@ -107,14 +115,27 @@ func build_controls() -> void:
 	next_button = null
 	sound_button = button("Ton: An" if feedback.enabled else "Ton: Aus", 402, 30, 108, toggle_sound)
 	if editor:
+		var studio_button := button("Bild & Flächen", 285, 73, 225, open_studio)
+		studio_button.size.y = 24
 		var shapes := OptionButton.new()
 		shapes.position = Vector2(30, 101)
 		shapes.size = Vector2(240, 38)
 		for name in ["Haus", "Weihnachtsbaum", "Herz", "Schmetterling", "Fisch", "Blume"]:
 			shapes.add_item(name)
+		if shape_index == 6:
+			shapes.add_item("Eigenes Bildmotiv")
 		shapes.select(shape_index)
 		shapes.tooltip_text = "Neue Schablone auswählen; ersetzt die aktuellen Pfade."
-		shapes.item_selected.connect(func(index: int): shape_index = index; arrows.clear(); draft.clear(); selected = -1; status = "Neue Schablone. Zeichne Pfade oder drücke Füllen.")
+		shapes.item_selected.connect(func(index: int):
+			if index == 6:
+				open_studio()
+				return
+			shape_index = index
+			motif.clear()
+			arrows.clear()
+			draft.clear()
+			selected = -1
+			status = "Neue Schablone. Zeichne Pfade oder drücke Füllen.")
 		panel.add_child(shapes)
 		controls.append(shapes)
 		button("Füllen", 290, 101, 105, fill_template)
@@ -136,9 +157,11 @@ func build_controls() -> void:
 		picker.position = Vector2(30, 101)
 		picker.size = Vector2(330, 37)
 		for i in range(TITLES.size()):
-			picker.add_item("%02d / %s" % [i + 1, TITLES[i]])
+			picker.add_item("%02d / %s" % [i + 1, level_title(i)])
 			picker.set_item_disabled(i, i > unlocked)
 		picker.select(level)
+		if testing and shape_index == 6:
+			picker.set_item_text(level, "Test / " + str(motif.get("title", "Eigenes Motiv")))
 		picker.item_selected.connect(func(index: int): level = index; testing = false; reset())
 		panel.add_child(picker)
 		controls.append(picker)
@@ -206,7 +229,7 @@ func open_gallery() -> void:
 		card.set_script(load("res://level_card.gd"))
 		card.custom_minimum_size = Vector2(228, 170)
 		card.set("number", index)
-		card.set("title", TITLES[index])
+		card.set("title", level_title(index))
 		card.set("subtitle", MOODS[index])
 		card.set("selected", index == level)
 		card.set("complete", completed.has(index))
@@ -435,6 +458,22 @@ func enter_editor() -> void:
 	detail = "Rasterpunkte → Fertig. Enter / Rücktaste funktionieren auch."
 	build_controls()
 
+func open_studio() -> void:
+	if is_instance_valid(studio):
+		studio.grab_focus()
+		return
+	get_viewport().gui_embed_subwindows = DisplayServer.get_name() == "headless"
+	studio = Window.new()
+	studio.set_script(load("res://motif_studio.gd"))
+	studio.set("game", self)
+	var initial := motif.duplicate(true) if shape_index == 6 else CustomMotif.from_shape(shape_index)
+	if not studio_draft.is_empty():
+		initial = studio_draft.motif.duplicate(true)
+		studio.set("paths", clone_data(studio_draft.paths))
+	studio.set("motif", initial)
+	add_child(studio)
+	studio.popup_centered(Vector2i(1040, 800))
+
 func fill_template() -> void:
 	if generating:
 		return
@@ -445,14 +484,16 @@ func fill_template() -> void:
 			control.disabled = true
 	await get_tree().process_frame
 	generation_seed += 173
-	arrows = LevelDesign.refine(shape_index, generation_seed, 10, 600)
+	var filled := LevelDesign.refine(shape_index, generation_seed, 10, 600, motif)
+	if not filled.is_empty():
+		arrows = filled
 	generating = false
 	for control in controls:
 		if control is BaseButton:
 			control.disabled = false
 	draft.clear()
 	selected = -1
-	status = "Neue Füllung: %d verflochtene Pfade, lösbar." % arrows.size()
+	status = "Keine vollständige Füllung gefunden. Korrigiere enge Stellen in Bild & Flächen." if filled.is_empty() else "Neue Füllung: %d verflochtene Pfade, lösbar." % arrows.size()
 	detail = "Du kannst einzelne Pfade auswählen, umdrehen und neu prüfen."
 
 func leave_editor() -> void:
@@ -463,7 +504,7 @@ func leave_editor() -> void:
 
 func add_draft(pos: Vector2) -> void:
 	var cell := ArrowPuzzle.grid(pos)
-	var allowed := ArrowPuzzle.mask(shape_index)
+	var allowed := ArrowPuzzle.mask(shape_index, motif)
 	if not allowed.has(cell):
 		status = "Bitte innerhalb der gepunkteten Form zeichnen."
 		return
@@ -479,6 +520,9 @@ func add_draft(pos: Vector2) -> void:
 			current.y += 1 if cell.y > current.y else -1
 			addition.append(ArrowPuzzle.pixel(current))
 	for point in addition:
+		if shape_index == 6 and not draft.is_empty() and MotifBuilder.region(6, ArrowPuzzle.grid(point), motif) != MotifBuilder.region(6, ArrowPuzzle.grid(draft[0]), motif):
+			status = "Ein Pfeil bleibt innerhalb seiner Fläche."
+			return
 		if not allowed.has(ArrowPuzzle.grid(point)) or draft.has(point):
 			status = "Bleibe in der Form; der Pfad darf sich nicht kreuzen."
 			return
@@ -493,7 +537,7 @@ func finish_draft() -> void:
 	if draft.size() < 2:
 		status = "Ein Pfad braucht mindestens zwei Rasterpunkte."
 		return
-	arrows.append(ArrowPuzzle.make_arrow(draft.duplicate(), MotifBuilder.color_for(shape_index, MotifBuilder.region(shape_index, ArrowPuzzle.grid(draft[0])), arrows.size())))
+	arrows.append(ArrowPuzzle.make_arrow(draft.duplicate(), MotifBuilder.color_for(shape_index, MotifBuilder.region(shape_index, ArrowPuzzle.grid(draft[0]), motif), arrows.size(), motif)))
 	selected = arrows.size() - 1
 	draft.clear()
 	status = "Pfad hinzugefügt. Zeichne weiter oder prüfe die Lösung."
@@ -518,6 +562,14 @@ func undo_edit() -> void:
 	status = "Letzten Punkt oder Pfad entfernt."
 
 func check_editor() -> bool:
+	if shape_index == 6:
+		var used := {}
+		for arrow in arrows:
+			for point in arrow.points:
+				used[ArrowPuzzle.grid(point)] = true
+		if used.size() != motif.get("cells", {}).size():
+			status = "Das Bildmotiv ist noch nicht vollständig gefüllt. Nutze Bild & Flächen → Füllen."
+			return false
 	if arrows.is_empty() or not draft.is_empty():
 		status = "Zeichne einen Pfad und schließe ihn mit Fertig ab."
 		return false
@@ -548,7 +600,12 @@ func level_document() -> Dictionary:
 		for p in a.points:
 			points.append([p.x, p.y])
 		paths.append({"points": points, "color": a.color.to_html()})
-	return {"version": 1, "shape": shape_index, "title": TITLES[level], "paths": paths}
+	var document := {"version": 1, "shape": shape_index, "title": TITLES[level], "paths": paths}
+	if shape_index == 6:
+		document.version = 2
+		document.title = motif.get("title", "Eigenes Motiv")
+		document["motif"] = CustomMotif.encode(motif)
+	return document
 
 func save_custom() -> void:
 	if not check_editor():
@@ -591,14 +648,21 @@ func read_custom(path: String = "") -> bool:
 		return false
 	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
 	status = "Die Puzzle-Datei ist ungültig."
-	if not data is Dictionary or data.get("version") != 1 or not data.get("shape") is float and not data.get("shape") is int:
+	if not data is Dictionary or (data.get("version") != 1 and data.get("version") != 2) or not data.get("shape") is float and not data.get("shape") is int:
 		return false
-	if not data.get("paths") is Array or data.paths.size() > 200 or int(data.shape) < 0 or int(data.shape) > 5:
+	if not data.get("paths") is Array or data.paths.size() > 500 or int(data.shape) < 0 or int(data.shape) > 6 or float(data.shape) != int(data.shape):
 		return false
 	var loaded: Array[Dictionary] = []
 	var occupied := {}
-	var shape := clampi(int(data.get("shape", 0)), 0, 5)
-	var allowed := ArrowPuzzle.mask(shape)
+	var shape := int(data.shape)
+	var imported := {}
+	if shape == 6:
+		if data.version != 2:
+			return false
+		imported = CustomMotif.decode(data.get("motif"))
+		if imported.is_empty() or imported.cells.is_empty():
+			return false
+	var allowed := ArrowPuzzle.mask(shape, imported)
 	for a in data.paths:
 		if not a is Dictionary or not a.get("points") is Array or a.points.size() < 2 or a.points.size() > 500:
 			return false
@@ -613,13 +677,16 @@ func read_custom(path: String = "") -> bool:
 				return false
 			if not p.is_empty() and point.distance_to(p[-1]) != ArrowPuzzle.CELL:
 				return false
+			if shape == 6 and not p.is_empty() and imported.cells[ArrowPuzzle.grid(point)] != imported.cells[ArrowPuzzle.grid(p[0])]:
+				return false
 			occupied[point] = true
 			p.append(point)
 		loaded.append(ArrowPuzzle.make_arrow(p, Color(str(a.get("color", "65e5ff")))))
-	if loaded.is_empty() or ArrowPuzzle.solution(loaded).size() != loaded.size():
+	if (shape == 6 and occupied.size() != allowed.size()) or loaded.is_empty() or ArrowPuzzle.solution(loaded).size() != loaded.size():
 		status = "Die gespeicherte Datei enthält kein lösbares Puzzle."
 		return false
 	shape_index = shape
+	motif = imported
 	arrows = loaded
 	status = "Gespeichertes Puzzle geladen."
 	return true

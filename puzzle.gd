@@ -14,7 +14,9 @@ static func pixel(cell: Vector2i) -> Vector2:
 static func grid(pos: Vector2) -> Vector2i:
 	return Vector2i(((pos - ORIGIN) / CELL).round())
 
-static func mask(shape: int) -> Dictionary:
+static func mask(shape: int, motif: Dictionary = {}) -> Dictionary:
+	if shape == 6:
+		return motif.get("cells", {})
 	var result := {}
 	for y in range(ROWS):
 		for x in range(COLS):
@@ -57,8 +59,8 @@ static func mask(shape: int) -> Dictionary:
 static func make_arrow(points: PackedVector2Array, color: Color) -> Dictionary:
 	return {"points": points, "color": color, "travel": 0.0, "escape_time": 0.0, "escaping": false, "removed": false, "flash": 0.0, "hint": 0.0, "release": 0.0}
 
-static func generate(shape: int, seed_value: int) -> Array[Dictionary]:
-	return MotifBuilder.generate(shape, seed_value)
+static func generate(shape: int, seed_value: int, motif: Dictionary = {}) -> Array[Dictionary]:
+	return MotifBuilder.generate(shape, seed_value, motif)
 
 static func self_blocked(points: PackedVector2Array) -> bool:
 	return points.size() > 2 and ray_hits(points, points.slice(0, points.size() - 1))

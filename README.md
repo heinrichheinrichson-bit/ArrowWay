@@ -8,7 +8,7 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.6.0
+## Aktueller Stand · 0.7.0
 
 - Neun gestaltete Levels mit 25–39 Pfaden, jeweils vollständig gefüllten Motiven und allen vier Pfeilrichtungen.
 - Längere, stärker verflochtene Verläufe. Abhängigkeiten und freie Startzüge werden beim Erstellen gemessen; die Serie beginnt mit einer übersichtlicheren Baumfüllung und endet mit engeren Freispielketten im Haus.
@@ -19,6 +19,7 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 - Dezente synthetisierte Klänge für freie Züge, Blockaden, Hinweise, neu geöffnete Wege und den Abschluss. **Ton: An/Aus** schaltet sie ab; die Einstellung bleibt gespeichert.
 - Scrollbare Levelübersicht mit gerundeten Motivvorschauen, gesperrten und geschafften Puzzles, Fortschrittszähler und lokal gespeicherten Freischaltungen. Ein geöffnetes Puzzle bleibt beim Besuch der Übersicht erhalten.
 - Neue Motive: Schmetterling in Violett und Pink mit goldener Mitte, türkisblauer Fisch mit warmer Schwanzflosse und pinke Blume mit gelber Mitte und grünem Stiel.
+- Neue **Motivwerkstatt**: Bildimport, Erkennung geschlossener Umrisse oder Farbflächen, Flächenpinsel, Radierer, Trennlinie, Zusammenführen und Neonpaletten. Die automatische Füllung deckt jeden akzeptierten Rasterpunkt ab und bleibt vollständig lösbar. Bildanalyse und Füllung laufen im Hintergrund.
 - Separates Level-Werkzeug: Schablone wählen, automatisch füllen, Rasterpfade zeichnen, auswählen, Richtung umkehren, löschen, Lösbarkeit prüfen und direkt testen.
 - Entwürfe lokal speichern und laden; fertige Levels als JSON in den Projektordner exportieren.
 - Das eigentliche Spiel zeigt keine Editorbedienelemente und lädt fertige Leveldateien aus `levels/`.
@@ -27,6 +28,9 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 ## Aufbau
 
 - `puzzle.gd`: Formenmasken, geometrische Blockierungsprüfung und Lösungsfolge.
+- `custom_motif.gd`: freie Flächen, Paletten, geometrische Bearbeitung und validierte Speicherung.
+- `motif_import.gd`: lokale Bildanalyse für Umrisse, Farben und Transparenz.
+- `motif_studio.gd`, `motif_canvas.gd`, `motif_preview.gd`: Motivwerkstatt mit Hintergrundberechnung und Neonvorschau.
 - `motifs.gd`: gleichmäßige vollständige Füllung, Motivbereiche und Neonpaletten.
 - `level_design.gd`: Verflechtung und Verbindung benachbarter Pfade, Ausrichtung der Spitzen und Bewertung von Startzügen und Abhängigkeiten. Jede übernommene Variante bleibt vollständig lösbar.
 - `levels/`: neun fertige, reproduzierbar erzeugte und geprüfte Leveldateien.
@@ -40,7 +44,7 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 
 Die Formen bestehen aus Rasterzellen mit 14 Pixeln Abstand. Der Generator füllt Motivbereiche mit ineinandergreifenden horizontalen und vertikalen Schleifen. Randzellen werden angeschlossen, ohne andere Zellen zu duplizieren. Unvollständige oder unlösbare Varianten werden verworfen. Alle neun gelieferten Puzzles sind zu 100 Prozent belegt. Alle Pfade bestehen aus echten Punktfolgen; die Darstellung und Animation runden die Ecken mit kleinen Kreisbögen ab. Die Blockierungsprüfung berücksichtigt auch parallele Linien, Linienenden und die eigene Pfadgeometrie.
 
-Das Level-Werkzeug startet mit `godot --path . -- --editor-tool`, unter Windows auch mit `Level-Werkzeug.cmd`. Der normale Projektstart öffnet ausschließlich das Spiel. Im Werkzeug schreibt **Export** die aktuelle Füllung in eine JSON-Datei; `levels/01.json` bis `levels/09.json` sind die neun Slots des aktuellen Spiels. Exportierte Änderungen werden beim Neustart oder erneuten Laden des Levels übernommen.
+Das Level-Werkzeug startet mit `godot --path . -- --editor-tool`, unter Windows auch mit `Level-Werkzeug.cmd`. Der normale Projektstart öffnet ausschließlich das Spiel. Im Werkzeug startet die neue Motivwerkstatt automatisch; **Bild & Flächen** öffnet sie erneut. Die ausführliche Anleitung und Bildbeispiele stehen in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md). Im Werkzeug schreibt **Export** die aktuelle Füllung in eine JSON-Datei; `levels/01.json` bis `levels/09.json` sind die neun Slots des aktuellen Spiels. Exportierte Änderungen werden beim Neustart oder erneuten Laden des Levels übernommen.
 
 **Füllen** verflechtet die erzeugten Pfade zusätzlich und prüft jede Änderung. Dadurch braucht die Erstellung etwas länger als die reine Rasterfüllung. Die Werkzeugbedienung ist währenddessen gesperrt. **Prüfen** zeigt auch freie Startzüge und Freispielstufen an. Diese Werte beschreiben den Abhängigkeitsgraphen; sie ersetzen kein Spielen und Bewerten durch Menschen.
 
@@ -53,6 +57,7 @@ Der Lösbarkeitstest baut einen Abhängigkeitsgraphen und entfernt schrittweise 
 ```powershell
 godot --headless --path . --editor --quit
 godot --headless --path . --script res://tests/test_runner.gd -- --test
+godot --headless --path . --script res://tests/test_import.gd -- --test
 ```
 
 Die Serie lässt sich mit `godot --headless --path . --script res://tools/build_series.gd -- --test` neu erstellen. Das überschreibt `levels/01.json` bis `levels/09.json`; eigene Änderungen an diesen Dateien vorher separat sichern.
@@ -63,8 +68,10 @@ Geprüft werden vollständige Lösungsfolgen aller neun Levels, vollständige F�
 
 ## Nächste Ausbaustufen
 
-Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smartphones und das Spielgefühl der neuen Serie müssen noch geprüft werden. Freier Bildimport, frei zeichnbare Motivbereiche, eine komfortable Levelbibliothek und Veröffentlichung sind noch nicht implementiert. Die Verflechtung verbessert die rechnerischen Kennzahlen und die Vielfalt der Pfade; eine angenehme Schwierigkeitskurve muss anschließend mit Spieltests abgestimmt werden.
+Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smartphones und das Spielgefühl der neuen Serie müssen noch geprüft werden. Die erste lokale Bildanalyse arbeitet mit klaren Umrissen, Farbflächen und Transparenz. Allgemeine Fotoerkennung, automatische Benennung von Bildteilen, feinere beziehungsweise variable Raster, eine komfortable Bibliothek für eigene Motive und Veröffentlichung stehen noch aus. Die Verflechtung verbessert die rechnerischen Kennzahlen und die Vielfalt der Pfade; eine angenehme Schwierigkeitskurve muss anschließend mit Spieltests abgestimmt werden.
 
 ![Pfad-Editor](previews/editor.png)
 
 ![Levelübersicht](previews/gallery.png)
+
+![Bild zu Pfeilpuzzle](previews/studio-filled.png)

@@ -1,0 +1,49 @@
+# ArrowWay · Bild zu Puzzle
+
+Starte **Level-Werkzeug.cmd**. Die neue Motivwerkstatt öffnet sich automatisch in einem eigenen Fenster. Im bisherigen Pfadwerkzeug öffnet **Bild & Flächen** dieselbe Werkstatt erneut.
+
+![Motivwerkstatt mit fertiger Füllung](previews/studio-filled.png)
+
+## Ein Motiv erstellen
+
+1. **Bild öffnen**: PNG, JPG oder WebP wählen. Zum Ausprobieren liegen `examples/haus-umrisse.png` und `examples/palme-transparent.png` bei. Der Dateidialog beginnt in diesem Ordner.
+2. **Automatisch** erkennt geschlossene Schwarz-Weiß-Umrisse oder Farbflächen beziehungsweise Transparenz. Bei Bedarf **Geschlossene Umrisse** oder **Farben / Transparenz** wählen und **Neu erkennen** drücken. Der Hell-Dunkel-Regler beeinflusst die Erkennung von Umrisslinien.
+3. Mit **Fläche auswählen** in einen Bereich klicken. Gib ihm einen Namen, etwa Dach, Fassade, Fenster oder Stamm. Die gleiche Auswahl ist rechts in der Flächenliste möglich.
+4. Eine Neonpalette wählen oder die drei Farbfelder individuell ändern. Bei farbigen Vorlagen werden passende Neonfarben vorgeschlagen. Schwarz-Weiß-Vorlagen erhalten zunächst unterschiedliche Vorschlagsfarben; deren Bedeutung und Namen legst du selbst fest.
+5. Flächen bei Bedarf korrigieren: **Fläche malen** und **Radieren** funktionieren durch Ziehen mit gedrückter linker Maustaste. **Neue Fläche** erstellt einen eigenen Bereich und aktiviert das Malen. **Rückgängig** stellt vorherige Flächen und Pfeile wieder her.
+6. **Automatisch mit Pfeilen füllen** erzeugt eine vollständige, lösbare Füllung. Ein erneuter Klick erzeugt eine neue Variante. Die Berechnung läuft im Hintergrund. Die Werkstatt zeigt die Pfeile mit derselben Neon-Darstellung wie das Spiel.
+7. **Übernehmen und testen** öffnet das Motiv im tatsächlichen Spiel. **Zum Level-Werkzeug** bringt dich zur Bearbeitung zurück; nach dem Lösen funktioniert auch **Zurück zum Editor**. Dort kannst du **Export** verwenden.
+
+## Flächen trennen und verbinden
+
+Wähle zunächst die Fläche, die du teilen möchtest. Wähle **Fläche mit Linie trennen** und ziehe quer durch sie, von außerhalb der einen Grenze bis außerhalb der anderen. Die Teilflächen bekommen eigene Einträge und übernehmen zunächst die Palette. Die Trennlinie wird den beiden Seiten zugeordnet: Im Motiv entsteht keine leere Schneise.
+
+Zum Zusammenführen zuerst die Zielfläche auswählen, dann **Angeklickte Fläche zusammenführen** wählen und auf den anderen Bereich klicken. Getrennte Teilbereiche dürfen dieselbe Palette verwenden; Pfeile bleiben innerhalb ihrer Flächen. Die Lösbarkeit wird für das gesamte Puzzle geprüft, auch bei Blockaden zwischen verschiedenen Flächen.
+
+Eine Änderung an der Flächengeometrie verwirft die bisherige Vorschau. Danach erneut füllen. Eine reine Palettenänderung erhält die Pfeilgeometrie und färbt sie sofort um.
+
+## Speichern und exportieren
+
+**Entwurf speichern** sichert Flächen, Namen, Paletten, Bildreferenz und die genaue Pfeilfüllung. **Entwurf laden** stellt sie wieder her. Es gibt zunächst einen lokalen Entwurfsplatz; neue Speicherung ersetzt ihn. Beim Schließen und erneuten Öffnen bleibt der aktuelle Stand zusätzlich in dieser laufenden Sitzung erhalten.
+
+Entwürfe liegen in `%APPDATA%\Godot\app_userdata\ArrowWay\motif_draft.json`. Der Eintrag `reference_png` enthält die verkleinerte Bildreferenz; zum erneuten automatischen Erkennen die ursprüngliche Bilddatei wieder öffnen.
+
+Im Pfadwerkzeug schreibt **Export** eine eigenständige Leveldatei mit Flächen und Pfeilen im Format Version 2. Du kannst sie separat sichern. Das Spiel lädt weiterhin die neun Slots `levels/01.json` bis `levels/09.json`: Exportiere in den gewünschten Slot und lade ihn im Spiel neu oder starte das Spiel neu. Der Motivname aus der Datei erscheint in der Levelauswahl. Die ursprünglichen Levels sind weiterhin im Git-Verlauf vorhanden.
+
+## Welche Vorlagen funktionieren?
+
+Am zuverlässigsten sind klare, geschlossene Umrisse auf weißem Hintergrund, flächige Zeichnungen auf einheitlichem Hintergrund und Motive auf transparentem Hintergrund. Die Bildanalyse erkennt Flächen anhand von Linien und Farben. Sie benennt keine Gegenstände automatisch und ist keine allgemeine Fotoerkennung.
+
+Das Bild wird proportional auf das vorhandene Raster von 29 × 33 Punkten übertragen. Details unterhalb dieser Auflösung können verschwinden oder zu klein für einen Pfeil werden. Einzelpunkte einer Fläche werden rot markiert und verhindern die Füllung. Verbreitere oder verbinde sie mit dem Malwerkzeug, ordne sie einer Nachbarfläche zu oder entferne sie. Auch bei anderen ungünstigen Geometrien kann eine Füllung scheitern; der Editor meldet das und übernimmt keine unvollständige Variante.
+
+Bildanalyse und Füllung laufen lokal in Godot. Python, Cloud-Dienste und zusätzliche Installationen werden für diese erste Version nicht benötigt.
+
+## Prüfung
+
+```powershell
+godot --headless --path . --editor --quit
+godot --headless --path . --script res://tests/test_runner.gd -- --test
+godot --headless --path . --script res://tests/test_import.gd -- --test
+```
+
+Die Importtests prüfen Hausumrisse, eine farbige transparente Palme, leere Vorlagen und schwarze Silhouetten. Sie prüfen vollständige Füllung, Flächengrenzen, Paletten, Trennung ohne verlorene Rasterpunkte, echte Mauseingaben, Hintergrundberechnung, Rückgängig, Speichern/Laden und einen vollständigen Spieltest des importierten Motivs. Testdateien sind von normalen Entwürfen und Spielständen getrennt.

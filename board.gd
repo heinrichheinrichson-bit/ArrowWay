@@ -78,7 +78,7 @@ func update_stroke(stroke: ColorRect, points: PackedVector2Array, color: Color, 
 
 func _draw() -> void:
 	if game.editor:
-		for cell: Vector2i in ArrowPuzzle.mask(game.shape_index):
+		for cell: Vector2i in ArrowPuzzle.mask(game.shape_index, game.motif):
 			draw_circle(ArrowPuzzle.pixel(cell), 1.7, Color("#334d68"))
 		if game.draft.size() == 1:
 			draw_circle(game.draft[0], 2.1, Color.WHITE)
