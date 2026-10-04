@@ -8,7 +8,9 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.13.0
+## Aktueller Stand · 0.13.1
+
+- **Neonkunstwerk zum Abschluss**: Nach dem letzten entkommenen Pfeil bringt eine weiche Lichtwelle die ursprünglichen Pfeilbahnen samt individuellen Farben und Verläufen zurück. Ein kurzer Leuchtimpuls geht in ein ruhiges Bild über; nach 1,65 Sekunden ist das nächste Puzzle verfügbar. Neustart und Levelwechsel setzen die Darstellung zurück.
 
 - **Motivbibliothek** mit sofortiger Suche nach Titel, Sammlung und Themen, Sternfavoriten und Filtern für geschaffte, offene oder spielbare Motive. Filter lassen sich kombinieren und mit **Alles zeigen** zurücksetzen. Favoriten bleiben beim Neustart erhalten; beim Zurückkehren bleibt die Position in der Übersicht erhalten.
 
@@ -72,6 +74,7 @@ godot --headless --path . --script res://tests/test_colors.gd -- --test
 godot --headless --path . --script res://tests/test_collections.gd -- --test
 godot --headless --path . --script res://tests/test_library.gd -- --test
 godot --headless --path . --script res://tests/test_catalog_editing.gd -- --test
+godot --headless --path . --script res://tests/test_completion.gd -- --test
 ```
 
 Die Serie lässt sich mit `godot --headless --path . --script res://tools/build_series.gd -- --test` neu erstellen. Das überschreibt `levels/01.json` bis `levels/09.json`; eigene Änderungen an diesen Dateien vorher separat sichern.

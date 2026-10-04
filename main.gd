@@ -590,6 +590,7 @@ func _process(delta: float) -> void:
 	clock_time += delta
 	if win_time >= 0.0:
 		win_time += delta
+		next_button.disabled = win_time < 1.65
 	display_progress = lerpf(display_progress, float(cleared) / maxf(arrows.size(), 1.0), 1.0 - exp(-delta * 12.0))
 	for a in arrows:
 		a.flash = maxf(0.0, a.flash - delta)
@@ -608,6 +609,7 @@ func _process(delta: float) -> void:
 					status = "Geschafft! Alle Wege sind frei."
 					detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
 					next_button.visible = true
+					next_button.disabled = true
 					if not testing:
 						if next_collection_level(level) < 0:
 							next_button.text = "Zur Levelübersicht"
@@ -1064,15 +1066,6 @@ func _draw() -> void:
 			draw_line(Vector2(125, 653), Vector2(125 + ratio * 367, 653), Color("#65e5ff"), 4, true)
 	text_at(status, Vector2(20, 701), 17, Color("#e0e8f5"), 500)
 	text_at(detail, Vector2(20, 724), 12, Color("#8296b0"), 500)
-	if not editor and cleared == arrows.size() and cleared > 0:
-		var fade := smoothstep(0.0, 0.32, maxf(win_time, 0.0))
-		var size := lerpf(0.94, 1.0, fade)
-		if win_time < 0.7:
-			var ripple := clampf(win_time / 0.7, 0.0, 1.0)
-			draw_arc(Vector2(270, 407), 48.0 + ripple * 46.0, 0, TAU, 96, Color(0.41, 0.94, 0.70, (1.0 - ripple) * 0.12), 1.5, true)
-		draw_set_transform(Vector2(270, 407), 0.0, Vector2.ONE * size)
-		text_at("FREI", Vector2(-110, 20), 62, Color(0.41, 0.94, 0.70, fade), 220)
-		draw_set_transform(Vector2.ZERO)
 
 func level_collection(index: int) -> Dictionary:
 	if index < TITLES.size(): return {"id":"base","title":"Erste Neonreise"}

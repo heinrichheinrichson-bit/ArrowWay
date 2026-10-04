@@ -1,5 +1,7 @@
 shader_type canvas_item;
 uniform float selection_opacity = 1.0;
+uniform float completion_time = -1.0;
+uniform float origin_y = 0.0;
 render_mode unshaded;
 
 uniform sampler2D path_points : filter_nearest, repeat_disable;
@@ -68,6 +70,18 @@ void fragment() {
 	if (gradient_enabled) {
 		tint = texture(color_lookup, vec2(clamp(color_distance / max(color_length, 0.001), 0.0, 1.0), 0.5)).rgb;
 	}
-	vec3 light = mix(tint, vec3(1.0), core * 0.24);
-	COLOR = vec4(light, alpha * neon_color.a * selection_opacity);
+	float reveal = 1.0;
+	float celebration = 0.0;
+	if (completion_time >= 0.0) {
+		float wave = clamp((completion_time - 0.18) / 0.95, 0.0, 1.0);
+		float front = mix(130.0, 710.0, wave);
+		reveal = (1.0 - smoothstep(front - 32.0, front + 32.0, p.y + origin_y)) * smoothstep(0.18, 0.30, completion_time);
+		float crest = exp(-pow((p.y + origin_y - front) / 36.0, 2.0));
+		float pulse = smoothstep(1.05, 1.30, completion_time) * (1.0 - smoothstep(1.40, 1.95, completion_time));
+		celebration = max(crest * (1.0 - smoothstep(1.10, 1.30, completion_time)), pulse);
+		reveal *= mix(1.0, 0.82, smoothstep(1.50, 2.10, completion_time));
+		alpha = fill + (1.0 - fill) * min(1.0, glow + celebration * 0.32 * exp(-outside / 5.0));
+	}
+	vec3 light = mix(tint, vec3(1.0), core * (0.24 + celebration * 0.26));
+	COLOR = vec4(light, alpha * neon_color.a * selection_opacity * reveal);
 }

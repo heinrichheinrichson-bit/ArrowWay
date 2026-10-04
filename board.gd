@@ -16,9 +16,10 @@ func _process(_delta: float) -> void:
 		strokes.append(stroke)
 	for i in range(strokes.size()):
 		strokes[i].visible = i < count
+	var celebration: float = float(game.get("win_time")) if game.get("win_time") != null and not game.editor else -1.0
 	for i in range(game.arrows.size()):
 		var a: Dictionary = game.arrows[i]
-		if a.removed:
+		if a.removed and celebration < 0.0:
 			strokes[i].visible = false
 			continue
 		strokes[i].material.set_shader_parameter("selection_opacity", 0.22 if a.get("editor_dimmed", false) else 1.0)
@@ -29,8 +30,10 @@ func _process(_delta: float) -> void:
 		elif highlighted:
 			color = Color.WHITE
 		var launch: float = maxf(0.0, 1.0 - a.escape_time / 0.22) if a.escaping else 0.0
-		var visible: PackedVector2Array = game.visible_points(a)
+		var visible: PackedVector2Array = game.rounded_points(a.points) if celebration >= 0.0 else game.visible_points(a)
 		update_stroke(strokes[i], visible, color, highlighted, maxf(maxf(a.release, launch * 0.5), 0.55 if a.get("editor_selected", false) else 0.0), a)
+		strokes[i].material.set_shader_parameter("completion_time", celebration)
+		strokes[i].material.set_shader_parameter("origin_y", strokes[i].position.y)
 		var movement := Vector2.ZERO
 		if a.flash > 0:
 			var time: float = 0.35 - a.flash
