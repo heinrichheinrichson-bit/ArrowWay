@@ -71,7 +71,7 @@ func run() -> void:
 	var studio: Window = scene.studio
 	await process_frame
 	studio.source = house
-	studio.analyze_image()
+	studio.analyze_image(true)
 	require(studio.busy and studio.actions[0].disabled, "Detection disables editing while running")
 	await wait_worker(studio)
 	require(studio.motif.palettes.size() == 5, "Studio applies detected regions")
@@ -108,9 +108,9 @@ func run() -> void:
 	studio.set_palette(CustomMotif.PALETTES["Gold"])
 	require(studio.paths[0].points == geometry and studio.paths[0].color == Color(CustomMotif.PALETTES["Gold"][0]), "Palette editing recolors paths without changing geometry")
 	studio.save_draft()
-	studio.load_draft()
+	studio.load_draft(true)
 	require(not studio.paths.is_empty() and studio.paths[0].points == geometry and studio.motif.palettes.size() == 5 and studio.motif.has("reference_png"), "Drafts retain editable areas, reference and the exact fill")
-	studio.fill()
+	studio.fill(true)
 	await wait_worker(studio)
 	studio.apply()
 	require(scene.testing and scene.shape_index == 6, "Imported motif enters actual play mode")
@@ -138,7 +138,7 @@ func run() -> void:
 	studio.close_studio()
 	scene.leave_editor()
 	require(scene.motif.is_empty() and scene.shape_index < 6, "Normal levels remain independent of custom masks")
-	for filename in ["custom_puzzle.json", "motif_draft.json", "progress.cfg"]:
+	for filename in ["custom_puzzle.json", "motif_draft.json", "progress.cfg", "editor_colors.json", "editor_backup.json"]:
 		DirAccess.remove_absolute(scene.storage_prefix + filename)
 	print("PASS detection, free masks, separator, palettes, threaded studio, real input, draft, export, play" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

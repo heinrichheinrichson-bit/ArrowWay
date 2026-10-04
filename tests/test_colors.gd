@@ -49,7 +49,7 @@ func run() -> void:
 	scene.open_studio()
 	var studio: Window = scene.studio
 	studio.source = preload("res://tests/image_fixtures.gd").sun()
-	studio.analyze_image()
+	studio.analyze_image(true)
 	await wait_worker(studio)
 	require(studio.motif.palettes.size() == 1 and CustomMotif.isolated(studio.motif).is_empty(), "Sun imports as a usable area")
 	studio.fill()
@@ -129,7 +129,7 @@ func run() -> void:
 	var restored := CustomMotif.decode(serialized)
 	require(restored.styles[0].mode == 3, "Region styles survive JSON")
 	studio.save_draft()
-	studio.load_draft()
+	studio.load_draft(true)
 	require(studio.paths[0].get("manual_color", false) and studio.paths[0].color == own_color and studio.paths[1].has("color_style"), "Drafts preserve gradients and individual overrides")
 	dialogue.target.select(2)
 	dialogue.refresh_target()
@@ -158,7 +158,7 @@ func run() -> void:
 		scene.click_at(scene.arrows[index].points[0])
 		scene._process(2)
 	require(scene.cleared == scene.arrows.size(), "Colored sun plays to completion")
-	for filename in ["custom_puzzle.json", "motif_draft.json", "progress.cfg"]:
+	for filename in ["custom_puzzle.json", "motif_draft.json", "progress.cfg", "editor_colors.json", "editor_backup.json"]:
 		DirAccess.remove_absolute(scene.storage_prefix + filename)
 	print("PASS gradients, suggestions, real arrow selection, pipettes, overrides, persistence, gameplay" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

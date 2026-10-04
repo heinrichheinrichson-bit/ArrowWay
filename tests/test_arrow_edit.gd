@@ -58,8 +58,9 @@ func run() -> void:
 	studio.apply()
 	require(not scene.testing and is_instance_valid(scene.studio), "An unfinished blocked puzzle stays editable instead of launching a broken game")
 	studio.save_draft()
-	studio.load_draft()
+	studio.load_draft(true)
 	require(studio.paths.size() == original_count + 2 and studio.paths[-1].color == Color("#ffa050"), "Unsolvable drafts still preserve hand-drawn arrows and colors")
+	studio.activate_tool(0)
 	studio.selected_arrow = studio.paths.size() - 1
 	studio.refresh()
 	var old_head: Vector2 = studio.paths[-1].points[-1]
@@ -87,7 +88,7 @@ func run() -> void:
 	require(studio.paths.size() == count_before - 1 and not studio.motif.cells.has(Vector2i(20, 0)), "Delete removes only the selected arrow and frees its cells")
 	studio.undo()
 	require(studio.paths.size() == count_before and studio.motif.cells.has(Vector2i(20, 0)), "Undo restores deleted geometry and motif cells together")
-	studio.tool = 9
+	studio.activate_tool(9)
 	mouse(studio, Vector2i(0, 0), true)
 	motion(studio, Vector2i(3, 3))
 	for i in range(1, studio.drawn_cells.size()):
@@ -96,6 +97,7 @@ func run() -> void:
 	key(studio, KEY_ESCAPE)
 	mouse(studio, Vector2i(3, 3), false)
 	require(studio.drawn_cells.is_empty() and studio.paths.size() == count_before, "Escape cancels a drawing without changing the motif")
+	studio.activate_tool(0)
 	studio.apply()
 	require(scene.testing and scene.arrows.size() == count_before, "Completed custom butterfly can be played")
 	scene.save_custom()
@@ -106,7 +108,7 @@ func run() -> void:
 		scene.click_at(scene.arrows[index].points[0])
 		scene._process(2)
 	require(scene.cleared == scene.arrows.size(), "Butterfly with both antennae plays to completion")
-	for filename in ["custom_puzzle.json", "motif_draft.json", "progress.cfg"]:
+	for filename in ["custom_puzzle.json", "motif_draft.json", "progress.cfg", "editor_colors.json", "editor_backup.json"]:
 		DirAccess.remove_absolute(scene.storage_prefix + filename)
 	print("PASS real drawing, mirrored antennae, delete, reverse, overlap checks, undo, draft, export and full play" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

@@ -120,7 +120,7 @@ static func decode_paths(value: Variant, motif: Dictionary, require_solution: bo
 		if not read_appearance(arrow, loaded):
 			return []
 		result.append(loaded)
-	if used.size() != motif.cells.size() or (require_solution and ArrowPuzzle.solution(result).size() != result.size()):
+	if require_solution and (used.size() != motif.cells.size() or ArrowPuzzle.solution(result).size() != result.size()):
 		return []
 	return result
 

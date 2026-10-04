@@ -51,17 +51,20 @@ func valid(cell: Vector2i) -> bool:
 func _gui_input(event: InputEvent) -> void:
 	if studio.busy:
 		return
+	if studio.view_mode: return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_DELETE:
 			studio.delete_arrow(); accept_event()
 		elif event.keycode == KEY_R:
 			studio.reverse_arrow(); accept_event()
 		elif event.keycode == KEY_ESCAPE:
-			dragging = false; studio.drawn_cells.clear(); refresh(); accept_event()
+			dragging = false; studio.show_overview(); accept_event()
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var cell := cell_at(event.position)
 		if event.pressed and valid(cell):
+			if studio.tool in [1, 2, 3, 4] and not studio.area_edit_allowed():
+				accept_event(); return
 			grab_focus()
 			first = cell
 			previous = cell
@@ -81,7 +84,8 @@ func _gui_input(event: InputEvent) -> void:
 				if studio.show_paths and studio.arrow_at(pos) >= 0:
 					studio.select_arrow_at(pos)
 				else:
-					studio.select_cell(cell)
+					if not studio.paths.is_empty(): studio.show_overview()
+					else: studio.select_cell(cell)
 			elif studio.tool == 8:
 				studio.select_cell(cell)
 			elif studio.tool == 4:
@@ -119,8 +123,9 @@ func _gui_input(event: InputEvent) -> void:
 func _draw() -> void:
 	draw_style_box(studio.canvas_style, Rect2(Vector2.ZERO, size))
 	var fit: Array = studio.motif.get("fit", [])
-	if reference != null and fit.size() == 4 and studio.show_reference:
+	if reference != null and fit.size() == 4 and studio.show_reference and not studio.view_mode:
 		draw_texture_rect(reference, Rect2(OFFSET + Vector2(fit[0], fit[1]) * STEP, Vector2(fit[2], fit[3]) * STEP), false, Color(1, 1, 1, 0.15))
+	if studio.view_mode or (not studio.paths.is_empty() and studio.tool not in [9, 10] and studio.pages.current_tab == 0): return
 	var lonely := CustomMotif.isolated(studio.motif)
 	for y in range(ArrowPuzzle.ROWS):
 		for x in range(ArrowPuzzle.COLS):
@@ -145,3 +150,8 @@ func _draw() -> void:
 	if studio.tool == 9 or studio.tool == 10:
 		var x: float = OFFSET.x + studio.mirror_axis * STEP
 		draw_dashed_line(Vector2(x, OFFSET.y), Vector2(x, OFFSET.y + (ArrowPuzzle.ROWS - 1) * STEP), Color("#65e5ff", 0.5), 1.0, 5.0)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		studio.show_overview()
+		get_viewport().set_input_as_handled()

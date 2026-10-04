@@ -16,23 +16,14 @@ Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze f
 
 Das Werkzeug ist für die Erstellung unserer Levels gedacht. Es gehört nicht zur Spieleroberfläche.
 
-Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path . -- --editor-tool` starten. Spiel und Werkzeug können in getrennten Fenstern laufen. Das Werkzeug öffnet jetzt automatisch die **Motivwerkstatt** für Bildimport und Flächenbearbeitung. **Bild & Flächen** öffnet sie später erneut. Die Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md); unter `examples/` liegen Hausumrisse, eine transparente Palme und eine gelbe Sonne zum Ausprobieren. **Farben & Verläufe · Vorschläge** erzeugt Schattierungen aus einer Grundfarbe; Nach dem Füllen einen Pfeil direkt anklicken und oben sein Farbfeld ändern. **Verläufe …** bietet Schattierungen für diesen Pfeil; Pipetten übernehmen vorhandene Farben.
+Unter Windows `Level-Werkzeug.cmd` doppelklicken. Die **Motivwerkstatt** öffnet das aktuelle Motiv mit seiner Pfeilfüllung. Im normalen Spiel sind diese Werkzeuge nicht sichtbar.
 
-## Eigenes Puzzle bauen
+1. **Öffnen → Bild, Motiv oder Level-Datei** lädt eine Vorlage oder ein vorhandenes ArrowWay-Motiv. Zum Übernehmen eines früher lokal gespeicherten Entwurfs **Öffnen → Letzten lokalen Entwurf laden** wählen.
+2. **Pfeile & Farben** dient zur Auswahl und Farbgestaltung einzelner Pfeile. Zuletzt verwendete Farben sind direkt sichtbar. **Gesamtansicht / Esc** zeigt das ganze Motiv ohne Hervorhebung.
+3. Unter **Vorlage & Flächen** neue Bereiche malen. Bestehende Pfeile bleiben erhalten. **Freie Flächen mit Pfeilen füllen** ergänzt nur ungefüllte Stellen.
+4. Die Werkzeuge oben zeichnen, löschen und spiegeln eigene Pfeile oder setzen ihre Spitze ans gewünschte Ende.
+5. **Speichern** sichert einen benannten JSON-Entwurf. **Im Spiel testen** prüft vollständige Füllung und Lösbarkeit und startet das Puzzle.
 
-1. Im Level-Werkzeug oben Haus, Weihnachtsbaum, Herz, Schmetterling, Fisch oder Blume wählen.
-2. **Füllen** erzeugt eine neue vollständige, lösbare Füllung und verflechtet die Pfade miteinander. Jeder Klick erzeugt eine andere Variante; die Prüfung braucht einen kurzen Moment.
-3. Mit **Auswahl** einen Pfad anklicken. **Drehen** kehrt seine Pfeilrichtung um; **Zurück** entfernt ihn.
-4. Mit **Leer** kannst du von einer leeren Schablone starten.
-5. **Zeichnen** wählen und Rasterpunkte anklicken. Das Programm verbindet sie rechtwinklig; bei schräg liegenden Klicks erst horizontal, dann vertikal.
-6. **Fertig** oder Enter schließt den Pfad ab. Rücktaste nimmt den letzten Punkt zurück; Escape verwirft die angefangene Linie.
-7. **Prüfen** testet die Lösbarkeit. Bei einer Blockade werden die nach den möglichen Zügen verbleibenden Pfade rot markiert.
-8. **Testen** startet das Puzzle; **Im Editor** bringt dich zur bearbeitbaren Version zurück.
-9. **Speichern** sichert einen Entwurf lokal; **Laden** öffnet ihn wieder im Werkzeug.
-10. **Export** schreibt eine fertige JSON-Datei. Im Projekt liegen die neun Spielslots `levels/01.json` bis `levels/09.json`. Exportiere in einen dieser Slots und starte das Spiel neu, um das Motiv dort zu spielen. Der Titel wird aus der Leveldatei übernommen.
+Die vollständige Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md). Unter `examples/` liegen Vorlagen zum Ausprobieren. Die Spielslots befinden sich in `levels/01.json` bis `levels/09.json`; fertige Motive können nach dem Spieltest über die Exportfunktion in einen Slot geschrieben werden.
 
-Es gibt aktuell einen lokalen Speicherplatz für Entwürfe. Neue Speicherung ersetzt diesen Platz. Änderungen werden erst durch **Speichern** oder **Export** dauerhaft gesichert. Der Wechsel der Schablone ersetzt die aktuellen Pfade.
-
-Spielstände liegen unter `%APPDATA%\Godot\app_userdata\ArrowWay\`. Tests verwenden separate Dateien mit dem Präfix `test_`.
-
-**Pfeile bearbeiten** öffnet die Werkzeuge für Zeichnen, Löschen, Pfeilrichtung und gespiegelte Ergänzungen. Erst automatisch füllen, dann eigene Details ergänzen.
+Spielstände und lokale Sicherungen liegen unter `%APPDATA%\Godot\app_userdata\ArrowWay\`. Tests verwenden separate Dateien mit dem Präfix `test_`.

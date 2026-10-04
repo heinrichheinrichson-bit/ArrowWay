@@ -474,6 +474,8 @@ func open_studio() -> void:
 	if not studio_draft.is_empty():
 		initial = studio_draft.motif.duplicate(true)
 		studio.set("paths", clone_data(studio_draft.paths))
+	else:
+		studio.set("paths", clone_data(arrows))
 	studio.set("motif", initial)
 	add_child(studio)
 	studio.popup_centered(Vector2i(1040, 800))

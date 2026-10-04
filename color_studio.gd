@@ -192,6 +192,7 @@ func apply_colors() -> void:
 	studio.remember()
 	decorate(studio.motif, studio.paths)
 	studio.refresh()
+	studio.remember_color(base.color)
 	notice.text = "Farben übernommen. Die Pfeilgeometrie bleibt erhalten; Rückgängig ist in der Werkstatt verfügbar."
 
 func reset_overrides() -> void:
