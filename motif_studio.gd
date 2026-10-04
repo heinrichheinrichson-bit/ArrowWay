@@ -26,6 +26,7 @@ var worker: Thread
 var filling := false
 var seed_value := 8900
 var selected_arrow := -1
+var palette_label: Label
 var arrow_label: Label
 var arrow_color: ColorPickerButton
 var arrow_styles: Button
@@ -121,7 +122,10 @@ func _ready() -> void:
 	sidebar.add_child(row)
 	add_row_button(row, "Neue Fläche", new_region)
 	add_row_button(row, "Rückgängig", undo)
-	add_label(sidebar, "NEONPALETTE DER FLÄCHE")
+	palette_label = Label.new()
+	palette_label.add_theme_font_size_override("font_size", 12)
+	palette_label.modulate = Color("#91b4cf")
+	sidebar.add_child(palette_label)
 	var palette := OptionButton.new()
 	palette_picker = palette
 	palette.add_item("Individuelle Palette")
@@ -231,7 +235,11 @@ func refresh() -> void:
 	regions.select(regions.get_item_index(selected))
 	name_field.text = motif.names.get(selected, "")
 	title_field.text = motif.get("title", "Eigenes Motiv")
+	palette_label.text = "FARBEN FÜR PFEIL %d" % (selected_arrow + 1) if selected_arrow >= 0 else "NEONPALETTE DER FLÄCHE"
 	var palette: Array = motif.palettes.get(selected, ["#65e5ff"])
+	if selected_arrow >= 0:
+		var arrow: Dictionary = paths[selected_arrow]
+		palette = arrow.color_style.colors if arrow.has("color_style") else [arrow.color.to_html(false)]
 	palette_picker.select(0)
 	for index in range(CustomMotif.PALETTES.size()):
 		var preset: Array = CustomMotif.PALETTES.values()[index]
@@ -310,6 +318,19 @@ func new_region() -> void:
 	update_notice()
 
 func set_palette(colors: Array) -> void:
+	if busy:
+		return
+	if selected_arrow >= 0:
+		remember()
+		var arrow: Dictionary = paths[selected_arrow]
+		arrow.color_style = {"mode": 2, "colors": colors.duplicate(), "strength": 0.55, "bounds": MotifColors.bounds_of_path(arrow.points)}
+		arrow.manual_color = true
+		arrow.color = Color(colors[1])
+		refresh()
+		if is_instance_valid(color_dialogue):
+			color_dialogue.target.select(1)
+			color_dialogue.refresh_target()
+		return
 	remember()
 	motif.palettes[selected] = colors.duplicate()
 	motif.get("styles", {}).erase(selected)
@@ -317,6 +338,11 @@ func set_palette(colors: Array) -> void:
 	refresh()
 
 func change_color(index: int, color: Color) -> void:
+	if busy:
+		return
+	if selected_arrow >= 0:
+		change_arrow_color(color)
+		return
 	remember()
 	var palette: Array = motif.palettes[selected].duplicate()
 	while palette.size() < 3:

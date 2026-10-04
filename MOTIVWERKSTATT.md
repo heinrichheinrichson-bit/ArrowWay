@@ -67,3 +67,5 @@ godot --headless --path . --script res://tests/test_import.gd -- --test
 ```
 
 Die Importtests prüfen Hausumrisse, eine farbige transparente Palme, leere Vorlagen und schwarze Silhouetten. Sie prüfen vollständige Füllung, Flächengrenzen, Paletten, Trennung ohne verlorene Rasterpunkte, echte Mauseingaben, Hintergrundberechnung, Rückgängig, Speichern/Laden und einen vollständigen Spieltest des importierten Motivs. Testdateien sind von normalen Entwürfen und Spielständen getrennt.
+
+Bei ausgewähltem Pfeil zeigen auch die Farbfelder rechts **FARBEN FÜR PFEIL …**. Sowohl diese Farbfelder als auch die Palettenauswahl bearbeiten dann ausschließlich diesen Pfeil. Seine eigene Farbe wird unabhängig von der Flächenpalette gespeichert.
