@@ -24,6 +24,6 @@ Unter Windows `Level-Werkzeug.cmd` doppelklicken. Die **Motivwerkstatt** öffnet
 4. Die Werkzeuge oben zeichnen, löschen und spiegeln eigene Pfeile oder setzen ihre Spitze ans gewünschte Ende.
 5. **Speichern** sichert einen benannten JSON-Entwurf. **Im Spiel testen** prüft vollständige Füllung und Lösbarkeit und startet das Puzzle.
 
-Die vollständige Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md). Unter `examples/` liegen Vorlagen zum Ausprobieren. Die Spielslots befinden sich in `levels/01.json` bis `levels/09.json`; fertige Motive können nach dem Spieltest über die Exportfunktion in einen Slot geschrieben werden.
+Die vollständige Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md). Unter `examples/` liegen Vorlagen zum Ausprobieren. Nach dem Spieltest **Export** wählen und einen eigenen JSON-Dateinamen im Ordner `levels/` speichern. **ArrowWay.cmd** starten und **Alle Levels** öffnen: zusätzliche Exporte erscheinen automatisch als direkt spielbare eigene Motive. Die ursprünglichen neun Spielslots müssen nicht ersetzt werden.
 
 Spielstände und lokale Sicherungen liegen unter `%APPDATA%\Godot\app_userdata\ArrowWay\`. Tests verwenden separate Dateien mit dem Präfix `test_`.

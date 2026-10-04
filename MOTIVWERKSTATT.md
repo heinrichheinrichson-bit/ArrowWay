@@ -1,4 +1,4 @@
-# Motivwerkstatt · 0.10.0
+# Motivwerkstatt · 0.10.1
 
 Die Werkstatt öffnet das aktuelle Motiv mitsamt seinen Pfeilen. Oben stehen die direkten Werkzeuge **Auswählen**, **Zeichnen**, **Löschen**, **Spitze wählen** und **Spiegeln**. Rechts gibt es zwei getrennte Bereiche: **Pfeile & Farben** und **Vorlage & Flächen**.
 
@@ -51,3 +51,9 @@ Das Öffnen eines anderen Motivs oder eine neue Bilderkennung fragt nach, bevor 
 **Im Spiel testen** startet nur vollständig gefüllte und lösbare Motive. Unfertige oder noch blockierte Entwürfe dürfen trotzdem gespeichert werden. Für den Export in einen Spielslot steht nach dem Test die Exportfunktion des Level-Werkzeugs bereit.
 
 **Alle Pfeile neu erzeugen** befindet sich im Bereich **Vorlage & Flächen** und verlangt eine ausdrückliche Bestätigung. Nur diese komplette Neufüllung ersetzt auch handgezeichnete Details.
+
+## Exportierte Motive im echten Spiel
+
+Nach **Im Spiel testen** im Level-Werkzeug **Export** wählen und die fertige JSON-Datei im Projektordner `levels/` speichern. Ein eigener Dateiname ist erlaubt; ein bestehendes Level muss nicht ersetzt werden. **ArrowWay.cmd** ist der richtige Spielstarter. Über **Alle Levels** oder die Levelauswahl erscheinen zusätzliche gültige Exporte als sofort spielbare eigene Motive. Das erneute Öffnen der Übersicht liest neue Dateien ein. Ein Spiel, das noch mit einer älteren Version läuft, muss einmal neu gestartet werden.
+
+**Speichern** in der Motivwerkstatt sichert einen bearbeitbaren Entwurf. **Export** nach dem Spieltest schreibt dagegen die spielbare Leveldatei. JSON-Dateien außerhalb von `levels/` erscheinen nicht automatisch im Spiel.

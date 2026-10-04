@@ -3,6 +3,9 @@ extends Node2D
 const SPEED := 950.0
 const TITLES := ["Erste Lichtung", "Herzenswege", "Das erste Haus", "Winterlabyrinth", "Herzklopfen", "Haus bei Nacht", "Flügeltanz", "Meerespause", "Neonblüte"]
 const SHAPES := [1, 2, 0, 1, 2, 0, 3, 4, 5]
+var level_files: Array[String] = []
+var catalog_directory := "res://levels"
+var scan_user_exports := not OS.get_cmdline_user_args().has("--test")
 var arrows: Array[Dictionary] = []
 var editor_data: Array[Dictionary] = []
 var draft := PackedVector2Array()
@@ -47,6 +50,7 @@ static func escape_distance(time: float) -> float:
 	return SPEED * (time - RAMP * 0.5)
 
 func _ready() -> void:
+	get_window().title = "ArrowWay · " + str(ProjectSettings.get_setting("application/config/version", "")) + (" · Level-Werkzeug" if authoring else "")
 	feedback = FeedbackAudio.new()
 	add_child(feedback)
 	var preferences := ConfigFile.new()
@@ -75,6 +79,7 @@ func _ready() -> void:
 		box.set_content_margin_all(6)
 		theme.set_stylebox(state, "Button", box)
 		theme.set_stylebox(state, "OptionButton", box)
+	discover_levels()
 	var config := ConfigFile.new()
 	if config.load(storage_prefix + "progress.cfg") == OK:
 		unlocked = clampi(int(config.get_value("game", "unlocked", 0)), 0, TITLES.size() - 1)
@@ -82,6 +87,16 @@ func _ready() -> void:
 		for index in config.get_value("game", "completed", range(unlocked)):
 			if index is int and index >= 0 and index < TITLES.size() and not completed.has(index):
 				completed.append(index)
+		var custom_path: String = config.get_value("game", "custom_level", "")
+		if level_files.has(custom_path): level = level_files.find(custom_path)
+		for path in config.get_value("game", "completed_custom", []):
+			var index := level_files.find(str(path))
+			if index >= TITLES.size() and not completed.has(index): completed.append(index)
+	var startup_args := OS.get_cmdline_user_args()
+	var requested := startup_args.find("--play-level")
+	if requested >= 0 and requested + 1 < startup_args.size():
+		var requested_index := level_files.find(startup_args[requested + 1])
+		if requested_index >= 0 and level_available(requested_index): level = requested_index
 	var ui := CanvasLayer.new()
 	add_child(ui)
 	panel = Control.new()
@@ -103,9 +118,51 @@ func button(label: String, x: float, y: float, width: float, action: Callable) -
 	controls.append(b)
 	return b
 
+func level_count() -> int:
+	return level_files.size() if not level_files.is_empty() else TITLES.size()
+
+func level_path(index: int) -> String:
+	return level_files[index] if index < level_files.size() else "res://levels/%02d.json" % (index + 1)
+
+func level_shape(index: int) -> int:
+	return SHAPES[index] if index < SHAPES.size() else 1
+
+func level_available(index: int) -> bool:
+	return index >= TITLES.size() or index <= unlocked
+
+func discover_levels(include_user_exports: bool = true, directory: String = "") -> void:
+	if directory.is_empty(): directory = catalog_directory
+	var current_path := level_path(level) if not level_files.is_empty() else ""
+	var completed_paths: Array[String] = []
+	for index in completed:
+		if index >= TITLES.size() and index < level_files.size(): completed_paths.append(level_files[index])
+	level_files.clear()
+	for index in range(TITLES.size()): level_files.append(directory.path_join("%02d.json" % (index + 1)))
+	if include_user_exports and scan_user_exports:
+		var files := Array(DirAccess.get_files_at(directory))
+		files.sort_custom(func(a: String, b: String): return a.naturalnocasecmp_to(b) < 0)
+		for filename in files:
+			var path := directory.path_join(filename)
+			if filename.get_extension().to_lower() != "json" or level_files.has(path): continue
+			var data = JSON.parse_string(FileAccess.get_file_as_string(path))
+			if not data is Dictionary or (data.get("version") != 1 and data.get("version") != 2) or not (data.get("shape") is int or data.get("shape") is float): continue
+			var shape := int(data.shape)
+			if float(data.shape) != shape or shape < 0 or shape > 6: continue
+			var imported := CustomMotif.decode(data.get("motif")) if shape == 6 else CustomMotif.from_shape(shape)
+			if imported.is_empty() or CustomMotif.decode_paths(data.get("paths"), imported).is_empty(): continue
+			level_files.append(path)
+	level = level_files.find(current_path) if level_files.has(current_path) else mini(level, TITLES.size() - 1)
+	var retained: Array[int] = []
+	for index in completed:
+		if index < TITLES.size(): retained.append(index)
+	for path in completed_paths:
+		if level_files.has(path): retained.append(level_files.find(path))
+	completed = retained
+
 func level_title(index: int) -> String:
-	var data = JSON.parse_string(FileAccess.get_file_as_string("res://levels/%02d.json" % (index + 1)))
-	return str(data.get("title", TITLES[index])).left(80) if data is Dictionary else TITLES[index]
+	var fallback: String = TITLES[index] if index < TITLES.size() else level_path(index).get_file().get_basename()
+	var data = JSON.parse_string(FileAccess.get_file_as_string(level_path(index)))
+	return str(data.get("title", fallback)).left(80) if data is Dictionary else fallback
 
 func build_controls() -> void:
 	for c in controls:
@@ -156,9 +213,9 @@ func build_controls() -> void:
 		level_picker = picker
 		picker.position = Vector2(30, 101)
 		picker.size = Vector2(330, 37)
-		for i in range(TITLES.size()):
+		for i in range(level_count()):
 			picker.add_item("%02d / %s" % [i + 1, level_title(i)])
-			picker.set_item_disabled(i, i > unlocked)
+			picker.set_item_disabled(i, not level_available(i))
 		picker.select(level)
 		if testing and shape_index == 6:
 			picker.set_item_text(level, "Test / " + str(motif.get("title", "Eigenes Motiv")))
@@ -184,7 +241,7 @@ func close_gallery() -> void:
 	gallery = null
 
 func select_gallery_level(index: int) -> void:
-	if index < 0 or index > unlocked or index >= TITLES.size():
+	if index < 0 or index >= level_count() or not level_available(index):
 		return
 	close_gallery()
 	if index != level:
@@ -194,6 +251,7 @@ func select_gallery_level(index: int) -> void:
 		save_progress()
 
 func open_gallery() -> void:
+	discover_levels()
 	if editor or testing or is_instance_valid(gallery):
 		return
 	gallery = Control.new()
@@ -210,7 +268,7 @@ func open_gallery() -> void:
 	heading.add_theme_font_size_override("font_size", 24)
 	gallery.add_child(heading)
 	var progress := Label.new()
-	progress.text = "%d / %d Puzzles geschafft · Dein Tempo zählt" % [completed.size(), TITLES.size()]
+	progress.text = "%d / %d Puzzles geschafft · Dein Tempo zählt" % [completed.size(), level_count()]
 	progress.position = Vector2(30, 73)
 	progress.add_theme_font_size_override("font_size", 14)
 	gallery.add_child(progress)
@@ -224,17 +282,17 @@ func open_gallery() -> void:
 	grid.add_theme_constant_override("h_separation", 12)
 	grid.add_theme_constant_override("v_separation", 12)
 	scroll.add_child(grid)
-	for index in range(TITLES.size()):
+	for index in range(level_count()):
 		var card := Button.new()
 		card.set_script(load("res://level_card.gd"))
 		card.custom_minimum_size = Vector2(228, 170)
 		card.set("number", index)
 		card.set("title", level_title(index))
-		card.set("subtitle", MOODS[index])
+		card.set("subtitle", MOODS[index] if index < MOODS.size() else "Eigenes Motiv · " + level_path(index).get_file())
 		card.set("selected", index == level)
 		card.set("complete", completed.has(index))
-		card.disabled = index > unlocked
-		var document = JSON.parse_string(FileAccess.get_file_as_string("res://levels/%02d.json" % (index + 1)))
+		card.disabled = not level_available(index)
+		var document = JSON.parse_string(FileAccess.get_file_as_string(level_path(index)))
 		var thumbnail: Array[Dictionary] = []
 		if document is Dictionary:
 			for path in document.paths:
@@ -268,11 +326,11 @@ func reset() -> void:
 	win_time = -1.0
 	display_progress = 0.0
 	if not testing:
-		shape_index = SHAPES[level]
+		shape_index = level_shape(level)
 	if testing:
 		arrows = clone_data(editor_data)
-	elif not read_custom("res://levels/%02d.json" % (level + 1)):
-		arrows = ArrowPuzzle.generate(SHAPES[level], 4817 + level * 173)
+	elif not read_custom(level_path(level)):
+		arrows = ArrowPuzzle.generate(level_shape(level), 4817 + level * 173)
 	cleared = 0
 	mistakes = 0
 	clock_time = 0.0
@@ -293,6 +351,11 @@ func save_progress() -> void:
 	config.set_value("game", "unlocked", unlocked)
 	config.set_value("game", "level", level)
 	config.set_value("game", "completed", completed)
+	config.set_value("game", "custom_level", level_path(level) if level >= TITLES.size() else "")
+	var custom_completed: Array[String] = []
+	for index in completed:
+		if index >= TITLES.size() and index < level_files.size(): custom_completed.append(level_path(index))
+	config.set_value("game", "completed_custom", custom_completed)
 	config.save(storage_prefix + "progress.cfg")
 
 func toggle_sound() -> void:
@@ -303,11 +366,11 @@ func toggle_sound() -> void:
 	preferences.save(storage_prefix + "settings.cfg")
 
 func advance() -> void:
-	if level == TITLES.size() - 1:
+	if level == TITLES.size() - 1 or level == level_count() - 1:
 		open_gallery()
 		return
-	level = level + 1 if level < TITLES.size() - 1 else 0
-	unlocked = maxi(unlocked, level)
+	level += 1
+	if level < TITLES.size(): unlocked = maxi(unlocked, level)
 	save_progress()
 	reset()
 
@@ -336,11 +399,11 @@ func _process(delta: float) -> void:
 					detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
 					next_button.visible = true
 					if not testing:
-						if level == TITLES.size() - 1:
+						if level == TITLES.size() - 1 or level == level_count() - 1:
 							next_button.text = "Zur Levelübersicht"
 						if not completed.has(level):
 							completed.append(level)
-						unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
+						if level < TITLES.size(): unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
 						level_picker.set_item_disabled(unlocked, false)
 						save_progress()
 	if not editor and cleared < arrows.size():
@@ -612,7 +675,7 @@ func level_document() -> Dictionary:
 		var item := {"points": points, "color": a.color.to_html()}
 		MotifColors.copy_appearance(a, item)
 		paths.append(item)
-	var document := {"version": 1, "shape": shape_index, "title": TITLES[level], "paths": paths}
+	var document := {"version": 1, "shape": shape_index, "title": level_title(level), "paths": paths}
 	if shape_index == 6:
 		document.version = 2
 		document.title = motif.get("title", "Eigenes Motiv")
@@ -638,14 +701,15 @@ func export_level() -> void:
 	dialog.access = FileDialog.ACCESS_FILESYSTEM
 	dialog.filters = PackedStringArray(["*.json ; ArrowWay Level"])
 	dialog.current_dir = ProjectSettings.globalize_path("res://levels")
-	dialog.current_file = "%02d.json" % (level + 1)
+	dialog.current_file = str(motif.get("title", "Eigenes Motiv")).validate_filename() + ".json" if shape_index == 6 else "%02d.json" % (level + 1)
 	dialog.title = "Level für das Spiel exportieren"
 	add_child(dialog)
 	dialog.file_selected.connect(func(path: String):
 		var file := FileAccess.open(path, FileAccess.WRITE)
 		if file != null:
 			file.store_string(JSON.stringify(level_document(), "\t"))
-			status = "Level exportiert. Das Spiel lädt es beim nächsten Start."
+			status = "Exportiert: " + path.get_file()
+			detail = "Im Spiel: Alle Levels → Eigenes Motiv. Die Übersicht liest neue Exporte automatisch ein." if path.get_base_dir() == ProjectSettings.globalize_path("res://levels").trim_suffix("/") else "Für das Spiel die JSON-Datei im Projektordner levels speichern."
 		else:
 			status = "Export fehlgeschlagen."
 		dialog.queue_free())
