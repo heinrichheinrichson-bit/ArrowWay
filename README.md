@@ -8,10 +8,10 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.3.0
+## Aktueller Stand · 0.3.1
 
 - Sechs Levels mit 33–41 Pfaden, jeweils vollständig gefüllten Motiven und mehreren Pfeilrichtungen.
-- Gerundete Kurven, mehrschichtiger Neon-Leuchtsaum und heller Linienkern.
+- Gerundete Kurven und ein durchgehend berechneter Neon-Leuchtsaum mit hellem Linienkern. Linien und Pfeilspitzen teilen dieselbe Darstellung; dadurch entstehen keine Flecken durch überlagerte Teilflächen.
 - Motivfarben: grüner Baum mit braunem Stamm, Haus mit warmem Dach, blauen Wänden, hellen Fenstern und violetter Tür; Herz in Pink- und Rottönen.
 - Entkommensanimation entlang der gerundeten Linie, Blockierungsfeedback und Hinweise.
 - Levelauswahl, Fortschrittsanzeige und lokal gespeicherte Freischaltungen.
@@ -26,7 +26,8 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 - `motifs.gd`: gleichmäßige vollständige Füllung, Motivbereiche und Neonpaletten.
 - `levels/`: sechs fertige, reproduzierbar erzeugte und geprüfte Leveldateien.
 - `main.gd`: Spielzustand, gerundete Animation, Benutzeroberfläche, Werkzeugmodus und Speicherung.
-- `board.gd`: Darstellung der Pfade innerhalb des Spielfelds.
+- `board.gd`: Darstellung der Pfade innerhalb des Spielfelds und wiederverwendbare Zeichenflächen.
+- `neon.gdshader`: zusammenhängende Kontur und weicher Leuchtsaum für Pfad und Pfeilspitze; Kantenglättung berücksichtigt die Bildschirmauflösung.
 - `tests/test_runner.gd`: Spiellogik und Editorintegration.
 
 Die Formen bestehen aus Rasterzellen mit 14 Pixeln Abstand. Der Generator füllt Motivbereiche mit ineinandergreifenden horizontalen und vertikalen Schleifen. Randzellen werden angeschlossen, ohne andere Zellen zu duplizieren. Unvollständige oder unlösbare Varianten werden verworfen. Alle sechs gelieferten Motive sind zu 100 Prozent belegt. Alle Pfade bestehen aus echten Punktfolgen; die Darstellung und Animation runden die Ecken mit kleinen Kreisbögen ab. Die Blockierungsprüfung berücksichtigt auch parallele Linien, Linienenden und die eigene Pfadgeometrie.

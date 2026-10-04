@@ -1,5 +1,6 @@
 * text=auto
 *.gd text eol=lf
+*.gdshader text eol=lf
 *.godot text eol=lf
 *.tscn text eol=lf
 *.md text eol=lf

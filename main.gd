@@ -506,41 +506,6 @@ func rounded_points(source: PackedVector2Array) -> PackedVector2Array:
 func text_at(text: String, pos: Vector2, size: int, color: Color, width: float = -1) -> void:
 	draw_string(ThemeDB.fallback_font, pos, text, HORIZONTAL_ALIGNMENT_LEFT if width < 0 else HORIZONTAL_ALIGNMENT_CENTER, width, size, color)
 
-func draw_arrow(p: PackedVector2Array, color: Color, highlight: bool, canvas: CanvasItem) -> void:
-	if p.size() < 2:
-		for point in p:
-			canvas.draw_circle(point, 4, color)
-		return
-	for halo in [[26.0, 0.008], [20.0, 0.015], [15.0, 0.03], [11.0, 0.055], [7.0, 0.16]]:
-		canvas.draw_polyline(p, Color(color, halo[1]), halo[0], true)
-	if highlight:
-		canvas.draw_polyline(p, Color(color, 0.22), 19.0 + sin(clock_time * 6.0) * 3, true)
-	canvas.draw_polyline(p, color, 4.2, true)
-	canvas.draw_polyline(p, Color(color.lerp(Color.WHITE, 0.32), 0.75), 1.2, true)
-	canvas.draw_circle(p[0], 2.1, color)
-	var direction := (p[-1] - p[-2]).normalized()
-	var side := direction.orthogonal()
-	var head := PackedVector2Array([p[-1] + direction * 4.8, p[-1] - direction * 4.0 + side * 4.4, p[-1] - direction * 2.0, p[-1] - direction * 4.0 - side * 4.4])
-	canvas.draw_colored_polygon(head, color)
-	canvas.draw_circle(p[-1], 1.4, color.lerp(Color.WHITE, 0.45))
-
-func draw_paths(canvas: CanvasItem) -> void:
-	if editor:
-		for cell: Vector2i in ArrowPuzzle.mask(shape_index):
-			canvas.draw_circle(ArrowPuzzle.pixel(cell), 1.7, Color("#334d68"))
-	for index in range(arrows.size()):
-		var a := arrows[index]
-		if a.removed:
-			continue
-		var color: Color = a.color
-		if a.flash > 0:
-			color = Color("#ff536b")
-		elif a.hint > 0 or (editor and index == selected):
-			color = Color.WHITE
-		draw_arrow(visible_points(a), color, a.hint > 0 or (editor and index == selected), canvas)
-	if editor:
-		draw_arrow(draft, Color.WHITE, true, canvas)
-
 func _draw() -> void:
 	var box := StyleBoxFlat.new()
 	box.bg_color = Color("#080d18")
