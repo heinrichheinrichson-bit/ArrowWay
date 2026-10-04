@@ -1,5 +1,20 @@
 extends RefCounted
 
+static func sun() -> Image:
+	var image := Image.create(320, 320, false, Image.FORMAT_RGBA8)
+	image.fill(Color.TRANSPARENT)
+	for y in range(320):
+		for x in range(320):
+			var point := Vector2(x - 160, y - 160)
+			var inside := point.length() <= 75
+			for ray in range(8):
+				var direction := Vector2.from_angle(ray * TAU / 8.0)
+				var projection := point.dot(direction)
+				inside = inside or (projection >= 65 and projection <= 130 and absf(point.cross(direction)) <= 14)
+			if inside:
+				image.set_pixel(x, y, Color("#ffdf3a"))
+	return image
+
 static func outline_house() -> Image:
 	var image := Image.create(320, 360, false, Image.FORMAT_RGBA8)
 	image.fill(Color.WHITE)
@@ -32,4 +47,3 @@ static func colored_palm() -> Image:
 				if Geometry2D.is_point_in_polygon(Vector2(x, y), polygon):
 					image.set_pixel(x, y, Color("#28a85a"))
 	return image
-

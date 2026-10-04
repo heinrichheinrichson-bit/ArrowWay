@@ -25,9 +25,11 @@ var source: Image
 var worker: Thread
 var filling := false
 var seed_value := 8900
+var selected_arrow := -1
+var color_dialogue: Window
 
 func _ready() -> void:
-	title = "ArrowWay · Motivwerkstatt"
+	title = "ArrowWay · Motivwerkstatt · " + str(ProjectSettings.get_setting("application/config/version", ""))
 	size = Vector2i(1040, 800)
 	min_size = size
 	unresizable = true
@@ -89,7 +91,7 @@ func _ready() -> void:
 	sidebar.add_child(name_field)
 	var tools := OptionButton.new()
 	tool_picker = tools
-	for text in ["Fläche auswählen", "Fläche malen", "Radieren", "Fläche mit Linie trennen", "Angeklickte Fläche zusammenführen"]:
+	for text in ["Fläche auswählen", "Fläche malen", "Radieren", "Fläche mit Linie trennen", "Angeklickte Fläche zusammenführen", "Pfeil auswählen", "Pipette · Pfeil / Fläche", "Pipette · Bildvorlage"]:
 		tools.add_item(text)
 	tools.item_selected.connect(func(index: int): tool = index; update_notice())
 	sidebar.add_child(tools)
@@ -119,6 +121,7 @@ func _ready() -> void:
 		colors.add_child(swatch)
 		swatches.append(swatch)
 		actions.append(swatch)
+	add_row_button(sidebar, "Farben & Verläufe · Vorschläge", open_colors)
 	add_label(sidebar, "LINIENERKENNUNG · HELL / DUNKEL")
 	threshold = HSlider.new()
 	threshold.min_value = 0.15
@@ -189,6 +192,10 @@ func undo() -> void:
 	update_notice()
 
 func refresh() -> void:
+	if selected_arrow >= paths.size():
+		selected_arrow = -1
+	for index in range(paths.size()):
+		paths[index]["editor_selected"] = index == selected_arrow
 	regions.clear()
 	for part in motif.palettes:
 		regions.add_item(motif.names.get(part, "Fläche %d" % part), part)
@@ -211,16 +218,20 @@ func refresh() -> void:
 	canvas.refresh()
 
 func update_notice() -> void:
-	var tips := ["Klicke eine Fläche an, um ihren Namen und ihre Palette zu ändern.", "Ziehe mit gedrückter Maustaste: Punkte gehören zur ausgewählten Fläche.", "Ziehe über Punkte, die nicht zum Motiv gehören sollen.", "Ziehe eine Linie durch die ausgewählte Fläche. Die Trennung erzeugt neue Bereiche ohne Lücke.", "Wähle zuerst die Zielfläche. Klicke dann die Fläche an, die dazugehören soll."]
+	var tips := ["Klicke eine Fläche an, um ihren Namen und ihre Palette zu ändern.", "Ziehe mit gedrückter Maustaste: Punkte gehören zur ausgewählten Fläche.", "Ziehe über Punkte, die nicht zum Motiv gehören sollen.", "Ziehe eine Linie durch die ausgewählte Fläche. Die Trennung erzeugt neue Bereiche ohne Lücke.", "Wähle zuerst die Zielfläche. Klicke dann die Fläche an, die dazugehören soll.", "Klicke einen Pfeil an. Farben & Verläufe bietet eigene Farben und Vorschläge.", "Klicke einen Pfeil oder eine Fläche, um ihre Farbe zu übernehmen.", "Klicke auf eine Farbe der eingeblendeten Bildvorlage."]
 	var lonely := CustomMotif.isolated(motif)
 	notice.text = "%d Rasterpunkte · %d Flächen. %s" % [motif.cells.size(), motif.palettes.size(), tips[tool]]
 	if not lonely.is_empty():
 		notice.text = "%d zu kleine Einzelpunkte sind rot markiert. Verbinde, verbreitere oder entferne sie vor dem Füllen." % lonely.size()
 
 func select_cell(cell: Vector2i) -> void:
+	selected_arrow = -1
 	if motif.cells.has(cell):
 		selected = motif.cells[cell]
 		refresh()
+		if is_instance_valid(color_dialogue):
+			color_dialogue.target.select(0)
+			color_dialogue.refresh_target()
 	update_notice()
 
 func paint_cells(cells: Array[Vector2i]) -> void:
@@ -231,13 +242,13 @@ func paint_cells(cells: Array[Vector2i]) -> void:
 			motif.cells.erase(cell)
 		else:
 			motif.cells[cell] = selected
-	paths.clear()
+	clear_paths()
 	canvas.refresh()
 	update_notice()
 
 func split_cells(barrier: Array[Vector2i]) -> void:
 	if CustomMotif.split(motif, selected, barrier):
-		paths.clear()
+		clear_paths()
 		refresh()
 		update_notice()
 	else:
@@ -253,7 +264,8 @@ func merge_cell(cell: Vector2i) -> void:
 			motif.cells[point] = selected
 	motif.palettes.erase(part)
 	motif.names.erase(part)
-	paths.clear()
+	motif.get("styles", {}).erase(part)
+	clear_paths()
 	refresh()
 	update_notice()
 
@@ -273,6 +285,7 @@ func new_region() -> void:
 func set_palette(colors: Array) -> void:
 	remember()
 	motif.palettes[selected] = colors.duplicate()
+	motif.get("styles", {}).erase(selected)
 	recolor()
 	refresh()
 
@@ -283,14 +296,78 @@ func change_color(index: int, color: Color) -> void:
 		palette.append(palette[-1])
 	palette[index] = color.to_html(false)
 	motif.palettes[selected] = palette
+	if motif.get("styles", {}).has(selected):
+		motif.styles[selected].colors = palette.duplicate()
 	recolor()
 	palette_picker.select(0)
 	canvas.refresh()
 
 func recolor() -> void:
+	MotifColors.apply(motif, paths)
+
+func open_colors() -> void:
+	if is_instance_valid(color_dialogue):
+		color_dialogue.refresh_target()
+		color_dialogue.popup_centered(color_dialogue.size)
+		return
+	color_dialogue = Window.new()
+	color_dialogue.set_script(load("res://color_studio.gd"))
+	color_dialogue.set("studio", self)
+	add_child(color_dialogue)
+	color_dialogue.popup_centered(Vector2i(900, 665))
+
+func arrow_at(pos: Vector2) -> int:
+	var nearest := 8.0
+	var found := -1
 	for index in range(paths.size()):
-		var part := MotifBuilder.region(6, ArrowPuzzle.grid(paths[index].points[0]), motif)
-		paths[index].color = MotifBuilder.color_for(6, part, index, motif)
+		var points: PackedVector2Array = game.rounded_points(paths[index].points)
+		for segment in range(points.size() - 1):
+			var distance := pos.distance_to(Geometry2D.get_closest_point_to_segment(pos, points[segment], points[segment + 1]))
+			if distance < nearest:
+				nearest = distance
+				found = index
+	return found
+
+func select_arrow_at(pos: Vector2) -> void:
+	selected_arrow = arrow_at(pos)
+	if selected_arrow >= 0:
+		selected = motif.cells[ArrowPuzzle.grid(paths[selected_arrow].points[0])]
+		refresh()
+		if is_instance_valid(color_dialogue):
+			color_dialogue.target.select(1)
+			color_dialogue.refresh_target()
+		notice.text = "Pfeil %d ausgewählt. Farben & Verläufe färbt nur diesen Pfeil." % (selected_arrow + 1)
+	else:
+		notice.text = "Klicke direkt auf einen vorhandenen Pfeil."
+
+func sample_color(pos: Vector2, from_image: bool) -> void:
+	var color := Color.TRANSPARENT
+	if from_image:
+		var fit: Array = motif.get("fit", [])
+		if canvas.reference != null and fit.size() == 4:
+			var cell := (pos - ArrowPuzzle.ORIGIN) / ArrowPuzzle.CELL
+			var uv := (cell - Vector2(fit[0], fit[1])) / Vector2(fit[2], fit[3])
+			var image: Image = canvas.reference.get_image()
+			if uv.x >= 0 and uv.y >= 0 and uv.x < 1 and uv.y < 1:
+				color = image.get_pixel(int(uv.x * image.get_width()), int(uv.y * image.get_height()))
+	else:
+		var index := arrow_at(pos) if show_paths else -1
+		if index >= 0:
+			color = MotifColors.color_at(paths[index].color_style, pos) if paths[index].has("color_style") else paths[index].color
+		else:
+			var part := int(motif.cells.get(ArrowPuzzle.grid(pos), -1))
+			if part >= 0:
+				color = MotifColors.color_at(motif.styles[part], pos) if motif.get("styles", {}).has(part) else Color(motif.palettes[part][0])
+	if color.a < 0.15:
+		notice.text = "An dieser Stelle ist keine Farbe vorhanden."
+		return
+	if not is_instance_valid(color_dialogue):
+		open_colors()
+	color_dialogue.accept_sample(color)
+
+func clear_paths() -> void:
+	paths.clear()
+	selected_arrow = -1
 
 func choose_image() -> void:
 	var dialog := FileDialog.new()
@@ -361,6 +438,8 @@ func _process(_delta: float) -> void:
 			notice.text = "Noch keine vollständige lösbare Füllung gefunden. Versuche eine neue Variante oder verbreitere enge Stellen."
 		else:
 			paths = result
+			selected_arrow = -1
+			recolor()
 			var analysis := LevelDesign.metrics(paths)
 			notice.text = "100 %% gefüllt · %d Pfade · %d freie Startzüge · %d Freispielstufen. Übernehmen startet den Spieltest." % [paths.size(), analysis.starts, analysis.depth]
 	else:
@@ -368,7 +447,7 @@ func _process(_delta: float) -> void:
 			notice.text = "Keine geschlossenen Flächen erkannt. Prüfe den Modus oder schließe offene Umrisse in deiner Vorlage."
 		else:
 			motif = result
-			paths.clear()
+			clear_paths()
 			selected = motif.palettes.keys()[0]
 			refresh()
 			update_notice()

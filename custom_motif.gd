@@ -25,7 +25,10 @@ static func encode(motif: Dictionary) -> Dictionary:
 		cells.append([cell.x, cell.y, motif.cells[cell]])
 	var parts: Array = []
 	for part in motif.get("palettes", {}):
-		parts.append({"id": part, "name": motif.get("names", {}).get(part, "Fläche"), "colors": motif.palettes[part]})
+		var item := {"id": part, "name": motif.get("names", {}).get(part, "Fläche"), "colors": motif.palettes[part]}
+		if motif.get("styles", {}).has(part):
+			item["style"] = motif.styles[part]
+		parts.append(item)
 	return {"cells": cells, "parts": parts, "title": motif.get("title", "Eigenes Motiv"), "reference_png": motif.get("reference_png", ""), "fit": motif.get("fit", [])}
 
 static func decode(value: Variant) -> Dictionary:
@@ -45,6 +48,13 @@ static func decode(value: Variant) -> Dictionary:
 				return {}
 		result.palettes[id] = part.colors.duplicate()
 		result.names[id] = str(part.get("name", "Fläche")).left(60)
+		if part.has("style"):
+			var style := MotifColors.valid_style(part.style)
+			if style.is_empty():
+				return {}
+			if not result.has("styles"):
+				result["styles"] = {}
+			result.styles[id] = style
 	for item in value.cells:
 		if not item is Array or item.size() != 3:
 			return {}
@@ -75,7 +85,9 @@ static func encode_paths(paths: Array[Dictionary]) -> Array:
 		var points: Array = []
 		for point in arrow.points:
 			points.append([point.x, point.y])
-		result.append({"points": points, "color": arrow.color.to_html()})
+		var item := {"points": points, "color": arrow.color.to_html()}
+		MotifColors.copy_appearance(arrow, item)
+		result.append(item)
 	return result
 
 static func decode_paths(value: Variant, motif: Dictionary) -> Array[Dictionary]:
@@ -104,10 +116,25 @@ static func decode_paths(value: Variant, motif: Dictionary) -> Array[Dictionary]
 				return []
 			points.append(point)
 			used[cell] = true
-		result.append(ArrowPuzzle.make_arrow(points, Color(arrow.color)))
+		var loaded := ArrowPuzzle.make_arrow(points, Color(arrow.color))
+		if not read_appearance(arrow, loaded):
+			return []
+		result.append(loaded)
 	if used.size() != motif.cells.size() or ArrowPuzzle.solution(result).size() != result.size():
 		return []
 	return result
+
+static func read_appearance(source: Dictionary, target: Dictionary) -> bool:
+	if source.has("color_style"):
+		var style := MotifColors.valid_style(source.color_style)
+		if style.is_empty():
+			return false
+		target.color_style = style
+	if source.has("manual_color"):
+		if not source.manual_color is bool:
+			return false
+		target.manual_color = source.manual_color
+	return true
 
 static func components(cells: Dictionary, part: int) -> Array[Array]:
 	var remaining := {}
@@ -168,6 +195,8 @@ static func split(motif: Dictionary, part: int, barrier: Array[Vector2i]) -> boo
 		if index > 0:
 			copy.palettes[id] = copy.palettes[part].duplicate()
 			copy.names[id] = "%s · Teil %d" % [copy.names.get(part, "Fläche"), index + 1]
+			if copy.get("styles", {}).has(part):
+				copy.styles[id] = copy.styles[part].duplicate(true)
 		for cell in groups[index]:
 			copy.cells[cell] = id
 	# Assign separator cells to their closest side; never create an empty stripe.

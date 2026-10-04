@@ -32,6 +32,8 @@ func refresh() -> void:
 			if image.load_png_from_buffer(Marshalls.base64_to_raw(key)) == OK:
 				reference = ImageTexture.create_from_image(image)
 	queue_redraw()
+	if is_instance_valid(studio.color_dialogue) and studio.color_dialogue.preview != null:
+		studio.color_dialogue.update_preview()
 
 func cell_at(pos: Vector2) -> Vector2i:
 	return Vector2i(((pos - OFFSET) / STEP).round())
@@ -52,6 +54,10 @@ func _gui_input(event: InputEvent) -> void:
 				studio.select_cell(cell)
 			elif studio.tool == 4:
 				studio.merge_cell(cell)
+			elif studio.tool == 5:
+				studio.select_arrow_at(ArrowPuzzle.ORIGIN + (event.position - OFFSET) / STEP * ArrowPuzzle.CELL)
+			elif studio.tool == 6 or studio.tool == 7:
+				studio.sample_color(ArrowPuzzle.ORIGIN + (event.position - OFFSET) / STEP * ArrowPuzzle.CELL, studio.tool == 7)
 			else:
 				dragging = true
 				studio.remember()
@@ -89,6 +95,8 @@ func _draw() -> void:
 				continue
 			var part: int = studio.motif.cells[cell]
 			var color := Color(studio.motif.palettes[part][0])
+			if studio.motif.get("styles", {}).has(part):
+				color = MotifColors.color_at(studio.motif.styles[part], ArrowPuzzle.pixel(cell))
 			var alpha := 0.045 if studio.show_paths and not studio.paths.is_empty() else 0.24
 			draw_rect(Rect2(pos - Vector2.ONE * 8, Vector2.ONE * 16), Color(color, alpha))
 			if part == studio.selected and studio.paths.is_empty():

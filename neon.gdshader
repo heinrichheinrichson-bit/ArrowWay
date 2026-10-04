@@ -8,6 +8,9 @@ uniform vec2 tip;
 uniform vec2 wing_a;
 uniform vec2 wing_b;
 uniform float emphasis = 0.0;
+uniform bool gradient_enabled = false;
+uniform sampler2D color_lookup : source_color, filter_linear, repeat_disable;
+uniform float color_length = 1.0;
 varying vec2 local_position;
 
 void vertex() {
@@ -37,9 +40,19 @@ void fragment() {
 	vec2 p = local_position;
 	vec2 previous = texelFetch(path_points, ivec2(0, 0), 0).rg;
 	float distance = 100000.0;
+	float walked = 0.0;
+	float color_distance = 0.0;
 	for (int i = 1; i < point_count; i++) {
 		vec2 current = texelFetch(path_points, ivec2(i, 0), 0).rg;
-		distance = min(distance, segment_distance(p, previous, current));
+		vec2 edge = current - previous;
+		float edge_length = gradient_enabled ? length(edge) : 0.0;
+		float projection = clamp(dot(p - previous, edge) / max(dot(edge, edge), 0.000001), 0.0, 1.0);
+		float candidate = length(p - previous - edge * projection);
+		if (candidate < distance) {
+			distance = candidate;
+			color_distance = walked + projection * edge_length;
+		}
+		walked += edge_length;
 		previous = current;
 	}
 	// One continuous silhouette: joints, round caps and arrowhead share one glow field.
@@ -50,6 +63,10 @@ void fragment() {
 	float glow = (0.30 + emphasis * 0.12) * exp(-outside / 2.25) + 0.06 * exp(-outside * outside / 65.0);
 	float alpha = fill + (1.0 - fill) * glow;
 	float core = smoothstep(0.5, 2.0, -shape);
-	vec3 light = mix(neon_color.rgb, vec3(1.0), core * 0.24);
+	vec3 tint = neon_color.rgb;
+	if (gradient_enabled) {
+		tint = texture(color_lookup, vec2(clamp(color_distance / max(color_length, 0.001), 0.0, 1.0), 0.5)).rgb;
+	}
+	vec3 light = mix(tint, vec3(1.0), core * 0.24);
 	COLOR = vec4(light, alpha * neon_color.a);
 }

@@ -22,6 +22,26 @@ Zum Zusammenführen zuerst die Zielfläche auswählen, dann **Angeklickte Fläch
 
 Eine Änderung an der Flächengeometrie verwirft die bisherige Vorschau. Danach erneut füllen. Eine reine Palettenänderung erhält die Pfeilgeometrie und färbt sie sofort um.
 
+## Farben, Schattierungen und Verläufe
+
+**Farben & Verläufe · Vorschläge** öffnet die neue Farbgestaltung. Sie funktioniert vor und nach dem Füllen. Die Vorschau zeigt die Farbwirkung direkt auf dem Motiv beziehungsweise auf seinen Pfeilen; **Farben übernehmen** wendet sie auf den Entwurf an.
+
+- **Ausgewählte Fläche** färbt den aktuell gewählten Bereich.
+- **Ausgewählter Pfeil** färbt nur einen Pfeil. Wähle dazu in der Werkstatt **Pfeil auswählen** und klicke auf den Pfeil; im Farbdialog ist dieselbe Zielauswahl verfügbar.
+- **Ganzes Motiv · Grundfarben behalten** erzeugt Abstufungen für alle Flächen. Jede Fläche behält ihre eigene Farbfamilie: Blätter bleiben grün, der Stamm braun.
+
+Wähle eine Grundfarbe und eine Farbwirkung: **Einfarbig**, **Sanfte Schattierungen**, vertikaler oder horizontaler Verlauf beziehungsweise **Leuchtende Mitte**. **Stärke der Schattierung** bestimmt, wie deutlich sich die Töne unterscheiden. Bei einer gelben Sonne kann die Mitte hellgelb und der Rand wärmer und dunkler werden. Verläufe sind innerhalb eines Pfeils kontinuierlich und werden beim Entkommen mitgeführt.
+
+Die vier Vorschläge **Natürlich**, **Wärmer**, **Pastell** und **Kräftiger** werden aus deiner Grundfarbe berechnet. Ein Klick aktualisiert die Vorschau; **Farben übernehmen** bestätigt die Auswahl. Die drei Farbfelder in der Werkstatt lassen sich weiterhin einzeln bearbeiten und bestimmen bei Verläufen den hellen, mittleren und dunklen Ton.
+
+**Eigene Pfeilfarben erhalten** schützt individuell bearbeitete Pfeile bei späteren Flächen- oder Motivänderungen. Mit **Eigene Pfeilfarben zurücksetzen** erhalten sie wieder die Farben ihrer Fläche. Beide Aktionen lassen sich in der Werkstatt rückgängig machen. Eine komplett neue Pfeilfüllung erzeugt neue Pfeile; individuelle Anpassungen an alten Pfeilen gehören zu deren bisheriger Füllung.
+
+Die Pipette hat zwei Quellen: eine vorhandene Pfeil- beziehungsweise Flächenfarbe und die ursprüngliche Bildvorlage. Nach dem Anklicken der Pipette verschwindet der Farbdialog vorübergehend. Klicke in der Werkstatt auf die gewünschte Farbe; danach erscheint der Dialog mit dieser Grundfarbe wieder. Die Auswahl der Zielfläche oder des Zielpfeils bleibt erhalten. **Einfarbig** übernimmt den Farbton direkt, die übrigen Wirkungen erzeugen daraus Abstufungen. Beim Ziel **Ganzes Motiv** wechselt die Pipette zur ausgewählten Fläche, damit eine einzelne aufgenommene Farbe gezielt angewendet wird.
+
+Unter `examples/sonne-transparent.png` liegt eine gelbe Sonne zum Ausprobieren. Verläufe und individuelle Pfeilfarben werden in Entwürfen und exportierten Levels gespeichert.
+
+![Farbgestaltung mit Sonne und Vorschlägen](previews/color-studio.png)
+
 ## Speichern und exportieren
 
 **Entwurf speichern** sichert Flächen, Namen, Paletten, Bildreferenz und die genaue Pfeilfüllung. **Entwurf laden** stellt sie wieder her. Es gibt zunächst einen lokalen Entwurfsplatz; neue Speicherung ersetzt ihn. Beim Schließen und erneuten Öffnen bleibt der aktuelle Stand zusätzlich in dieser laufenden Sitzung erhalten.

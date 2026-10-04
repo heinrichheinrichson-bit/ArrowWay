@@ -241,7 +241,9 @@ func open_gallery() -> void:
 				var points := PackedVector2Array()
 				for xy in path.points:
 					points.append(Vector2(xy[0], xy[1]))
-				thumbnail.append({"points": rounded_points(points), "color": Color(path.color)})
+				var arrow := {"points": rounded_points(points), "color": Color(path.color)}
+				CustomMotif.read_appearance(path, arrow)
+				thumbnail.append(arrow)
 		card.set("paths", thumbnail)
 		card.pressed.connect(select_gallery_level.bind(index))
 		grid.add_child(card)
@@ -256,7 +258,9 @@ func open_gallery() -> void:
 func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	for a in data:
-		result.append(ArrowPuzzle.make_arrow(a.points.duplicate(), a.color))
+		var copy := ArrowPuzzle.make_arrow(a.points.duplicate(), a.color)
+		MotifColors.copy_appearance(a, copy)
+		result.append(copy)
 	return result
 
 func reset() -> void:
@@ -487,6 +491,8 @@ func fill_template() -> void:
 	var filled := LevelDesign.refine(shape_index, generation_seed, 10, 600, motif)
 	if not filled.is_empty():
 		arrows = filled
+		if shape_index == 6:
+			MotifColors.apply(motif, arrows)
 	generating = false
 	for control in controls:
 		if control is BaseButton:
@@ -538,6 +544,8 @@ func finish_draft() -> void:
 		status = "Ein Pfad braucht mindestens zwei Rasterpunkte."
 		return
 	arrows.append(ArrowPuzzle.make_arrow(draft.duplicate(), MotifBuilder.color_for(shape_index, MotifBuilder.region(shape_index, ArrowPuzzle.grid(draft[0]), motif), arrows.size(), motif)))
+	if shape_index == 6:
+		MotifColors.apply(motif, arrows)
 	selected = arrows.size() - 1
 	draft.clear()
 	status = "Pfad hinzugefügt. Zeichne weiter oder prüfe die Lösung."
@@ -599,7 +607,9 @@ func level_document() -> Dictionary:
 		var points: Array = []
 		for p in a.points:
 			points.append([p.x, p.y])
-		paths.append({"points": points, "color": a.color.to_html()})
+		var item := {"points": points, "color": a.color.to_html()}
+		MotifColors.copy_appearance(a, item)
+		paths.append(item)
 	var document := {"version": 1, "shape": shape_index, "title": TITLES[level], "paths": paths}
 	if shape_index == 6:
 		document.version = 2
@@ -681,7 +691,10 @@ func read_custom(path: String = "") -> bool:
 				return false
 			occupied[point] = true
 			p.append(point)
-		loaded.append(ArrowPuzzle.make_arrow(p, Color(str(a.get("color", "65e5ff")))))
+		var arrow := ArrowPuzzle.make_arrow(p, Color(str(a.get("color", "65e5ff"))))
+		if not CustomMotif.read_appearance(a, arrow):
+			return false
+		loaded.append(arrow)
 	if (shape == 6 and occupied.size() != allowed.size()) or loaded.is_empty() or ArrowPuzzle.solution(loaded).size() != loaded.size():
 		status = "Die gespeicherte Datei enthält kein lösbares Puzzle."
 		return false

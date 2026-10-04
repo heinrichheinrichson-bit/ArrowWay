@@ -8,7 +8,7 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.7.0
+## Aktueller Stand · 0.8.0
 
 - Neun gestaltete Levels mit 25–39 Pfaden, jeweils vollständig gefüllten Motiven und allen vier Pfeilrichtungen.
 - Längere, stärker verflochtene Verläufe. Abhängigkeiten und freie Startzüge werden beim Erstellen gemessen; die Serie beginnt mit einer übersichtlicheren Baumfüllung und endet mit engeren Freispielketten im Haus.
@@ -19,6 +19,7 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 - Dezente synthetisierte Klänge für freie Züge, Blockaden, Hinweise, neu geöffnete Wege und den Abschluss. **Ton: An/Aus** schaltet sie ab; die Einstellung bleibt gespeichert.
 - Scrollbare Levelübersicht mit gerundeten Motivvorschauen, gesperrten und geschafften Puzzles, Fortschrittszähler und lokal gespeicherten Freischaltungen. Ein geöffnetes Puzzle bleibt beim Besuch der Übersicht erhalten.
 - Neue Motive: Schmetterling in Violett und Pink mit goldener Mitte, türkisblauer Fisch mit warmer Schwanzflosse und pinke Blume mit gelber Mitte und grünem Stiel.
+- **Farben & Verläufe**: automatische Schattierungen aus einer Grundfarbe, kontinuierliche Verläufe innerhalb der Pfeile, vier Farbvorschläge, nachträgliche Bearbeitung einzelner Pfeile und Pipetten für Pfeilfarben beziehungsweise die Bildvorlage. Individuelle Farben können bei Flächenänderungen erhalten bleiben; Entwürfe und Levels speichern die Farbgestaltung.
 - Neue **Motivwerkstatt**: Bildimport, Erkennung geschlossener Umrisse oder Farbflächen, Flächenpinsel, Radierer, Trennlinie, Zusammenführen und Neonpaletten. Die automatische Füllung deckt jeden akzeptierten Rasterpunkt ab und bleibt vollständig lösbar. Bildanalyse und Füllung laufen im Hintergrund.
 - Separates Level-Werkzeug: Schablone wählen, automatisch füllen, Rasterpfade zeichnen, auswählen, Richtung umkehren, löschen, Lösbarkeit prüfen und direkt testen.
 - Entwürfe lokal speichern und laden; fertige Levels als JSON in den Projektordner exportieren.
@@ -28,6 +29,7 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 ## Aufbau
 
 - `puzzle.gd`: Formenmasken, geometrische Blockierungsprüfung und Lösungsfolge.
+- `motif_colors.gd`, `color_studio.gd`, `color_preview.gd`, `color_suggestion.gd`: automatische Abstufungen, räumliche Verläufe, Vorschläge und individuelle Pfeilfarben mit Livevorschau.
 - `custom_motif.gd`: freie Flächen, Paletten, geometrische Bearbeitung und validierte Speicherung.
 - `motif_import.gd`: lokale Bildanalyse für Umrisse, Farben und Transparenz.
 - `motif_studio.gd`, `motif_canvas.gd`, `motif_preview.gd`: Motivwerkstatt mit Hintergrundberechnung und Neonvorschau.
@@ -58,6 +60,7 @@ Der Lösbarkeitstest baut einen Abhängigkeitsgraphen und entfernt schrittweise 
 godot --headless --path . --editor --quit
 godot --headless --path . --script res://tests/test_runner.gd -- --test
 godot --headless --path . --script res://tests/test_import.gd -- --test
+godot --headless --path . --script res://tests/test_colors.gd -- --test
 ```
 
 Die Serie lässt sich mit `godot --headless --path . --script res://tools/build_series.gd -- --test` neu erstellen. Das überschreibt `levels/01.json` bis `levels/09.json`; eigene Änderungen an diesen Dateien vorher separat sichern.
@@ -75,3 +78,5 @@ Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smar
 ![Levelübersicht](previews/gallery.png)
 
 ![Bild zu Pfeilpuzzle](previews/studio-filled.png)
+
+![Automatische Farbgestaltung](previews/color-studio.png)

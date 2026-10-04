@@ -28,7 +28,8 @@ func _process(_delta: float) -> void:
 		elif highlighted:
 			color = Color.WHITE
 		var launch: float = maxf(0.0, 1.0 - a.escape_time / 0.22) if a.escaping else 0.0
-		update_stroke(strokes[i], game.visible_points(a), color, highlighted, maxf(a.release, launch * 0.5))
+		var visible: PackedVector2Array = game.visible_points(a)
+		update_stroke(strokes[i], visible, color, highlighted, maxf(maxf(a.release, launch * 0.5), 0.55 if a.get("editor_selected", false) else 0.0), a)
 		var movement := Vector2.ZERO
 		if a.flash > 0:
 			var time: float = 0.35 - a.flash
@@ -39,12 +40,24 @@ func _process(_delta: float) -> void:
 		update_stroke(strokes[count - 1], game.rounded_points(game.draft), Color.WHITE, true)
 	queue_redraw()
 
-func update_stroke(stroke: ColorRect, points: PackedVector2Array, color: Color, highlighted: bool, release: float = 0.0) -> void:
+func update_stroke(stroke: ColorRect, points: PackedVector2Array, color: Color, highlighted: bool, release: float = 0.0, appearance: Dictionary = {}) -> void:
 	if points.size() < 2:
 		stroke.visible = false
 		return
 	var material: ShaderMaterial = stroke.material
 	material.set_shader_parameter("neon_color", color)
+	var style: Dictionary = appearance.get("color_style", {})
+	material.set_shader_parameter("gradient_enabled", not highlighted and float(appearance.get("flash", 0.0)) <= 0 and not style.is_empty() and int(style.mode) > 1)
+	if not style.is_empty():
+		var original: PackedVector2Array = appearance.get("draw_points", points)
+		if stroke.get_meta("color_style", {}) != style or stroke.get_meta("color_source", PackedVector2Array()) != original:
+			stroke.set_meta("color_style", style.duplicate(true))
+			stroke.set_meta("color_source", original.duplicate())
+			material.set_shader_parameter("color_lookup", ImageTexture.create_from_image(MotifColors.color_lookup(original, style)))
+			var total := 0.0
+			for index in range(1, original.size()):
+				total += original[index - 1].distance_to(original[index])
+			material.set_shader_parameter("color_length", total)
 	material.set_shader_parameter("emphasis", maxf(release / 0.8, 0.5 + sin(game.clock_time * 6.0) * 0.5 if highlighted else 0.0))
 	if stroke.get_meta("source", PackedVector2Array()) == points:
 		return

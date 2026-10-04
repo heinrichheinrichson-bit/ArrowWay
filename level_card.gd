@@ -18,7 +18,16 @@ func _draw() -> void:
 		var color: Color = arrow.color
 		color.a = alpha
 		draw_polyline(scaled, Color(color, 0.09 * alpha), 4.0, true)
-		draw_polyline(scaled, color, 1.25, true)
+		if arrow.has("color_style"):
+			var colors := PackedColorArray()
+			for point in points:
+				var tint := MotifColors.color_at(arrow.color_style, point)
+				tint.a = alpha
+				colors.append(tint)
+			draw_polyline_colors(scaled, colors, 1.25, true)
+			color = colors[-1]
+		else:
+			draw_polyline(scaled, color, 1.25, true)
 		var direction := (scaled[-1] - scaled[-2]).normalized()
 		var head := scaled[-1] + direction * 1.0
 		draw_line(head, head - direction.rotated(0.55) * 3.0, color, 1.2, true)
