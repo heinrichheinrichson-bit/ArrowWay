@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ArrowWay"
-config/version="0.15.2-dev"
+config/version="0.15.3-dev"
 run/main_scene="res://main.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="ArrowWay"
@@ -25,6 +25,7 @@ window/size/window_width_override=540
 window/size/window_height_override=850
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [rendering]
 
