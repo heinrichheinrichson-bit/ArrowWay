@@ -8,11 +8,13 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.15.1-dev
+## Aktueller Stand · 0.15.2-dev
 
 Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
 
 - **Deine Reise**: ein nach oben führender Neonpfad mit sieben großen Themenstationen. Überkategorien und ihre Unterkategorien liegen durch sichtbare Pfade verbunden auf derselben Karte. Erst Unterkategorien öffnen ihre vollständige Rätselübersicht. Häkchen und die nächste Themenwelt gibt es erst nach sämtlichen zugehörigen Lösungen. Zukünftige Themen bleiben dezent sichtbar, ihre Inhalte verborgen. Wischen, sanftes Ausgleiten und gespeicherte Kartenpositionen erleichtern die Navigation. [Ansichten und Freischaltungen](JOURNEY.md).
+
+- **Zoom und Verschieben**: Zwei Finger vergrößern das Motiv bis zum Vierfachen und verschieben es gleichzeitig. Im vergrößerten Bild verschiebt auch ein Finger. Gesten lösen keine Pfeile aus; ein Tipp wird erst beim Loslassen ausgeführt. Zurückzoomen zentriert die Gesamtansicht. Am PC: Mausrad und Ziehen. Neustart und Abschluss zeigen das ganze Kunstwerk.
 
 - **Große Spielansicht für Hochformat und Touch**: Das Motiv nutzt den verfügbaren Platz ohne Dropdownliste, Sound-Schalter oder laufende Erklärungstexte. Oben bleiben drei Symbole mit 48 × 48 großen Trefferflächen; der nächste Schritt erscheint erst nach dem Abschluss. Die Motive skalieren ohne Verzerrung mit dem Bildschirm. Versetzte Tipps wählen den nächstgelegenen vorhandenen Pfeil mit erweitertem Abstand. Hauptmenü, Motivbibliothek und Soundeinstellungen sind getrennte Ansichten; Neustart nach begonnenem Spiel erfordert eine Bestätigung.
 

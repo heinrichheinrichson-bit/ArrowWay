@@ -33,6 +33,9 @@ func run() -> void:
 		touch.pressed = true
 		touch.position = scene.board.get_global_transform() * scene.arrows[index].points[0]
 		root.push_input(touch, true)
+		require(not scene.arrows[index].escaping, "Touch-down waits for a tap so a second finger can begin zooming")
+		touch=touch.duplicate(); touch.pressed=false
+		root.push_input(touch,true)
 		require(scene.arrows[index].escaping, "Transformed touch reaches the correct enlarged arrow")
 		scene.reset()
 		if OS.get_cmdline_user_args().has("--capture"):

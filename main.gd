@@ -35,6 +35,7 @@ var controls: Array[Control] = []
 var next_button: Button
 var level_picker: OptionButton
 var panel: Control
+var board_navigation: Node
 var board_clip: Control
 var home_menu: Control
 var journey: Control
@@ -89,6 +90,10 @@ func _ready() -> void:
 	board.set_script(load("res://board.gd"))
 	board.set("game", self)
 	clip.add_child(board)
+	board_navigation = Node.new()
+	board_navigation.set_script(load("res://board_navigation.gd"))
+	board_navigation.game = self
+	add_child(board_navigation)
 	var theme := Theme.new()
 	theme.default_font_size = 14
 	for state in ["normal", "hover", "pressed", "disabled"]:
@@ -357,8 +362,7 @@ func update_play_layout() -> void:
 	var zoom := minf(area.size.x / maxf(bounds.size.x, 1), area.size.y / maxf(bounds.size.y, 1))
 	board_clip.position = area.position
 	board_clip.size = area.size
-	board.scale = Vector2.ONE * zoom
-	board.position = area.size * 0.5 - bounds.get_center() * zoom
+	board_navigation.configure(bounds,zoom)
 	if compact_buttons.size() == 3:
 		compact_buttons[0].position = Vector2(16, 16)
 		compact_buttons[1].position = Vector2(size.x - 120, 16)
@@ -758,6 +762,7 @@ func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 	return result
 
 func reset() -> void:
+	if is_instance_valid(board_navigation): board_navigation.reset_view()
 	feedback.stop_all()
 	win_time = -1.0
 	display_progress = 0.0
@@ -856,6 +861,7 @@ func _process(delta: float) -> void:
 				cleared += 1
 				if cleared == arrows.size():
 					win_time = 0.0
+					board_navigation.reset_view()
 					feedback.play("win")
 					status = "Geschafft! Alle Wege sind frei."
 					detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
@@ -917,9 +923,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		open_home()
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.device == InputEvent.DEVICE_ID_EMULATION: return
+		if event.device == InputEvent.DEVICE_ID_EMULATION or compact_play(): return
 		click_at(board.get_global_transform().affine_inverse() * event.position)
-	elif event is InputEventScreenTouch and event.pressed:
+	elif (editor or authoring) and event is InputEventScreenTouch and event.pressed:
 		click_at(board.get_global_transform().affine_inverse() * event.position)
 	elif editor and event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ENTER:
@@ -931,7 +937,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pick(pos: Vector2) -> int:
 	var chosen := -1
-	var nearest := 9.0 if editor else maxf(9.0, 18.0 / board.scale.x)
+	var nearest := 9.0 if editor else 18.0 / maxf(board.scale.x,0.001)
 	for index in range(arrows.size()):
 		var a := arrows[index]
 		if a.removed or a.escaping:
