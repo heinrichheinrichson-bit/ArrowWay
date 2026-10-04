@@ -22,11 +22,13 @@ func _initialize() -> void:
 func run() -> void:
 	var scene = load("res://main.tscn").instantiate()
 	root.add_child(scene)
+	var series_metrics: Array[Dictionary] = []
 	for level in range(6):
 		scene.level = level
 		scene.testing = false
 		scene.reset()
 		var order := ArrowPuzzle.solution(scene.arrows)
+		series_metrics.append(LevelDesign.metrics(scene.arrows))
 		require(scene.arrows.size() >= 15, "Level needs enough paths")
 		require(order.size() == scene.arrows.size(), "Generated level must be solvable")
 		var used := {}
@@ -34,20 +36,20 @@ func run() -> void:
 		var blocked := -1
 		for i in range(scene.arrows.size()):
 			var points: PackedVector2Array = scene.arrows[i].points
-			var part := MotifBuilder.region(level % 3, ArrowPuzzle.grid(points[0]))
+			var part := MotifBuilder.region(scene.shape_index, ArrowPuzzle.grid(points[0]))
 			directions[points[-1] - points[-2]] = true
 			for point in points:
 				require(not used.has(point), "Paths must not overlap")
-				require(ArrowPuzzle.mask(level % 3).has(ArrowPuzzle.grid(point)), "Paths must fit silhouette")
-				require(MotifBuilder.region(level % 3, ArrowPuzzle.grid(point)) == part, "Paths must respect motif color regions")
+				require(ArrowPuzzle.mask(scene.shape_index).has(ArrowPuzzle.grid(point)), "Paths must fit silhouette")
+				require(MotifBuilder.region(scene.shape_index, ArrowPuzzle.grid(point)) == part, "Paths must respect motif color regions")
 				used[point] = true
-			if level % 3 == 1:
+			if scene.shape_index == 1:
 				var color: Color = scene.arrows[i].color
 				require(color.g > color.r if part == 0 else color.r > color.g and color.g > color.b, "Tree must have a green crown and brown trunk")
 			if scene.is_blocked(i):
 				blocked = i
 		require(directions.size() >= 3, "Level needs varied arrow directions")
-		require(used.size() == ArrowPuzzle.mask(level % 3).size(), "Every motif cell must be filled exactly once")
+		require(used.size() == ArrowPuzzle.mask(scene.shape_index).size(), "Every motif cell must be filled exactly once")
 		require(blocked >= 0, "Level must contain dependencies")
 		if blocked >= 0:
 			scene.click_at(scene.arrows[blocked].points[0])
@@ -66,7 +68,18 @@ func run() -> void:
 			require(scene.arrows[i].removed, "Animation exits in every direction")
 		require(scene.cleared == scene.arrows.size(), "All paths must clear")
 		require(scene.next_button.visible, "Win exposes next-level action")
-		print("PASS level %d: %d paths, %d directions, coverage %d/%d" % [level + 1, scene.arrows.size(), directions.size(), used.size(), ArrowPuzzle.mask(level % 3).size()])
+		print("PASS level %d: %d paths, %d directions, coverage %d/%d" % [level + 1, scene.arrows.size(), directions.size(), used.size(), ArrowPuzzle.mask(scene.shape_index).size()])
+	require(series_metrics[0].starts < series_metrics[0].paths / 2, "Opening puzzle must contain meaningful dependencies")
+	require(series_metrics[-1].depth > series_metrics[0].depth and series_metrics[-1].starts < series_metrics[0].starts, "Final puzzle must have a stronger bottleneck than the opening")
+	var base := ArrowPuzzle.generate(2, 3187)
+	var refined := LevelDesign.refine(2, 3187, 8, 120)
+	require(LevelDesign.score(refined, 8) >= LevelDesign.score(base, 8), "Refinement must preserve or improve the scored layout")
+	var refined_cells := {}
+	for arrow in refined:
+		for point in arrow.points:
+			require(not refined_cells.has(point), "Reconnected paths must not duplicate cells")
+			refined_cells[point] = true
+	require(refined_cells.size() == ArrowPuzzle.mask(2).size(), "Reconnection must preserve complete coverage")
 	# Two facing paths are mutually blocked.
 	var deadlock: Array[Dictionary] = [
 		ArrowPuzzle.make_arrow(PackedVector2Array([Vector2(100, 200), Vector2(120, 200)]), Color.WHITE),
@@ -76,7 +89,7 @@ func run() -> void:
 	require(ArrowPuzzle.ray_hits(deadlock[0].points, deadlock[1].points), "Collinear segments must block")
 	var self_loop := PackedVector2Array([Vector2(100, 160), Vector2(140, 160), Vector2(140, 200), Vector2(120, 200), Vector2(120, 180)])
 	require(ArrowPuzzle.self_blocked(self_loop), "A head aimed at its own body must be rejected")
-	scene.level = 0
+	scene.level = 2
 	scene.testing = false
 	scene.reset()
 	scene.enter_editor()
@@ -110,7 +123,7 @@ func run() -> void:
 	scene.undo_edit()
 	require(scene.arrows.is_empty(), "Delete removes selected path")
 	scene.shape_index = 1
-	scene.fill_template()
+	await scene.fill_template()
 	require(scene.arrows.size() > 15 and scene.check_editor(), "Template fill creates a solvable tree")
 	# Malformed saves must not partially replace the current puzzle.
 	var file := FileAccess.open(scene.storage_prefix + "custom_puzzle.json", FileAccess.WRITE)
@@ -155,7 +168,21 @@ func run() -> void:
 	touch.position = scene.arrows[free].points[0]
 	root.push_input(touch, true)
 	require(scene.arrows[free].escaping, "Touch events must reach the playfield")
+	scene.testing = false
+	scene.editor = false
+	var feedback_fixture: Array[Dictionary] = [
+		ArrowPuzzle.make_arrow(PackedVector2Array([Vector2(120, 300), Vector2(120, 280)]), Color("#65e5ff")),
+		ArrowPuzzle.make_arrow(PackedVector2Array([Vector2(100, 260), Vector2(140, 260)]), Color("#69efb4"))]
+	scene.arrows = feedback_fixture
+	scene.cleared = 0
+	scene.known_free = {1: true}
+	scene.scan_clock = 0
+	scene.click_at(Vector2(100, 260))
+	scene._process(2)
+	require(scene.arrows[0].release > 0 and not scene.is_blocked(0), "A newly freed path must receive release feedback")
+	require(scene.status == "Ein neuer Weg ist jetzt frei.", "Release feedback must describe the unlocked path")
+	require(scene.arrows[0].color == Color("#65e5ff"), "Release feedback must preserve motif color")
 	for name in ["progress.cfg", "custom_puzzle.json"]:
 		DirAccess.remove_absolute(scene.storage_prefix + name)
-	print("PASS editor, hints, deadlocks, save/load, test/return, invalid data" if failures == 0 else "%d FAILURES" % failures)
+	print("PASS level design, release feedback, editor, hints, deadlocks, save/load, input" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

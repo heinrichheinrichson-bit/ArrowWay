@@ -1,7 +1,8 @@
 extends Node2D
 
 const SPEED := 950.0
-const TITLES := ["Das erste Haus", "Winterlicht", "Herzenssache", "Haus bei Nacht", "Tannenzauber", "Herzklopfen"]
+const TITLES := ["Erste Lichtung", "Herzenswege", "Das erste Haus", "Winterlabyrinth", "Herzklopfen", "Haus bei Nacht"]
+const SHAPES := [1, 2, 0, 1, 2, 0]
 var arrows: Array[Dictionary] = []
 var editor_data: Array[Dictionary] = []
 var draft := PackedVector2Array()
@@ -25,6 +26,9 @@ var generation_seed := 9121
 var clock_time := 0.0
 var storage_prefix := "user://test_" if OS.get_cmdline_user_args().has("--test") else "user://"
 var authoring := OS.get_cmdline_user_args().has("--editor-tool")
+var known_free := {}
+var scan_clock := 0.0
+var generating := false
 
 func _ready() -> void:
 	DisplayServer.window_set_title("ArrowWay · Level-Werkzeug" if authoring else "ArrowWay · Neon Trails")
@@ -133,11 +137,11 @@ func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 
 func reset() -> void:
 	if not testing:
-		shape_index = level % 3
+		shape_index = SHAPES[level]
 	if testing:
 		arrows = clone_data(editor_data)
 	elif not read_custom("res://levels/%02d.json" % (level + 1)):
-		arrows = ArrowPuzzle.generate(level % 3, 4817 + level * 173)
+		arrows = ArrowPuzzle.generate(SHAPES[level], 4817 + level * 173)
 	cleared = 0
 	mistakes = 0
 	clock_time = 0.0
@@ -145,6 +149,10 @@ func reset() -> void:
 	status = "Welche Spitze hat freie Bahn?"
 	detail = "Tippe auf einen Pfad. Er folgt seiner Linie nach draußen."
 	build_controls()
+	known_free.clear()
+	for i in free_paths():
+		known_free[i] = true
+	scan_clock = 0.0
 	queue_redraw()
 	if board != null:
 		board.queue_redraw()
@@ -166,6 +174,7 @@ func _process(delta: float) -> void:
 	for a in arrows:
 		a.flash = maxf(0.0, a.flash - delta)
 		a.hint = maxf(0.0, a.hint - delta)
+		a.release = maxf(0.0, a.release - delta)
 		if a.escaping and not a.removed:
 			a.travel += SPEED * delta
 			var p := visible_points(a)
@@ -180,10 +189,38 @@ func _process(delta: float) -> void:
 						unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
 						level_picker.set_item_disabled(unlocked, false)
 						save_progress()
+	if not editor and cleared < arrows.size():
+		scan_clock -= delta
+		if scan_clock <= 0:
+			scan_clock = 0.14
+			mark_releases()
 	queue_redraw()
 	board.queue_redraw()
 
+func free_paths() -> Array[int]:
+	var result: Array[int] = []
+	for i in range(arrows.size()):
+		if not arrows[i].removed and not arrows[i].escaping and not is_blocked(i):
+			result.append(i)
+	return result
+
+func mark_releases() -> void:
+	var free := free_paths()
+	var opened := 0
+	for i in free:
+		if not known_free.has(i):
+			arrows[i].release = 0.8
+			opened += 1
+	known_free.clear()
+	for i in free:
+		known_free[i] = true
+	if opened > 0 and not status.begins_with("Der weiß"):
+		status = "Ein neuer Weg ist jetzt frei." if opened == 1 else "%d neue Wege sind jetzt frei." % opened
+		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
+
 func _unhandled_input(event: InputEvent) -> void:
+	if generating:
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		click_at(event.position)
 	elif event is InputEventScreenTouch and event.pressed:
@@ -262,11 +299,23 @@ func enter_editor() -> void:
 	build_controls()
 
 func fill_template() -> void:
+	if generating:
+		return
+	generating = true
+	status = "Die Pfade werden gefüllt und miteinander verflochten …"
+	for control in controls:
+		if control is BaseButton:
+			control.disabled = true
+	await get_tree().process_frame
 	generation_seed += 173
-	arrows = ArrowPuzzle.generate(shape_index, generation_seed)
+	arrows = LevelDesign.refine(shape_index, generation_seed, 10, 600)
+	generating = false
+	for control in controls:
+		if control is BaseButton:
+			control.disabled = false
 	draft.clear()
 	selected = -1
-	status = "Neue Füllung: %d Pfade, garantiert lösbar." % arrows.size()
+	status = "Neue Füllung: %d verflochtene Pfade, lösbar." % arrows.size()
 	detail = "Du kannst einzelne Pfade auswählen, umdrehen und neu prüfen."
 
 func leave_editor() -> void:
@@ -338,7 +387,8 @@ func check_editor() -> bool:
 	var order := ArrowPuzzle.solution(arrows)
 	if order.size() == arrows.size():
 		status = "Lösbar! Alle %d Pfade lassen sich entfernen." % arrows.size()
-		detail = "Testen startet dein Puzzle. Speichern sichert es lokal."
+		var analysis := LevelDesign.metrics(arrows)
+		detail = "%d freie Startzüge · %d Freispielstufen · Testen startet das Puzzle." % [analysis.starts, analysis.depth]
 		return true
 	status = "Blockade: %d von %d Pfaden lassen sich entfernen." % [order.size(), arrows.size()]
 	detail = "Drehe oder entferne einen der rot markierten Pfade."

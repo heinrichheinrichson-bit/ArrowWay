@@ -8,7 +8,7 @@ Auf diesem PC kannst du auch einfach `ArrowWay.cmd` doppelklicken.
 
 ## Spielen
 
-Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze frei ist, kann er entkommen. Blockierte Pfade blinken rot. **Hinweis** lässt einen freien Pfad weiß leuchten. Sobald alle Pfade entfernt sind, erscheint **Nächstes Puzzle**. Freigeschaltete Levels bleiben lokal gespeichert.
+Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze frei ist, kann er entkommen. Blockierte Pfade blinken rot. Neu geöffnete Wege leuchten kurz stärker in ihrer eigenen Farbe. **Hinweis** lässt einen freien Pfad weiß leuchten. Sobald alle Pfade entfernt sind, erscheint **Nächstes Puzzle**. Freigeschaltete Levels bleiben lokal gespeichert.
 
 ## Level-Werkzeug starten
 
@@ -19,7 +19,7 @@ Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path .
 ## Eigenes Puzzle bauen
 
 1. Im Level-Werkzeug oben Haus, Weihnachtsbaum oder Herz wählen.
-2. **Füllen** erzeugt eine neue lösbare Füllung. Jeder Klick erzeugt eine andere Variante.
+2. **Füllen** erzeugt eine neue vollständige, lösbare Füllung und verflechtet die Pfade miteinander. Jeder Klick erzeugt eine andere Variante; die Prüfung braucht einen kurzen Moment.
 3. Mit **Auswahl** einen Pfad anklicken. **Drehen** kehrt seine Pfeilrichtung um; **Zurück** entfernt ihn.
 4. Mit **Leer** kannst du von einer leeren Schablone starten.
 5. **Zeichnen** wählen und Rasterpunkte anklicken. Das Programm verbindet sie rechtwinklig; bei schräg liegenden Klicks erst horizontal, dann vertikal.

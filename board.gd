@@ -27,18 +27,18 @@ func _process(_delta: float) -> void:
 			color = Color("#ff536b")
 		elif highlighted:
 			color = Color.WHITE
-		update_stroke(strokes[i], game.visible_points(a), color, highlighted)
+		update_stroke(strokes[i], game.visible_points(a), color, highlighted, a.release)
 	if count > game.arrows.size():
 		update_stroke(strokes[count - 1], game.rounded_points(game.draft), Color.WHITE, true)
 	queue_redraw()
 
-func update_stroke(stroke: ColorRect, points: PackedVector2Array, color: Color, highlighted: bool) -> void:
+func update_stroke(stroke: ColorRect, points: PackedVector2Array, color: Color, highlighted: bool, release: float = 0.0) -> void:
 	if points.size() < 2:
 		stroke.visible = false
 		return
 	var material: ShaderMaterial = stroke.material
 	material.set_shader_parameter("neon_color", color)
-	material.set_shader_parameter("emphasis", 0.5 + sin(game.clock_time * 6.0) * 0.5 if highlighted else 0.0)
+	material.set_shader_parameter("emphasis", maxf(release / 0.8, 0.5 + sin(game.clock_time * 6.0) * 0.5 if highlighted else 0.0))
 	if stroke.get_meta("source", PackedVector2Array()) == points:
 		return
 	stroke.set_meta("source", points.duplicate())
