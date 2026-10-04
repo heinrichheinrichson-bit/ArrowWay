@@ -4,6 +4,10 @@ const SPEED := 950.0
 const TITLES := ["Erste Lichtung", "Herzenswege", "Das erste Haus", "Winterlabyrinth", "Herzklopfen", "Haus bei Nacht", "Flügeltanz", "Meerespause", "Neonblüte"]
 const SHAPES := [1, 2, 0, 1, 2, 0, 3, 4, 5]
 var level_files: Array[String] = []
+var catalog_metadata := {}
+var collection_filter := "all"
+var gallery_page := 0
+const GALLERY_PAGE_SIZE := 12
 var catalog_directory := "res://levels"
 var scan_user_exports := not OS.get_cmdline_user_args().has("--test")
 var arrows: Array[Dictionary] = []
@@ -56,7 +60,6 @@ func _ready() -> void:
 	var preferences := ConfigFile.new()
 	if preferences.load(storage_prefix + "settings.cfg") == OK:
 		feedback.set_enabled(bool(preferences.get_value("audio", "enabled", true)))
-	DisplayServer.window_set_title("ArrowWay · Level-Werkzeug" if authoring else "ArrowWay · Neon Trails")
 	var clip := Control.new()
 	clip.position = Vector2(20, 165)
 	clip.size = Vector2(500, 510)
@@ -137,7 +140,16 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 	for index in completed:
 		if index >= TITLES.size() and index < level_files.size(): completed_paths.append(level_files[index])
 	level_files.clear()
+	catalog_metadata.clear()
 	for index in range(TITLES.size()): level_files.append(directory.path_join("%02d.json" % (index + 1)))
+	if include_user_exports and scan_user_exports and directory == "res://levels":
+		var catalog = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json")) if FileAccess.file_exists("res://collections/catalog.json") else null
+		if catalog is Dictionary and catalog.get("levels") is Array:
+			for entry in catalog.levels:
+				if not entry is Dictionary or not entry.get("path") is String or not entry.path.begins_with("res://collections/levels/") or not entry.get("collection") is Dictionary or not FileAccess.file_exists(entry.path): continue
+				if level_files.has(entry.path): continue
+				level_files.append(entry.path)
+				catalog_metadata[entry.path] = entry
 	if include_user_exports and scan_user_exports:
 		var files := Array(DirAccess.get_files_at(directory))
 		files.sort_custom(func(a: String, b: String): return a.naturalnocasecmp_to(b) < 0)
@@ -151,6 +163,7 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 			var imported := CustomMotif.decode(data.get("motif")) if shape == 6 else CustomMotif.from_shape(shape)
 			if imported.is_empty() or CustomMotif.decode_paths(data.get("paths"), imported).is_empty(): continue
 			level_files.append(path)
+			catalog_metadata[path] = {"title":data.get("title", filename.get_basename()),"collection":data.get("collection", {})}
 	level = level_files.find(current_path) if level_files.has(current_path) else mini(level, TITLES.size() - 1)
 	var retained: Array[int] = []
 	for index in completed:
@@ -160,6 +173,7 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 	completed = retained
 
 func level_title(index: int) -> String:
+	if catalog_metadata.has(level_path(index)): return str(catalog_metadata[level_path(index)].get("title", "Eigenes Motiv")).left(80)
 	var fallback: String = TITLES[index] if index < TITLES.size() else level_path(index).get_file().get_basename()
 	var data = JSON.parse_string(FileAccess.get_file_as_string(level_path(index)))
 	return str(data.get("title", fallback)).left(80) if data is Dictionary else fallback
@@ -273,8 +287,8 @@ func open_gallery() -> void:
 	progress.add_theme_font_size_override("font_size", 14)
 	gallery.add_child(progress)
 	var scroll := ScrollContainer.new()
-	scroll.position = Vector2(30, 112)
-	scroll.size = Vector2(480, 643)
+	scroll.position = Vector2(30, 154)
+	scroll.size = Vector2(480, 555)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	gallery.add_child(scroll)
 	var grid := GridContainer.new()
@@ -282,13 +296,25 @@ func open_gallery() -> void:
 	grid.add_theme_constant_override("h_separation", 12)
 	grid.add_theme_constant_override("v_separation", 12)
 	scroll.add_child(grid)
+	var matching: Array[int] = []
+	var collections := {"all":"Alle Motive", "base":"Erste Neonreise"}
 	for index in range(level_count()):
+		var group := level_collection(index)
+		collections[group.id] = group.title
+		if collection_filter == "all" or collection_filter == group.id: matching.append(index)
+	if not collections.has(collection_filter):
+		collection_filter = "all"
+		for index in range(level_count()): matching.append(index)
+	var page_count := maxi(1, ceili(float(matching.size()) / GALLERY_PAGE_SIZE))
+	gallery_page = clampi(gallery_page, 0, page_count - 1)
+	for page_index in range(gallery_page * GALLERY_PAGE_SIZE, mini((gallery_page + 1) * GALLERY_PAGE_SIZE, matching.size())):
+		var index := matching[page_index]
 		var card := Button.new()
 		card.set_script(load("res://level_card.gd"))
 		card.custom_minimum_size = Vector2(228, 170)
 		card.set("number", index)
 		card.set("title", level_title(index))
-		card.set("subtitle", MOODS[index] if index < MOODS.size() else "Eigenes Motiv · " + level_path(index).get_file())
+		card.set("subtitle", MOODS[index] if index < MOODS.size() else level_collection(index).title)
 		card.set("selected", index == level)
 		card.set("complete", completed.has(index))
 		card.disabled = not level_available(index)
@@ -305,6 +331,37 @@ func open_gallery() -> void:
 		card.set("paths", thumbnail)
 		card.pressed.connect(select_gallery_level.bind(index))
 		grid.add_child(card)
+	var filters := OptionButton.new()
+	filters.position = Vector2(30, 106)
+	filters.size = Vector2(480, 36)
+	filters.fit_to_longest_item = false
+	var filter_ids := collections.keys()
+	for id in filter_ids:
+		var total := 0
+		var done := 0
+		for index in range(level_count()):
+			if id == "all" or level_collection(index).id == id:
+				total += 1
+				if completed.has(index): done += 1
+		filters.add_item("%s · %d/%d" % [collections[id],done,total])
+	filters.select(filter_ids.find(collection_filter))
+	filters.item_selected.connect(func(index: int):
+		collection_filter = filter_ids[index]; gallery_page = 0; close_gallery(); open_gallery())
+	gallery.add_child(filters)
+	for offset in [-1,1]:
+		var navigation := Button.new()
+		navigation.text = "← Zurück" if offset < 0 else "Weiter →"
+		navigation.position = Vector2(30 if offset < 0 else 350, 723)
+		navigation.size = Vector2(160, 36)
+		navigation.disabled = gallery_page + offset < 0 or gallery_page + offset >= page_count
+		navigation.pressed.connect(func(): gallery_page += offset; close_gallery(); open_gallery())
+		gallery.add_child(navigation)
+	var page_label := Label.new()
+	page_label.text = "%d / %d" % [gallery_page+1,page_count]
+	page_label.position = Vector2(210,731)
+	page_label.size.x = 120
+	page_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	gallery.add_child(page_label)
 	var back := Button.new()
 	back.text = "Weiter spielen"
 	back.position = Vector2(150, 787)
@@ -365,11 +422,22 @@ func toggle_sound() -> void:
 	preferences.set_value("audio", "enabled", feedback.enabled)
 	preferences.save(storage_prefix + "settings.cfg")
 
+func next_collection_level(index: int) -> int:
+	if index < TITLES.size():
+		return index + 1 if index < TITLES.size() - 1 else -1
+	var group: String = level_collection(index).id
+	for candidate in range(index + 1, level_count()):
+		if level_collection(candidate).id == group: return candidate
+	return -1
+
 func advance() -> void:
-	if level == TITLES.size() - 1 or level == level_count() - 1:
+	var next := next_collection_level(level)
+	if next < 0:
+		collection_filter = level_collection(level).id
+		gallery_page = 0
 		open_gallery()
 		return
-	level += 1
+	level = next
 	if level < TITLES.size(): unlocked = maxi(unlocked, level)
 	save_progress()
 	reset()
@@ -399,7 +467,7 @@ func _process(delta: float) -> void:
 					detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
 					next_button.visible = true
 					if not testing:
-						if level == TITLES.size() - 1 or level == level_count() - 1:
+						if next_collection_level(level) < 0:
 							next_button.text = "Zur Levelübersicht"
 						if not completed.has(level):
 							completed.append(level)
@@ -863,3 +931,11 @@ func _draw() -> void:
 		draw_set_transform(Vector2(270, 407), 0.0, Vector2.ONE * size)
 		text_at("FREI", Vector2(-110, 20), 62, Color(0.41, 0.94, 0.70, fade), 220)
 		draw_set_transform(Vector2.ZERO)
+
+func level_collection(index: int) -> Dictionary:
+	if index < TITLES.size(): return {"id":"base","title":"Erste Neonreise"}
+	var data: Dictionary = catalog_metadata.get(level_path(index), {})
+	var group: Dictionary = data.get("collection", {}) if data.get("collection", {}) is Dictionary else {}
+	if not group.get("id") is String or not group.get("title") is String:
+		return {"id":"custom","title":"Eigene Motive"}
+	return group

@@ -12,6 +12,8 @@ Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze f
 
 **Alle Levels** öffnet die Motivübersicht. Dort siehst du deinen Fortschritt und kannst freigeschaltete Puzzles wählen. **Weiter spielen** bringt dich zum laufenden Puzzle zurück, ohne es neu zu starten. Gesperrte Puzzles werden der Reihe nach freigeschaltet; geschaffte Puzzles bleiben markiert. Nach dem letzten Level kommst du wieder zur Übersicht.
 
+Oben in der Übersicht kannst du zwischen **Alle Motive**, **Erste Neonreise**, fünf neuen Sammlungen und deinen **Eigenen Motiven** wählen. **Zurück / Weiter** blättert durch Seiten mit höchstens zwölf Vorschauen. Die 28 neuen Sammlungsbilder sind sofort spielbar. **Nächstes Puzzle** führt innerhalb der gewählten Sammlung weiter. Die Bilder und Themen findest du in [COLLECTIONS.md](COLLECTIONS.md).
+
 ## Level-Werkzeug starten
 
 Das Werkzeug ist für die Erstellung unserer Levels gedacht. Es gehört nicht zur Spieleroberfläche.

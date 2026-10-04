@@ -1,0 +1,481 @@
+{
+  "levels": [
+    {
+      "collection": {
+        "id": "world",
+        "order": 1.0,
+        "title": "Weltreise in Neon"
+      },
+      "design": {
+        "depth": 4,
+        "edges": 13,
+        "longest": 30,
+        "paths": 19,
+        "solvable": true,
+        "starts": 13
+      },
+      "path": "res://collections/levels/world_01_eiffel.json",
+      "title": "Pariser Lichter"
+    },
+    {
+      "collection": {
+        "id": "world",
+        "order": 2.0,
+        "title": "Weltreise in Neon"
+      },
+      "design": {
+        "depth": 8,
+        "edges": 29,
+        "longest": 56,
+        "paths": 26,
+        "solvable": true,
+        "starts": 12
+      },
+      "path": "res://collections/levels/world_02_pyramids.json",
+      "title": "Goldene Pyramiden"
+    },
+    {
+      "collection": {
+        "id": "world",
+        "order": 3.0,
+        "title": "Weltreise in Neon"
+      },
+      "design": {
+        "depth": 10,
+        "edges": 32,
+        "longest": 33,
+        "paths": 21,
+        "solvable": true,
+        "starts": 10
+      },
+      "path": "res://collections/levels/world_03_torii.json",
+      "title": "Tor zum Abendrot"
+    },
+    {
+      "collection": {
+        "id": "world",
+        "order": 4.0,
+        "title": "Weltreise in Neon"
+      },
+      "design": {
+        "depth": 16,
+        "edges": 138,
+        "longest": 23,
+        "paths": 53,
+        "solvable": true,
+        "starts": 17
+      },
+      "path": "res://collections/levels/world_04_windmill.json",
+      "title": "Wind über Holland"
+    },
+    {
+      "collection": {
+        "id": "world",
+        "order": 5.0,
+        "title": "Weltreise in Neon"
+      },
+      "design": {
+        "depth": 6,
+        "edges": 45,
+        "longest": 24,
+        "paths": 32,
+        "solvable": true,
+        "starts": 13
+      },
+      "path": "res://collections/levels/world_05_lighthouse.json",
+      "title": "Licht an der Küste"
+    },
+    {
+      "collection": {
+        "id": "world",
+        "order": 6.0,
+        "title": "Weltreise in Neon"
+      },
+      "design": {
+        "depth": 10,
+        "edges": 135,
+        "longest": 17,
+        "paths": 67,
+        "solvable": true,
+        "starts": 21
+      },
+      "path": "res://collections/levels/world_06_prater.json",
+      "title": "Prater bei Nacht"
+    },
+    {
+      "collection": {
+        "id": "garden",
+        "order": 1.0,
+        "title": "Naturzauber"
+      },
+      "design": {
+        "depth": 9,
+        "edges": 40,
+        "longest": 25,
+        "paths": 32,
+        "solvable": true,
+        "starts": 13
+      },
+      "path": "res://collections/levels/garden_01_tulip.json",
+      "title": "Tulpe im Morgenlicht"
+    },
+    {
+      "collection": {
+        "id": "garden",
+        "order": 2.0,
+        "title": "Naturzauber"
+      },
+      "design": {
+        "depth": 6,
+        "edges": 18,
+        "longest": 39,
+        "paths": 20,
+        "solvable": true,
+        "starts": 12
+      },
+      "path": "res://collections/levels/garden_02_cactus.json",
+      "title": "Kaktus in der Sonne"
+    },
+    {
+      "collection": {
+        "id": "garden",
+        "order": 3.0,
+        "title": "Naturzauber"
+      },
+      "design": {
+        "depth": 14,
+        "edges": 124,
+        "longest": 19,
+        "paths": 50,
+        "solvable": true,
+        "starts": 11
+      },
+      "path": "res://collections/levels/garden_03_mushroom.json",
+      "title": "Glückspilz"
+    },
+    {
+      "collection": {
+        "id": "garden",
+        "order": 4.0,
+        "title": "Naturzauber"
+      },
+      "design": {
+        "depth": 11,
+        "edges": 69,
+        "longest": 27,
+        "paths": 35,
+        "solvable": true,
+        "starts": 11
+      },
+      "path": "res://collections/levels/garden_04_palm.json",
+      "title": "Palme am Strand"
+    },
+    {
+      "collection": {
+        "id": "garden",
+        "order": 5.0,
+        "title": "Naturzauber"
+      },
+      "design": {
+        "depth": 19,
+        "edges": 142,
+        "longest": 54,
+        "paths": 55,
+        "solvable": true,
+        "starts": 17
+      },
+      "path": "res://collections/levels/garden_05_turtle.json",
+      "title": "Schildkrötenreise"
+    },
+    {
+      "collection": {
+        "id": "garden",
+        "order": 6.0,
+        "title": "Naturzauber"
+      },
+      "design": {
+        "depth": 10,
+        "edges": 76,
+        "longest": 48,
+        "paths": 35,
+        "solvable": true,
+        "starts": 8
+      },
+      "path": "res://collections/levels/garden_06_alps.json",
+      "title": "Spiegel der Alpen"
+    },
+    {
+      "collection": {
+        "id": "taste",
+        "order": 1.0,
+        "title": "Kleine Genussmomente"
+      },
+      "design": {
+        "depth": 12,
+        "edges": 84,
+        "longest": 64,
+        "paths": 40,
+        "solvable": true,
+        "starts": 14
+      },
+      "path": "res://collections/levels/taste_01_apple.json",
+      "title": "Knackiger Apfel"
+    },
+    {
+      "collection": {
+        "id": "taste",
+        "order": 2.0,
+        "title": "Kleine Genussmomente"
+      },
+      "design": {
+        "depth": 11,
+        "edges": 81,
+        "longest": 31,
+        "paths": 44,
+        "solvable": true,
+        "starts": 15
+      },
+      "path": "res://collections/levels/taste_02_strawberry.json",
+      "title": "Erdbeerzeit"
+    },
+    {
+      "collection": {
+        "id": "taste",
+        "order": 3.0,
+        "title": "Kleine Genussmomente"
+      },
+      "design": {
+        "depth": 13,
+        "edges": 87,
+        "longest": 26,
+        "paths": 35,
+        "solvable": true,
+        "starts": 12
+      },
+      "path": "res://collections/levels/taste_03_icecream.json",
+      "title": "Drei Kugeln Glück"
+    },
+    {
+      "collection": {
+        "id": "taste",
+        "order": 4.0,
+        "title": "Kleine Genussmomente"
+      },
+      "design": {
+        "depth": 15,
+        "edges": 70,
+        "longest": 38,
+        "paths": 36,
+        "solvable": true,
+        "starts": 10
+      },
+      "path": "res://collections/levels/taste_04_coffee.json",
+      "title": "Kleine Kaffeepause"
+    },
+    {
+      "collection": {
+        "id": "taste",
+        "order": 5.0,
+        "title": "Kleine Genussmomente"
+      },
+      "design": {
+        "depth": 11,
+        "edges": 91,
+        "longest": 33,
+        "paths": 45,
+        "solvable": true,
+        "starts": 11
+      },
+      "path": "res://collections/levels/taste_05_cherries.json",
+      "title": "Kirschen im Sommer"
+    },
+    {
+      "collection": {
+        "id": "taste",
+        "order": 6.0,
+        "title": "Kleine Genussmomente"
+      },
+      "design": {
+        "depth": 11,
+        "edges": 68,
+        "longest": 37,
+        "paths": 38,
+        "solvable": true,
+        "starts": 14
+      },
+      "path": "res://collections/levels/taste_06_cocktail.json",
+      "title": "Lime & Neon"
+    },
+    {
+      "collection": {
+        "id": "space",
+        "order": 1.0,
+        "title": "Kosmische Reise"
+      },
+      "design": {
+        "depth": 4,
+        "edges": 14,
+        "longest": 48,
+        "paths": 19,
+        "solvable": true,
+        "starts": 13
+      },
+      "path": "res://collections/levels/space_01_star.json",
+      "title": "Sternenlicht"
+    },
+    {
+      "collection": {
+        "id": "space",
+        "order": 2.0,
+        "title": "Kosmische Reise"
+      },
+      "design": {
+        "depth": 7,
+        "edges": 28,
+        "longest": 34,
+        "paths": 26,
+        "solvable": true,
+        "starts": 12
+      },
+      "path": "res://collections/levels/space_02_moon.json",
+      "title": "Mondnacht"
+    },
+    {
+      "collection": {
+        "id": "space",
+        "order": 3.0,
+        "title": "Kosmische Reise"
+      },
+      "design": {
+        "depth": 11,
+        "edges": 115,
+        "longest": 37,
+        "paths": 39,
+        "solvable": true,
+        "starts": 13
+      },
+      "path": "res://collections/levels/space_03_rocket.json",
+      "title": "Auf zu den Sternen"
+    },
+    {
+      "collection": {
+        "id": "space",
+        "order": 4.0,
+        "title": "Kosmische Reise"
+      },
+      "design": {
+        "depth": 14,
+        "edges": 55,
+        "longest": 26,
+        "paths": 33,
+        "solvable": true,
+        "starts": 12
+      },
+      "path": "res://collections/levels/space_04_saturn.json",
+      "title": "Ringe des Saturn"
+    },
+    {
+      "collection": {
+        "id": "space",
+        "order": 5.0,
+        "title": "Kosmische Reise"
+      },
+      "design": {
+        "depth": 11,
+        "edges": 80,
+        "longest": 23,
+        "paths": 44,
+        "solvable": true,
+        "starts": 12
+      },
+      "path": "res://collections/levels/space_05_comet.json",
+      "title": "Kometenschweif"
+    },
+    {
+      "collection": {
+        "id": "space",
+        "order": 6.0,
+        "title": "Kosmische Reise"
+      },
+      "design": {
+        "depth": 13,
+        "edges": 103,
+        "longest": 46,
+        "paths": 42,
+        "solvable": true,
+        "starts": 14
+      },
+      "path": "res://collections/levels/space_06_ufo.json",
+      "title": "Besuch aus dem All"
+    },
+    {
+      "collection": {
+        "id": "art",
+        "order": 1.0,
+        "title": "Meisterwerke neu gedacht"
+      },
+      "design": {
+        "depth": 10,
+        "edges": 122,
+        "longest": 29,
+        "paths": 52,
+        "solvable": true,
+        "starts": 13
+      },
+      "path": "res://collections/levels/art_01_sunflowers.json",
+      "title": "Sonnenblumen in Türkis"
+    },
+    {
+      "collection": {
+        "id": "art",
+        "order": 2.0,
+        "title": "Meisterwerke neu gedacht"
+      },
+      "design": {
+        "depth": 9,
+        "edges": 37,
+        "longest": 35,
+        "paths": 30,
+        "solvable": true,
+        "starts": 12
+      },
+      "path": "res://collections/levels/art_02_wave.json",
+      "title": "Die große Neonwelle"
+    },
+    {
+      "collection": {
+        "id": "art",
+        "order": 3.0,
+        "title": "Meisterwerke neu gedacht"
+      },
+      "design": {
+        "depth": 9,
+        "edges": 90,
+        "longest": 35,
+        "paths": 40,
+        "solvable": true,
+        "starts": 11
+      },
+      "path": "res://collections/levels/art_03_wheat.json",
+      "title": "Goldenes Korn"
+    },
+    {
+      "collection": {
+        "id": "art",
+        "order": 4.0,
+        "title": "Meisterwerke neu gedacht"
+      },
+      "design": {
+        "depth": 16,
+        "edges": 82,
+        "longest": 31,
+        "paths": 38,
+        "solvable": true,
+        "starts": 10
+      },
+      "path": "res://collections/levels/art_04_bridge.json",
+      "title": "Brücke über Seerosen"
+    }
+  ],
+  "version": 1
+}

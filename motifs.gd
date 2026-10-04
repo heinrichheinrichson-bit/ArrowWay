@@ -120,6 +120,22 @@ static func build(shape: int, seed_value: int, motif: Dictionary = {}) -> Array[
 				other.cells.append(cell)
 				chain.cells.clear()
 				break
+	# Narrow vertical features (stems, seeds, spokes) can have no horizontal run.
+	# Pair their remaining cells before assembling arrows; close_gaps attaches odd tips.
+	var singles := {}
+	for chain in chains:
+		if chain.cells.size() == 1: singles[chain.cells[0]] = chain
+	for cell: Vector2i in singles:
+		var chain: Dictionary = singles[cell]
+		if chain.cells.size() != 1: continue
+		for direction in ArrowPuzzle.DIRECTIONS:
+			var neighbor: Vector2i = cell + direction
+			if not singles.has(neighbor): continue
+			var other: Dictionary = singles[neighbor]
+			if other.cells.size() == 1 and other.part == chain.part:
+				chain.cells.append(neighbor)
+				other.cells.clear()
+				break
 	var result: Array[Dictionary] = []
 	for chain in chains:
 		if chain.cells.size() < 2:

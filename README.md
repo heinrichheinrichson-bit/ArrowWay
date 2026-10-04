@@ -8,7 +8,10 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.10.1
+## Aktueller Stand · 0.11.0
+
+- **28 zusätzliche Motive in fünf Sammlungen**: Weltreise, Natur, Genussmomente, Kosmos und Kunstmotive. Sofort spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle Motive und Vorschauen](COLLECTIONS.md).
+- **Sammlungsfilter und zwölf Vorschauen pro Seite** halten die Übersicht auch bei großen Bibliotheken überschaubar. Der Katalog lädt nur Metadaten; der Wechsel zum nächsten Puzzle bleibt innerhalb der Sammlung.
 
 - Neun gestaltete Levels mit 25–39 Pfaden, jeweils vollständig gefüllten Motiven und allen vier Pfeilrichtungen.
 - Längere, stärker verflochtene Verläufe. Abhängigkeiten und freie Startzüge werden beim Erstellen gemessen; die Serie beginnt mit einer übersichtlicheren Baumfüllung und endet mit engeren Freispielketten im Haus.
@@ -38,6 +41,7 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 - `motifs.gd`: gleichmäßige vollständige Füllung, Motivbereiche und Neonpaletten.
 - `level_design.gd`: Verflechtung und Verbindung benachbarter Pfade, Ausrichtung der Spitzen und Bewertung von Startzügen und Abhängigkeiten. Jede übernommene Variante bleibt vollständig lösbar.
 - `levels/`: neun fertige, reproduzierbar erzeugte und geprüfte Leveldateien.
+- `collections/`: Katalog, Ausgangsflächen und 28 weitere geprüfte Levels; `tools/generate_collections.gd` erzeugt sie reproduzierbar.
 - `main.gd`: Spielzustand, gerundete Animation, Benutzeroberfläche, Werkzeugmodus und Speicherung.
 - `feedback_audio.gd`: kurze Klänge mit weichem Ein- und Ausklang und begrenzter Überlagerung.
 - `level_card.gd`: Motivvorschauen und Status in der Levelübersicht.
@@ -63,6 +67,7 @@ godot --headless --path . --editor --quit
 godot --headless --path . --script res://tests/test_runner.gd -- --test
 godot --headless --path . --script res://tests/test_import.gd -- --test
 godot --headless --path . --script res://tests/test_colors.gd -- --test
+godot --headless --path . --script res://tests/test_collections.gd -- --test
 ```
 
 Die Serie lässt sich mit `godot --headless --path . --script res://tools/build_series.gd -- --test` neu erstellen. Das überschreibt `levels/01.json` bis `levels/09.json`; eigene Änderungen an diesen Dateien vorher separat sichern.
