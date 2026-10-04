@@ -26,6 +26,9 @@ var worker: Thread
 var filling := false
 var seed_value := 8900
 var selected_arrow := -1
+var arrow_label: Label
+var arrow_color: ColorPickerButton
+var arrow_styles: Button
 var color_dialogue: Window
 
 func _ready() -> void:
@@ -47,6 +50,24 @@ func _ready() -> void:
 	heading.position = Vector2(25, 18)
 	heading.add_theme_font_size_override("font_size", 24)
 	root.add_child(heading)
+	arrow_label = Label.new()
+	arrow_label.position = Vector2(300, 22)
+	arrow_label.text = "Pfeil anklicken"
+	arrow_label.add_theme_font_size_override("font_size", 14)
+	root.add_child(arrow_label)
+	arrow_color = ColorPickerButton.new()
+	arrow_color.position = Vector2(425, 18)
+	arrow_color.size = Vector2(65, 34)
+	arrow_color.edit_alpha = false
+	arrow_color.tooltip_text = "Eigene Farbe für den ausgewählten Pfeil"
+	arrow_color.color_changed.connect(change_arrow_color)
+	root.add_child(arrow_color)
+	arrow_styles = Button.new()
+	arrow_styles.position = Vector2(500, 18)
+	arrow_styles.size = Vector2(115, 34)
+	arrow_styles.text = "Verläufe …"
+	arrow_styles.pressed.connect(open_colors)
+	root.add_child(arrow_styles)
 	add_button(root, "Bild öffnen", Vector2(25, 63), Vector2(150, 36), choose_image)
 	detection_mode = OptionButton.new()
 	detection_mode.position = Vector2(190, 63)
@@ -80,7 +101,7 @@ func _ready() -> void:
 	add_label(sidebar, "FLÄCHEN")
 	regions = OptionButton.new()
 	regions.fit_to_longest_item = false
-	regions.item_selected.connect(func(index: int): selected = regions.get_item_id(index); refresh())
+	regions.item_selected.connect(func(index: int): selected = regions.get_item_id(index); selected_arrow = -1; refresh())
 	sidebar.add_child(regions)
 	actions.append(regions)
 	name_field = LineEdit.new()
@@ -91,7 +112,7 @@ func _ready() -> void:
 	sidebar.add_child(name_field)
 	var tools := OptionButton.new()
 	tool_picker = tools
-	for text in ["Fläche auswählen", "Fläche malen", "Radieren", "Fläche mit Linie trennen", "Angeklickte Fläche zusammenführen", "Pfeil auswählen", "Pipette · Pfeil / Fläche", "Pipette · Bildvorlage"]:
+	for text in ["Pfeil / Fläche auswählen", "Fläche malen", "Radieren", "Fläche mit Linie trennen", "Angeklickte Fläche zusammenführen", "Pfeil auswählen", "Pipette · Pfeil / Fläche", "Pipette · Bildvorlage", "Nur Fläche auswählen"]:
 		tools.add_item(text)
 	tools.item_selected.connect(func(index: int): tool = index; update_notice())
 	sidebar.add_child(tools)
@@ -196,6 +217,12 @@ func refresh() -> void:
 		selected_arrow = -1
 	for index in range(paths.size()):
 		paths[index]["editor_selected"] = index == selected_arrow
+		paths[index]["editor_dimmed"] = selected_arrow >= 0 and index != selected_arrow
+	arrow_label.text = "Pfeil %d" % (selected_arrow + 1) if selected_arrow >= 0 else "Pfeil anklicken"
+	arrow_color.disabled = selected_arrow < 0 or busy
+	arrow_styles.disabled = selected_arrow < 0 or busy
+	if selected_arrow >= 0:
+		arrow_color.color = paths[selected_arrow].color
 	regions.clear()
 	for part in motif.palettes:
 		regions.add_item(motif.names.get(part, "Fläche %d" % part), part)
@@ -218,7 +245,7 @@ func refresh() -> void:
 	canvas.refresh()
 
 func update_notice() -> void:
-	var tips := ["Klicke eine Fläche an, um ihren Namen und ihre Palette zu ändern.", "Ziehe mit gedrückter Maustaste: Punkte gehören zur ausgewählten Fläche.", "Ziehe über Punkte, die nicht zum Motiv gehören sollen.", "Ziehe eine Linie durch die ausgewählte Fläche. Die Trennung erzeugt neue Bereiche ohne Lücke.", "Wähle zuerst die Zielfläche. Klicke dann die Fläche an, die dazugehören soll.", "Klicke einen Pfeil an. Farben & Verläufe bietet eigene Farben und Vorschläge.", "Klicke einen Pfeil oder eine Fläche, um ihre Farbe zu übernehmen.", "Klicke auf eine Farbe der eingeblendeten Bildvorlage."]
+	var tips := ["Klicke einen Pfeil an und wähle oben seine Farbe. Für Flächen: Nur Fläche auswählen.", "Ziehe mit gedrückter Maustaste: Punkte gehören zur ausgewählten Fläche.", "Ziehe über Punkte, die nicht zum Motiv gehören sollen.", "Ziehe eine Linie durch die ausgewählte Fläche. Die Trennung erzeugt neue Bereiche ohne Lücke.", "Wähle zuerst die Zielfläche. Klicke dann die Fläche an, die dazugehören soll.", "Klicke einen Pfeil an. Farben & Verläufe bietet eigene Farben und Vorschläge.", "Klicke einen Pfeil oder eine Fläche, um ihre Farbe zu übernehmen.", "Klicke auf eine Farbe der eingeblendeten Bildvorlage.", "Klicke eine Fläche an, um ihren Namen und ihre Palette zu ändern."]
 	var lonely := CustomMotif.isolated(motif)
 	notice.text = "%d Rasterpunkte · %d Flächen. %s" % [motif.cells.size(), motif.palettes.size(), tips[tool]]
 	if not lonely.is_empty():
@@ -307,6 +334,7 @@ func recolor() -> void:
 
 func open_colors() -> void:
 	if is_instance_valid(color_dialogue):
+		color_dialogue.target.select(1 if selected_arrow >= 0 else 0)
 		color_dialogue.refresh_target()
 		color_dialogue.popup_centered(color_dialogue.size)
 		return
@@ -315,6 +343,19 @@ func open_colors() -> void:
 	color_dialogue.set("studio", self)
 	add_child(color_dialogue)
 	color_dialogue.popup_centered(Vector2i(900, 665))
+
+func change_arrow_color(color: Color) -> void:
+	if busy or selected_arrow < 0 or selected_arrow >= paths.size():
+		return
+	remember()
+	paths[selected_arrow].color = color
+	paths[selected_arrow].manual_color = true
+	paths[selected_arrow].erase("color_style")
+	refresh()
+	if is_instance_valid(color_dialogue):
+		color_dialogue.target.select(1)
+		color_dialogue.refresh_target()
+	notice.text = "Eigene Farbe für Pfeil %d übernommen. Rückgängig stellt die vorige Farbe wieder her." % (selected_arrow + 1)
 
 func arrow_at(pos: Vector2) -> int:
 	var nearest := 8.0
@@ -338,6 +379,7 @@ func select_arrow_at(pos: Vector2) -> void:
 			color_dialogue.refresh_target()
 		notice.text = "Pfeil %d ausgewählt. Farben & Verläufe färbt nur diesen Pfeil." % (selected_arrow + 1)
 	else:
+		refresh()
 		notice.text = "Klicke direkt auf einen vorhandenen Pfeil."
 
 func sample_color(pos: Vector2, from_image: bool) -> void:

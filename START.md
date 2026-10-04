@@ -16,7 +16,7 @@ Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze f
 
 Das Werkzeug ist für die Erstellung unserer Levels gedacht. Es gehört nicht zur Spieleroberfläche.
 
-Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path . -- --editor-tool` starten. Spiel und Werkzeug können in getrennten Fenstern laufen. Das Werkzeug öffnet jetzt automatisch die **Motivwerkstatt** für Bildimport und Flächenbearbeitung. **Bild & Flächen** öffnet sie später erneut. Die Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md); unter `examples/` liegen Hausumrisse, eine transparente Palme und eine gelbe Sonne zum Ausprobieren. **Farben & Verläufe · Vorschläge** erzeugt Schattierungen aus einer Grundfarbe; **Pfeil auswählen** und die Pipetten erlauben gezielte Farbänderungen nach dem Füllen.
+Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path . -- --editor-tool` starten. Spiel und Werkzeug können in getrennten Fenstern laufen. Das Werkzeug öffnet jetzt automatisch die **Motivwerkstatt** für Bildimport und Flächenbearbeitung. **Bild & Flächen** öffnet sie später erneut. Die Anleitung steht in [MOTIVWERKSTATT.md](MOTIVWERKSTATT.md); unter `examples/` liegen Hausumrisse, eine transparente Palme und eine gelbe Sonne zum Ausprobieren. **Farben & Verläufe · Vorschläge** erzeugt Schattierungen aus einer Grundfarbe; Nach dem Füllen einen Pfeil direkt anklicken und oben sein Farbfeld ändern. **Verläufe …** bietet Schattierungen für diesen Pfeil; Pipetten übernehmen vorhandene Farben.
 
 ## Eigenes Puzzle bauen
 

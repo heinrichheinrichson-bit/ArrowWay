@@ -1,4 +1,5 @@
 shader_type canvas_item;
+uniform float selection_opacity = 1.0;
 render_mode unshaded;
 
 uniform sampler2D path_points : filter_nearest, repeat_disable;
@@ -68,5 +69,5 @@ void fragment() {
 		tint = texture(color_lookup, vec2(clamp(color_distance / max(color_length, 0.001), 0.0, 1.0), 0.5)).rgb;
 	}
 	vec3 light = mix(tint, vec3(1.0), core * 0.24);
-	COLOR = vec4(light, alpha * neon_color.a);
+	COLOR = vec4(light, alpha * neon_color.a * selection_opacity);
 }

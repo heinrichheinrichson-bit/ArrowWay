@@ -44,7 +44,7 @@ func _ready() -> void:
 	for label in ["Ausgewählte Fläche", "Ausgewählter Pfeil", "Ganzes Motiv · Grundfarben behalten"]:
 		target.add_item(label)
 	target.item_selected.connect(func(index: int):
-		studio.tool = 5 if index == 1 else 0
+		studio.tool = 5 if index == 1 else 8
 		studio.tool_picker.select(studio.tool)
 		refresh_target())
 	panel.add_child(target)

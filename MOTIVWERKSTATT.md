@@ -27,7 +27,7 @@ Eine Änderung an der Flächengeometrie verwirft die bisherige Vorschau. Danach 
 **Farben & Verläufe · Vorschläge** öffnet die neue Farbgestaltung. Sie funktioniert vor und nach dem Füllen. Die Vorschau zeigt die Farbwirkung direkt auf dem Motiv beziehungsweise auf seinen Pfeilen; **Farben übernehmen** wendet sie auf den Entwurf an.
 
 - **Ausgewählte Fläche** färbt den aktuell gewählten Bereich.
-- **Ausgewählter Pfeil** färbt nur einen Pfeil. Wähle dazu in der Werkstatt **Pfeil auswählen** und klicke auf den Pfeil; im Farbdialog ist dieselbe Zielauswahl verfügbar.
+- **Ausgewählter Pfeil** färbt nur einen Pfeil. Klicke im gefüllten Motiv direkt auf den Pfeil. Die anderen Pfeile werden abgedunkelt; oben steht seine Nummer. Das Farbfeld daneben weist sofort eine eigene Farbe zu. **Verläufe …** öffnet Schattierungen und Vorschläge für diesen Pfeil. Mit **Nur Fläche auswählen** kannst du stattdessen ganze Flächen wählen.
 - **Ganzes Motiv · Grundfarben behalten** erzeugt Abstufungen für alle Flächen. Jede Fläche behält ihre eigene Farbfamilie: Blätter bleiben grün, der Stamm braun.
 
 Wähle eine Grundfarbe und eine Farbwirkung: **Einfarbig**, **Sanfte Schattierungen**, vertikaler oder horizontaler Verlauf beziehungsweise **Leuchtende Mitte**. **Stärke der Schattierung** bestimmt, wie deutlich sich die Töne unterscheiden. Bei einer gelben Sonne kann die Mitte hellgelb und der Rand wärmer und dunkler werden. Verläufe sind innerhalb eines Pfeils kontinuierlich und werden beim Entkommen mitgeführt.

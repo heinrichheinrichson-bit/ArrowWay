@@ -84,9 +84,16 @@ func run() -> void:
 	require(renderer.strokes[0].material.get_shader_parameter("gradient_enabled") == false, "Hints stay readable over gradients")
 	studio.paths[0].hint = 0
 	dialogue.hide()
-	studio.tool = 5
+	studio.tool = 0
 	click(studio, studio.paths[0].points[0])
 	require(studio.selected_arrow == 0, "Actual mouse input selects an individual arrow")
+	var previous_color: Color = studio.paths[1].color
+	studio.arrow_color.color_changed.emit(Color("#fc48a8"))
+	require(studio.paths[0].color == Color("#fc48a8") and studio.paths[0].manual_color and studio.paths[1].color == previous_color, "Visible color picker changes only the clicked arrow")
+	await process_frame
+	require(renderer.strokes[1].material.get_shader_parameter("selection_opacity") < 0.3 and renderer.strokes[0].material.get_shader_parameter("selection_opacity") == 1.0, "Selected arrow stands out from dimmed neighbors")
+	studio.undo()
+	dialogue.refresh_target()
 	dialogue.base.color = Color("#a875ff")
 	dialogue.mode_picker.select(0)
 	dialogue.update_preview()

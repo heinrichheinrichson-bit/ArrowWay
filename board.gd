@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 		if a.removed:
 			strokes[i].visible = false
 			continue
+		strokes[i].material.set_shader_parameter("selection_opacity", 0.22 if a.get("editor_dimmed", false) else 1.0)
 		var color: Color = a.color
 		var highlighted: bool = a.hint > 0 or (game.editor and i == game.selected)
 		if a.flash > 0:

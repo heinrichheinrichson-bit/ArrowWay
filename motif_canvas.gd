@@ -51,6 +51,12 @@ func _gui_input(event: InputEvent) -> void:
 			previous = cell
 			last = cell
 			if studio.tool == 0:
+				var pos: Vector2 = ArrowPuzzle.ORIGIN + (event.position - OFFSET) / STEP * ArrowPuzzle.CELL
+				if studio.show_paths and studio.arrow_at(pos) >= 0:
+					studio.select_arrow_at(pos)
+				else:
+					studio.select_cell(cell)
+			elif studio.tool == 8:
 				studio.select_cell(cell)
 			elif studio.tool == 4:
 				studio.merge_cell(cell)
