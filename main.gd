@@ -29,8 +29,23 @@ var authoring := OS.get_cmdline_user_args().has("--editor-tool")
 var known_free := {}
 var scan_clock := 0.0
 var generating := false
+var feedback: FeedbackAudio
+var sound_button: Button
+var win_time := -1.0
+var display_progress := 0.0
+
+static func escape_distance(time: float) -> float:
+	const RAMP := 0.12
+	if time < RAMP:
+		return SPEED * (time * 0.5 - RAMP * sin(PI * time / RAMP) / (2.0 * PI))
+	return SPEED * (time - RAMP * 0.5)
 
 func _ready() -> void:
+	feedback = FeedbackAudio.new()
+	add_child(feedback)
+	var preferences := ConfigFile.new()
+	if preferences.load(storage_prefix + "settings.cfg") == OK:
+		feedback.set_enabled(bool(preferences.get_value("audio", "enabled", true)))
 	DisplayServer.window_set_title("ArrowWay · Level-Werkzeug" if authoring else "ArrowWay · Neon Trails")
 	var clip := Control.new()
 	clip.position = Vector2(20, 165)
@@ -84,6 +99,7 @@ func build_controls() -> void:
 		c.queue_free()
 	controls.clear()
 	next_button = null
+	sound_button = button("Ton: An" if feedback.enabled else "Ton: Aus", 402, 30, 108, toggle_sound)
 	if editor:
 		var shapes := OptionButton.new()
 		shapes.position = Vector2(30, 101)
@@ -136,6 +152,9 @@ func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 	return result
 
 func reset() -> void:
+	feedback.stop_all()
+	win_time = -1.0
+	display_progress = 0.0
 	if not testing:
 		shape_index = SHAPES[level]
 	if testing:
@@ -163,6 +182,13 @@ func save_progress() -> void:
 	config.set_value("game", "level", level)
 	config.save(storage_prefix + "progress.cfg")
 
+func toggle_sound() -> void:
+	feedback.set_enabled(not feedback.enabled)
+	sound_button.text = "Ton: An" if feedback.enabled else "Ton: Aus"
+	var preferences := ConfigFile.new()
+	preferences.set_value("audio", "enabled", feedback.enabled)
+	preferences.save(storage_prefix + "settings.cfg")
+
 func advance() -> void:
 	level = level + 1 if level < TITLES.size() - 1 else 0
 	unlocked = maxi(unlocked, level)
@@ -171,17 +197,23 @@ func advance() -> void:
 
 func _process(delta: float) -> void:
 	clock_time += delta
+	if win_time >= 0.0:
+		win_time += delta
+	display_progress = lerpf(display_progress, float(cleared) / maxf(arrows.size(), 1.0), 1.0 - exp(-delta * 12.0))
 	for a in arrows:
 		a.flash = maxf(0.0, a.flash - delta)
 		a.hint = maxf(0.0, a.hint - delta)
 		a.release = maxf(0.0, a.release - delta)
 		if a.escaping and not a.removed:
-			a.travel += SPEED * delta
+			a.escape_time += delta
+			a.travel = escape_distance(a.escape_time)
 			var p := visible_points(a)
 			if a.travel > path_length(a.draw_points) and not Rect2(12, 157, 516, 526).has_point(p[0]):
 				a.removed = true
 				cleared += 1
 				if cleared == arrows.size():
+					win_time = 0.0
+					feedback.play("win")
 					status = "Geschafft! Alle Wege sind frei."
 					detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
 					next_button.visible = true
@@ -215,6 +247,7 @@ func mark_releases() -> void:
 	for i in free:
 		known_free[i] = true
 	if opened > 0 and not status.begins_with("Der weiß"):
+		feedback.play("release")
 		status = "Ein neuer Weg ist jetzt frei." if opened == 1 else "%d neue Wege sind jetzt frei." % opened
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
 
@@ -261,11 +294,13 @@ func click_at(pos: Vector2) -> void:
 		return
 	if is_blocked(chosen):
 		arrows[chosen].flash = 0.35
+		feedback.play("blocked")
 		mistakes += 1
 		status = "Noch blockiert. Schau in Richtung der Spitze."
 		detail = "Ein anderer Pfad versperrt diesen Weg."
 	else:
 		arrows[chosen].escaping = true
+		feedback.play("escape")
 		status = "Freie Bahn!"
 		detail = "Du kannst während der Animation weiterspielen."
 
@@ -281,6 +316,7 @@ func show_hint() -> void:
 	for i in range(arrows.size()):
 		if not arrows[i].removed and not arrows[i].escaping and not is_blocked(i):
 			arrows[i].hint = 2.5
+			feedback.play("hint")
 			status = "Der weiß leuchtende Pfad hat freie Bahn."
 			return
 	status = "Warte kurz, bis die laufenden Pfade draußen sind."
@@ -565,11 +601,18 @@ func _draw() -> void:
 	text_at("LEVEL-WERKZEUG" if editor else "NEON TRAILS", Vector2(31, 79), 12, Color("#839ab8"))
 	if not editor:
 		text_at("%d / %d" % [cleared, arrows.size()], Vector2(36, 658), 14, Color("#839ab8"))
-		var ratio := float(cleared) / maxf(1, arrows.size())
+		var ratio := display_progress
 		draw_line(Vector2(125, 653), Vector2(492, 653), Color("#24394e"), 4, true)
 		if ratio > 0:
 			draw_line(Vector2(125, 653), Vector2(125 + ratio * 367, 653), Color("#65e5ff"), 4, true)
 	text_at(status, Vector2(20, 701), 17, Color("#e0e8f5"), 500)
 	text_at(detail, Vector2(20, 724), 12, Color("#8296b0"), 500)
 	if not editor and cleared == arrows.size() and cleared > 0:
-		text_at("FREI", Vector2(160, 427), 62, Color("#69efb4"), 220)
+		var fade := smoothstep(0.0, 0.32, maxf(win_time, 0.0))
+		var size := lerpf(0.94, 1.0, fade)
+		if win_time < 0.7:
+			var ripple := clampf(win_time / 0.7, 0.0, 1.0)
+			draw_arc(Vector2(270, 407), 48.0 + ripple * 46.0, 0, TAU, 96, Color(0.41, 0.94, 0.70, (1.0 - ripple) * 0.12), 1.5, true)
+		draw_set_transform(Vector2(270, 407), 0.0, Vector2.ONE * size)
+		text_at("FREI", Vector2(-110, 20), 62, Color(0.41, 0.94, 0.70, fade), 220)
+		draw_set_transform(Vector2.ZERO)

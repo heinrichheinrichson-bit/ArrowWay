@@ -182,7 +182,39 @@ func run() -> void:
 	require(scene.arrows[0].release > 0 and not scene.is_blocked(0), "A newly freed path must receive release feedback")
 	require(scene.status == "Ein neuer Weg ist jetzt frei.", "Release feedback must describe the unlocked path")
 	require(scene.arrows[0].color == Color("#65e5ff"), "Release feedback must preserve motif color")
-	for name in ["progress.cfg", "custom_puzzle.json"]:
+	require(is_zero_approx(scene.escape_distance(0.0)), "Escape starts at rest")
+	require(scene.escape_distance(0.06) < scene.SPEED * 0.06 * 0.5, "Launch gently accelerates")
+	require(is_equal_approx(scene.escape_distance(0.12), 57.0), "Ramp integrates to the expected distance")
+	require(is_equal_approx(scene.escape_distance(1.0), 893.0), "Escape reaches the normal speed after its ramp")
+	for cue in FeedbackAudio.bank:
+		var stream: AudioStreamWAV = FeedbackAudio.bank[cue]
+		var peak := 0
+		for sample in range(stream.data.size() / 2):
+			peak = maxi(peak, absi(stream.data.decode_s16(sample * 2)))
+		require(peak > 100 and peak <= 24576, "Synthesized cues have signal without clipping")
+		require(stream.data.decode_s16(0) == 0 and stream.data.decode_s16(stream.data.size() - 2) == 0, "Cues start and end at silence")
+	scene.feedback.set_enabled(true)
+	scene.toggle_sound()
+	require(not scene.feedback.enabled and scene.sound_button.text == "Ton: Aus", "Mute updates audio and its button")
+	var preferences := ConfigFile.new()
+	require(preferences.load(scene.storage_prefix + "settings.cfg") == OK and preferences.get_value("audio", "enabled", true) == false, "Mute preference persists")
+	scene.reset()
+	require(not scene.feedback.enabled, "Restart preserves mute")
+	scene.toggle_sound()
+	scene.level = 0
+	scene.reset()
+	var starts: Array[int] = scene.free_paths()
+	for index in starts:
+		scene.click_at(scene.arrows[index].points[0])
+	for frame in range(180):
+		scene._process(1.0 / 60.0)
+	require(scene.cleared == starts.size(), "Rapid independent moves all finish correctly")
+	var remaining: Array[Dictionary] = []
+	for arrow in scene.arrows:
+		if not arrow.removed:
+			remaining.append(arrow)
+	require(ArrowPuzzle.solution(remaining).size() == remaining.size(), "Rapid moves preserve the remaining solution")
+	for name in ["progress.cfg", "custom_puzzle.json", "settings.cfg"]:
 		DirAccess.remove_absolute(scene.storage_prefix + name)
 	print("PASS level design, release feedback, editor, hints, deadlocks, save/load, input" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

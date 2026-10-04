@@ -24,10 +24,17 @@ func _process(_delta: float) -> void:
 		var color: Color = a.color
 		var highlighted: bool = a.hint > 0 or (game.editor and i == game.selected)
 		if a.flash > 0:
-			color = Color("#ff536b")
+			color = color.lerp(Color("#ff536b"), smoothstep(0.0, 0.07, a.flash))
 		elif highlighted:
 			color = Color.WHITE
-		update_stroke(strokes[i], game.visible_points(a), color, highlighted, a.release)
+		var launch: float = maxf(0.0, 1.0 - a.escape_time / 0.22) if a.escaping else 0.0
+		update_stroke(strokes[i], game.visible_points(a), color, highlighted, maxf(a.release, launch * 0.5))
+		var movement := Vector2.ZERO
+		if a.flash > 0:
+			var time: float = 0.35 - a.flash
+			var p: PackedVector2Array = a.points
+			movement = (p[-1] - p[-2]).normalized() * sin(time * TAU * 2.0 / 0.35) * 2.0 * pow(a.flash / 0.35, 2.0)
+		strokes[i].position = strokes[i].get_meta("rest_position", strokes[i].position) + movement
 	if count > game.arrows.size():
 		update_stroke(strokes[count - 1], game.rounded_points(game.draft), Color.WHITE, true)
 	queue_redraw()
@@ -49,6 +56,7 @@ func update_stroke(stroke: ColorRect, points: PackedVector2Array, color: Color, 
 		bounds = bounds.expand(point)
 	bounds = bounds.grow(19.0)
 	stroke.position = bounds.position
+	stroke.set_meta("rest_position", bounds.position)
 	stroke.size = bounds.size
 	var body := points.duplicate()
 	var trim := 3.4

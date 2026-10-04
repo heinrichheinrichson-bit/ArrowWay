@@ -40,7 +40,7 @@ static func mask(shape: int) -> Dictionary:
 	return result
 
 static func make_arrow(points: PackedVector2Array, color: Color) -> Dictionary:
-	return {"points": points, "color": color, "travel": 0.0, "escaping": false, "removed": false, "flash": 0.0, "hint": 0.0, "release": 0.0}
+	return {"points": points, "color": color, "travel": 0.0, "escape_time": 0.0, "escaping": false, "removed": false, "flash": 0.0, "hint": 0.0, "release": 0.0}
 
 static func generate(shape: int, seed_value: int) -> Array[Dictionary]:
 	return MotifBuilder.generate(shape, seed_value)
