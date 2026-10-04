@@ -14,6 +14,10 @@ Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze f
 
 Oben in der Übersicht kannst du zwischen **Alle Motive**, **Erste Neonreise**, fünf neuen Sammlungen und deinen **Eigenen Motiven** wählen. **Zurück / Weiter** blättert durch Seiten mit höchstens zwölf Vorschauen. Die 28 neuen Sammlungsbilder sind sofort spielbar. **Nächstes Puzzle** führt innerhalb der gewählten Sammlung weiter. Die Bilder und Themen findest du in [COLLECTIONS.md](COLLECTIONS.md).
 
+Die **Suche** findet Titel, Sammlungen und Themen, auch ohne Großschreibung oder Umlaute. Beispielsweise **Van Gogh**, **Pflanzen**, **Meer** oder **Palme** eingeben. **Thema** grenzt die Auswahl über Sammlungsgrenzen hinweg ein. **Alle Fortschritte** bietet zusätzlich die Ansichten **Noch nicht geschafft**, **Geschafft** und **Spielbar**.
+
+Der **Stern auf einer Motivkarte** merkt das Motiv als Favoriten; er startet kein Puzzle. **★ Favoriten** zeigt deine gespeicherte Auswahl. Die Sterne bleiben beim Neustart erhalten. Suche, Thema, Sammlung und Fortschritt lassen sich kombinieren; **Alles zeigen** setzt sämtliche Filter zurück. Beim Verlassen und erneuten Öffnen der Übersicht bleiben die Suchauswahl, Seite und Scrollposition erhalten. **Esc / Weiter spielen** kehrt zum laufenden Puzzle zurück.
+
 ## Level-Werkzeug starten
 
 Das Werkzeug ist für die Erstellung unserer Levels gedacht. Es gehört nicht zur Spieleroberfläche.

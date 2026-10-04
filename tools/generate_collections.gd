@@ -49,10 +49,11 @@ func generate() -> void:
 		var design := LevelDesign.metrics(paths)
 		var filename: String = "%s_%02d_%s.json" % [item.collection.id, item.collection.order, item.key]
 		var path := "res://collections/levels/" + filename
-		var document := {"version":2,"shape":6,"title":motif.title,"collection":item.collection,"motif":CustomMotif.encode(motif),"paths":CustomMotif.encode_paths(paths),"design":design}
+		var tags := LibraryIndex.tags(item.get("tags", []))
+		var document := {"version":2,"shape":6,"title":motif.title,"collection":item.collection,"tags":tags,"motif":CustomMotif.encode(motif),"paths":CustomMotif.encode_paths(paths),"design":design}
 		var file := FileAccess.open(path, FileAccess.WRITE)
 		file.store_string(JSON.stringify(document, "\t"))
-		entries.append({"path":path,"title":motif.title,"collection":item.collection,"design":design})
+		entries.append({"path":path,"title":motif.title,"collection":item.collection,"tags":tags,"design":design})
 		print("BUILT %02d/%02d %s: %d cells, %d arrows, %d starts, depth %d" % [index+1,source.size(),item.key,motif.cells.size(),paths.size(),design.starts,design.depth])
 	var group_order := ["world", "garden", "taste", "space", "art"]
 	entries.sort_custom(func(a: Dictionary, b: Dictionary):

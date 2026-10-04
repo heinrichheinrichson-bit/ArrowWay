@@ -45,6 +45,7 @@ func render() -> void:
 		print("Rendered ", id)
 	rounder.free()
 	var game = load("res://main.tscn").instantiate()
+	game.storage_prefix = "user://test_preview_"
 	game.scan_user_exports = true
 	root.add_child(game)
 	game.collection_filter = "world"

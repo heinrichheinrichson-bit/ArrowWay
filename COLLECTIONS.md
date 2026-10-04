@@ -24,9 +24,13 @@ Die Kunstsammlung interpretiert Motive wie Sonnenblumen, Korn, Wellen und Seeros
 
 ## Bibliothek für viele Motive
 
-`collections/catalog.json` enthält Titel, Dateipfade, Sammlungszuordnung und Bewertungswerte. Die Pfeilgeometrie liegt getrennt in `collections/levels/`. Beim Katalogaufbau wird die Geometrie dieser gelieferten Motive nicht geladen oder erneut gelöst. Die Übersicht erzeugt höchstens zwölf Vorschauen pro Seite; Filter und Seitenwechsel erlauben das Durchblättern größerer Bibliotheken.
+`collections/catalog.json` enthält Titel, Dateipfade, Sammlungszuordnung, Themen und Bewertungswerte. Die Pfeilgeometrie liegt getrennt in `collections/levels/`. Beim Katalogaufbau wird die Geometrie dieser gelieferten Motive nicht geladen oder erneut gelöst. Die Übersicht erzeugt höchstens zwölf Vorschauen pro Seite; Filter und Seitenwechsel erlauben das Durchblättern größerer Bibliotheken.
 
-Ein automatisierter Test prüft die echte Übersicht mit einem Index aus 1.000 Einträgen, einschließlich der letzten Seite. Dafür wird dieselbe Geometrie wiederverwendet: Der Test prüft Seitenlogik und Anzahl der Vorschauen, keinen Benchmark mit 1.000 unterschiedlichen Dateien. Eine veröffentlichte Bibliothek dieser Größe braucht später zusätzlich Suche, Tags, Favoriten und bei großen Downloads einzelne Sammlungspakete.
+Ein automatisierter Test prüft die echte Übersicht mit einem Index aus 1.000 Einträgen, einschließlich der letzten Seite. Dafür wird dieselbe Geometrie wiederverwendet: Der Test prüft Seitenlogik und Anzahl der Vorschauen, keinen Benchmark mit 1.000 unterschiedlichen Dateien. Suche, Themen und Favoriten sind ab 0.12.0 verfügbar. Bei großen Downloads können später einzelne Sammlungspakete hinzukommen.
+
+Suche und Filter greifen auf die Katalogdaten zu, ohne sämtliche Leveldateien zu öffnen. Die Suche berücksichtigt Titel, Sammlung und Themen; Großschreibung und deutsche Umlaute sind optional. Die Kunstmotive tragen zusätzlich Künstlernamen als Suchbegriffe. **Thema**, **Fortschritt** und **Favoriten** lassen sich kombinieren. Mit **Alles zeigen** lässt sich auch eine leere Ergebnisauswahl einfach verlassen.
+
+Favoriten werden getrennt vom Spielfortschritt in `library.cfg` gespeichert. Ihre Dateipfade bleiben auch bei veränderter Katalogreihenfolge erhalten. Nicht mehr verfügbare Dateien werden nicht angezeigt; ihre Favoritenmarkierung bleibt erhalten, falls sie später wieder hinzukommen. Eigene Exporte können optional ein Feld `tags` mit einer Liste von Texten enthalten; ohne Tags bleiben sie über ihren Titel auffindbar.
 
 Die neun Einstiegspuzzles behalten ihre Freischaltungen. Fortschritte zusätzlicher Motive werden über ihre Dateipfade gespeichert, damit eingefügte Motive bestehende Abschlüsse nicht verschieben. Eigene Exporte im Ordner `levels/` erscheinen als **Eigene Motive**. Solche extern bearbeitbaren Exporte werden weiterhin streng beim Einlesen geprüft.
 

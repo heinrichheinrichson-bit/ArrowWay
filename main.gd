@@ -7,6 +7,13 @@ var level_files: Array[String] = []
 var catalog_metadata := {}
 var collection_filter := "all"
 var gallery_page := 0
+var gallery_scroll := 0
+var gallery_view_key := ""
+var library_query := ""
+var library_status := "all"
+var library_tag := ""
+var favorites_only := false
+var favorite_paths: Array[String] = []
 const GALLERY_PAGE_SIZE := 12
 var catalog_directory := "res://levels"
 var scan_user_exports := not OS.get_cmdline_user_args().has("--test")
@@ -82,7 +89,13 @@ func _ready() -> void:
 		box.set_content_margin_all(6)
 		theme.set_stylebox(state, "Button", box)
 		theme.set_stylebox(state, "OptionButton", box)
+	var search_box := StyleBoxFlat.new()
+	search_box.bg_color = Color("#17253b")
+	search_box.set_corner_radius_all(9)
+	search_box.set_content_margin_all(8)
+	theme.set_stylebox("normal", "LineEdit", search_box)
 	discover_levels()
+	load_library_preferences()
 	var config := ConfigFile.new()
 	if config.load(storage_prefix + "progress.cfg") == OK:
 		unlocked = clampi(int(config.get_value("game", "unlocked", 0)), 0, TITLES.size() - 1)
@@ -110,6 +123,8 @@ func _ready() -> void:
 	if authoring:
 		enter_editor()
 		open_studio()
+	elif startup_args.has("--library"):
+		open_gallery()
 
 func button(label: String, x: float, y: float, width: float, action: Callable) -> Button:
 	var b := Button.new()
@@ -163,7 +178,7 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 			var imported := CustomMotif.decode(data.get("motif")) if shape == 6 else CustomMotif.from_shape(shape)
 			if imported.is_empty() or CustomMotif.decode_paths(data.get("paths"), imported).is_empty(): continue
 			level_files.append(path)
-			catalog_metadata[path] = {"title":data.get("title", filename.get_basename()),"collection":data.get("collection", {})}
+			catalog_metadata[path] = {"title":data.get("title", filename.get_basename()),"collection":data.get("collection", {}),"tags":LibraryIndex.tags(data.get("tags", []))}
 	level = level_files.find(current_path) if level_files.has(current_path) else mini(level, TITLES.size() - 1)
 	var retained: Array[int] = []
 	for index in completed:
@@ -250,6 +265,8 @@ func build_controls() -> void:
 
 func close_gallery() -> void:
 	if is_instance_valid(gallery):
+		gallery_scroll = gallery.get_child(3).scroll_vertical
+		gallery_view_key = library_view_key()
 		panel.remove_child(gallery)
 		gallery.queue_free()
 	gallery = null
@@ -277,7 +294,7 @@ func open_gallery() -> void:
 	background.size = gallery.size
 	gallery.add_child(background)
 	var heading := Label.new()
-	heading.text = "DEINE NEONREISE"
+	heading.text = "MOTIVBIBLIOTHEK"
 	heading.position = Vector2(30, 28)
 	heading.add_theme_font_size_override("font_size", 24)
 	gallery.add_child(heading)
@@ -287,8 +304,8 @@ func open_gallery() -> void:
 	progress.add_theme_font_size_override("font_size", 14)
 	gallery.add_child(progress)
 	var scroll := ScrollContainer.new()
-	scroll.position = Vector2(30, 154)
-	scroll.size = Vector2(480, 555)
+	scroll.position = Vector2(30, 282)
+	scroll.size = Vector2(480, 427)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	gallery.add_child(scroll)
 	var grid := GridContainer.new()
@@ -296,41 +313,12 @@ func open_gallery() -> void:
 	grid.add_theme_constant_override("h_separation", 12)
 	grid.add_theme_constant_override("v_separation", 12)
 	scroll.add_child(grid)
-	var matching: Array[int] = []
 	var collections := {"all":"Alle Motive", "base":"Erste Neonreise"}
 	for index in range(level_count()):
 		var group := level_collection(index)
 		collections[group.id] = group.title
-		if collection_filter == "all" or collection_filter == group.id: matching.append(index)
 	if not collections.has(collection_filter):
 		collection_filter = "all"
-		for index in range(level_count()): matching.append(index)
-	var page_count := maxi(1, ceili(float(matching.size()) / GALLERY_PAGE_SIZE))
-	gallery_page = clampi(gallery_page, 0, page_count - 1)
-	for page_index in range(gallery_page * GALLERY_PAGE_SIZE, mini((gallery_page + 1) * GALLERY_PAGE_SIZE, matching.size())):
-		var index := matching[page_index]
-		var card := Button.new()
-		card.set_script(load("res://level_card.gd"))
-		card.custom_minimum_size = Vector2(228, 170)
-		card.set("number", index)
-		card.set("title", level_title(index))
-		card.set("subtitle", MOODS[index] if index < MOODS.size() else level_collection(index).title)
-		card.set("selected", index == level)
-		card.set("complete", completed.has(index))
-		card.disabled = not level_available(index)
-		var document = JSON.parse_string(FileAccess.get_file_as_string(level_path(index)))
-		var thumbnail: Array[Dictionary] = []
-		if document is Dictionary:
-			for path in document.paths:
-				var points := PackedVector2Array()
-				for xy in path.points:
-					points.append(Vector2(xy[0], xy[1]))
-				var arrow := {"points": rounded_points(points), "color": Color(path.color)}
-				CustomMotif.read_appearance(path, arrow)
-				thumbnail.append(arrow)
-		card.set("paths", thumbnail)
-		card.pressed.connect(select_gallery_level.bind(index))
-		grid.add_child(card)
 	var filters := OptionButton.new()
 	filters.position = Vector2(30, 106)
 	filters.size = Vector2(480, 36)
@@ -346,20 +334,19 @@ func open_gallery() -> void:
 		filters.add_item("%s · %d/%d" % [collections[id],done,total])
 	filters.select(filter_ids.find(collection_filter))
 	filters.item_selected.connect(func(index: int):
-		collection_filter = filter_ids[index]; gallery_page = 0; close_gallery(); open_gallery())
+		collection_filter = filter_ids[index]; refresh_gallery(true))
 	gallery.add_child(filters)
 	for offset in [-1,1]:
 		var navigation := Button.new()
 		navigation.text = "← Zurück" if offset < 0 else "Weiter →"
 		navigation.position = Vector2(30 if offset < 0 else 350, 723)
 		navigation.size = Vector2(160, 36)
-		navigation.disabled = gallery_page + offset < 0 or gallery_page + offset >= page_count
-		navigation.pressed.connect(func(): gallery_page += offset; close_gallery(); open_gallery())
+		navigation.pressed.connect(func(): gallery_page += offset; refresh_gallery())
 		gallery.add_child(navigation)
 	var page_label := Label.new()
-	page_label.text = "%d / %d" % [gallery_page+1,page_count]
 	page_label.position = Vector2(210,731)
 	page_label.size.x = 120
+	page_label.add_theme_font_size_override("font_size", 12)
 	page_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	gallery.add_child(page_label)
 	var back := Button.new()
@@ -368,7 +355,161 @@ func open_gallery() -> void:
 	back.size = Vector2(240, 40)
 	back.pressed.connect(close_gallery)
 	gallery.add_child(back)
+	var search := LineEdit.new()
+	search.name = "LibrarySearch"
+	search.position = Vector2(30, 152)
+	search.size = Vector2(480, 36)
+	search.placeholder_text = "Motiv, Sammlung oder Thema suchen …"
+	search.clear_button_enabled = true
+	search.text = library_query
+	search.text_changed.connect(func(value: String): library_query = value; refresh_gallery(true))
+	gallery.add_child(search)
+	var status_filter := OptionButton.new()
+	status_filter.name = "LibraryStatus"
+	status_filter.position = Vector2(30, 196)
+	status_filter.size = Vector2(308, 34)
+	var status_ids := ["all", "open", "complete", "available"]
+	for label in ["Alle Fortschritte", "Noch nicht geschafft", "Geschafft", "Spielbar"]: status_filter.add_item(label)
+	status_filter.select(maxi(0, status_ids.find(library_status)))
+	status_filter.item_selected.connect(func(index: int): library_status = status_ids[index]; refresh_gallery(true))
+	gallery.add_child(status_filter)
+	var favorites := Button.new()
+	favorites.name = "LibraryFavorites"
+	favorites.text = "★ Favoriten"
+	favorites.toggle_mode = true
+	favorites.button_pressed = favorites_only
+	favorites.position = Vector2(350,196)
+	favorites.size = Vector2(160,34)
+	favorites.toggled.connect(func(pressed: bool): favorites_only = pressed; refresh_gallery(true))
+	gallery.add_child(favorites)
+	var tag_filter := OptionButton.new()
+	tag_filter.name = "LibraryTag"
+	tag_filter.position = Vector2(30,238)
+	tag_filter.size = Vector2(368,34)
+	tag_filter.fit_to_longest_item = false
+	var tag_ids: Array[String] = [""]
+	for index in range(level_count()):
+		for tag in level_tags(index):
+			if not tag_ids.has(tag): tag_ids.append(tag)
+	tag_ids.sort()
+	for tag in tag_ids: tag_filter.add_item("Thema: " + ("Alle Themen" if tag.is_empty() else tag))
+	if not tag_ids.has(library_tag): library_tag = ""
+	tag_filter.select(tag_ids.find(library_tag))
+	tag_filter.item_selected.connect(func(index: int): library_tag = tag_ids[index]; refresh_gallery(true))
+	gallery.add_child(tag_filter)
+	var empty := Label.new()
+	empty.name = "LibraryEmpty"
+	empty.position = Vector2(45,380)
+	empty.size = Vector2(450,150)
+	empty.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	empty.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	gallery.add_child(empty)
+	var clear := Button.new()
+	clear.name = "LibraryReset"
+	clear.text = "Alles zeigen"
+	clear.position = Vector2(410,238)
+	clear.size = Vector2(100,34)
+	clear.pressed.connect(func():
+		library_query = ""; library_tag = ""; library_status = "all"; favorites_only = false; collection_filter = "all"
+		search.text = ""; filters.select(0); status_filter.select(0); tag_filter.select(0); favorites.set_pressed_no_signal(false)
+		refresh_gallery(true))
+	gallery.add_child(clear)
+	refresh_gallery()
+	if gallery_view_key == library_view_key(): scroll.set_deferred("scroll_vertical", gallery_scroll)
 	back.grab_focus()
+
+func library_view_key() -> String:
+	return JSON.stringify([collection_filter,library_query,library_status,library_tag,favorites_only,gallery_page])
+
+func level_tags(index: int) -> Array[String]:
+	if index < TITLES.size():
+		return LibraryIndex.tags(["Pflanzen", "Natur"] if SHAPES[index] in [1,5] else (["Tiere", "Natur"] if SHAPES[index] in [3,4] else (["Architektur"] if SHAPES[index] == 0 else ["Symbole"])))
+	return LibraryIndex.tags(catalog_metadata.get(level_path(index), {}).get("tags", []))
+
+func matching_library_levels() -> Array[int]:
+	var result: Array[int] = []
+	for index in range(level_count()):
+		var group := level_collection(index)
+		if collection_filter != "all" and collection_filter != group.id: continue
+		if favorites_only and not favorite_paths.has(level_path(index)): continue
+		if library_status == "open" and completed.has(index): continue
+		if library_status == "complete" and not completed.has(index): continue
+		if library_status == "available" and not level_available(index): continue
+		var tags := level_tags(index)
+		if not library_tag.is_empty() and not tags.has(library_tag): continue
+		if not LibraryIndex.matches(library_query, level_title(index), group.title, tags): continue
+		result.append(index)
+	return result
+
+func refresh_gallery(reset_page: bool = false) -> void:
+	if not is_instance_valid(gallery): return
+	var scroll: ScrollContainer = gallery.get_child(3)
+	var grid: GridContainer = scroll.get_child(0)
+	for card in grid.get_children():
+		grid.remove_child(card)
+		card.queue_free()
+	if reset_page: gallery_page = 0
+	var matching := matching_library_levels()
+	var page_count := maxi(1, ceili(float(matching.size()) / GALLERY_PAGE_SIZE))
+	gallery_page = clampi(gallery_page, 0, page_count - 1)
+	var begin := gallery_page * GALLERY_PAGE_SIZE
+	for page_index in range(begin, mini(begin + GALLERY_PAGE_SIZE, matching.size())):
+		var index := matching[page_index]
+		var card := Button.new()
+		card.set_script(load("res://level_card.gd"))
+		card.custom_minimum_size = Vector2(228,170)
+		card.number = index
+		card.title = level_title(index)
+		card.tooltip_text = card.title + "\n" + ", ".join(level_tags(index))
+		card.subtitle = MOODS[index] if index < MOODS.size() else level_collection(index).title
+		card.selected = index == level
+		card.complete = completed.has(index)
+		card.disabled = not level_available(index)
+		var document = JSON.parse_string(FileAccess.get_file_as_string(level_path(index)))
+		var thumbnail: Array[Dictionary] = []
+		if document is Dictionary and document.get("paths") is Array:
+			for path in document.paths:
+				var points := PackedVector2Array()
+				for xy in path.points: points.append(Vector2(xy[0],xy[1]))
+				var arrow := {"points":rounded_points(points),"color":Color(path.color)}
+				CustomMotif.read_appearance(path,arrow)
+				thumbnail.append(arrow)
+		card.paths = thumbnail
+		card.pressed.connect(select_gallery_level.bind(index))
+		grid.add_child(card)
+		var star := Button.new()
+		star.name = "FavoriteStar"
+		star.position = Vector2(183,5)
+		star.size = Vector2(38,32)
+		star.text = "★" if favorite_paths.has(level_path(index)) else "☆"
+		star.add_theme_color_override("font_color", Color("#ffe18a"))
+		star.tooltip_text = "Aus Favoriten entfernen" if favorite_paths.has(level_path(index)) else "Als Favorit merken"
+		star.pressed.connect(toggle_favorite.bind(index))
+		card.add_child(star)
+	scroll.scroll_vertical = 0
+	gallery.get_child(5).disabled = gallery_page == 0
+	gallery.get_child(6).disabled = gallery_page >= page_count - 1
+	gallery.get_child(7).text = "%d / %d · %d Motive" % [gallery_page+1,page_count,matching.size()]
+	var empty: Label = gallery.get_node("LibraryEmpty")
+	empty.visible = matching.is_empty()
+	empty.text = "Noch keine Favoriten.\nMerke dir Motive mit dem Stern auf ihrer Karte." if favorites_only and favorite_paths.is_empty() else "Keine passenden Motive.\nÄndere die Suche oder die Filter."
+
+func load_library_preferences() -> void:
+	var config := ConfigFile.new()
+	if config.load(storage_prefix + "library.cfg") != OK: return
+	var paths = config.get_value("library", "favorites", [])
+	if paths is Array or paths is PackedStringArray:
+		for path in paths:
+			if path is String and not favorite_paths.has(path): favorite_paths.append(path)
+
+func toggle_favorite(index: int) -> void:
+	var path := level_path(index)
+	if favorite_paths.has(path): favorite_paths.erase(path)
+	else: favorite_paths.append(path)
+	var config := ConfigFile.new()
+	config.set_value("library", "favorites", favorite_paths)
+	config.save(storage_prefix + "library.cfg")
+	refresh_gallery()
 
 func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
@@ -435,6 +576,7 @@ func advance() -> void:
 	if next < 0:
 		collection_filter = level_collection(level).id
 		gallery_page = 0
+		library_query = ""; library_tag = ""; library_status = "all"; favorites_only = false
 		open_gallery()
 		return
 	level = next

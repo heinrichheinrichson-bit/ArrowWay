@@ -34,7 +34,10 @@ func _draw() -> void:
 		draw_line(head, head - direction.rotated(-0.55) * 3.0, color, 1.2, true)
 	var ink := Color(0.90, 0.95, 1.0, alpha)
 	draw_string(font, Vector2(14, 22), "%02d" % (number + 1), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, ink)
-	draw_string(font, Vector2(0, 132), title, HORIZONTAL_ALIGNMENT_CENTER, size.x, 16, ink)
+	var display_title := title
+	while font.get_string_size(display_title, HORIZONTAL_ALIGNMENT_LEFT, -1, 16).x > size.x - 18 and display_title.length() > 2:
+		display_title = display_title.trim_suffix("…").left(display_title.trim_suffix("…").length() - 1) + "…"
+	draw_string(font, Vector2(0, 132), display_title, HORIZONTAL_ALIGNMENT_CENTER, size.x, 16, ink)
 	var state := "Gesperrt" if disabled else ("Geschafft" if complete else subtitle)
 	draw_string(font, Vector2(0, 154), state, HORIZONTAL_ALIGNMENT_CENTER, size.x, 12, Color(0.50, 0.72, 0.83, alpha))
 	if selected:

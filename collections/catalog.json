@@ -15,7 +15,12 @@
         "starts": 13
       },
       "path": "res://collections/levels/world_01_eiffel.json",
-      "title": "Pariser Lichter"
+      "title": "Pariser Lichter",
+      "tags": [
+        "Architektur",
+        "Wahrzeichen",
+        "Frankreich"
+      ]
     },
     {
       "collection": {
@@ -32,7 +37,12 @@
         "starts": 12
       },
       "path": "res://collections/levels/world_02_pyramids.json",
-      "title": "Goldene Pyramiden"
+      "title": "Goldene Pyramiden",
+      "tags": [
+        "Architektur",
+        "Wahrzeichen",
+        "Ägypten"
+      ]
     },
     {
       "collection": {
@@ -49,7 +59,11 @@
         "starts": 10
       },
       "path": "res://collections/levels/world_03_torii.json",
-      "title": "Tor zum Abendrot"
+      "title": "Tor zum Abendrot",
+      "tags": [
+        "Architektur",
+        "Japan"
+      ]
     },
     {
       "collection": {
@@ -66,7 +80,11 @@
         "starts": 17
       },
       "path": "res://collections/levels/world_04_windmill.json",
-      "title": "Wind über Holland"
+      "title": "Wind über Holland",
+      "tags": [
+        "Architektur",
+        "Niederlande"
+      ]
     },
     {
       "collection": {
@@ -83,7 +101,12 @@
         "starts": 13
       },
       "path": "res://collections/levels/world_05_lighthouse.json",
-      "title": "Licht an der Küste"
+      "title": "Licht an der Küste",
+      "tags": [
+        "Architektur",
+        "Meer",
+        "Urlaub"
+      ]
     },
     {
       "collection": {
@@ -100,7 +123,12 @@
         "starts": 21
       },
       "path": "res://collections/levels/world_06_prater.json",
-      "title": "Prater bei Nacht"
+      "title": "Prater bei Nacht",
+      "tags": [
+        "Wahrzeichen",
+        "Österreich",
+        "Freizeit"
+      ]
     },
     {
       "collection": {
@@ -117,7 +145,12 @@
         "starts": 13
       },
       "path": "res://collections/levels/garden_01_tulip.json",
-      "title": "Tulpe im Morgenlicht"
+      "title": "Tulpe im Morgenlicht",
+      "tags": [
+        "Pflanzen",
+        "Blumen",
+        "Natur"
+      ]
     },
     {
       "collection": {
@@ -134,7 +167,12 @@
         "starts": 12
       },
       "path": "res://collections/levels/garden_02_cactus.json",
-      "title": "Kaktus in der Sonne"
+      "title": "Kaktus in der Sonne",
+      "tags": [
+        "Pflanzen",
+        "Natur",
+        "Wüste"
+      ]
     },
     {
       "collection": {
@@ -151,7 +189,11 @@
         "starts": 11
       },
       "path": "res://collections/levels/garden_03_mushroom.json",
-      "title": "Glückspilz"
+      "title": "Glückspilz",
+      "tags": [
+        "Natur",
+        "Wald"
+      ]
     },
     {
       "collection": {
@@ -168,7 +210,12 @@
         "starts": 11
       },
       "path": "res://collections/levels/garden_04_palm.json",
-      "title": "Palme am Strand"
+      "title": "Palme am Strand",
+      "tags": [
+        "Pflanzen",
+        "Natur",
+        "Urlaub"
+      ]
     },
     {
       "collection": {
@@ -185,7 +232,12 @@
         "starts": 17
       },
       "path": "res://collections/levels/garden_05_turtle.json",
-      "title": "Schildkrötenreise"
+      "title": "Schildkrötenreise",
+      "tags": [
+        "Tiere",
+        "Natur",
+        "Meer"
+      ]
     },
     {
       "collection": {
@@ -202,7 +254,13 @@
         "starts": 8
       },
       "path": "res://collections/levels/garden_06_alps.json",
-      "title": "Spiegel der Alpen"
+      "title": "Spiegel der Alpen",
+      "tags": [
+        "Landschaften",
+        "Berge",
+        "Wasser",
+        "Natur"
+      ]
     },
     {
       "collection": {
@@ -219,7 +277,12 @@
         "starts": 14
       },
       "path": "res://collections/levels/taste_01_apple.json",
-      "title": "Knackiger Apfel"
+      "title": "Knackiger Apfel",
+      "tags": [
+        "Obst",
+        "Essen",
+        "Natur"
+      ]
     },
     {
       "collection": {
@@ -236,7 +299,11 @@
         "starts": 15
       },
       "path": "res://collections/levels/taste_02_strawberry.json",
-      "title": "Erdbeerzeit"
+      "title": "Erdbeerzeit",
+      "tags": [
+        "Obst",
+        "Essen"
+      ]
     },
     {
       "collection": {
@@ -253,7 +320,11 @@
         "starts": 12
       },
       "path": "res://collections/levels/taste_03_icecream.json",
-      "title": "Drei Kugeln Glück"
+      "title": "Drei Kugeln Glück",
+      "tags": [
+        "Essen",
+        "Sommer"
+      ]
     },
     {
       "collection": {
@@ -270,7 +341,10 @@
         "starts": 10
       },
       "path": "res://collections/levels/taste_04_coffee.json",
-      "title": "Kleine Kaffeepause"
+      "title": "Kleine Kaffeepause",
+      "tags": [
+        "Getränke"
+      ]
     },
     {
       "collection": {
@@ -287,7 +361,11 @@
         "starts": 11
       },
       "path": "res://collections/levels/taste_05_cherries.json",
-      "title": "Kirschen im Sommer"
+      "title": "Kirschen im Sommer",
+      "tags": [
+        "Obst",
+        "Essen"
+      ]
     },
     {
       "collection": {
@@ -304,7 +382,12 @@
         "starts": 14
       },
       "path": "res://collections/levels/taste_06_cocktail.json",
-      "title": "Lime & Neon"
+      "title": "Lime & Neon",
+      "tags": [
+        "Getränke",
+        "Sommer",
+        "Urlaub"
+      ]
     },
     {
       "collection": {
@@ -321,7 +404,11 @@
         "starts": 13
       },
       "path": "res://collections/levels/space_01_star.json",
-      "title": "Sternenlicht"
+      "title": "Sternenlicht",
+      "tags": [
+        "Weltall",
+        "Symbole"
+      ]
     },
     {
       "collection": {
@@ -338,7 +425,11 @@
         "starts": 12
       },
       "path": "res://collections/levels/space_02_moon.json",
-      "title": "Mondnacht"
+      "title": "Mondnacht",
+      "tags": [
+        "Weltall",
+        "Nacht"
+      ]
     },
     {
       "collection": {
@@ -355,7 +446,12 @@
         "starts": 13
       },
       "path": "res://collections/levels/space_03_rocket.json",
-      "title": "Auf zu den Sternen"
+      "title": "Auf zu den Sternen",
+      "tags": [
+        "Weltall",
+        "Technik",
+        "Fahrzeuge"
+      ]
     },
     {
       "collection": {
@@ -372,7 +468,11 @@
         "starts": 12
       },
       "path": "res://collections/levels/space_04_saturn.json",
-      "title": "Ringe des Saturn"
+      "title": "Ringe des Saturn",
+      "tags": [
+        "Weltall",
+        "Planeten"
+      ]
     },
     {
       "collection": {
@@ -389,7 +489,10 @@
         "starts": 12
       },
       "path": "res://collections/levels/space_05_comet.json",
-      "title": "Kometenschweif"
+      "title": "Kometenschweif",
+      "tags": [
+        "Weltall"
+      ]
     },
     {
       "collection": {
@@ -406,7 +509,12 @@
         "starts": 14
       },
       "path": "res://collections/levels/space_06_ufo.json",
-      "title": "Besuch aus dem All"
+      "title": "Besuch aus dem All",
+      "tags": [
+        "Weltall",
+        "Technik",
+        "Fahrzeuge"
+      ]
     },
     {
       "collection": {
@@ -423,7 +531,13 @@
         "starts": 13
       },
       "path": "res://collections/levels/art_01_sunflowers.json",
-      "title": "Sonnenblumen in Türkis"
+      "title": "Sonnenblumen in Türkis",
+      "tags": [
+        "Kunst",
+        "Blumen",
+        "Pflanzen",
+        "Van Gogh"
+      ]
     },
     {
       "collection": {
@@ -440,7 +554,13 @@
         "starts": 12
       },
       "path": "res://collections/levels/art_02_wave.json",
-      "title": "Die große Neonwelle"
+      "title": "Die große Neonwelle",
+      "tags": [
+        "Kunst",
+        "Meer",
+        "Wasser",
+        "Hokusai"
+      ]
     },
     {
       "collection": {
@@ -457,7 +577,13 @@
         "starts": 11
       },
       "path": "res://collections/levels/art_03_wheat.json",
-      "title": "Goldenes Korn"
+      "title": "Goldenes Korn",
+      "tags": [
+        "Kunst",
+        "Pflanzen",
+        "Landschaften",
+        "Van Gogh"
+      ]
     },
     {
       "collection": {
@@ -474,7 +600,13 @@
         "starts": 10
       },
       "path": "res://collections/levels/art_04_bridge.json",
-      "title": "Brücke über Seerosen"
+      "title": "Brücke über Seerosen",
+      "tags": [
+        "Kunst",
+        "Architektur",
+        "Wasser",
+        "Monet"
+      ]
     }
   ],
   "version": 1
