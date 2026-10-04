@@ -24,8 +24,10 @@ var board: Node2D
 var generation_seed := 9121
 var clock_time := 0.0
 var storage_prefix := "user://test_" if OS.get_cmdline_user_args().has("--test") else "user://"
+var authoring := OS.get_cmdline_user_args().has("--editor-tool")
 
 func _ready() -> void:
+	DisplayServer.window_set_title("ArrowWay · Level-Werkzeug" if authoring else "ArrowWay · Neon Trails")
 	var clip := Control.new()
 	clip.position = Vector2(20, 165)
 	clip.size = Vector2(500, 510)
@@ -59,6 +61,8 @@ func _ready() -> void:
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(panel)
 	reset()
+	if authoring:
+		enter_editor()
 
 func button(label: String, x: float, y: float, width: float, action: Callable) -> Button:
 	var b := Button.new()
@@ -99,7 +103,7 @@ func build_controls() -> void:
 		button("Testen", 127, 791, 90, test_editor)
 		button("Speichern", 224, 791, 96, save_custom)
 		button("Laden", 327, 791, 82, load_custom)
-		button("Spielen", 416, 791, 94, leave_editor)
+		button("Export", 416, 791, 94, export_level)
 	else:
 		var picker := OptionButton.new()
 		level_picker = picker
@@ -112,10 +116,12 @@ func build_controls() -> void:
 		picker.item_selected.connect(func(index: int): level = index; testing = false; reset())
 		panel.add_child(picker)
 		controls.append(picker)
-		button("Editor", 380, 101, 130, enter_editor)
-		button("Neustart", 30, 751, 148, reset)
-		button("Hinweis", 196, 751, 148, show_hint)
-		button("Im Editor" if testing else "Eigenes Puzzle", 362, 751, 148, enter_editor if testing else play_custom)
+		picker.size.x = 480
+		button("Neustart", 90, 751, 165, reset)
+		button("Hinweis", 285, 751, 165, show_hint)
+		if authoring:
+			button("Zum Level-Werkzeug", 140, 101, 260, enter_editor)
+			picker.visible = false
 		next_button = button("Zurück zum Editor" if testing else "Nächstes Puzzle", 130, 805, 280, enter_editor if testing else advance)
 		next_button.visible = false
 
@@ -128,7 +134,10 @@ func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 func reset() -> void:
 	if not testing:
 		shape_index = level % 3
-	arrows = clone_data(editor_data) if testing else ArrowPuzzle.generate(level % 3, 4817 + level * 173)
+	if testing:
+		arrows = clone_data(editor_data)
+	elif not read_custom("res://levels/%02d.json" % (level + 1)):
+		arrows = ArrowPuzzle.generate(level % 3, 4817 + level * 173)
 	cleared = 0
 	mistakes = 0
 	clock_time = 0.0
@@ -160,7 +169,7 @@ func _process(delta: float) -> void:
 		if a.escaping and not a.removed:
 			a.travel += SPEED * delta
 			var p := visible_points(a)
-			if a.travel > path_length(a.points) and not Rect2(-30, -30, 600, 910).has_point(p[0]):
+			if a.travel > path_length(a.draw_points) and not Rect2(12, 157, 516, 526).has_point(p[0]):
 				a.removed = true
 				cleared += 1
 				if cleared == arrows.size():
@@ -189,7 +198,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pick(pos: Vector2) -> int:
 	var chosen := -1
-	var nearest := 13.0
+	var nearest := 9.0
 	for index in range(arrows.size()):
 		var a := arrows[index]
 		if a.removed or a.escaping:
@@ -298,7 +307,7 @@ func finish_draft() -> void:
 	if draft.size() < 2:
 		status = "Ein Pfad braucht mindestens zwei Rasterpunkte."
 		return
-	arrows.append(ArrowPuzzle.make_arrow(draft.duplicate(), Color(ArrowPuzzle.PALETTE[arrows.size() % ArrowPuzzle.PALETTE.size()])))
+	arrows.append(ArrowPuzzle.make_arrow(draft.duplicate(), MotifBuilder.color_for(shape_index, MotifBuilder.region(shape_index, ArrowPuzzle.grid(draft[0])), arrows.size())))
 	selected = arrows.size() - 1
 	draft.clear()
 	status = "Pfad hinzugefügt. Zeichne weiter oder prüfe die Lösung."
@@ -345,28 +354,55 @@ func test_editor() -> void:
 		testing = true
 		reset()
 
-func save_custom() -> void:
-	if not check_editor():
-		return
+func level_document() -> Dictionary:
 	var paths: Array = []
 	for a in arrows:
 		var points: Array = []
 		for p in a.points:
 			points.append([p.x, p.y])
 		paths.append({"points": points, "color": a.color.to_html()})
+	return {"version": 1, "shape": shape_index, "title": TITLES[level], "paths": paths}
+
+func save_custom() -> void:
+	if not check_editor():
+		return
 	var file := FileAccess.open(storage_prefix + "custom_puzzle.json", FileAccess.WRITE)
 	if file == null:
 		status = "Speichern fehlgeschlagen."
 		return
-	file.store_string(JSON.stringify({"version": 1, "shape": shape_index, "paths": paths}, "\t"))
+	file.store_string(JSON.stringify(level_document(), "\t"))
 	status = "Dein Puzzle ist lokal gespeichert."
-	detail = "Laden öffnet es im Editor; Eigenes Puzzle startet das Spiel."
+	detail = "Laden öffnet den Entwurf; Export schreibt eine Leveldatei."
 
-func read_custom() -> bool:
-	if not FileAccess.file_exists(storage_prefix + "custom_puzzle.json"):
+func export_level() -> void:
+	if not check_editor():
+		return
+	var dialog := FileDialog.new()
+	dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
+	dialog.access = FileDialog.ACCESS_FILESYSTEM
+	dialog.filters = PackedStringArray(["*.json ; ArrowWay Level"])
+	dialog.current_dir = ProjectSettings.globalize_path("res://levels")
+	dialog.current_file = "%02d.json" % (level + 1)
+	dialog.title = "Level für das Spiel exportieren"
+	add_child(dialog)
+	dialog.file_selected.connect(func(path: String):
+		var file := FileAccess.open(path, FileAccess.WRITE)
+		if file != null:
+			file.store_string(JSON.stringify(level_document(), "\t"))
+			status = "Level exportiert. Das Spiel lädt es beim nächsten Start."
+		else:
+			status = "Export fehlgeschlagen."
+		dialog.queue_free())
+	dialog.canceled.connect(dialog.queue_free)
+	dialog.popup_centered(Vector2i(500, 650))
+
+func read_custom(path: String = "") -> bool:
+	if path.is_empty():
+		path = storage_prefix + "custom_puzzle.json"
+	if not FileAccess.file_exists(path):
 		status = "Noch kein eigenes Puzzle gespeichert."
 		return false
-	var data = JSON.parse_string(FileAccess.get_file_as_string(storage_prefix + "custom_puzzle.json"))
+	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
 	status = "Die Puzzle-Datei ist ungültig."
 	if not data is Dictionary or data.get("version") != 1 or not data.get("shape") is float and not data.get("shape") is int:
 		return false
@@ -428,7 +464,10 @@ func point_along(p: PackedVector2Array, distance: float) -> Vector2:
 	return p[-1] + (p[-1] - p[-2]).normalized() * distance
 
 func visible_points(a: Dictionary) -> PackedVector2Array:
-	var p: PackedVector2Array = a.points
+	if not a.has("draw_points") or a.get("draw_source") != a.points:
+		a.draw_source = a.points.duplicate()
+		a.draw_points = rounded_points(a.points)
+	var p: PackedVector2Array = a.draw_points
 	var travel: float = a.travel
 	if travel == 0.0:
 		return p
@@ -441,6 +480,29 @@ func visible_points(a: Dictionary) -> PackedVector2Array:
 	result.append(point_along(p, path_length(p) + travel))
 	return result
 
+func rounded_points(source: PackedVector2Array) -> PackedVector2Array:
+	var p := PackedVector2Array()
+	for i in range(source.size()):
+		if i > 0 and i < source.size() - 1 and (source[i] - source[i - 1]).normalized().is_equal_approx((source[i + 1] - source[i]).normalized()):
+			continue
+		p.append(source[i])
+	if p.size() < 3:
+		return p
+	var smooth := PackedVector2Array([p[0]])
+	for i in range(1, p.size() - 1):
+		var incoming := (p[i] - p[i - 1]).normalized()
+		var outgoing := (p[i + 1] - p[i]).normalized()
+		var radius := minf(4.8, minf(p[i].distance_to(p[i - 1]), p[i].distance_to(p[i + 1])) * 0.44)
+		var center := p[i] - incoming * radius + outgoing * radius
+		var start := p[i] - incoming * radius
+		var finish := p[i] + outgoing * radius
+		var angle := (start - center).angle()
+		var turn := wrapf((finish - center).angle() - angle, -PI, PI)
+		for step in range(9):
+			smooth.append(center + Vector2.from_angle(angle + turn * step / 8.0) * radius)
+	smooth.append(p[-1])
+	return smooth
+
 func text_at(text: String, pos: Vector2, size: int, color: Color, width: float = -1) -> void:
 	draw_string(ThemeDB.fallback_font, pos, text, HORIZONTAL_ALIGNMENT_LEFT if width < 0 else HORIZONTAL_ALIGNMENT_CENTER, width, size, color)
 
@@ -449,15 +511,18 @@ func draw_arrow(p: PackedVector2Array, color: Color, highlight: bool, canvas: Ca
 		for point in p:
 			canvas.draw_circle(point, 4, color)
 		return
-	canvas.draw_polyline(p, Color(color, 0.07), 15.0, true)
+	for halo in [[26.0, 0.008], [20.0, 0.015], [15.0, 0.03], [11.0, 0.055], [7.0, 0.16]]:
+		canvas.draw_polyline(p, Color(color, halo[1]), halo[0], true)
 	if highlight:
 		canvas.draw_polyline(p, Color(color, 0.22), 19.0 + sin(clock_time * 6.0) * 3, true)
-	canvas.draw_polyline(p, color, 5.5, true)
-	for vertex in p:
-		canvas.draw_circle(vertex, 2.75, color)
+	canvas.draw_polyline(p, color, 4.2, true)
+	canvas.draw_polyline(p, Color(color.lerp(Color.WHITE, 0.32), 0.75), 1.2, true)
+	canvas.draw_circle(p[0], 2.1, color)
 	var direction := (p[-1] - p[-2]).normalized()
 	var side := direction.orthogonal()
-	canvas.draw_colored_polygon(PackedVector2Array([p[-1] + direction * 6, p[-1] - direction * 6 + side * 7, p[-1] - direction * 6 - side * 7]), color)
+	var head := PackedVector2Array([p[-1] + direction * 4.8, p[-1] - direction * 4.0 + side * 4.4, p[-1] - direction * 2.0, p[-1] - direction * 4.0 - side * 4.4])
+	canvas.draw_colored_polygon(head, color)
+	canvas.draw_circle(p[-1], 1.4, color.lerp(Color.WHITE, 0.45))
 
 func draw_paths(canvas: CanvasItem) -> void:
 	if editor:
@@ -478,11 +543,11 @@ func draw_paths(canvas: CanvasItem) -> void:
 
 func _draw() -> void:
 	var box := StyleBoxFlat.new()
-	box.bg_color = Color("#0b1525")
+	box.bg_color = Color("#080d18")
 	box.set_corner_radius_all(22)
 	draw_style_box(box, Rect2(20, 165, 500, 510))
 	text_at("ARROW / WAY", Vector2(30, 55), 30, Color("#eef5ff"))
-	text_at("PFAD-EDITOR" if editor else "KLEINE WEGE. GROSSE FREIHEIT.", Vector2(31, 79), 12, Color("#839ab8"))
+	text_at("LEVEL-WERKZEUG" if editor else "NEON TRAILS", Vector2(31, 79), 12, Color("#839ab8"))
 	if not editor:
 		text_at("%d / %d" % [cleared, arrows.size()], Vector2(36, 658), 14, Color("#839ab8"))
 		var ratio := float(cleared) / maxf(1, arrows.size())

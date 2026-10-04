@@ -34,14 +34,20 @@ func run() -> void:
 		var blocked := -1
 		for i in range(scene.arrows.size()):
 			var points: PackedVector2Array = scene.arrows[i].points
+			var part := MotifBuilder.region(level % 3, ArrowPuzzle.grid(points[0]))
 			directions[points[-1] - points[-2]] = true
 			for point in points:
 				require(not used.has(point), "Paths must not overlap")
 				require(ArrowPuzzle.mask(level % 3).has(ArrowPuzzle.grid(point)), "Paths must fit silhouette")
+				require(MotifBuilder.region(level % 3, ArrowPuzzle.grid(point)) == part, "Paths must respect motif color regions")
 				used[point] = true
+			if level % 3 == 1:
+				var color: Color = scene.arrows[i].color
+				require(color.g > color.r if part == 0 else color.r > color.g and color.g > color.b, "Tree must have a green crown and brown trunk")
 			if scene.is_blocked(i):
 				blocked = i
 		require(directions.size() >= 3, "Level needs varied arrow directions")
+		require(used.size() == ArrowPuzzle.mask(level % 3).size(), "Every motif cell must be filled exactly once")
 		require(blocked >= 0, "Level must contain dependencies")
 		if blocked >= 0:
 			scene.click_at(scene.arrows[blocked].points[0])
@@ -89,7 +95,7 @@ func run() -> void:
 	scene.arrows.clear()
 	require(scene.read_custom(), "Saved puzzle must load")
 	require(scene.arrows[0].points[0] == original[-1], "Save/load preserves path direction")
-	require(scene.arrows[0].color == Color(ArrowPuzzle.PALETTE[0]), "Save/load preserves color")
+	require(scene.arrows[0].color == MotifBuilder.color_for(0, MotifBuilder.region(0, ArrowPuzzle.grid(original[0])), 0), "Save/load preserves color")
 	scene.test_editor()
 	require(scene.testing and not scene.editor, "Test enters play mode")
 	scene.click_at(scene.arrows[0].points[0])
@@ -115,6 +121,15 @@ func run() -> void:
 		for seed_value in range(10):
 			var generated := ArrowPuzzle.generate(shape, seed_value * 731 + 8)
 			require(ArrowPuzzle.solution(generated).size() == generated.size(), "Additional generator seeds must remain solvable")
+			var count := 0
+			for arrow in generated:
+				count += arrow.points.size()
+			require(count == ArrowPuzzle.mask(shape).size(), "Every generator variant must cover the full motif")
+	var corner := PackedVector2Array([Vector2(0, 0), Vector2(28, 0), Vector2(28, 28)])
+	var rounded: PackedVector2Array = scene.rounded_points(corner)
+	require(rounded[0] == corner[0] and rounded[-1] == corner[-1], "Rounding must preserve endpoints")
+	require(rounded.size() > 3 and not rounded.has(corner[1]), "Sharp corners must become an arc")
+	require(scene.path_length(rounded) < scene.path_length(corner), "Animation must use the rounded route")
 	scene.leave_editor()
 	await process_frame
 	var free := ArrowPuzzle.solution(scene.arrows)[0]
@@ -122,8 +137,16 @@ func run() -> void:
 	require(scene.arrows[free].escaping, "Mouse events must reach the playfield through the UI")
 	scene.reset()
 	await process_frame
-	mouse_click(Vector2(440, 120))
-	require(scene.editor, "Editor button must receive real GUI input")
+	var editor_buttons := 0
+	for control in scene.controls:
+		if control is Button and control.text.contains("Editor"):
+			editor_buttons += 1
+	require(editor_buttons == 0, "The player interface must not expose level authoring")
+	scene.authoring = true
+	scene.build_controls()
+	await process_frame
+	mouse_click(Vector2(260, 120))
+	require(scene.editor, "Authoring tool button must receive real GUI input")
 	scene.leave_editor()
 	await process_frame
 	free = ArrowPuzzle.solution(scene.arrows)[0]
