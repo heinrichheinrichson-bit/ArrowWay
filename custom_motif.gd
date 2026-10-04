@@ -90,7 +90,7 @@ static func encode_paths(paths: Array[Dictionary]) -> Array:
 		result.append(item)
 	return result
 
-static func decode_paths(value: Variant, motif: Dictionary) -> Array[Dictionary]:
+static func decode_paths(value: Variant, motif: Dictionary, require_solution: bool = true) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	if not value is Array or value.size() > 500:
 		return result
@@ -120,7 +120,7 @@ static func decode_paths(value: Variant, motif: Dictionary) -> Array[Dictionary]
 		if not read_appearance(arrow, loaded):
 			return []
 		result.append(loaded)
-	if used.size() != motif.cells.size() or ArrowPuzzle.solution(result).size() != result.size():
+	if used.size() != motif.cells.size() or (require_solution and ArrowPuzzle.solution(result).size() != result.size()):
 		return []
 	return result
 

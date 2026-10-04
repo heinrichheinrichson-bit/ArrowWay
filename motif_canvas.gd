@@ -13,6 +13,7 @@ var preview: Node2D
 
 func _ready() -> void:
 	clip_contents = true
+	focus_mode = Control.FOCUS_ALL
 	preview = Node2D.new()
 	preview.set_script(load("res://motif_preview.gd"))
 	preview.set("rounder", studio.game)
@@ -21,7 +22,13 @@ func _ready() -> void:
 	add_child(preview)
 
 func refresh() -> void:
-	preview.set("arrows", studio.paths)
+	var arrows: Array[Dictionary] = studio.paths.duplicate()
+	if studio.drawn_cells.size() > 1:
+		var points := PackedVector2Array()
+		for cell in studio.drawn_cells:
+			points.append(ArrowPuzzle.pixel(cell))
+		arrows.append(ArrowPuzzle.make_arrow(points, Color("#65e5ff") if studio.drawing_valid(studio.drawn_cells) else Color("#ff536b")))
+	preview.set("arrows", arrows)
 	preview.visible = studio.show_paths
 	var key: String = studio.motif.get("reference_png", "")
 	if key != reference_key:
@@ -44,13 +51,32 @@ func valid(cell: Vector2i) -> bool:
 func _gui_input(event: InputEvent) -> void:
 	if studio.busy:
 		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_DELETE:
+			studio.delete_arrow(); accept_event()
+		elif event.keycode == KEY_R:
+			studio.reverse_arrow(); accept_event()
+		elif event.keycode == KEY_ESCAPE:
+			dragging = false; studio.drawn_cells.clear(); refresh(); accept_event()
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var cell := cell_at(event.position)
 		if event.pressed and valid(cell):
+			grab_focus()
 			first = cell
 			previous = cell
 			last = cell
-			if studio.tool == 0:
+			if studio.tool == 9:
+				dragging = true
+				studio.drawn_cells.clear()
+				studio.extend_drawing(cell)
+			elif studio.tool == 10:
+				studio.mirror_axis = float(cell.x)
+				refresh()
+				studio.notice.text = "Spiegelachse gesetzt. Wähle einen Pfeil und öffne Pfeile bearbeiten → Spiegeln."
+			elif studio.tool == 11:
+				studio.choose_arrow_head(ArrowPuzzle.ORIGIN + (event.position - OFFSET) / STEP * ArrowPuzzle.CELL)
+			elif studio.tool == 0:
 				var pos: Vector2 = ArrowPuzzle.ORIGIN + (event.position - OFFSET) / STEP * ArrowPuzzle.CELL
 				if studio.show_paths and studio.arrow_at(pos) >= 0:
 					studio.select_arrow_at(pos)
@@ -72,7 +98,9 @@ func _gui_input(event: InputEvent) -> void:
 					studio.paint_cells(cells)
 		elif not event.pressed and dragging:
 			dragging = false
-			if studio.tool == 3:
+			if studio.tool == 9:
+				studio.finish_drawing()
+			elif studio.tool == 3:
 				studio.split_cells(CustomMotif.line(first, last))
 			studio.refresh()
 		accept_event()
@@ -80,7 +108,9 @@ func _gui_input(event: InputEvent) -> void:
 		var cell := cell_at(event.position)
 		if valid(cell):
 			last = cell
-			if studio.tool != 3:
+			if studio.tool == 9:
+				studio.extend_drawing(cell)
+			elif studio.tool != 3:
 				studio.paint_cells(CustomMotif.line(previous, cell))
 			previous = cell
 		queue_redraw()
@@ -111,3 +141,7 @@ func _draw() -> void:
 				draw_rect(Rect2(pos - Vector2.ONE * 7, Vector2.ONE * 14), Color("#ff536b"), false, 1.6)
 	if dragging and studio.tool == 3:
 		draw_line(OFFSET + Vector2(first) * STEP, OFFSET + Vector2(last) * STEP, Color.WHITE, 2.0, true)
+
+	if studio.tool == 9 or studio.tool == 10:
+		var x: float = OFFSET.x + studio.mirror_axis * STEP
+		draw_dashed_line(Vector2(x, OFFSET.y), Vector2(x, OFFSET.y + (ArrowPuzzle.ROWS - 1) * STEP), Color("#65e5ff", 0.5), 1.0, 5.0)

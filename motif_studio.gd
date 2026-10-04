@@ -30,6 +30,9 @@ var palette_label: Label
 var arrow_label: Label
 var arrow_color: ColorPickerButton
 var arrow_styles: Button
+var drawn_cells: Array[Vector2i] = []
+var mirror_axis := 14.0
+var arrow_tools: Window
 var color_dialogue: Window
 
 func _ready() -> void:
@@ -72,12 +75,14 @@ func _ready() -> void:
 	add_button(root, "Bild öffnen", Vector2(25, 63), Vector2(150, 36), choose_image)
 	detection_mode = OptionButton.new()
 	detection_mode.position = Vector2(190, 63)
-	detection_mode.size = Vector2(190, 36)
+	detection_mode.size = Vector2(155, 36)
+	detection_mode.fit_to_longest_item = false
 	for text in ["Automatisch", "Geschlossene Umrisse", "Farben / Transparenz"]:
 		detection_mode.add_item(text)
 	root.add_child(detection_mode)
 	actions.append(detection_mode)
-	add_button(root, "Neu erkennen", Vector2(395, 63), Vector2(160, 36), analyze_image)
+	add_button(root, "Neu erkennen", Vector2(355, 63), Vector2(115, 36), analyze_image)
+	add_button(root, "Pfeile bearbeiten", Vector2(480, 63), Vector2(135, 36), open_arrow_tools)
 	canvas_style = StyleBoxFlat.new()
 	canvas_style.bg_color = Color("#0b1421")
 	canvas_style.set_corner_radius_all(12)
@@ -113,7 +118,7 @@ func _ready() -> void:
 	sidebar.add_child(name_field)
 	var tools := OptionButton.new()
 	tool_picker = tools
-	for text in ["Pfeil / Fläche auswählen", "Fläche malen", "Radieren", "Fläche mit Linie trennen", "Angeklickte Fläche zusammenführen", "Pfeil auswählen", "Pipette · Pfeil / Fläche", "Pipette · Bildvorlage", "Nur Fläche auswählen"]:
+	for text in ["Pfeil / Fläche auswählen", "Fläche malen", "Radieren", "Fläche mit Linie trennen", "Angeklickte Fläche zusammenführen", "Pfeil auswählen", "Pipette · Pfeil / Fläche", "Pipette · Bildvorlage", "Nur Fläche auswählen", "Pfeil zeichnen", "Spiegelachse setzen", "Pfeilspitze wählen"]:
 		tools.add_item(text)
 	tools.item_selected.connect(func(index: int): tool = index; update_notice())
 	sidebar.add_child(tools)
@@ -253,7 +258,7 @@ func refresh() -> void:
 	canvas.refresh()
 
 func update_notice() -> void:
-	var tips := ["Klicke einen Pfeil an und wähle oben seine Farbe. Für Flächen: Nur Fläche auswählen.", "Ziehe mit gedrückter Maustaste: Punkte gehören zur ausgewählten Fläche.", "Ziehe über Punkte, die nicht zum Motiv gehören sollen.", "Ziehe eine Linie durch die ausgewählte Fläche. Die Trennung erzeugt neue Bereiche ohne Lücke.", "Wähle zuerst die Zielfläche. Klicke dann die Fläche an, die dazugehören soll.", "Klicke einen Pfeil an. Farben & Verläufe bietet eigene Farben und Vorschläge.", "Klicke einen Pfeil oder eine Fläche, um ihre Farbe zu übernehmen.", "Klicke auf eine Farbe der eingeblendeten Bildvorlage.", "Klicke eine Fläche an, um ihren Namen und ihre Palette zu ändern."]
+	var tips := ["Klicke einen Pfeil an und wähle oben seine Farbe. Für Flächen: Nur Fläche auswählen.", "Ziehe mit gedrückter Maustaste: Punkte gehören zur ausgewählten Fläche.", "Ziehe über Punkte, die nicht zum Motiv gehören sollen.", "Ziehe eine Linie durch die ausgewählte Fläche. Die Trennung erzeugt neue Bereiche ohne Lücke.", "Wähle zuerst die Zielfläche. Klicke dann die Fläche an, die dazugehören soll.", "Klicke einen Pfeil an. Farben & Verläufe bietet eigene Farben und Vorschläge.", "Klicke einen Pfeil oder eine Fläche, um ihre Farbe zu übernehmen.", "Klicke auf eine Farbe der eingeblendeten Bildvorlage.", "Klicke eine Fläche an, um ihren Namen und ihre Palette zu ändern.", "Ziehe einen Pfeil. Die Spitze sitzt am Ende; R dreht sie um. Entf löscht die Auswahl.", "Klicke die senkrechte Spiegelachse an. Pfeile bearbeiten bietet Spiegeln.", "Klicke auf das Ende des ausgewählten Pfeils, das seine Spitze bekommen soll."]
 	var lonely := CustomMotif.isolated(motif)
 	notice.text = "%d Rasterpunkte · %d Flächen. %s" % [motif.cells.size(), motif.palettes.size(), tips[tool]]
 	if not lonely.is_empty():
@@ -525,6 +530,9 @@ func apply() -> void:
 	if busy or paths.is_empty():
 		notice.text = "Fülle das Motiv zuerst mit Pfeilen."
 		return
+	if ArrowPuzzle.solution(paths).size() != paths.size():
+		notice.text = "Das Puzzle ist noch nicht lösbar. Drehe blockierende Pfeile um oder ändere ihre Form. Dein Entwurf kann trotzdem gespeichert werden."
+		return
 	game.motif = motif.duplicate(true)
 	game.shape_index = 6
 	game.arrows = game.clone_data(paths)
@@ -554,7 +562,7 @@ func load_draft() -> void:
 		return
 	var restored: Array[Dictionary] = []
 	if document.get("paths") is Array and not document.paths.is_empty():
-		restored = CustomMotif.decode_paths(document.paths, loaded)
+		restored = CustomMotif.decode_paths(document.paths, loaded, false)
 		if restored.is_empty():
 			notice.text = "Die gespeicherte Pfeilfüllung ist ungültig."
 			return
@@ -576,3 +584,170 @@ func close_studio() -> void:
 func _exit_tree() -> void:
 	if worker != null and worker.is_started():
 		worker.wait_to_finish()
+
+func open_arrow_tools() -> void:
+	if is_instance_valid(arrow_tools):
+		arrow_tools.popup_centered()
+		return
+	arrow_tools = Window.new()
+	arrow_tools.title = "Pfeile bearbeiten"
+	arrow_tools.size = Vector2i(440, 405)
+	arrow_tools.unresizable = true
+	add_child(arrow_tools)
+	arrow_tools.close_requested.connect(arrow_tools.hide)
+	var box := VBoxContainer.new()
+	box.position = Vector2(20, 15)
+	box.size = Vector2(400, 375)
+	box.add_theme_constant_override("separation", 9)
+	box.theme = game.panel.theme
+	arrow_tools.add_child(box)
+	add_label(box, "EIGENE PFEILE · AUCH AUSSERHALB DES MOTIVS")
+	add_row_button(box, "Pfeil zeichnen · mit der Maus ziehen", func():
+		tool = 9; tool_picker.select(tool); show_paths = true
+		arrow_tools.hide(); canvas.refresh(); update_notice())
+	add_row_button(box, "Ausgewählten Pfeil löschen · Entf", func():
+		delete_arrow(); arrow_tools.hide())
+	add_row_button(box, "Spitze zum anderen Ende · R", func():
+		reverse_arrow(); arrow_tools.hide())
+	add_row_button(box, "Spitze per Klick auf ein Pfeilende wählen", func():
+		tool = 11; tool_picker.select(tool); arrow_tools.hide(); update_notice())
+	add_label(box, "SENKRECHTE SPIEGELACHSE · RASTERSPALTE")
+	var axis := SpinBox.new()
+	axis.min_value = 0; axis.max_value = ArrowPuzzle.COLS - 1
+	axis.step = 0.5; axis.value = mirror_axis
+	axis.value_changed.connect(func(value: float): mirror_axis = value; canvas.refresh())
+	box.add_child(axis)
+	add_row_button(box, "Achse im Motiv anklicken", func():
+		tool = 10; tool_picker.select(tool); arrow_tools.hide(); update_notice())
+	add_row_button(box, "Ausgewählten Pfeil gespiegelt ergänzen", func():
+		mirror_arrow(); arrow_tools.hide())
+	arrow_tools.popup_centered()
+
+func occupied_cells() -> Dictionary:
+	var used := {}
+	for arrow in paths:
+		for point in arrow.points:
+			used[ArrowPuzzle.grid(point)] = true
+	return used
+
+func drawing_valid(cells: Array[Vector2i]) -> bool:
+	if cells.size() < 2:
+		return false
+	var used := occupied_cells()
+	var visited := {}
+	for index in range(cells.size()):
+		var cell := cells[index]
+		if not canvas.valid(cell) or used.has(cell) or visited.has(cell):
+			return false
+		if index > 0 and absi(cell.x - cells[index - 1].x) + absi(cell.y - cells[index - 1].y) != 1:
+			return false
+		visited[cell] = true
+	return true
+
+func extend_drawing(cell: Vector2i) -> void:
+	if drawn_cells.is_empty():
+		drawn_cells.append(cell)
+	else:
+		var current := drawn_cells[-1]
+		while current != cell:
+			var difference := cell - current
+			if absi(difference.x) >= absi(difference.y):
+				current.x += signi(difference.x)
+			else:
+				current.y += signi(difference.y)
+			if drawn_cells.size() > 1 and current == drawn_cells[-2]:
+				drawn_cells.pop_back()
+			else:
+				drawn_cells.append(current)
+	canvas.refresh()
+
+func add_drawn_arrow(cells: Array[Vector2i], appearance: Dictionary = {}) -> bool:
+	if busy or not drawing_valid(cells):
+		notice.text = "Der Pfeil überlappt einen vorhandenen Pfeil, sich selbst oder den Rand. Bitte an einer freien Stelle zeichnen."
+		return false
+	var part := CustomMotif.next_part(motif)
+	if part < 0:
+		notice.text = "Keine weitere Fläche verfügbar."
+		return false
+	remember()
+	var color: Color = appearance.get("color", Color(motif.palettes.get(selected, ["#65e5ff"])[0]))
+	var points := PackedVector2Array()
+	for cell in cells:
+		points.append(ArrowPuzzle.pixel(cell))
+		motif.cells[cell] = part
+	motif.palettes[part] = [color.to_html(false), color.to_html(false), color.to_html(false)]
+	motif.names[part] = "Eigener Pfeil %d" % (paths.size() + 1)
+	var arrow := ArrowPuzzle.make_arrow(points, color)
+	MotifColors.copy_appearance(appearance, arrow)
+	arrow.manual_color = true
+	if arrow.has("color_style"):
+		arrow.color_style.bounds = MotifColors.bounds_of_path(points)
+	paths.append(arrow)
+	selected_arrow = paths.size() - 1
+	selected = part
+	refresh()
+	edit_status("Pfeil ergänzt. R dreht die Spitze um; seine Farbe kannst du rechts ändern.")
+	return true
+
+func finish_drawing() -> void:
+	var cells := drawn_cells.duplicate()
+	drawn_cells.clear()
+	if add_drawn_arrow(cells):
+		tool = 0
+		tool_picker.select(tool)
+	canvas.refresh()
+
+func delete_arrow() -> void:
+	if busy or selected_arrow < 0 or selected_arrow >= paths.size():
+		notice.text = "Wähle zuerst den Pfeil aus, den du löschen möchtest."
+		return
+	remember()
+	for point in paths[selected_arrow].points:
+		motif.cells.erase(ArrowPuzzle.grid(point))
+	paths.remove_at(selected_arrow)
+	selected_arrow = -1
+	refresh()
+	edit_status("Pfeil gelöscht. Die freie Stelle kannst du neu zeichnen. Rückgängig stellt ihn wieder her.")
+
+func reverse_arrow() -> void:
+	if busy or selected_arrow < 0 or selected_arrow >= paths.size():
+		notice.text = "Wähle zuerst einen Pfeil aus."
+		return
+	remember()
+	var arrow: Dictionary = paths[selected_arrow]
+	arrow.points.reverse()
+	arrow.erase("draw_points")
+	refresh()
+	edit_status("Pfeilspitze sitzt jetzt am anderen Ende.")
+
+func mirror_arrow() -> void:
+	if busy or selected_arrow < 0 or selected_arrow >= paths.size():
+		notice.text = "Wähle zuerst den Pfeil aus, den du spiegeln möchtest."
+		return
+	var source_arrow: Dictionary = paths[selected_arrow]
+	var cells: Array[Vector2i] = []
+	for point in source_arrow.points:
+		var cell := ArrowPuzzle.grid(point)
+		cells.append(Vector2i(roundi(2.0 * mirror_axis - cell.x), cell.y))
+	if add_drawn_arrow(cells, source_arrow):
+		edit_status("Spiegelbild mit gleicher Form und Farbe ergänzt.")
+
+func edit_status(message: String) -> void:
+	var solvable := ArrowPuzzle.solution(paths).size() == paths.size()
+	notice.text = message + (" Puzzle lösbar." if solvable else " Achtung: noch nicht lösbar — Richtung oder Form anpassen.")
+
+func choose_arrow_head(pos: Vector2) -> void:
+	if selected_arrow < 0 or selected_arrow >= paths.size():
+		notice.text = "Wähle zuerst einen Pfeil aus."
+		return
+	var points: PackedVector2Array = paths[selected_arrow].points
+	if pos.distance_to(points[0]) <= 8.0:
+		reverse_arrow()
+	elif pos.distance_to(points[-1]) <= 8.0:
+		edit_status("Pfeilspitze bleibt an diesem Ende.")
+	else:
+		notice.text = "Klicke direkt auf eines der beiden Enden des ausgewählten Pfeils."
+		return
+	tool = 0
+	tool_picker.select(tool)
+	canvas.refresh()

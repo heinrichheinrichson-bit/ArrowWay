@@ -34,3 +34,5 @@ Unter Windows `Level-Werkzeug.cmd` doppelklicken. Alternativ Godot mit `--path .
 Es gibt aktuell einen lokalen Speicherplatz für Entwürfe. Neue Speicherung ersetzt diesen Platz. Änderungen werden erst durch **Speichern** oder **Export** dauerhaft gesichert. Der Wechsel der Schablone ersetzt die aktuellen Pfade.
 
 Spielstände liegen unter `%APPDATA%\Godot\app_userdata\ArrowWay\`. Tests verwenden separate Dateien mit dem Präfix `test_`.
+
+**Pfeile bearbeiten** öffnet die Werkzeuge für Zeichnen, Löschen, Pfeilrichtung und gespiegelte Ergänzungen. Erst automatisch füllen, dann eigene Details ergänzen.

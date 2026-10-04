@@ -69,3 +69,19 @@ godot --headless --path . --script res://tests/test_import.gd -- --test
 Die Importtests prüfen Hausumrisse, eine farbige transparente Palme, leere Vorlagen und schwarze Silhouetten. Sie prüfen vollständige Füllung, Flächengrenzen, Paletten, Trennung ohne verlorene Rasterpunkte, echte Mauseingaben, Hintergrundberechnung, Rückgängig, Speichern/Laden und einen vollständigen Spieltest des importierten Motivs. Testdateien sind von normalen Entwürfen und Spielständen getrennt.
 
 Bei ausgewähltem Pfeil zeigen auch die Farbfelder rechts **FARBEN FÜR PFEIL …**. Sowohl diese Farbfelder als auch die Palettenauswahl bearbeiten dann ausschließlich diesen Pfeil. Seine eigene Farbe wird unabhängig von der Flächenpalette gespeichert.
+
+## Pfeile nach dem Füllen von Hand bearbeiten
+
+Oben öffnet **Pfeile bearbeiten** die Zeichen-, Lösch- und Spiegelwerkzeuge.
+
+- **Pfeil zeichnen**: Mit gedrückter linker Maustaste eine Linie ziehen. Sie folgt dem vorhandenen Raster mit waagerechten und senkrechten Schritten und weichen Ecken. Auch freie Rasterpunkte außerhalb der bisherigen Motivfläche sind erlaubt. Beim Loslassen entsteht der Pfeil; seine Spitze sitzt am zuletzt gezeichneten Ende. Die Werkstatt kehrt zur Auswahl zurück.
+- **Spitze per Klick wählen**: Erst einen Pfeil auswählen, dann dieses Werkzeug öffnen und auf das gewünschte Ende klicken. Alternativ dreht **R** die Richtung um, wenn die Zeichenfläche den Fokus hat.
+- **Löschen**: Pfeil auswählen und **Entf** drücken oder den Löschknopf verwenden. Seine Rasterpunkte werden frei und aus der Spielfläche entfernt; du kannst dort einen Ersatz zeichnen. Die Bildvorlage bleibt erhalten.
+- **Spiegeln**: Pfeil auswählen, die senkrechte Achse einstellen und **gespiegelt ergänzen** drücken. Die Kopie hat die gleiche Form und Farbgestaltung. Achse 14 ist die Mitte des 29 Spalten breiten Rasters; halbe Spalten sind ebenfalls möglich. Über **Achse im Motiv anklicken** kannst du sie direkt festlegen.
+- **Abbrechen**: **Esc** verwirft die gerade gezogene Linie. **Rückgängig** stellt fertige Bearbeitungen einschließlich der Motivfläche wieder her.
+
+Überschneidungen mit bestehenden Pfeilen oder der eigenen Linie erscheinen beim Zeichnen rot; solche Pfeile werden nicht hinzugefügt. Die Zeichnung muss innerhalb des verfügbaren Rasters bleiben. Ein Umrisspfeil braucht zwei verschiedene Enden: Zeichne die Umrandung mit einer kleinen Öffnung, nicht als geschlossene Schleife.
+
+Nach jeder Bearbeitung zeigt die Werkstatt die Lösbarkeit an. Noch blockierte Entwürfe lassen sich speichern und laden; **Übernehmen und testen** startet erst ein lösbares Puzzle. Farben und handgezeichnete Pfeile bleiben beim Speichern und Level-Export erhalten.
+
+**Automatisch mit Pfeilen füllen** erzeugt eine neue gesamte Füllung und ersetzt dabei auch von Hand ergänzte Pfeile. Ergänze die Details deshalb nach dem automatischen Füllen.
