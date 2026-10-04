@@ -12,7 +12,9 @@ Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze f
 
 Das Spiel startet im Hauptmenü. **Deine Reise** öffnet den geschwungenen Weg durch sieben Themenwelten. **Weiter spielen** setzt das laufende Puzzle fort. Der Zurück-Pfeil im Puzzle führt zur passenden Sammlung; dein laufendes Puzzle bleibt erhalten.
 
-Ziehe die Karte mit dem Finger nach oben oder unten; am PC funktioniert auch das Mausrad. Zukünftige Themen sind blass zu sehen. Ihre Sammlungen und Motive erscheinen erst, wenn du sie erreichst. Nach drei geschafften Einstiegsmotiven öffnet sich Natur. Innerhalb einer Themenwelt öffnen drei geschaffte Motive erste Abzweigungen, fünf die weiteren Abzweigungen und die nächste Themenwelt. Jede erreichte Sammlung bietet zunächst drei Motive; jedes geschaffte Motiv öffnet ein weiteres. Geschaffte Motive kannst du jederzeit erneut spielen.
+Ziehe die Karte mit dem Finger nach oben oder unten; am PC funktioniert auch das Mausrad. Auf dieser einen Mindmap führen sichtbare Pfade von den großen Themenwelten zu ihren Unterkategorien. Ein Klick auf eine Themenwelt bleibt auf der Karte, ein Klick auf eine Unterkategorie öffnet direkt alle ihre Rätselbilder. Gelöste und ungelöste Bilder stehen zusammen in fester Reihenfolge. Zurück führt wieder auf dieselbe Mindmap.
+
+Zukünftige Themen sind blass sichtbar, ihre Unterkategorien bleiben verborgen. Erst wenn sämtliche Rätsel einer Themenwelt gelöst sind, erhält sie ein Häkchen und die nächste Welt wird verfügbar. Unterkategorien erhalten ihr Häkchen ebenfalls erst nach sämtlichen zugehörigen Rätseln. Für Natur müssen daher zunächst alle neun Einstiegsmotive gelöst sein. Bereits erreichte Themen bleiben verfügbar; eigene Motive sind frei zugänglich.
 
 **Suchen & Favoriten** durchsucht deine freigeschalteten Motive nach Titel, Sammlung und Thema. Der Stern einer Motivkarte merkt sie als Favorit. **Eigene Motive** sind unabhängig vom Reisefortschritt sofort spielbar. Mehr zur neuen Karte und ihren Ansichten steht in [JOURNEY.md](JOURNEY.md).
 

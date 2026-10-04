@@ -8,19 +8,22 @@ Zukünftige Welten bleiben blass sichtbar. Ihre Sammlungen und Motive sind verbo
 
 ![Abzweigungen in Natur](previews/journey-nature-branches.png)
 
-Die Sammlung zeigt das nächste Kunstwerk groß, daneben weitere verfügbare Motive. Die Vorschauen verwenden die tatsächlichen Pfeile, Farben und Verläufe. Ein laufendes Puzzle lässt sich ohne Neustart wieder aufnehmen.
+Überkategorien und Unterkategorien stehen auf derselben zusammenhängenden Mindmap. Themen öffnen keine zusätzliche Kartenansicht. Nur Unterkategorien öffnen direkt ihre Rätselbilder.
+
+Die Sammlung zeigt sämtliche gelösten und ungelösten Motive gemeinsam in fester Reihenfolge; es gibt keinen zusätzlichen Aufklappbereich für gelöste Bilder. Die Vorschauen verwenden die tatsächlichen Pfeile, Farben und Verläufe. Ein laufendes Puzzle lässt sich ohne Neustart wieder aufnehmen.
 
 ![Motivkarten](previews/journey-nature-motifs.png)
 
 ## Freischaltungen
 
-- Drei verschiedene Einstiegsmotive öffnen die erste Themenwelt.
-- Drei geschaffte Motive in einer Themenwelt öffnen die ersten zusätzlichen Sammlungen.
-- Fünf öffnen die übrigen Sammlungen und die nächste Themenwelt.
-- Jede erreichte Sammlung startet mit drei Motiven; jede erstmalige Lösung öffnet ein weiteres.
+- Jede erreichte Themenwelt zeigt ihre Unterkategorien auf derselben Karte.
+- Sämtliche Rätsel einer erreichten Unterkategorie sind in ihrer Übersicht verfügbar.
+- Ein Häkchen an einer Unterkategorie bedeutet: alle ihre Rätsel gelöst.
+- Ein Häkchen an einer Themenwelt bedeutet: alle Rätsel sämtlicher Unterkategorien gelöst.
+- Erst dann wird die nächste Themenwelt verfügbar. Für Natur sind alle neun Einstiegsmotive erforderlich.
 - Geschaffte Motive bleiben spielbar. Eigene Exporte sind sofort zugänglich.
 
-Diese Schwellen sind ein erster Rhythmus zum Ausprobieren und können später angepasst werden. Alle 500 Katalogmotive bleiben erreichbar und mit der separaten Motivwerkstatt bearbeitbar. Bestehende Lösungen und zuvor begonnene Katalogmotive werden übernommen.
+Alle 500 Katalogmotive bleiben erreichbar und mit der separaten Motivwerkstatt bearbeitbar. Bestehende einzelne Lösungen und zuvor begonnene Motive werden erhalten, überspringen aber keine unvollständigen Themenwelten.
 
 ## Entwicklungsstand
 

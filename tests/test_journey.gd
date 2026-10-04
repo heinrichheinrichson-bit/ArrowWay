@@ -63,12 +63,15 @@ func swipe_map(over_station := false) -> void:
 	view.request_scroll(old)
 	await process_frame
 
+func station_named(id: String) -> Button:
+	for node in scene.journey.canvas.get_children():
+		if node.get_meta("station_id", "") == id: return node
+	return null
+
 func run() -> void:
 	for name in ["progress.cfg","settings.cfg","library.cfg"]: DirAccess.remove_absolute("user://test_journey_"+name)
 	scene = load("res://main.tscn").instantiate()
-	scene.storage_prefix="user://test_journey_"
-	scene.journey_mode=true
-	scene.scan_user_exports=true
+	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
 	root.add_child(scene)
 	await process_frame
 	var mapped: Array[String] = []
@@ -76,106 +79,100 @@ func run() -> void:
 		for group in world.groups:
 			require(not mapped.has(group),"A collection belongs to exactly one theme")
 			mapped.append(group)
-	require(mapped.size()==30,"All 29 collections plus the introduction have a theme")
+	require(mapped.size()==30,"All 29 collections plus introduction have a theme")
 	for index in scene.level_count():
 		var group: String = scene.level_collection(index).id
-		require(group=="custom" or mapped.has(group),"Every catalog entry is represented in the journey")
+		require(group=="custom" or mapped.has(group),"Every catalog entry has a map category")
 	require(JourneyProgress.frontier(scene)==0,"Fresh journey starts at the first light")
-	require(scene.level_available(0) and scene.level_available(1) and scene.level_available(2) and not scene.level_available(3),"Three introductory puzzles are initially available")
+	for index in range(9): require(scene.level_available(index),"All introduction puzzles are immediately in the collection")
 	var garden := JourneyProgress.indices(scene,"garden")
 	require(not scene.level_available(garden[0]),"Future-world puzzles cannot be selected")
-	scene.open_home()
-	await capture("home")
-	scene.close_home()
-	scene.open_journey()
-	await process_frame
-	require(scene.journey.canvas.get_child_count()==7,"Overview contains only the seven major stations")
-	require(scene.journey.visible_station_ids==["world:beginning"],"Only reached stations reveal their content")
+	scene.open_home(); await capture("home"); scene.close_home()
+	scene.open_journey(); await process_frame
+	require(scene.journey.canvas.get_child_count()==8,"Seven major themes plus reached subcategory share a single canvas")
+	require(scene.journey.visible_station_ids==["world:beginning","group:base"],"Future themes have no subcategory nodes")
 	await capture("map-new")
-	await swipe_map()
-	await swipe_map(true)
-	scene.journey.canvas.get_child(1).pressed.emit()
-	require(scene.journey.screen=="map","Locked station cannot reveal its branches")
-	var first:Button=scene.journey.canvas.get_child(0)
+	await swipe_map(); await swipe_map(true)
+	station_named("world:beginning").pressed.emit()
+	require(scene.journey.screen=="map","Clicking a major theme stays on the mindmap")
+	await process_frame
+	var first := station_named("group:base")
 	await tap(first.global_position+Vector2(first.size.x*0.5,64))
-	require(scene.journey.screen=="collection" and scene.journey.group=="base","Station activation navigates to its own content")
-	require(scene.journey.canvas.get_child_count()==3,"Only three playable art previews are created")
+	require(scene.journey.screen=="collection" and scene.journey.group=="base","Subcategory opens its puzzles directly")
+	require(scene.journey.canvas.get_child_count()==9,"All nine introduction cards appear without a history expander")
 	await capture("motifs")
 	for index in range(3): solve(index)
-	require(JourneyProgress.frontier(scene)==1,"Three actual introductory completions open Nature")
-	scene.advance()
-	require(is_instance_valid(scene.journey) and scene.journey.screen=="map","An introductory milestone returns to the growing path")
-	require(scene.journey.canvas.get_child(1).fresh,"New world receives its reveal animation")
+	require(JourneyProgress.frontier(scene)==0 and not JourneyProgress.world_complete(scene,0),"Three introductory completions do not unlock Nature or award a theme checkmark")
+	for index in range(3,8): solve(index)
+	require(JourneyProgress.frontier(scene)==0,"One missing introduction puzzle keeps Nature locked")
+	solve(8); scene.advance()
+	require(scene.journey.screen=="map" and JourneyProgress.frontier(scene)==1,"All nine completions open Nature on the SAME map")
+	require(station_named("world:beginning").achieved and not station_named("world:nature").achieved,"Only fully completed themes get checkmarks")
+	require(scene.journey.canvas.get_child_count()==14,"Nature's six child nodes join the original map")
+	require(JourneyProgress.group_visible(scene,"animals") and JourneyProgress.group_visible(scene,"flowers"),"Reached theme displays all its subcategory branches")
+	for group in ["garden","animals","birds","flowers","ocean","landscapes"]:
+		require(station_named("group:"+group)!=null,"Each Nature collection is connected on the same canvas")
 	await capture("map-progress")
-	scene.journey.canvas.get_child(1).pressed.emit()
-	require(scene.journey.screen=="world" and scene.journey.world==1,"Reached world opens its own branches")
-	require(scene.journey.canvas.get_child_count()==1 and not JourneyProgress.group_visible(scene,"animals"),"Unreached subcategories remain completely hidden")
+	scene.open_journey(1); await process_frame
 	await capture("nature-new")
-	scene.journey.canvas.get_child(0).pressed.emit()
-	require(scene.journey.canvas.get_child_count()==3,"Reached collection offers three initial puzzles")
+	station_named("group:garden").pressed.emit()
+	require(scene.journey.canvas.get_child_count()==garden.size(),"Collection displays solved and unsolved cards together")
 	await capture("nature-motifs")
-	for index in garden.slice(0,3): solve(index)
-	require(JourneyProgress.group_visible(scene,"animals") and JourneyProgress.group_visible(scene,"birds") and not JourneyProgress.group_visible(scene,"flowers"),"Completing a small station reveals two branches, not the whole tree")
-	scene.advance()
-	require(scene.journey.screen=="world" and scene.journey.canvas.get_child_count()==3,"Milestone reveals the actual new branch controls")
-	await capture("nature-branches")
-	var animals := JourneyProgress.indices(scene,"animals")
-	scene.start_journey_puzzle(JourneyProgress.indices(scene,"flowers")[0])
-	require(is_instance_valid(scene.journey),"Direct attempts cannot bypass hidden-branch gating")
-	scene.journey.canvas.get_child(1).pressed.emit()
-	require(scene.journey.group=="animals","Each branch callback retains its own destination")
 	var card:Button=scene.journey.canvas.get_child(0)
 	await tap(card.global_position+card.size*0.5)
-	require(not is_instance_valid(scene.journey) and scene.level==animals[0],"Real motif card starts its matching puzzle")
-	require(not scene.arrows.any(func(arrow): return arrow.escaping),"Selecting a card never shoots an arrow behind the interface")
+	require(not is_instance_valid(scene.journey) and scene.level==garden[0],"Real motif card starts its own puzzle")
+	require(not scene.arrows.any(func(arrow): return arrow.escaping),"Card tap never shoots an arrow behind the interface")
 	var live:int=ArrowPuzzle.solution(scene.arrows)[0]
-	scene.click_at(scene.arrows[live].points[0])
+	scene.click_at(scene.arrows[live].points[0]); scene.open_current_journey()
+	require(scene.journey.group=="garden","Play back-button returns to its subcategory")
+	scene.start_journey_puzzle(garden[0])
+	require(scene.arrows[live].escaping,"Returning preserves the current move")
+	scene.reset(); solve(garden[0])
 	scene.open_current_journey()
-	require(scene.journey.group=="animals","Play back-button returns to the current collection")
-	require(scene.journey.canvas.get_child(0).index==animals[0],"Current unfinished artwork stays at the front")
-	scene.start_journey_puzzle(animals[0])
-	require(scene.arrows[live].escaping,"Returning from the journey preserves the current move")
-	scene.reset()
-	solve(animals[0]); solve(animals[1])
-	require(JourneyProgress.frontier(scene)==2 and JourneyProgress.group_visible(scene,"flowers"),"Five discoveries open the next major station and remaining Nature branches")
+	require(scene.journey.canvas.get_child_count()==garden.size() and scene.journey.canvas.get_child(0).complete,"Solved card stays in its original place with a checkmark")
+	scene.journey.go_back(); await process_frame
+	require(scene.journey.screen=="map" and station_named("group:animals")!=null,"Collection back returns to the shared mindmap, never a separate theme screen")
+	await capture("nature-branches")
+	for index in garden:
+		if not scene.completed.has(index): scene.completed.append(index)
 	scene.open_journey(1)
+	require(station_named("group:garden").achieved and not station_named("world:nature").achieved,"Completed subcategory never prematurely checks its parent theme")
+	require(JourneyProgress.frontier(scene)==1,"Completing one Nature category keeps next theme locked")
 	await capture("nature-expanded")
-	scene.open_journey()
-	root.size=Vector2i(540,1170)
-	await process_frame
-	require(scene.journey.size==scene.get_viewport_rect().size,"Journey adapts to a tall phone display")
-	await capture("map-tall")
+	var last := -1
+	for group in JourneyProgress.worlds()[1].groups:
+		for index in JourneyProgress.indices(scene,group):
+			if not scene.completed.has(index): scene.completed.append(index)
+			last=index
+	scene.completed.erase(last)
+	require(JourneyProgress.frontier(scene)==1 and not JourneyProgress.world_complete(scene,1),"One missing puzzle across ALL subcategories keeps next theme locked")
+	scene.completed.append(last)
+	require(JourneyProgress.frontier(scene)==2 and JourneyProgress.world_complete(scene,1),"Next major theme unlocks only after every Nature puzzle")
+	# Old distant achievements remain replayable but do not bypass strict ordering.
 	var distant := JourneyProgress.indices(scene,"fantasy")[10]
 	scene.completed.append(distant)
-	require(scene.level_available(distant) and JourneyProgress.frontier(scene)==6 and JourneyProgress.group_visible(scene,"fantasy"),"Historical completions remain playable and reveal their ancestors")
+	require(scene.level_available(distant) and JourneyProgress.frontier(scene)==2 and not JourneyProgress.group_visible(scene,"fantasy"),"Old distant completion does not unlock unfinished ancestors")
+	scene.open_journey(2); root.size=Vector2i(540,1170); await process_frame
+	require(scene.journey.size==scene.get_viewport_rect().size,"Shared map adapts to a tall phone display")
+	await capture("map-tall")
 	scene.save_progress()
-	var expected: Array[int] = scene.completed.duplicate()
-	scene.close_journey()
-	scene.queue_free()
-	await process_frame
-	scene = load("res://main.tscn").instantiate()
-	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
-	root.add_child(scene)
-	await process_frame
-	require(scene.completed==expected and JourneyProgress.frontier(scene)==6,"Journey progress survives restart using existing path-based saves")
-	require(scene.journey_seen.has("group:animals"),"Station reveal history persists")
-	# An unfinished puzzle from the old freely accessible catalog remains available.
-	var legacy_path:String=scene.level_path(JourneyProgress.indices(scene,"technology")[7])
-	var legacy:=ConfigFile.new()
-	legacy.set_value("game","completed",[0,1])
-	legacy.set_value("game","custom_level",legacy_path)
-	legacy.set_value("game","unlocked",2)
-	legacy.save(scene.storage_prefix+"progress.cfg")
-	scene.queue_free()
-	await process_frame
+	var expected: Array[int]=scene.completed.duplicate()
+	scene.close_journey(); scene.queue_free(); await process_frame
 	scene=load("res://main.tscn").instantiate()
 	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
-	root.add_child(scene)
-	await process_frame
-	require(scene.level_path(scene.level)==legacy_path and scene.level_available(scene.level),"Migration preserves the unfinished legacy puzzle")
-	require(JourneyProgress.group_visible(scene,"technology") and JourneyProgress.frontier(scene)>=3,"Migration reveals the ancestors of an unfinished legacy puzzle")
-	var before: Array[int]=scene.completed.duplicate()
-	var legacy_paths: Array[String]=scene.journey_legacy_paths.duplicate()
+	root.add_child(scene); await process_frame
+	require(scene.completed==expected and JourneyProgress.frontier(scene)==2,"Strict progression and old achievements survive restart")
+	# Migrate an old unfinished puzzle without awarding themes or bypassing gates.
+	var legacy_path:String=scene.level_path(JourneyProgress.indices(scene,"technology")[7])
+	var legacy:=ConfigFile.new()
+	legacy.set_value("game","completed",[0,1]); legacy.set_value("game","custom_level",legacy_path); legacy.set_value("game","unlocked",2)
+	legacy.save(scene.storage_prefix+"progress.cfg")
+	scene.queue_free(); await process_frame
+	scene=load("res://main.tscn").instantiate()
+	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
+	root.add_child(scene); await process_frame
+	require(scene.level_path(scene.level)==legacy_path and scene.level_available(scene.level),"Migration retains the single unfinished legacy puzzle")
+	require(JourneyProgress.frontier(scene)==0 and not JourneyProgress.group_visible(scene,"technology"),"Migration never bypasses theme completion")
 	scene.completed.clear(); scene.journey_legacy_paths.clear()
 	var additions:=0
 	for step in scene.level_count():
@@ -184,13 +181,13 @@ func run() -> void:
 			if not scene.completed.has(index) and scene.level_available(index): candidate=index; break
 		if candidate<0: break
 		scene.completed.append(candidate); additions+=1
-	require(additions==scene.level_count(),"Entire catalog is reachable without payment, advertisements or a progression dead end")
-	scene.completed.assign(before); scene.journey_legacy_paths.assign(legacy_paths)
+	require(additions==scene.level_count(),"All catalog puzzles remain reachable through strict theme completion")
+	scene.open_journey()
+	for wi in JourneyProgress.worlds().size():
+		require(station_named("world:"+JourneyProgress.worlds()[wi].id).achieved,"Each fully solved major theme receives its checkmark")
 	scene.open_home()
-	var clock: float = scene.clock_time
-	scene._process(1)
-	require(scene.clock_time==clock,"New home screen pauses play")
-	scene.close_home()
+	var clock:float=scene.clock_time; scene._process(1)
+	require(scene.clock_time==clock,"Home pauses gameplay")
 	for name in ["progress.cfg","settings.cfg","library.cfg"]: DirAccess.remove_absolute(scene.storage_prefix+name)
-	print("PASS journey: all motifs mapped, gates, hidden branches, real play, cards, milestones, migration, responsive map and persistence" if failures==0 else "%d FAILURES" % failures)
+	print("PASS journey: single mindmap, all collection cards, strict completion gates, accurate checkmarks, touch, persistence and entire catalog" if failures==0 else "%d FAILURES" % failures)
 	quit(0 if failures==0 else 1)

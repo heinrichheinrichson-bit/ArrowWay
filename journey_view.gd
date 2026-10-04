@@ -5,6 +5,7 @@ var screen := "map"
 var world := -1
 var group := ""
 var history := false
+var world_centers: Array[Vector2] = []
 var page := 0
 var scroller: ScrollContainer
 var canvas: Control
@@ -147,7 +148,6 @@ func relayout() -> void:
 	else:
 		icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,"Zurück")
 		if screen == "map": build_map()
-		elif screen == "world": build_world()
 		else: build_collection()
 		if is_instance_valid(scroller):
 			for lower in [false,true]:
@@ -172,11 +172,7 @@ func navigate(next_screen: String, next_world := -1, next_group := "", past := f
 
 func go_back() -> void:
 	if screen == "map": game.close_journey(); game.open_home()
-	elif screen == "world": navigate("map")
-	elif screen == "collection":
-		if history: navigate("collection",world,group)
-		elif world > 0: navigate("world",world)
-		else: navigate("map")
+	elif screen == "collection": navigate("map",world)
 	elif screen == "settings": navigate("home")
 	else: game.close_home()
 
@@ -215,71 +211,64 @@ func station(id: String, name_text: String, caption: String, icon: String, color
 	node.fresh = available and not seen.has(id)
 	node.position = center-Vector2(width*0.5,64)
 	node.size = Vector2(width,180)
+	node.set_meta("station_id",id)
 	canvas.add_child(node)
 	canvas.label_zones.append(Rect2(Vector2(center.x-width*0.5-14,center.y+57),Vector2(width+28,53)))
 	if available:
 		visible_station_ids.append(id)
 		node.pressed.connect(callback)
-	else: node.pressed.connect(func(): tell("Dieser Weg öffnet sich beim Weiterreisen."))
+	else: node.pressed.connect(func(): tell("Löse alle Rätsel der vorherigen Themenwelt."))
 	return node
+
+func focus_world(index: int) -> void:
+	if index < 0 or index >= world_centers.size(): return
+	var center := world_centers[index]
+	request_scroll(maxi(0,int(center.y-scroller.size.y*0.72)))
 
 func build_map() -> void:
 	label("DEINE NEONREISE",Vector2(88,29),size.x-110,12,Color("#83ada9"))
-	label("Ein Licht nach dem anderen",Vector2(24,91),size.x-48,26)
+	label("Dein Weg durch die Themen",Vector2(24,91),size.x-48,25)
 	var worlds := JourneyProgress.worlds()
 	var frontier := JourneyProgress.frontier(game)
-	var height := worlds.size()*264.0+110
-	make_scroll(height,Color("#68eed2"))
-	var centers: Array[Vector2] = []
+	# Every reached theme and its subcategories live on this ONE canvas.
+	# Future themes have no child nodes or hidden child routes yet.
+	var blocks: Array[Dictionary] = []
+	var offset := 170.0
 	for index in worlds.size():
-		centers.append(Vector2(size.x*(0.43 if index%2==0 else 0.66),height-170-index*264))
+		var rows := ceili(worlds[index].groups.size()/2.0) if index<=frontier else 0
+		blocks.append({"offset":offset,"rows":rows})
+		offset += 270.0+rows*230.0
+	var height := offset+30
+	make_scroll(height,Color("#68eed2"))
+	world_centers.clear()
+	for block in blocks: world_centers.append(Vector2(size.x*0.5,height-block.offset))
 	for index in worlds.size():
 		var data: Dictionary = worlds[index]
-		var open := index<=frontier
-		var done := JourneyProgress.world_done(game,index)
-		var caption := "Noch verborgen" if not open else ("Dein erstes Licht" if index==0 and done==0 else "%d Kunstwerke entdeckt" % done)
-		if index==frontier and done>0: caption="Hier geht deine Reise weiter"
-		station("world:"+data.id,data.title,caption,data.icon,Color(data.color),centers[index],open,done>=int(data.gate),index==frontier,func(): navigate("collection",0,"base") if index==0 else navigate("world",index))
+		var available := index<=frontier
+		var center := world_centers[index]
+		var color := Color(data.color)
+		var caption := "%d / %d Rätsel gelöst" % [JourneyProgress.world_done(game,index),JourneyProgress.world_total(game,index)] if available else "Noch gesperrt"
+		station("world:"+data.id,data.title,caption,data.icon,color,center,available,JourneyProgress.world_complete(game,index),index==frontier,func(): focus_world(index),minf(300,size.x-48))
 		if index>0:
-			canvas.routes.append({"start":centers[index-1],"finish":centers[index],"open":open,"color":Color(data.color),"fresh":open and not seen.has("world:"+data.id)})
-	var key := "map:-1::false"
-	var target:=maxf(0,centers[frontier].y-scroller.size.y*0.66)
-	if seen.has("world:"+worlds[frontier].id): target=float(scroll_positions.get(key,target))
-	request_scroll(int(target))
-	action("Weiterreisen",Vector2(24,size.y-74),Vector2(size.x-48,54),func(): navigate("collection",0,"base") if frontier==0 else navigate("world",frontier),true)
-
-func build_world() -> void:
-	var data: Dictionary = JourneyProgress.worlds()[world]
-	var color := Color(data.color)
-	label("DEIN WEG · "+data.title.to_upper(),Vector2(88,29),size.x-110,12,Color(color,0.75))
-	label(data.subtitle,Vector2(24,91),size.x-48,25)
-	var visible: Array[String] = []
-	for item in data.groups:
-		if JourneyProgress.group_visible(game,item): visible.append(item)
-	var height := maxf(620,440+ceili((visible.size()-1)/2.0)*240)
-	make_scroll(height,color)
-	var centers: Array[Vector2] = []
-	var fresh_centers: Array[Vector2] = []
-	for index in visible.size():
-		var point := Vector2(size.x*0.5,height-172) if index==0 else Vector2(size.x*(0.28 if index%2==1 else 0.72),height-405-floorf((index-1)/2.0)*240)
-		centers.append(point)
-		var item := visible[index]
-		if not seen.has("group:"+item): fresh_centers.append(point)
-		var count := JourneyProgress.group_done(game,item)
-		station("group:"+item,JourneyProgress.group_title(game,item),"%d / %d Kunstwerke" % [count,JourneyProgress.indices(game,item).size()],JourneyProgress.group_icon(item),color,point,true,count==JourneyProgress.indices(game,item).size(),index==0 and count<3,func(): navigate("collection",world,item),190)
-		if index>0:
-			var parent := 0 if index<=2 else index-2
-			canvas.routes.append({"start":centers[parent],"finish":point,"open":true,"color":color,"fresh":not seen.has("group:"+item)})
-	if visible.size()==1:
-		canvas.routes.append({"start":centers[0],"finish":centers[0]+Vector2(45,-190),"open":false,"color":color})
-	var key := "world:%d::false" % world
-	var target:float=scroll_positions.get(key,height-scroller.size.y)
-	if not fresh_centers.is_empty() and visible.size()>1:
-		var average:=0.0
-		for point in fresh_centers: average+=point.y
-		target=clampf(average/fresh_centers.size()-scroller.size.y*0.5,0,height-scroller.size.y)
-	request_scroll(int(target))
-	action("Nächstes Kunstwerk",Vector2(24,size.y-74),Vector2(size.x-48,54),func(): play_next(world),true)
+			canvas.routes.append({"start":world_centers[index-1],"finish":center,"open":available,"color":color,"fresh":available and not seen.has("world:"+data.id),"opacity":0.45})
+		if not available: continue
+		for position in data.groups.size():
+			var item: String = data.groups[position]
+			var row: int = position/2
+			var single: bool = data.groups.size()==1 or (position==data.groups.size()-1 and data.groups.size()%2==1)
+			var point := Vector2(size.x*(0.5 if single else (0.265 if position%2==0 else 0.735)),center.y-230*(row+1))
+			var junction := Vector2(size.x*0.5,point.y+95)
+			if position%2==0:
+				var previous := center if row==0 else Vector2(size.x*0.5,center.y-230*row+95)
+				canvas.routes.append({"start":previous,"finish":junction,"open":true,"color":color,"opacity":0.8})
+			canvas.routes.append({"start":junction,"finish":point,"open":true,"color":color,"fresh":not seen.has("group:"+item)})
+			station("group:"+item,JourneyProgress.group_title(game,item),"%d / %d Rätsel gelöst" % [JourneyProgress.group_done(game,item),JourneyProgress.indices(game,item).size()],JourneyProgress.group_icon(item),color,point,true,JourneyProgress.group_complete(game,item),false,func(): navigate("collection",index,item),minf(216,size.x*0.44))
+	var selected := world if world>=0 and world<=frontier else frontier
+	var target := maxi(0,int(world_centers[selected].y-scroller.size.y*0.72))
+	var key := "map:%d::false" % world
+	if world<0 and seen.has("world:"+worlds[frontier].id): target=int(scroll_positions.get(key,target))
+	request_scroll(target)
+	action("Nächstes Rätsel",Vector2(24,size.y-74),Vector2(size.x-48,54),func(): play_next(frontier),true)
 
 func play_next(selected_world: int) -> void:
 	if JourneyProgress.world_index(game.level_collection(game.level).id)==selected_world and game.level_available(game.level) and not game.completed.has(game.level):
@@ -292,48 +281,33 @@ func play_next(selected_world: int) -> void:
 
 func build_collection() -> void:
 	var color := Color("#68eed2") if world<0 else Color(JourneyProgress.worlds()[world].color)
-	label("DEINE KUNSTWERKE" if history else "EIN NEUES LICHT",Vector2(88,29),size.x-110,12,Color(color,0.75))
+	var parent_title: String = "EIGENE MOTIVE" if world<0 else JourneyProgress.worlds()[world].title.to_upper()
+	label(parent_title,Vector2(88,29),size.x-110,12,Color(color,0.75))
 	label(JourneyProgress.group_title(game,group),Vector2(24,91),size.x-48,27)
-	var pending: Array[int] = []
-	var finished: Array[int] = []
-	for index in JourneyProgress.indices(game,group):
-		if game.completed.has(index): finished.append(index)
-		elif game.level_available(index): pending.append(index)
-	if pending.has(game.level):
-		pending.erase(game.level)
-		pending.push_front(game.level)
-	var displayed: Array[int] = []
-	if history: displayed.assign(finished.slice(page*6,page*6+6))
-	else: displayed.assign(pending.slice(0,3))
-	var hero := not history and not displayed.is_empty()
-	var height := (330+ceilf(maxf(0,displayed.size()-1)/2.0)*238) if hero else ceilf(displayed.size()/2.0)*238
+	# Keep a stable order; solved and unsolved puzzles are always together.
+	var displayed := JourneyProgress.indices(game,group)
+	var height := ceilf(displayed.size()/2.0)*238+24
 	make_scroll(maxf(height,360),color)
 	for position in displayed.size():
 		var card := Button.new()
 		card.set_script(load("res://journey_puzzle_card.gd"))
-		card.game = game; card.index = displayed[position]; card.accent = color; card.hero = hero and position==0; card.complete = history
-		if hero and position==0:
-			card.position=Vector2(24,8); card.size=Vector2(size.x-48,310)
-		else:
-			var offset := position-1 if hero else position
-			var width := (size.x-60)*0.5
-			card.position=Vector2(24+(offset%2)*(width+12),(330 if hero else 8)+floorf(offset/2.0)*238)
-			card.size=Vector2(width,224)
+		card.game = game; card.index = displayed[position]; card.accent = color
+		card.complete = game.completed.has(card.index)
+		var width := (size.x-60)*0.5
+		card.position=Vector2(24+(position%2)*(width+12),8+floorf(position/2.0)*238)
+		card.size=Vector2(width,224)
 		canvas.add_child(card)
 	if displayed.is_empty():
 		var message := Label.new()
-		message.text="Alle Lichter dieser Sammlung leuchten." if not finished.is_empty() else "Hier warten bald deine eigenen Kunstwerke."
+		message.text="Hier warten bald deine eigenen Kunstwerke."
 		message.position=Vector2(24,120); message.size=Vector2(size.x-48,70)
 		message.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		message.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		message.modulate=Color("#a6bdca")
 		canvas.add_child(message)
-	if history and (page+1)*6<finished.size():
-		action("Weitere Kunstwerke",Vector2(24,size.y-74),Vector2(size.x-48,54),func(): page+=1; scroller=null; relayout())
-	elif not history and not finished.is_empty():
-		action("Schon entdeckt · %d" % finished.size(),Vector2(24,size.y-74),Vector2(size.x-48,54),func(): navigate("collection",world,group,true))
-	else:
-		label("Dein Weg wächst mit jedem Kunstwerk.",Vector2(24,size.y-62),size.x-48,14,Color("#8298ab")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	label("%d / %d Rätsel gelöst" % [JourneyProgress.group_done(game,group),displayed.size()],Vector2(24,size.y-62),size.x-48,15,Color("#9db9c7")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	var key := "collection:%d:%s:false" % [world,group]
+	request_scroll(int(scroll_positions.get(key,0)))
 
 func build_home() -> void:
 	var frontier := JourneyProgress.frontier(game)

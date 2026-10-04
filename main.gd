@@ -481,7 +481,7 @@ func open_journey(selected_world := -1, selected_group := "") -> void:
 	journey.world = selected_world
 	journey.group = selected_group
 	journey.scroll_positions=journey_scroll_memory.duplicate(true)
-	journey.screen = "collection" if not selected_group.is_empty() else ("world" if selected_world >= 0 else "map")
+	journey.screen = "collection" if not selected_group.is_empty() else "map"
 	panel.add_child(journey)
 
 func remember_journey_stations(ids: Array[String]) -> void:
@@ -817,13 +817,10 @@ func advance() -> void:
 	if journey_mode:
 		var group: String = level_collection(level).id
 		var world := JourneyProgress.world_index(group)
-		var count := JourneyProgress.group_done(self,group)
 		var next := JourneyProgress.next_open(self,level)
-		if group != "custom" and count > 0 and count % 3 == 0:
-			open_journey(-1 if world == 0 or JourneyProgress.frontier(self) > world else world)
+		if group != "custom" and JourneyProgress.group_complete(self,group): open_journey()
 		elif next >= 0: start_journey_puzzle(next)
-		elif group=="custom": open_journey(-1,"custom")
-		else: open_journey(world if world > 0 else -1)
+		else: open_journey(world,group)
 		return
 	var next := next_collection_level(level)
 	if next < 0:

@@ -56,34 +56,38 @@ static func world_done(game: Node, index: int) -> int:
 	for group in worlds()[index].groups: result += int(group_counts.get(group,0))
 	return result
 
+static func world_total(game: Node, index: int) -> int:
+	var total := 0
+	for group in worlds()[index].groups: total += indices(game, group).size()
+	return total
+
+static func world_complete(game: Node, index: int) -> bool:
+	var total := world_total(game, index)
+	return total > 0 and world_done(game, index) == total
+
+static func group_complete(game: Node, group: String) -> bool:
+	var total := indices(game, group).size()
+	return total > 0 and group_done(game, group) == total
+
 static func frontier(game: Node) -> int:
 	refresh(game)
 	if cached_frontier >= 0: return cached_frontier
 	var result := 0
-	# Historical completions reveal their ancestors; no existing achievement is lost.
-	for index in worlds().size():
-		if world_done(game, index) > 0: result = index
-	for group in legacy_groups: result = maxi(result,world_index(group))
-	while result + 1 < worlds().size() and world_done(game, result) >= int(worlds()[result].gate): result += 1
+	while result + 1 < worlds().size() and world_complete(game, result): result += 1
 	cached_frontier = result
 	return result
 
 static func group_visible(game: Node, group: String) -> bool:
 	if group == "custom": return true
 	var world := world_index(group)
-	if world < 0 or world > frontier(game): return false
-	var position: int = worlds()[world].groups.find(group)
-	return position == 0 or legacy_groups.has(group) or group_done(game, group) > 0 or world_done(game, world) >= (3 if position <= 2 else 5)
+	return world >= 0 and world <= frontier(game)
 
 static func level_open(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.level_count(): return false
+	# Retain old individual achievements without unlocking unfinished themes.
 	if game.completed.has(index): return true
 	if game.journey_legacy_paths.has(game.level_path(index)): return true
-	var group: String = game.level_collection(index).id
-	if not group_visible(game, group): return false
-	if group == "custom": return true
-	var ordered := indices(game, group)
-	return ordered.find(index) < mini(ordered.size(), 3 + group_done(game, group))
+	return group_visible(game, game.level_collection(index).id)
 
 static func next_open(game: Node, index: int) -> int:
 	var group: String = game.level_collection(index).id
@@ -94,7 +98,7 @@ static func next_open(game: Node, index: int) -> int:
 	return -1
 
 static func group_title(game: Node, group: String) -> String:
-	if group == "base": return "Erste Lichtung"
+	if group == "base": return "Einstieg"
 	if group == "custom": return "Deine eigenen Motive"
 	var found := indices(game, group)
 	return game.level_collection(found[0]).title if not found.is_empty() else group

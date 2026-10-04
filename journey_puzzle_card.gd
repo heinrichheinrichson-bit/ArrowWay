@@ -42,7 +42,7 @@ func _ready() -> void:
 	add_child(title)
 	var caption := Label.new()
 	caption.text = "Schon zum Leuchten gebracht" if complete else ("Dein nächstes Kunstwerk" if hero else "Entdecken")
-	if hero and index==game.level and (game.cleared>0 or game.mistakes>0 or game.arrows.any(func(arrow): return arrow.escaping)): caption.text="Weiter spielen"
+	if not complete and index==game.level and (game.cleared>0 or game.mistakes>0 or game.arrows.any(func(arrow): return arrow.escaping)): caption.text="Weiter spielen"
 	caption.position = Vector2(12,size.y-31)
 	caption.size.x = size.x-24
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

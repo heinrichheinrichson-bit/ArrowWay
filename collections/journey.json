@@ -1,6 +1,5 @@
 {
-  "version": 1,
-  "initial_puzzles": 3,
+  "version": 2,
   "worlds": [
     {
       "id": "beginning",
@@ -10,8 +9,7 @@
       "icon": "spark",
       "groups": [
         "base"
-      ],
-      "gate": 3
+      ]
     },
     {
       "id": "nature",
@@ -26,8 +24,7 @@
         "flowers",
         "ocean",
         "landscapes"
-      ],
-      "gate": 5
+      ]
     },
     {
       "id": "celebrations",
@@ -40,8 +37,7 @@
         "christmas",
         "halloween",
         "easter"
-      ],
-      "gate": 5
+      ]
     },
     {
       "id": "discovery",
@@ -56,8 +52,7 @@
         "smartphones",
         "cosmos",
         "workshop"
-      ],
-      "gate": 5
+      ]
     },
     {
       "id": "travel",
@@ -70,8 +65,7 @@
         "skylines",
         "vehicles",
         "travel"
-      ],
-      "gate": 5
+      ]
     },
     {
       "id": "comfort",
@@ -84,8 +78,7 @@
         "bakery",
         "fruit",
         "cozy"
-      ],
-      "gate": 5
+      ]
     },
     {
       "id": "imagination",
@@ -99,8 +92,7 @@
         "sports",
         "toys",
         "fantasy"
-      ],
-      "gate": 5
+      ]
     }
   ]
 }
