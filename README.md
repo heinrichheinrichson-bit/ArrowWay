@@ -10,7 +10,7 @@ Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibi
 
 ## Aktueller Stand · 0.13.1
 
-- **Neonkunstwerk zum Abschluss**: Nach dem letzten entkommenen Pfeil bringt eine weiche Lichtwelle die ursprünglichen Pfeilbahnen samt individuellen Farben und Verläufen zurück. Ein kurzer Leuchtimpuls geht in ein ruhiges Bild über; nach 1,65 Sekunden ist das nächste Puzzle verfügbar. Neustart und Levelwechsel setzen die Darstellung zurück.
+- **Neonkunstwerk zum Abschluss**: Nach dem letzten entkommenen Pfeil bringt eine weiche Lichtwelle die ursprünglichen Pfeilbahnen samt individuellen Farben und Verläufen zurück. Ein kurzer Leuchtimpuls geht in ein helles Standbild über; nach 1,95 Sekunden ist das nächste Puzzle verfügbar. Neustart und Levelwechsel setzen die Darstellung zurück.
 
 - **Motivbibliothek** mit sofortiger Suche nach Titel, Sammlung und Themen, Sternfavoriten und Filtern für geschaffte, offene oder spielbare Motive. Filter lassen sich kombinieren und mit **Alles zeigen** zurücksetzen. Favoriten bleiben beim Neustart erhalten; beim Zurückkehren bleibt die Position in der Übersicht erhalten.
 

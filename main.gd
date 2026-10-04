@@ -590,7 +590,7 @@ func _process(delta: float) -> void:
 	clock_time += delta
 	if win_time >= 0.0:
 		win_time += delta
-		next_button.disabled = win_time < 1.65
+		next_button.disabled = win_time < 1.95
 	display_progress = lerpf(display_progress, float(cleared) / maxf(arrows.size(), 1.0), 1.0 - exp(-delta * 12.0))
 	for a in arrows:
 		a.flash = maxf(0.0, a.flash - delta)
