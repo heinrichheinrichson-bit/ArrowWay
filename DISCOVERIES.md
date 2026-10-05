@@ -2,9 +2,9 @@
 
 Die Texte erscheinen ab 1,95 Sekunden nach dem letzten Pfeil, mit sanfter Einblendung. Das Kunstwerk bleibt sichtbar, Weiter bleibt bedienbar. Während des Rätsels erscheint keine Textkarte.
 
-`collections/discoveries.json` enthält 20 einzeln zugeordnete Texte. Schlüssel ist der vollständige `res://`-Pfad des Motivs; `kind` benennt die Textart und `text` enthält den eigenen kurzen Wortlaut. Fakten und Kunstgeschichten enthalten zusätzlich `source` und `url`. Eine Quellenaktion öffnet nach Bestätigung den Browser. Alle Texte selbst sind offline verfügbar.
+`collections/discoveries.json` enthält 232 einzeln zugeordnete Texte (32 Fakten/Kunstgeschichten mit Quelle und 200 eigene Gedanken). Schlüssel ist der vollständige `res://`-Pfad des Motivs; `kind` benennt die Textart und `text` enthält den eigenen kurzen Wortlaut. Fakten und Kunstgeschichten enthalten zusätzlich `source` und `url`. Eine Quellenaktion öffnet nach Bestätigung den Browser. Alle Texte selbst sind offline verfügbar.
 
-Die übrigen Motive erhalten einen eigenen Gedanken passend zur Sammlung, soweit vorhanden; andernfalls einen allgemeinen kurzen Impuls. Diese Gedanken sind weder Zitate noch Tatsachenbehauptungen. Die ersten Fakten wurden anhand der Australian Koala Foundation, Smithsonian Ocean, NASA, der Eiffelturm-Betreibergesellschaft, des Van Gogh Museum und des Metropolitan Museum of Art geprüft. Quellen sind direkt an den jeweiligen Einträgen hinterlegt.
+Die übrigen Motive erhalten einen eigenen Gedanken passend zur Sammlung, soweit vorhanden; andernfalls einen allgemeinen kurzen Impuls. Diese Gedanken sind weder Zitate noch Tatsachenbehauptungen. Die Fakten wurden anhand von Originalquellen geprüft, darunter Australian Koala Foundation, Smithsonian, NASA, NOAA, Royal Botanic Gardens Kew, Natural History Museum, IBM, Universitäten und Kunstmuseen. Neu recherchierte Einträge tragen das Prüfdatum 2026-10-05. Quellen sind direkt an den jeweiligen Einträgen hinterlegt.
 
 Weitere Texte können ergänzt werden, ohne Pfeile oder Farben des Motivs zu ändern. Ziel sind kurze, überraschende und zum konkreten Bild passende Texte; keine erfundenen Künstlerzitate. Der neue Katalog ersetzt noch keine vollständige Redaktion aller 500 Motive.
 

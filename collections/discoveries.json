@@ -26,8 +26,11 @@
       "text": "Die Fenster leuchten. Vielleicht wartet darin gerade jemand auf eine gute Geschichte."
     },
     "res://levels/07.json": {
-      "kind": "Ein kleiner Gedanke",
-      "text": "Zwei Flügel, viele Wege. Welcher Teil war für dich der schönere Umweg?"
+      "kind": "Kleine Entdeckung",
+      "text": "Manche Schmetterlingsfarben entstehen durch winzige Strukturen der Flügelschuppen, die Licht reflektieren. Eine leuchtende Farbe braucht also nicht immer einen entsprechenden Farbstoff.",
+      "source": "Natural History Museum, London",
+      "url": "https://www.nhm.ac.uk/discover/butterfly-wings-science-behind-the-colour.html",
+      "checked": "2026-10-05"
     },
     "res://levels/08.json": {
       "kind": "Ein kleiner Gedanke",
@@ -78,20 +81,943 @@
       "text": "Dieser Stern braucht keinen klaren Himmel. Nur deinen letzten freien Weg."
     },
     "res://collections/levels/space_02_moon.json": {
-      "kind": "Ein kleiner Gedanke",
-      "text": "Der Mond nimmt sich Zeit. Du darfst das jetzt auch."
+      "kind": "Kleine Entdeckung",
+      "text": "Auf dem Mond fegen weder Wind noch Regen die Spuren der Apollo-Astronauten weg. Ihre Wege im Mondstaub waren noch Jahrzehnte später aus der Umlaufbahn erkennbar.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/solar-system/moon/10-cool-things-nasas-lunar-reconnaissance-orbiter-is-teaching-us-about-the-moon/",
+      "checked": "2026-10-05"
     },
     "res://collections/levels/space_03_rocket.json": {
       "kind": "Ein kleiner Gedanke",
       "text": "Startklar. Und diesmal musste niemand vorher den Treibstoff bezahlen."
     },
     "res://collections/levels/art_03_wheat.json": {
-      "kind": "Ein kleiner Gedanke",
-      "text": "Ein Feld aus Licht. Was würdest du hören, wenn du mitten darin stehen könntest?"
+      "kind": "Kunst neu gedacht",
+      "text": "Inspiriert von Vincent van Goghs Kornfeldern. Sein Kornfeld mit Krähen von 1890 gilt oft als letztes Bild – das Van Gogh Museum bezeichnet diese Behauptung als hartnäckigen Mythos.",
+      "source": "Van Gogh Museum",
+      "url": "https://www.vangoghmuseum.nl/assets/ff9eb51c-e515-4e3c-bdaf-add0895b964a?c=675a546be97d044e71e2072dcd596d2db170c8c2e92082d1729798ef2dea1b55",
+      "checked": "2026-10-05"
     },
     "res://collections/levels/art_04_bridge.json": {
+      "kind": "Kunst neu gedacht",
+      "text": "Inspiriert von Claude Monets Brückenbildern, etwa 1899. Monet malte seinen Garten nicht nur: Er gestaltete auch den Teich, die Bepflanzung und die Brücke selbst.",
+      "source": "National Gallery of Art",
+      "url": "https://www.nga.gov/artworks/74796-japanese-footbridge",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/world_03_torii.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Manche Brücken bringen dich an ein anderes Ufer. Diese bringt dich vielleicht für einen Moment zur Ruhe."
+      "text": "Ein Tor kann auch eine Einladung sein: Was würdest du gern hinter dir lassen, bevor du hindurchgehst?"
+    },
+    "res://collections/levels/world_04_windmill.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn die Gedanken im Kreis laufen, wäre eine Windmühle immerhin eine produktive Lösung."
+    },
+    "res://collections/levels/world_05_lighthouse.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal reicht ein einziges Licht, damit man wieder weiß, wohin."
+    },
+    "res://collections/levels/garden_01_tulip.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Tulpe hat keinen Kalender. Für ihren großen Auftritt findet sie trotzdem den richtigen Moment."
+    },
+    "res://collections/levels/garden_03_mushroom.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute darfst du dich ruhig Glückspilz nennen. Den kniffligen Teil hast du selbst erledigt."
+    },
+    "res://collections/levels/garden_04_palm.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir für einen Moment vor, das nächste Geräusch wäre das Meer."
+    },
+    "res://collections/levels/garden_05_turtle.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Bei vielen Schildkrötenarten beeinflusst die Wärme während der Entwicklung im Ei, ob ein Jungtier männlich oder weiblich wird. Das Nest ist also mehr als eine Kinderstube.",
+      "source": "NOAA",
+      "url": "https://oceanservice.noaa.gov/facts/temperature-dependent.html",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/garden_06_alps.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Berge stehen zweimal im Bild. Trotzdem ist nur einmal Hinaufsteigen nötig."
+    },
+    "res://collections/levels/taste_01_apple.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Obst lässt sich anschauen, ohne dass später jemand die Kerne aufräumen muss."
+    },
+    "res://collections/levels/taste_03_icecream.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Drei Kugeln, keine Warteschlange. Nur beim Schmelzen ist dieses Eis etwas ungewöhnlich."
+    },
+    "res://collections/levels/taste_04_coffee.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist die wichtigste Zutat einer Kaffeepause gar nicht der Kaffee, sondern die Pause."
+    },
+    "res://collections/levels/taste_05_cherries.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Erinnerung hat für dich den Geschmack eines Sommers?"
+    },
+    "res://collections/levels/taste_06_cocktail.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der heutige Hauscocktail: ein wenig Farbe, ein Spritzer Geduld und freie Wege."
+    },
+    "res://collections/levels/space_06_ufo.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Falls jemand fragt: Die Erde ist gerade beschäftigt. Sie löst noch ein Rätsel."
+    },
+    "res://collections/levels/halloween_01_halloween_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Kürbis grinst schon. Vielleicht hat er gewusst, dass du es schaffst."
+    },
+    "res://collections/levels/halloween_02_halloween_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Gespenst ohne böse Absichten. Vielleicht wollte es einfach nur kurz Hallo sagen."
+    },
+    "res://collections/levels/halloween_04_halloween_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unter diesem Hut ist Platz für eine gute Idee. Und notfalls für eine zerzauste Frisur."
+    },
+    "res://collections/levels/halloween_07_halloween_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Vampir nimmt heute nur ein wenig Bildschirmzeit. Das ist ziemlich rücksichtsvoll."
+    },
+    "res://collections/levels/halloween_09_halloween_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Teufelei ist erlaubt. Besonders wenn sie am Ende so hübsch leuchtet."
+    },
+    "res://collections/levels/halloween_10_halloween_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch ein Zombie kann einen schlechten Tag haben. Immerhin sitzt das Pflaster."
+    },
+    "res://collections/levels/halloween_11_halloween_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Katze bringt kein Unglück. Sie bringt höchstens die Frage mit, wem dieser Bildschirm gehört."
+    },
+    "res://collections/levels/halloween_12_halloween_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Viele Fenster, wenig Nachbarn. Für ein Gespenst eine überraschend gute Wohnlage."
+    },
+    "res://collections/levels/halloween_13_halloween_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Besen, der lieber fliegt als putzt. Verständlich, irgendwie."
+    },
+    "res://collections/levels/halloween_14_halloween_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Rezept bleibt geheim. Aber eine Prise Geduld war ganz sicher dabei."
+    },
+    "res://collections/levels/halloween_16_halloween_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Tür würdest du öffnen, wenn du einen Schlüssel für jede hättest?"
+    },
+    "res://collections/levels/halloween_17_halloween_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Überraschung ist ausgepackt. Zum Glück braucht hier niemand das Geschenkpapier zusammenzufalten."
+    },
+    "res://collections/levels/halloween_19_halloween_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Auge schaut zurück. Vielleicht betrachtet es gerade sein Lieblingsrätsel."
+    },
+    "res://collections/levels/halloween_20_halloween_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Kristall sagt keine Zukunft voraus. Aber der Moment jetzt sieht ziemlich gut aus."
+    },
+    "res://collections/levels/christmas_01_christmas_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diesen Baum brauchst du weder eine Leiter noch jemanden, der die Lichterkette entwirrt."
+    },
+    "res://collections/levels/christmas_02_christmas_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Kugel, in der sich ein ganzer Festabend spiegeln könnte."
+    },
+    "res://collections/levels/christmas_03_christmas_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welches Geschenk würde dir Freude machen, auch wenn es nichts kostet?"
+    },
+    "res://collections/levels/christmas_04_christmas_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Mütze sitzt. Für den großen Auftritt fehlen nur noch ein Bart und ein sehr überzeugendes Hohoho."
+    },
+    "res://collections/levels/christmas_05_christmas_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Licht kann einen großen Raum gemütlicher machen. Vielleicht auch einen Gedanken."
+    },
+    "res://collections/levels/christmas_06_christmas_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Leider duftet dieser Lebkuchen noch nicht. Dein Kopf darf das übernehmen."
+    },
+    "res://collections/levels/christmas_08_christmas_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Licht im Fenster kann heißen: Hier ist jemand, der sich über deinen Besuch freut."
+    },
+    "res://collections/levels/christmas_12_christmas_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn nur ein Wunsch auf diesen Brief dürfte: Welcher wäre es heute?"
+    },
+    "res://collections/levels/christmas_13_christmas_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal sieht ein guter Plan so aus: warme Tasse, kalte Fenster, keine Eile."
+    },
+    "res://collections/levels/christmas_14_christmas_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Zug fährt direkt in eine Erinnerung. Den Fahrplan kennst wahrscheinlich nur du."
+    },
+    "res://collections/levels/christmas_15_christmas_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die schönste Richtung an einem Winterhang ist manchmal einfach bergab."
+    },
+    "res://collections/levels/christmas_19_christmas_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für einen Schneemann ist ein Zylinder erstaunlich förmlich. Vielleicht hat er heute noch etwas vor."
+    },
+    "res://collections/levels/winter_01_winter_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Herr braucht keine Heizung. Eine kleine Frostperiode wäre ihm deutlich lieber."
+    },
+    "res://collections/levels/winter_04_winter_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Spuren erzählen von jemandem, der schon hier war. Welche Geschichte würdest du darin lesen?"
+    },
+    "res://collections/levels/winter_10_winter_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Draußen darf der Wind arbeiten. Drinnen wäre jetzt Zeit für ein knisterndes Feuer."
+    },
+    "res://collections/levels/winter_11_winter_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Anfang kann wackelig sein und trotzdem später wie Gleiten aussehen."
+    },
+    "res://collections/levels/winter_15_winter_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Tasse verlangt gerade nichts von dir. Das ist ihr vielleicht schönster Service."
+    },
+    "res://collections/levels/winter_16_winter_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Gedanke braucht keinen kalten Kopf. Manchmal darf auch eine Mütze helfen."
+    },
+    "res://collections/levels/winter_19_winter_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Welt, die man schütteln darf, wenn sie zu ruhig geworden ist."
+    },
+    "res://collections/levels/easter_01_easter_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Ei ist schon gefunden. Und dafür musste niemand hinter dem Sofa nachsehen."
+    },
+    "res://collections/levels/easter_02_easter_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Keine Eier mehr zu verstecken. Der Hase könnte endlich einmal selbst ausschlafen."
+    },
+    "res://collections/levels/easter_03_easter_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Korb voller kleiner Überraschungen. Welche davon würdest du zuerst verschenken?"
+    },
+    "res://collections/levels/easter_04_easter_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "So ein kleiner Anfang. Und schon so viel Platz für eine große Geschichte."
+    },
+    "res://collections/levels/easter_10_easter_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Osterei mit Sternenband: offenbar war die Geschenkabteilung besonders gut gelaunt."
+    },
+    "res://collections/levels/easter_14_easter_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Hase nennt es Gemüse. Die Kuchengabel widerspricht nicht."
+    },
+    "res://collections/levels/easter_15_easter_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Blumenstrauß sagt manchmal etwas, für das die passenden Worte noch fehlen."
+    },
+    "res://collections/levels/easter_18_easter_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche dieser Farben würdest du heute gern mit nach draußen nehmen?"
+    },
+    "res://collections/levels/easter_20_easter_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Gold würde in der Hosentasche leider keine gute Figur machen."
+    },
+    "res://collections/levels/technology_01_technology_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Aufgabe erledigt. Ob dieser Roboter jetzt eine Steckdose oder ein Lob möchte?"
+    },
+    "res://collections/levels/technology_05_technology_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht wäre es schön, wenn auch Menschen ihren Ladestand so deutlich anzeigen könnten."
+    },
+    "res://collections/levels/technology_04_technology_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "So viele Verbindungen auf kleinem Raum. Welche Verbindung würdest du heute gern wieder aufnehmen?"
+    },
+    "res://collections/levels/technology_06_technology_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Kompass zeigt eine Richtung. Ob du ihr folgen möchtest, bleibt deine Entscheidung."
+    },
+    "res://collections/levels/technology_07_technology_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Was würdest du fotografieren, wenn du heute nur ein einziges Bild machen dürftest?"
+    },
+    "res://collections/levels/technology_08_technology_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier beobachtet dich niemand. Nur ein gezeichnetes Auge, das gern wichtig aussehen möchte."
+    },
+    "res://collections/levels/technology_10_technology_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine gute Frage kann spannender sein als eine Flasche voller Antworten."
+    },
+    "res://collections/levels/technology_11_technology_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Du hast das Mikrofon. Welche Idee würde endlich einmal laut ausgesprochen werden?"
+    },
+    "res://collections/levels/technology_15_technology_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welchen Alltagsteil würdest du gern für einen Moment auf Pause stellen?"
+    },
+    "res://collections/levels/computers_01_computers_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Fenster lässt sich nicht minimieren. Aber vielleicht darf die To-do-Liste das gerade."
+    },
+    "res://collections/levels/computers_02_computers_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein tragbarer Computer. Die Arbeit darin muss deshalb nicht überall mitreisen."
+    },
+    "res://collections/levels/computers_03_computers_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Taste müsste eine Tastatur haben, damit dein Tag ein wenig leichter wird?"
+    },
+    "res://collections/levels/computers_04_computers_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Maus hat sich heute nicht verlaufen. Sie hat nur alle Möglichkeiten untersucht."
+    },
+    "res://collections/levels/computers_05_computers_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein ordentliches Gehäuse. Bei den Kabeln innen sind wir weniger streng."
+    },
+    "res://collections/levels/computers_09_computers_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "So klein und doch ein möglicher Umzugswagen für ganze Geschichten."
+    },
+    "res://collections/levels/computers_13_computers_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier dürfte die Lieblingsmusik laufen. Welcher Titel wäre es?"
+    },
+    "res://collections/levels/computers_14_computers_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Kamera ist bereit. Die Frisur beantragt noch fünf Minuten."
+    },
+    "res://collections/levels/computers_17_computers_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Drucker, der heute kein Papier fordert. Das sollten wir kurz würdigen."
+    },
+    "res://collections/levels/computers_18_computers_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Viele Maschinen, ein gemeinsamer Raum. Hoffentlich hat jemand die Kabel beschriftet."
+    },
+    "res://collections/levels/computers_19_computers_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Verbindungen braucht man besonders dann, wenn man sie gerade verloren hat."
+    },
+    "res://collections/levels/skylines_01_skylines_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn diese Stadt eine Stimmung hätte: Welche wäre es?"
+    },
+    "res://collections/levels/skylines_02_skylines_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Am Hafen könnte jedes Licht der Anfang einer Reise sein."
+    },
+    "res://collections/levels/skylines_03_skylines_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht wohnt ganz oben jemand, der trotzdem am liebsten am Boden spazieren geht."
+    },
+    "res://collections/levels/skylines_10_skylines_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unten leuchten die Fenster. Oben braucht niemand einen Lichtschalter."
+    },
+    "res://collections/levels/skylines_11_skylines_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In welchem dieser Fenster würdest du eine kleine Nachtbäckerei vermuten?"
+    },
+    "res://collections/levels/skylines_12_skylines_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Stadt hat sich verdoppelt. Das Wasser verlangt dafür keine zweite Miete."
+    },
+    "res://collections/levels/skylines_18_skylines_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Geschichte könnte gerade unter einem dieser Dächer beginnen?"
+    },
+    "res://collections/levels/smartphones_01_smartphones_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht wartet das nächste schöne Bild nicht in der Ferne, sondern gleich vor deiner Tür."
+    },
+    "res://collections/levels/smartphones_02_smartphones_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Lieblingsapp ist manchmal einfach ein kleiner Ort, an dem man gern ein paar Minuten verbringt."
+    },
+    "res://collections/levels/smartphones_05_smartphones_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Nachricht würde dir gerade ein Lächeln aufs Gesicht zaubern?"
+    },
+    "res://collections/levels/smartphones_06_smartphones_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Uhr zeigt die Zeit. Ob wir gerade Zeit haben, ist eine andere Frage."
+    },
+    "res://collections/levels/smartphones_07_smartphones_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diese Nachricht reicht ein Herz. Die lange Erklärung kann warten."
+    },
+    "res://collections/levels/smartphones_08_smartphones_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal fühlt sich derselbe Weg mit einem anderen Lied plötzlich ganz anders an."
+    },
+    "res://collections/levels/smartphones_09_smartphones_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Du hast dein Ziel erreicht. Diesmal ohne den Satz: Bitte wenden."
+    },
+    "res://collections/levels/smartphones_13_smartphones_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wie wäre es mit einem Termin, an dem du einmal nichts erledigen musst?"
+    },
+    "res://collections/levels/smartphones_15_smartphones_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Bildschirm kann klein sein und trotzdem jemanden sehr nah bringen."
+    },
+    "res://collections/levels/smartphones_17_smartphones_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welches deiner Bilder erzählt eine Geschichte, die man darauf gar nicht sehen kann?"
+    },
+    "res://collections/levels/smartphones_19_smartphones_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Ideen kommen leise. Gut, wenn irgendwo noch eine freie Zeile wartet."
+    },
+    "res://collections/levels/smartphones_20_smartphones_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn der Alltag solche Regler hätte: Was würdest du ein bisschen herunterdrehen?"
+    },
+    "res://collections/levels/vehicles_03_vehicles_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein beleuchtetes Taxi, eine fremde Stadt. Wohin würdest du dich fahren lassen?"
+    },
+    "res://collections/levels/vehicles_09_vehicles_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute könntest du deinen Ausblick wechseln, ohne das Zuhause zu verlassen."
+    },
+    "res://collections/levels/vehicles_10_vehicles_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede Reise führt weit weg. Manche führt Reihe für Reihe durch ein Feld."
+    },
+    "res://collections/levels/vehicles_11_vehicles_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für eine kleine Auszeit reichen manchmal zwei Räder und ein Weg ohne Termin."
+    },
+    "res://collections/levels/vehicles_14_vehicles_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Du darfst aus dem Fenster schauen. Der Zug kümmert sich schon um das Weiterkommen."
+    },
+    "res://collections/levels/vehicles_15_vehicles_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Haltestelle würdest du wählen, wenn du heute einfach neugierig sein dürftest?"
+    },
+    "res://collections/levels/vehicles_19_vehicles_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir vor, der Wind würde für einen Moment die ganze Arbeit übernehmen."
+    },
+    "res://collections/levels/ocean_07_ocean_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch ein Schritt zur Seite kann dich an einen schönen Ort bringen."
+    },
+    "res://collections/levels/ocean_14_ocean_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Du kannst nicht jeden Wind bestellen. Aber vielleicht die Segel anders setzen."
+    },
+    "res://collections/levels/ocean_16_ocean_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein ruhiger Hafen ist manchmal das beste Reiseziel."
+    },
+    "res://collections/levels/ocean_17_ocean_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier wäre Platz für ein leises Plätschern und einen Gedanken, der nirgendwo hinmuss."
+    },
+    "res://collections/levels/ocean_20_ocean_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Farbe hätte die Ruhe, wenn du sie in ein Glas füllen könntest?"
+    },
+    "res://collections/levels/animals_01_animals_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Du hast das Rätsel gelöst. Die Katze würde gern behaupten, sie habe dabei geholfen."
+    },
+    "res://collections/levels/animals_02_animals_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diesen Hund wäre dein Heimkommen wahrscheinlich interessanter als jeder gelöste Rekord."
+    },
+    "res://collections/levels/animals_07_animals_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht hört sie gerade ein Stück Käse. Wir fragen lieber nicht nach."
+    },
+    "res://collections/levels/animals_13_animals_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Teddy muss nichts sagen, um bei einem wichtigen Gespräch dabei zu sein."
+    },
+    "res://collections/levels/animals_14_animals_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Große Pfoten, kleine Erfahrung. Das Abenteuer darf trotzdem schon anfangen."
+    },
+    "res://collections/levels/animals_17_animals_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Maske ist angezogen. Ob der Waschbär damit wohl unbemerkt an die Kekse kommt?"
+    },
+    "res://collections/levels/animals_18_animals_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein eigener kleiner Vorrat ist gut. Vor allem, wenn niemand fragt, warum es schon wieder Nachschub braucht."
+    },
+    "res://collections/levels/animals_19_animals_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Stern für die Katze. Sie hält ihn vermutlich für ihre angemessene Bewertung."
+    },
+    "res://collections/levels/animals_20_animals_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch eine große Mähne fängt mit einem ziemlich kleinen Kopf an."
+    },
+    "res://collections/levels/birds_01_birds_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Teich hat keine Öffnungszeiten. Für eine kleine Runde wäre jetzt also noch Zeit."
+    },
+    "res://collections/levels/birds_07_birds_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Farbtupfer kann reichen, damit ein grauer Tag anders aussieht."
+    },
+    "res://collections/levels/birds_08_birds_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Gäste kommen schlicht herein. Dieser hätte wohl gern einen großen Auftritt."
+    },
+    "res://collections/levels/birds_14_birds_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Taube kennt diese Stadt vielleicht besser als jeder Reiseführer. Nur ihre Empfehlungen sind schwer zu übersetzen."
+    },
+    "res://collections/levels/bakery_01_bakery_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das schwierigste Stück Pizza ist meistens das letzte: behalten oder teilen?"
+    },
+    "res://collections/levels/bakery_02_bakery_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Loch in der Mitte. Und trotzdem fehlt diesem Glück nichts."
+    },
+    "res://collections/levels/bakery_03_bakery_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Keks löst nicht jedes Problem. Aber er könnte beim Nachdenken Gesellschaft leisten."
+    },
+    "res://collections/levels/bakery_04_bakery_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welchen Wunsch würdest du dir wünschen, wenn niemand danach fragt?"
+    },
+    "res://collections/levels/bakery_06_bakery_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Burger hat viele Schichten. Diese Pause braucht nur eine."
+    },
+    "res://collections/levels/bakery_08_bakery_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Endlich ein Raster, das auch mit Schokolade gut funktioniert."
+    },
+    "res://collections/levels/bakery_09_bakery_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Turm, dessen sinnvollster Ausbau Ahornsirup wäre."
+    },
+    "res://collections/levels/bakery_10_bakery_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Knoten muss man nicht lösen. Man darf sie einfach aufessen."
+    },
+    "res://collections/levels/bakery_12_bakery_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Glas voll Sommer, das auf den nächsten grauen Morgen wartet."
+    },
+    "res://collections/levels/bakery_14_bakery_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Kaffee ist fertig. Die erste gute Idee darf noch etwas brauchen."
+    },
+    "res://collections/levels/bakery_11_bakery_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche würdest du zuerst nehmen, wenn niemand die Auswahl kommentiert?"
+    },
+    "res://collections/levels/fruit_01_fruit_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Sonne mit Schale. Für die Hosentasche etwas praktischer als das Original."
+    },
+    "res://collections/levels/fruit_02_fruit_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Sauer kann auch der Anfang von etwas Erfrischendem sein."
+    },
+    "res://collections/levels/fruit_03_fruit_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Stück Sommer, das man teilen kann. Die Kerne dürfen im Garten bleiben."
+    },
+    "res://collections/levels/fruit_07_fruit_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist genau jetzt der richtige Moment. Bei einer Avocado ist das schon eine kleine Leistung."
+    },
+    "res://collections/levels/fruit_12_fruit_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Von außen unauffällig. Innen hat diese Frucht eine ziemlich klare Meinung zu Grün."
+    },
+    "res://collections/levels/fruit_13_fruit_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Farbe würdest du heute gern zum Frühstück mitnehmen?"
+    },
+    "res://collections/levels/flowers_01_flowers_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal ist eine Blume ein Satz, den man gern überreichen möchte."
+    },
+    "res://collections/levels/flowers_07_flowers_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Blüte hat ihren Auftritt sorgfältig vorbereitet. Du darfst ruhig einen Moment hinschauen."
+    },
+    "res://collections/levels/flowers_13_flowers_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Bild kann noch nicht duften. Vielleicht weiß deine Erinnerung trotzdem, wie es riechen würde."
+    },
+    "res://collections/levels/flowers_17_flowers_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Blume würde in deinem Strauß unbedingt einen Platz bekommen?"
+    },
+    "res://collections/levels/workshop_01_workshop_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede gute Idee braucht einen Hammer. Aber manche braucht einen ersten kleinen Schlag."
+    },
+    "res://collections/levels/workshop_04_workshop_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn du diesem Tag einen neuen Anstrich geben könntest: Welche Farbe wäre es?"
+    },
+    "res://collections/levels/workshop_09_workshop_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht fehlt für die nächste Idee kein Werkzeug, sondern nur ein freier Nachmittag."
+    },
+    "res://collections/levels/workshop_11_workshop_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Handschuhe hätten gern ein bisschen Erde statt eines sauberen Schrankes."
+    },
+    "res://collections/levels/workshop_15_workshop_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Päckchen mit ziemlich großen Plänen."
+    },
+    "res://collections/levels/workshop_18_workshop_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Deckel ist noch zu. Drinnen wartet schon ein anderes Zimmer."
+    },
+    "res://collections/levels/music_01_music_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Melodie würde zu diesem Licht passen?"
+    },
+    "res://collections/levels/music_06_music_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier darf auch einmal jemand mitmachen, der die Noten nicht kennt."
+    },
+    "res://collections/levels/music_12_music_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Mikrofon ist frei. Du darfst auch etwas sagen, das noch nicht perfekt klingt."
+    },
+    "res://collections/levels/music_15_music_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für einen Moment könnte die Außenwelt leiser werden und dein Lieblingslied lauter."
+    },
+    "res://collections/levels/music_18_music_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist das Knistern vor dem ersten Ton schon ein Teil der Erinnerung."
+    },
+    "res://collections/levels/sports_01_sports_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Platz ist hell. Für den letzten entscheidenden Pass braucht es trotzdem einen guten Blick."
+    },
+    "res://collections/levels/sports_06_sports_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Abend muss nicht bedeuten, dass alle zehn fallen."
+    },
+    "res://collections/levels/sports_08_sports_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal ist der stärkste Zug, erst einmal ruhig Luft zu holen."
+    },
+    "res://collections/levels/sports_10_sports_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Pokal gehört auch den Versuchen, die vor dem gelungenen kamen."
+    },
+    "res://collections/levels/sports_18_sports_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder gute Moment muss eine neue Bestzeit sein."
+    },
+    "res://collections/levels/sports_19_sports_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Am Ziel darf man kurz stehen bleiben. Das ist ausdrücklich erlaubt."
+    },
+    "res://collections/levels/toys_06_toys_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Blatt Papier mit Fernweh."
+    },
+    "res://collections/levels/toys_11_toys_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Stadt würdest du bauen, wenn sie morgen wieder ganz anders aussehen dürfte?"
+    },
+    "res://collections/levels/toys_13_toys_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist der beste Schatz die Geschichte, die man auf dem Weg zur Kiste erlebt."
+    },
+    "res://collections/levels/toys_15_toys_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welches Bild würdest du gern als erste Seite einer neuen Geschichte sehen?"
+    },
+    "res://collections/levels/travel_01_travel_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Was müsste in diesen Koffer, damit du dich auch weit weg ein wenig zuhause fühlst?"
+    },
+    "res://collections/levels/travel_03_travel_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein weißer Fleck auf der Karte kann auch eine Einladung sein."
+    },
+    "res://collections/levels/travel_06_travel_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute besteht die Zimmerdecke aus Sternen. Der Zimmerservice hat allerdings frei."
+    },
+    "res://collections/levels/travel_09_travel_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Stück Grün kann plötzlich wichtiger werden als der ganze Horizont."
+    },
+    "res://collections/levels/travel_12_travel_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir vor, dein nächster Gedanke hätte so viel Platz wie dieser Himmel."
+    },
+    "res://collections/levels/travel_16_travel_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche kleine Begebenheit würdest du jemandem erzählen, der nicht mitreisen konnte?"
+    },
+    "res://collections/levels/travel_20_travel_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht passt dieser Schlüssel nicht in ein Schloss, sondern zu einem noch ungemachten Plan."
+    },
+    "res://collections/levels/fantasy_01_fantasy_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In welchem Zimmer dieses Schlosses würdest du deine Geschichte anfangen?"
+    },
+    "res://collections/levels/fantasy_02_fantasy_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Krone ist hübsch. Aber jemand, der zuhören kann, wäre im Thronsaal noch hilfreicher."
+    },
+    "res://collections/levels/fantasy_08_fantasy_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche einzige Fähigkeit würdest du gern aus diesem Buch lernen?"
+    },
+    "res://collections/levels/fantasy_07_fantasy_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Was wäre ein Schatz, den man nicht zählen, aber trotzdem teilen kann?"
+    },
+    "res://collections/levels/fantasy_18_fantasy_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unsichtbar sein wäre praktisch. Bis jemand vergisst, dir einen Platz freizuhalten."
+    },
+    "res://collections/levels/fantasy_20_fantasy_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht wartet das Wunder hinter dem nächsten Baum. Vielleicht ist es auch schon dieser."
+    },
+    "res://collections/levels/landscapes_02_landscapes_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welchen Gedanken würdest du gern in diesen neuen Tag mitnehmen?"
+    },
+    "res://collections/levels/landscapes_08_landscapes_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier muss kein Gedanke gegen den nächsten um Platz kämpfen."
+    },
+    "res://collections/levels/landscapes_10_landscapes_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Weg kann sich verändern, ohne dass die Reise deshalb verloren ist."
+    },
+    "res://collections/levels/landscapes_13_landscapes_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Tag ist fast vorbei. Was davon würdest du gern noch ein wenig behalten?"
+    },
+    "res://collections/levels/cosmos_07_cosmos_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Fenster für einen ziemlich großen Ausblick."
+    },
+    "res://collections/levels/cosmos_09_cosmos_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "So weit entfernt – und trotzdem kann ein Hallo die Entfernung ein wenig kleiner machen."
+    },
+    "res://collections/levels/cosmos_14_cosmos_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für den Neustart bitte auf der Erde bleiben. Hier draußen wäre der Support etwas weiter weg."
+    },
+    "res://collections/levels/cosmos_15_cosmos_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Schlüssel passt vielleicht zu einer Frage, die du noch gar nicht gestellt hast."
+    },
+    "res://collections/levels/cosmos_20_cosmos_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche kleine Veränderung würde deine Zukunft ein wenig heller machen?"
+    },
+    "res://collections/levels/cozy_01_cozy_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Buch kann ein anderer Ort sein, ohne dass du den Sessel verlassen musst."
+    },
+    "res://collections/levels/cozy_02_cozy_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Draußen darf die Welt weiterlaufen. Drinnen muss die Tasse nicht sofort leer werden."
+    },
+    "res://collections/levels/cozy_03_cozy_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht braucht dieser Moment keine Deckenlampe und keinen großen Plan."
+    },
+    "res://collections/levels/cozy_06_cozy_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein stiller Zuhörer, der auch nach dem hundertsten Erzählen nicht auf die Uhr schaut."
+    },
+    "res://collections/levels/cozy_08_cozy_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welche Zeile würdest du gern von jemandem bekommen, den du vermisst?"
+    },
+    "res://collections/levels/cozy_10_cozy_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Bild hält einen Augenblick fest. Was davor und danach geschah, gehört deiner Erinnerung."
+    },
+    "res://collections/levels/cozy_11_cozy_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine leere Seite ist noch kein fehlender Inhalt. Sie hat nur ihre Möglichkeiten noch nicht gewählt."
+    },
+    "res://collections/levels/world_06_prater.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Das Wiener Riesenrad wurde 1897 eröffnet und hatte ursprünglich 30 Waggons. Nach dem Wiederaufbau nach dem Zweiten Weltkrieg blieben es nur noch 15.",
+      "source": "Österreich Werbung",
+      "url": "https://www.austria.info/de-de/locations/riesenrad/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/garden_02_cactus.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Kakteenstacheln sind umgebildete Blätter. Was wie eine kleine Bewaffnung aussieht, hat botanisch also eine ganz andere Vergangenheit.",
+      "source": "University of Texas · Botanik",
+      "url": "https://web.biosci.utexas.edu/mauseth/researchoncacti/Spines.htm",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/taste_02_strawberry.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die kleinen Punkte auf einer Erdbeere sind botanisch einzelne Früchte. In jedem dieser winzigen Nüsschen steckt ein Samen – das rote Fruchtfleisch hält sie zusammen.",
+      "source": "Royal Botanic Gardens, Kew",
+      "url": "https://www.kew.org/plants/garden-strawberry",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/space_05_comet.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Der gerade Gasschweif eines Kometen zeigt von der Sonne weg. Er hängt also nicht einfach wie ein Schal hinter seiner Flugrichtung her.",
+      "source": "NASA",
+      "url": "https://svs.gsfc.nasa.gov/11732/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/winter_08_winter_08.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Grünes und rotes Polarlicht können beide von Sauerstoff stammen. Welche Farbe aufleuchtet, hängt auch davon ab, in welcher Höhe die Teilchen auf die Atmosphäre treffen.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/sun/auroras/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/cosmos_19_cosmos_19.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Beim Polarlicht verraten die Farben etwas über die Luft hoch über uns: Stickstoff kann blau oder rosa leuchten, Sauerstoff grün oder rot.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/sun/auroras/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/animals_04_animals_04.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Zum Festhalten von Bambus besitzt der Panda einen „falschen Daumen“. Das zusätzliche Greifwerkzeug ist kein gewöhnlicher Finger, sondern ein vergrößerter Handwurzelknochen.",
+      "source": "Smithsonian's National Zoo",
+      "url": "https://nationalzoo.si.edu/animals/giant-panda",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/birds_03_birds_03.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Beim Fressen stellt ein Flamingo den Kopf praktisch auf den Kopf. So filtert sein speziell geformter Schnabel kleine Nahrungsteilchen aus dem Wasser.",
+      "source": "Smithsonian's National Zoo",
+      "url": "https://nationalzoo.si.edu/animals/news/why-are-flamingos-pink-and-other-flamingo-facts",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/ocean_04_ocean_04.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Spinnerdelfine lassen beim Ruhen jeweils nur eine Gehirnhälfte schlafen. Die andere bleibt wach genug, um weiterzuatmen und sich langsam im Wasser zu bewegen.",
+      "source": "NOAA Fisheries",
+      "url": "https://www.fisheries.noaa.gov/feature-story/six-reasons-why-you-should-not-swim-wild-spinner-dolphins",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/ocean_02_ocean_02.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Haie produzieren immer wieder neue Zähne. Fällt vorne ein abgenutzter Zahn aus, rückt ein neuer nach – ein Ersatzlager direkt im Maul.",
+      "source": "Natural History Museum, London",
+      "url": "https://www.nhm.ac.uk/discover/shark-evolution-a-450-million-year-timeline.html",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/ocean_11_ocean_11.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Was wie ein einzelner Korallenstock aussieht, kann aus Hunderten oder Tausenden kleinen Tieren bestehen. Die einzelnen Polypen bauen gemeinsam das Gerüst ihres Zuhauses.",
+      "source": "NOAA Ocean Exploration",
+      "url": "https://oceanexplorer.noaa.gov/ocean-fact/coral-animal/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/birds_16_birds_16.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Kolibris können nachts in eine Art Energiesparzustand fallen. Dabei sinken Stoffwechsel und Körpertemperatur stark – eine Pause für ihren sonst rasanten Alltag.",
+      "source": "Smithsonian's National Zoo",
+      "url": "https://nationalzoo.si.edu/migratory-birds/hummingbirds",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/computers_10_computers_10.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die ersten Disketten waren ungefähr 20 Zentimeter breit. IBM brachte die Laufwerke 1971 auf den Markt – klein war damals etwas anderes als heute.",
+      "source": "IBM · Technikgeschichte",
+      "url": "https://www.ibm.com/history/floppy-disk",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/flowers_03_flowers_03.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Eine Sonnenblume ist botanisch ein ganzer Blütenstand. Auch die dunkle Mitte besteht aus vielen winzigen Einzelblüten, aus denen später die Kerne entstehen.",
+      "source": "Royal Botanic Gardens, Kew",
+      "url": "https://www.kew.org/plants/sunflower",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/fruit_05_fruit_05.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Eine Ananas entsteht, indem die Früchte von etwa 100 bis 200 Blüten zusammenwachsen. Diese eine Frucht war also einmal eine ziemlich große Blütengemeinschaft.",
+      "source": "Royal Botanic Gardens, Kew",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A12322-2/general-information",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/fruit_17_fruit_17.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die einzelnen Felder auf einer Ananasschale gehören zu ihrer Entstehungsgeschichte: Viele Blüten entwickelten Früchte, die schließlich zu einer Ananas zusammenwuchsen.",
+      "source": "Smithsonian · Botanik",
+      "url": "https://naturalhistory2.si.edu/botany/hawaiianflora/speciesdescr.cfm?genus=Ananas&species=comosus",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/animals_15_animals_15.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die großen Ohren des Wüstenfuchses dienen auch als Kühlflächen. Gleichzeitig helfen sie ihm, Beute unter dem Sand zu hören.",
+      "source": "Smithsonian's National Zoo",
+      "url": "https://nationalzoo.si.edu/animals/fennec-fox",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/ocean_05_ocean_05.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Bei Seepferdchen trägt das Männchen die Jungen aus. Das Weibchen übergibt die Eier in seine Bruttasche, in der sie geschützt heranwachsen.",
+      "source": "NOAA",
+      "url": "https://oceanservice.noaa.gov/facts/seahorse.html",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/easter_08_easter_08.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Schmetterlinge besitzen Geschmacksrezeptoren an den Füßen. Ein Weibchen kann damit prüfen, ob ein Blatt als Nahrung für seine späteren Raupen geeignet ist.",
+      "source": "Washington State University",
+      "url": "https://askdruniverse.wsu.edu/2026/07/16/butterflies-taste-feet/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/winter_02_winter_02.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die typische sechsfache Symmetrie eines Schneekristalls beginnt bei der Anordnung seiner Wassermoleküle. Temperatur und Feuchtigkeit formen dann seine Verzweigungen.",
+      "source": "NOAA",
+      "url": "https://www.noaa.gov/stories/how-do-snowflakes-form-science-behind-snow",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/christmas_16_christmas_16.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Ein Schneekristall wächst unterwegs durch unterschiedlich warme und feuchte Luftschichten. Seine Verzweigungen bewahren etwas von dieser kleinen Reise durch die Wolke.",
+      "source": "NOAA",
+      "url": "https://www.noaa.gov/stories/how-do-snowflakes-form-science-behind-snow",
+      "checked": "2026-10-05"
     }
   }
 }

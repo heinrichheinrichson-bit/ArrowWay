@@ -14,9 +14,11 @@ func run() -> void:
 	var converted: Rect2=safe_script.calculate(Rect2(0,80,1080,2200),[Rect2(490,0,100,96)],Vector2.ZERO,Transform2D(Vector2(2,0),Vector2(0,2),Vector2.ZERO),Rect2(0,0,540,1170))
 	require(converted.position.y==48 and converted.end.y==1140,"Physical camera and safe area convert into logical UI coordinates")
 	var entries: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/discoveries.json")).entries
-	require(entries.size()==20,"Twenty motif-specific texts are bundled")
+	require(entries.has("res://collections/levels/animals_08_animals_08.json"),"Known motif keeps its own discovery")
 	for path in entries:
 		require(FileAccess.file_exists(path),"Discovery refers to an existing motif")
+		require(entries[path].text is String and not entries[path].text.strip_edges().is_empty() and entries[path].text.length()<=400,"Editorial text stays short and nonempty")
+		if entries[path].kind!="Ein kleiner Gedanke": require(entries[path].has("source") and entries[path].has("url"),"Facts and art histories carry a source")
 		if entries[path].has("source"): require(entries[path].url.begins_with("https://"),"Facts have an accessible source")
 	for screen_size in [Vector2i(360,780),Vector2i(540,850),Vector2i(540,1170)]:
 		root.size=screen_size; await process_frame
@@ -51,6 +53,8 @@ func run() -> void:
 	if OS.get_cmdline_user_args().has("--capture"):
 		await RenderingServer.frame_post_draw
 		root.get_texture().get_image().save_png("res://previews/discovery-koala.png")
+	root.size=Vector2i(540,850); await process_frame
+	scene.safe_area_override=Rect2(0,48,scene.get_viewport_rect().size.x,scene.get_viewport_rect().size.y-78)
 	for path in entries:
 		scene.level=scene.level_files.find(path); scene.reset(); scene.set_process(false)
 		for arrow in scene.arrows: arrow.removed=true
