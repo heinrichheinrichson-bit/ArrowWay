@@ -25,9 +25,9 @@ func run() -> void:
 		scene.reset(); scene.set_process(false)
 		scene.play_title.text="Ein besonders schöner Sonnenuntergang am See"
 		scene.update_play_layout(); await process_frame
-		require(scene.play_title.position.y>=102,"Title stays below camera and toolbar")
-		require(scene.play_title.size.x==logical.x-48,"Title gets its own full-width row")
-		require(scene.play_title.get_line_count()>=1 and scene.play_title.size.y>=scene.play_title.get_minimum_size().y,"Wrapped title is not clipped")
+		require(scene.play_title.position.y>=60,"Title stays below camera")
+		require(scene.play_title.size.x==logical.x-208,"Title fits between toolbar buttons")
+		require(scene.play_title.get_line_count()>=1 and scene.play_title.size.y>=scene.play_title.get_minimum_size().y,"Compact title stays within toolbar")
 		require(not scene.discovery_card.visible,"No text card interrupts gameplay")
 		for arrow in scene.arrows: arrow.removed=true
 		scene.cleared=scene.arrows.size(); scene.finish_puzzle()
@@ -60,5 +60,5 @@ func run() -> void:
 	scene.reset(); require(not scene.discovery_card.visible,"Restart removes completion text")
 	scene.queue_free(); await process_frame
 	DirAccess.remove_absolute("user://test_discoveries_progress.cfg")
-	if failures==0: print("PASS discoveries: sourced content, delayed reveal, safe camera area, wrapped title, portrait layouts and restart")
+	if failures==0: print("PASS discoveries: sourced content, delayed reveal, safe camera area, compact title, portrait layouts and restart")
 	quit(1 if failures else 0)

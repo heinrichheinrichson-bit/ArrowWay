@@ -8,4 +8,4 @@ Die übrigen Motive erhalten einen eigenen Gedanken passend zur Sammlung, soweit
 
 Weitere Texte können ergänzt werden, ohne Pfeile oder Farben des Motivs zu ändern. Ziel sind kurze, überraschende und zum konkreten Bild passende Texte; keine erfundenen Künstlerzitate. Der neue Katalog ersetzt noch keine vollständige Redaktion aller 500 Motive.
 
-Der Spieltitel erhält eine eigene helle Zeile mit Zeilenumbruch. `play_safe_area.gd` berücksichtigt auf Mobilgeräten sowohl den sicheren Displaybereich als auch gemeldete Kameraausschnitte und rechnet die physischen Pixel in die skalierten Spielkoordinaten um. Auch die untere Aktion bleibt innerhalb der sicheren Fläche. Die Geräteprüfung auf dem S22 steht noch aus.
+Der Spieltitel bleibt in der ursprünglichen kompakten Darstellung zwischen den Symbolen; der obere Abstand berücksichtigt den Kameraausschnitt. `play_safe_area.gd` berücksichtigt auf Mobilgeräten sowohl den sicheren Displaybereich als auch gemeldete Kameraausschnitte und rechnet die physischen Pixel in die skalierten Spielkoordinaten um. Auch die untere Aktion bleibt innerhalb der sicheren Fläche. Die Geräteprüfung auf dem S22 steht noch aus.

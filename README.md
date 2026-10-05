@@ -8,7 +8,7 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.17.0-dev
+## Aktueller Stand · 0.17.1-dev
 
 Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
 
@@ -18,7 +18,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 
 - **Entdeckungen nach dem Abschluss**: Nach der Lichtwelle erscheint eine lesbare Textkarte mit Fakten, Kunstgeschichten oder eigenen Gedanken. 20 Motive haben eigene Texte; die übrigen erhalten einen als Gedanken gekennzeichneten Impuls. Fakten enthalten eine Quellenaktion. Die Karte verdeckt weder Kunstwerk noch Weiter-Button und verschwindet beim Neustart.
 
-- **Präsenter Bildtitel**: eigene helle Zeile mit 20-Punkt-Schrift und Zeilenumbruch unter den Symbolen. Kameraausschnitt und sichere Displayränder werden aus physischen Bildschirmkoordinaten in die Spielansicht umgerechnet.
+- **Kompakter Bildtitel**: ursprüngliche Darstellung mit 16-Punkt-Schrift zwischen den Symbolen, unterhalb des Kameraausschnitts. Kameraausschnitt und sichere Displayränder werden aus physischen Bildschirmkoordinaten in die Spielansicht umgerechnet.
 
 - **Android im festen Hochformat**: Start und Spielansicht bleiben im Hochformat, auch bei gedrehtem Gerät.
 

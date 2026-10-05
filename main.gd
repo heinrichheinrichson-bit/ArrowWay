@@ -329,9 +329,9 @@ func build_controls() -> void:
 		play_title.text = level_title(level)
 		play_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		play_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		play_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		play_title.add_theme_font_size_override("font_size", 20)
-		play_title.modulate = Color("#e4edf7")
+		play_title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		play_title.add_theme_font_size_override("font_size", 16)
+		play_title.modulate = Color("#9aabc2")
 		play_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		panel.add_child(play_title)
 		controls.append(play_title)
@@ -382,10 +382,10 @@ func update_play_layout() -> void:
 		return
 	var size := get_viewport_rect().size
 	var safe: Rect2=load("res://play_safe_area.gd").for_game(self)
-	var title_width:=maxf(100,safe.size.x-48)
-	var title_height:=maxf(30,ThemeDB.fallback_font.get_multiline_string_size(play_title.text,HORIZONTAL_ALIGNMENT_CENTER,title_width,20).y)
-	var header_y:=safe.position.y+12
-	var board_top:=header_y+54+title_height+14
+	var title_width:=maxf(0,safe.size.x-208)
+	var title_height:=48.0
+	var header_y:=safe.position.y+16
+	var board_top:=header_y+60
 	var board_bottom:=safe.end.y-86
 	if is_instance_valid(discovery_card):
 		var card_width:=safe.size.x-48
@@ -411,7 +411,7 @@ func update_play_layout() -> void:
 		compact_buttons[1].position = Vector2(safe.end.x - 120, header_y)
 		compact_buttons[2].position = Vector2(safe.end.x - 64, header_y)
 		for control in compact_buttons: control.size = Vector2(48, 48)
-		play_title.position = Vector2(safe.position.x+24, header_y+54)
+		play_title.position = Vector2(safe.position.x+76, header_y)
 		play_title.size = Vector2(title_width,title_height)
 	if is_instance_valid(next_button):
 		next_button.position = Vector2(safe.get_center().x-110, safe.end.y - 64)
