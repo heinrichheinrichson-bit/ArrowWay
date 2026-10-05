@@ -41,3 +41,8 @@ Spielstände und lokale Sicherungen liegen unter `%APPDATA%\Godot\app_userdata\A
 Alle Titel, Vorschauen und bearbeitbaren Leveldateien stehen in [CATALOG.md](CATALOG.md).
 
 Die Spielansicht passt das Motiv an den Bildschirm an. **Zwei Finger auseinanderziehen** vergrößert es bis zum Vierfachen. Mit zwei Fingern kannst du gleichzeitig verschieben; im vergrößerten Bild verschiebt auch **ein Finger** das Motiv. Ein kurzer Tipp schießt den Pfeil erst beim Loslassen weg, damit Wischen und Zoomen keine Spielzüge auslösen. Zwei Finger zusammenziehen zeigt wieder das ganze Motiv. Am PC funktionieren Mausrad und Ziehen mit gedrückter linker Maustaste. Neustart und Abschluss setzen die Ansicht auf das vollständige Kunstwerk zurück. Beim Besuch der Menüs bleibt dein Zoom erhalten. Auf dem echten Smartphone müssen Touchgefühl und Bildschirmränder noch geprüft werden.
+
+## Automatisch fortsetzen
+
+Begonnene Rätsel werden automatisch gespeichert. Weiter spielen setzt das aktuelle Motiv mit den verbliebenen Pfeilen, Zoom und Bildposition fort. Du kannst mehrere Motive beginnen und später einzeln weiterführen. Ein bestätigter Neustart verwirft nur den aktuellen Rätselstand. Das Level-Werkzeug speichert weiterhin separat seine eigenen Entwürfe.
+

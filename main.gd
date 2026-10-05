@@ -45,6 +45,9 @@ var journey_seen: Array[String] = []
 var journey_legacy_paths: Array[String] = []
 var journey_scroll_memory := {}
 var journey_reward := {}
+var session_store: Node
+var session_in_progress := false
+var resume_enabled := not OS.get_cmdline_user_args().has("--test")
 var compact_buttons: Array[Button] = []
 var play_title: Label
 var board: Node2D
@@ -131,6 +134,13 @@ func _ready() -> void:
 		for path in config.get_value("game", "completed_custom", []):
 			var index := level_files.find(str(path))
 			if index >= TITLES.size() and not completed.has(index): completed.append(index)
+	session_store=Node.new()
+	session_store.set_script(load("res://session_store.gd"))
+	session_store.game=self
+	add_child(session_store)
+	session_store.recover_progress()
+	var saved_level: int=level_files.find(session_store.active_path)
+	if saved_level>=0 and level_available(saved_level): level=saved_level
 	if journey_mode and not level_available(level): level=JourneyProgress.resume_index(self)
 	var startup_args := OS.get_cmdline_user_args()
 	var requested := startup_args.find("--play-level")
@@ -144,7 +154,7 @@ func _ready() -> void:
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(panel)
 	get_viewport().size_changed.connect(update_play_layout)
-	reset()
+	reset(true)
 	if authoring:
 		enter_editor()
 		open_studio()
@@ -410,6 +420,7 @@ func close_home() -> void:
 	home_menu = null
 
 func open_home() -> void:
+	queue_session()
 	if is_instance_valid(home_menu): return
 	if journey_mode:
 		close_journey()
@@ -483,6 +494,7 @@ func refresh_journey_catalog() -> void:
 		reset()
 
 func open_journey(selected_world := -1, selected_group := "") -> void:
+	queue_session()
 	if not journey_mode:
 		open_home()
 		return
@@ -501,6 +513,7 @@ func open_journey(selected_world := -1, selected_group := "") -> void:
 	panel.add_child(journey)
 
 func open_album() -> void:
+	queue_session()
 	close_home(); close_gallery(); close_journey()
 	refresh_journey_catalog()
 	journey = Control.new()
@@ -519,6 +532,8 @@ func start_journey_puzzle(index: int) -> void:
 	close_journey()
 	close_home()
 	select_gallery_level(index)
+	session_in_progress=true
+	queue_session()
 
 func close_gallery() -> void:
 	if is_instance_valid(gallery):
@@ -533,9 +548,11 @@ func select_gallery_level(index: int) -> void:
 		return
 	close_gallery()
 	if index != level or win_time>=0:
+		queue_session()
+		var replay: bool = (completed.has(index) and not session_store.has_unfinished(level_path(index))) or (index==level and win_time>=0)
 		level = index
 		testing = false
-		reset()
+		reset(not replay)
 		save_progress()
 
 func open_gallery() -> void:
@@ -785,7 +802,7 @@ func clone_data(data: Array[Dictionary]) -> Array[Dictionary]:
 		result.append(copy)
 	return result
 
-func reset() -> void:
+func reset(resume_saved := false) -> void:
 	if is_instance_valid(board_navigation): board_navigation.reset_view()
 	feedback.stop_all()
 	win_time = -1.0
@@ -799,6 +816,7 @@ func reset() -> void:
 	cleared = 0
 	mistakes = 0
 	clock_time = 0.0
+	session_in_progress=not resume_saved
 	selected = -1
 	status = "Welche Spitze hat freie Bahn?"
 	detail = "Tippe auf einen Pfad. Er folgt seiner Linie nach draußen."
@@ -810,6 +828,14 @@ func reset() -> void:
 	queue_redraw()
 	if board != null:
 		board.queue_redraw()
+
+	if is_instance_valid(session_store):
+		session_store.configure()
+		if resume_saved: session_store.restore()
+		queue_session()
+
+func queue_session() -> void:
+	if is_instance_valid(session_store): session_store.capture()
 
 func save_progress() -> void:
 	var config := ConfigFile.new()
@@ -883,27 +909,8 @@ func _process(delta: float) -> void:
 			if a.travel > path_length(a.draw_points) and not Rect2(12, 157, 516, 526).has_point(p[0]):
 				a.removed = true
 				cleared += 1
-				if cleared == arrows.size():
-					win_time = 0.0
-					board_navigation.reset_view()
-					feedback.play("win")
-					status = "Geschafft! Alle Wege sind frei."
-					detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
-					next_button.visible = true
-					next_button.disabled = true
-					if not testing:
-						if next_collection_level(level) < 0:
-							next_button.text = "Zur Levelübersicht"
-						if journey_mode: next_button.text = "Weiterreisen"
-						if not completed.has(level):
-							completed.append(level)
-							if journey_mode:
-								var group: String = level_collection(level).id
-								var wi := JourneyProgress.world_index(group)
-								if wi>=0 and JourneyProgress.group_complete(self,group): journey_reward={"group":group,"world":wi,"next":JourneyProgress.frontier(self) if JourneyProgress.world_complete(self,wi) and wi+1<JourneyProgress.worlds().size() else -1}
-						if level < TITLES.size(): unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
-						level_picker.set_item_disabled(unlocked, false)
-						save_progress()
+				if cleared == arrows.size(): finish_puzzle()
+				queue_session()
 	if not editor and cleared < arrows.size():
 		scan_clock -= delta
 		if scan_clock <= 0:
@@ -911,6 +918,30 @@ func _process(delta: float) -> void:
 			mark_releases()
 	queue_redraw()
 	board.queue_redraw()
+
+func finish_puzzle(restored := false) -> void:
+	win_time = 2.2 if restored else 0.0
+	board_navigation.reset_view()
+	if not restored: feedback.play("win")
+	status = "Geschafft! Alle Wege sind frei."
+	detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
+	next_button.visible = true
+	next_button.disabled = not restored
+	if not testing:
+		if next_collection_level(level) < 0:
+			next_button.text = "Zur Levelübersicht"
+		if journey_mode: next_button.text = "Weiterreisen"
+		if not completed.has(level):
+			completed.append(level)
+			if journey_mode:
+				var group: String = level_collection(level).id
+				var wi := JourneyProgress.world_index(group)
+				if wi>=0 and JourneyProgress.group_complete(self,group): journey_reward={"group":group,"world":wi,"next":JourneyProgress.frontier(self) if JourneyProgress.world_complete(self,wi) and wi+1<JourneyProgress.worlds().size() else -1}
+		if level < TITLES.size(): unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
+		level_picker.set_item_disabled(unlocked, false)
+		save_progress()
+	session_in_progress=false
+	queue_session()
 
 func free_paths() -> Array[int]:
 	var result: Array[int] = []
@@ -935,6 +966,8 @@ func mark_releases() -> void:
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
 
 func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_CLOSE_REQUEST,NOTIFICATION_WM_GO_BACK_REQUEST] and is_instance_valid(session_store):
+		queue_session(); session_store.flush()
 	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not journey_mode: return
 	for child in get_children():
 		if child is Window and child.visible:
@@ -1002,6 +1035,7 @@ func click_at(pos: Vector2) -> void:
 	var chosen := pick(pos)
 	if chosen < 0:
 		return
+	session_in_progress=true
 	if is_blocked(chosen):
 		arrows[chosen].flash = 0.35
 		feedback.play("blocked")
@@ -1013,6 +1047,7 @@ func click_at(pos: Vector2) -> void:
 		feedback.play("escape")
 		status = "Freie Bahn!"
 		detail = "Du kannst während der Animation weiterspielen."
+	queue_session()
 
 func is_blocked(index: int) -> bool:
 	if ArrowPuzzle.self_blocked(arrows[index].points):

@@ -71,7 +71,8 @@ func _input(event: InputEvent) -> void:
 			var tap: bool = fingers.size()==1 and not dragged and not multi_touch and inside(event.position) and event.position.distance_to(start)<DRAG_THRESHOLD
 			fingers.erase(event.index)
 			if tap and game.win_time<0: game.click_at(game.board.get_global_transform().affine_inverse()*event.position)
-			if fingers.is_empty(): cancel_gesture()
+			if fingers.is_empty():
+				cancel_gesture(); game.queue_session()
 		else: return
 		get_viewport().set_input_as_handled()
 	elif event is InputEventScreenDrag and fingers.has(event.index):
@@ -96,6 +97,7 @@ func _input(event: InputEvent) -> void:
 		if event.device==InputEvent.DEVICE_ID_EMULATION: return
 		if event.pressed and inside(event.position) and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
 			zoom_at(event.position,event.position,1.2 if event.button_index==MOUSE_BUTTON_WHEEL_UP else 1.0/1.2)
+			game.queue_session()
 			get_viewport().set_input_as_handled()
 		elif event.button_index==MOUSE_BUTTON_LEFT:
 			if event.pressed and inside(event.position):
@@ -104,6 +106,7 @@ func _input(event: InputEvent) -> void:
 				mouse_down=false
 				if not dragged and inside(event.position) and game.win_time<0: game.click_at(game.board.get_global_transform().affine_inverse()*event.position)
 			else: return
+			if not mouse_down: game.queue_session()
 			get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and mouse_down and event.device!=InputEvent.DEVICE_ID_EMULATION:
 		if event.position.distance_to(start)>=DRAG_THRESHOLD: dragged=true

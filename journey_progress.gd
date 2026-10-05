@@ -129,6 +129,7 @@ static func album_indices(game: Node, favorites_only := false) -> Array[int]:
 	return result
 
 static func resume_index(game: Node) -> int:
+	if level_open(game,game.level) and game.session_in_progress and game.win_time<0: return game.level
 	if level_open(game,game.level) and not game.completed.has(game.level) and group_visible(game,game.level_collection(game.level).id): return game.level
 	for world in range(frontier(game)+1):
 		for item in worlds()[world].groups:

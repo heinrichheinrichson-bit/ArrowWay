@@ -46,7 +46,7 @@ func _ready() -> void:
 	add_child(title)
 	var caption := Label.new()
 	caption.text = "Kunstwerk ansehen" if display_mode=="album" else ("Erneut spielen" if complete else ("Losspielen" if hero else "Spielen"))
-	continuing = not complete and index==game.level and (game.cleared>0 or game.mistakes>0 or game.arrows.any(func(arrow): return arrow.escaping))
+	continuing = display_mode!="album" and index==game.level and game.session_in_progress and game.win_time<0
 	if continuing: caption.text="Fortsetzen"
 	caption.position = Vector2(12,size.y-31)
 	caption.size.x = size.x-24
