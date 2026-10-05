@@ -2,11 +2,11 @@
 
 Die Reise verbindet sieben Themenwelten über einen geschwungenen Lichtpfad: Das erste Licht, Natur, Feste & Jahreszeiten, Technik & Weltall, Unterwegs, Genuss & Gemütlichkeit sowie Kunst & Freizeit. Die dunkle, ruhige Umgebung lässt die farbigen Stationen und Kunstwerke wirken.
 
-![Hauptmenü](previews/journey-home.png)
+![Hauptmenü](previews/player-home.png)
 
 Zukünftige Welten bleiben blass sichtbar. Ihre Sammlungen und Motive sind verborgen. Erreichte Welten entfalten eigene Abzweigungen; neue Wege und Stationen erscheinen weich und rücken ins Blickfeld. Die Karte lässt sich per Finger ziehen und gleitet nach dem Loslassen sanft aus. Ein Wischen über eine Station öffnet diese nicht versehentlich.
 
-![Abzweigungen in Natur](previews/journey-nature-branches.png)
+![Abzweigungen in Natur](previews/player-color-map.png)
 
 Überkategorien und Unterkategorien stehen auf derselben zusammenhängenden Mindmap. Themen öffnen keine zusätzliche Kartenansicht. Nur Unterkategorien öffnen direkt ihre Rätselbilder.
 
@@ -21,9 +21,17 @@ Die Sammlung zeigt sämtliche gelösten und ungelösten Motive gemeinsam in fest
 - Ein Häkchen an einer Unterkategorie bedeutet: alle ihre Rätsel gelöst.
 - Ein Häkchen an einer Themenwelt bedeutet: alle Rätsel sämtlicher Unterkategorien gelöst.
 - Erst dann wird die nächste Themenwelt verfügbar. Für Natur sind alle neun Einstiegsmotive erforderlich.
-- Geschaffte Motive bleiben spielbar. Eigene Exporte sind sofort zugänglich.
+- Geschaffte Motive bleiben spielbar. Interne Editorentwürfe sind im Spiel verborgen; ausdrücklich veröffentlichte Zusatzmotive werden einer normalen Unterkategorie zugeordnet.
 
 Alle 500 Katalogmotive bleiben erreichbar und mit der separaten Motivwerkstatt bearbeitbar. Bestehende einzelne Lösungen und zuvor begonnene Motive werden erhalten, überspringen aber keine unvollständigen Themenwelten.
+
+## Kunstwerkealbum und Menü
+
+Im Hauptmenü stehen Weiter spielen, Deine Reise und Meine Kunstwerke sowie ein kleines Einstellungssymbol. Das Album zeigt nur gelöste veröffentlichte Motive. Ein Motiv öffnet die große Bildansicht mit Herz und Erneut spielen. Lieblingsbilder sind ein Filter innerhalb des Albums, kein zweiter Zugang zu verborgenen Rätseln.
+
+![Große Kunstwerkansicht](previews/player-artwork.png)
+
+Themenwelten sind sechseckig, Unterkategorien rund. Jeder Zweig hat eine passende Neonfarbe. Wanderndes Licht zeigt den nächsten offenen Weg; eine vollständig gelöste Sammlung leuchtet auf und eine fertige Themenwelt öffnet den nächsten Weg mit einer Kamerafahrt. Häkchen und Freischaltung bleiben an sämtliche gelösten Rätsel gebunden.
 
 ## Entwicklungsstand
 

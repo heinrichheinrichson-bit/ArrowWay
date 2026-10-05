@@ -6,6 +6,9 @@ var accent := Color("#68eed2")
 var hero := false
 var complete := false
 var preview: Node2D
+var display_mode := "puzzle"
+var activate: Callable
+var continuing := false
 
 func _ready() -> void:
 	for state in ["normal","hover","pressed","focus"]: add_theme_stylebox_override(state,StyleBoxEmpty.new())
@@ -16,6 +19,7 @@ func _ready() -> void:
 	preview = Node2D.new()
 	preview.set_script(load("res://motif_preview.gd"))
 	preview.rounder = game
+	preview.win_time = 2.2 if display_mode in ["album","display"] else -1.0
 	preview.motif = motif
 	preview.arrows = CustomMotif.decode_paths(document.paths,motif,false)
 	add_child(preview)
@@ -26,13 +30,13 @@ func _ready() -> void:
 			if first: bounds = Rect2(point,Vector2.ZERO); first = false
 			else: bounds = bounds.expand(point)
 	bounds = bounds.grow(20)
-	var area := Rect2(18,18,size.x-36,size.y-(98 if hero else 82))
+	var area := Rect2(18,18,size.x-36,size.y-36) if display_mode=="display" else Rect2(18,18,size.x-36,size.y-(98 if hero else 82))
 	var zoom := minf(area.size.x/maxf(bounds.size.x,1),area.size.y/maxf(bounds.size.y,1))
 	preview.scale = Vector2.ONE*zoom
 	preview.position = area.get_center()-bounds.get_center()*zoom
-	preview.modulate.a = 0.82 if complete else 1.0
+	preview.modulate.a = 1.0
 	var title := Label.new()
-	title.text = game.level_title(index)
+	title.text = "" if display_mode=="display" else game.level_title(index)
 	title.position = Vector2(18,size.y-(62 if hero else 58))
 	title.size = Vector2(size.x-36,28)
 	title.add_theme_font_size_override("font_size",22 if hero else 16)
@@ -41,8 +45,9 @@ func _ready() -> void:
 	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(title)
 	var caption := Label.new()
-	caption.text = "Schon zum Leuchten gebracht" if complete else ("Dein nächstes Kunstwerk" if hero else "Entdecken")
-	if not complete and index==game.level and (game.cleared>0 or game.mistakes>0 or game.arrows.any(func(arrow): return arrow.escaping)): caption.text="Weiter spielen"
+	caption.text = "Kunstwerk ansehen" if display_mode=="album" else ("Erneut spielen" if complete else ("Losspielen" if hero else "Spielen"))
+	continuing = not complete and index==game.level and (game.cleared>0 or game.mistakes>0 or game.arrows.any(func(arrow): return arrow.escaping))
+	if continuing: caption.text="Fortsetzen"
 	caption.position = Vector2(12,size.y-31)
 	caption.size.x = size.x-24
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -50,14 +55,17 @@ func _ready() -> void:
 	caption.modulate = Color("#8298ae")
 	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(caption)
-	pressed.connect(func(): game.start_journey_puzzle(index))
+	if display_mode=="display":
+		caption.text=""; mouse_filter=Control.MOUSE_FILTER_IGNORE
+	elif activate.is_valid(): pressed.connect(activate)
+	else: pressed.connect(func(): game.start_journey_puzzle(index))
 
 func _draw() -> void:
 	var panel := StyleBoxFlat.new()
 	panel.bg_color = Color("#10202e") if hero else Color("#0d1927")
 	panel.set_corner_radius_all(24)
 	panel.set_border_width_all(1)
-	panel.border_color = Color(accent,0.42 if is_hovered() or has_focus() else (0.22 if hero else 0.10))
+	panel.border_color = Color(accent,0.65 if continuing else (0.42 if is_hovered() or has_focus() else (0.22 if hero else 0.10)))
 	panel.shadow_color = Color(0,0,0,0.18)
 	panel.shadow_size = 10
 	panel.shadow_offset = Vector2(0,5)

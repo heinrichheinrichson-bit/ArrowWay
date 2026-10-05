@@ -78,15 +78,16 @@ static func frontier(game: Node) -> int:
 	return result
 
 static func group_visible(game: Node, group: String) -> bool:
-	if group == "custom": return true
+	if group == "custom": return not game.journey_mode or game.authoring
 	var world := world_index(group)
 	return world >= 0 and world <= frontier(game)
 
 static func level_open(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.level_count(): return false
-	# Retain old individual achievements without unlocking unfinished themes.
+	# Internal editor drafts never appear in the player game, even if previously completed.
+	var group: String = game.level_collection(index).id
+	if group == "custom": return not game.journey_mode or game.authoring
 	if game.completed.has(index): return true
-	if game.journey_legacy_paths.has(game.level_path(index)): return true
 	return group_visible(game, game.level_collection(index).id)
 
 static func next_open(game: Node, index: int) -> int:
@@ -106,3 +107,31 @@ static func group_title(game: Node, group: String) -> String:
 static func group_icon(group: String) -> String:
 	var icons := {"base":"spark","garden":"tree","animals":"paw","birds":"bird","flowers":"flower","ocean":"fish","landscapes":"mountain","winter":"snow","christmas":"tree","halloween":"moon","easter":"flower","space":"planet","cosmos":"planet","technology":"chip","computers":"chip","smartphones":"phone","workshop":"chip","world":"city","skylines":"city","vehicles":"car","travel":"mountain","taste":"cup","bakery":"cup","fruit":"flower","cozy":"cup","art":"palette","music":"music","sports":"ball","toys":"spark","fantasy":"moon","custom":"spark"}
 	return icons.get(group, "spark")
+
+static func group_color(group: String) -> Color:
+	var colors := {"base":"ffd17c","garden":"72f09e","animals":"ffc17a","birds":"79c9ff","flowers":"ff87bd","ocean":"64e6e2","landscapes":"c6a2ff","winter":"91e9ff","christmas":"ff7b88","halloween":"ffb066","easter":"e4a0ff","space":"b99aff","technology":"6af0d5","computers":"7faaff","smartphones":"f99cdc","cosmos":"ffb973","workshop":"f0da7f","world":"7bdfff","skylines":"a8a1ff","vehicles":"ffab74","travel":"82edb1","taste":"ff9bbd","bakery":"ffcb82","fruit":"a4ee78","cozy":"c2a6ff","art":"ff95c9","music":"b299ff","sports":"73e3ec","toys":"ffd078","fantasy":"dca1ff"}
+	return Color(colors.get(group,"b8a8ff"))
+
+static func next_group(game: Node, world: int) -> String:
+	var current: String = game.level_collection(game.level).id
+	if worlds()[world].groups.has(current) and not group_complete(game,current): return current
+	for item in worlds()[world].groups:
+		if not group_complete(game,item): return item
+	return ""
+
+static func album_indices(game: Node, favorites_only := false) -> Array[int]:
+	var result: Array[int] = []
+	for index in game.completed:
+		if index<0 or index>=game.level_count() or world_index(game.level_collection(index).id)<0: continue
+		if favorites_only and not game.favorite_paths.has(game.level_path(index)): continue
+		result.append(index)
+	result.sort()
+	return result
+
+static func resume_index(game: Node) -> int:
+	if level_open(game,game.level) and not game.completed.has(game.level) and group_visible(game,game.level_collection(game.level).id): return game.level
+	for world in range(frontier(game)+1):
+		for item in worlds()[world].groups:
+			for index in indices(game,item):
+				if not game.completed.has(index): return index
+	return 0

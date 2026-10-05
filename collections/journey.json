@@ -5,7 +5,7 @@
       "id": "beginning",
       "title": "Das erste Licht",
       "subtitle": "Hier beginnt deine Reise",
-      "color": "68eed2",
+      "color": "ffd17c",
       "icon": "spark",
       "groups": [
         "base"
@@ -15,7 +15,7 @@
       "id": "nature",
       "title": "Natur",
       "subtitle": "Wo das Licht Wurzeln schlägt",
-      "color": "78efad",
+      "color": "71efae",
       "icon": "tree",
       "groups": [
         "garden",
@@ -30,7 +30,7 @@
       "id": "celebrations",
       "title": "Feste & Jahreszeiten",
       "subtitle": "Kleine Wunder im Jahreskreis",
-      "color": "ffbe79",
+      "color": "ff9c83",
       "icon": "moon",
       "groups": [
         "winter",
@@ -43,7 +43,7 @@
       "id": "discovery",
       "title": "Technik & Weltall",
       "subtitle": "Neugier kennt keine Grenzen",
-      "color": "88c8ff",
+      "color": "a997ff",
       "icon": "planet",
       "groups": [
         "space",
@@ -58,7 +58,7 @@
       "id": "travel",
       "title": "Unterwegs",
       "subtitle": "Lichter hinter dem Horizont",
-      "color": "c1a0ff",
+      "color": "73d9ff",
       "icon": "city",
       "groups": [
         "world",
@@ -71,7 +71,7 @@
       "id": "comfort",
       "title": "Genuss & Gemütlichkeit",
       "subtitle": "Die kleinen Freuden des Lebens",
-      "color": "ff99b6",
+      "color": "ff90b7",
       "icon": "cup",
       "groups": [
         "taste",
@@ -84,7 +84,7 @@
       "id": "imagination",
       "title": "Kunst & Freizeit",
       "subtitle": "Raum für deine Fantasie",
-      "color": "ddadff",
+      "color": "df9aff",
       "icon": "palette",
       "groups": [
         "art",

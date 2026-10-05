@@ -44,6 +44,7 @@ var journey_index_revision := 0
 var journey_seen: Array[String] = []
 var journey_legacy_paths: Array[String] = []
 var journey_scroll_memory := {}
+var journey_reward := {}
 var compact_buttons: Array[Button] = []
 var play_title: Label
 var board: Node2D
@@ -72,6 +73,7 @@ static func escape_distance(time: float) -> float:
 	return SPEED * (time - RAMP * 0.5)
 
 func _ready() -> void:
+	if journey_mode: get_tree().quit_on_go_back=false
 	get_window().title = "ArrowWay · " + str(ProjectSettings.get_setting("application/config/version", "")) + (" · Level-Werkzeug" if authoring else "")
 	feedback = FeedbackAudio.new()
 	add_child(feedback)
@@ -129,6 +131,7 @@ func _ready() -> void:
 		for path in config.get_value("game", "completed_custom", []):
 			var index := level_files.find(str(path))
 			if index >= TITLES.size() and not completed.has(index): completed.append(index)
+	if journey_mode and not level_available(level): level=JourneyProgress.resume_index(self)
 	var startup_args := OS.get_cmdline_user_args()
 	var requested := startup_args.find("--play-level")
 	if requested >= 0 and requested + 1 < startup_args.size():
@@ -206,6 +209,14 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 			if imported.is_empty() or CustomMotif.decode_paths(data.get("paths"), imported).is_empty(): continue
 			level_files.append(path)
 			catalog_metadata[path] = {"title":data.get("title", filename.get_basename()),"collection":data.get("collection", {}),"tags":LibraryIndex.tags(data.get("tags", []))}
+	if journey_mode and not authoring and directory == "res://levels":
+		var published = JSON.parse_string(FileAccess.get_file_as_string("res://collections/published.json"))
+		if published is Dictionary and published.get("levels") is Array:
+			for entry in published.levels:
+				if not entry is Dictionary or not entry.get("path") is String or not entry.get("group") is String: continue
+				if not entry.path.begins_with("res://levels/") or not catalog_metadata.has(entry.path) or not level_files.has(entry.path) or JourneyProgress.world_index(entry.group)<0: continue
+				catalog_metadata[entry.path]["collection"]={"id":entry.group,"title":entry.get("collection_title",entry.group)}
+				catalog_metadata[entry.path]["published"]=true
 	level = level_files.find(current_path) if level_files.has(current_path) else mini(level, TITLES.size() - 1)
 	var retained: Array[int] = []
 	for index in completed:
@@ -479,6 +490,7 @@ func open_journey(selected_world := -1, selected_group := "") -> void:
 	close_gallery()
 	close_journey()
 	refresh_journey_catalog()
+	if journey_mode and not selected_group.is_empty() and not JourneyProgress.group_visible(self,selected_group): selected_group=""; selected_world=-1
 	journey = Control.new()
 	journey.set_script(load("res://journey_view.gd"))
 	journey.game = self
@@ -486,6 +498,14 @@ func open_journey(selected_world := -1, selected_group := "") -> void:
 	journey.group = selected_group
 	journey.scroll_positions=journey_scroll_memory.duplicate(true)
 	journey.screen = "collection" if not selected_group.is_empty() else "map"
+	panel.add_child(journey)
+
+func open_album() -> void:
+	close_home(); close_gallery(); close_journey()
+	refresh_journey_catalog()
+	journey = Control.new()
+	journey.set_script(load("res://journey_view.gd"))
+	journey.game = self; journey.screen = "album"
 	panel.add_child(journey)
 
 func remember_journey_stations(ids: Array[String]) -> void:
@@ -512,13 +532,16 @@ func select_gallery_level(index: int) -> void:
 	if index < 0 or index >= level_count() or not level_available(index):
 		return
 	close_gallery()
-	if index != level:
+	if index != level or win_time>=0:
 		level = index
 		testing = false
 		reset()
 		save_progress()
 
 func open_gallery() -> void:
+	if journey_mode:
+		open_album()
+		return
 	discover_levels()
 	if editor or testing or is_instance_valid(gallery):
 		return
@@ -745,6 +768,7 @@ func load_library_preferences() -> void:
 			if path is String and not favorite_paths.has(path): favorite_paths.append(path)
 
 func toggle_favorite(index: int) -> void:
+	if journey_mode and not JourneyProgress.album_indices(self).has(index): return
 	var path := level_path(index)
 	if favorite_paths.has(path): favorite_paths.erase(path)
 	else: favorite_paths.append(path)
@@ -873,6 +897,10 @@ func _process(delta: float) -> void:
 						if journey_mode: next_button.text = "Weiterreisen"
 						if not completed.has(level):
 							completed.append(level)
+							if journey_mode:
+								var group: String = level_collection(level).id
+								var wi := JourneyProgress.world_index(group)
+								if wi>=0 and JourneyProgress.group_complete(self,group): journey_reward={"group":group,"world":wi,"next":JourneyProgress.frontier(self) if JourneyProgress.world_complete(self,wi) and wi+1<JourneyProgress.worlds().size() else -1}
 						if level < TITLES.size(): unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
 						level_picker.set_item_disabled(unlocked, false)
 						save_progress()
@@ -905,6 +933,17 @@ func mark_releases() -> void:
 		feedback.play("release")
 		status = "Ein neuer Weg ist jetzt frei." if opened == 1 else "%d neue Wege sind jetzt frei." % opened
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
+
+func _notification(what: int) -> void:
+	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not journey_mode: return
+	for child in get_children():
+		if child is Window and child.visible:
+			child.hide(); child.queue_free(); return
+	if is_instance_valid(journey): journey.go_back()
+	elif is_instance_valid(home_menu):
+		if home_menu.screen=="settings": home_menu.navigate("home")
+		else: get_tree().quit()
+	else: open_current_journey()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_instance_valid(journey):
@@ -1341,7 +1380,7 @@ func _draw() -> void:
 	text_at(detail, Vector2(20, 724), 12, Color("#8296b0"), 500)
 
 func level_collection(index: int) -> Dictionary:
-	if journey_mode and index >= TITLES.size() and level_path(index).begins_with("res://levels/"): return {"id":"custom","title":"Eigene Motive"}
+	if journey_mode and index >= TITLES.size() and level_path(index).begins_with("res://levels/") and not bool(catalog_metadata.get(level_path(index),{}).get("published",false)): return {"id":"custom","title":"Eigene Motive"}
 	if index < TITLES.size(): return {"id":"base","title":"Erste Neonreise"}
 	var data: Dictionary = catalog_metadata.get(level_path(index), {})
 	var group: Dictionary = data.get("collection", {}) if data.get("collection", {}) is Dictionary else {}

@@ -8,7 +8,7 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.15.3-dev
+## Aktueller Stand · 0.16.0-dev
 
 Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
 
@@ -18,14 +18,16 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 
 - **Zoom und Verschieben**: Zwei Finger vergrößern das Motiv bis zum Vierfachen und verschieben es gleichzeitig. Im vergrößerten Bild verschiebt auch ein Finger. Gesten lösen keine Pfeile aus; ein Tipp wird erst beim Loslassen ausgeführt. Zurückzoomen zentriert die Gesamtansicht. Am PC: Mausrad und Ziehen. Neustart und Abschluss zeigen das ganze Kunstwerk.
 
-- **Große Spielansicht für Hochformat und Touch**: Das Motiv nutzt den verfügbaren Platz ohne Dropdownliste, Sound-Schalter oder laufende Erklärungstexte. Oben bleiben drei Symbole mit 48 × 48 großen Trefferflächen; der nächste Schritt erscheint erst nach dem Abschluss. Die Motive skalieren ohne Verzerrung mit dem Bildschirm. Versetzte Tipps wählen den nächstgelegenen vorhandenen Pfeil mit erweitertem Abstand. Hauptmenü, Motivbibliothek und Soundeinstellungen sind getrennte Ansichten; Neustart nach begonnenem Spiel erfordert eine Bestätigung.
+- **Große Spielansicht für Hochformat und Touch**: Das Motiv nutzt den verfügbaren Platz ohne Dropdownliste, Sound-Schalter oder laufende Erklärungstexte. Oben bleiben drei Symbole mit 48 × 48 großen Trefferflächen; der nächste Schritt erscheint erst nach dem Abschluss. Die Motive skalieren ohne Verzerrung mit dem Bildschirm. Versetzte Tipps wählen den nächstgelegenen vorhandenen Pfeil mit erweitertem Abstand. Hauptmenü, Reise, Kunstwerkealbum und Soundeinstellungen sind getrennte Ansichten; Neustart nach begonnenem Spiel erfordert eine Bestätigung.
 
 - **Neonkunstwerk zum Abschluss**: Nach dem letzten entkommenen Pfeil bringt eine weiche Lichtwelle die ursprünglichen Pfeilbahnen samt individuellen Farben und Verläufen zurück. Ein kurzer Leuchtimpuls geht in ein helles Standbild über; nach 1,95 Sekunden ist das nächste Puzzle verfügbar. Neustart und Levelwechsel setzen die Darstellung zurück.
 
-- **Suche & Favoriten** für bereits freigeschaltete Motive mit sofortiger Suche nach Titel, Sammlung und Themen, Sternfavoriten und Filtern für geschaffte, offene oder spielbare Motive. Filter lassen sich kombinieren und mit **Alles zeigen** zurücksetzen. Favoriten bleiben beim Neustart erhalten; beim Zurückkehren bleibt die Position in der Übersicht erhalten.
+- **Meine Kunstwerke** enthält ausschließlich gelöste, veröffentlichte Motive. Große Bildansicht, gespeicherte Herzen und Lieblingsbilder; sechs Vorschauen pro Albumseite. Kein Suchzugang zu offenen oder verborgenen Rätseln. Das Hauptmenü zeigt nur Weiter spielen, Deine Reise, Meine Kunstwerke und Einstellungen.
+
+- **Farbenfrohe Mindmap**: große sechseckige Themenwelten, kleinere runde Unterkategorien und individuelle Zweigfarben. Sanft wanderndes Licht zeigt den nächsten Weg. Vollständig gelöste Sammlungen erhalten einen Leuchtmoment; eine fertige Themenwelt öffnet den nächsten Pfad mit einer Kamerafahrt. Android-Zurück folgt derselben Menüstruktur.
 
 - **500 Motive in 29 Sammlungen**: unter anderem Halloween, Weihnachten, Winter, Ostern, Technik, Computer, Smartphones, Skylines, Tiere, Fahrzeuge, Musik und Landschaften. Über die Reise nach und nach spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle 500 Motive und Vorschauen](CATALOG.md).
-- **Sammlungsfilter und zwölf Vorschauen pro Seite** halten die Übersicht auch bei großen Bibliotheken überschaubar. Der Katalog lädt nur Metadaten; der Wechsel zum nächsten Puzzle bleibt innerhalb der Sammlung.
+
 
 - Neun gestaltete Levels mit 25–39 Pfaden, jeweils vollständig gefüllten Motiven und allen vier Pfeilrichtungen.
 - Längere, stärker verflochtene Verläufe. Abhängigkeiten und freie Startzüge werden beim Erstellen gemessen; die Serie beginnt mit einer übersichtlicheren Baumfüllung und endet mit engeren Freispielketten im Haus.
@@ -34,7 +36,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 - Motivfarben: grüner Baum mit braunem Stamm, Haus mit warmem Dach, blauen Wänden, hellen Fenstern und violetter Tür; Herz in Pink- und Rottönen.
 - Sanfter Anlauf entlang der gerundeten Linie, kurzes Zurückfedern bei Blockaden und weich eingeblendeter Levelabschluss.
 - Dezente synthetisierte Klänge für freie Züge, Blockaden, Hinweise, neu geöffnete Wege und den Abschluss. **Ton: An/Aus** schaltet sie ab; die Einstellung bleibt gespeichert.
-- Scrollbare Levelübersicht mit gerundeten Motivvorschauen, gesperrten und geschafften Puzzles, Fortschrittszähler und lokal gespeicherten Freischaltungen. Ein geöffnetes Puzzle bleibt beim Besuch der Übersicht erhalten.
+- Scrollbare Rätselübersichten in erreichten Unterkategorien mit gerundeten Motivvorschauen, Häkchen für geschaffte Puzzles und hervorgehobener Fortsetzung. Ein geöffnetes Puzzle bleibt beim Besuch der Übersicht erhalten.
 - Neue Motive: Schmetterling in Violett und Pink mit goldener Mitte, türkisblauer Fisch mit warmer Schwanzflosse und pinke Blume mit gelber Mitte und grünem Stiel.
 - **Klare Werkstattführung**: direkte Pfeilwerkzeuge, getrennte Bereiche für Pfeile/Farben und Vorlage/Flächen, Gesamtansicht ohne Auswahl, sichtbare zuletzt verwendete Farben und Motivfarben. Neue Flächen und ihre Füllung erhalten alle bestehenden Pfeile. Öffnen und Speichern beliebiger Motiventwürfe; bestätigte Ersetzungen erhalten eine lokale Sicherung.
 - **Pfeile bearbeiten**: eigene Rasterpfeile nach dem Füllen ergänzen, löschen, die Spitze per Klick wählen und an einer senkrechten Achse spiegeln. Überschneidungsprüfung, Rückgängig und Lösbarkeitsprüfung; auch noch blockierte Entwürfe bleiben speicherbar.
@@ -42,7 +44,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 - Neue **Motivwerkstatt**: Bildimport, Erkennung geschlossener Umrisse oder Farbflächen, Flächenpinsel, Radierer, Trennlinie, Zusammenführen und Neonpaletten. Die automatische Füllung deckt jeden akzeptierten Rasterpunkt ab und bleibt vollständig lösbar. Bildanalyse und Füllung laufen im Hintergrund.
 - Separates Level-Werkzeug: Schablone wählen, automatisch füllen, Rasterpfade zeichnen, auswählen, Richtung umkehren, löschen, Lösbarkeit prüfen und direkt testen.
 - Entwürfe lokal speichern und laden; fertige Levels als JSON in den Projektordner exportieren.
-- Das eigentliche Spiel zeigt keine Editorbedienelemente und lädt fertige Leveldateien aus `levels/`. Zusätzliche gültige JSON-Exporte erscheinen automatisch als direkt spielbare eigene Motive; ihre Fortschritte werden anhand des Dateinamens gespeichert.
+- Das eigentliche Spiel zeigt keine Editorbedienelemente und lädt fertige Leveldateien aus `levels/`. Editorentwürfe bleiben intern. Erst die ausdrückliche Zuordnung in `collections/published.json` übernimmt ein zusätzliches Motiv in eine reguläre Unterkategorie mit deren Freischaltungsregeln.
 - Maus- und Touch-Eingabe; Hochformat mit skalierbarer Darstellung.
 
 ## Aufbau
@@ -109,3 +111,5 @@ Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smar
 ![Automatische Farbgestaltung](previews/color-studio.png)
 
 Die neue Reise wird separat mit `godot --path . --script res://tests/test_journey.gd -- --test` geprüft: Freischaltungen, alte Spielstände, Touchbedienung und Erreichbarkeit aller Katalogmotive.
+
+`tests/test_player_ui.gd` prüft Albumzugriff ausschließlich auf gelöste Bilder, gespeicherte Herzen, interne Entwürfe, echte Touchereignisse, Wiederholung abgeschlossener Rätsel, Android-Zurück, Zweigfarben und die Kamerafahrt nach einer vollständigen Themenwelt.

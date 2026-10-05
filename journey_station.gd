@@ -8,6 +8,8 @@ var locked := false
 var achieved := false
 var current := false
 var fresh := false
+var major := false
+var celebrate := false
 var age := 0.0
 var clock := 0.0
 
@@ -40,14 +42,30 @@ func ring(center: Vector2, radius: float, color: Color, width := 2.0) -> void:
 
 func _draw() -> void:
 	var center := Vector2(size.x * 0.5, 64)
-	var color := tint if not locked else Color("#536176")
-	var alpha := 1.0 if not locked else 0.42
-	for radius in range(76, 48, -4):
-		draw_circle(center, radius, Color(color, 0.008 * alpha))
-	draw_circle(center + Vector2(0, 4), 51, Color("#040b14"))
-	draw_circle(center, 49, Color("#111f2e") if not locked else Color("#0c1421"))
-	draw_arc(center, 48, PI * 1.05, PI * 1.82, 48, Color(color, 0.55 * alpha), 1.4, true)
-	draw_arc(center, 49, PI * -0.18, PI * 0.86, 48, Color(color, 0.14 * alpha), 1.1, true)
+	var color := tint if not locked else tint.darkened(0.30)
+	var alpha := 1.0 if not locked else 0.32
+	var radius := 57.0 if major else 43.0
+	for outer in range(int(radius)+25,int(radius),-4):
+		draw_circle(center,outer,Color(color,0.012*alpha))
+	if major:
+		var hexagon := PackedVector2Array()
+		for index in 7: hexagon.append(center+Vector2.from_angle(index*TAU/6-PI/6)*radius)
+		draw_colored_polygon(hexagon,Color("#1a203b") if not locked else Color("#101625"))
+		draw_polyline(hexagon,Color(color,0.70*alpha),1.8,true)
+		var inner := PackedVector2Array()
+		for point in hexagon: inner.append(center+(point-center)*0.89)
+		draw_polyline(inner,Color(color,0.13*alpha),1.0,true)
+	else:
+		draw_circle(center+Vector2(0,3),radius+2,Color("#040b14"))
+		draw_circle(center,radius,Color("#141e30"))
+		draw_arc(center,radius,PI*1.05,PI*1.82,48,Color(color,0.70*alpha),1.6,true)
+		draw_arc(center,radius,PI*-0.18,PI*0.86,48,Color(color,0.28*alpha),1.2,true)
+	if celebrate and age<3:
+		var t := clampf(age/3.0,0,1)
+		draw_arc(center,radius+8+t*35,0,TAU,80,Color(color,(1-t)*0.6),2.0,true)
+		for index in 12:
+			var direction := Vector2.from_angle(index*TAU/12+0.2)
+			draw_circle(center+direction*(radius+12+t*54),2.5*(1-t),Color(color,(1-t)*0.8))
 	if current:
 		var pulse := 0.5 + 0.5 * sin(clock * 2.0)
 		draw_arc(center, 57, 0, TAU, 80, Color(color, 0.16 + pulse * 0.10), 1.1, true)
@@ -112,7 +130,7 @@ func _draw() -> void:
 		_:
 			line([Vector2(0,-40),Vector2(9,-10),Vector2(37,0),Vector2(9,10),Vector2(0,40),Vector2(-9,10),Vector2(-37,0),Vector2(-9,-10),Vector2(0,-40)],color)
 			line([Vector2(31,-37),Vector2(31,-24)],Color(color,0.65),1.5); line([Vector2(24,-30),Vector2(38,-30)],Color(color,0.65),1.5)
-	var ink := Color("#edf4fc") if not locked else Color("#657387")
+	var ink := Color("#edf4fc") if not locked else Color(tint.lightened(0.20),0.42)
 	var display := title
 	var font := ThemeDB.fallback_font
 	while font.get_string_size(display,HORIZONTAL_ALIGNMENT_LEFT,-1,19).x > size.x+32 and display.length()>2: display=display.trim_suffix("…").left(display.trim_suffix("…").length()-1)+"…"

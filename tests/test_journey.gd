@@ -171,7 +171,7 @@ func run() -> void:
 	scene=load("res://main.tscn").instantiate()
 	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
 	root.add_child(scene); await process_frame
-	require(scene.level_path(scene.level)==legacy_path and scene.level_available(scene.level),"Migration retains the single unfinished legacy puzzle")
+	require(scene.journey_legacy_paths.has(legacy_path) and not scene.level_available(scene.level_files.find(legacy_path)),"Migration retains the legacy record without exposing an unfinished future puzzle")
 	require(JourneyProgress.frontier(scene)==0 and not JourneyProgress.group_visible(scene,"technology"),"Migration never bypasses theme completion")
 	scene.completed.clear(); scene.journey_legacy_paths.clear()
 	var additions:=0
@@ -181,7 +181,7 @@ func run() -> void:
 			if not scene.completed.has(index) and scene.level_available(index): candidate=index; break
 		if candidate<0: break
 		scene.completed.append(candidate); additions+=1
-	require(additions==scene.level_count(),"All catalog puzzles remain reachable through strict theme completion")
+	require(additions==scene.level_count()-JourneyProgress.indices(scene,"custom").size(),"All published catalog puzzles remain reachable; internal editor drafts are excluded")
 	scene.open_journey()
 	for wi in JourneyProgress.worlds().size():
 		require(station_named("world:"+JourneyProgress.worlds()[wi].id).achieved,"Each fully solved major theme receives its checkmark")

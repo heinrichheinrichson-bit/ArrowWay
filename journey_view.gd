@@ -22,12 +22,21 @@ var dragging := false
 var velocity := 0.0
 var previous_tick := 0
 var canceling_gui := false
+var ui_accent := Color("#ffd17c")
+var favorites_only := false
+var selected_art := -1
+var reward := {}
+var reward_age := 0.0
+var camera_tween: Tween
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	relayout()
 
 func _process(delta: float) -> void:
+	if not reward.is_empty():
+		reward_age+=delta
+		if reward_age>3.5: reward.clear()
 	if not is_instance_valid(scroller) or dragging or absf(velocity)<6: return
 	var old:=scroller.scroll_vertical
 	scroller.scroll_vertical+=roundi(velocity*delta)
@@ -51,6 +60,8 @@ func cancel_button_press() -> void:
 	canceling_gui=false
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch and event.pressed or event is InputEventMouseButton and event.pressed:
+		if is_instance_valid(camera_tween): camera_tween.kill()
 	if canceling_gui or not is_instance_valid(scroller): return
 	if dragging and event is InputEventMouseMotion and event.device==InputEvent.DEVICE_ID_EMULATION:
 		get_viewport().set_input_as_handled()
@@ -100,11 +111,11 @@ func action(text: String, position: Vector2, dimensions: Vector2, callback: Call
 	for state in ["normal","hover","pressed","focus"]:
 		var box := StyleBoxFlat.new()
 		box.set_corner_radius_all(18 if primary else 14)
-		box.bg_color = Color("#8aefd5") if primary else Color("#132332")
+		box.bg_color = ui_accent if primary else Color("#132332")
 		if state == "hover": box.bg_color = box.bg_color.lightened(0.06)
 		if state == "pressed": box.bg_color = box.bg_color.darkened(0.08)
 		box.set_border_width_all(1)
-		box.border_color = Color("#a9ffe6") if primary else Color("#263c4c")
+		box.border_color = ui_accent.lightened(0.15) if primary else Color("#263c4c")
 		if state == "focus": box.border_color = Color("#a9ffe6")
 		item.add_theme_stylebox_override(state,box)
 	if primary:
@@ -124,6 +135,7 @@ func icon_button(path: String, position: Vector2, callback: Callable, tooltip: S
 func relayout() -> void:
 	if rebuilding: return
 	rebuilding = true
+	if is_instance_valid(camera_tween): camera_tween.kill()
 	finger=-1; dragging=false; velocity=0.0
 	var key := "%s:%d:%s:%s" % [screen,world,group,history]
 	if is_instance_valid(scroller): scroll_positions[key] = scroller.get_meta("wanted_scroll",scroller.scroll_vertical)
@@ -132,7 +144,8 @@ func relayout() -> void:
 	size = get_viewport_rect().size
 	seen.assign(game.journey_seen)
 	visible_station_ids.clear()
-	var color := Color("#68eed2") if world < 0 else Color(JourneyProgress.worlds()[world].color)
+	var color := Color("#a997ff") if world < 0 else Color(JourneyProgress.worlds()[world].color)
+	ui_accent = Color(JourneyProgress.worlds()[JourneyProgress.frontier(game)].color) if world<0 else JourneyProgress.group_color(group)
 	var background := ColorRect.new()
 	background.size = size
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -148,6 +161,8 @@ func relayout() -> void:
 	else:
 		icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,"Zurück")
 		if screen == "map": build_map()
+		elif screen == "album": build_album()
+		elif screen == "artwork": build_artwork()
 		else: build_collection()
 		if is_instance_valid(scroller):
 			for lower in [false,true]:
@@ -167,12 +182,15 @@ func relayout() -> void:
 func navigate(next_screen: String, next_world := -1, next_group := "", past := false) -> void:
 	if is_instance_valid(scroller): scroll_positions["%s:%d:%s:%s" % [screen,world,group,history]] = scroller.get_meta("wanted_scroll",scroller.scroll_vertical)
 	scroller = null
+	if screen=="map" and next_screen!="map": reward.clear()
 	screen = next_screen; world = next_world; group = next_group; history = past; page = 0
 	relayout()
 
 func go_back() -> void:
-	if screen == "map": game.close_journey(); game.open_home()
+	if screen == "map" or screen == "album": game.close_journey(); game.open_home()
 	elif screen == "collection": navigate("map",world)
+	elif screen == "artwork":
+		screen="album"; scroller=null; relayout()
 	elif screen == "settings": navigate("home")
 	else: game.close_home()
 
@@ -194,6 +212,7 @@ func make_scroll(height: float, tint: Color) -> void:
 	scroller.add_child(canvas)
 
 func request_scroll(value: int) -> void:
+	if is_instance_valid(camera_tween): camera_tween.kill()
 	velocity=0.0
 	var node := scroller
 	node.set_meta("wanted_scroll",value)
@@ -207,6 +226,8 @@ func station(id: String, name_text: String, caption: String, icon: String, color
 	var node := Button.new()
 	node.set_script(load("res://journey_station.gd"))
 	node.title = name_text; node.subtitle = caption; node.icon_name = icon
+	node.major = id.begins_with("world:")
+	node.celebrate = reward.get("group","")==id.trim_prefix("group:") or (id.begins_with("world:") and reward.get("world",-1)>=0 and JourneyProgress.world_complete(game,int(reward.world)) and id=="world:"+JourneyProgress.worlds()[int(reward.world)].id)
 	node.tint = color; node.locked = not available; node.achieved = achieved; node.current = current
 	node.fresh = available and not seen.has(id)
 	node.position = center-Vector2(width*0.5,64)
@@ -228,6 +249,8 @@ func focus_world(index: int) -> void:
 func build_map() -> void:
 	label("DEINE NEONREISE",Vector2(88,29),size.x-110,12,Color("#83ada9"))
 	label("Dein Weg durch die Themen",Vector2(24,91),size.x-48,25)
+	if reward.is_empty() and not game.journey_reward.is_empty():
+		reward=game.journey_reward.duplicate(); reward_age=0.0; game.journey_reward.clear()
 	var worlds := JourneyProgress.worlds()
 	var frontier := JourneyProgress.frontier(game)
 	# Every reached theme and its subcategories live on this ONE canvas.
@@ -239,7 +262,7 @@ func build_map() -> void:
 		blocks.append({"offset":offset,"rows":rows})
 		offset += 270.0+rows*230.0
 	var height := offset+30
-	make_scroll(height,Color("#68eed2"))
+	make_scroll(height,Color("#c5afff"))
 	world_centers.clear()
 	for block in blocks: world_centers.append(Vector2(size.x*0.5,height-block.offset))
 	for index in worlds.size():
@@ -247,27 +270,34 @@ func build_map() -> void:
 		var available := index<=frontier
 		var center := world_centers[index]
 		var color := Color(data.color)
+		var recommended := JourneyProgress.next_group(game,index) if available else ""
 		var caption := "%d / %d Rätsel gelöst" % [JourneyProgress.world_done(game,index),JourneyProgress.world_total(game,index)] if available else "Noch gesperrt"
 		station("world:"+data.id,data.title,caption,data.icon,color,center,available,JourneyProgress.world_complete(game,index),index==frontier,func(): focus_world(index),minf(300,size.x-48))
 		if index>0:
-			canvas.routes.append({"start":world_centers[index-1],"finish":center,"open":available,"color":color,"fresh":available and not seen.has("world:"+data.id),"opacity":0.45})
+			canvas.routes.append({"start":world_centers[index-1],"finish":center,"open":available,"color":color,"fresh":available and not seen.has("world:"+data.id),"opacity":0.65,"reward":reward.get("next",-1)==index,"guide":index==frontier})
 		if not available: continue
 		for position in data.groups.size():
 			var item: String = data.groups[position]
+			var branch_color := JourneyProgress.group_color(item)
 			var row: int = position/2
 			var single: bool = data.groups.size()==1 or (position==data.groups.size()-1 and data.groups.size()%2==1)
 			var point := Vector2(size.x*(0.5 if single else (0.265 if position%2==0 else 0.735)),center.y-230*(row+1))
 			var junction := Vector2(size.x*0.5,point.y+95)
 			if position%2==0:
 				var previous := center if row==0 else Vector2(size.x*0.5,center.y-230*row+95)
-				canvas.routes.append({"start":previous,"finish":junction,"open":true,"color":color,"opacity":0.8})
-			canvas.routes.append({"start":junction,"finish":point,"open":true,"color":color,"fresh":not seen.has("group:"+item)})
-			station("group:"+item,JourneyProgress.group_title(game,item),"%d / %d Rätsel gelöst" % [JourneyProgress.group_done(game,item),JourneyProgress.indices(game,item).size()],JourneyProgress.group_icon(item),color,point,true,JourneyProgress.group_complete(game,item),false,func(): navigate("collection",index,item),minf(216,size.x*0.44))
+				canvas.routes.append({"start":previous,"finish":junction,"open":true,"color":color,"opacity":0.8,"guide":item==recommended})
+			canvas.routes.append({"start":junction,"finish":point,"open":true,"color":branch_color,"fresh":not seen.has("group:"+item),"guide":item==recommended})
+			station("group:"+item,JourneyProgress.group_title(game,item),"%d / %d Rätsel gelöst" % [JourneyProgress.group_done(game,item),JourneyProgress.indices(game,item).size()],JourneyProgress.group_icon(item),branch_color,point,true,JourneyProgress.group_complete(game,item),item==recommended,func(): navigate("collection",index,item),minf(216,size.x*0.44))
 	var selected := world if world>=0 and world<=frontier else frontier
 	var target := maxi(0,int(world_centers[selected].y-scroller.size.y*0.72))
 	var key := "map:%d::false" % world
 	if world<0 and seen.has("world:"+worlds[frontier].id): target=int(scroll_positions.get(key,target))
-	request_scroll(target)
+	if int(reward.get("next",-1))>int(reward.get("world",-1)) and int(reward.get("world",-1))>=0:
+		animate_unlock(world_centers[int(reward.world)],target)
+	else: request_scroll(target)
+	if not reward.is_empty():
+		var message: String = "Themenwelt geschafft · Ein neuer Weg leuchtet!" if int(reward.get("next",-1))>=0 else "Sammlung geschafft · Alle Kunstwerke leuchten!"
+		tell(message)
 	action("Nächstes Rätsel",Vector2(24,size.y-74),Vector2(size.x-48,54),func(): play_next(frontier),true)
 
 func play_next(selected_world: int) -> void:
@@ -280,7 +310,7 @@ func play_next(selected_world: int) -> void:
 	tell("Du hast hier schon alle Kunstwerke entdeckt.")
 
 func build_collection() -> void:
-	var color := Color("#68eed2") if world<0 else Color(JourneyProgress.worlds()[world].color)
+	var color := JourneyProgress.group_color(group)
 	var parent_title: String = "EIGENE MOTIVE" if world<0 else JourneyProgress.worlds()[world].title.to_upper()
 	label(parent_title,Vector2(88,29),size.x-110,12,Color(color,0.75))
 	label(JourneyProgress.group_title(game,group),Vector2(24,91),size.x-48,27)
@@ -309,37 +339,93 @@ func build_collection() -> void:
 	var key := "collection:%d:%s:false" % [world,group]
 	request_scroll(int(scroll_positions.get(key,0)))
 
+func animate_unlock(previous_world: Vector2, target: int) -> void:
+	var scroll := scroller
+	request_scroll(maxi(0,int(previous_world.y-scroll.size.y*0.72)))
+	await get_tree().process_frame
+	if not is_instance_valid(scroll) or scroll!=scroller: return
+	camera_tween=create_tween()
+	camera_tween.tween_interval(0.65)
+	camera_tween.tween_property(scroll,"scroll_vertical",target,1.7).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func art_card(index: int, position: Vector2, dimensions: Vector2, mode := "puzzle", callback := Callable()) -> Button:
+	var card := Button.new()
+	card.set_script(load("res://journey_puzzle_card.gd"))
+	card.game=game; card.index=index; card.display_mode=mode; card.activate=callback
+	card.accent=JourneyProgress.group_color(game.level_collection(index).id)
+	card.complete=game.completed.has(index); card.hero=mode=="resume"
+	card.position=position; card.size=dimensions
+	canvas.add_child(card)
+	return card
+
 func build_home() -> void:
-	var frontier := JourneyProgress.frontier(game)
-	var data: Dictionary = JourneyProgress.worlds()[frontier]
-	var logo := label("ARROW WAY",Vector2(24,size.y*0.13),size.x-48,40)
-	logo.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	label("Kunstwerke aus Licht",Vector2(24,size.y*0.13+65),size.x-48,15,Color("#8fa8b7")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	var resume := JourneyProgress.resume_index(game)
+	label("ARROW WAY",Vector2(24,size.y*0.10),size.x-48,36).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	label("Kunstwerke aus Licht",Vector2(24,size.y*0.10+53),size.x-48,15,Color("#a7a3c5")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	canvas=Control.new()
 	canvas.set_script(load("res://journey_canvas.gd"))
-	canvas.position=Vector2(0,size.y*0.24)
-	canvas.size=Vector2(size.x,250)
 	canvas.star_count=22
-	canvas.accent=Color(data.color)
-	canvas.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var center:=Vector2(size.x*0.5,size.y*0.05+86)
-	canvas.routes.assign([{"start":Vector2(size.x*0.27,245),"finish":center,"open":true,"color":Color(data.color),"opacity":0.28},{"start":center,"finish":Vector2(size.x*0.73,12),"open":false,"color":Color(data.color),"opacity":0.45}])
+	canvas.size=size; canvas.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	add_child(canvas)
-	var illustration := Button.new()
-	illustration.set_script(load("res://journey_station.gd"))
-	illustration.position=Vector2(size.x*0.5-110,size.y*0.29+22)
-	illustration.size=Vector2(220,180)
-	illustration.scale=Vector2.ONE*1.35
-	illustration.icon_name=data.icon; illustration.tint=Color(data.color); illustration.current=true
-	illustration.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	add_child(illustration)
-	action("Deine Reise",Vector2(36,size.y*0.59),Vector2(size.x-72,60),func(): game.close_home(); game.open_journey(),true)
-	action("Weiter spielen",Vector2(36,size.y*0.59+76),Vector2(size.x-72,54),game.close_home)
-	var search := action("Suchen & Favoriten",Vector2(36,size.y*0.59+145),Vector2(size.x-72,48),func(): game.close_home(); game.open_gallery())
-	search.add_theme_font_size_override("font_size",14)
-	if not JourneyProgress.indices(game,"custom").is_empty():
-		action("Eigene Motive",Vector2(36,size.y-80),Vector2(size.x-72,48),func(): game.close_home(); game.open_journey(-1,"custom"))
+	var top := size.y*0.24
+	var height := minf(330,size.y*0.32)
+	art_card(resume,Vector2(32,top),Vector2(size.x-64,height),"resume",func(): game.start_journey_puzzle(resume))
+	var next_y := top+height+24
+	action("Erneut spielen" if game.completed.has(resume) else "Weiter spielen",Vector2(32,next_y),Vector2(size.x-64,58),func(): game.start_journey_puzzle(resume),true)
+	action("Deine Reise",Vector2(32,next_y+74),Vector2(size.x-64,54),func(): game.close_home(); game.open_journey())
+	action("Meine Kunstwerke",Vector2(32,next_y+142),Vector2(size.x-64,54),game.open_album)
 	icon_button("<circle cx='12' cy='12' r='4'/><path d='M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10l2 2M5 19l2-2M17 7l2-2'/>",Vector2(size.x-72,24),func(): navigate("settings"),"Einstellungen")
+
+func build_album() -> void:
+	var all_art := JourneyProgress.album_indices(game)
+	label("DEIN ALBUM",Vector2(88,29),size.x-110,12,Color("#cca7e8"))
+	label("Meine Kunstwerke",Vector2(24,91),size.x-48,27)
+	var half := (size.x-60)*0.5
+	var all_button := action("Alle Kunstwerke",Vector2(24,145),Vector2(half,44),func(): favorites_only=false; page=0; scroller=null; relayout(),not favorites_only)
+	var hearts := action("Lieblingsbilder",Vector2(36+half,145),Vector2(half,44),func(): favorites_only=true; page=0; scroller=null; relayout(),favorites_only)
+	all_button.add_theme_font_size_override("font_size",14); hearts.add_theme_font_size_override("font_size",14)
+	var art := JourneyProgress.album_indices(game,favorites_only)
+	var page_count := maxi(1,ceili(art.size()/6.0))
+	page=clampi(page,0,page_count-1)
+	var displayed := art.slice(page*6,page*6+6)
+	make_scroll(maxf(360,ceilf(displayed.size()/2.0)*238+24),Color("#c3a0ff"))
+	scroller.position.y=205; scroller.size.y=size.y-293
+	for position in displayed.size():
+		var index: int=displayed[position]
+		art_card(index,Vector2(24+(position%2)*(half+12),8+floorf(position/2.0)*238),Vector2(half,224),"album",func(): open_artwork(index))
+	if displayed.is_empty():
+		var text := "Dein erstes Kunstwerk wartet auf dich.
+Löse ein Rätsel und bring es zum Leuchten." if all_art.is_empty() else "Deine Lieblingsbilder bekommen ein Herz.
+Öffne ein fertiges Kunstwerk und markiere es."
+		var empty:=Label.new(); empty.text=text
+		empty.position=Vector2(32,100); empty.size=Vector2(size.x-64,130)
+		empty.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		empty.add_theme_font_size_override("font_size",18); empty.modulate=Color("#c4b7d7")
+		canvas.add_child(empty)
+	if page_count>1:
+		var back:=action("Zurück",Vector2(24,size.y-74),Vector2(108,48),func(): page-=1; scroller=null; relayout())
+		var next:=action("Weiter",Vector2(size.x-132,size.y-74),Vector2(108,48),func(): page+=1; scroller=null; relayout())
+		back.disabled=page==0; next.disabled=page==page_count-1
+		label("%d / %d" % [page+1,page_count],Vector2(142,size.y-61),size.x-284,15).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	else:
+		label("%d Kunstwerke zum Leuchten gebracht" % all_art.size(),Vector2(24,size.y-62),size.x-48,14,Color("#a79bbb")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+
+func open_artwork(index: int) -> void:
+	if not JourneyProgress.album_indices(game).has(index): return
+	selected_art=index; screen="artwork"; scroller=null; relayout()
+
+func build_artwork() -> void:
+	if not JourneyProgress.album_indices(game).has(selected_art):
+		screen="album"; build_album(); return
+	ui_accent=JourneyProgress.group_color(game.level_collection(selected_art).id)
+	label("DEIN KUNSTWERK",Vector2(88,29),size.x-110,12,ui_accent)
+	label(game.level_title(selected_art),Vector2(24,91),size.x-48,27)
+	canvas=Control.new(); canvas.set_script(load("res://journey_canvas.gd")); canvas.star_count=22; canvas.size=size; canvas.mouse_filter=Control.MOUSE_FILTER_IGNORE; add_child(canvas)
+	art_card(selected_art,Vector2(24,153),Vector2(size.x-48,size.y-255),"display")
+	var favorite: bool=game.favorite_paths.has(game.level_path(selected_art))
+	var heart_path := "<path d='M12 21S3 15 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7-9 13-9 13z'"+(" fill='#ff8bbf'" if favorite else "")+"/>"
+	icon_button(heart_path,Vector2(24,size.y-74),func(): game.toggle_favorite(selected_art); relayout(),"Herz entfernen" if favorite else "Als Lieblingsbild merken")
+	action("Erneut spielen",Vector2(88,size.y-74),Vector2(size.x-112,48),func(): game.start_journey_puzzle(selected_art),true)
 
 func build_settings() -> void:
 	icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,"Zurück")
