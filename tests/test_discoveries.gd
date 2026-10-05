@@ -14,6 +14,11 @@ func run() -> void:
 	var converted: Rect2=safe_script.calculate(Rect2(0,80,1080,2200),[Rect2(490,0,100,96)],Vector2.ZERO,Transform2D(Vector2(2,0),Vector2(0,2),Vector2.ZERO),Rect2(0,0,540,1170))
 	require(converted.position.y==48 and converted.end.y==1140,"Physical camera and safe area convert into logical UI coordinates")
 	var entries: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/discoveries.json")).entries
+	var catalog: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
+	for motif in catalog.levels:
+		require(entries.has(motif.path),"Every catalog motif has its own completion text: "+motif.title)
+	for index in range(1,10):
+		require(entries.has("res://levels/%02d.json" % index),"Every introductory motif has its own completion text")
 	require(entries.has("res://collections/levels/animals_08_animals_08.json"),"Known motif keeps its own discovery")
 	for path in entries:
 		require(FileAccess.file_exists(path),"Discovery refers to an existing motif")

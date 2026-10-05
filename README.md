@@ -8,7 +8,7 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.17.2-dev
+## Aktueller Stand · 0.17.3-dev
 
 Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
 
@@ -16,7 +16,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 
 - **Begonnene Rätsel fortsetzen**: Jeder angefangene Spielstand bleibt separat erhalten – einschließlich entkommener Pfeile, laufender Animationen, Zoom und Bildposition. Speichern läuft im Hintergrund; beim Verlassen oder Wechsel in den Hintergrund wird der letzte Stand gesichert. Eine vorherige Sicherung dient bei beschädigter Datei als Rückfall. Veränderte Motive übernehmen keine unpassenden alten Pfeilstände. Ein bestätigter Neustart beginnt bewusst von vorn.
 
-- **Entdeckungen nach dem Abschluss**: Nach der Lichtwelle erscheint eine lesbare Textkarte mit Fakten, Kunstgeschichten oder eigenen Gedanken. 232 Motive haben eigene Texte (32 Fakten/Kunstgeschichten mit Quelle und 200 eigene Gedanken); die übrigen erhalten einen als Gedanken gekennzeichneten Impuls. Fakten enthalten eine Quellenaktion. Die Karte verdeckt weder Kunstwerk noch Weiter-Button und verschwindet beim Neustart.
+- **Entdeckungen nach dem Abschluss**: Nach der Lichtwelle erscheint eine lesbare Textkarte mit Fakten, Kunstgeschichten oder eigenen Gedanken. Alle 509 Spielmotive haben eigene Texte (50 Fakten/Kunstgeschichten mit Quelle und 459 eigene Gedanken). Fakten enthalten eine Quellenaktion. Die Karte verdeckt weder Kunstwerk noch Weiter-Button und verschwindet beim Neustart.
 
 - **Kompakter Bildtitel**: ursprüngliche Darstellung mit 16-Punkt-Schrift zwischen den Symbolen, unterhalb des Kameraausschnitts. Kameraausschnitt und sichere Displayränder werden aus physischen Bildschirmkoordinaten in die Spielansicht umgerechnet.
 

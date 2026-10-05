@@ -1018,6 +1018,1168 @@
       "source": "NOAA",
       "url": "https://www.noaa.gov/stories/how-do-snowflakes-form-science-behind-snow",
       "checked": "2026-10-05"
+    },
+    "res://collections/levels/world_02_pyramids.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Drei Kanten, ein Gipfel — und plötzlich wirkt eine einfache Form wie ein Tor zu einer sehr alten Geschichte."
+    },
+    "res://collections/levels/halloween_03_halloween_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diesen Nachtflug braucht es weder Landebahn noch Bordbeleuchtung. Ein bisschen Mondlicht wäre trotzdem hübsch."
+    },
+    "res://collections/levels/halloween_05_halloween_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Acht Beine und kein einziger Schuh. Der nächtliche Spaziergang ist offenbar bestens organisiert."
+    },
+    "res://collections/levels/halloween_06_halloween_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wäre Geduld sichtbar, könnte sie so aussehen: ein feines Netz, Faden für Faden gespannt."
+    },
+    "res://collections/levels/halloween_08_halloween_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute darf selbst ein Totenkopf strahlen. Halloween hat einen eigenwilligen Sinn für gute Laune."
+    },
+    "res://collections/levels/halloween_15_halloween_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Laterne macht aus einem dunklen Weg schon beinahe eine Einladung zum Gruseln."
+    },
+    "res://collections/levels/halloween_18_halloween_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Blick sagt: Ich habe alles gesehen. Auch den Keks, den du gerade heimlich genommen hast."
+    },
+    "res://collections/levels/christmas_07_christmas_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Stern im Fenster ist eine kleine Verabredung mit der Dunkelheit: Hier bleibt es freundlich."
+    },
+    "res://collections/levels/christmas_09_christmas_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht besteht ein kleiner Weihnachtszauber darin, jemandem unbemerkt etwas Gutes zu tun."
+    },
+    "res://collections/levels/christmas_10_christmas_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir vor, hinter dieser Tür beginnt gerade das erste Lied. Draußen ist es still und kalt."
+    },
+    "res://collections/levels/christmas_11_christmas_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein winziger Klang genügt, und im Kopf steht plötzlich ein ganzer Weihnachtsmarkt."
+    },
+    "res://collections/levels/christmas_17_christmas_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Frack an, Füße kalt. Für eine Feier im Schnee ist dieser Gast schon passend gekleidet."
+    },
+    "res://collections/levels/christmas_18_christmas_18.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Bei Rentieren tragen auch Weibchen ein Geweih. Sie behalten es oft durch den Winter, während viele Männchen ihres schon vorher abwerfen.",
+      "source": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/reindeer-caribou",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/christmas_20_christmas_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Abend lang König oder Königin sein — am besten mit einer Krone, die beim Tanzen nicht verrutscht."
+    },
+    "res://collections/levels/winter_03_winter_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn dieser Pinguin eine Wunschliste hätte, stünde darauf vielleicht: ein Eisberg mit Fußbodenheizung."
+    },
+    "res://collections/levels/winter_05_winter_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Gipfel tragen Weiß. Stell dir einen Moment vor, in dem selbst deine Gedanken etwas leiser werden."
+    },
+    "res://collections/levels/winter_06_winter_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Tannen sehen aus, als hätte jemand jede einzelne sorgfältig mit Zuckerguss verziert."
+    },
+    "res://collections/levels/winter_07_winter_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine ruhige Fläche zwischen steilen Bergen: Hier würde sogar ein hektischer Gedanke gern kurz sitzen bleiben."
+    },
+    "res://collections/levels/winter_09_winter_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Haus aus Winter. Schon die Idee klingt, als hätte jemand das Wetter zum Baumaterial erklärt."
+    },
+    "res://collections/levels/winter_12_winter_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine frische Spur im Schnee ist eine Unterschrift, die niemand zweimal genau gleich setzt."
+    },
+    "res://collections/levels/winter_13_winter_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Hang ist weiß, das Brett ist bunt. Ein guter Platz, um die eigene Linie zu finden."
+    },
+    "res://collections/levels/winter_14_winter_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Bergauf ist der Schlitten Gepäck. Bergab wird er für einen herrlichen Moment zum besten Freund."
+    },
+    "res://collections/levels/winter_17_winter_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Licht hinter dem frostigen Glas wirkt wie eine winzige, hartnäckige Antwort auf die Kälte."
+    },
+    "res://collections/levels/winter_18_winter_18.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Eisbären halten keinen klassischen Winterschlaf wie viele andere Bären. Trächtige Weibchen ziehen sich aber über den Winter in Höhlen zurück, wo sie ihre Jungen gebären und säugen.",
+      "source": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/polar-bear",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/winter_20_winter_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Sonne, die tief am Horizont steht, kann selbst einem kalten Nachmittag ein warmes Gesicht geben."
+    },
+    "res://collections/levels/easter_05_easter_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Henne betrachtet das Osterfest vermutlich vor allem als sehr aufwendige Werbung für ihre Arbeit."
+    },
+    "res://collections/levels/easter_06_easter_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Tulpe auf dem Tisch — und die schweren Wintergedanken dürfen langsam ihre Mäntel ablegen."
+    },
+    "res://collections/levels/easter_07_easter_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Gelb sieht aus, als hätte der Frühling seine eigene kleine Lampe eingeschaltet."
+    },
+    "res://collections/levels/easter_09_easter_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn Blumen Cafés wären, hätte diese Biene heute einen ziemlich vollen Terminkalender."
+    },
+    "res://collections/levels/easter_11_easter_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal reicht ein kleiner Gruß, damit ein gewöhnlicher Tag ein freundlicheres Gesicht bekommt."
+    },
+    "res://collections/levels/easter_12_easter_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das schönste am kleinen Geschenk könnte sein: Jemand hat sich vorher ausgemalt, wie du dich darüber freust."
+    },
+    "res://collections/levels/easter_13_easter_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Laterne am ersten milden Abend: noch ein bisschen Winterlicht, schon ein bisschen Sommergefühl."
+    },
+    "res://collections/levels/easter_16_easter_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein paar bunte Anhänger — und ein Zweig wird zum kleinen Festplatz mitten im Zimmer."
+    },
+    "res://collections/levels/easter_17_easter_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diese Maus wäre ein einziges Osterei vermutlich schon ein beachtliches Wohnungsprojekt."
+    },
+    "res://collections/levels/easter_19_easter_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir diese Wiese als Konzert vor: Jede Blüte spielt eine Farbe, der Wind übernimmt den Takt."
+    },
+    "res://collections/levels/technology_02_technology_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ob dieser Roboter gerade rechnet oder von elektrischen Schafen träumt, verrät sein Gesicht leider nicht."
+    },
+    "res://collections/levels/technology_03_technology_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auf diesem winzigen Leuchtquadrat könnte in unserer Fantasie eine ganze Stadt aus Gedanken wohnen."
+    },
+    "res://collections/levels/technology_09_technology_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Stimme reist los, ohne dass die sprechende Person ihren Stuhl verlassen muss. Das bleibt eine schöne Idee."
+    },
+    "res://collections/levels/technology_12_technology_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Lampe ist ein kleiner Schalter zwischen zwei Stimmungen: eben noch dunkel, jetzt ein guter Platz zum Bleiben."
+    },
+    "res://collections/levels/technology_13_technology_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Uhr würde wahrscheinlich sogar eine gemütliche Pause auf die Sekunde genau planen."
+    },
+    "res://collections/levels/technology_14_technology_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dreh gedanklich am Sender: Vielleicht wartet hinter dem Rauschen ein Lied, das du lange nicht gehört hast."
+    },
+    "res://collections/levels/technology_16_technology_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Sonnenzeichen erinnert daran, wie hübsch Technik aussehen kann, wenn sie sich am Himmel orientiert."
+    },
+    "res://collections/levels/technology_17_technology_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unsichtbare Kräfte, sichtbare Ordnung: Hier könnte man sogar einem unsichtbaren Weg eine Form geben."
+    },
+    "res://collections/levels/technology_18_technology_18.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Ein Blitz kann die Luft in seinem Kanal auf rund 28.000 °C erhitzen. Das ist etwa fünfmal so heiß wie die Oberfläche der Sonne — für einen winzigen Moment.",
+      "source": "US National Weather Service",
+      "url": "https://www.weather.gov/safety/lightning-temperature",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/technology_19_technology_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine klare Form, ein paar helle Linien — wie ein kleines Abzeichen für ein erfolgreich gelöstes Gedankenproblem."
+    },
+    "res://collections/levels/technology_20_technology_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht kann das Werkzeug von morgen alles. Hoffentlich findet es dann auch die Schraube, die gerade herunterfiel."
+    },
+    "res://collections/levels/computers_06_computers_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Karte könnte ein Fenster in Welten sein, die außerhalb des Bildschirms noch niemand betreten hat."
+    },
+    "res://collections/levels/computers_07_computers_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier laufen die Fäden zusammen. Eine kleine Stadt, in der jede Verbindung ihren eigenen Auftrag hat."
+    },
+    "res://collections/levels/computers_08_computers_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn dieser Prozessor einen Feierabend hätte, würde er vielleicht einfach einmal überhaupt nichts berechnen."
+    },
+    "res://collections/levels/computers_11_computers_11.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Der Festplattenspeicher des IBM RAMAC von 1956 war etwa so groß wie zwei Kühlschränke und wog über eine Tonne. Sein Speicher fasste nur wenige Megabyte.",
+      "source": "IBM · RAMAC",
+      "url": "https://www.ibm.com/history/ramac",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/computers_12_computers_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein winziges Rechteck als Reisegepäck für Bilder: Die Tasche wird kaum schwerer, die Erinnerungen schon."
+    },
+    "res://collections/levels/computers_15_computers_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Denk dir zum fertigen Lichtbild deinen Lieblingssound. Die Lautstärke bestimmen heute deine Gedanken."
+    },
+    "res://collections/levels/computers_16_computers_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Abenteuer beginnen mit einem Flugticket. Dieses würde mit einem freien Abend und einem Controller anfangen."
+    },
+    "res://collections/levels/computers_20_computers_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein flaches Fenster für Ideen. Manchmal fehlt zum nächsten Einfall nur eine leere Seite darauf."
+    },
+    "res://collections/levels/skylines_04_skylines_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In dieser Stadt ist die Nacht violett. Vielleicht haben sogar die letzten Busse ein bisschen Abendhimmel dabei."
+    },
+    "res://collections/levels/skylines_05_skylines_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir eine Stadt vor, in der der schönste Aussichtspunkt zwischen den Bäumen liegt."
+    },
+    "res://collections/levels/skylines_06_skylines_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Türme stehen still, das Wasser zieht weiter. Zwei verschiedene Arten, Zeit zu verbringen."
+    },
+    "res://collections/levels/skylines_07_skylines_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hinter jedem Dach könnte gerade jemand den ersten Kaffee machen. Die Stadt wacht Zimmer für Zimmer auf."
+    },
+    "res://collections/levels/skylines_08_skylines_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Rot könnte der letzte Rest eines Sonnenuntergangs sein, der einfach noch nicht nach Hause möchte."
+    },
+    "res://collections/levels/skylines_09_skylines_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die silbernen Kanten sehen aus, als hätte die Stadt für einen besonderen Abend ihren Schmuck angelegt."
+    },
+    "res://collections/levels/skylines_13_skylines_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein warmer Abend, offene Fenster, ein Gespräch am Gehsteig. So könnte diese Stadt gerade klingen."
+    },
+    "res://collections/levels/skylines_14_skylines_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir warmes Licht hinter diesen Fenstern vor — lauter kleine Inseln in einer kalten Nacht."
+    },
+    "res://collections/levels/skylines_15_skylines_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Stadt hat sich ihre Abendfarbe offenbar direkt vom Meer ausgeliehen."
+    },
+    "res://collections/levels/skylines_16_skylines_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein einziges helles Fenster könnte eine ganze Geschichte verbergen: Wiedersehen, Geburtstag oder nur ein gutes Buch."
+    },
+    "res://collections/levels/skylines_17_skylines_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Stadt wirkt wie ein Schmuckstück. Vielleicht ist ihre schönste Ecke trotzdem eine unscheinbare Bank am Wasser."
+    },
+    "res://collections/levels/skylines_19_skylines_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn jedes Fenster eine andere Lieblingsfarbe hätte, könnte der Abend hier genau so aussehen."
+    },
+    "res://collections/levels/skylines_20_skylines_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für einen kurzen Moment scheint die ganze Stadt dieselbe Farbe zu mögen. Gleich gehen die ersten Fenster an."
+    },
+    "res://collections/levels/smartphones_03_smartphones_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nur noch ein kurzes Video? Dieser Satz wäre vermutlich ein guter Titel für einen sehr langen Film."
+    },
+    "res://collections/levels/smartphones_04_smartphones_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Kurve darf Regen ankündigen. Den gemütlichen Nachmittag mit Tee können wir gleich mit einplanen."
+    },
+    "res://collections/levels/smartphones_10_smartphones_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist der freundlichste Blick auf dich selbst heute einer, der auch eine Pause erlaubt."
+    },
+    "res://collections/levels/smartphones_11_smartphones_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Kompass für Apps müsste auch den Weg aus einem endlosen Scroll-Abenteuer zurück ins Wohnzimmer zeigen."
+    },
+    "res://collections/levels/smartphones_12_smartphones_12.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Damit GPS deinen Standort zuverlässig findet, müssen sogar Einsteins Relativitätseffekte berücksichtigt werden: Die Uhren in den Satelliten laufen anders als Uhren auf der Erde.",
+      "source": "NIST · Putting Einstein to the Test",
+      "url": "https://www.nist.gov/atomic-clocks/a-powerful-tool-for-science/putting-einstein-test",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/smartphones_14_smartphones_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Startbildschirm voller Möglichkeiten. Manchmal ist die beste davon, das Gerät später wieder einzuschalten."
+    },
+    "res://collections/levels/smartphones_16_smartphones_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Einkaufswagen ist klein, die Wunschliste erstaunlich dehnbar. Vielleicht bleibt heute einfach nur das schöne Schaufenster."
+    },
+    "res://collections/levels/smartphones_18_smartphones_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Kurve erzählt nur einen Teil der Geschichte. Der Spaziergang, der dir gutgetan hat, gehört ebenfalls dazu."
+    },
+    "res://collections/levels/vehicles_01_vehicles_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Auto würde wohl jede Parklücke als persönliche Einladung verstehen."
+    },
+    "res://collections/levels/vehicles_02_vehicles_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn dieses Auto sprechen könnte, würde es vermutlich selbst ein freundliches Hallo ziemlich laut aussprechen."
+    },
+    "res://collections/levels/vehicles_04_vehicles_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für heute könnte die wichtigste Mission lauten: den verschwundenen letzten Pfeil aufspüren. Fall gelöst."
+    },
+    "res://collections/levels/vehicles_05_vehicles_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein freier Weg kann für andere viel bedeuten. Dieses Motiv erinnert an Menschen, die sich auf den Weg machen, um zu helfen."
+    },
+    "res://collections/levels/vehicles_06_vehicles_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Wagen trägt eine ganze Mannschaft guter Gründe, aufeinander aufzupassen."
+    },
+    "res://collections/levels/vehicles_07_vehicles_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Bus voller Geschichten: jemand fährt zum ersten Mal ans Meer, jemand anderes endlich wieder nach Hause."
+    },
+    "res://collections/levels/vehicles_08_vehicles_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In unserer Fantasie liefert dieser Lastwagen heute nur angenehme Dinge: frisches Brot, Bücher und einen neuen Schaukelstuhl."
+    },
+    "res://collections/levels/vehicles_12_vehicles_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir eine kurvige Straße vor, einen weiten Blick und einen Tag ohne engen Zeitplan."
+    },
+    "res://collections/levels/vehicles_13_vehicles_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diesen Roller könnte schon der Weg zur nächsten Eisdiele ein kleines Sommerabenteuer sein."
+    },
+    "res://collections/levels/vehicles_16_vehicles_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für einen Moment teilen ganz verschiedene Lebensgeschichten denselben Zug. Dann gehen die Türen wieder auf."
+    },
+    "res://collections/levels/vehicles_17_vehicles_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Fensterplatz über den Wolken: Die Welt darunter sieht aus, als hätte jemand ihre Lautstärke heruntergedreht."
+    },
+    "res://collections/levels/vehicles_18_vehicles_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Jet würde vermutlich sogar zum Bäcker mit einem sehr großen Auftritt starten."
+    },
+    "res://collections/levels/vehicles_20_vehicles_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Landebahn aus Wasser — in der Fantasie wirkt schon die Ankunft wie Urlaub."
+    },
+    "res://collections/levels/ocean_01_ocean_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Fisch trägt seine schönsten Farben einfach jeden Tag. Einen besonderen Anlass braucht er dafür nicht."
+    },
+    "res://collections/levels/ocean_03_ocean_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir ein Lied vor, das durch dunkles Wasser reist. Der Ozean bekommt dabei eine ganz andere Weite."
+    },
+    "res://collections/levels/ocean_08_ocean_08.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Quallen bestehen zu ungefähr 95 Prozent aus Wasser. Sie haben kein Gehirn wie wir; ein einfaches Nervennetz hilft ihnen, Licht und andere Reize wahrzunehmen.",
+      "source": "NOAA · What are jellyfish made of?",
+      "url": "https://oceanservice.noaa.gov/facts/jellyfish.html",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/ocean_09_ocean_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Stern, der den Himmel ausgelassen hat und lieber am Meeresboden geblieben ist."
+    },
+    "res://collections/levels/ocean_10_ocean_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Muschel könnte das Schmuckkästchen einer Geschichte sein, die der Strand noch nicht erzählt hat."
+    },
+    "res://collections/levels/ocean_12_ocean_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Schmetterling unter Wasser: Schon der Name ist wie eine kleine Verabredung zwischen zwei Welten."
+    },
+    "res://collections/levels/ocean_13_ocean_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Fenster ins Dunkle. Stell dir vor, draußen zieht etwas vorbei, das noch niemand an der Oberfläche gesehen hat."
+    },
+    "res://collections/levels/ocean_15_ocean_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Schiff am Horizont lässt offen, ob gerade ein Abenteuer beginnt oder jemand davon nach Hause kommt."
+    },
+    "res://collections/levels/ocean_18_ocean_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Licht, das bleibt, wenn der Horizont verschwindet. Manchmal reicht genau das als Orientierung."
+    },
+    "res://collections/levels/ocean_19_ocean_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine winzige Insel und ein weiter Horizont. In diesem Bild könnte der Kalender gern ein paar leere Seiten haben."
+    },
+    "res://collections/levels/animals_03_animals_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser kleine Bär sieht aus, als wäre seine wichtigste Tagesaufgabe ein sehr gründlich geplanter Mittagsschlaf."
+    },
+    "res://collections/levels/animals_05_animals_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Fuchs trägt den Waldspaziergang mit solcher Eleganz, als hätte er vorher noch seinen Mantel gebürstet."
+    },
+    "res://collections/levels/animals_06_animals_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diesen Hasen ist die Wiese vielleicht ein riesiges Wohnzimmer. Mit erstaunlich vielen Ausgängen."
+    },
+    "res://collections/levels/animals_09_animals_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Selbst ein König dürfte gelegentlich lieber im Schatten liegen, als irgendeine wichtige Ansprache zu halten."
+    },
+    "res://collections/levels/animals_10_animals_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Im Mondlicht wirkt der Wald wie die erste Seite einer Geschichte, deren Ende noch niemand kennt."
+    },
+    "res://collections/levels/animals_11_animals_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Eule würde eine nächtliche Bibliothek vermutlich für eine ausgezeichnete Geschäftsidee halten."
+    },
+    "res://collections/levels/animals_12_animals_12.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die Streifen eines Tigers bilden ein individuelles Muster. Kein zweiter Tiger trägt genau dieselbe Zeichnung — sie kann sogar helfen, einzelne Tiere wiederzuerkennen.",
+      "source": "San Diego Zoo Wildlife Explorers",
+      "url": "https://sdzwildlifeexplorers.org/animals/tiger",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/animals_16_animals_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Hase sieht aus, als hätte er mit dem Winter heimlich dieselbe Kleiderfarbe vereinbart."
+    },
+    "res://collections/levels/birds_02_birds_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir dieses Lichtbild als Spiegelung vor. Schon ein winziger Windhauch würde daraus eine zweite Zeichnung machen."
+    },
+    "res://collections/levels/birds_04_birds_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Papagei könnte selbst einen grauen Regentag farblich ziemlich überzeugend verbessern."
+    },
+    "res://collections/levels/birds_05_birds_05.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Der große Schnabel eines Tukans ist erstaunlich leicht. Sein Inneres ist weitgehend hohl; ein Netz aus knöchernen Verstrebungen sorgt für Halt.",
+      "source": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/toucan",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/birds_06_birds_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Aus dieser Höhe würde selbst ein langer Weg wahrscheinlich wie eine feine Linie zwischen Bergen aussehen."
+    },
+    "res://collections/levels/birds_09_birds_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auf diesem Hof könnte die Henne die Tagesordnung festlegen: scharren, schauen, noch einmal scharren."
+    },
+    "res://collections/levels/birds_10_birds_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines gelbes Küken wirkt, als hätte der Frühling einen seiner Sonnenstrahlen auf zwei Füße gestellt."
+    },
+    "res://collections/levels/birds_11_birds_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Himmel ist weit. In Gedanken darf dieser Flug heute dorthin gehen, wo du gern einmal ankommen würdest."
+    },
+    "res://collections/levels/birds_12_birds_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Reiher wirkt, als könnte er einer einzigen kleinen Welle sehr lange beim Vorbeiziehen zusehen."
+    },
+    "res://collections/levels/birds_13_birds_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn der Wald einen Schlagzeuger bräuchte, wäre diese Bewerbung vermutlich schon beim ersten Klopfen überzeugend."
+    },
+    "res://collections/levels/birds_15_birds_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Spatz kann einer leeren Gartenbank erstaunlich viel Gesellschaft geben — wenigstens in diesem Bild."
+    },
+    "res://collections/levels/birds_17_birds_17.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Ein Straußenauge misst fast fünf Zentimeter im Durchmesser. Damit hat der Strauß die größten Augen unter den heute lebenden Landtieren.",
+      "source": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/ostrich",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/birds_18_birds_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir ein Dach im Abendlicht vor, darunter ein stilles Dorf und darüber diesen langsamen Flügelschlag."
+    },
+    "res://collections/levels/birds_19_birds_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für einen Moment könnte sein Lied dieselbe Farbe haben wie sein Gefieder: ein helles, freundliches Blau."
+    },
+    "res://collections/levels/birds_20_birds_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Farbtupfer im Winterbild. Manchmal fällt gerade das Kleine zuerst ins Auge."
+    },
+    "res://collections/levels/bakery_05_bakery_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir vor, das Bild könnte duften. Dieses hier wäre eine ziemlich gute Einladung zum Frühstück."
+    },
+    "res://collections/levels/bakery_07_bakery_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei Scheiben Brot und dazwischen ein kleiner Plan für eine sehr angenehme Pause."
+    },
+    "res://collections/levels/bakery_13_bakery_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Glas könnte zu einem Morgen gehören, an dem noch niemand auf die Uhr schauen muss."
+    },
+    "res://collections/levels/bakery_15_bakery_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Besteck liegt bereit. Jetzt fehlt nur noch jemand, der beim Anschneiden großzügig entscheidet."
+    },
+    "res://collections/levels/bakery_16_bakery_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein goldener Faden zwischen Löffel und Glas — fast zu hübsch, um ihn einfach im Tee verschwinden zu lassen."
+    },
+    "res://collections/levels/bakery_17_bakery_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Süßigkeit hat ihre Festtagskleidung schon an. Ob der Geschmack ebenso bunt wäre?"
+    },
+    "res://collections/levels/bakery_18_bakery_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses kleine Zeichen könnte bedeuten: Hier beginnt der Teil des Tages, für den wir keine Eile eingeplant haben."
+    },
+    "res://collections/levels/bakery_19_bakery_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Stern zum Anbeißen. Das wäre eine sehr praktische Lösung für alle, die sich den Himmel näher wünschen."
+    },
+    "res://collections/levels/bakery_20_bakery_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Plätzchen in Herzform sagt ziemlich klar: Ich habe beim Backen an dich gedacht."
+    },
+    "res://collections/levels/fruit_04_fruit_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Birne leuchtet, als wäre sie gerade von einem Märchenmarkt mitgebracht worden."
+    },
+    "res://collections/levels/fruit_06_fruit_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Trauben sehen aus wie eine kleine Sammlung violetter Edelsteine. Ein sehr appetitliches Schmuckstück."
+    },
+    "res://collections/levels/fruit_08_fruit_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir einen warmen Nachmittag vor, klebrige Finger und die angenehme Sorge, wo der nächste Biss Platz findet."
+    },
+    "res://collections/levels/fruit_09_fruit_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In diesem dunklen Violett könnte sich schon der erste gemütliche Spätsommerabend verstecken."
+    },
+    "res://collections/levels/fruit_10_fruit_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Farbe hätte als Sonnenuntergang ebenfalls eine überzeugende Karriere gemacht."
+    },
+    "res://collections/levels/fruit_11_fruit_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für einen Moment könnte diese Kokosnuss dein Reiseandenken von einer Insel sein, die es nur in der Fantasie gibt."
+    },
+    "res://collections/levels/fruit_14_fruit_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das kleine Blatt wirkt wie eine Unterschrift: Mit freundlichen Grüßen aus dem Obstgarten."
+    },
+    "res://collections/levels/fruit_15_fruit_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Kreis voller sonniger Segmente. So ordentlich kann ein Stück Sommer aussehen."
+    },
+    "res://collections/levels/fruit_16_fruit_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Scheibe könnte das offizielle Pausenzeichen eines heißen Sommertags sein."
+    },
+    "res://collections/levels/fruit_18_fruit_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir Körbe zwischen den Reben vor und einen Abend, an dem die Hände müde und die Gespräche lang werden."
+    },
+    "res://collections/levels/fruit_19_fruit_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Hälfte sieht aus wie eine kleine grüne Schale mit einem sehr großen Gast in der Mitte."
+    },
+    "res://collections/levels/fruit_20_fruit_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Ernte in Goldtönen: als hätte der Sommer noch ein paar warme Tage in die Früchte gepackt."
+    },
+    "res://collections/levels/flowers_02_flowers_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für dieses kleine Blümchen müsste man sich vielleicht nur kurz bücken, um einen schönen Moment zu finden."
+    },
+    "res://collections/levels/flowers_04_flowers_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein roter Tupfer in der Wiese — wie ein Ausrufezeichen, das keinen einzigen Satz erklären muss."
+    },
+    "res://collections/levels/flowers_05_flowers_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Veilchen würde wohl eher freundlich winken als laut um Aufmerksamkeit bitten."
+    },
+    "res://collections/levels/flowers_06_flowers_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Blüte in Weiß kann wirken wie ein stiller, sorgfältig freigehaltener Platz in einem bunten Garten."
+    },
+    "res://collections/levels/flowers_08_flowers_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Blüte könnte das Festkleid eines besonders warmen Nachmittags sein."
+    },
+    "res://collections/levels/flowers_09_flowers_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Pink wartet nicht auf einen Anlass. Es feiert offenbar schon, dass heute überhaupt ein Tag ist."
+    },
+    "res://collections/levels/flowers_10_flowers_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Aster könnte der freundliche Abschiedsgruß eines Gartens sein, der noch lange nicht schlafen möchte."
+    },
+    "res://collections/levels/flowers_11_flowers_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Als hätte jemand Sonnenlicht in handliche Blüten aufgeteilt und zwischen die Beete gesetzt."
+    },
+    "res://collections/levels/flowers_12_flowers_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Blüte sieht aus, als könnte ein Märchen genau dort beginnen, wo ihr letzter Rand leuchtet."
+    },
+    "res://collections/levels/flowers_14_flowers_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir einen kleinen blauen Blumenchor vor. Jede einzelne Blüte wartet auf ihren Einsatz."
+    },
+    "res://collections/levels/flowers_15_flowers_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Lupine trägt ihre Blüten wie eine bunte Treppe, die nur für kleine Gartenbesucher gedacht ist."
+    },
+    "res://collections/levels/flowers_16_flowers_16.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Lotusblätter haben eine winzig strukturierte, wasserabweisende Oberfläche. Abperlende Tropfen nehmen Schmutz mit: Dieser Selbstreinigung verdankt der Lotuseffekt seinen Namen.",
+      "source": "Royal Botanic Gardens Kew · Plants of the World Online",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:605422-1/general-information",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/flowers_18_flowers_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Tulpe scheint ein kleines Stück des Abendhimmels festhalten zu wollen, bevor die Nacht kommt."
+    },
+    "res://collections/levels/flowers_19_flowers_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "So viele Blütenblätter — als hätte die Dahlie beim Wort großzügig gar nicht mehr aufgehört zu zeichnen."
+    },
+    "res://collections/levels/flowers_20_flowers_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Strauß, in dem jede Farbe mitreden darf. Zum Glück muss sich niemand auf eine Lieblingsblüte einigen."
+    },
+    "res://collections/levels/workshop_02_workshop_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein passendes Werkzeug und plötzlich wird aus ratlosem Drehen ein Plan. Ein schönes Gefühl."
+    },
+    "res://collections/levels/workshop_03_workshop_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese kleine Spitze könnte der Anfang von etwas sein, das du später stolz selbst gebaut hast."
+    },
+    "res://collections/levels/workshop_05_workshop_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nach der Arbeit wartet ein freier Weg. Der Besen würde dafür vermutlich gern ein stilles Dankeschön bekommen."
+    },
+    "res://collections/levels/workshop_06_workshop_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Spatenstich könnte die erste Zeile einer Geschichte sein, die im Sommer als Blüte weitererzählt wird."
+    },
+    "res://collections/levels/workshop_07_workshop_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Garten hat seine Farben auf den Boden gelegt. Jetzt lässt sich der Herbst sogar zusammenkehren."
+    },
+    "res://collections/levels/workshop_08_workshop_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Schlüssel öffnet vielleicht keine Tür, aber durchaus den nächsten Schritt eines guten Plans."
+    },
+    "res://collections/levels/workshop_10_workshop_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch eine große Idee darf mit dem kleinen Gedanken beginnen, gut auf die Menschen aufzupassen, die sie bauen."
+    },
+    "res://collections/levels/workshop_12_workshop_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein sorgfältig gezeichneter Kreis wirkt wie ein kurzer Moment Ordnung auf einem Tisch voller Ideen."
+    },
+    "res://collections/levels/workshop_13_workshop_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unter dieser Lampe könnte aus einem alten Fundstück gerade das nächste Lieblingsstück werden."
+    },
+    "res://collections/levels/workshop_14_workshop_14.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die berühmte Yamaki-Kiefer wird seit 1625 als Bonsai gestaltet und gepflegt. Ein kleiner Baum kann also die Arbeit vieler Generationen in sich tragen.",
+      "source": "National Bonsai Foundation · Yamaki Pine",
+      "url": "https://www.bonsai-nbf.org/yamaki-pine",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/workshop_16_workshop_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Getränk für den Garten — heute gehen die ersten Schlucke an die Blumen."
+    },
+    "res://collections/levels/workshop_17_workshop_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine klare Linie, ein ruhiger Handgriff. Manches Handwerk beginnt mit genau dieser Aufmerksamkeit."
+    },
+    "res://collections/levels/workshop_19_workshop_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In dieser Tasche könnten lauter Antworten auf die Frage liegen: Wie bekommen wir das wieder hin?"
+    },
+    "res://collections/levels/workshop_20_workshop_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier könnte ein kaputtes Gerät heute seinen zweiten Anfang bekommen. Das wäre ein schöner Feierabend."
+    },
+    "res://collections/levels/music_02_music_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vier Saiten, ein kleiner Korpus und in der Fantasie schon genug Musik für einen ganzen Strandabend."
+    },
+    "res://collections/levels/music_03_music_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein stilles Instrument im Licht. Gleich könnte der erste Ton den ganzen Raum verändern."
+    },
+    "res://collections/levels/music_04_music_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir eine Veranda vor, einen warmen Abend und eine Melodie, bei der niemand die Zeit zählen möchte."
+    },
+    "res://collections/levels/music_05_music_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Trommel würde wohl selbst den gemütlichen Gang zur Küche als kleinen Auftritt begleiten."
+    },
+    "res://collections/levels/music_07_music_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei kleine Rasseln und plötzlich haben auch die Hände Lust, beim Lied mitzureden."
+    },
+    "res://collections/levels/music_08_music_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Trompete sieht aus, als hätte sie für einen besonders guten Tag schon den ersten Ton vorbereitet."
+    },
+    "res://collections/levels/music_09_music_09.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Ein Saxofon besteht meist aus Messing und gehört trotzdem zu den Holzblasinstrumenten. Entscheidend ist die Tonerzeugung durch ein schwingendes Rohrblatt.",
+      "source": "Yamaha · The Woodwind Family, Explained",
+      "url": "https://hub.yamaha.com/winds/wood/the-woodwind-family-explained/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/music_10_music_10.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Auch eine Querflöte aus Metall zählt zu den Holzblasinstrumenten. Bei ihr entsteht der Ton an einer angeblasenen Kante — ganz ohne das Rohrblatt eines Saxofons.",
+      "source": "Yamaha · The Woodwind Family, Explained",
+      "url": "https://hub.yamaha.com/winds/wood/the-woodwind-family-explained/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/music_11_music_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Saiten sehen aus wie eine Leiter, auf der ein Lied ganz vorsichtig ins Zimmer steigen könnte."
+    },
+    "res://collections/levels/music_13_music_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei Noten stehen beisammen. Vielleicht ist das der kleinste mögliche Anfang einer gemeinsamen Melodie."
+    },
+    "res://collections/levels/music_14_music_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welchen Klang hätte Türkis? An diesem Instrument dürfte man die Antwort einfach ausprobieren."
+    },
+    "res://collections/levels/music_16_music_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Lied kann einem Zimmer eine ganz andere Stimmung geben. Welches würde zu diesem Licht passen?"
+    },
+    "res://collections/levels/music_17_music_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Radio könnte ein Lied spielen, bei dem jemand sofort wieder weiß, wie ein längst vergangener Sommer roch."
+    },
+    "res://collections/levels/music_19_music_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Display, eine lange Playlist. Vielleicht wartet der passende Soundtrack zum heutigen Tag schon darin."
+    },
+    "res://collections/levels/music_20_music_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein leerer Platz im Scheinwerferlicht: Für einen Augenblick kannst du dir deinen eigenen Auftritt vorstellen."
+    },
+    "res://collections/levels/sports_02_sports_02.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Beim ersten Basketballspiel 1891 warfen zwei Teams mit je neun Spielern auf Pfirsichkörbe, die am Balkon der Turnhalle befestigt waren. Der Obstkorb wurde zum Sportgerät.",
+      "source": "New York City Municipal Archives",
+      "url": "https://www.archives.nyc/blog/2018/11/30/basketball",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/sports_03_sports_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir Sand zwischen den Zehen vor und einen Ball, für den gerade alle anderen Pläne warten dürfen."
+    },
+    "res://collections/levels/sports_04_sports_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses helle Gelb könnte das kleinste bewegliche Stück Sonne auf dem Platz sein."
+    },
+    "res://collections/levels/sports_05_sports_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein weiter Rasen, ein warmer Nachmittag und der Augenblick kurz vor dem Wurf. Alles wartet auf Bewegung."
+    },
+    "res://collections/levels/sports_07_sports_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Schläger ist bereit. Für die erste gute Runde braucht es jetzt vor allem jemanden auf der anderen Seite."
+    },
+    "res://collections/levels/sports_09_sports_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch die kleine Wiederholung zählt. Sie ist vielleicht der unspektakuläre Teil, auf den du später stolz bist."
+    },
+    "res://collections/levels/sports_11_sports_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Medaille könnte ebenso gut an einen stillen Erfolg erinnern, bei dem niemand auf einer Tribüne saß."
+    },
+    "res://collections/levels/sports_12_sports_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vier kleine Rollen und ein großer Spielraum für den Satz: Ich probiere das noch einmal."
+    },
+    "res://collections/levels/sports_13_sports_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die erste sichere Kurve auf dem Eis kann sich anfühlen wie eine kleine, selbst eroberte Freiheit."
+    },
+    "res://collections/levels/sports_14_sports_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir die Pause am Hang vor: kalte Luft, ein weiter Blick und der nächste Schwung noch ganz ungeschrieben."
+    },
+    "res://collections/levels/sports_15_sports_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Hang wartet. Die eigene Spur darf heute so aussehen, wie du sie dir gerade zutraust."
+    },
+    "res://collections/levels/sports_16_sports_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für diese Tour könnte das schönste Ziel ein Platz sein, an dem du ursprünglich gar nicht vorbeikommen wolltest."
+    },
+    "res://collections/levels/sports_17_sports_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Helm im Licht erinnert an den guten Teil jeder Abfahrt: am Ende wieder heil zusammen anzukommen."
+    },
+    "res://collections/levels/sports_20_sports_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist der beste Trainingsplan einer, in dem auch Freude und ein freundlicher Umgang mit dir selbst Platz haben."
+    },
+    "res://collections/levels/toys_01_toys_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Bär kennt in unserer Fantasie alle Geschichten, die im Kinderzimmer jemals vor dem Einschlafen erzählt wurden."
+    },
+    "res://collections/levels/toys_02_toys_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Gesicht, ein buntes Kleid — für ein Kind könnte darin eine ganze beste Freundin stecken."
+    },
+    "res://collections/levels/toys_03_toys_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Roboter bekäme vermutlich den wichtigsten Auftrag des Tages: das Wohnzimmer in eine Raumstation verwandeln."
+    },
+    "res://collections/levels/toys_04_toys_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Strecke über den Teppich kann in Gedanken durch Berge, Tunnel und weit entfernte Städte führen."
+    },
+    "res://collections/levels/toys_05_toys_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für dieses Auto könnte schon eine Sofakante ein ziemlich beeindruckender Gebirgspass sein."
+    },
+    "res://collections/levels/toys_07_toys_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine lange Reise, bei der man immer im selben Zimmer bleibt. Fantasie kommt erstaunlich weit ohne Fahrkarte."
+    },
+    "res://collections/levels/toys_08_toys_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Mit dieser Krone könnte heute ein Königreich beginnen, dessen wichtigste Regel lautet: Alle dürfen mitspielen."
+    },
+    "res://collections/levels/toys_09_toys_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir vor, der Wind hält die Schnur am anderen Ende. Ein kleines gemeinsames Spiel mit dem Himmel."
+    },
+    "res://collections/levels/toys_10_toys_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Ball braucht keine lange Anleitung. Vielleicht genügt schon der Blick: Fang!"
+    },
+    "res://collections/levels/toys_12_toys_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die erste eigene Band kann aus einer Trommel und einem sehr verständnisvollen Wohnzimmer bestehen."
+    },
+    "res://collections/levels/toys_14_toys_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für ein winziges Tässchen braucht es keinen winzigen Anlass. Die Teeparty darf ruhig ein großes Ereignis sein."
+    },
+    "res://collections/levels/toys_16_toys_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Zauberwort fehlt noch. Vielleicht eines, das heute alle Spielsachen in etwas völlig Neues verwandelt."
+    },
+    "res://collections/levels/toys_17_toys_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Startplatz Teppich, Ziel Mond. In diesem Kinderzimmer wird heute mit ausgesprochen kurzen Reisezeiten gerechnet."
+    },
+    "res://collections/levels/toys_18_toys_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Controller, ein freier Abend und vielleicht jemand, der dieselbe kleine Spielwelt mit dir teilen möchte."
+    },
+    "res://collections/levels/toys_19_toys_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Solange er sich dreht, wirkt sogar das Warten wie ein kleines Schauspiel."
+    },
+    "res://collections/levels/toys_20_toys_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In dem Paket könnte weniger ein Gegenstand liegen als der Anfang vieler noch unbekannter Spielnachmittage."
+    },
+    "res://collections/levels/travel_02_travel_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Rucksack ist gepackt. Für das Schönste unterwegs sollten wir trotzdem ein bisschen freien Platz lassen."
+    },
+    "res://collections/levels/travel_04_travel_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Richtung ist ein guter Anfang. Was am Wegesrand wartet, darf ruhig eine Überraschung bleiben."
+    },
+    "res://collections/levels/travel_05_travel_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dreh die Welt gedanklich ein kleines Stück weiter. Irgendwo liegt ein Ort, den du noch gar nicht vermisst, weil du ihn nicht kennst."
+    },
+    "res://collections/levels/travel_07_travel_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Hütte könnte genau groß genug sein für eine Pause — und angenehm zu klein für den ganzen Alltagslärm."
+    },
+    "res://collections/levels/travel_08_travel_08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir einen Tag vor, an dem die wichtigste Terminfrage lautet: Wann gehen wir wieder ins Wasser?"
+    },
+    "res://collections/levels/travel_10_travel_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vom Gipfel aus dürfte der lange Aufstieg wie eine einzige gute Entscheidung aussehen. Die Pause gehört dazu."
+    },
+    "res://collections/levels/travel_11_travel_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Segel, ein Horizont und der freundliche Gedanke, dass der Weg heute schon Teil des Ziels sein darf."
+    },
+    "res://collections/levels/travel_13_travel_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Reise im Luftschiff wäre in unserer Fantasie die eleganteste Möglichkeit, den Alltag langsam kleiner werden zu lassen."
+    },
+    "res://collections/levels/travel_14_travel_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manches Foto bewahrt einen Ort. Ein anderes erinnert vor allem daran, mit wem man dort gelacht hat."
+    },
+    "res://collections/levels/travel_15_travel_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das kleine Zuhause fährt mit. Für den nächsten Morgen könnte ein völlig anderes Fensterbild bereitstehen."
+    },
+    "res://collections/levels/travel_17_travel_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Hut wäre eine passende Krone für einen Tag, an dem nur die Sonne große Pläne hat."
+    },
+    "res://collections/levels/travel_18_travel_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Flasche, ein guter Platz zum Anhalten und plötzlich wird aus dem Weg eine richtige Pause."
+    },
+    "res://collections/levels/travel_19_travel_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Laterne könnte die erste Seite einer Geschichte beleuchten, die du morgen gern weitererzählst."
+    },
+    "res://collections/levels/fantasy_03_fantasy_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Schwert leuchtet. In dieser Geschichte könnte seine größte Tat trotzdem sein, einen Streit rechtzeitig zu beenden."
+    },
+    "res://collections/levels/fantasy_04_fantasy_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Welchen kleinen Zauber würdest du heute ausprobieren? Ein verlorenes Lächeln wäre vielleicht ein schönes erstes Ziel."
+    },
+    "res://collections/levels/fantasy_05_fantasy_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auf dem Etikett könnte stehen: Gegen schlechte Laune. Nebenwirkung: gelegentliches spontanes Kichern."
+    },
+    "res://collections/levels/fantasy_06_fantasy_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht öffnet dieser Schlüssel nur Türen, die man mit etwas Neugier überhaupt erst bemerkt."
+    },
+    "res://collections/levels/fantasy_09_fantasy_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ihr Licht könnte Dinge sichtbar machen, die man im Alltag zu hastig übersehen hat."
+    },
+    "res://collections/levels/fantasy_10_fantasy_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unter diesem Hut könnten sich lauter Ideen verstecken, die erst nach Sonnenuntergang herauskommen möchten."
+    },
+    "res://collections/levels/fantasy_11_fantasy_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In unserer Geschichte speichert dieser Kristall jeden freundlichen Moment, den jemand für unbedeutend gehalten hat."
+    },
+    "res://collections/levels/fantasy_12_fantasy_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein winziges Herz als großer Zauber: Vielleicht genügt es, wenn jemand sich für einen Augenblick verstanden fühlt."
+    },
+    "res://collections/levels/fantasy_13_fantasy_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Orakel würde vielleicht sagen: Die nächste Seite steht noch nicht fest. Das ist die gute Nachricht."
+    },
+    "res://collections/levels/fantasy_14_fantasy_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Kompass könnte dorthin zeigen, wo deine Träume nachts spazieren gehen."
+    },
+    "res://collections/levels/fantasy_15_fantasy_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In unserem Märchen darf der Phönix nach seinem großen Auftritt zuerst einmal eine ausgiebige Pause machen."
+    },
+    "res://collections/levels/fantasy_16_fantasy_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hinter dieser Maske könnte jemand stecken, der eigentlich nur sehr überzeugend beim Kostümfest auftreten möchte."
+    },
+    "res://collections/levels/fantasy_17_fantasy_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Wächter sieht aus, als hätte er einen guten Rat. Vermutlich beginnt er mit: Schau noch einmal in Ruhe hin."
+    },
+    "res://collections/levels/fantasy_19_fantasy_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Blüte könnte nur dann leuchten, wenn jemand sich ehrlich über etwas Kleines freut."
+    },
+    "res://collections/levels/landscapes_01_landscapes_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir vor, die ersten Strahlen erreichen den Gipfel, während das Tal noch einen letzten Moment schläft."
+    },
+    "res://collections/levels/landscapes_03_landscapes_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein See zwischen Bergen wirkt wie eine kleine Stelle, an der die Landschaft einmal tief durchatmet."
+    },
+    "res://collections/levels/landscapes_04_landscapes_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwischen diesen steilen Ufern könnte selbst ein großes Schiff aussehen wie ein vorsichtig hineingelegtes Spielzeug."
+    },
+    "res://collections/levels/landscapes_05_landscapes_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Bild hätte vermutlich einen kräftigen Soundtrack. Für einen Moment dürfen wir uns das Rauschen dazudenken."
+    },
+    "res://collections/levels/landscapes_06_landscapes_06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Fluss findet eine Linie durch die Landschaft. Die schönste Route muss offenbar nicht gerade sein."
+    },
+    "res://collections/levels/landscapes_07_landscapes_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Von oben sieht eine Schlucht wie eine Linie aus. Am Rand würde daraus plötzlich eine ganz andere Größenordnung."
+    },
+    "res://collections/levels/landscapes_09_landscapes_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir vor, der warme Sand wechselt langsam die Farbe. Ein Abend ohne Fenster, aber mit einem weiten Himmel."
+    },
+    "res://collections/levels/landscapes_11_landscapes_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner grüner Fleck könnte in dieser Landschaft mehr bedeuten als jede noch so große goldene Fläche."
+    },
+    "res://collections/levels/landscapes_12_landscapes_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Licht wird weich, die Schatten lang. In Gedanken darf dieser Abend noch ein bisschen länger dauern."
+    },
+    "res://collections/levels/landscapes_14_landscapes_14.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Palme könnte der perfekte Zeiger für eine Uhr sein, auf der nur noch Ferien steht."
+    },
+    "res://collections/levels/landscapes_15_landscapes_15.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auf dieser Insel wäre der Horizont vielleicht das größte Möbelstück des ganzen Urlaubs."
+    },
+    "res://collections/levels/landscapes_16_landscapes_16.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Die Farbe des Meeres kommt nicht einfach nur vom gespiegelten Himmel. Wasser schluckt rotes Licht stärker als blaues; auch Teilchen im Wasser können die Farbe verändern.",
+      "source": "NOAA · Why is the ocean blue?",
+      "url": "https://oceanservice.noaa.gov/facts/oceanblue.html",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/landscapes_17_landscapes_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stell dir die erste Meeresbrise nach einer langen Fahrt vor. Manchmal fühlt sich Ankommen genau so an."
+    },
+    "res://collections/levels/landscapes_18_landscapes_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwischen den Bäumen und dem Wasser könnte ein Platz liegen, den man später einfach seinen Lieblingsplatz nennt."
+    },
+    "res://collections/levels/landscapes_19_landscapes_19.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Wald wirkt wie ein Raum mit sehr hohen Wänden. Durch die Äste fällt gerade genug Licht für eine Geschichte."
+    },
+    "res://collections/levels/landscapes_20_landscapes_20.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Als Märchenfigur wäre dieser Berg vermutlich beeindruckend, wortkarg und gelegentlich ausgesprochen temperamentvoll."
+    },
+    "res://collections/levels/cosmos_01_cosmos_01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Kompass für das All dürfte ruhig ein bisschen größer denken als die nächste Straßenkreuzung."
+    },
+    "res://collections/levels/cosmos_02_cosmos_02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser erfundene Planet könnte nachts selbst die Leselampe seiner Bewohner sein."
+    },
+    "res://collections/levels/cosmos_03_cosmos_03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist das ein Schmuckstück, das eine sehr weit entfernte Welt am Rand des Universums verloren hat."
+    },
+    "res://collections/levels/cosmos_04_cosmos_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein einzelner Lichtpunkt im dunklen Bild — und die Fantasie baut schon einen ganzen Himmel darum herum."
+    },
+    "res://collections/levels/cosmos_05_cosmos_05.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Auf dem Mond beträgt die Schwerkraft etwa ein Sechstel der irdischen. Deine Masse bliebe gleich, aber dein Gewicht wäre deutlich kleiner — schwerelos wärst du trotzdem nicht.",
+      "source": "NASA · Top Moon Questions",
+      "url": "https://science.nasa.gov/moon/top-moon-questions/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/cosmos_06_cosmos_06.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Auf dem Mars können Sonnenuntergänge blau wirken. Feiner Staub in der Atmosphäre beeinflusst, welche Lichtfarben in der Nähe der untergehenden Sonne sichtbar werden.",
+      "source": "NASA/JPL-Caltech · Mastcam-Z's First Martian Sunset",
+      "url": "https://science.nasa.gov/resource/mastcam-zs-first-martian-sunset/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/cosmos_08_cosmos_08.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Ein Funksignal von der Erde zum Mars braucht je nach Stellung der Planeten ungefähr 4 bis 20 Minuten — nur für einen Weg. Direktes Fernsteuern wie bei einem Spielzeugauto wäre dort ziemlich schwierig.",
+      "source": "NASA · Deep Space Navigation",
+      "url": "https://www.nasa.gov/technology/how-an-atomic-clock-will-get-humans-to-mars-on-time/",
+      "checked": "2026-10-05"
+    },
+    "res://collections/levels/cosmos_10_cosmos_10.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der erste Schritt auf einer fremden Welt würde vermutlich ganz anders klingen als irgendein Spaziergang zu Hause."
+    },
+    "res://collections/levels/cosmos_11_cosmos_11.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Karte für Orte, die so weit entfernt sind, dass schon die Vorstellung der Reise ein Abenteuer wird."
+    },
+    "res://collections/levels/cosmos_12_cosmos_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In diesem Labor könnte die spannendste Frage des Tages mit einem sehr kleinen schwebenden Tropfen beginnen."
+    },
+    "res://collections/levels/cosmos_13_cosmos_13.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Fantasiebatterie hätte vielleicht genug Energie für eine lange Reise — und eine kleine Lampe zum Lesen unterwegs."
+    },
+    "res://collections/levels/cosmos_16_cosmos_16.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Blume aus Licht, mitten im erfundenen All. Für solche Gärten braucht die Fantasie keinen Boden."
+    },
+    "res://collections/levels/cosmos_17_cosmos_17.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Laterne am Himmel könnte aussehen wie ein Gruß, der seine Adresse noch unterwegs sucht."
+    },
+    "res://collections/levels/cosmos_18_cosmos_18.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Diese Brücke könnte zwei Orte verbinden, die bisher nur getrennt in deinen Träumen vorkamen."
+    },
+    "res://collections/levels/cozy_04_cozy_04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Strauß kann einem vertrauten Zimmer eine andere Stimmung geben. In diesem Bild darf er länger bleiben."
+    },
+    "res://collections/levels/cozy_05_cozy_05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein winziger Baum als großer Gesprächsanlass. Man könnte beim Hinschauen ganz vergessen, wie spät es ist."
+    },
+    "res://collections/levels/cozy_07_cozy_07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Kreis aus Licht auf dem Tisch — manchmal ist das schon fast die ganze Ausstattung für einen guten Abend."
+    },
+    "res://collections/levels/cozy_09_cozy_09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Becher wartet. Heute könnte der erste Schluck zu einem Morgen gehören, der noch kein bisschen hektisch ist."
+    },
+    "res://collections/levels/cozy_12_cozy_12.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Vielleicht ist das ein guter Augenblick, an jemanden zu denken, dem du gern einen kleinen freundlichen Gruß schicken würdest."
     }
   }
 }
