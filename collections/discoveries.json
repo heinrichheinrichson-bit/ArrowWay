@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "entries": {
+    "res://levels/01.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Baum aus Licht. Und aus vielen kleinen Entscheidungen, die du gerade getroffen hast."
+    },
+    "res://levels/02.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieses Herz ist jetzt frei. Ganz ohne komplizierte Beziehungsgespräche."
+    },
+    "res://levels/03.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Haus kann aus Wegen bestehen. Zuhause wird es vielleicht erst durch die Farbe."
+    },
+    "res://levels/04.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute ist der Winter hell. Und die Handschuhe bleiben in der Schublade."
+    },
+    "res://levels/05.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Verbindungen versteht man erst, wenn man ihnen ein wenig Raum gibt."
+    },
+    "res://levels/06.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Fenster leuchten. Vielleicht wartet darin gerade jemand auf eine gute Geschichte."
+    },
+    "res://levels/07.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei Flügel, viele Wege. Welcher Teil war für dich der schönere Umweg?"
+    },
+    "res://levels/08.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Urlaub für den Blick. Ohne Sand zwischen den Zehen."
+    },
+    "res://levels/09.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Blüte bleibt. Nur die Arbeit mit ihren Wegen ist jetzt vorbei."
+    },
+    "res://collections/levels/animals_08_animals_08.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Ein erwachsener Koala frisst pro Nacht ungefähr ein halbes bis ein Kilogramm Blätter. Für einen so gemütlich wirkenden Nachbarn ist das eine beachtliche Portion.",
+      "source": "Australian Koala Foundation",
+      "url": "https://savethekoala.com/about-koalas/interesting-facts/"
+    },
+    "res://collections/levels/ocean_06_ocean_06.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Ein Oktopus hat drei Herzen: Zwei versorgen die Kiemen, eines den übrigen Körper. Sein Blut ist blau, weil sein Sauerstofftransporter Kupfer enthält.",
+      "source": "Smithsonian Ocean",
+      "url": "https://ocean.si.edu/ocean-life/invertebrates/octopuses-squids-and-relatives"
+    },
+    "res://collections/levels/space_04_saturn.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Saturns Ringe sind keine festen Scheiben. Sie bestehen aus unzähligen Eisstückchen, Staub und Gestein – jedes Teilchen kreist für sich um den Planeten.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/mission/cassini/faq/"
+    },
+    "res://collections/levels/world_01_eiffel.json": {
+      "kind": "Kleine Entdeckung",
+      "text": "Sonne kann den Eiffelturm leicht zur schattigen Seite neigen. Seine Spitze kann an einem sonnigen Tag dabei einen Bogen von etwa 15 Zentimetern beschreiben.",
+      "source": "Eiffelturm · SETE",
+      "url": "https://www.toureiffel.paris/fr/actualites/histoire-et-culture/pourquoi-la-tour-eiffel-change-de-taille"
+    },
+    "res://collections/levels/art_01_sunflowers.json": {
+      "kind": "Kunst neu gedacht",
+      "text": "Inspiriert von Vincent van Goghs Sonnenblumen, 1888–1889. Er erprobte, wie viel sich mit Gelbtönen erzählen lässt – sogar die verblühten Blumen bekamen ihren Platz.",
+      "source": "Van Gogh Museum",
+      "url": "https://www.vangoghmuseum.nl/en/collection/s0031V1962"
+    },
+    "res://collections/levels/art_02_wave.json": {
+      "kind": "Kunst neu gedacht",
+      "text": "Inspiriert von Hokusais Großer Welle, etwa 1830–1832. Der berühmte Holzschnitt gehört zu einer Serie über den Berg Fuji – der kleine Berg im Hintergrund ist ihr eigentlicher Namensgeber.",
+      "source": "The Metropolitan Museum of Art",
+      "url": "https://www.metmuseum.org/art/collection/search/45434"
+    },
+    "res://collections/levels/space_01_star.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dieser Stern braucht keinen klaren Himmel. Nur deinen letzten freien Weg."
+    },
+    "res://collections/levels/space_02_moon.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Mond nimmt sich Zeit. Du darfst das jetzt auch."
+    },
+    "res://collections/levels/space_03_rocket.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Startklar. Und diesmal musste niemand vorher den Treibstoff bezahlen."
+    },
+    "res://collections/levels/art_03_wheat.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Feld aus Licht. Was würdest du hören, wenn du mitten darin stehen könntest?"
+    },
+    "res://collections/levels/art_04_bridge.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Brücken bringen dich an ein anderes Ufer. Diese bringt dich vielleicht für einen Moment zur Ruhe."
+    }
+  }
+}

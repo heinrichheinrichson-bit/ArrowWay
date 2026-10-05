@@ -50,6 +50,8 @@ var session_in_progress := false
 var resume_enabled := not OS.get_cmdline_user_args().has("--test")
 var compact_buttons: Array[Button] = []
 var play_title: Label
+var discovery_card: Panel
+var safe_area_override := Rect2()
 var board: Node2D
 var generation_seed := 9121
 var clock_time := 0.0
@@ -247,6 +249,7 @@ func build_controls() -> void:
 		c.queue_free()
 	controls.clear()
 	compact_buttons.clear()
+	discovery_card=null
 	next_button = null
 	sound_button = button("Ton: An" if feedback.enabled else "Ton: Aus", 402, 30, 108, toggle_sound)
 	if editor:
@@ -326,12 +329,18 @@ func build_controls() -> void:
 		play_title.text = level_title(level)
 		play_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		play_title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		play_title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-		play_title.add_theme_font_size_override("font_size", 16)
-		play_title.modulate = Color("#9aabc2")
+		play_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		play_title.add_theme_font_size_override("font_size", 20)
+		play_title.modulate = Color("#e4edf7")
 		play_title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		panel.add_child(play_title)
 		controls.append(play_title)
+		discovery_card=Panel.new()
+		discovery_card.set_script(load("res://discovery_card.gd"))
+		discovery_card.game=self
+		discovery_card.data=load("res://discoveries.gd").for_level(self)
+		panel.add_child(discovery_card)
+		controls.append(discovery_card)
 		compact_buttons[0].tooltip_text = "Dein Weg" if journey_mode else "Hauptmenü"
 		compact_buttons[1].tooltip_text = "Neu beginnen"
 		compact_buttons[2].tooltip_text = "Hinweis"
@@ -372,7 +381,20 @@ func update_play_layout() -> void:
 		queue_redraw()
 		return
 	var size := get_viewport_rect().size
-	var area := Rect2(12, 76, size.x - 24, size.y - 162)
+	var safe: Rect2=load("res://play_safe_area.gd").for_game(self)
+	var title_width:=maxf(100,safe.size.x-48)
+	var title_height:=maxf(30,ThemeDB.fallback_font.get_multiline_string_size(play_title.text,HORIZONTAL_ALIGNMENT_CENTER,title_width,20).y)
+	var header_y:=safe.position.y+12
+	var board_top:=header_y+54+title_height+14
+	var board_bottom:=safe.end.y-86
+	if is_instance_valid(discovery_card):
+		var card_width:=safe.size.x-48
+		var text_height:=ThemeDB.fallback_font.get_multiline_string_size(discovery_card.data.text,HORIZONTAL_ALIGNMENT_LEFT,card_width-40,18).y
+		var card_height:=text_height+58+(44 if discovery_card.source!=null else 0)
+		discovery_card.position=Vector2(safe.position.x+24,safe.end.y-80-card_height)
+		discovery_card.size=Vector2(card_width,card_height)
+		if win_time>=0: board_bottom=discovery_card.position.y-18
+	var area := Rect2(safe.position.x+12,board_top,safe.size.x-24,maxf(100,board_bottom-board_top))
 	var bounds := Rect2()
 	var first := true
 	for arrow in arrows:
@@ -385,14 +407,14 @@ func update_play_layout() -> void:
 	board_clip.size = area.size
 	board_navigation.configure(bounds,zoom)
 	if compact_buttons.size() == 3:
-		compact_buttons[0].position = Vector2(16, 16)
-		compact_buttons[1].position = Vector2(size.x - 120, 16)
-		compact_buttons[2].position = Vector2(size.x - 64, 16)
+		compact_buttons[0].position = Vector2(safe.position.x+16, header_y)
+		compact_buttons[1].position = Vector2(safe.end.x - 120, header_y)
+		compact_buttons[2].position = Vector2(safe.end.x - 64, header_y)
 		for control in compact_buttons: control.size = Vector2(48, 48)
-		play_title.position = Vector2(76, 16)
-		play_title.size = Vector2(maxf(0, size.x - 208), 48)
+		play_title.position = Vector2(safe.position.x+24, header_y+54)
+		play_title.size = Vector2(title_width,title_height)
 	if is_instance_valid(next_button):
-		next_button.position = Vector2((size.x - 220) * 0.5, size.y - 64)
+		next_button.position = Vector2(safe.get_center().x-110, safe.end.y - 64)
 		next_button.size = Vector2(220, 48)
 		next_button.visible = win_time >= 0
 		next_button.disabled = win_time >= 0 and win_time < 1.95
@@ -941,6 +963,8 @@ func finish_puzzle(restored := false) -> void:
 		level_picker.set_item_disabled(unlocked, false)
 		save_progress()
 	session_in_progress=false
+	update_play_layout()
+	update_play_layout.call_deferred()
 	queue_session()
 
 func free_paths() -> Array[int]:
@@ -966,6 +990,7 @@ func mark_releases() -> void:
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
 
 func _notification(what: int) -> void:
+	if what==NOTIFICATION_APPLICATION_RESUMED and is_instance_valid(board): update_play_layout.call_deferred()
 	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_CLOSE_REQUEST,NOTIFICATION_WM_GO_BACK_REQUEST] and is_instance_valid(session_store):
 		queue_session(); session_store.flush()
 	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not journey_mode: return
@@ -1396,8 +1421,6 @@ func text_at(text: String, pos: Vector2, size: int, color: Color, width: float =
 func _draw() -> void:
 	if compact_play():
 		var size := get_viewport_rect().size
-		if win_time >= 0:
-			text_at("Geschafft", Vector2(0, size.y - 78), 17, Color("#d9fff3"), size.x)
 		return
 	var box := StyleBoxFlat.new()
 	box.bg_color = Color("#080d18")

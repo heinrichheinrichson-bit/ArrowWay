@@ -8,13 +8,17 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.16.1-dev
+## Aktueller Stand · 0.17.0-dev
 
 Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
 
 - **Deine Reise**: ein nach oben führender Neonpfad mit sieben großen Themenstationen. Überkategorien und ihre Unterkategorien liegen durch sichtbare Pfade verbunden auf derselben Karte. Erst Unterkategorien öffnen ihre vollständige Rätselübersicht. Häkchen und die nächste Themenwelt gibt es erst nach sämtlichen zugehörigen Lösungen. Zukünftige Themen bleiben dezent sichtbar, ihre Inhalte verborgen. Wischen, sanftes Ausgleiten und gespeicherte Kartenpositionen erleichtern die Navigation. [Ansichten und Freischaltungen](JOURNEY.md).
 
 - **Begonnene Rätsel fortsetzen**: Jeder angefangene Spielstand bleibt separat erhalten – einschließlich entkommener Pfeile, laufender Animationen, Zoom und Bildposition. Speichern läuft im Hintergrund; beim Verlassen oder Wechsel in den Hintergrund wird der letzte Stand gesichert. Eine vorherige Sicherung dient bei beschädigter Datei als Rückfall. Veränderte Motive übernehmen keine unpassenden alten Pfeilstände. Ein bestätigter Neustart beginnt bewusst von vorn.
+
+- **Entdeckungen nach dem Abschluss**: Nach der Lichtwelle erscheint eine lesbare Textkarte mit Fakten, Kunstgeschichten oder eigenen Gedanken. 20 Motive haben eigene Texte; die übrigen erhalten einen als Gedanken gekennzeichneten Impuls. Fakten enthalten eine Quellenaktion. Die Karte verdeckt weder Kunstwerk noch Weiter-Button und verschwindet beim Neustart.
+
+- **Präsenter Bildtitel**: eigene helle Zeile mit 20-Punkt-Schrift und Zeilenumbruch unter den Symbolen. Kameraausschnitt und sichere Displayränder werden aus physischen Bildschirmkoordinaten in die Spielansicht umgerechnet.
 
 - **Android im festen Hochformat**: Start und Spielansicht bleiben im Hochformat, auch bei gedrehtem Gerät.
 
