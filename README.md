@@ -8,11 +8,12 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.17.6-dev
+## Aktueller Stand · 0.17.7-dev
 
 Der Lichtschein im Spielfeld ist etwas kräftiger und breiter abgestimmt; die dunkle Mitte bleibt erhalten.
+Einzelne schwache, unbewegte Sternpunkte ergänzen die Atmosphäre und bleiben am Rand sichtbarer als in der Mitte.
 
-- **Ruhige Atmosphäre im Spielfeld**: Ein statischer Lichtschein an den äußeren Rändern übernimmt die beiden stärksten Grundfarben des vollständigen Motivs. Die Mitte bleibt dunkel; keine Sterne oder Konturen lenken vom Antippen ab. Die Palette bleibt während des Spielens konstant. Nach dem letzten Pfeil verstärkt sich der Schein kurz im Takt des Kunstwerks und klingt wieder ab. Zoom und Verschieben bewegen ausschließlich das Motiv.
+- **Ruhige Atmosphäre im Spielfeld**: Ein statischer Lichtschein an den äußeren Rändern übernimmt die beiden stärksten Grundfarben des vollständigen Motivs. Die Mitte bleibt dunkel; keine bewegten Partikel oder Konturen lenken vom Antippen ab. Die Palette bleibt während des Spielens konstant. Nach dem letzten Pfeil verstärkt sich der Schein kurz im Takt des Kunstwerks und klingt wieder ab. Zoom und Verschieben bewegen ausschließlich das Motiv.
 
 - **Lichtwelt für Startseite und Reise**: Farbiger Lichtnebel, ruhige Sternpunkte und feine Konturen am Rand. Die Atmosphäre wechselt entlang des Pfads mit der Themenwelt; Hintergrundkonturen bewegen sich beim Scrollen langsamer als die Stationen. Nach dem ersten Abschluss zeigt die Startseite das zuletzt gelöste veröffentlichte Kunstwerk mit sanftem Leuchten und direktem Zugang zum Album. Der Spielstart bleibt separat erreichbar. Hintergrundelemente fangen keine Eingaben ab und verraten keine gesperrten Unterkategorien.
 
