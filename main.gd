@@ -37,6 +37,7 @@ var level_picker: OptionButton
 var panel: Control
 var board_navigation: Node
 var board_clip: Control
+var play_atmosphere: ColorRect
 var home_menu: Control
 var journey: Control
 var journey_mode := not OS.get_cmdline_user_args().has("--test") and not OS.get_cmdline_user_args().has("--editor-tool")
@@ -85,6 +86,10 @@ func _ready() -> void:
 	var preferences := ConfigFile.new()
 	if preferences.load(storage_prefix + "settings.cfg") == OK:
 		feedback.set_enabled(bool(preferences.get_value("audio", "enabled", true)))
+	play_atmosphere=ColorRect.new()
+	play_atmosphere.set_script(load("res://play_atmosphere.gd"))
+	play_atmosphere.game=self
+	add_child(play_atmosphere)
 	var clip := Control.new()
 	board_clip = clip
 	clip.position = Vector2(20, 165)
@@ -835,6 +840,7 @@ func reset(resume_saved := false) -> void:
 		arrows = clone_data(editor_data)
 	elif not read_custom(level_path(level)):
 		arrows = ArrowPuzzle.generate(level_shape(level), 4817 + level * 173)
+	if is_instance_valid(play_atmosphere): play_atmosphere.configure()
 	cleared = 0
 	mistakes = 0
 	clock_time = 0.0

@@ -16,15 +16,20 @@ func run() -> void:
 	root.add_child(scene)
 	await process_frame
 	var original = scene.clone_data(scene.arrows)
+	var backdrop_color: Color=scene.play_atmosphere.material.get_shader_parameter("accent")
+	require(scene.play_atmosphere.mouse_filter==Control.MOUSE_FILTER_IGNORE,"Atmosphere never intercepts arrow taps")
 	for index in ArrowPuzzle.solution(scene.arrows):
 		scene.click_at(scene.arrows[index].points[0])
 		scene._process(2.0)
 	require(scene.win_time == 0.0, "Celebration starts only after the last arrow leaves")
+	require(scene.play_atmosphere.material.get_shader_parameter("accent")==backdrop_color,"Removing arrows never changes the cached artwork palette")
 	require(scene.next_button.visible and scene.next_button.disabled, "Next action waits for the artwork reveal")
 	for time in [0.0, 0.65, 1.3, 2.2]:
 		scene.win_time = time
 		scene._process(0.0)
 		scene.board._process(0.0)
+		scene.play_atmosphere._process(0.0)
+		require(scene.play_atmosphere.material.get_shader_parameter("completion")==time,"Background shares the artwork completion clock")
 		for index in scene.arrows.size():
 			var stroke: ColorRect = scene.board.strokes[index]
 			require(stroke.visible, "Removed arrows participate in the completion artwork")
@@ -39,6 +44,7 @@ func run() -> void:
 	scene._process(0.0)
 	require(not scene.next_button.disabled, "Next action is available after the reveal")
 	scene.reset()
+	require(scene.play_atmosphere.material.get_shader_parameter("completion")==-1.0,"Restart clears the background celebration")
 	scene.board._process(0.0)
 	require(scene.win_time < 0 and scene.cleared == 0 and not scene.next_button.visible, "Restart resets completion state")
 	for stroke in scene.board.strokes:
