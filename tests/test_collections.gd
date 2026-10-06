@@ -13,10 +13,12 @@ func require(ok: bool, message: String) -> void:
 
 func run() -> void:
 	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
-	require(catalog.levels.size() == 500, "All 500 authored motifs appear in the catalog")
+	require(catalog.levels.size() == 814, "All 814 authored motifs appear in the catalog")
 	var titles := {}
 	var masks := {}
 	var scene := LibraryHarness.new()
+	scene.storage_prefix = "user://test_full_catalog_"
+	scene.resume_enabled = false
 	scene.scan_user_exports = true
 	root.add_child(scene)
 	var groups := {}
@@ -52,12 +54,12 @@ func run() -> void:
 		require(scene.completed.has(scene.level), "Completion is recorded independently")
 		var next: int = scene.next_collection_level(scene.level)
 		require(next < 0 or scene.level_collection(next).id == entry.collection.id, "Next puzzle stays within its collection")
-		if titles.size() % 50 == 0: print("PLAYED ",titles.size(),"/500")
+		if titles.size() % 50 == 0: print("PLAYED ",titles.size(),"/814")
 	var definition: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/journey.json"))
 	var expected := {}
 	for id in definition.groups:
 		if id!="base": expected[id]=int(definition.groups[id].count)
-	require(groups == expected and groups.size()==42, "42 complete collections have the intended counts")
+	require(groups == expected and groups.size()==expected.size(), "All collections have the intended counts")
 	require(scene.unlocked == 0, "Completing collections does not change campaign unlocks")
 	scene.collection_filter = "all"
 	scene.gallery_page = 0
@@ -70,7 +72,7 @@ func run() -> void:
 	var filters: OptionButton = scene.gallery.get_child(4)
 	filters.item_selected.emit(2)
 	cards = scene.gallery.get_child(3).get_child(0)
-	require(scene.collection_filter == "world" and scene.gallery_page == 0 and cards.get_child_count() == 7, "Collection filter resets pagination and displays seven landmark motifs")
+	require(scene.collection_filter == "world" and scene.gallery_page == 0 and cards.get_child_count() == groups.world, "Collection filter resets pagination and displays the complete landmark collection")
 	var first_index: int = cards.get_child(0).number
 	cards.get_child(0).pressed.emit()
 	require(scene.level == first_index and not is_instance_valid(scene.gallery), "Filtered card launches its correct puzzle")
@@ -104,5 +106,5 @@ func run() -> void:
 	require(cards.get_child_count() == 4 and cards.get_child(0).number == 996, "Last page of a thousand-entry index has the correct remaining entries")
 	require(scene.gallery.get_child(6).disabled, "Next page is disabled at the end of a large index")
 	for name in ["progress.cfg","settings.cfg"]: DirAccess.remove_absolute(scene.storage_prefix + name)
-	print("PASS 500 motifs: unique geometry, complete coverage, all real gameplay solutions, gradients, pagination, filtering, next puzzle and progress" if failures == 0 else "%d FAILURES" % failures)
+	print("PASS 814 motifs: unique geometry, complete coverage, all real gameplay solutions, gradients, pagination, filtering, next puzzle and progress" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

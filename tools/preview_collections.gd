@@ -3,7 +3,10 @@ extends SceneTree
 func _initialize() -> void: call_deferred("render")
 
 func render() -> void:
-	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
+	var args := OS.get_cmdline_user_args()
+	var catalog_path := "res://collections/catalog.json"
+	if args.has("--catalog"): catalog_path=args[args.find("--catalog")+1]
+	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(catalog_path))
 	if OS.get_cmdline_user_args().has("--pending"):
 		catalog.levels.clear()
 		for filename in DirAccess.get_files_at("res://collections/levels"):
@@ -61,6 +64,7 @@ func render() -> void:
 		viewport.queue_free()
 		print("Rendered ", id)
 	rounder.free()
+	if args.has("--catalog"): quit(); return
 	var game = load("res://main.tscn").instantiate()
 	game.storage_prefix = "user://test_preview_"
 	game.scan_user_exports = true

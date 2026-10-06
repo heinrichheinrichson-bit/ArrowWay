@@ -1,0 +1,439 @@
+# category | palette; icon | title | original completion thought
+@medicine_01|rose
+heart-organ|Herz im Takt|Dein Herz kennt keinen Feierabend. Dieses kleine Rätsel zum Glück schon.
+lungs|Zwei Lungenflügel|Ein guter Moment, um einmal durchzuatmen, bevor der nächste Weg beginnt.
+brain|Das denkende Gehirn|Das Gehirn hat sich gerade selbst ein kleines Erfolgserlebnis organisiert.
+pelvis-bone|Beckenbogen|Stabilität muss nicht wie ein gerader Balken aussehen. Manchmal ist sie ein Bogen.
+forearm|Unterarm in Bewegung|Ein kleiner Dreh verändert die Richtung. Das galt gerade auch für deinen Blick.
+anatomy|Körperatlas|Innen sind wir erstaunlich gut verbunden. Hier hast du die Wege nach außen gefunden.
+@medicine_02|sky
+human-ear|Ohrmuschel|Nicht jedes Kunstwerk muss laut sein, um Aufmerksamkeit zu bekommen.
+eyeball|Ein wacher Blick|Der Blick hat gearbeitet. Jetzt darf er sich am fertigen Bild ausruhen.
+nose-front|Die feine Nase|Manche Erinnerungen kommen durch die Nase, bevor man überhaupt an sie denkt.
+tongue|Geschmackssache|Über Geschmack lässt sich streiten. Über dieses gelöste Rätsel freuen wir uns einfach.
+finger-print|Spuren eines Fingers|Ausgerechnet ein Finger hat dieses Bild von einem Fingerabdruck freigemacht.
+@medicine_03|mint
+stethoscope|Leise Herztöne|Manchmal beginnt Verstehen damit, dass man genauer hinhört.
+syringe|Präziser Tropfen|Hier war Fingerspitzengefühl gefragt. Den kleinen Pieks haben wir weggelassen.
+medical-thermometer|Temperatur im Blick|Heute misst die Skala vor allem eines: deine Geduld bis zum letzten Pfeil.
+medical-drip|Tropfen für Tropfen|Ein kleiner Schritt nach dem anderen kann sehr viel bewirken.
+bandage-roll|Aufgerollter Verband|Nicht jeder Knoten braucht eine Schere. Diesen hast du mit einem guten Blick gelöst.
+@medicine_04|sky
+hospital|Lichter im Krankenhaus|Hinter vielen Fenstern arbeiten Menschen, deren Alltag anderen Sicherheit gibt.
+hospital-cross|Zeichen der Hilfe|Ein kleines Zeichen kann bedeuten: Hier musst du nicht alles allein schaffen.
+medical-pack|Bereit für den Notfall|Gut vorbereitet zu sein fällt meist erst auf, wenn man es braucht.
+arm-bandage|Arm in der Schlinge|Auch eine Pause kann ein Teil des Weges sein.
+crutches|Schrittweise zurück|Fortschritt darf langsam sein. Hauptsache, der nächste Schritt gehört dir.
+@medicine_05|pearl
+tooth|Der Backenzahn|Ein kleines Kunstwerk, das heute ausnahmsweise nicht auf den Zahn gefühlt werden muss.
+toothbrush|Morgens am Waschbecken|Manche guten Gewohnheiten sind unspektakulär. Gerade deshalb tragen sie so weit.
+mouth-watering|Lächeln mit Zähnen|Für dieses fertige Bild ist ein kleines Lächeln ausdrücklich erlaubt.
+@medicine_06|gold
+rod-of-asclepius|Stab der Heilkunde|Ein altes Zeichen erinnert daran, wie lange Menschen schon nach Heilung suchen.
+herbs-bundle|Gebündelte Heilkräuter|Zwischen einer Pflanze und ihrer Geschichte liegt oft mehr als ein Spaziergang.
+mortar|Im Kräutermörser|Wissen wird nicht wertvoller, wenn man es nur aufbewahrt. Es muss auch geprüft werden.
+@science_01|violet
+abacus|Rechnen mit Kugeln|Eine Idee wird manchmal leichter, sobald man sie mit den Händen bewegen kann.
+triangle-target|Dreieck im Gleichgewicht|Drei Seiten reichen für eine erstaunlich stabile Form.
+cube|Würfelraum|Ein Würfel sieht aus jeder Richtung ein wenig anders aus. Dein Weg war trotzdem eindeutig.
+pentacle|Fünf Ecken im Kreis|Ein Muster kann gleichzeitig klar geordnet und überraschend verwoben sein.
+infinity|Ohne letzten Punkt|Unendlich wäre zum Weiterspielen schön. Für dieses Rätsel genügt ein echter Abschluss.
+mobius-triangle|Band mit einer Wendung|Ein vertrauter Weg kann mit einer einzigen Drehung plötzlich ungewohnt werden.
+@science_02|sky
+prism|Licht im Prisma|Ein heller Gedanke kann mehr als eine Farbe haben.
+pendulum-swing|Pendelschlag|Hin und her ist noch kein Stillstand. Manchmal hält gerade das den Takt.
+tuning-fork|Stimmgabel|Zwei schmale Zinken, ein klarer Ton. Manches braucht erstaunlich wenig Material.
+gyroscope|Kreisel in Balance|Bewegung kann Gleichgewicht schaffen. Dein Blick hat heute beides gefunden.
+weight|Ein schweres Argument|Gewicht allein überzeugt noch nicht. Die richtige Richtung zählt ebenfalls.
+@science_03|mint
+chemical-drop|Reaktion im Tropfen|Eine kleine Veränderung kann das ganze Ergebnis verwandeln.
+test-tubes|Drei Reagenzgläser|Neugier ist ein guter Anfang. Genaues Hinschauen macht daraus eine Entdeckung.
+molecule|Verbundene Teilchen|Hier wurde aus vielen Verbindungen ein gemeinsames Bild.
+crystal-growth|Kristall wächst|Manche Ordnung entsteht langsam. Man muss ihr nur genug Raum lassen.
+distillation|Vom Dampf zum Tropfen|Eine Idee kann unterwegs ihre Form ändern und trotzdem dieselbe bleiben.
+@science_04|mint
+microscope|Blick ins Kleine|Eine ganze Welt kann unterhalb dessen liegen, was wir im Vorbeigehen sehen.
+dna1|Doppelhelix|Eine gedrehte Leiter, an der sehr viele Geschichten hängen.
+cell|Kleine Zelle|Größe ist ein schlechter Maßstab dafür, wie viel in etwas passiert.
+antibody|Passende Verbindung|Nicht jede Verbindung passt zu allem. Die richtigen können umso mehr verändern.
+bacteria|Unsichtbare Nachbarschaft|Nicht alles, was unseren Alltag mitgestaltet, lässt sich mit bloßem Auge sehen.
+@science_05|earth
+ammonite-fossil|Spirale aus der Vorzeit|Eine versteinerte Spur ist eine Nachricht ohne Briefumschlag.
+archaeopteryx-fossil|Flügel im Stein|Manchmal erzählt ein stiller Stein von einer Welt voller Bewegung.
+mineral-crystal|Mineralienfund|Ein Fundstück muss nicht groß sein, um den Blick auf eine Landschaft zu verändern.
+geode|Verborgene Kristallhöhle|Von außen unscheinbar. Innen voller Überraschungen. Ein sympathisches Lebensmodell.
+trilobite|Dreilappiger Zeitzeuge|Vergangenheit hat manchmal eine Form, die heute fast erfunden wirkt.
+@science_06|sky
+scales|Genau abgewogen|Gute Fragen werden nicht kleiner, wenn man ihre Antworten genau prüft.
+measure-tape|Nachgemessen|Eine Vermutung darf groß sein. Zum Nachmessen braucht es trotzdem Geduld.
+stopwatch|Zeit im Versuch|Eine kleine Zahl wird erst durch die richtige Frage interessant.
+thermometer-scale|Skala im Labor|Hier durfte die Neugier steigen, ohne dass etwas übergekocht ist.
+archive-research|Spuren im Archiv|Manche Entdeckung beginnt mit einem Blatt, das jemand sorgfältig aufgehoben hat.
+@animals_03|leaf
+praying-mantis|Fangschrecke im Ansitz|Nicht jede Pause ist Untätigkeit. Manche ist sehr aufmerksam.
+dragonfly|Libelle über dem Wasser|Ein leichter Körper kann eine erstaunlich entschlossene Richtung haben.
+ant|Ameise auf Erkundung|Der Weg sieht klein aus. Für seine Reisende ist er eine ganze Landschaft.
+ladybug|Marienkäfer mit Punkten|Das Glück braucht heute keine perfekte Landung. Ein gelöstes Bild genügt.
+earwig|Ohrwurm unterwegs|Manche Namen erzählen eine Geschichte, die mit dem Tier wenig zu tun hat.
+scarab-beetle|Skarabäus|Ein kleiner Käfer kann in der Geschichte eine sehr große Rolle spielen.
+long-antennae-bug|Käfer mit langen Fühlern|Neugier trägt manchmal zwei Antennen.
+flying-beetle|Käfer im Abflug|Das schwer aussehende Äußere täuscht: Auch dieser Reisende findet in die Luft.
+bee|Biene im Anflug|Eine Blüte ist für manche Gäste ein ganzer Arbeitsplatz.
+@animals_04|violet
+spider-web|Netz im Morgenlicht|Ein feiner Faden wird durch seine Verbindungen erstaunlich stark.
+hanging-spider|Spinne am Faden|Ein guter Halt muss nicht groß sein. Er muss passen.
+scorpion|Skorpion im Sand|Manche Silhouetten warnen schon, bevor sich etwas bewegt.
+tick|Zecke im Gras|Winzige Nachbarn verdienen manchmal mehr Aufmerksamkeit als die großen.
+@animals_05|leaf
+gecko|Gecko an der Wand|Ein guter Weg verläuft nicht für alle Reisenden auf dem Boden.
+chameleon-glyph|Chamäleon auf dem Ast|Manchmal ist eine neue Farbe auch eine neue Nachricht.
+snake-spiral|Schlange in der Spirale|Ein langer Weg passt erstaunlich gut in eine kleine Form.
+crocodile|Krokodil im Fluss|Ruhe an der Oberfläche ist nicht immer die ganze Geschichte.
+sea-turtle|Meeresschildkröte|Der Horizont muss nicht nah sein, damit sich eine Reise lohnt.
+snake-egg|Schlange aus dem Ei|Ein Anfang darf ungewohnt aussehen.
+@animals_06|rose
+axolotl|Axolotl mit Federkiemen|Manche Tiere wirken, als hätten sie eine freundliche Fantasie erfunden.
+salamander|Salamander im Laub|Zwischen dunklen Blättern kann ein kleiner Körper ein auffälliges Zeichen setzen.
+frog|Frosch am Teichrand|Ein stiller Teich hat selten einen stillen Alltag.
+frog-prince|Frosch mit Krone|Ein Märchen darf mit einem kleinen Sprung beginnen.
+@animals_01|earth
+anteater|Ameisenbär auf Nahrungssuche|Eine ungewöhnliche Nase kann ein sehr gutes Werkzeug sein.
+armadillo|Gürteltier auf Wanderschaft|Manche Reisende bringen ihren Schutz gleich mit.
+bat|Fledermaus im Flug|Wenn andere schlafen gehen, beginnt für manche erst der Tag.
+hedgehog|Igel im Laub|Ein stacheliges Äußeres schließt einen ruhigen Spaziergang nicht aus.
+otter|Otter im Wasser|Manchmal sieht geschickt sein erstaunlich spielerisch aus.
+kangaroo|Känguru im Sprung|Nicht jeder gute Weg braucht viele kleine Schritte.
+@animals_02|sky
+pelican|Pelikan am Ufer|Ein großer Schnabel kann ein erstaunlich praktisches Gepäckstück sein.
+flamingo|Flamingo auf einem Bein|Balance ist manchmal eine ziemlich elegante Pause.
+woodpecker|Buntspecht im Profil|Manche Nachbarn melden sich mit einem eigenen Rhythmus.
+kiwi-bird|Kiwi im Unterholz|Flügel sind nicht die einzige Möglichkeit, seinen Weg zu finden.
+stork-delivery|Storch mit Bündel|Hier darf eine alte Geschichte einmal ganz ohne Erklärung landen.
+@animals_07|sky
+nautilus-shell|Nautilus im Meer|Eine Spirale kann aussehen wie ein sorgfältig gezeichneter Gedanke.
+seahorse|Seepferdchen im Seegras|Nicht alles, was im Wasser lebt, braucht eine stromlinienförmige Silhouette.
+manta-ray|Rochen im Gleitflug|Unter Wasser hat Leichtigkeit eine besonders weite Form.
+lobster|Hummer am Meeresboden|Mit Scheren lässt sich auch sehr vorsichtig durch eine Landschaft gehen.
+coral|Korallenast|Ein kleines Muster kann Teil einer erstaunlich großen Gemeinschaft sein.
+@plants_02|leaf
+willow-tree|Weide am Ufer|Nicht jeder starke Baum muss aufrecht in den Himmel zeigen.
+birch-trees|Birkenhain|Ein heller Stamm macht auch einen dunklen Wald ein wenig freundlicher.
+beech|Buche mit breiter Krone|Ein guter Schattenplatz beginnt mit sehr viel geduldigem Wachstum.
+tree-roots|Wurzeln unter der Erde|Ein großer Teil dessen, was Halt gibt, bleibt unsichtbar.
+ginkgo-leaf|Ginkgoblatt|Manche Formen wirken wie ein kleiner Fächer aus einer anderen Zeit.
+oak-leaf|Eichenblatt|Eine vertraute Form muss nicht langweilig sein. Man muss nur genauer hinsehen.
+@plants_03|leaf
+monstera-leaf|Fensterblatt|Auch die Lücken gehören zur Form.
+carnivorous-plant|Fangblatt|Nicht jeder Besucher bekommt in einem Garten dieselbe Einladung.
+agave|Agave im Sonnenlicht|Geduld kann eine ziemlich markante Silhouette haben.
+banana-bunch|Bananenstaude|Eine ganze Ernte kann wie ein sorgfältig gebündeltes Muster aussehen.
+@plants_04|gold
+chanterelles|Pfifferlinge im Moos|Eine kleine Entdeckung kann einen Spaziergang verändern.
+mushroom-gills|Lamellen unter dem Hut|Die Unterseite erzählt oft eine andere Geschichte als der erste Blick.
+mushrooms-cluster|Pilzgruppe im Wald|Manchmal ist das, was wir sehen, nur ein kleiner Teil eines viel größeren Netzes.
+@plants_05|leaf
+plant-roots|Keimling mit Wurzeln|Was nach oben wächst, braucht auch einen Weg nach unten.
+gardening-shears|Gartenschere|Wachstum zu begleiten heißt gelegentlich auch, Platz zu schaffen.
+plant-watering|Wasser für den Keimling|Gute Pflege ist oft eine Reihe kleiner, rechtzeitiger Handlungen.
+compost-bin|Kompost für morgen|Ein Ende kann im Garten der Anfang von etwas Neuem sein.
+@plants_01|rose
+cotton-flower|Baumwollblüte|Eine weiche Geschichte kann auf einer sehr kleinen Blüte beginnen.
+dandelion-flower|Löwenzahn am Wegrand|Manche Pflanzen brauchen keine Einladung, um einen Platz heller zu machen.
+fern|Farnwedel|Eine entrollte Spirale kann den Anfang eines ganzen Blattes tragen.
+@home_01|gold
+house-keys|Schlüssel zur Wohnung|Ein kleiner Gegenstand kann bedeuten: Hier darfst du ankommen.
+dog-house|Hütte für den Vierbeiner|Auch ein kleines Zuhause darf einen großen Lieblingsplatz haben.
+igloo|Iglu im Schnee|Gemütlichkeit hat mehr als eine Bauweise.
+treehouse|Baumhaus|Manche Aussicht ist schon deshalb schön, weil man erst hinaufklettern musste.
+@home_02|gold
+gas-stove|Herd in der Küche|Hier darf etwas Gutes langsam warm werden.
+fridge|Kühlschranktür|Manchmal beginnt eine kreative Idee mit einem Blick auf die Reste.
+kitchen-tap|Wasser am Spülbecken|Der einfachste Handgriff ist oft der, den man am meisten vermissen würde.
+pressure-cooker|Drucktopf|Nicht alles muss offen vor sich hin köcheln, um gut zu werden.
+@home_03|gold
+armchair|Sessel für die Lesestunde|Ein guter Platz kann eine Reise beginnen, ohne dass du aufstehen musst.
+sofa|Sofa nach Feierabend|Nicht jede freie Minute braucht einen Plan.
+rocking-chair|Schaukelstuhl|Auch ohne voranzukommen kann Bewegung beruhigen.
+fireplace|Kaminabend|Ein warmes Licht macht aus einem Raum manchmal einen Lieblingsort.
+bookshelf|Regal voller Geschichten|Hier stehen viele Reisen nebeneinander und brauchen erstaunlich wenig Platz.
+@home_04|violet
+bed|Bett mit Kissen|Auch das Ausschalten kann eine gute Entscheidung sein.
+bunk-beds|Etagenbett|Zwei Schlafplätze, eine kleine Leiter und meistens mehr als eine Geschichte.
+bed-lamp|Licht am Bett|Ein kleines Licht kann genau groß genug für den letzten Gedanken sein.
+alarm-clock|Wecker am Morgen|Heute hat zuerst das Rätsel geklingelt: fertig.
+wardrobe|Schrank mit Türen|Nicht alles muss offen liegen, um seinen Platz zu haben.
+@home_05|sky
+bathtub|Badewanne|Ein kleines Rätselbad. Das Handtuch bleibt trocken.
+shower|Dusche|Ein klarer Kopf entsteht manchmal unter sehr einfachen Bedingungen.
+sink|Waschbecken|Der Alltag besteht aus vielen kleinen Handgriffen, die selten Applaus bekommen.
+toilet|Stilles Örtchen|Ein praktischer Ort darf ausnahmsweise auch einmal Kunstwerk sein.
+plunger|Saugglocke|Es gibt Werkzeuge, die ihre besten Auftritte lieber ohne Publikum haben.
+@home_06|rose
+toy-mallet|Spielbank im Kinderzimmer|Hier darf Ausprobieren lauter sein als Perfektion.
+mobile|Mobile über dem Bett|Ein kleines Gleichgewicht, das schon beim nächsten Luftzug anders aussieht.
+rocking-horse|Holzschaukelpferd|Manche großen Abenteuer beginnen, ohne den Teppich zu verlassen.
+@home_07|sky
+desk|Schreibtisch für Ideen|Ein freier Platz kann manchmal hilfreicher sein als eine volle To-do-Liste.
+office-chair|Drehstuhl|Eine neue Perspektive braucht gelegentlich nur eine kleine Drehung.
+desk-lamp|Lampe am Schreibtisch|Gute Ideen verlangen nicht immer großes Licht. Nur das richtige.
+@home_08|leaf
+flower-pot|Pflanzentopf am Balkon|Ein wenig Grün passt auch in einen kleinen Ausschnitt der Welt.
+garden-bench|Bank auf der Terrasse|Ein guter Aussichtspunkt ist manchmal einfach der Platz, an dem man innehält.
+folding-chair|Klappstuhl in der Sonne|Ein Lieblingsplatz darf sich zusammenklappen lassen.
+@home_10|sky
+washing-machine|Waschtag|Ein Kreislauf, der zum Glück irgendwann fertig ist.
+vacuum-cleaner|Staubsauger|Hier blieb nach dem letzten Pfeil wirklich nichts mehr liegen.
+broom|Besen im Flur|Manche Ordnung entsteht durch Wegnehmen statt durch Hinzufügen.
+sewing-machine|Nähmaschine|Ein langer Faden kann viele kleine Entscheidungen verbinden.
+@home_11|rose
+pearl-necklace|Perlenkette|Ein einzelner heller Punkt ist schön. Eine Reihe kann daraus einen Rhythmus machen.
+bow-tie|Fliege zum Fest|Manchmal genügt ein kleines Detail, damit sich ein Tag anders anfühlt.
+umbrella|Schirm im Regen|Ein kleines Dach kann genau im richtigen Moment sehr wertvoll sein.
+high-heel|Schuh mit Absatz|Eine markante Form hat ihren ganz eigenen Auftritt.
+@food_02|leaf
+asparagus|Spargelbündel|Manche Jahreszeiten erkennt man auch auf dem Teller.
+beet|Rote Bete|Ein kräftiger Farbton kann selbst aus einem stillen Motiv einen Auftritt machen.
+eggplant|Aubergine|Dunkle Farben dürfen leuchten. Dieses Gemüse macht es vor.
+broccoli|Brokkoliröschen|Ein kleiner Baum für den Teller und für den Blick.
+garlic|Knoblauchknolle|Ein unscheinbarer Gast kann in einer Küche ziemlich präsent sein.
+corn|Maiskolben|Viele kleine Teile können erstaunlich ordentlich nebeneinander wohnen.
+@food_03|gold
+pretzel|Brezelschlinge|Ein Knoten, den man normalerweise lieber isst als löst.
+baguette|Baguette|Ein langes Bild für einen kurzen Moment französischer Pause.
+croissant|Croissant|Ein kleines Gebäck darf große Bögen machen.
+@food_04|rose
+waffle|Waffelraster|Manche Muster schmecken schon beim Hinsehen nach Pause.
+chocolate-bar|Schokoladentafel|Heute darfst du gedanklich noch ein Stück abbrechen.
+honeycomb|Honigwaben|Süße Ordnung kann erstaunlich geometrisch aussehen.
+@food_05|gold
+coffee-beans|Kaffeebohnen|Ein ganzer Morgen kann in einer sehr kleinen Bohne stecken.
+coffee-pot|Espressokanne|Ein kleiner Turm, der seine schönsten Nachrichten duften lässt.
+corked-tube|Flasche mit Korken|Nicht jede gute Pause muss sofort geöffnet werden.
+@food_07|pearl
+kitchen-scale|Küchenwaage|Ein wenig Genauigkeit macht Platz für viel Kreativität.
+whisk|Schneebesen|Ein Werkzeug, das aus Bewegung Leichtigkeit machen kann.
+rolling-pin|Nudelholz|Manchmal hilft es, eine Sache ganz in Ruhe auszurollen.
+corkscrew|Korkenzieher|Nicht jede Spirale führt in ein Rätsel. Manche führt zu einer kleinen Feier.
+colander|Küchensieb|Hier gehörten die Löcher zur Lösung.
+@food_08|gold
+sushis|Sushi auf dem Teller|Ein kleines Arrangement kann eine ganze Mahlzeit elegant zusammenhalten.
+tacos|Taco|Eine gute Füllung darf sichtbar bleiben.
+noodles|Nudelschale|Ein Durcheinander kann sehr einladend aussehen, wenn es in der richtigen Schale liegt.
+dumpling|Gefüllte Teigtasche|Manche Überraschung wartet hinter einer sorgfältig gefalteten Hülle.
+@craft_02|earth
+hand-saw|Handsäge im Holz|Ein guter Schnitt beginnt meistens vor der ersten Bewegung.
+chisel|Stechbeitel|Ein wenig Material weniger kann eine Form deutlicher machen.
+wood-pile|Gestapeltes Holz|Ein Stapel ist eine kleine Vereinbarung darüber, wie Dinge zusammenhalten.
+wooden-crate|Holzkiste|Ein einfacher Rahmen kann viel aufbewahren.
+@craft_03|gold
+anvil|Amboss|Ein Werkzeug darf schwer sein, wenn es anderen Formen Halt gibt.
+metal-bar|Metallprofil|Ein klarer Querschnitt kann eine überraschend große Last tragen.
+blacksmith|Am Schmiedefeuer|Eine Form entsteht nicht nur im Kopf. Manchmal braucht sie Wärme und Ausdauer.
+horseshoe|Hufeisen|Glück ist ein schönes Extra. Gute Arbeit steckt trotzdem dahinter.
+@craft_04|sky
+electrical-resistance|Widerstand im Stromkreis|Nicht jeder Widerstand ist ein Hindernis. Manche halten ein System im Gleichgewicht.
+electrical-socket|Steckdose|Eine kleine Verbindung, an der erstaunlich viel Alltag hängt.
+plug|Stecker|Manchmal fehlt nur die passende Verbindung.
+fuse|Sicherung|Ein kleines Teil kann für ein großes Ganzes aufmerksam bleiben.
+@craft_05|earth
+brick-pile|Ziegelstapel|Ein Haus beginnt oft mit vielen einzelnen Teilen, die noch keines sind.
+paint-roller|Farbrolle an der Wand|Eine neue Farbe kann einen vertrauten Ort neu erscheinen lassen.
+paint-bucket|Offener Farbeimer|Manchmal passt ein ganz neuer Blick in einen kleinen Eimer.
+wheelbarrow|Schubkarre|Ein guter Hebel macht aus schwerer Arbeit eine bewegliche Sache.
+@craft_06|rose
+sewing-needle|Nadel und Faden|Ein dünner Faden hält oft mehr zusammen, als man ihm zutraut.
+yarn|Wollknäuel|Ein verhedderter Anfang kann trotzdem etwas Warmes werden.
+scissors|Stoffschere|Gute Gestaltung braucht manchmal auch den Mut zum Wegschneiden.
+spinning-wheel|Spinnrad|Eine ruhige Drehung kann einen langen Faden hervorbringen.
+@craft_07|earth
+amphora|Amphore|Ein Gefäß trägt manchmal mehr Geschichte als sein Inhalt.
+painted-pottery|Bemaltes Tongefäß|Eine Oberfläche kann erzählen, bevor man weiß, was darin war.
+broken-pottery|Scherbenfund|Nicht alles muss vollständig sein, um eine Geschichte zu behalten.
+@craft_08|leaf
+tractor|Traktor auf dem Feld|Ein großer Teil unseres Alltags beginnt weit weg von der eigenen Küche.
+hay|Heubündel|Ein Sommer kann in einem sorgfältig gebündelten Vorrat weiterleben.
+silo|Vorratssilo|Voraussicht hat manchmal die Form eines hohen runden Turms.
+watering-can|Gießkanne im Garten|Eine kleine Portion zur richtigen Zeit ist oft besser als alles auf einmal.
+@craft_09|gold
+chef-toque|Kochmütze|Ein Beruf kann auch eine Einladung zum Genießen sein.
+firefighter|Feuerwehrhelm|Mut wird besonders wertvoll, wenn er mit Vorbereitung zusammenarbeitet.
+judge-hammer|Richterhammer|Ein klares Urteil braucht mehr als einen lauten Schlussakkord.
+diving-helmet|Historischer Taucherhelm|Manche Arbeitsplätze liegen dort, wo ein normaler Atemzug nicht reicht.
+@tech_01|earth
+typewriter|Schreibmaschine|Eine Zeile wurde einmal mit sehr viel mehr Geräusch geschrieben.
+quill-ink|Feder und Tinte|Ein Gedanke kann einen sehr langen Weg beginnen, sobald ihn jemand aufschreibt.
+wax-tablet|Wachstafel|Nicht jede alte Notiz war für die Ewigkeit gedacht.
+@tech_02|sky
+printing-press|Handdruckpresse|Eine Idee kann größer werden, sobald sie viele Menschen lesen können.
+rubber-stamp|Stempelabdruck|Ein kleines Zeichen kann eine erstaunlich große Wirkung haben.
+newspaper|Zeitungsblatt|Ein Tag vergeht. Was jemand darüber festhält, kann viel länger bleiben.
+scroll-unfurled|Entrollte Schrift|Nicht jeder Text beginnt mit einem Bildschirm.
+@tech_03|gold
+gramophone|Grammophontrichter|Ein kleiner Schalltrichter macht eine große Einladung zum Zuhören.
+vintage-robot|Früher Zukunftstraum|Jede Zeit erfindet sich ihre eigene Zukunft.
+pocket-radio|Taschenradio|Eine kleine Kiste konnte eine ganze Welt ins Zimmer holen.
+@tech_04|gold
+cuckoo-clock|Kuckucksuhr|Manche Zeitmesser haben eine besonders eigenwillige Stimme.
+gears|Zahnräder im Eingriff|Ein einzelnes Rad dreht sich. Gemeinsam wird daraus ein Ablauf.
+spring|Gespeicherte Spannung|Manchmal ist eine Pause nur eine andere Form von Bereitschaft.
+hourglass|Sand im Stundenglas|Zeit wird nicht langsamer, wenn man ihr zusieht. Ein ruhiger Blick kann trotzdem helfen.
+@tech_07|sky
+robot-golem|Roboter auf Beinen|Technik wirkt manchmal freundlicher, sobald sie eine eigene Silhouette bekommt.
+mechanical-arm|Greifarm|Eine präzise Bewegung beginnt oft mit einer gut gestellten Frage.
+delivery-drone|Lieferdrohne|Ein kurzer Weg kann auch über den Dächern liegen.
+@tech_09|mint
+wind-turbine|Windrad|Ein unsichtbarer Antrieb kann eine sehr sichtbare Bewegung erzeugen.
+water-mill|Wassermühle|Eine Strömung kann mehr antreiben als den nächsten schwimmenden Zweig.
+nuclear-plant|Kühlturm|Ein Bauwerk kann gleichzeitig eine markante Form und eine schwierige Frage sein.
+@space_01|violet
+comet-spark|Geschwungener Komet|Manche Reisende hinterlassen ihre Richtung als leuchtende Spur.
+asteroid|Asteroid|Ein kleiner Brocken kann Teil einer sehr großen Geschichte sein.
+eclipse|Sonnenfinsternis|Ein kurzer Schatten kann ein seltenes gemeinsames Staunen auslösen.
+@space_02|sky
+space-shuttle|Raumfähre|Ein Flug kann am Boden mit jahrelanger Geduld beginnen.
+space-suit|Raumanzug|Für manche Reisen muss man ein kleines Stück Zuhause mitnehmen.
+moon-landing|Landung auf dem Mond|Ein einzelner Schritt kann weit über seinen Fußabdruck hinausreichen.
+@space_03|violet
+observatory|Sternwarte|Ein Blick in die Ferne ist auch eine Frage an unsere eigene Geschichte.
+satellite-communication|Satellitenverbindung|Manche Verbindungen funktionieren, obwohl ihr Zwischenstopp sehr weit entfernt ist.
+orbital|Umlaufbahn|Um etwas herumzureisen kann ebenfalls ein Weg nach vorn sein.
+@travel_04|sky
+biplane|Doppeldecker|Zwei Flügelpaare geben einem frühen Flugtraum eine unverwechselbare Form.
+glider|Segelflieger|Ein guter Aufwind ist manchmal wichtiger als ein eigener Motor.
+hang-glider|Drachenflieger|Ein bisschen Stoff, ein Rahmen und sehr viel Respekt vor dem Wind.
+parachute|Fallschirm|Auch das langsamer Werden kann ein großer Erfolg sein.
+jetpack|Raketenrucksack|Manche Reiseidee beginnt mit dem Wunsch, die Treppe auszulassen.
+@travel_05|earth
+chariot|Streitwagen|Geschichte war nicht immer gemütlich unterwegs.
+stage-coach|Postkutsche|Eine Reise konnte einmal schon zwischen zwei Städten ein Abenteuer sein.
+steam-locomotive|Dampflokomotive|Hier hat Fortschritt noch mit hörbarem Atem gearbeitet.
+penny-farthing|Hochrad|Eine ungewöhnliche Proportion kann einen ganzen Zeitabschnitt sichtbar machen.
+@travel_07|gold
+egyptian-sphinx|Sphinx von Gizeh|Ein ruhiger Blick kann länger bleiben als die Menschen, die an ihm vorbeigehen.
+pagoda|Pagode|Ein Dach kann nicht nur schützen, sondern auch einen Rhythmus in den Himmel zeichnen.
+pisa-tower|Schiefer Turm|Manchmal macht gerade die Abweichung eine Form unverwechselbar.
+rialto-bridge|Rialtobrücke|Eine Brücke verbindet nicht nur Ufer, sondern auch viele kleine Wege des Alltags.
+@travel_09|leaf
+campfire|Lagerfeuerplatz|Ein gemeinsames Licht macht selbst einen fremden Ort ein wenig vertrauter.
+sleeping-bag|Schlafsack|Ein kleines Stück Gemütlichkeit lässt sich erstaunlich eng einrollen.
+rope-coil|Seil für unterwegs|Eine gute Verbindung wird am besten vorbereitet, bevor man sie braucht.
+@history_01|gold
+ancient-columns|Antike Säulen|Ein Bauwerk kann verschwinden und trotzdem in wenigen Formen weiterleben.
+greek-temple|Griechischer Tempel|Ordnung lässt sich manchmal schon aus großer Entfernung erkennen.
+roman-toga|Römische Toga|Auch Kleidung kann erzählen, welche Rolle jemand in einer Gesellschaft hatte.
+laurels|Lorbeerkranz|Ein Erfolg braucht nicht immer ein Podest. Manchmal genügt ein Kranz.
+@history_02|earth
+closed-barbute|Ritterhelm|Ein schmaler Blickschlitz ist ein guter Grund, die eigene Perspektive nicht zu unterschätzen.
+crossed-swords|Gekreuzte Schwerter|Manche alten Geschichten erzählen vor allem davon, was Menschen miteinander austrugen.
+medieval-pavilion|Turnierzelt|Auch ein Lagerplatz kann ein Stück Bühne sein.
+@history_03|earth
+castle-ruins|Burgruine|Nicht jede verschwundene Mauer nimmt ihre Geschichte mit.
+drawbridge|Zugbrücke|Eine Grenze kann sich heben und senken. Eine Einladung manchmal auch.
+tower-flag|Turm mit Fahne|Ein kleines Zeichen in großer Höhe konnte weithin eine Botschaft tragen.
+@history_04|earth
+dinosaur-bones|Skelett im Museum|Aus einzelnen Funden entsteht manchmal ein Bild von einer ganzen verlorenen Welt.
+fossil|Fundstück im Stein|Eine Spur ist eine Antwort, die man erst als solche erkennen muss.
+stone-tablet|Steintafel|Ein Gedanke kann erstaunlich schwer werden, wenn man ihn für lange Zeit festhalten will.
+@history_05|gold
+oil-lamp|Öllampe|Ein kleines Licht konnte einmal den Unterschied zwischen Tag und Feierabend verlängern.
+water-jug|Wasserkrug|Viele große Geschichten beruhen auf sehr gewöhnlichen Bedürfnissen.
+balance-scale|Balkenwaage|Fairness wurde schon lange vor digitalen Zahlen sichtbar gemacht.
+@history_06|earth
+egyptian-profile|Ägyptisches Profil|Eine charakteristische Ansicht kann eine ganze Bildsprache erkennbar machen.
+hieroglyph-y|Hieroglyphenzeichen|Ein Bild kann eine Bedeutung tragen, die über seine Form hinausgeht.
+stone-stamp|Siegel im Stein|Ein kleines Zeichen konnte bedeuten: Das kommt wirklich von mir.
+@history_07|gold
+byzantin-temple|Kuppelbau|Eine runde Dachlinie kann einer Stadt ihren eigenen Takt geben.
+mayan-pyramid|Stufenpyramide|Ein Aufstieg lässt sich manchmal schon in der Silhouette mitlesen.
+torii-gate|Torii|Ein Tor kann eine Schwelle markieren, ohne eine geschlossene Tür zu brauchen.
+@culture_02|pearl
+philosopher-bust|Büste eines Denkers|Ein Gesicht im Stein stellt manchmal mehr Fragen, als es beantwortet.
+stone-bust|Skulptur im Museum|Ein stilles Kunstwerk kann sehr lange im Gespräch bleiben.
+venus-of-willendorf|Kleine Figur aus der Vorzeit|Ein kleines Objekt kann eine überraschend große Debatte auslösen.
+@culture_03|gold
+feather|Feder für Geschichten|Eine Geschichte beginnt oft kleiner, als sie später im Kopf ihrer Leser wird.
+open-book|Aufgeschlagenes Buch|Zwei Seiten können ein Fenster sein, obwohl kein Glas darin steckt.
+book-pile|Bücherstapel|Viele Welten, ordentlich übereinandergestellt.
+@culture_04|violet
+windmill|Don Quijotes Gegner|Manchmal kämpft eine Vorstellung gegen etwas, das andere ganz anders sehen.
+submarine|Jules Vernes Nautilus|Eine erfundene Reise kann die Lust auf echte Entdeckungen wecken.
+drink-me|Alices Fläschchen|In manchen Geschichten beginnt das Ungewöhnliche mit einer ziemlich kleinen Einladung.
+deerstalker|Sherlocks Jagdmütze|Ein gutes Rätsel belohnt den Blick für das Detail, das zuerst nebensächlich wirkte.
+insect-jaws|Kafkas Verwandlung|Ein neuer Blick auf den Alltag kann sehr viel verstörender sein als eine ferne Fantasiewelt.
+@culture_05|earth
+bookmark|Lesezeichen|Eine Pause in einer Geschichte ist noch nicht ihr Ende.
+scroll-quill|Schriftrolle mit Feder|Ein Gedanke wird beweglicher, sobald man ihn weitergeben kann.
+book-cover|Gebundenes Buch|Eine gute Hülle schützt nicht nur Papier, sondern auch mögliche Reisen.
+@leisure_04|sky
+rowing|Ruderschlag|Gemeinsam voranzukommen verlangt manchmal vor allem denselben Takt.
+surf-board|Surfbrett|Manche Wege entstehen erst, wenn man auf eine Bewegung wartet.
+diving-mask|Taucherbrille|Eine neue Welt beginnt gelegentlich direkt unter der Oberfläche.
+water-polo|Wasserball|Ein Spielfeld muss nicht stillhalten, damit ein Spiel spannend wird.
+@leisure_06|rose
+boxing-ring|Boxring|Ein klarer Rahmen macht aus Bewegung ein Spiel mit Regeln.
+fencer|Fechter|Ein kleiner Abstand kann einen großen Unterschied machen.
+high-kick|Hoher Tritt|Balance wird besonders sichtbar, wenn man sie kurz herausfordert.
+@leisure_10|gold
+chess-knight|Springerzug|Nicht jeder Fortschritt verläuft in einer geraden Linie.
+chess-rook|Turmzug|Ein klarer Weg kann weit führen, wenn er frei ist.
+backgammon|Backgammonbrett|Ein guter Plan darf Platz für eine unerwartete Zahl lassen.
+domino-tiles|Dominosteine|Eine kleine Entscheidung kann die nächste schon in Bewegung setzen.
+meeple|Spielstein am Tisch|Manche Spielfigur trägt sehr viele Geschichten, obwohl sie kein Gesicht hat.
+@leisure_11|rose
+juggler|Jongleur|Mehrere Dinge in Bewegung zu halten heißt nicht, alle zugleich festhalten zu müssen.
+unicycle|Einrad|Ein kleiner Kontakt zum Boden kann für einen großen Auftritt reichen.
+circus|Zirkuszelt|Manchmal reicht ein gestreiftes Dach für die Erwartung eines ganzen Abends.
+tightrope|Seiltanz|Ein schmaler Weg muss nicht einsam sein, wenn jemand mitfiebert.
+@leisure_12|violet
+drama-masks|Zwei Theatermasken|Ein Abend kann mehr als ein Gefühl tragen.
+theater-curtains|Vorhang auf|Ein Ende ist manchmal genau der richtige Moment für einen neuen Auftritt.
+marionette|Marionette|Welche Fäden eine Figur bewegen, sieht man nicht immer sofort.
+@leisure_13|sky
+film-projector|Filmprojektor|Viele unbewegte Bilder können gemeinsam eine Bewegung erzählen.
+film-spool|Filmrolle|Eine lange Geschichte passt manchmal auf eine kleine Spule.
+director-chair|Regiestuhl|Ein guter Blick braucht gelegentlich auch einen guten Platz.
+@leisure_14|rose
+carousel|Karussell|Eine Runde im Kreis kann trotzdem ein kleines Abenteuer sein.
+roller-coaster|Achterbahn|Nicht jeder Umweg muss sanft sein, um Freude zu machen.
+bumper-car|Autoscooter|Hier gehört ein kleiner Zusammenstoß ausnahmsweise zum Vergnügen.
+@fantasy_02|violet
+griffin-symbol|Greif mit Flügeln|Eine Fantasiefigur darf Eigenschaften verbinden, die draußen getrennte Wege gehen.
+unicorn|Einhorn|Manche Silhouetten genügen für eine ganze Einladung zum Träumen.
+dragon-head|Drachenkopf|Ein imposanter Blick muss nicht das letzte Wort behalten.
+mermaid|Meerjungfrau|Eine Geschichte kann dort weitergehen, wo für uns das Ufer endet.
+@fantasy_03|gold
+pegasus|Pegasus im Flug|Ein vertrautes Tier kann mit einer einzigen Idee eine ganz neue Welt betreten.
+minotaur|Minotaurus|Nicht jede Geschichte im Labyrinth endet mit derselben Sicht auf seinen Bewohner.
+sea-serpent|Seeschlange|Wo der Horizont offen bleibt, findet die Fantasie gern einen Platz.
+@fantasy_04|violet
+floating-island|Schwebende Insel|Manche Lieblingsorte müssen keine Schwerkraft erklären.
+portal|Leuchtendes Portal|Eine Tür ist auch eine Frage danach, was dahinter möglich sein könnte.
+cloud-ring|Ring aus Wolken|Ein Traum darf seine Form ändern, ohne sich entschuldigen zu müssen.
+@seasons_01|leaf
+butterfly-flower|Blüte mit Schmetterling|Eine kleine Begegnung kann das Gefühl einer ganzen Jahreszeit tragen.
+bird-nest|Nest im Frühling|Ein Anfang entsteht manchmal aus vielen sorgfältig gesammelten Kleinigkeiten.
+plant-seed|Samen im Boden|Ein kleines Versprechen muss noch nicht groß aussehen.
+@seasons_02|sky
+beach-ball|Wasserball am Strand|Ein sommerlicher Plan darf rund und ziemlich unkompliziert sein.
+ice-pop|Eis am Stiel|Ein kleiner Moment kühler Freude. Hier schmilzt er nicht sofort.
+deck-chair|Liegestuhl|Ein guter Platz darf heute wichtiger sein als ein großes Ziel.
+@seasons_03|earth
+chestnut-leaf|Kastanienblatt im Herbst|Ein Blatt kann einen Sommer behalten und trotzdem eine neue Farbe annehmen.
+acorn|Eichel|Eine große Krone beginnt manchmal mit einem sehr kleinen Vorrat.
+maple-leaf|Ahornblatt|Der Herbst malt gern mit Farben, die sich im Licht besonders gut behaupten.
+@seasons_08|rose
+carnival-mask|Karnevalsmaske|Ein anderes Gesicht kann die Freiheit geben, etwas Neues auszuprobieren.
+jester-hat|Narrenkappe|Ein wenig Unsinn kann einem sehr ernsten Tag guttun.
+confetti|Konfettiregen|Viele kleine Teile dürfen auch einfach einmal gemeinsam feiern.
+@seasons_09|gold
+grain-bundle|Erntegarbe|Ein Vorrat ist auch eine Erinnerung daran, was zuvor gewachsen ist.
+fruit-bowl|Schale der Ernte|Ein gemeinsamer Tisch erzählt oft mehr als ein einzelner Teller.
+cornucopia|Füllhorn|Genug zu haben ist ein schöner Anlass, etwas davon zu teilen.
+@seasons_10|rose
+firework-rocket|Silvesterrakete|Ein kurzer heller Moment kann einen neuen Anfang begleiten.
+party-popper|Konfettikanone|Hier darf der letzte freie Weg einmal ein Startsignal zum Feiern sein.
+balloons|Festliche Ballons|Ein wenig Auftrieb passt gut zu einem frischen Anfang.
+@seasons_11|gold
+asian-lantern|Laternenfest|Ein gemeinsames Licht kann auch ohne gemeinsame Sprache verstanden werden.
+diablo-skull|Bunter Totenschädel|Erinnerung darf in manchen Traditionen auch farbenfroh sein.
+shamrock|Kleeblatt zum Fest|Ein kleines Zeichen kann Menschen an eine gemeinsame Geschichte erinnern.

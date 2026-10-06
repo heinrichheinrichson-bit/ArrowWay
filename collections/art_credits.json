@@ -1,0 +1,1891 @@
+{
+  "version": 1,
+  "notice": "Icons made by Caro Asercion, Cathelineau, Delapouite, Faithtoken, Lorc, Quoting, Sbed, Skoll, darkzaitzev, lord-berandas, rihlsul, various-artists.\n\nQuelle: Game-icons.net / game-icons/icons.\nLizenz: Creative Commons Attribution 3.0 (CC BY 3.0), einzelne Quellen CC0.\n\nDie Vorlagen wurden vereinfacht, eingefärbt und in editierbare, lösbare Neon-Pfeilrätsel umgewandelt. Originalgestaltungen von ArrowWay sind gesondert gekennzeichnet.\n\nDie einzelnen Motivquellen und Lizenzen findest du in der folgenden Liste.",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "entries": {
+    "res://collections/levels/expanded_medicine_01_01_new_heart_organ.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/heart-organ.svg"
+    },
+    "res://collections/levels/expanded_medicine_01_02_new_lungs.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/lungs.svg"
+    },
+    "res://collections/levels/expanded_medicine_01_03_new_brain.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/brain.svg"
+    },
+    "res://collections/levels/expanded_medicine_01_04_new_pelvis_bone.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/pelvis-bone.svg"
+    },
+    "res://collections/levels/expanded_medicine_01_05_new_forearm.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/forearm.svg"
+    },
+    "res://collections/levels/expanded_medicine_01_06_new_anatomy.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/anatomy.svg"
+    },
+    "res://collections/levels/expanded_medicine_02_01_new_human_ear.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/human-ear.svg"
+    },
+    "res://collections/levels/expanded_medicine_02_02_new_eyeball.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/eyeball.svg"
+    },
+    "res://collections/levels/expanded_medicine_02_03_new_nose_front.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/nose-front.svg"
+    },
+    "res://collections/levels/expanded_medicine_02_04_new_tongue.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/tongue.svg"
+    },
+    "res://collections/levels/expanded_medicine_02_05_new_finger_print.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/finger-print.svg"
+    },
+    "res://collections/levels/expanded_medicine_03_01_new_stethoscope.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/stethoscope.svg"
+    },
+    "res://collections/levels/expanded_medicine_03_02_new_syringe.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/syringe.svg"
+    },
+    "res://collections/levels/expanded_medicine_03_03_new_medical_thermometer.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/medical-thermometer.svg"
+    },
+    "res://collections/levels/expanded_medicine_03_04_new_medical_drip.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/medical-drip.svg"
+    },
+    "res://collections/levels/expanded_medicine_03_05_new_bandage_roll.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/bandage-roll.svg"
+    },
+    "res://collections/levels/expanded_medicine_04_01_new_hospital.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/hospital.svg"
+    },
+    "res://collections/levels/expanded_medicine_04_02_new_hospital_cross.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/hospital-cross.svg"
+    },
+    "res://collections/levels/expanded_medicine_04_03_new_medical_pack.json": {
+      "author": "sbed",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/sbed/medical-pack.svg"
+    },
+    "res://collections/levels/expanded_medicine_04_04_new_arm_bandage.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/arm-bandage.svg"
+    },
+    "res://collections/levels/expanded_medicine_05_01_new_tooth.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/tooth.svg"
+    },
+    "res://collections/levels/expanded_medicine_05_02_new_toothbrush.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/toothbrush.svg"
+    },
+    "res://collections/levels/expanded_medicine_05_03_new_mouth_watering.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/mouth-watering.svg"
+    },
+    "res://collections/levels/expanded_medicine_06_01_new_rod_of_asclepius.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/rod-of-asclepius.svg"
+    },
+    "res://collections/levels/expanded_medicine_06_02_new_herbs_bundle.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/herbs-bundle.svg"
+    },
+    "res://collections/levels/expanded_medicine_06_03_new_mortar.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/mortar.svg"
+    },
+    "res://collections/levels/expanded_science_01_01_new_abacus.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/abacus.svg"
+    },
+    "res://collections/levels/expanded_science_01_02_new_triangle_target.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/triangle-target.svg"
+    },
+    "res://collections/levels/expanded_science_01_03_new_cube.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/cube.svg"
+    },
+    "res://collections/levels/expanded_science_01_04_new_pentacle.json": {
+      "author": "skoll",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/pentacle.svg"
+    },
+    "res://collections/levels/expanded_science_01_05_new_infinity.json": {
+      "author": "various-artists",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/various-artists/infinity.svg"
+    },
+    "res://collections/levels/expanded_science_02_01_new_prism.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/prism.svg"
+    },
+    "res://collections/levels/expanded_science_02_02_new_pendulum_swing.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/pendulum-swing.svg"
+    },
+    "res://collections/levels/expanded_science_02_03_new_gyroscope.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/gyroscope.svg"
+    },
+    "res://collections/levels/expanded_science_02_04_new_weight.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/weight.svg"
+    },
+    "res://collections/levels/expanded_science_03_01_new_chemical_drop.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/chemical-drop.svg"
+    },
+    "res://collections/levels/expanded_science_03_02_new_test_tubes.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/test-tubes.svg"
+    },
+    "res://collections/levels/expanded_science_03_03_new_molecule.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/molecule.svg"
+    },
+    "res://collections/levels/expanded_science_03_04_new_crystal_growth.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/crystal-growth.svg"
+    },
+    "res://collections/levels/expanded_science_04_01_new_microscope.json": {
+      "author": "lord-berandas",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lord-berandas/microscope.svg"
+    },
+    "res://collections/levels/expanded_science_04_02_new_dna1.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/dna1.svg"
+    },
+    "res://collections/levels/expanded_science_04_03_new_antibody.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/antibody.svg"
+    },
+    "res://collections/levels/expanded_science_05_01_new_ammonite_fossil.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/ammonite-fossil.svg"
+    },
+    "res://collections/levels/expanded_science_05_02_new_archaeopteryx_fossil.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/archaeopteryx-fossil.svg"
+    },
+    "res://collections/levels/expanded_science_05_03_new_trilobite.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/trilobite.svg"
+    },
+    "res://collections/levels/expanded_science_06_01_new_scales.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/scales.svg"
+    },
+    "res://collections/levels/expanded_science_06_02_new_measure_tape.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/measure-tape.svg"
+    },
+    "res://collections/levels/expanded_science_06_03_new_stopwatch.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/stopwatch.svg"
+    },
+    "res://collections/levels/expanded_science_06_04_new_thermometer_scale.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/thermometer-scale.svg"
+    },
+    "res://collections/levels/expanded_science_06_05_new_archive_research.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/archive-research.svg"
+    },
+    "res://collections/levels/expanded_animals_03_01_new_praying_mantis.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/praying-mantis.svg"
+    },
+    "res://collections/levels/expanded_animals_03_02_new_dragonfly.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/dragonfly.svg"
+    },
+    "res://collections/levels/expanded_animals_03_03_new_ant.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/ant.svg"
+    },
+    "res://collections/levels/expanded_animals_03_04_new_ladybug.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/ladybug.svg"
+    },
+    "res://collections/levels/expanded_animals_03_05_new_earwig.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/earwig.svg"
+    },
+    "res://collections/levels/expanded_animals_03_06_new_scarab_beetle.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/scarab-beetle.svg"
+    },
+    "res://collections/levels/expanded_animals_03_07_new_long_antennae_bug.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/long-antennae-bug.svg"
+    },
+    "res://collections/levels/expanded_animals_03_08_new_flying_beetle.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/flying-beetle.svg"
+    },
+    "res://collections/levels/expanded_animals_03_09_new_bee.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/bee.svg"
+    },
+    "res://collections/levels/expanded_animals_04_01_new_spider_web.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/spider-web.svg"
+    },
+    "res://collections/levels/expanded_animals_04_02_new_hanging_spider.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/hanging-spider.svg"
+    },
+    "res://collections/levels/expanded_animals_04_03_new_scorpion.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/scorpion.svg"
+    },
+    "res://collections/levels/expanded_animals_04_04_new_tick.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/tick.svg"
+    },
+    "res://collections/levels/expanded_animals_05_01_new_gecko.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/gecko.svg"
+    },
+    "res://collections/levels/expanded_animals_05_02_new_chameleon_glyph.json": {
+      "author": "darkzaitzev",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/darkzaitzev/chameleon-glyph.svg"
+    },
+    "res://collections/levels/expanded_animals_05_03_new_snake_spiral.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/snake-spiral.svg"
+    },
+    "res://collections/levels/expanded_animals_05_04_new_sea_turtle.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/sea-turtle.svg"
+    },
+    "res://collections/levels/expanded_animals_05_05_new_snake_egg.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/snake-egg.svg"
+    },
+    "res://collections/levels/expanded_animals_06_01_new_axolotl.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/axolotl.svg"
+    },
+    "res://collections/levels/expanded_animals_06_02_new_salamander.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/salamander.svg"
+    },
+    "res://collections/levels/expanded_animals_06_03_new_frog.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/frog.svg"
+    },
+    "res://collections/levels/expanded_animals_06_04_new_frog_prince.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/frog-prince.svg"
+    },
+    "res://collections/levels/expanded_animals_01_01_new_anteater.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/anteater.svg"
+    },
+    "res://collections/levels/expanded_animals_01_02_new_armadillo.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/armadillo.svg"
+    },
+    "res://collections/levels/expanded_animals_01_03_new_bat.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/bat.svg"
+    },
+    "res://collections/levels/expanded_animals_01_04_new_hedgehog.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/hedgehog.svg"
+    },
+    "res://collections/levels/expanded_animals_01_05_new_kangaroo.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/kangaroo.svg"
+    },
+    "res://collections/levels/expanded_animals_02_01_new_flamingo.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/flamingo.svg"
+    },
+    "res://collections/levels/expanded_animals_02_02_new_kiwi_bird.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/kiwi-bird.svg"
+    },
+    "res://collections/levels/expanded_animals_02_03_new_stork_delivery.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/stork-delivery.svg"
+    },
+    "res://collections/levels/expanded_animals_07_01_new_nautilus_shell.json": {
+      "author": "faithtoken",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/faithtoken/nautilus-shell.svg"
+    },
+    "res://collections/levels/expanded_animals_07_02_new_seahorse.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/seahorse.svg"
+    },
+    "res://collections/levels/expanded_animals_07_03_new_manta_ray.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/manta-ray.svg"
+    },
+    "res://collections/levels/expanded_animals_07_04_new_coral.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/coral.svg"
+    },
+    "res://collections/levels/expanded_plants_02_01_new_willow_tree.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/willow-tree.svg"
+    },
+    "res://collections/levels/expanded_plants_02_02_new_birch_trees.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/birch-trees.svg"
+    },
+    "res://collections/levels/expanded_plants_02_03_new_beech.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/beech.svg"
+    },
+    "res://collections/levels/expanded_plants_02_04_new_tree_roots.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/tree-roots.svg"
+    },
+    "res://collections/levels/expanded_plants_02_05_new_ginkgo_leaf.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/ginkgo-leaf.svg"
+    },
+    "res://collections/levels/expanded_plants_02_06_new_oak_leaf.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/oak-leaf.svg"
+    },
+    "res://collections/levels/expanded_plants_03_01_new_monstera_leaf.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/monstera-leaf.svg"
+    },
+    "res://collections/levels/expanded_plants_03_02_new_carnivorous_plant.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/carnivorous-plant.svg"
+    },
+    "res://collections/levels/expanded_plants_03_03_new_agave.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/agave.svg"
+    },
+    "res://collections/levels/expanded_plants_03_04_new_banana_bunch.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/banana-bunch.svg"
+    },
+    "res://collections/levels/expanded_plants_04_01_new_chanterelles.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/chanterelles.svg"
+    },
+    "res://collections/levels/expanded_plants_04_02_new_mushroom_gills.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/mushroom-gills.svg"
+    },
+    "res://collections/levels/expanded_plants_04_03_new_mushrooms_cluster.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/mushrooms-cluster.svg"
+    },
+    "res://collections/levels/expanded_plants_05_01_new_plant_roots.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/plant-roots.svg"
+    },
+    "res://collections/levels/expanded_plants_05_02_new_gardening_shears.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/gardening-shears.svg"
+    },
+    "res://collections/levels/expanded_plants_05_03_new_plant_watering.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/plant-watering.svg"
+    },
+    "res://collections/levels/expanded_plants_01_01_new_cotton_flower.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/cotton-flower.svg"
+    },
+    "res://collections/levels/expanded_plants_01_02_new_dandelion_flower.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/dandelion-flower.svg"
+    },
+    "res://collections/levels/expanded_plants_01_03_new_fern.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/fern.svg"
+    },
+    "res://collections/levels/expanded_home_01_01_new_house_keys.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/house-keys.svg"
+    },
+    "res://collections/levels/expanded_home_01_02_new_dog_house.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/dog-house.svg"
+    },
+    "res://collections/levels/expanded_home_01_03_new_igloo.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/igloo.svg"
+    },
+    "res://collections/levels/expanded_home_01_04_new_treehouse.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/treehouse.svg"
+    },
+    "res://collections/levels/expanded_home_02_01_new_gas_stove.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/gas-stove.svg"
+    },
+    "res://collections/levels/expanded_home_02_02_new_fridge.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/fridge.svg"
+    },
+    "res://collections/levels/expanded_home_02_03_new_kitchen_tap.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/kitchen-tap.svg"
+    },
+    "res://collections/levels/expanded_home_02_04_new_pressure_cooker.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/pressure-cooker.svg"
+    },
+    "res://collections/levels/expanded_home_03_01_new_armchair.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/armchair.svg"
+    },
+    "res://collections/levels/expanded_home_03_02_new_sofa.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/sofa.svg"
+    },
+    "res://collections/levels/expanded_home_03_03_new_rocking_chair.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/rocking-chair.svg"
+    },
+    "res://collections/levels/expanded_home_03_04_new_fireplace.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/fireplace.svg"
+    },
+    "res://collections/levels/expanded_home_03_05_new_bookshelf.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/bookshelf.svg"
+    },
+    "res://collections/levels/expanded_home_04_01_new_bed.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/bed.svg"
+    },
+    "res://collections/levels/expanded_home_04_02_new_bunk_beds.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/bunk-beds.svg"
+    },
+    "res://collections/levels/expanded_home_04_03_new_bed_lamp.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/bed-lamp.svg"
+    },
+    "res://collections/levels/expanded_home_04_04_new_alarm_clock.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/alarm-clock.svg"
+    },
+    "res://collections/levels/expanded_home_05_01_new_bathtub.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/bathtub.svg"
+    },
+    "res://collections/levels/expanded_home_05_02_new_shower.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/shower.svg"
+    },
+    "res://collections/levels/expanded_home_05_03_new_sink.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/sink.svg"
+    },
+    "res://collections/levels/expanded_home_05_04_new_plunger.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/plunger.svg"
+    },
+    "res://collections/levels/expanded_home_06_01_new_toy_mallet.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/toy-mallet.svg"
+    },
+    "res://collections/levels/expanded_home_07_01_new_desk.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/desk.svg"
+    },
+    "res://collections/levels/expanded_home_07_02_new_office_chair.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/office-chair.svg"
+    },
+    "res://collections/levels/expanded_home_07_03_new_desk_lamp.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/desk-lamp.svg"
+    },
+    "res://collections/levels/expanded_home_08_01_new_flower_pot.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/flower-pot.svg"
+    },
+    "res://collections/levels/expanded_home_10_01_new_washing_machine.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/washing-machine.svg"
+    },
+    "res://collections/levels/expanded_home_10_02_new_vacuum_cleaner.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/vacuum-cleaner.svg"
+    },
+    "res://collections/levels/expanded_home_10_03_new_broom.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/broom.svg"
+    },
+    "res://collections/levels/expanded_home_10_04_new_sewing_machine.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/sewing-machine.svg"
+    },
+    "res://collections/levels/expanded_home_11_01_new_pearl_necklace.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/pearl-necklace.svg"
+    },
+    "res://collections/levels/expanded_home_11_02_new_bow_tie.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/bow-tie.svg"
+    },
+    "res://collections/levels/expanded_home_11_03_new_umbrella.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/umbrella.svg"
+    },
+    "res://collections/levels/expanded_home_11_04_new_high_heel.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/high-heel.svg"
+    },
+    "res://collections/levels/expanded_food_02_01_new_asparagus.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/asparagus.svg"
+    },
+    "res://collections/levels/expanded_food_02_02_new_beet.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/beet.svg"
+    },
+    "res://collections/levels/expanded_food_02_03_new_broccoli.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/broccoli.svg"
+    },
+    "res://collections/levels/expanded_food_02_04_new_garlic.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/garlic.svg"
+    },
+    "res://collections/levels/expanded_food_02_05_new_corn.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/corn.svg"
+    },
+    "res://collections/levels/expanded_food_03_01_new_pretzel.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/pretzel.svg"
+    },
+    "res://collections/levels/expanded_food_03_02_new_croissant.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/croissant.svg"
+    },
+    "res://collections/levels/expanded_food_04_01_new_chocolate_bar.json": {
+      "author": "rihlsul",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/rihlsul/chocolate-bar.svg"
+    },
+    "res://collections/levels/expanded_food_04_02_new_honeycomb.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/honeycomb.svg"
+    },
+    "res://collections/levels/expanded_food_05_01_new_coffee_beans.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/coffee-beans.svg"
+    },
+    "res://collections/levels/expanded_food_05_02_new_coffee_pot.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/coffee-pot.svg"
+    },
+    "res://collections/levels/expanded_food_05_03_new_corked_tube.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/corked-tube.svg"
+    },
+    "res://collections/levels/expanded_food_07_01_new_kitchen_scale.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/kitchen-scale.svg"
+    },
+    "res://collections/levels/expanded_food_07_02_new_whisk.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/whisk.svg"
+    },
+    "res://collections/levels/expanded_food_07_03_new_corkscrew.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/corkscrew.svg"
+    },
+    "res://collections/levels/expanded_food_08_01_new_sushis.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/sushis.svg"
+    },
+    "res://collections/levels/expanded_food_08_02_new_tacos.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/tacos.svg"
+    },
+    "res://collections/levels/expanded_food_08_03_new_noodles.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/noodles.svg"
+    },
+    "res://collections/levels/expanded_food_08_04_new_dumpling.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/dumpling.svg"
+    },
+    "res://collections/levels/expanded_craft_02_01_new_hand_saw.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/hand-saw.svg"
+    },
+    "res://collections/levels/expanded_craft_02_02_new_chisel.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/chisel.svg"
+    },
+    "res://collections/levels/expanded_craft_02_03_new_wood_pile.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/wood-pile.svg"
+    },
+    "res://collections/levels/expanded_craft_02_04_new_wooden_crate.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/wooden-crate.svg"
+    },
+    "res://collections/levels/expanded_craft_03_01_new_anvil.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/anvil.svg"
+    },
+    "res://collections/levels/expanded_craft_03_02_new_metal_bar.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/metal-bar.svg"
+    },
+    "res://collections/levels/expanded_craft_03_03_new_blacksmith.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/blacksmith.svg"
+    },
+    "res://collections/levels/expanded_craft_03_04_new_horseshoe.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/horseshoe.svg"
+    },
+    "res://collections/levels/expanded_craft_04_01_new_electrical_resistance.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/electrical-resistance.svg"
+    },
+    "res://collections/levels/expanded_craft_04_02_new_electrical_socket.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/electrical-socket.svg"
+    },
+    "res://collections/levels/expanded_craft_04_03_new_plug.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/plug.svg"
+    },
+    "res://collections/levels/expanded_craft_05_01_new_brick_pile.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/brick-pile.svg"
+    },
+    "res://collections/levels/expanded_craft_05_02_new_paint_roller.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/paint-roller.svg"
+    },
+    "res://collections/levels/expanded_craft_05_03_new_paint_bucket.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/paint-bucket.svg"
+    },
+    "res://collections/levels/expanded_craft_05_04_new_wheelbarrow.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/wheelbarrow.svg"
+    },
+    "res://collections/levels/expanded_craft_06_01_new_sewing_needle.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/sewing-needle.svg"
+    },
+    "res://collections/levels/expanded_craft_06_02_new_yarn.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/yarn.svg"
+    },
+    "res://collections/levels/expanded_craft_06_03_new_scissors.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/scissors.svg"
+    },
+    "res://collections/levels/expanded_craft_06_04_new_spinning_wheel.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/spinning-wheel.svg"
+    },
+    "res://collections/levels/expanded_craft_07_01_new_amphora.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/amphora.svg"
+    },
+    "res://collections/levels/expanded_craft_07_02_new_painted_pottery.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/painted-pottery.svg"
+    },
+    "res://collections/levels/expanded_craft_07_03_new_broken_pottery.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/broken-pottery.svg"
+    },
+    "res://collections/levels/expanded_craft_08_01_new_watering_can.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/watering-can.svg"
+    },
+    "res://collections/levels/expanded_craft_09_01_new_chef_toque.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/chef-toque.svg"
+    },
+    "res://collections/levels/expanded_craft_09_02_new_diving_helmet.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/diving-helmet.svg"
+    },
+    "res://collections/levels/expanded_tech_01_01_new_quill_ink.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/quill-ink.svg"
+    },
+    "res://collections/levels/expanded_tech_01_02_new_wax_tablet.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/wax-tablet.svg"
+    },
+    "res://collections/levels/expanded_tech_02_01_new_newspaper.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/newspaper.svg"
+    },
+    "res://collections/levels/expanded_tech_02_02_new_scroll_unfurled.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/scroll-unfurled.svg"
+    },
+    "res://collections/levels/expanded_tech_03_01_new_vintage_robot.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/vintage-robot.svg"
+    },
+    "res://collections/levels/expanded_tech_03_02_new_pocket_radio.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/pocket-radio.svg"
+    },
+    "res://collections/levels/expanded_tech_04_01_new_cuckoo_clock.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/cuckoo-clock.svg"
+    },
+    "res://collections/levels/expanded_tech_04_02_new_gears.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/gears.svg"
+    },
+    "res://collections/levels/expanded_tech_04_03_new_spring.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/spring.svg"
+    },
+    "res://collections/levels/expanded_tech_04_04_new_hourglass.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/hourglass.svg"
+    },
+    "res://collections/levels/expanded_tech_07_01_new_robot_golem.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/robot-golem.svg"
+    },
+    "res://collections/levels/expanded_tech_07_02_new_mechanical_arm.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/mechanical-arm.svg"
+    },
+    "res://collections/levels/expanded_tech_07_03_new_delivery_drone.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/delivery-drone.svg"
+    },
+    "res://collections/levels/expanded_tech_09_01_new_wind_turbine.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/wind-turbine.svg"
+    },
+    "res://collections/levels/expanded_tech_09_02_new_water_mill.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/water-mill.svg"
+    },
+    "res://collections/levels/expanded_tech_09_03_new_nuclear_plant.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/nuclear-plant.svg"
+    },
+    "res://collections/levels/expanded_space_01_01_new_comet_spark.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/comet-spark.svg"
+    },
+    "res://collections/levels/expanded_space_01_02_new_asteroid.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/asteroid.svg"
+    },
+    "res://collections/levels/expanded_space_01_03_new_eclipse.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/eclipse.svg"
+    },
+    "res://collections/levels/expanded_space_02_01_new_space_shuttle.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/space-shuttle.svg"
+    },
+    "res://collections/levels/expanded_space_02_02_new_space_suit.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/space-suit.svg"
+    },
+    "res://collections/levels/expanded_space_03_01_new_observatory.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/observatory.svg"
+    },
+    "res://collections/levels/expanded_space_03_02_new_satellite_communication.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/satellite-communication.svg"
+    },
+    "res://collections/levels/expanded_space_03_03_new_orbital.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/orbital.svg"
+    },
+    "res://collections/levels/expanded_travel_04_01_new_biplane.json": {
+      "author": "quoting",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/quoting/biplane.svg"
+    },
+    "res://collections/levels/expanded_travel_04_02_new_glider.json": {
+      "author": "skoll",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/glider.svg"
+    },
+    "res://collections/levels/expanded_travel_04_03_new_hang_glider.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/hang-glider.svg"
+    },
+    "res://collections/levels/expanded_travel_04_04_new_parachute.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/parachute.svg"
+    },
+    "res://collections/levels/expanded_travel_04_05_new_jetpack.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/jetpack.svg"
+    },
+    "res://collections/levels/expanded_travel_05_01_new_chariot.json": {
+      "author": "cathelineau",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/cathelineau/chariot.svg"
+    },
+    "res://collections/levels/expanded_travel_05_02_new_steam_locomotive.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/steam-locomotive.svg"
+    },
+    "res://collections/levels/expanded_travel_07_01_new_egyptian_sphinx.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/egyptian-sphinx.svg"
+    },
+    "res://collections/levels/expanded_travel_07_02_new_pagoda.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/pagoda.svg"
+    },
+    "res://collections/levels/expanded_travel_07_03_new_pisa_tower.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/pisa-tower.svg"
+    },
+    "res://collections/levels/expanded_travel_07_04_new_rialto_bridge.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/rialto-bridge.svg"
+    },
+    "res://collections/levels/expanded_travel_09_01_new_campfire.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/campfire.svg"
+    },
+    "res://collections/levels/expanded_travel_09_02_new_sleeping_bag.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/sleeping-bag.svg"
+    },
+    "res://collections/levels/expanded_travel_09_03_new_rope_coil.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/rope-coil.svg"
+    },
+    "res://collections/levels/expanded_history_01_01_new_ancient_columns.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/ancient-columns.svg"
+    },
+    "res://collections/levels/expanded_history_01_02_new_greek_temple.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/greek-temple.svg"
+    },
+    "res://collections/levels/expanded_history_01_03_new_roman_toga.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/roman-toga.svg"
+    },
+    "res://collections/levels/expanded_history_01_04_new_laurels.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/laurels.svg"
+    },
+    "res://collections/levels/expanded_history_02_01_new_closed_barbute.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/closed-barbute.svg"
+    },
+    "res://collections/levels/expanded_history_02_02_new_crossed_swords.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/crossed-swords.svg"
+    },
+    "res://collections/levels/expanded_history_02_03_new_medieval_pavilion.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/medieval-pavilion.svg"
+    },
+    "res://collections/levels/expanded_history_03_01_new_castle_ruins.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/castle-ruins.svg"
+    },
+    "res://collections/levels/expanded_history_03_02_new_drawbridge.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/drawbridge.svg"
+    },
+    "res://collections/levels/expanded_history_03_03_new_tower_flag.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/tower-flag.svg"
+    },
+    "res://collections/levels/expanded_history_04_01_new_dinosaur_bones.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/dinosaur-bones.svg"
+    },
+    "res://collections/levels/expanded_history_04_02_new_fossil.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/fossil.svg"
+    },
+    "res://collections/levels/expanded_history_04_03_new_stone_tablet.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/stone-tablet.svg"
+    },
+    "res://collections/levels/expanded_history_06_01_new_egyptian_profile.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/egyptian-profile.svg"
+    },
+    "res://collections/levels/expanded_history_06_02_new_hieroglyph_y.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/hieroglyph-y.svg"
+    },
+    "res://collections/levels/expanded_history_07_01_new_byzantin_temple.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/byzantin-temple.svg"
+    },
+    "res://collections/levels/expanded_history_07_02_new_mayan_pyramid.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/mayan-pyramid.svg"
+    },
+    "res://collections/levels/expanded_culture_02_01_new_philosopher_bust.json": {
+      "author": "caro-asercion",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/philosopher-bust.svg"
+    },
+    "res://collections/levels/expanded_culture_02_02_new_stone_bust.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/stone-bust.svg"
+    },
+    "res://collections/levels/expanded_culture_02_03_new_venus_of_willendorf.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/venus-of-willendorf.svg"
+    },
+    "res://collections/levels/expanded_culture_03_01_new_feather.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/feather.svg"
+    },
+    "res://collections/levels/expanded_culture_03_02_new_open_book.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/open-book.svg"
+    },
+    "res://collections/levels/expanded_culture_03_03_new_book_pile.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/book-pile.svg"
+    },
+    "res://collections/levels/expanded_culture_04_01_new_windmill.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/windmill.svg"
+    },
+    "res://collections/levels/expanded_culture_04_02_new_submarine.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/submarine.svg"
+    },
+    "res://collections/levels/expanded_culture_04_03_new_drink_me.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/drink-me.svg"
+    },
+    "res://collections/levels/expanded_culture_04_04_new_insect_jaws.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/insect-jaws.svg"
+    },
+    "res://collections/levels/expanded_culture_05_01_new_bookmark.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/bookmark.svg"
+    },
+    "res://collections/levels/expanded_culture_05_02_new_scroll_quill.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/scroll-quill.svg"
+    },
+    "res://collections/levels/expanded_culture_05_03_new_book_cover.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/book-cover.svg"
+    },
+    "res://collections/levels/expanded_leisure_04_01_new_surf_board.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/surf-board.svg"
+    },
+    "res://collections/levels/expanded_leisure_04_02_new_water_polo.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/water-polo.svg"
+    },
+    "res://collections/levels/expanded_leisure_06_01_new_boxing_ring.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/boxing-ring.svg"
+    },
+    "res://collections/levels/expanded_leisure_06_02_new_fencer.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/fencer.svg"
+    },
+    "res://collections/levels/expanded_leisure_06_03_new_high_kick.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/high-kick.svg"
+    },
+    "res://collections/levels/expanded_leisure_10_01_new_chess_knight.json": {
+      "author": "skoll",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/chess-knight.svg"
+    },
+    "res://collections/levels/expanded_leisure_10_02_new_chess_rook.json": {
+      "author": "skoll",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/chess-rook.svg"
+    },
+    "res://collections/levels/expanded_leisure_10_03_new_backgammon.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/backgammon.svg"
+    },
+    "res://collections/levels/expanded_leisure_10_04_new_domino_tiles.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/domino-tiles.svg"
+    },
+    "res://collections/levels/expanded_leisure_10_05_new_meeple.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/meeple.svg"
+    },
+    "res://collections/levels/expanded_leisure_11_01_new_juggler.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/juggler.svg"
+    },
+    "res://collections/levels/expanded_leisure_11_02_new_unicycle.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/unicycle.svg"
+    },
+    "res://collections/levels/expanded_leisure_11_03_new_tightrope.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/tightrope.svg"
+    },
+    "res://collections/levels/expanded_leisure_12_01_new_drama_masks.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/drama-masks.svg"
+    },
+    "res://collections/levels/expanded_leisure_12_02_new_theater_curtains.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/theater-curtains.svg"
+    },
+    "res://collections/levels/expanded_leisure_13_01_new_film_projector.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/film-projector.svg"
+    },
+    "res://collections/levels/expanded_leisure_13_02_new_film_spool.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/film-spool.svg"
+    },
+    "res://collections/levels/expanded_leisure_13_03_new_director_chair.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/director-chair.svg"
+    },
+    "res://collections/levels/expanded_leisure_14_01_new_carousel.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/carousel.svg"
+    },
+    "res://collections/levels/expanded_fantasy_02_01_new_griffin_symbol.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/griffin-symbol.svg"
+    },
+    "res://collections/levels/expanded_fantasy_02_02_new_unicorn.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/unicorn.svg"
+    },
+    "res://collections/levels/expanded_fantasy_02_03_new_dragon_head.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/dragon-head.svg"
+    },
+    "res://collections/levels/expanded_fantasy_02_04_new_mermaid.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/mermaid.svg"
+    },
+    "res://collections/levels/expanded_fantasy_03_01_new_pegasus.json": {
+      "author": "skoll",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/pegasus.svg"
+    },
+    "res://collections/levels/expanded_fantasy_03_02_new_minotaur.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/minotaur.svg"
+    },
+    "res://collections/levels/expanded_fantasy_03_03_new_sea_serpent.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/sea-serpent.svg"
+    },
+    "res://collections/levels/expanded_fantasy_04_01_new_portal.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/portal.svg"
+    },
+    "res://collections/levels/expanded_fantasy_04_02_new_cloud_ring.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/cloud-ring.svg"
+    },
+    "res://collections/levels/expanded_seasons_01_01_new_butterfly_flower.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/butterfly-flower.svg"
+    },
+    "res://collections/levels/expanded_seasons_01_02_new_plant_seed.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/plant-seed.svg"
+    },
+    "res://collections/levels/expanded_seasons_02_01_new_beach_ball.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/beach-ball.svg"
+    },
+    "res://collections/levels/expanded_seasons_02_02_new_ice_pop.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/ice-pop.svg"
+    },
+    "res://collections/levels/expanded_seasons_03_01_new_chestnut_leaf.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/chestnut-leaf.svg"
+    },
+    "res://collections/levels/expanded_seasons_03_02_new_acorn.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/acorn.svg"
+    },
+    "res://collections/levels/expanded_seasons_03_03_new_maple_leaf.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/maple-leaf.svg"
+    },
+    "res://collections/levels/expanded_seasons_08_01_new_carnival_mask.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/carnival-mask.svg"
+    },
+    "res://collections/levels/expanded_seasons_08_02_new_jester_hat.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/jester-hat.svg"
+    },
+    "res://collections/levels/expanded_seasons_09_01_new_grain_bundle.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/grain-bundle.svg"
+    },
+    "res://collections/levels/expanded_seasons_09_02_new_fruit_bowl.json": {
+      "author": "skoll",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/fruit-bowl.svg"
+    },
+    "res://collections/levels/expanded_seasons_09_03_new_cornucopia.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/cornucopia.svg"
+    },
+    "res://collections/levels/expanded_seasons_10_01_new_firework_rocket.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/firework-rocket.svg"
+    },
+    "res://collections/levels/expanded_seasons_10_02_new_party_popper.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/party-popper.svg"
+    },
+    "res://collections/levels/expanded_seasons_10_03_new_balloons.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/balloons.svg"
+    },
+    "res://collections/levels/expanded_seasons_11_01_new_asian_lantern.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/asian-lantern.svg"
+    },
+    "res://collections/levels/expanded_seasons_11_02_new_diablo_skull.json": {
+      "author": "lorc",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/diablo-skull.svg"
+    },
+    "res://collections/levels/expanded_seasons_11_03_new_shamrock.json": {
+      "author": "delapouite",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "CC BY 3.0",
+      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/delapouite/shamrock.svg"
+    },
+    "res://collections/levels/expanded_medicine_04_05_new_crutches.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay"
+    },
+    "res://collections/levels/expanded_science_04_04_new_cell.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/cell.svg"
+    },
+    "res://collections/levels/expanded_science_04_05_new_bacteria.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/bacteria.svg"
+    },
+    "res://collections/levels/expanded_science_05_04_new_geode.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/geode.svg"
+    },
+    "res://collections/levels/expanded_animals_02_04_new_pelican.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/pelican.svg"
+    },
+    "res://collections/levels/expanded_animals_02_05_new_woodpecker.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/woodpecker.svg"
+    },
+    "res://collections/levels/expanded_home_04_05_new_wardrobe.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/wardrobe.svg"
+    },
+    "res://collections/levels/expanded_home_05_05_new_toilet.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/toilet.svg"
+    },
+    "res://collections/levels/expanded_home_06_02_new_rocking_horse.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/rocking-horse.svg"
+    },
+    "res://collections/levels/expanded_home_08_02_new_garden_bench.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/garden-bench.svg"
+    },
+    "res://collections/levels/expanded_food_03_03_new_baguette.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/baguette.svg"
+    },
+    "res://collections/levels/expanded_food_07_04_new_rolling_pin.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/rolling-pin.svg"
+    },
+    "res://collections/levels/expanded_tech_01_03_new_typewriter.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/typewriter.svg"
+    },
+    "res://collections/levels/expanded_tech_02_03_new_printing_press.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/printing-press.svg"
+    },
+    "res://collections/levels/expanded_tech_03_03_new_gramophone.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/gramophone.svg"
+    },
+    "res://collections/levels/expanded_history_05_01_new_oil_lamp.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/oil-lamp.svg"
+    },
+    "res://collections/levels/expanded_history_05_02_new_water_jug.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/water-jug.svg"
+    },
+    "res://collections/levels/expanded_history_05_03_new_balance_scale.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/balance-scale.svg"
+    },
+    "res://collections/levels/expanded_history_07_03_new_torii_gate.json": {
+      "author": "ArrowWay",
+      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
+      "license": "Originalgestaltung",
+      "source": "https://github.com/heinrichheinrichson-bit/ArrowWay/blob/feature/neon-progression-map/collections/original_vectors/torii-gate.svg"
+    }
+  }
+}

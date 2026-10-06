@@ -1,6 +1,6 @@
-# ArrowWay · Alle 500 Katalogmotive
+# ArrowWay · Alle 814 Katalogmotive
 
-500 spielbare Sammlungsrätsel in 42 Sammlungen. Mit den neun Einstiegspuzzles enthält die Spielerreise 509 Motive. Eigene Editorentwürfe bleiben getrennt.
+814 spielbare Sammlungsrätsel in 87 Sammlungen. Mit den neun Einstiegspuzzles enthält die Spielerreise 823 Motive. Eigene Editorentwürfe bleiben getrennt.
 
 Im Spiel **Reise** öffnen und eine freigeschaltete Sammlung im Themenbaum wählen. Zum Nachbearbeiten die verlinkte JSON-Datei in der Motivwerkstatt über **Öffnen → Bild, Motiv oder Level-Datei** laden. Persönliche Varianten unter einem eigenen Namen in `levels/` exportieren.
 
@@ -8,48 +8,93 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 
 | Sammlung | Motive | Bildübersicht |
 |---|---:|---|
-| Wahrzeichen & Baukunst | 7 | [Ansehen](previews/collection-world.png) |
-| Blumen & Blüten | 21 | [Ansehen](previews/collection-flowers.png) |
-| Garten & grünes Leben | 13 | [Ansehen](previews/collection-garden.png) |
-| Tiere an Land | 19 | [Ansehen](previews/collection-animals.png) |
+| Wahrzeichen & Baukunst | 11 | [Ansehen](previews/collection-world.png) |
+| Blumen & Blüten | 24 | [Ansehen](previews/collection-flowers.png) |
+| Garten & grünes Leben | 16 | [Ansehen](previews/collection-garden.png) |
+| Tiere an Land | 24 | [Ansehen](previews/collection-animals.png) |
 | Berge & Naturkräfte | 7 | [Ansehen](previews/collection-landscapes.png) |
 | Obst | 23 | [Ansehen](previews/collection-fruit.png) |
-| Gebäck & süße Freuden | 14 | [Ansehen](previews/collection-bakery.png) |
-| Getränke & Café | 4 | [Ansehen](previews/collection-taste.png) |
-| Sonne, Mond & Planeten | 4 | [Ansehen](previews/collection-space.png) |
-| Raumfahrt & Forschung | 10 | [Ansehen](previews/collection-spaceflight.png) |
+| Gebäck & süße Freuden | 19 | [Ansehen](previews/collection-bakery.png) |
+| Getränke & Café | 7 | [Ansehen](previews/collection-taste.png) |
+| Sonne, Mond & Planeten | 7 | [Ansehen](previews/collection-space.png) |
+| Raumfahrt & Forschung | 15 | [Ansehen](previews/collection-spaceflight.png) |
 | Zukunft & erfundene Welten | 12 | [Ansehen](previews/collection-cosmos.png) |
-| Kunst & Bücher | 5 | [Ansehen](previews/collection-art.png) |
+| Kunst & Bücher | 11 | [Ansehen](previews/collection-art.png) |
 | Halloween | 20 | [Ansehen](previews/collection-halloween.png) |
 | Weihnachten | 20 | [Ansehen](previews/collection-christmas.png) |
 | Winter & Eis | 20 | [Ansehen](previews/collection-winter.png) |
 | Ostern | 20 | [Ansehen](previews/collection-easter.png) |
-| Elektronik & Mechanik | 12 | [Ansehen](previews/collection-technology.png) |
-| Musik & Medien | 22 | [Ansehen](previews/collection-music.png) |
+| Elektronik & Mechanik | 22 | [Ansehen](previews/collection-technology.png) |
+| Musik & Medien | 25 | [Ansehen](previews/collection-music.png) |
 | Kommunikation & Aufnahme | 4 | [Ansehen](previews/collection-communication.png) |
-| Physik & Chemie | 3 | [Ansehen](previews/collection-science_basics.png) |
+| Physik & Chemie | 11 | [Ansehen](previews/collection-science_basics.png) |
 | Computer & Bürotechnik | 20 | [Ansehen](previews/collection-computers.png) |
 | Städte & Skylines | 19 | [Ansehen](previews/collection-skylines.png) |
 | Smartphones & Apps | 20 | [Ansehen](previews/collection-smartphones.png) |
 | Straßenfahrzeuge | 13 | [Ansehen](previews/collection-vehicles.png) |
 | Schienenverkehr | 3 | [Ansehen](previews/collection-rail.png) |
-| Fluggeräte | 6 | [Ansehen](previews/collection-aircraft.png) |
-| Meerestiere & Riffe | 12 | [Ansehen](previews/collection-ocean.png) |
+| Fluggeräte | 11 | [Ansehen](previews/collection-aircraft.png) |
+| Meerestiere & Riffe | 16 | [Ansehen](previews/collection-ocean.png) |
 | Schiffe & Boote | 6 | [Ansehen](previews/collection-ships.png) |
 | Küsten & Inseln | 8 | [Ansehen](previews/collection-coasts.png) |
-| Vögel | 21 | [Ansehen](previews/collection-birds.png) |
+| Vögel | 26 | [Ansehen](previews/collection-birds.png) |
 | Spielzeug & Kindheit | 22 | [Ansehen](previews/collection-toys.png) |
-| Kochen & Küche | 5 | [Ansehen](previews/collection-meals.png) |
-| Werkstatt & Handwerk | 13 | [Ansehen](previews/collection-workshop.png) |
+| Kochen & Küche | 9 | [Ansehen](previews/collection-meals.png) |
+| Werkstatt & Handwerk | 25 | [Ansehen](previews/collection-workshop.png) |
 | Ballsport | 7 | [Ansehen](previews/collection-ball_sports.png) |
-| Sport & Bewegung | 13 | [Ansehen](previews/collection-sports.png) |
+| Sport & Bewegung | 16 | [Ansehen](previews/collection-sports.png) |
 | Reisen & Orientierung | 8 | [Ansehen](previews/collection-travel.png) |
-| Camping & Outdoor | 6 | [Ansehen](previews/collection-camping.png) |
+| Camping & Outdoor | 9 | [Ansehen](previews/collection-camping.png) |
 | Wüsten & Savannen | 5 | [Ansehen](previews/collection-deserts.png) |
-| Märchenwelten & Magie | 16 | [Ansehen](previews/collection-fantasy.png) |
-| Fabelwesen | 4 | [Ansehen](previews/collection-creatures.png) |
+| Märchenwelten & Magie | 18 | [Ansehen](previews/collection-fantasy.png) |
+| Fabelwesen | 11 | [Ansehen](previews/collection-creatures.png) |
 | Seen & Flüsse | 4 | [Ansehen](previews/collection-lakes.png) |
-| Kleine Alltagsmomente | 9 | [Ansehen](previews/collection-cozy.png) |
+| Kleine Alltagsmomente | 11 | [Ansehen](previews/collection-cozy.png) |
+| Anatomie | 6 | [Ansehen](previews/collection-anatomy.png) |
+| Sinne | 5 | [Ansehen](previews/collection-senses.png) |
+| Medizinische Geräte & Praxis | 10 | [Ansehen](previews/collection-medical_care.png) |
+| Zahnmedizin | 3 | [Ansehen](previews/collection-dental.png) |
+| Geschichte der Medizin | 3 | [Ansehen](previews/collection-medical_history.png) |
+| Mathematik & Formen | 5 | [Ansehen](previews/collection-mathematics.png) |
+| Biologie & Mikroskopie | 5 | [Ansehen](previews/collection-biology.png) |
+| Fossilien & Mineralien | 4 | [Ansehen](previews/collection-geology.png) |
+| Forschung & Labor | 5 | [Ansehen](previews/collection-research.png) |
+| Insekten | 9 | [Ansehen](previews/collection-insects.png) |
+| Spinnen & Skorpione | 4 | [Ansehen](previews/collection-spiders.png) |
+| Reptilien | 5 | [Ansehen](previews/collection-reptiles.png) |
+| Amphibien | 4 | [Ansehen](previews/collection-amphibians.png) |
+| Bäume & Wälder | 6 | [Ansehen](previews/collection-forests.png) |
+| Tropisches Grün | 4 | [Ansehen](previews/collection-tropical.png) |
+| Pilze | 3 | [Ansehen](previews/collection-mushrooms.png) |
+| Häuser & Wohnorte | 4 | [Ansehen](previews/collection-homes.png) |
+| Küche | 4 | [Ansehen](previews/collection-kitchen.png) |
+| Wohnräume | 15 | [Ansehen](previews/collection-rooms.png) |
+| Bad & Wasser | 5 | [Ansehen](previews/collection-bathroom.png) |
+| Haushalt | 4 | [Ansehen](previews/collection-household.png) |
+| Mode & Schmuck | 4 | [Ansehen](previews/collection-fashion.png) |
+| Gemüse | 5 | [Ansehen](previews/collection-vegetables.png) |
+| Küche der Welt | 4 | [Ansehen](previews/collection-world_cuisine.png) |
+| Elektrik & Installation | 3 | [Ansehen](previews/collection-installation.png) |
+| Nähen & Textilien | 4 | [Ansehen](previews/collection-textiles.png) |
+| Ton & Keramik | 3 | [Ansehen](previews/collection-pottery.png) |
+| Landwirtschaft | 1 | [Ansehen](previews/collection-farming.png) |
+| Berufe | 2 | [Ansehen](previews/collection-professions.png) |
+| Alte Technik | 9 | [Ansehen](previews/collection-vintage_technology.png) |
+| Historische Fahrzeuge | 2 | [Ansehen](previews/collection-historic_vehicles.png) |
+| Antike | 4 | [Ansehen](previews/collection-antiquity.png) |
+| Mittelalter | 3 | [Ansehen](previews/collection-medieval.png) |
+| Burgen & Schlösser | 3 | [Ansehen](previews/collection-castles.png) |
+| Archäologie | 3 | [Ansehen](previews/collection-archaeology.png) |
+| Schrift & Zeichen | 2 | [Ansehen](previews/collection-ancient_writing.png) |
+| Baukunst der Kulturen | 3 | [Ansehen](previews/collection-cultural_architecture.png) |
+| Skulpturen | 3 | [Ansehen](previews/collection-sculptures.png) |
+| Berühmte Geschichten | 4 | [Ansehen](previews/collection-literature.png) |
+| Wassersport | 2 | [Ansehen](previews/collection-water_sports.png) |
+| Brettspiele & Denksport | 5 | [Ansehen](previews/collection-board_games.png) |
+| Bühne & Vergnügen | 6 | [Ansehen](previews/collection-stage_and_fun.png) |
+| Frühling, Sommer & Herbst | 7 | [Ansehen](previews/collection-changing_seasons.png) |
+| Feste & Traditionen | 11 | [Ansehen](previews/collection-traditions.png) |
+| Historischer Alltag | 3 | [Ansehen](previews/collection-historic_life.png) |
 
 ## Wahrzeichen & Baukunst
 
@@ -62,6 +107,10 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Licht an der Küste](collections/levels/world_05_lighthouse.json) · 32.0 Pfeile
 - [Prater bei Nacht](collections/levels/world_06_prater.json) · 67.0 Pfeile
 - [Leuchtturm im Nebel](collections/levels/ocean_18_ocean_18.json) · 22.0 Pfeile
+- [Sphinx von Gizeh](collections/levels/expanded_travel_07_01_new_egyptian_sphinx.json) · 30.0 Pfeile
+- [Pagode](collections/levels/expanded_travel_07_02_new_pagoda.json) · 27.0 Pfeile
+- [Schiefer Turm](collections/levels/expanded_travel_07_03_new_pisa_tower.json) · 26.0 Pfeile
+- [Rialtobrücke](collections/levels/expanded_travel_07_04_new_rialto_bridge.json) · 36.0 Pfeile
 
 ## Blumen & Blüten
 
@@ -88,6 +137,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Tulpe im Abendrot](collections/levels/flowers_18_flowers_18.json) · 41.0 Pfeile
 - [Dahlienblüte](collections/levels/flowers_19_flowers_19.json) · 52.0 Pfeile
 - [Sommerblumen](collections/levels/flowers_20_flowers_20.json) · 70.0 Pfeile
+- [Baumwollblüte](collections/levels/expanded_plants_01_01_new_cotton_flower.json) · 33.0 Pfeile
+- [Löwenzahn am Wegrand](collections/levels/expanded_plants_01_02_new_dandelion_flower.json) · 58.0 Pfeile
+- [Farnwedel](collections/levels/expanded_plants_01_03_new_fern.json) · 56.0 Pfeile
 
 ## Garten & grünes Leben
 
@@ -106,6 +158,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Wald am See](collections/levels/landscapes_18_landscapes_18.json) · 42.0 Pfeile
 - [Dunkler Tannenwald](collections/levels/landscapes_19_landscapes_19.json) · 49.0 Pfeile
 - [Bonsai auf dem Tisch](collections/levels/cozy_05_cozy_05.json) · 40.0 Pfeile
+- [Keimling mit Wurzeln](collections/levels/expanded_plants_05_01_new_plant_roots.json) · 29.0 Pfeile
+- [Gartenschere](collections/levels/expanded_plants_05_02_new_gardening_shears.json) · 22.0 Pfeile
+- [Wasser für den Keimling](collections/levels/expanded_plants_05_03_new_plant_watering.json) · 24.0 Pfeile
 
 ## Tiere an Land
 
@@ -130,6 +185,11 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Hamsterfreund](collections/levels/animals_18_animals_18.json) · 60.0 Pfeile
 - [Kätzchen mit Stern](collections/levels/animals_19_animals_19.json) · 61.0 Pfeile
 - [Löwenkind](collections/levels/animals_20_animals_20.json) · 87.0 Pfeile
+- [Ameisenbär auf Nahrungssuche](collections/levels/expanded_animals_01_01_new_anteater.json) · 34.0 Pfeile
+- [Gürteltier auf Wanderschaft](collections/levels/expanded_animals_01_02_new_armadillo.json) · 27.0 Pfeile
+- [Fledermaus im Flug](collections/levels/expanded_animals_01_03_new_bat.json) · 40.0 Pfeile
+- [Igel im Laub](collections/levels/expanded_animals_01_04_new_hedgehog.json) · 20.0 Pfeile
+- [Känguru im Sprung](collections/levels/expanded_animals_01_05_new_kangaroo.json) · 22.0 Pfeile
 
 ## Berge & Naturkräfte
 
@@ -189,6 +249,11 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Eiswaffelzeichen](collections/levels/bakery_18_bakery_18.json) · 52.0 Pfeile
 - [Süßer Stern](collections/levels/bakery_19_bakery_19.json) · 55.0 Pfeile
 - [Liebesplätzchen](collections/levels/bakery_20_bakery_20.json) · 61.0 Pfeile
+- [Brezelschlinge](collections/levels/expanded_food_03_01_new_pretzel.json) · 38.0 Pfeile
+- [Croissant](collections/levels/expanded_food_03_02_new_croissant.json) · 26.0 Pfeile
+- [Schokoladentafel](collections/levels/expanded_food_04_01_new_chocolate_bar.json) · 44.0 Pfeile
+- [Honigwaben](collections/levels/expanded_food_04_02_new_honeycomb.json) · 30.0 Pfeile
+- [Baguette](collections/levels/expanded_food_03_03_new_baguette.json) · 24 Pfeile
 
 ## Getränke & Café
 
@@ -198,6 +263,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Lime & Neon](collections/levels/taste_06_cocktail.json) · 38.0 Pfeile
 - [Milch zum Frühstück](collections/levels/bakery_13_bakery_13.json) · 25.0 Pfeile
 - [Bäckerkaffee](collections/levels/bakery_14_bakery_14.json) · 36.0 Pfeile
+- [Kaffeebohnen](collections/levels/expanded_food_05_01_new_coffee_beans.json) · 48.0 Pfeile
+- [Espressokanne](collections/levels/expanded_food_05_02_new_coffee_pot.json) · 25.0 Pfeile
+- [Flasche mit Korken](collections/levels/expanded_food_05_03_new_corked_tube.json) · 29.0 Pfeile
 
 ## Sonne, Mond & Planeten
 
@@ -207,6 +275,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Mondnacht](collections/levels/space_02_moon.json) · 26.0 Pfeile
 - [Ringe des Saturn](collections/levels/space_04_saturn.json) · 33.0 Pfeile
 - [Kometenschweif](collections/levels/space_05_comet.json) · 44.0 Pfeile
+- [Geschwungener Komet](collections/levels/expanded_space_01_01_new_comet_spark.json) · 31 Pfeile
+- [Asteroid](collections/levels/expanded_space_01_02_new_asteroid.json) · 46.0 Pfeile
+- [Sonnenfinsternis](collections/levels/expanded_space_01_03_new_eclipse.json) · 20.0 Pfeile
 
 ## Raumfahrt & Forschung
 
@@ -222,6 +293,11 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Sternenkarte](collections/levels/cosmos_11_cosmos_11.json) · 53.0 Pfeile
 - [Labor im All](collections/levels/cosmos_12_cosmos_12.json) · 24.0 Pfeile
 - [Raumcomputer](collections/levels/cosmos_14_cosmos_14.json) · 43.0 Pfeile
+- [Raumfähre](collections/levels/expanded_space_02_01_new_space_shuttle.json) · 33.0 Pfeile
+- [Raumanzug](collections/levels/expanded_space_02_02_new_space_suit.json) · 45.0 Pfeile
+- [Sternwarte](collections/levels/expanded_space_03_01_new_observatory.json) · 35.0 Pfeile
+- [Satellitenverbindung](collections/levels/expanded_space_03_02_new_satellite_communication.json) · 27.0 Pfeile
+- [Umlaufbahn](collections/levels/expanded_space_03_03_new_orbital.json) · 41.0 Pfeile
 
 ## Zukunft & erfundene Welten
 
@@ -249,6 +325,12 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Goldenes Korn](collections/levels/art_03_wheat.json) · 40.0 Pfeile
 - [Brücke über Seerosen](collections/levels/art_04_bridge.json) · 38.0 Pfeile
 - [Lesestunde](collections/levels/cozy_01_cozy_01.json) · 37.0 Pfeile
+- [Feder für Geschichten](collections/levels/expanded_culture_03_01_new_feather.json) · 28.0 Pfeile
+- [Aufgeschlagenes Buch](collections/levels/expanded_culture_03_02_new_open_book.json) · 31.0 Pfeile
+- [Bücherstapel](collections/levels/expanded_culture_03_03_new_book_pile.json) · 43.0 Pfeile
+- [Lesezeichen](collections/levels/expanded_culture_05_01_new_bookmark.json) · 39.0 Pfeile
+- [Schriftrolle mit Feder](collections/levels/expanded_culture_05_02_new_scroll_quill.json) · 38.0 Pfeile
+- [Gebundenes Buch](collections/levels/expanded_culture_05_03_new_book_cover.json) · 37.0 Pfeile
 
 ## Halloween
 
@@ -366,6 +448,16 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Solarzeichen](collections/levels/technology_16_technology_16.json) · 60.0 Pfeile
 - [Digitale Raute](collections/levels/technology_19_technology_19.json) · 70.0 Pfeile
 - [Werkzeug der Zukunft](collections/levels/technology_20_technology_20.json) · 22.0 Pfeile
+- [Kuckucksuhr](collections/levels/expanded_tech_04_01_new_cuckoo_clock.json) · 38.0 Pfeile
+- [Zahnräder im Eingriff](collections/levels/expanded_tech_04_02_new_gears.json) · 30.0 Pfeile
+- [Gespeicherte Spannung](collections/levels/expanded_tech_04_03_new_spring.json) · 24.0 Pfeile
+- [Sand im Stundenglas](collections/levels/expanded_tech_04_04_new_hourglass.json) · 30.0 Pfeile
+- [Roboter auf Beinen](collections/levels/expanded_tech_07_01_new_robot_golem.json) · 46.0 Pfeile
+- [Greifarm](collections/levels/expanded_tech_07_02_new_mechanical_arm.json) · 22.0 Pfeile
+- [Lieferdrohne](collections/levels/expanded_tech_07_03_new_delivery_drone.json) · 30.0 Pfeile
+- [Windrad](collections/levels/expanded_tech_09_01_new_wind_turbine.json) · 15.0 Pfeile
+- [Wassermühle](collections/levels/expanded_tech_09_02_new_water_mill.json) · 43.0 Pfeile
+- [Kühlturm](collections/levels/expanded_tech_09_03_new_nuclear_plant.json) · 56.0 Pfeile
 
 ## Musik & Medien
 
@@ -393,6 +485,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Musik am Display](collections/levels/music_19_music_19.json) · 53.0 Pfeile
 - [Bühnenstern](collections/levels/music_20_music_20.json) · 50.0 Pfeile
 - [Reisefotografie](collections/levels/travel_14_travel_14.json) · 61.0 Pfeile
+- [Filmprojektor](collections/levels/expanded_leisure_13_01_new_film_projector.json) · 26.0 Pfeile
+- [Filmrolle](collections/levels/expanded_leisure_13_02_new_film_spool.json) · 47.0 Pfeile
+- [Regiestuhl](collections/levels/expanded_leisure_13_03_new_director_chair.json) · 32.0 Pfeile
 
 ## Kommunikation & Aufnahme
 
@@ -410,6 +505,14 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Laborflasche](collections/levels/technology_10_technology_10.json) · 27.0 Pfeile
 - [Magnetisches Feld](collections/levels/technology_17_technology_17.json) · 57.0 Pfeile
 - [Energieblitz](collections/levels/technology_18_technology_18.json) · 63.0 Pfeile
+- [Licht im Prisma](collections/levels/expanded_science_02_01_new_prism.json) · 33.0 Pfeile
+- [Pendelschlag](collections/levels/expanded_science_02_02_new_pendulum_swing.json) · 32.0 Pfeile
+- [Kreisel in Balance](collections/levels/expanded_science_02_03_new_gyroscope.json) · 32.0 Pfeile
+- [Ein schweres Argument](collections/levels/expanded_science_02_04_new_weight.json) · 34.0 Pfeile
+- [Reaktion im Tropfen](collections/levels/expanded_science_03_01_new_chemical_drop.json) · 26.0 Pfeile
+- [Drei Reagenzgläser](collections/levels/expanded_science_03_02_new_test_tubes.json) · 53.0 Pfeile
+- [Verbundene Teilchen](collections/levels/expanded_science_03_03_new_molecule.json) · 46.0 Pfeile
+- [Kristall wächst](collections/levels/expanded_science_03_04_new_crystal_growth.json) · 46.0 Pfeile
 
 ## Computer & Bürotechnik
 
@@ -521,6 +624,11 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Wasserflugzeug](collections/levels/vehicles_20_vehicles_20.json) · 33.0 Pfeile
 - [Heißluftballonfahrt](collections/levels/travel_12_travel_12.json) · 45.0 Pfeile
 - [Luftschiffreise](collections/levels/travel_13_travel_13.json) · 31.0 Pfeile
+- [Doppeldecker](collections/levels/expanded_travel_04_01_new_biplane.json) · 42.0 Pfeile
+- [Segelflieger](collections/levels/expanded_travel_04_02_new_glider.json) · 26.0 Pfeile
+- [Drachenflieger](collections/levels/expanded_travel_04_03_new_hang_glider.json) · 26.0 Pfeile
+- [Fallschirm](collections/levels/expanded_travel_04_04_new_parachute.json) · 48.0 Pfeile
+- [Raketenrucksack](collections/levels/expanded_travel_04_05_new_jetpack.json) · 51.0 Pfeile
 
 ## Meerestiere & Riffe
 
@@ -538,6 +646,10 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Perlmuttmuschel](collections/levels/ocean_10_ocean_10.json) · 60.0 Pfeile
 - [Korallengarten](collections/levels/ocean_11_ocean_11.json) · 31.0 Pfeile
 - [Meeresschmetterling](collections/levels/ocean_12_ocean_12.json) · 59.0 Pfeile
+- [Nautilus im Meer](collections/levels/expanded_animals_07_01_new_nautilus_shell.json) · 45.0 Pfeile
+- [Seepferdchen im Seegras](collections/levels/expanded_animals_07_02_new_seahorse.json) · 25.0 Pfeile
+- [Rochen im Gleitflug](collections/levels/expanded_animals_07_03_new_manta_ray.json) · 35.0 Pfeile
+- [Korallenast](collections/levels/expanded_animals_07_04_new_coral.json) · 33.0 Pfeile
 
 ## Schiffe & Boote
 
@@ -588,6 +700,11 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Storch im Sommer](collections/levels/birds_18_birds_18.json) · 50.0 Pfeile
 - [Blauer Singvogel](collections/levels/birds_19_birds_19.json) · 46.0 Pfeile
 - [Wintervogel](collections/levels/birds_20_birds_20.json) · 42.0 Pfeile
+- [Flamingo auf einem Bein](collections/levels/expanded_animals_02_01_new_flamingo.json) · 23.0 Pfeile
+- [Kiwi im Unterholz](collections/levels/expanded_animals_02_02_new_kiwi_bird.json) · 26.0 Pfeile
+- [Storch mit Bündel](collections/levels/expanded_animals_02_03_new_stork_delivery.json) · 27.0 Pfeile
+- [Pelikan am Ufer](collections/levels/expanded_animals_02_04_new_pelican.json) · 22 Pfeile
+- [Buntspecht im Profil](collections/levels/expanded_animals_02_05_new_woodpecker.json) · 25 Pfeile
 
 ## Spielzeug & Kindheit
 
@@ -625,6 +742,10 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Belegtes Sandwich](collections/levels/bakery_07_bakery_07.json) · 50.0 Pfeile
 - [Kuchenbesteck](collections/levels/bakery_15_bakery_15.json) · 19.0 Pfeile
 - [Honiglöffel](collections/levels/bakery_16_bakery_16.json) · 23.0 Pfeile
+- [Küchenwaage](collections/levels/expanded_food_07_01_new_kitchen_scale.json) · 31.0 Pfeile
+- [Schneebesen](collections/levels/expanded_food_07_02_new_whisk.json) · 27.0 Pfeile
+- [Korkenzieher](collections/levels/expanded_food_07_03_new_corkscrew.json) · 22.0 Pfeile
+- [Nudelholz](collections/levels/expanded_food_07_04_new_rolling_pin.json) · 12 Pfeile
 
 ## Werkstatt & Handwerk
 
@@ -643,6 +764,18 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Farbtopf](collections/levels/workshop_18_workshop_18.json) · 44.0 Pfeile
 - [Werkzeugtasche](collections/levels/workshop_19_workshop_19.json) · 40.0 Pfeile
 - [Elektrische Werkbank](collections/levels/workshop_20_workshop_20.json) · 82.0 Pfeile
+- [Handsäge im Holz](collections/levels/expanded_craft_02_01_new_hand_saw.json) · 22.0 Pfeile
+- [Stechbeitel](collections/levels/expanded_craft_02_02_new_chisel.json) · 24.0 Pfeile
+- [Gestapeltes Holz](collections/levels/expanded_craft_02_03_new_wood_pile.json) · 47.0 Pfeile
+- [Holzkiste](collections/levels/expanded_craft_02_04_new_wooden_crate.json) · 61.0 Pfeile
+- [Amboss](collections/levels/expanded_craft_03_01_new_anvil.json) · 22.0 Pfeile
+- [Metallprofil](collections/levels/expanded_craft_03_02_new_metal_bar.json) · 29.0 Pfeile
+- [Am Schmiedefeuer](collections/levels/expanded_craft_03_03_new_blacksmith.json) · 27.0 Pfeile
+- [Hufeisen](collections/levels/expanded_craft_03_04_new_horseshoe.json) · 32.0 Pfeile
+- [Ziegelstapel](collections/levels/expanded_craft_05_01_new_brick_pile.json) · 27.0 Pfeile
+- [Farbrolle an der Wand](collections/levels/expanded_craft_05_02_new_paint_roller.json) · 25.0 Pfeile
+- [Offener Farbeimer](collections/levels/expanded_craft_05_03_new_paint_bucket.json) · 38.0 Pfeile
+- [Schubkarre](collections/levels/expanded_craft_05_04_new_wheelbarrow.json) · 27.0 Pfeile
 
 ## Ballsport
 
@@ -673,6 +806,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Startuhr](collections/levels/sports_18_sports_18.json) · 61.0 Pfeile
 - [Zielmarkierung](collections/levels/sports_19_sports_19.json) · 70.0 Pfeile
 - [Fitnessherz](collections/levels/sports_20_sports_20.json) · 66.0 Pfeile
+- [Boxring](collections/levels/expanded_leisure_06_01_new_boxing_ring.json) · 32.0 Pfeile
+- [Fechter](collections/levels/expanded_leisure_06_02_new_fencer.json) · 22.0 Pfeile
+- [Hoher Tritt](collections/levels/expanded_leisure_06_03_new_high_kick.json) · 23.0 Pfeile
 
 ## Reisen & Orientierung
 
@@ -697,6 +833,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Camperfreiheit](collections/levels/travel_15_travel_15.json) · 38.0 Pfeile
 - [Wasserflasche unterwegs](collections/levels/travel_18_travel_18.json) · 26.0 Pfeile
 - [Abenteuerlaterne](collections/levels/travel_19_travel_19.json) · 37.0 Pfeile
+- [Lagerfeuerplatz](collections/levels/expanded_travel_09_01_new_campfire.json) · 42.0 Pfeile
+- [Schlafsack](collections/levels/expanded_travel_09_02_new_sleeping_bag.json) · 33.0 Pfeile
+- [Seil für unterwegs](collections/levels/expanded_travel_09_03_new_rope_coil.json) · 41.0 Pfeile
 
 ## Wüsten & Savannen
 
@@ -728,6 +867,8 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Mondkompass](collections/levels/fantasy_14_fantasy_14.json) · 53.0 Pfeile
 - [Zauberblüte](collections/levels/fantasy_19_fantasy_19.json) · 42.0 Pfeile
 - [Wald der Wunder](collections/levels/fantasy_20_fantasy_20.json) · 43.0 Pfeile
+- [Leuchtendes Portal](collections/levels/expanded_fantasy_04_01_new_portal.json) · 39.0 Pfeile
+- [Ring aus Wolken](collections/levels/expanded_fantasy_04_02_new_cloud_ring.json) · 39.0 Pfeile
 
 ## Fabelwesen
 
@@ -737,6 +878,13 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Drachenmaske](collections/levels/fantasy_16_fantasy_16.json) · 57.0 Pfeile
 - [Eulenwächter](collections/levels/fantasy_17_fantasy_17.json) · 70.0 Pfeile
 - [Geisterfreund](collections/levels/fantasy_18_fantasy_18.json) · 48.0 Pfeile
+- [Greif mit Flügeln](collections/levels/expanded_fantasy_02_01_new_griffin_symbol.json) · 41.0 Pfeile
+- [Einhorn](collections/levels/expanded_fantasy_02_02_new_unicorn.json) · 37.0 Pfeile
+- [Drachenkopf](collections/levels/expanded_fantasy_02_03_new_dragon_head.json) · 44.0 Pfeile
+- [Meerjungfrau](collections/levels/expanded_fantasy_02_04_new_mermaid.json) · 28.0 Pfeile
+- [Pegasus im Flug](collections/levels/expanded_fantasy_03_01_new_pegasus.json) · 35.0 Pfeile
+- [Minotaurus](collections/levels/expanded_fantasy_03_02_new_minotaur.json) · 41.0 Pfeile
+- [Seeschlange](collections/levels/expanded_fantasy_03_03_new_sea_serpent.json) · 30.0 Pfeile
 
 ## Seen & Flüsse
 
@@ -760,3 +908,439 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Erinnerungsfoto](collections/levels/cozy_10_cozy_10.json) · 53.0 Pfeile
 - [Notizbuch für Ideen](collections/levels/cozy_11_cozy_11.json) · 39.0 Pfeile
 - [Herzlicher Moment](collections/levels/cozy_12_cozy_12.json) · 60.0 Pfeile
+- [Pflanzentopf am Balkon](collections/levels/expanded_home_08_01_new_flower_pot.json) · 31.0 Pfeile
+- [Bank auf der Terrasse](collections/levels/expanded_home_08_02_new_garden_bench.json) · 19 Pfeile
+
+## Anatomie
+
+[Bildübersicht dieser Sammlung](previews/collection-anatomy.png)
+
+- [Herz im Takt](collections/levels/expanded_medicine_01_01_new_heart_organ.json) · 33.0 Pfeile
+- [Zwei Lungenflügel](collections/levels/expanded_medicine_01_02_new_lungs.json) · 28.0 Pfeile
+- [Das denkende Gehirn](collections/levels/expanded_medicine_01_03_new_brain.json) · 45.0 Pfeile
+- [Beckenbogen](collections/levels/expanded_medicine_01_04_new_pelvis_bone.json) · 38.0 Pfeile
+- [Unterarm in Bewegung](collections/levels/expanded_medicine_01_05_new_forearm.json) · 22.0 Pfeile
+- [Körperatlas](collections/levels/expanded_medicine_01_06_new_anatomy.json) · 31.0 Pfeile
+
+## Sinne
+
+[Bildübersicht dieser Sammlung](previews/collection-senses.png)
+
+- [Ohrmuschel](collections/levels/expanded_medicine_02_01_new_human_ear.json) · 30.0 Pfeile
+- [Ein wacher Blick](collections/levels/expanded_medicine_02_02_new_eyeball.json) · 56.0 Pfeile
+- [Die feine Nase](collections/levels/expanded_medicine_02_03_new_nose_front.json) · 21.0 Pfeile
+- [Geschmackssache](collections/levels/expanded_medicine_02_04_new_tongue.json) · 27.0 Pfeile
+- [Spuren eines Fingers](collections/levels/expanded_medicine_02_05_new_finger_print.json) · 41.0 Pfeile
+
+## Medizinische Geräte & Praxis
+
+[Bildübersicht dieser Sammlung](previews/collection-medical_care.png)
+
+- [Leise Herztöne](collections/levels/expanded_medicine_03_01_new_stethoscope.json) · 21.0 Pfeile
+- [Präziser Tropfen](collections/levels/expanded_medicine_03_02_new_syringe.json) · 26.0 Pfeile
+- [Temperatur im Blick](collections/levels/expanded_medicine_03_03_new_medical_thermometer.json) · 33.0 Pfeile
+- [Tropfen für Tropfen](collections/levels/expanded_medicine_03_04_new_medical_drip.json) · 25.0 Pfeile
+- [Aufgerollter Verband](collections/levels/expanded_medicine_03_05_new_bandage_roll.json) · 37.0 Pfeile
+- [Lichter im Krankenhaus](collections/levels/expanded_medicine_04_01_new_hospital.json) · 50.0 Pfeile
+- [Zeichen der Hilfe](collections/levels/expanded_medicine_04_02_new_hospital_cross.json) · 22.0 Pfeile
+- [Bereit für den Notfall](collections/levels/expanded_medicine_04_03_new_medical_pack.json) · 23.0 Pfeile
+- [Arm in der Schlinge](collections/levels/expanded_medicine_04_04_new_arm_bandage.json) · 36.0 Pfeile
+- [Schrittweise zurück](collections/levels/expanded_medicine_04_05_new_crutches.json) · 27.0 Pfeile
+
+## Zahnmedizin
+
+[Bildübersicht dieser Sammlung](previews/collection-dental.png)
+
+- [Der Backenzahn](collections/levels/expanded_medicine_05_01_new_tooth.json) · 22.0 Pfeile
+- [Morgens am Waschbecken](collections/levels/expanded_medicine_05_02_new_toothbrush.json) · 22.0 Pfeile
+- [Lächeln mit Zähnen](collections/levels/expanded_medicine_05_03_new_mouth_watering.json) · 26.0 Pfeile
+
+## Geschichte der Medizin
+
+[Bildübersicht dieser Sammlung](previews/collection-medical_history.png)
+
+- [Stab der Heilkunde](collections/levels/expanded_medicine_06_01_new_rod_of_asclepius.json) · 22.0 Pfeile
+- [Gebündelte Heilkräuter](collections/levels/expanded_medicine_06_02_new_herbs_bundle.json) · 38.0 Pfeile
+- [Im Kräutermörser](collections/levels/expanded_medicine_06_03_new_mortar.json) · 23.0 Pfeile
+
+## Mathematik & Formen
+
+[Bildübersicht dieser Sammlung](previews/collection-mathematics.png)
+
+- [Rechnen mit Kugeln](collections/levels/expanded_science_01_01_new_abacus.json) · 34.0 Pfeile
+- [Dreieck im Gleichgewicht](collections/levels/expanded_science_01_02_new_triangle_target.json) · 22.0 Pfeile
+- [Würfelraum](collections/levels/expanded_science_01_03_new_cube.json) · 38.0 Pfeile
+- [Fünf Ecken im Kreis](collections/levels/expanded_science_01_04_new_pentacle.json) · 32.0 Pfeile
+- [Ohne letzten Punkt](collections/levels/expanded_science_01_05_new_infinity.json) · 28.0 Pfeile
+
+## Biologie & Mikroskopie
+
+[Bildübersicht dieser Sammlung](previews/collection-biology.png)
+
+- [Blick ins Kleine](collections/levels/expanded_science_04_01_new_microscope.json) · 27.0 Pfeile
+- [Doppelhelix](collections/levels/expanded_science_04_02_new_dna1.json) · 27.0 Pfeile
+- [Passende Verbindung](collections/levels/expanded_science_04_03_new_antibody.json) · 28.0 Pfeile
+- [Kleine Zelle](collections/levels/expanded_science_04_04_new_cell.json) · 32 Pfeile
+- [Unsichtbare Nachbarschaft](collections/levels/expanded_science_04_05_new_bacteria.json) · 31 Pfeile
+
+## Fossilien & Mineralien
+
+[Bildübersicht dieser Sammlung](previews/collection-geology.png)
+
+- [Spirale aus der Vorzeit](collections/levels/expanded_science_05_01_new_ammonite_fossil.json) · 46.0 Pfeile
+- [Flügel im Stein](collections/levels/expanded_science_05_02_new_archaeopteryx_fossil.json) · 38.0 Pfeile
+- [Dreilappiger Zeitzeuge](collections/levels/expanded_science_05_03_new_trilobite.json) · 54.0 Pfeile
+- [Verborgene Kristallhöhle](collections/levels/expanded_science_05_04_new_geode.json) · 34 Pfeile
+
+## Forschung & Labor
+
+[Bildübersicht dieser Sammlung](previews/collection-research.png)
+
+- [Genau abgewogen](collections/levels/expanded_science_06_01_new_scales.json) · 22.0 Pfeile
+- [Nachgemessen](collections/levels/expanded_science_06_02_new_measure_tape.json) · 32.0 Pfeile
+- [Zeit im Versuch](collections/levels/expanded_science_06_03_new_stopwatch.json) · 38.0 Pfeile
+- [Skala im Labor](collections/levels/expanded_science_06_04_new_thermometer_scale.json) · 20.0 Pfeile
+- [Spuren im Archiv](collections/levels/expanded_science_06_05_new_archive_research.json) · 46.0 Pfeile
+
+## Insekten
+
+[Bildübersicht dieser Sammlung](previews/collection-insects.png)
+
+- [Fangschrecke im Ansitz](collections/levels/expanded_animals_03_01_new_praying_mantis.json) · 40.0 Pfeile
+- [Libelle über dem Wasser](collections/levels/expanded_animals_03_02_new_dragonfly.json) · 35.0 Pfeile
+- [Ameise auf Erkundung](collections/levels/expanded_animals_03_03_new_ant.json) · 32.0 Pfeile
+- [Marienkäfer mit Punkten](collections/levels/expanded_animals_03_04_new_ladybug.json) · 37.0 Pfeile
+- [Ohrwurm unterwegs](collections/levels/expanded_animals_03_05_new_earwig.json) · 39.0 Pfeile
+- [Skarabäus](collections/levels/expanded_animals_03_06_new_scarab_beetle.json) · 34.0 Pfeile
+- [Käfer mit langen Fühlern](collections/levels/expanded_animals_03_07_new_long_antennae_bug.json) · 28.0 Pfeile
+- [Käfer im Abflug](collections/levels/expanded_animals_03_08_new_flying_beetle.json) · 39.0 Pfeile
+- [Biene im Anflug](collections/levels/expanded_animals_03_09_new_bee.json) · 40.0 Pfeile
+
+## Spinnen & Skorpione
+
+[Bildübersicht dieser Sammlung](previews/collection-spiders.png)
+
+- [Netz im Morgenlicht](collections/levels/expanded_animals_04_01_new_spider_web.json) · 53.0 Pfeile
+- [Spinne am Faden](collections/levels/expanded_animals_04_02_new_hanging_spider.json) · 29.0 Pfeile
+- [Skorpion im Sand](collections/levels/expanded_animals_04_03_new_scorpion.json) · 44.0 Pfeile
+- [Zecke im Gras](collections/levels/expanded_animals_04_04_new_tick.json) · 43.0 Pfeile
+
+## Reptilien
+
+[Bildübersicht dieser Sammlung](previews/collection-reptiles.png)
+
+- [Gecko an der Wand](collections/levels/expanded_animals_05_01_new_gecko.json) · 34.0 Pfeile
+- [Chamäleon auf dem Ast](collections/levels/expanded_animals_05_02_new_chameleon_glyph.json) · 43.0 Pfeile
+- [Schlange in der Spirale](collections/levels/expanded_animals_05_03_new_snake_spiral.json) · 46.0 Pfeile
+- [Meeresschildkröte](collections/levels/expanded_animals_05_04_new_sea_turtle.json) · 35.0 Pfeile
+- [Schlange aus dem Ei](collections/levels/expanded_animals_05_05_new_snake_egg.json) · 30.0 Pfeile
+
+## Amphibien
+
+[Bildübersicht dieser Sammlung](previews/collection-amphibians.png)
+
+- [Axolotl mit Federkiemen](collections/levels/expanded_animals_06_01_new_axolotl.json) · 35.0 Pfeile
+- [Salamander im Laub](collections/levels/expanded_animals_06_02_new_salamander.json) · 42.0 Pfeile
+- [Frosch am Teichrand](collections/levels/expanded_animals_06_03_new_frog.json) · 42.0 Pfeile
+- [Frosch mit Krone](collections/levels/expanded_animals_06_04_new_frog_prince.json) · 40.0 Pfeile
+
+## Bäume & Wälder
+
+[Bildübersicht dieser Sammlung](previews/collection-forests.png)
+
+- [Weide am Ufer](collections/levels/expanded_plants_02_01_new_willow_tree.json) · 41.0 Pfeile
+- [Birkenhain](collections/levels/expanded_plants_02_02_new_birch_trees.json) · 42.0 Pfeile
+- [Buche mit breiter Krone](collections/levels/expanded_plants_02_03_new_beech.json) · 33.0 Pfeile
+- [Wurzeln unter der Erde](collections/levels/expanded_plants_02_04_new_tree_roots.json) · 26.0 Pfeile
+- [Ginkgoblatt](collections/levels/expanded_plants_02_05_new_ginkgo_leaf.json) · 22.0 Pfeile
+- [Eichenblatt](collections/levels/expanded_plants_02_06_new_oak_leaf.json) · 38.0 Pfeile
+
+## Tropisches Grün
+
+[Bildübersicht dieser Sammlung](previews/collection-tropical.png)
+
+- [Fensterblatt](collections/levels/expanded_plants_03_01_new_monstera_leaf.json) · 43.0 Pfeile
+- [Fangblatt](collections/levels/expanded_plants_03_02_new_carnivorous_plant.json) · 25.0 Pfeile
+- [Agave im Sonnenlicht](collections/levels/expanded_plants_03_03_new_agave.json) · 38.0 Pfeile
+- [Bananenstaude](collections/levels/expanded_plants_03_04_new_banana_bunch.json) · 49.0 Pfeile
+
+## Pilze
+
+[Bildübersicht dieser Sammlung](previews/collection-mushrooms.png)
+
+- [Pfifferlinge im Moos](collections/levels/expanded_plants_04_01_new_chanterelles.json) · 24.0 Pfeile
+- [Lamellen unter dem Hut](collections/levels/expanded_plants_04_02_new_mushroom_gills.json) · 33.0 Pfeile
+- [Pilzgruppe im Wald](collections/levels/expanded_plants_04_03_new_mushrooms_cluster.json) · 42.0 Pfeile
+
+## Häuser & Wohnorte
+
+[Bildübersicht dieser Sammlung](previews/collection-homes.png)
+
+- [Schlüssel zur Wohnung](collections/levels/expanded_home_01_01_new_house_keys.json) · 24.0 Pfeile
+- [Hütte für den Vierbeiner](collections/levels/expanded_home_01_02_new_dog_house.json) · 38.0 Pfeile
+- [Iglu im Schnee](collections/levels/expanded_home_01_03_new_igloo.json) · 22.0 Pfeile
+- [Baumhaus](collections/levels/expanded_home_01_04_new_treehouse.json) · 46.0 Pfeile
+
+## Küche
+
+[Bildübersicht dieser Sammlung](previews/collection-kitchen.png)
+
+- [Herd in der Küche](collections/levels/expanded_home_02_01_new_gas_stove.json) · 26.0 Pfeile
+- [Kühlschranktür](collections/levels/expanded_home_02_02_new_fridge.json) · 17.0 Pfeile
+- [Wasser am Spülbecken](collections/levels/expanded_home_02_03_new_kitchen_tap.json) · 25.0 Pfeile
+- [Drucktopf](collections/levels/expanded_home_02_04_new_pressure_cooker.json) · 35.0 Pfeile
+
+## Wohnräume
+
+[Bildübersicht dieser Sammlung](previews/collection-rooms.png)
+
+- [Sessel für die Lesestunde](collections/levels/expanded_home_03_01_new_armchair.json) · 29.0 Pfeile
+- [Sofa nach Feierabend](collections/levels/expanded_home_03_02_new_sofa.json) · 28.0 Pfeile
+- [Schaukelstuhl](collections/levels/expanded_home_03_03_new_rocking_chair.json) · 23.0 Pfeile
+- [Kaminabend](collections/levels/expanded_home_03_04_new_fireplace.json) · 37.0 Pfeile
+- [Regal voller Geschichten](collections/levels/expanded_home_03_05_new_bookshelf.json) · 41.0 Pfeile
+- [Bett mit Kissen](collections/levels/expanded_home_04_01_new_bed.json) · 31.0 Pfeile
+- [Etagenbett](collections/levels/expanded_home_04_02_new_bunk_beds.json) · 28.0 Pfeile
+- [Licht am Bett](collections/levels/expanded_home_04_03_new_bed_lamp.json) · 22.0 Pfeile
+- [Wecker am Morgen](collections/levels/expanded_home_04_04_new_alarm_clock.json) · 22.0 Pfeile
+- [Spielbank im Kinderzimmer](collections/levels/expanded_home_06_01_new_toy_mallet.json) · 23.0 Pfeile
+- [Schreibtisch für Ideen](collections/levels/expanded_home_07_01_new_desk.json) · 17.0 Pfeile
+- [Drehstuhl](collections/levels/expanded_home_07_02_new_office_chair.json) · 25.0 Pfeile
+- [Lampe am Schreibtisch](collections/levels/expanded_home_07_03_new_desk_lamp.json) · 28.0 Pfeile
+- [Schrank mit Türen](collections/levels/expanded_home_04_05_new_wardrobe.json) · 30 Pfeile
+- [Holzschaukelpferd](collections/levels/expanded_home_06_02_new_rocking_horse.json) · 24 Pfeile
+
+## Bad & Wasser
+
+[Bildübersicht dieser Sammlung](previews/collection-bathroom.png)
+
+- [Badewanne](collections/levels/expanded_home_05_01_new_bathtub.json) · 21.0 Pfeile
+- [Dusche](collections/levels/expanded_home_05_02_new_shower.json) · 48.0 Pfeile
+- [Waschbecken](collections/levels/expanded_home_05_03_new_sink.json) · 22.0 Pfeile
+- [Saugglocke](collections/levels/expanded_home_05_04_new_plunger.json) · 25.0 Pfeile
+- [Stilles Örtchen](collections/levels/expanded_home_05_05_new_toilet.json) · 24 Pfeile
+
+## Haushalt
+
+[Bildübersicht dieser Sammlung](previews/collection-household.png)
+
+- [Waschtag](collections/levels/expanded_home_10_01_new_washing_machine.json) · 46.0 Pfeile
+- [Staubsauger](collections/levels/expanded_home_10_02_new_vacuum_cleaner.json) · 25.0 Pfeile
+- [Besen im Flur](collections/levels/expanded_home_10_03_new_broom.json) · 21.0 Pfeile
+- [Nähmaschine](collections/levels/expanded_home_10_04_new_sewing_machine.json) · 32.0 Pfeile
+
+## Mode & Schmuck
+
+[Bildübersicht dieser Sammlung](previews/collection-fashion.png)
+
+- [Perlenkette](collections/levels/expanded_home_11_01_new_pearl_necklace.json) · 26.0 Pfeile
+- [Fliege zum Fest](collections/levels/expanded_home_11_02_new_bow_tie.json) · 11.0 Pfeile
+- [Schirm im Regen](collections/levels/expanded_home_11_03_new_umbrella.json) · 27.0 Pfeile
+- [Schuh mit Absatz](collections/levels/expanded_home_11_04_new_high_heel.json) · 22.0 Pfeile
+
+## Gemüse
+
+[Bildübersicht dieser Sammlung](previews/collection-vegetables.png)
+
+- [Spargelbündel](collections/levels/expanded_food_02_01_new_asparagus.json) · 43.0 Pfeile
+- [Rote Bete](collections/levels/expanded_food_02_02_new_beet.json) · 33.0 Pfeile
+- [Brokkoliröschen](collections/levels/expanded_food_02_03_new_broccoli.json) · 47.0 Pfeile
+- [Knoblauchknolle](collections/levels/expanded_food_02_04_new_garlic.json) · 30.0 Pfeile
+- [Maiskolben](collections/levels/expanded_food_02_05_new_corn.json) · 42.0 Pfeile
+
+## Küche der Welt
+
+[Bildübersicht dieser Sammlung](previews/collection-world_cuisine.png)
+
+- [Sushi auf dem Teller](collections/levels/expanded_food_08_01_new_sushis.json) · 40.0 Pfeile
+- [Taco](collections/levels/expanded_food_08_02_new_tacos.json) · 33.0 Pfeile
+- [Nudelschale](collections/levels/expanded_food_08_03_new_noodles.json) · 28.0 Pfeile
+- [Gefüllte Teigtasche](collections/levels/expanded_food_08_04_new_dumpling.json) · 37.0 Pfeile
+
+## Elektrik & Installation
+
+[Bildübersicht dieser Sammlung](previews/collection-installation.png)
+
+- [Widerstand im Stromkreis](collections/levels/expanded_craft_04_01_new_electrical_resistance.json) · 25.0 Pfeile
+- [Steckdose](collections/levels/expanded_craft_04_02_new_electrical_socket.json) · 54.0 Pfeile
+- [Stecker](collections/levels/expanded_craft_04_03_new_plug.json) · 31.0 Pfeile
+
+## Nähen & Textilien
+
+[Bildübersicht dieser Sammlung](previews/collection-textiles.png)
+
+- [Nadel und Faden](collections/levels/expanded_craft_06_01_new_sewing_needle.json) · 42.0 Pfeile
+- [Wollknäuel](collections/levels/expanded_craft_06_02_new_yarn.json) · 27.0 Pfeile
+- [Stoffschere](collections/levels/expanded_craft_06_03_new_scissors.json) · 28.0 Pfeile
+- [Spinnrad](collections/levels/expanded_craft_06_04_new_spinning_wheel.json) · 29.0 Pfeile
+
+## Ton & Keramik
+
+[Bildübersicht dieser Sammlung](previews/collection-pottery.png)
+
+- [Amphore](collections/levels/expanded_craft_07_01_new_amphora.json) · 27.0 Pfeile
+- [Bemaltes Tongefäß](collections/levels/expanded_craft_07_02_new_painted_pottery.json) · 18.0 Pfeile
+- [Scherbenfund](collections/levels/expanded_craft_07_03_new_broken_pottery.json) · 30.0 Pfeile
+
+## Landwirtschaft
+
+[Bildübersicht dieser Sammlung](previews/collection-farming.png)
+
+- [Gießkanne im Garten](collections/levels/expanded_craft_08_01_new_watering_can.json) · 29.0 Pfeile
+
+## Berufe
+
+[Bildübersicht dieser Sammlung](previews/collection-professions.png)
+
+- [Kochmütze](collections/levels/expanded_craft_09_01_new_chef_toque.json) · 26.0 Pfeile
+- [Historischer Taucherhelm](collections/levels/expanded_craft_09_02_new_diving_helmet.json) · 43.0 Pfeile
+
+## Alte Technik
+
+[Bildübersicht dieser Sammlung](previews/collection-vintage_technology.png)
+
+- [Feder und Tinte](collections/levels/expanded_tech_01_01_new_quill_ink.json) · 26.0 Pfeile
+- [Wachstafel](collections/levels/expanded_tech_01_02_new_wax_tablet.json) · 38.0 Pfeile
+- [Zeitungsblatt](collections/levels/expanded_tech_02_01_new_newspaper.json) · 46.0 Pfeile
+- [Entrollte Schrift](collections/levels/expanded_tech_02_02_new_scroll_unfurled.json) · 36.0 Pfeile
+- [Früher Zukunftstraum](collections/levels/expanded_tech_03_01_new_vintage_robot.json) · 29.0 Pfeile
+- [Taschenradio](collections/levels/expanded_tech_03_02_new_pocket_radio.json) · 33.0 Pfeile
+- [Schreibmaschine](collections/levels/expanded_tech_01_03_new_typewriter.json) · 33 Pfeile
+- [Handdruckpresse](collections/levels/expanded_tech_02_03_new_printing_press.json) · 38 Pfeile
+- [Grammophontrichter](collections/levels/expanded_tech_03_03_new_gramophone.json) · 24 Pfeile
+
+## Historische Fahrzeuge
+
+[Bildübersicht dieser Sammlung](previews/collection-historic_vehicles.png)
+
+- [Streitwagen](collections/levels/expanded_travel_05_01_new_chariot.json) · 29.0 Pfeile
+- [Dampflokomotive](collections/levels/expanded_travel_05_02_new_steam_locomotive.json) · 46.0 Pfeile
+
+## Antike
+
+[Bildübersicht dieser Sammlung](previews/collection-antiquity.png)
+
+- [Antike Säulen](collections/levels/expanded_history_01_01_new_ancient_columns.json) · 25.0 Pfeile
+- [Griechischer Tempel](collections/levels/expanded_history_01_02_new_greek_temple.json) · 33.0 Pfeile
+- [Römische Toga](collections/levels/expanded_history_01_03_new_roman_toga.json) · 25.0 Pfeile
+- [Lorbeerkranz](collections/levels/expanded_history_01_04_new_laurels.json) · 47.0 Pfeile
+
+## Mittelalter
+
+[Bildübersicht dieser Sammlung](previews/collection-medieval.png)
+
+- [Ritterhelm](collections/levels/expanded_history_02_01_new_closed_barbute.json) · 43.0 Pfeile
+- [Gekreuzte Schwerter](collections/levels/expanded_history_02_02_new_crossed_swords.json) · 48.0 Pfeile
+- [Turnierzelt](collections/levels/expanded_history_02_03_new_medieval_pavilion.json) · 37.0 Pfeile
+
+## Burgen & Schlösser
+
+[Bildübersicht dieser Sammlung](previews/collection-castles.png)
+
+- [Burgruine](collections/levels/expanded_history_03_01_new_castle_ruins.json) · 53.0 Pfeile
+- [Zugbrücke](collections/levels/expanded_history_03_02_new_drawbridge.json) · 32.0 Pfeile
+- [Turm mit Fahne](collections/levels/expanded_history_03_03_new_tower_flag.json) · 27.0 Pfeile
+
+## Archäologie
+
+[Bildübersicht dieser Sammlung](previews/collection-archaeology.png)
+
+- [Skelett im Museum](collections/levels/expanded_history_04_01_new_dinosaur_bones.json) · 37.0 Pfeile
+- [Fundstück im Stein](collections/levels/expanded_history_04_02_new_fossil.json) · 56.0 Pfeile
+- [Steintafel](collections/levels/expanded_history_04_03_new_stone_tablet.json) · 40.0 Pfeile
+
+## Schrift & Zeichen
+
+[Bildübersicht dieser Sammlung](previews/collection-ancient_writing.png)
+
+- [Ägyptisches Profil](collections/levels/expanded_history_06_01_new_egyptian_profile.json) · 30.0 Pfeile
+- [Hieroglyphenzeichen](collections/levels/expanded_history_06_02_new_hieroglyph_y.json) · 35.0 Pfeile
+
+## Baukunst der Kulturen
+
+[Bildübersicht dieser Sammlung](previews/collection-cultural_architecture.png)
+
+- [Kuppelbau](collections/levels/expanded_history_07_01_new_byzantin_temple.json) · 48.0 Pfeile
+- [Stufenpyramide](collections/levels/expanded_history_07_02_new_mayan_pyramid.json) · 33.0 Pfeile
+- [Torii](collections/levels/expanded_history_07_03_new_torii_gate.json) · 22 Pfeile
+
+## Skulpturen
+
+[Bildübersicht dieser Sammlung](previews/collection-sculptures.png)
+
+- [Büste eines Denkers](collections/levels/expanded_culture_02_01_new_philosopher_bust.json) · 24.0 Pfeile
+- [Skulptur im Museum](collections/levels/expanded_culture_02_02_new_stone_bust.json) · 21.0 Pfeile
+- [Kleine Figur aus der Vorzeit](collections/levels/expanded_culture_02_03_new_venus_of_willendorf.json) · 24.0 Pfeile
+
+## Berühmte Geschichten
+
+[Bildübersicht dieser Sammlung](previews/collection-literature.png)
+
+- [Don Quijotes Gegner](collections/levels/expanded_culture_04_01_new_windmill.json) · 31.0 Pfeile
+- [Jules Vernes Nautilus](collections/levels/expanded_culture_04_02_new_submarine.json) · 16.0 Pfeile
+- [Alices Fläschchen](collections/levels/expanded_culture_04_03_new_drink_me.json) · 37.0 Pfeile
+- [Kafkas Verwandlung](collections/levels/expanded_culture_04_04_new_insect_jaws.json) · 29.0 Pfeile
+
+## Wassersport
+
+[Bildübersicht dieser Sammlung](previews/collection-water_sports.png)
+
+- [Surfbrett](collections/levels/expanded_leisure_04_01_new_surf_board.json) · 37.0 Pfeile
+- [Wasserball](collections/levels/expanded_leisure_04_02_new_water_polo.json) · 35.0 Pfeile
+
+## Brettspiele & Denksport
+
+[Bildübersicht dieser Sammlung](previews/collection-board_games.png)
+
+- [Springerzug](collections/levels/expanded_leisure_10_01_new_chess_knight.json) · 24.0 Pfeile
+- [Turmzug](collections/levels/expanded_leisure_10_02_new_chess_rook.json) · 18.0 Pfeile
+- [Backgammonbrett](collections/levels/expanded_leisure_10_03_new_backgammon.json) · 39.0 Pfeile
+- [Dominosteine](collections/levels/expanded_leisure_10_04_new_domino_tiles.json) · 64.0 Pfeile
+- [Spielstein am Tisch](collections/levels/expanded_leisure_10_05_new_meeple.json) · 23.0 Pfeile
+
+## Bühne & Vergnügen
+
+[Bildübersicht dieser Sammlung](previews/collection-stage_and_fun.png)
+
+- [Jongleur](collections/levels/expanded_leisure_11_01_new_juggler.json) · 29.0 Pfeile
+- [Einrad](collections/levels/expanded_leisure_11_02_new_unicycle.json) · 19.0 Pfeile
+- [Seiltanz](collections/levels/expanded_leisure_11_03_new_tightrope.json) · 22.0 Pfeile
+- [Zwei Theatermasken](collections/levels/expanded_leisure_12_01_new_drama_masks.json) · 46.0 Pfeile
+- [Vorhang auf](collections/levels/expanded_leisure_12_02_new_theater_curtains.json) · 32.0 Pfeile
+- [Karussell](collections/levels/expanded_leisure_14_01_new_carousel.json) · 39.0 Pfeile
+
+## Frühling, Sommer & Herbst
+
+[Bildübersicht dieser Sammlung](previews/collection-changing_seasons.png)
+
+- [Blüte mit Schmetterling](collections/levels/expanded_seasons_01_01_new_butterfly_flower.json) · 36.0 Pfeile
+- [Samen im Boden](collections/levels/expanded_seasons_01_02_new_plant_seed.json) · 29.0 Pfeile
+- [Wasserball am Strand](collections/levels/expanded_seasons_02_01_new_beach_ball.json) · 50.0 Pfeile
+- [Eis am Stiel](collections/levels/expanded_seasons_02_02_new_ice_pop.json) · 18.0 Pfeile
+- [Kastanienblatt im Herbst](collections/levels/expanded_seasons_03_01_new_chestnut_leaf.json) · 29.0 Pfeile
+- [Eichel](collections/levels/expanded_seasons_03_02_new_acorn.json) · 34.0 Pfeile
+- [Ahornblatt](collections/levels/expanded_seasons_03_03_new_maple_leaf.json) · 35.0 Pfeile
+
+## Feste & Traditionen
+
+[Bildübersicht dieser Sammlung](previews/collection-traditions.png)
+
+- [Karnevalsmaske](collections/levels/expanded_seasons_08_01_new_carnival_mask.json) · 27.0 Pfeile
+- [Narrenkappe](collections/levels/expanded_seasons_08_02_new_jester_hat.json) · 45.0 Pfeile
+- [Erntegarbe](collections/levels/expanded_seasons_09_01_new_grain_bundle.json) · 33.0 Pfeile
+- [Schale der Ernte](collections/levels/expanded_seasons_09_02_new_fruit_bowl.json) · 27.0 Pfeile
+- [Füllhorn](collections/levels/expanded_seasons_09_03_new_cornucopia.json) · 53.0 Pfeile
+- [Silvesterrakete](collections/levels/expanded_seasons_10_01_new_firework_rocket.json) · 27.0 Pfeile
+- [Konfettikanone](collections/levels/expanded_seasons_10_02_new_party_popper.json) · 44.0 Pfeile
+- [Festliche Ballons](collections/levels/expanded_seasons_10_03_new_balloons.json) · 27.0 Pfeile
+- [Laternenfest](collections/levels/expanded_seasons_11_01_new_asian_lantern.json) · 25.0 Pfeile
+- [Bunter Totenschädel](collections/levels/expanded_seasons_11_02_new_diablo_skull.json) · 41.0 Pfeile
+- [Kleeblatt zum Fest](collections/levels/expanded_seasons_11_03_new_shamrock.json) · 39.0 Pfeile
+
+## Historischer Alltag
+
+[Bildübersicht dieser Sammlung](previews/collection-historic_life.png)
+
+- [Öllampe](collections/levels/expanded_history_05_01_new_oil_lamp.json) · 24 Pfeile
+- [Wasserkrug](collections/levels/expanded_history_05_02_new_water_jug.json) · 22 Pfeile
+- [Balkenwaage](collections/levels/expanded_history_05_03_new_balance_scale.json) · 26 Pfeile

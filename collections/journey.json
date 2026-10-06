@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "worlds": [
     {
       "id": "beginning",
@@ -22,7 +22,11 @@
       "groups": [
         "animals",
         "birds",
-        "ocean"
+        "ocean",
+        "insects",
+        "spiders",
+        "reptiles",
+        "amphibians"
       ]
     },
     {
@@ -34,7 +38,10 @@
       "ad_id": 7,
       "groups": [
         "flowers",
-        "garden"
+        "garden",
+        "forests",
+        "tropical",
+        "mushrooms"
       ]
     },
     {
@@ -62,7 +69,9 @@
         "winter",
         "christmas",
         "halloween",
-        "easter"
+        "easter",
+        "changing_seasons",
+        "traditions"
       ]
     },
     {
@@ -73,7 +82,13 @@
       "color": "ffbb93",
       "ad_id": 9,
       "groups": [
-        "cozy"
+        "cozy",
+        "homes",
+        "kitchen",
+        "rooms",
+        "bathroom",
+        "household",
+        "fashion"
       ]
     },
     {
@@ -87,7 +102,9 @@
         "fruit",
         "bakery",
         "taste",
-        "meals"
+        "meals",
+        "vegetables",
+        "world_cuisine"
       ]
     },
     {
@@ -98,12 +115,17 @@
       "color": "f0da7f",
       "ad_id": 10,
       "groups": [
-        "workshop"
+        "workshop",
+        "installation",
+        "textiles",
+        "pottery",
+        "farming",
+        "professions"
       ]
     },
     {
       "id": "discovery",
-      "title": "Technik & Wissenschaft",
+      "title": "Technik gestern & heute",
       "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
       "icon": "chip",
       "color": "77dfe8",
@@ -113,7 +135,37 @@
         "smartphones",
         "technology",
         "communication",
-        "science_basics"
+        "vintage_technology"
+      ]
+    },
+    {
+      "id": "science",
+      "title": "Wissenschaft & Entdeckungen",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "flask",
+      "color": "91d9ff",
+      "ad_id": 14,
+      "groups": [
+        "science_basics",
+        "mathematics",
+        "biology",
+        "geology",
+        "research"
+      ]
+    },
+    {
+      "id": "medicine",
+      "title": "Medizin & Mensch",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "flask",
+      "color": "ff9dbc",
+      "ad_id": 15,
+      "groups": [
+        "anatomy",
+        "senses",
+        "medical_care",
+        "dental",
+        "medical_history"
       ]
     },
     {
@@ -144,7 +196,25 @@
         "skylines",
         "world",
         "travel",
-        "camping"
+        "camping",
+        "historic_vehicles"
+      ]
+    },
+    {
+      "id": "history",
+      "title": "Geschichte & Kulturen",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "city",
+      "color": "efc289",
+      "ad_id": 16,
+      "groups": [
+        "antiquity",
+        "medieval",
+        "castles",
+        "archaeology",
+        "historic_life",
+        "ancient_writing",
+        "cultural_architecture"
       ]
     },
     {
@@ -155,7 +225,9 @@
       "color": "ff95c9",
       "ad_id": 6,
       "groups": [
-        "art"
+        "art",
+        "sculptures",
+        "literature"
       ]
     },
     {
@@ -169,7 +241,10 @@
         "music",
         "ball_sports",
         "sports",
-        "toys"
+        "toys",
+        "water_sports",
+        "board_games",
+        "stage_and_fun"
       ]
     },
     {
@@ -198,35 +273,35 @@
       "title": "Tiere an Land",
       "icon": "paw",
       "color": "ffc17a",
-      "count": 19
+      "count": 24
     },
     "birds": {
       "id": "birds",
       "title": "Vögel",
       "icon": "bird",
       "color": "79c9ff",
-      "count": 21
+      "count": 26
     },
     "ocean": {
       "id": "ocean",
       "title": "Meerestiere & Riffe",
       "icon": "fish",
       "color": "64e6e2",
-      "count": 12
+      "count": 16
     },
     "flowers": {
       "id": "flowers",
       "title": "Blumen & Blüten",
       "icon": "flower",
       "color": "ff87bd",
-      "count": 21
+      "count": 24
     },
     "garden": {
       "id": "garden",
       "title": "Garten & grünes Leben",
       "icon": "tree",
       "color": "72f09e",
-      "count": 13
+      "count": 16
     },
     "landscapes": {
       "id": "landscapes",
@@ -289,7 +364,7 @@
       "title": "Kleine Alltagsmomente",
       "icon": "house",
       "color": "c2a6ff",
-      "count": 9
+      "count": 11
     },
     "fruit": {
       "id": "fruit",
@@ -303,28 +378,28 @@
       "title": "Gebäck & süße Freuden",
       "icon": "cup",
       "color": "ffcb82",
-      "count": 14
+      "count": 19
     },
     "taste": {
       "id": "taste",
       "title": "Getränke & Café",
       "icon": "cup",
       "color": "ff9bbd",
-      "count": 4
+      "count": 7
     },
     "meals": {
       "id": "meals",
       "title": "Kochen & Küche",
       "icon": "cup",
       "color": "ffab74",
-      "count": 5
+      "count": 9
     },
     "workshop": {
       "id": "workshop",
       "title": "Werkstatt & Handwerk",
       "icon": "tool",
       "color": "f0da7f",
-      "count": 13
+      "count": 25
     },
     "computers": {
       "id": "computers",
@@ -345,7 +420,7 @@
       "title": "Elektronik & Mechanik",
       "icon": "chip",
       "color": "6af0d5",
-      "count": 12
+      "count": 22
     },
     "communication": {
       "id": "communication",
@@ -359,21 +434,21 @@
       "title": "Physik & Chemie",
       "icon": "flask",
       "color": "c6a2ff",
-      "count": 3
+      "count": 11
     },
     "space": {
       "id": "space",
       "title": "Sonne, Mond & Planeten",
       "icon": "planet",
       "color": "b99aff",
-      "count": 4
+      "count": 7
     },
     "spaceflight": {
       "id": "spaceflight",
       "title": "Raumfahrt & Forschung",
       "icon": "planet",
       "color": "79c9ff",
-      "count": 10
+      "count": 15
     },
     "cosmos": {
       "id": "cosmos",
@@ -408,7 +483,7 @@
       "title": "Fluggeräte",
       "icon": "plane",
       "color": "b99aff",
-      "count": 6
+      "count": 11
     },
     "skylines": {
       "id": "skylines",
@@ -422,7 +497,7 @@
       "title": "Wahrzeichen & Baukunst",
       "icon": "city",
       "color": "7bdfff",
-      "count": 7
+      "count": 11
     },
     "travel": {
       "id": "travel",
@@ -436,21 +511,21 @@
       "title": "Camping & Outdoor",
       "icon": "tree",
       "color": "ffc17a",
-      "count": 6
+      "count": 9
     },
     "art": {
       "id": "art",
       "title": "Kunst & Bücher",
       "icon": "palette",
       "color": "ff95c9",
-      "count": 5
+      "count": 11
     },
     "music": {
       "id": "music",
       "title": "Musik & Medien",
       "icon": "music",
       "color": "b299ff",
-      "count": 22
+      "count": 25
     },
     "ball_sports": {
       "id": "ball_sports",
@@ -464,7 +539,7 @@
       "title": "Sport & Bewegung",
       "icon": "ball",
       "color": "73e3ec",
-      "count": 13
+      "count": 16
     },
     "toys": {
       "id": "toys",
@@ -478,14 +553,329 @@
       "title": "Märchenwelten & Magie",
       "icon": "moon",
       "color": "dca1ff",
-      "count": 16
+      "count": 18
     },
     "creatures": {
       "id": "creatures",
       "title": "Fabelwesen",
       "icon": "paw",
       "color": "ff9bbd",
+      "count": 11
+    },
+    "insects": {
+      "id": "insects",
+      "title": "Insekten",
+      "icon": "flower",
+      "color": "baff79",
+      "count": 9
+    },
+    "spiders": {
+      "id": "spiders",
+      "title": "Spinnen & Skorpione",
+      "icon": "moon",
+      "color": "c7a1ff",
       "count": 4
+    },
+    "reptiles": {
+      "id": "reptiles",
+      "title": "Reptilien",
+      "icon": "paw",
+      "color": "66eeb3",
+      "count": 5
+    },
+    "amphibians": {
+      "id": "amphibians",
+      "title": "Amphibien",
+      "icon": "fish",
+      "color": "ff9fce",
+      "count": 4
+    },
+    "forests": {
+      "id": "forests",
+      "title": "Bäume & Wälder",
+      "icon": "tree",
+      "color": "89efb0",
+      "count": 6
+    },
+    "tropical": {
+      "id": "tropical",
+      "title": "Tropisches Grün",
+      "icon": "flower",
+      "color": "55e5c5",
+      "count": 4
+    },
+    "mushrooms": {
+      "id": "mushrooms",
+      "title": "Pilze",
+      "icon": "tree",
+      "color": "ffd078",
+      "count": 3
+    },
+    "changing_seasons": {
+      "id": "changing_seasons",
+      "title": "Frühling, Sommer & Herbst",
+      "icon": "flower",
+      "color": "a4ee78",
+      "count": 7
+    },
+    "traditions": {
+      "id": "traditions",
+      "title": "Feste & Traditionen",
+      "icon": "spark",
+      "color": "f5a1d8",
+      "count": 11
+    },
+    "homes": {
+      "id": "homes",
+      "title": "Häuser & Wohnorte",
+      "icon": "house",
+      "color": "ffbd84",
+      "count": 4
+    },
+    "kitchen": {
+      "id": "kitchen",
+      "title": "Küche",
+      "icon": "cup",
+      "color": "ffd078",
+      "count": 4
+    },
+    "rooms": {
+      "id": "rooms",
+      "title": "Wohnräume",
+      "icon": "house",
+      "color": "c2a6ff",
+      "count": 15
+    },
+    "bathroom": {
+      "id": "bathroom",
+      "title": "Bad & Wasser",
+      "icon": "house",
+      "color": "89e3ff",
+      "count": 5
+    },
+    "household": {
+      "id": "household",
+      "title": "Haushalt",
+      "icon": "tool",
+      "color": "78ebd7",
+      "count": 4
+    },
+    "fashion": {
+      "id": "fashion",
+      "title": "Mode & Schmuck",
+      "icon": "spark",
+      "color": "ff99bc",
+      "count": 4
+    },
+    "vegetables": {
+      "id": "vegetables",
+      "title": "Gemüse",
+      "icon": "flower",
+      "color": "88f184",
+      "count": 5
+    },
+    "world_cuisine": {
+      "id": "world_cuisine",
+      "title": "Küche der Welt",
+      "icon": "cup",
+      "color": "ffb68a",
+      "count": 4
+    },
+    "installation": {
+      "id": "installation",
+      "title": "Elektrik & Installation",
+      "icon": "chip",
+      "color": "76dfff",
+      "count": 3
+    },
+    "textiles": {
+      "id": "textiles",
+      "title": "Nähen & Textilien",
+      "icon": "spark",
+      "color": "ff9bbb",
+      "count": 4
+    },
+    "pottery": {
+      "id": "pottery",
+      "title": "Ton & Keramik",
+      "icon": "cup",
+      "color": "efb87e",
+      "count": 3
+    },
+    "farming": {
+      "id": "farming",
+      "title": "Landwirtschaft",
+      "icon": "tree",
+      "color": "a9ea74",
+      "count": 1
+    },
+    "professions": {
+      "id": "professions",
+      "title": "Berufe",
+      "icon": "tool",
+      "color": "ffcf7a",
+      "count": 2
+    },
+    "vintage_technology": {
+      "id": "vintage_technology",
+      "title": "Alte Technik",
+      "icon": "chip",
+      "color": "efc385",
+      "count": 9
+    },
+    "mathematics": {
+      "id": "mathematics",
+      "title": "Mathematik & Formen",
+      "icon": "spark",
+      "color": "bba5ff",
+      "count": 5
+    },
+    "biology": {
+      "id": "biology",
+      "title": "Biologie & Mikroskopie",
+      "icon": "flower",
+      "color": "68ebc4",
+      "count": 5
+    },
+    "geology": {
+      "id": "geology",
+      "title": "Fossilien & Mineralien",
+      "icon": "mountain",
+      "color": "efb87e",
+      "count": 4
+    },
+    "research": {
+      "id": "research",
+      "title": "Forschung & Labor",
+      "icon": "flask",
+      "color": "8cddff",
+      "count": 5
+    },
+    "anatomy": {
+      "id": "anatomy",
+      "title": "Anatomie",
+      "icon": "paw",
+      "color": "ff89ab",
+      "count": 6
+    },
+    "senses": {
+      "id": "senses",
+      "title": "Sinne",
+      "icon": "spark",
+      "color": "89d9ff",
+      "count": 5
+    },
+    "medical_care": {
+      "id": "medical_care",
+      "title": "Medizinische Geräte & Praxis",
+      "icon": "flask",
+      "color": "75e8d5",
+      "count": 10
+    },
+    "dental": {
+      "id": "dental",
+      "title": "Zahnmedizin",
+      "icon": "spark",
+      "color": "e0f4ff",
+      "count": 3
+    },
+    "medical_history": {
+      "id": "medical_history",
+      "title": "Geschichte der Medizin",
+      "icon": "flask",
+      "color": "ffcd85",
+      "count": 3
+    },
+    "historic_vehicles": {
+      "id": "historic_vehicles",
+      "title": "Historische Fahrzeuge",
+      "icon": "train",
+      "color": "efba7d",
+      "count": 2
+    },
+    "antiquity": {
+      "id": "antiquity",
+      "title": "Antike",
+      "icon": "city",
+      "color": "ffd078",
+      "count": 4
+    },
+    "medieval": {
+      "id": "medieval",
+      "title": "Mittelalter",
+      "icon": "house",
+      "color": "a6bdff",
+      "count": 3
+    },
+    "castles": {
+      "id": "castles",
+      "title": "Burgen & Schlösser",
+      "icon": "city",
+      "color": "e4b486",
+      "count": 3
+    },
+    "archaeology": {
+      "id": "archaeology",
+      "title": "Archäologie",
+      "icon": "mountain",
+      "color": "ffca8b",
+      "count": 3
+    },
+    "historic_life": {
+      "id": "historic_life",
+      "title": "Historischer Alltag",
+      "icon": "cup",
+      "color": "e7bb81",
+      "count": 3
+    },
+    "ancient_writing": {
+      "id": "ancient_writing",
+      "title": "Schrift & Zeichen",
+      "icon": "spark",
+      "color": "d3a6ff",
+      "count": 2
+    },
+    "cultural_architecture": {
+      "id": "cultural_architecture",
+      "title": "Baukunst der Kulturen",
+      "icon": "city",
+      "color": "80dccd",
+      "count": 3
+    },
+    "sculptures": {
+      "id": "sculptures",
+      "title": "Skulpturen",
+      "icon": "palette",
+      "color": "d7d5f5",
+      "count": 3
+    },
+    "literature": {
+      "id": "literature",
+      "title": "Berühmte Geschichten",
+      "icon": "palette",
+      "color": "ffa5c6",
+      "count": 4
+    },
+    "water_sports": {
+      "id": "water_sports",
+      "title": "Wassersport",
+      "icon": "fish",
+      "color": "73dfff",
+      "count": 2
+    },
+    "board_games": {
+      "id": "board_games",
+      "title": "Brettspiele & Denksport",
+      "icon": "spark",
+      "color": "ffd078",
+      "count": 5
+    },
+    "stage_and_fun": {
+      "id": "stage_and_fun",
+      "title": "Bühne & Vergnügen",
+      "icon": "music",
+      "color": "dba0ff",
+      "count": 6
     }
   },
   "legacy_worlds": [

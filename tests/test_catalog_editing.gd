@@ -31,8 +31,8 @@ func run() -> void:
 			require(CustomMotif.encode_paths(studio.paths) == original, "Undo restores the original catalog artwork")
 			edited_groups[entry.collection.id] = true
 		checked += 1
-		if checked % 100 == 0: print("OPENED ",checked,"/500")
+		if checked % 100 == 0: print("OPENED ",checked,"/814")
 	for name in ["editor_colors.json","editor_backup.json","motif_draft.json","progress.cfg"]: DirAccess.remove_absolute(scene.storage_prefix + name)
-	require(checked == 500 and edited_groups.size() == 42, "All 500 motifs and all 42 collections were checked")
-	print("PASS all 500 catalog motifs open unchanged in the actual editor; individual recoloring and undo work in all 42 collections" if failures == 0 else "%d FAILURES" % failures)
+	require(checked == catalog.levels.size() and edited_groups.size() == 87, "All 814 motifs and all 87 collections were checked")
+	print("PASS all 814 catalog motifs open unchanged in the actual editor; individual recoloring and undo work in all 87 collections" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

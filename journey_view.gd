@@ -493,6 +493,34 @@ func build_settings() -> void:
 		add_child(premium_toggle)
 		label("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten",Vector2(24,490),size.x-48,13,Color("#8fa8b7"))
 
+	action("Bildquellen & Lizenzen",Vector2(24,545),Vector2(size.x-48,48),show_art_credits)
+
+func show_art_credits() -> void:
+	var dialog := AcceptDialog.new()
+	dialog.title="Bildquellen & Lizenzen"
+	dialog.dialog_text=""
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size=Vector2(280,350)
+	dialog.add_child(scroll)
+	var credits := RichTextLabel.new()
+	credits.custom_minimum_size=Vector2(260,350)
+	credits.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	credits.fit_content=true
+	credits.bbcode_enabled=true
+	credits.meta_clicked.connect(func(url): OS.shell_open(str(url)))
+	var published: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/art_credits.json"))
+	credits.text=str(published.notice)+"\n[url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0 – Lizenz ansehen[/url]\n\n"
+	var catalog: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
+	for entry in catalog.levels:
+		if not entry.has("attribution"): continue
+		var credit: Dictionary=entry.attribution
+		credits.text+=entry.title+"\n"+str(credit.author)+" · "+str(credit.license)+"\n"+"[url="+str(credit.source)+"]Originalquelle ansehen[/url]\n\n"
+	scroll.add_child(credits)
+	add_child(dialog)
+	dialog.confirmed.connect(dialog.queue_free)
+	dialog.canceled.connect(dialog.queue_free)
+	dialog.popup_centered(Vector2i(int(size.x)-48,mini(int(size.y)-100,650)))
+
 func tell(message: String) -> void:
 	if is_instance_valid(toast): toast.queue_free()
 	toast=label(message,Vector2(24,size.y-127),size.x-48,13,Color("#bdd9df"))

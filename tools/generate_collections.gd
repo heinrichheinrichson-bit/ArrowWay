@@ -2,10 +2,16 @@ extends SceneTree
 var failed := 0
 func _initialize() -> void: call_deferred("generate")
 func generate() -> void:
-	var source = JSON.parse_string(FileAccess.get_file_as_string("res://collections/source_masks.json"))
+	var args := OS.get_cmdline_user_args()
+	var source_path := "res://collections/source_masks.json"
+	var output_path := "res://collections/catalog.json"
+	if args.has("--source"): source_path=args[args.find("--source")+1]
+	if args.has("--output"): output_path=args[args.find("--output")+1]
+	var source = JSON.parse_string(FileAccess.get_file_as_string(source_path))
+	if args.has("--limit"): source=source.slice(0,int(args[args.find("--limit")+1]))
 	var entries: Array = []
 	var previous_order := {}
-	var existing = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
+	var existing = JSON.parse_string(FileAccess.get_file_as_string(output_path)) if FileAccess.file_exists(output_path) else null
 	if existing is Dictionary:
 		for entry in existing.get("levels",[]): previous_order[entry.path]=previous_order.size()
 	var group_order: Array[String] = []
@@ -21,6 +27,7 @@ func generate() -> void:
 				var cached_motif := CustomMotif.decode(cached.motif)
 				if not CustomMotif.decode_paths(cached.paths,cached_motif).is_empty():
 					entries.append({"path":path,"title":cached.title,"collection":cached.collection,"tags":cached.get("tags",[]),"design":cached.design})
+					if cached.has("attribution"): entries[-1].attribution=cached.attribution
 					print("CACHED %d/%d %s" % [index+1,source.size(),item.key])
 					continue
 		var motif := CustomMotif.decode(item.motif)
@@ -69,9 +76,11 @@ func generate() -> void:
 		var design := LevelDesign.metrics(paths)
 		var tags := LibraryIndex.tags(item.get("tags", []))
 		var document := {"version":2,"shape":6,"title":motif.title,"collection":item.collection,"tags":tags,"source_hash":source_hash,"source_cells":source_cells,"motif":CustomMotif.encode(motif),"paths":CustomMotif.encode_paths(paths),"design":design}
+		if item.has("attribution"): document.attribution=item.attribution
 		var file := FileAccess.open(path, FileAccess.WRITE)
 		file.store_string(JSON.stringify(document, "\t"))
 		entries.append({"path":path,"title":motif.title,"collection":item.collection,"tags":tags,"design":design})
+		if item.has("attribution"): entries[-1].attribution=item.attribution
 		print("BUILT %02d/%02d %s: %d cells, %d arrows, %d starts, depth %d" % [index+1,source.size(),item.key,motif.cells.size(),paths.size(),design.starts,design.depth])
 	entries.sort_custom(func(a: Dictionary, b: Dictionary):
 		if previous_order.has(a.path) or previous_order.has(b.path):
@@ -91,7 +100,7 @@ func generate() -> void:
 			entry.legacy_collection=entry.collection.duplicate()
 			entry.collection={"id":item.group,"title":journey.groups[item.group].title,"order":entry.legacy_collection.order}
 			entry.taxonomy={"world":item.world,"category":item.category_id}
-		var catalog := FileAccess.open("res://collections/catalog.json", FileAccess.WRITE)
+		var catalog := FileAccess.open(output_path, FileAccess.WRITE)
 		catalog.store_string(JSON.stringify({"version":1,"levels":entries}, "\t"))
 	print("DONE %d levels; %d failures" % [entries.size(),failed])
 	quit(0 if failed == 0 else 1)

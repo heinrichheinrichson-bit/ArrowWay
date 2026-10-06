@@ -644,6 +644,9 @@ def main():
             result.append({'key':key,'collection':{'id':group,'title':label,'order':k+1},'tags':tags,'recipe':kind,'motif':{'title':title,'cells':cells,'parts':parts}})
     assert len(result)==500,len(result)
     assert len({item['motif']['title'] for item in result})==500
+    expansion_path=source_path.parent/'expansion_masks.json'
+    if expansion_path.exists():
+        result+=json.loads(expansion_path.read_text(encoding='utf-8-sig'))
     source_path.write_text(json.dumps(result,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
     print(f'{len(result)} motifs in {len(GROUPS)+5} collections; {len(result)-len(original)} new geometry recipes')
 

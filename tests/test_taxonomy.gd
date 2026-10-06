@@ -29,7 +29,7 @@ func run() -> void:
 		require(not paths.has(item.path) and FileAccess.file_exists(item.path),"Every existing motif has one valid assignment")
 		paths[item.path]=item
 		require(categories.has(item.category_id) and JourneyProgress.world_index(item.group)>=0,"Every motif has a canonical category and published group")
-	require(paths.size()==509 and categories.size()==123 and empty==56,"Complete taxonomy includes 509 motifs, 123 categories and 56 prepared empty categories")
+	require(paths.size()==823 and categories.size()==123 and empty==0,"Complete taxonomy includes 823 motifs and all 123 populated categories")
 	await launch()
 	for index in scene.level_count():
 		var path: String=scene.level_path(index)
@@ -39,7 +39,7 @@ func run() -> void:
 		require(not ad_keys.has(world.ad_id),"Ad protection uses unique stable keys")
 		ad_keys[world.ad_id]=true
 		for group in world.groups: require(not JourneyProgress.indices(scene,group).is_empty(),"Every public collection contains motifs")
-	require(scene.ads.world_key(4)==2 and scene.ads.world_key(8)==3 and scene.ads.world_key(10)==4,"Original ad keys survive world reordering")
+	require(scene.ads.world_key(4)==2 and scene.ads.world_key(8)==3 and scene.ads.world_key(JourneyProgress.world_index("world"))==4,"Original ad keys survive world reordering")
 	await close()
 	# Simulate a real old journey: intro solved, Nature reached, one animal solved.
 	var config := ConfigFile.new()
@@ -63,7 +63,7 @@ func run() -> void:
 	require(JourneyProgress.group_visible(scene,"flowers") and not JourneyProgress.group_visible(scene,"workshop"),"Moved old categories retain access without unlocking unrelated future worlds")
 	require(JourneyProgress.group_visible(scene,"toys") and not JourneyProgress.group_visible(scene,"sports"),"One redistributed category does not reveal sibling categories")
 	require(not JourneyProgress.world_complete(scene,1) and not JourneyProgress.world_complete(scene,12),"Migration does not award false theme checkmarks")
-	scene.open_journey(12)
+	scene.open_journey(JourneyProgress.world_index("toys"))
 	require(scene.journey.visible_station_ids.has("group:toys") and not scene.journey.visible_station_ids.has("group:sports"),"Mindmap only creates earned branches in partially migrated worlds")
 	scene.close_journey()
 	# Resume an arrow animation and zoom in a redistributed motif.

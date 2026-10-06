@@ -1,6 +1,8 @@
 # ArrowWay – aktueller Katalog
 
-509 Motive · 14 spielbare Themenwelten · 43 Sammlungen
+Historischer Strukturstand vor der Motiverweiterung: 509 Motive · 14 Themenwelten · 43 Sammlungen.
+
+**Aktuell: 823 Motive · 17 Themenwelten · 88 Sammlungen.** Die vollständige Erweiterung steht in [MOTIVAUSBAU_AKTUELL.md](MOTIVAUSBAU_AKTUELL.md).
 
 Vorbereitete, leere Kategorien erscheinen noch nicht im Spiel. Kleine befüllte Kategorien sind zunächst in größeren Sammlungen gebündelt.
 

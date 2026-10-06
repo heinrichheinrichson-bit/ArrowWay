@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "entries": {
+    "new_flamingo": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Wenn Flamingos ihre Jungen füttern, können die Eltern so viel von ihrer rosa Farbe verlieren, dass sie fast weiß aussehen. Später kehrt die Farbe zurück.",
+      "source": "San Diego Zoo",
+      "url": "https://animals.sandiegozoo.org/animals/flamingo"
+    },
+    "new_axolotl": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Axolotl behalten auch als erwachsene Tiere ihre federartigen äußeren Kiemen. Obwohl sie zusätzlich Lungen entwickeln, bleiben sie ihr Leben lang im Wasser.",
+      "source": "San Diego Zoo",
+      "url": "https://animals.sandiegozoo.org/animals/axolotl"
+    },
+    "new_chameleon_glyph": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Der Greifschwanz hilft vielen Chamäleons beim Klettern. Anders als bei zahlreichen anderen Echsen wächst ein verlorener Schwanz bei ihnen nicht einfach nach.",
+      "source": "San Diego Zoo",
+      "url": "https://animals.sandiegozoo.org/animals/chameleon"
+    },
+    "new_stethoscope": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Das Stethoskop begann 1816 mit einer Papierrolle: René Laennec hörte damit die Herztöne einer Patientin. Erst danach baute er Versionen aus Holz.",
+      "source": "Science Museum Group",
+      "url": "https://collection.sciencemuseumgroup.org.uk/objects/co90986/laennecs-stethoscope"
+    },
+    "new_trilobite": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Abgetrennte fossile Trilobitenschwänze wurden in Wales für versteinerte Schmetterlinge gehalten. Eine Legende schrieb ihre Verwandlung dem Zauberer Merlin zu.",
+      "source": "Natural History Museum",
+      "url": "https://www.nhm.ac.uk/discover/how-trilobites-conquered-prehistoric-oceans.html"
+    },
+    "new_ammonite_fossil": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Ein Ammonit bewohnte nur eine Kammer seiner gewundenen Schale. Die anderen Kammern halfen ihm, im Wasser zu schweben.",
+      "source": "Natural History Museum",
+      "url": "https://www.nhm.ac.uk/discover/fantastic-fossils.html"
+    },
+    "new_gramophone": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Emile Berliner ließ das Grammophon 1887 patentieren. Anfangs wurde es als Spielzeug vermarktet, bevor Schallplatten den Musikalltag veränderten.",
+      "source": "Science Museum Group",
+      "url": "https://blog.sciencemuseumgroup.org.uk/eavesdropping-on-history/"
+    },
+    "new_comet_spark": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Die Sonde Stardust brachte 2006 Staub des Kometen Wild 2 zur Erde. Darin fanden sich Minerale, die nahe der Sonne oder anderen Sternen entstanden waren.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/solar-system/comets/facts/"
+    },
+    "new_asteroid": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Am 12. Februar 2001 landete die NASA-Sonde NEAR Shoemaker auf dem Asteroiden Eros: ein kleiner Himmelskörper wurde zum Landeplatz.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter1-3/"
+    }
+  }
+}

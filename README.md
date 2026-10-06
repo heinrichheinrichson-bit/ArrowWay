@@ -8,9 +8,11 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.19.0-dev
+## Aktueller Stand · 0.20.0-dev
 
-- **Neu geordneter Katalog**: 509 Motive in 14 spielbaren Themenwelten und 43 Sammlungen. Tierwelt, Pflanzen, Landschaften, Zuhause, Handwerk und Weltraum haben eigene Stationen. Eine Taxonomie mit 17 Oberthemen und 123 Unterkategorien bereitet weitere Motive vor; leere Bereiche bleiben im Spiel verborgen. Alte Freischaltungen werden übertragen, ohne falsche Abschluss-Häkchen. Motivdateien und Pfeilstände bleiben erhalten. [Aktuelle Struktur und Ausbauplanung](planning/KATALOGSTRUKTUR_AKTUELL.md).
+- **Erweiterter Katalog**: 823 Motive (814 Katalogbilder und neun Einstiegsrätsel) in 17 spielbaren Themenwelten und 88 Sammlungen. 314 neue Bilder ergänzen unter anderem Medizin, Wissenschaft, Geschichte, Zuhause, Insekten, Reptilien und alte Technik. Alle 123 fachlichen Unterkategorien enthalten Motive. Jedes neue Bild hat einen Abschlusstext; neun neue Fakten sind mit Quellen belegt. Alle Bilder bleiben in der Motivwerkstatt bearbeitbar. [Neue Motive und Sammlungen](planning/MOTIVAUSBAU_AKTUELL.md).
+
+- **Bildquellen**: 295 neue Silhouetten verwenden lizenzierte Vorlagen, 19 sind eigene Entwürfe. Unter Einstellungen → Bildquellen & Lizenzen stehen Urheber, Lizenz und Originalquelle jedes neuen Motivs. Details in [ART_CREDITS.txt](collections/ART_CREDITS.txt).
 
 - **Werbegrundlage mit Offline-Testmodus**: Fünf erste Rätsel werbefrei, danach mindestens vier neue Abschlüsse und sechs aktive Spielminuten zwischen Anzeigen. Nur normale Rätselwechsel kommen infrage; Abschlussfeiern und neue Welten sind geschützt. In den Entwicklungseinstellungen lassen sich Testanzeigen und ein simulierter Werbefrei-Status einschalten. Keine echten Anzeigen oder Käufe. Regeln und späterer Anschluss stehen in [MONETIZATION.md](MONETIZATION.md).
 
@@ -27,7 +29,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 
 - **Begonnene Rätsel fortsetzen**: Jeder angefangene Spielstand bleibt separat erhalten – einschließlich entkommener Pfeile, laufender Animationen, Zoom und Bildposition. Speichern läuft im Hintergrund; beim Verlassen oder Wechsel in den Hintergrund wird der letzte Stand gesichert. Eine vorherige Sicherung dient bei beschädigter Datei als Rückfall. Veränderte Motive übernehmen keine unpassenden alten Pfeilstände. Ein bestätigter Neustart beginnt bewusst von vorn.
 
-- **Entdeckungen nach dem Abschluss**: Nach der Lichtwelle erscheint eine lesbare Textkarte mit Fakten, Kunstgeschichten oder eigenen Gedanken. Alle 509 Spielmotive haben eigene Texte (50 Fakten/Kunstgeschichten mit Quelle und 459 eigene Gedanken). Fakten enthalten eine Quellenaktion. Die Karte verdeckt weder Kunstwerk noch Weiter-Button und verschwindet beim Neustart.
+- **Entdeckungen nach dem Abschluss**: Nach der Lichtwelle erscheint eine lesbare Textkarte mit Fakten, Kunstgeschichten oder eigenen Gedanken. Alle 823 Spielmotive haben eigene Texte (59 Fakten/Kunstgeschichten mit Quelle und 764 eigene Gedanken). Fakten enthalten eine Quellenaktion. Die Karte verdeckt weder Kunstwerk noch Weiter-Button und verschwindet beim Neustart.
 
 - **Kompakter Bildtitel**: ursprüngliche Darstellung mit 16-Punkt-Schrift zwischen den Symbolen, unterhalb des Kameraausschnitts. Kameraausschnitt und sichere Displayränder werden aus physischen Bildschirmkoordinaten in die Spielansicht umgerechnet.
 
@@ -43,7 +45,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 
 - **Farbenfrohe Mindmap**: große sechseckige Themenwelten, kleinere runde Unterkategorien und individuelle Zweigfarben. Sanft wanderndes Licht zeigt den nächsten Weg. Vollständig gelöste Sammlungen erhalten einen Leuchtmoment; eine fertige Themenwelt öffnet den nächsten Pfad mit einer Kamerafahrt. Android-Zurück folgt derselben Menüstruktur.
 
-- **500 Katalogmotive in 42 Sammlungen**: unter anderem Halloween, Weihnachten, Winter, Ostern, Technik, Computer, Smartphones, Skylines, Tiere, Fahrzeuge, Musik und Landschaften. Über die Reise nach und nach spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle 500 Motive und Vorschauen](CATALOG.md).
+- **814 Katalogmotive in 87 Sammlungen**: unter anderem Halloween, Weihnachten, Winter, Ostern, Technik, Computer, Smartphones, Skylines, Tiere, Fahrzeuge, Musik und Landschaften. Über die Reise nach und nach spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle 814 Motive und Vorschauen](CATALOG.md).
 
 
 - Neun gestaltete Levels mit 25–39 Pfaden, jeweils vollständig gefüllten Motiven und allen vier Pfeilrichtungen.
@@ -74,7 +76,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 - `motifs.gd`: gleichmäßige vollständige Füllung, Motivbereiche und Neonpaletten.
 - `level_design.gd`: Verflechtung und Verbindung benachbarter Pfade, Ausrichtung der Spitzen und Bewertung von Startzügen und Abhängigkeiten. Jede übernommene Variante bleibt vollständig lösbar.
 - `levels/`: neun fertige, reproduzierbar erzeugte und geprüfte Leveldateien.
-- `collections/`: Katalog, Ausgangsflächen und 500 geprüfte Levels; `tools/generate_collections.gd` erzeugt sie reproduzierbar.
+- `collections/`: Katalog, Ausgangsflächen und 814 geprüfte Levels; `tools/generate_collections.gd` erzeugt sie reproduzierbar.
 - `main.gd`: Spielzustand, gerundete Animation, Benutzeroberfläche, Werkzeugmodus und Speicherung.
 - `feedback_audio.gd`: kurze Klänge mit weichem Ein- und Ausklang und begrenzter Überlagerung.
 - `level_card.gd`: Motivvorschauen und Status in der Levelübersicht.
@@ -116,7 +118,7 @@ Geprüft werden vollständige Lösungsfolgen aller neun Levels, vollständige F�
 
 ## Nächste Ausbaustufen
 
-Für dichte Motive ist Zwei-Finger-Zoom mit Verschieben vorgemerkt. Eine Zoomgeste muss dabei einen begonnenen Pfeiltipp abbrechen, damit kein Pfeil versehentlich entkommt. Die aktuelle Version nutzt automatische Vergrößerung und erweiterte Trefferflächen; die Bedienung wird bisher am Desktop in verschiedenen Bildschirmformaten geprüft.
+Zwei-Finger-Zoom und Verschieben sind für dichte Motive umgesetzt. Eine Zoomgeste muss dabei einen begonnenen Pfeiltipp abbrechen, damit kein Pfeil versehentlich entkommt. Die aktuelle Version nutzt automatische Vergrößerung und erweiterte Trefferflächen; die Bedienung wird bisher am Desktop in verschiedenen Bildschirmformaten geprüft.
 
 Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smartphones und das Spielgefühl der neuen Serie müssen noch geprüft werden. Die erste lokale Bildanalyse arbeitet mit klaren Umrissen, Farbflächen und Transparenz. Allgemeine Fotoerkennung, automatische Benennung von Bildteilen, feinere beziehungsweise variable Raster, eine komfortable Bibliothek für eigene Motive und Veröffentlichung stehen noch aus. Die Verflechtung verbessert die rechnerischen Kennzahlen und die Vielfalt der Pfade; eine angenehme Schwierigkeitskurve muss anschließend mit Spieltests abgestimmt werden.
 

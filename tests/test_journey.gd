@@ -69,9 +69,9 @@ func station_named(id: String) -> Button:
 	return null
 
 func run() -> void:
-	for name in ["progress.cfg","settings.cfg","library.cfg"]: DirAccess.remove_absolute("user://test_journey_"+name)
+	for name in ["progress.cfg","settings.cfg","library.cfg","sessions.json","sessions.json.bak","sessions.json.tmp"]: DirAccess.remove_absolute("user://test_journey_"+name)
 	scene = load("res://main.tscn").instantiate()
-	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
+	scene.storage_prefix="user://test_journey_"; scene.resume_enabled=false; scene.journey_mode=true; scene.scan_user_exports=true
 	root.add_child(scene)
 	await process_frame
 	var mapped: Array[String] = []
@@ -79,7 +79,7 @@ func run() -> void:
 		for group in world.groups:
 			require(not mapped.has(group),"A collection belongs to exactly one theme")
 			mapped.append(group)
-	require(mapped.size()==43,"All 42 collections plus introduction have a theme")
+	require(mapped.size()==88,"All 87 collections plus introduction have a theme")
 	for index in scene.level_count():
 		var group: String = scene.level_collection(index).id
 		require(group=="custom" or mapped.has(group),"Every catalog entry has a map category")
@@ -89,7 +89,7 @@ func run() -> void:
 	require(not scene.level_available(garden[0]),"Future-world puzzles cannot be selected")
 	scene.open_home(); await capture("home"); scene.close_home()
 	scene.open_journey(); await process_frame
-	require(scene.journey.canvas.get_child_count()==15,"Fourteen major themes plus reached subcategory share a single canvas")
+	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+1,"All major themes plus reached subcategory share a single canvas")
 	require(scene.journey.visible_station_ids==["world:beginning","group:base"],"Future themes have no subcategory nodes")
 	await capture("map-new")
 	await swipe_map(); await swipe_map(true)
@@ -108,7 +108,7 @@ func run() -> void:
 	solve(8); scene.advance()
 	require(scene.journey.screen=="map" and JourneyProgress.frontier(scene)==1,"All nine completions open Nature on the SAME map")
 	require(station_named("world:beginning").achieved and not station_named("world:nature").achieved,"Only fully completed themes get checkmarks")
-	require(scene.journey.canvas.get_child_count()==18,"Tierwelt's three child nodes join the original map")
+	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+1+JourneyProgress.worlds()[1].groups.size(),"Tierwelt's child nodes join the original map")
 	require(JourneyProgress.group_visible(scene,"animals") and JourneyProgress.group_visible(scene,"birds") and not JourneyProgress.group_visible(scene,"flowers"),"Only reached themes display their subcategory branches")
 	for group in ["animals","birds","ocean"]:
 		require(station_named("group:"+group)!=null,"Each Nature collection is connected on the same canvas")
@@ -159,7 +159,7 @@ func run() -> void:
 	var expected: Array[int]=scene.completed.duplicate()
 	scene.close_journey(); scene.queue_free(); await process_frame
 	scene=load("res://main.tscn").instantiate()
-	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
+	scene.storage_prefix="user://test_journey_"; scene.resume_enabled=false; scene.journey_mode=true; scene.scan_user_exports=true
 	root.add_child(scene); await process_frame
 	require(scene.completed==expected and JourneyProgress.frontier(scene)==2,"Strict progression and old achievements survive restart")
 	# Migrate an old unfinished puzzle without awarding themes or bypassing gates.
@@ -169,7 +169,7 @@ func run() -> void:
 	legacy.save(scene.storage_prefix+"progress.cfg")
 	scene.queue_free(); await process_frame
 	scene=load("res://main.tscn").instantiate()
-	scene.storage_prefix="user://test_journey_"; scene.journey_mode=true; scene.scan_user_exports=true
+	scene.storage_prefix="user://test_journey_"; scene.resume_enabled=false; scene.journey_mode=true; scene.scan_user_exports=true
 	root.add_child(scene); await process_frame
 	require(scene.journey_legacy_paths.has(legacy_path) and not scene.level_available(scene.level_files.find(legacy_path)),"Migration retains the legacy record without exposing an unfinished future puzzle")
 	require(JourneyProgress.frontier(scene)==0 and not JourneyProgress.group_visible(scene,"technology"),"Migration never bypasses theme completion")
@@ -188,6 +188,6 @@ func run() -> void:
 	scene.open_home()
 	var clock:float=scene.clock_time; scene._process(1)
 	require(scene.clock_time==clock,"Home pauses gameplay")
-	for name in ["progress.cfg","settings.cfg","library.cfg"]: DirAccess.remove_absolute(scene.storage_prefix+name)
+	for name in ["progress.cfg","settings.cfg","library.cfg","sessions.json","sessions.json.bak","sessions.json.tmp"]: DirAccess.remove_absolute(scene.storage_prefix+name)
 	print("PASS journey: single mindmap, all collection cards, strict completion gates, accurate checkmarks, touch, persistence and entire catalog" if failures==0 else "%d FAILURES" % failures)
 	quit(0 if failures==0 else 1)

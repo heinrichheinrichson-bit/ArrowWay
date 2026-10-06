@@ -2180,6 +2180,1280 @@
     "res://collections/levels/cozy_12_cozy_12.json": {
       "kind": "Ein kleiner Gedanke",
       "text": "Vielleicht ist das ein guter Augenblick, an jemanden zu denken, dem du gern einen kleinen freundlichen Gruß schicken würdest."
+    },
+    "res://collections/levels/expanded_medicine_01_01_new_heart_organ.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Dein Herz kennt keinen Feierabend. Dieses kleine Rätsel zum Glück schon."
+    },
+    "res://collections/levels/expanded_medicine_01_02_new_lungs.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Moment, um einmal durchzuatmen, bevor der nächste Weg beginnt."
+    },
+    "res://collections/levels/expanded_medicine_01_03_new_brain.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Gehirn hat sich gerade selbst ein kleines Erfolgserlebnis organisiert."
+    },
+    "res://collections/levels/expanded_medicine_01_04_new_pelvis_bone.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Stabilität muss nicht wie ein gerader Balken aussehen. Manchmal ist sie ein Bogen."
+    },
+    "res://collections/levels/expanded_medicine_01_05_new_forearm.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Dreh verändert die Richtung. Das galt gerade auch für deinen Blick."
+    },
+    "res://collections/levels/expanded_medicine_01_06_new_anatomy.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Innen sind wir erstaunlich gut verbunden. Hier hast du die Wege nach außen gefunden."
+    },
+    "res://collections/levels/expanded_medicine_02_01_new_human_ear.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jedes Kunstwerk muss laut sein, um Aufmerksamkeit zu bekommen."
+    },
+    "res://collections/levels/expanded_medicine_02_02_new_eyeball.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Blick hat gearbeitet. Jetzt darf er sich am fertigen Bild ausruhen."
+    },
+    "res://collections/levels/expanded_medicine_02_03_new_nose_front.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Erinnerungen kommen durch die Nase, bevor man überhaupt an sie denkt."
+    },
+    "res://collections/levels/expanded_medicine_02_04_new_tongue.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Über Geschmack lässt sich streiten. Über dieses gelöste Rätsel freuen wir uns einfach."
+    },
+    "res://collections/levels/expanded_medicine_02_05_new_finger_print.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ausgerechnet ein Finger hat dieses Bild von einem Fingerabdruck freigemacht."
+    },
+    "res://collections/levels/expanded_medicine_03_01_new_stethoscope.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Das Stethoskop begann 1816 mit einer Papierrolle: René Laennec hörte damit die Herztöne einer Patientin. Erst danach baute er Versionen aus Holz.",
+      "source": "Science Museum Group",
+      "url": "https://collection.sciencemuseumgroup.org.uk/objects/co90986/laennecs-stethoscope"
+    },
+    "res://collections/levels/expanded_medicine_03_02_new_syringe.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier war Fingerspitzengefühl gefragt. Den kleinen Pieks haben wir weggelassen."
+    },
+    "res://collections/levels/expanded_medicine_03_03_new_medical_thermometer.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute misst die Skala vor allem eines: deine Geduld bis zum letzten Pfeil."
+    },
+    "res://collections/levels/expanded_medicine_03_04_new_medical_drip.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Schritt nach dem anderen kann sehr viel bewirken."
+    },
+    "res://collections/levels/expanded_medicine_03_05_new_bandage_roll.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder Knoten braucht eine Schere. Diesen hast du mit einem guten Blick gelöst."
+    },
+    "res://collections/levels/expanded_medicine_04_01_new_hospital.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hinter vielen Fenstern arbeiten Menschen, deren Alltag anderen Sicherheit gibt."
+    },
+    "res://collections/levels/expanded_medicine_04_02_new_hospital_cross.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Zeichen kann bedeuten: Hier musst du nicht alles allein schaffen."
+    },
+    "res://collections/levels/expanded_medicine_04_03_new_medical_pack.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Gut vorbereitet zu sein fällt meist erst auf, wenn man es braucht."
+    },
+    "res://collections/levels/expanded_medicine_04_04_new_arm_bandage.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch eine Pause kann ein Teil des Weges sein."
+    },
+    "res://collections/levels/expanded_medicine_05_01_new_tooth.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Kunstwerk, das heute ausnahmsweise nicht auf den Zahn gefühlt werden muss."
+    },
+    "res://collections/levels/expanded_medicine_05_02_new_toothbrush.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche guten Gewohnheiten sind unspektakulär. Gerade deshalb tragen sie so weit."
+    },
+    "res://collections/levels/expanded_medicine_05_03_new_mouth_watering.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für dieses fertige Bild ist ein kleines Lächeln ausdrücklich erlaubt."
+    },
+    "res://collections/levels/expanded_medicine_06_01_new_rod_of_asclepius.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein altes Zeichen erinnert daran, wie lange Menschen schon nach Heilung suchen."
+    },
+    "res://collections/levels/expanded_medicine_06_02_new_herbs_bundle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwischen einer Pflanze und ihrer Geschichte liegt oft mehr als ein Spaziergang."
+    },
+    "res://collections/levels/expanded_medicine_06_03_new_mortar.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wissen wird nicht wertvoller, wenn man es nur aufbewahrt. Es muss auch geprüft werden."
+    },
+    "res://collections/levels/expanded_science_01_01_new_abacus.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Idee wird manchmal leichter, sobald man sie mit den Händen bewegen kann."
+    },
+    "res://collections/levels/expanded_science_01_02_new_triangle_target.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Drei Seiten reichen für eine erstaunlich stabile Form."
+    },
+    "res://collections/levels/expanded_science_01_03_new_cube.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Würfel sieht aus jeder Richtung ein wenig anders aus. Dein Weg war trotzdem eindeutig."
+    },
+    "res://collections/levels/expanded_science_01_04_new_pentacle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Muster kann gleichzeitig klar geordnet und überraschend verwoben sein."
+    },
+    "res://collections/levels/expanded_science_01_05_new_infinity.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unendlich wäre zum Weiterspielen schön. Für dieses Rätsel genügt ein echter Abschluss."
+    },
+    "res://collections/levels/expanded_science_02_01_new_prism.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein heller Gedanke kann mehr als eine Farbe haben."
+    },
+    "res://collections/levels/expanded_science_02_02_new_pendulum_swing.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hin und her ist noch kein Stillstand. Manchmal hält gerade das den Takt."
+    },
+    "res://collections/levels/expanded_science_02_03_new_gyroscope.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Bewegung kann Gleichgewicht schaffen. Dein Blick hat heute beides gefunden."
+    },
+    "res://collections/levels/expanded_science_02_04_new_weight.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Gewicht allein überzeugt noch nicht. Die richtige Richtung zählt ebenfalls."
+    },
+    "res://collections/levels/expanded_science_03_01_new_chemical_drop.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Veränderung kann das ganze Ergebnis verwandeln."
+    },
+    "res://collections/levels/expanded_science_03_02_new_test_tubes.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Neugier ist ein guter Anfang. Genaues Hinschauen macht daraus eine Entdeckung."
+    },
+    "res://collections/levels/expanded_science_03_03_new_molecule.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier wurde aus vielen Verbindungen ein gemeinsames Bild."
+    },
+    "res://collections/levels/expanded_science_03_04_new_crystal_growth.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Ordnung entsteht langsam. Man muss ihr nur genug Raum lassen."
+    },
+    "res://collections/levels/expanded_science_04_01_new_microscope.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine ganze Welt kann unterhalb dessen liegen, was wir im Vorbeigehen sehen."
+    },
+    "res://collections/levels/expanded_science_04_02_new_dna1.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine gedrehte Leiter, an der sehr viele Geschichten hängen."
+    },
+    "res://collections/levels/expanded_science_04_03_new_antibody.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede Verbindung passt zu allem. Die richtigen können umso mehr verändern."
+    },
+    "res://collections/levels/expanded_science_05_01_new_ammonite_fossil.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Ein Ammonit bewohnte nur eine Kammer seiner gewundenen Schale. Die anderen Kammern halfen ihm, im Wasser zu schweben.",
+      "source": "Natural History Museum",
+      "url": "https://www.nhm.ac.uk/discover/fantastic-fossils.html"
+    },
+    "res://collections/levels/expanded_science_05_02_new_archaeopteryx_fossil.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal erzählt ein stiller Stein von einer Welt voller Bewegung."
+    },
+    "res://collections/levels/expanded_science_05_03_new_trilobite.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Abgetrennte fossile Trilobitenschwänze wurden in Wales für versteinerte Schmetterlinge gehalten. Eine Legende schrieb ihre Verwandlung dem Zauberer Merlin zu.",
+      "source": "Natural History Museum",
+      "url": "https://www.nhm.ac.uk/discover/how-trilobites-conquered-prehistoric-oceans.html"
+    },
+    "res://collections/levels/expanded_science_06_01_new_scales.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Gute Fragen werden nicht kleiner, wenn man ihre Antworten genau prüft."
+    },
+    "res://collections/levels/expanded_science_06_02_new_measure_tape.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Vermutung darf groß sein. Zum Nachmessen braucht es trotzdem Geduld."
+    },
+    "res://collections/levels/expanded_science_06_03_new_stopwatch.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Zahl wird erst durch die richtige Frage interessant."
+    },
+    "res://collections/levels/expanded_science_06_04_new_thermometer_scale.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier durfte die Neugier steigen, ohne dass etwas übergekocht ist."
+    },
+    "res://collections/levels/expanded_science_06_05_new_archive_research.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Entdeckung beginnt mit einem Blatt, das jemand sorgfältig aufgehoben hat."
+    },
+    "res://collections/levels/expanded_animals_03_01_new_praying_mantis.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede Pause ist Untätigkeit. Manche ist sehr aufmerksam."
+    },
+    "res://collections/levels/expanded_animals_03_02_new_dragonfly.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein leichter Körper kann eine erstaunlich entschlossene Richtung haben."
+    },
+    "res://collections/levels/expanded_animals_03_03_new_ant.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Weg sieht klein aus. Für seine Reisende ist er eine ganze Landschaft."
+    },
+    "res://collections/levels/expanded_animals_03_04_new_ladybug.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das Glück braucht heute keine perfekte Landung. Ein gelöstes Bild genügt."
+    },
+    "res://collections/levels/expanded_animals_03_05_new_earwig.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Namen erzählen eine Geschichte, die mit dem Tier wenig zu tun hat."
+    },
+    "res://collections/levels/expanded_animals_03_06_new_scarab_beetle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Käfer kann in der Geschichte eine sehr große Rolle spielen."
+    },
+    "res://collections/levels/expanded_animals_03_07_new_long_antennae_bug.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Neugier trägt manchmal zwei Antennen."
+    },
+    "res://collections/levels/expanded_animals_03_08_new_flying_beetle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Das schwer aussehende Äußere täuscht: Auch dieser Reisende findet in die Luft."
+    },
+    "res://collections/levels/expanded_animals_03_09_new_bee.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Blüte ist für manche Gäste ein ganzer Arbeitsplatz."
+    },
+    "res://collections/levels/expanded_animals_04_01_new_spider_web.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein feiner Faden wird durch seine Verbindungen erstaunlich stark."
+    },
+    "res://collections/levels/expanded_animals_04_02_new_hanging_spider.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Halt muss nicht groß sein. Er muss passen."
+    },
+    "res://collections/levels/expanded_animals_04_03_new_scorpion.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Silhouetten warnen schon, bevor sich etwas bewegt."
+    },
+    "res://collections/levels/expanded_animals_04_04_new_tick.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Winzige Nachbarn verdienen manchmal mehr Aufmerksamkeit als die großen."
+    },
+    "res://collections/levels/expanded_animals_05_01_new_gecko.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Weg verläuft nicht für alle Reisenden auf dem Boden."
+    },
+    "res://collections/levels/expanded_animals_05_02_new_chameleon_glyph.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Der Greifschwanz hilft vielen Chamäleons beim Klettern. Anders als bei zahlreichen anderen Echsen wächst ein verlorener Schwanz bei ihnen nicht einfach nach.",
+      "source": "San Diego Zoo",
+      "url": "https://animals.sandiegozoo.org/animals/chameleon"
+    },
+    "res://collections/levels/expanded_animals_05_03_new_snake_spiral.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein langer Weg passt erstaunlich gut in eine kleine Form."
+    },
+    "res://collections/levels/expanded_animals_05_04_new_sea_turtle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Horizont muss nicht nah sein, damit sich eine Reise lohnt."
+    },
+    "res://collections/levels/expanded_animals_05_05_new_snake_egg.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Anfang darf ungewohnt aussehen."
+    },
+    "res://collections/levels/expanded_animals_06_01_new_axolotl.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Axolotl behalten auch als erwachsene Tiere ihre federartigen äußeren Kiemen. Obwohl sie zusätzlich Lungen entwickeln, bleiben sie ihr Leben lang im Wasser.",
+      "source": "San Diego Zoo",
+      "url": "https://animals.sandiegozoo.org/animals/axolotl"
+    },
+    "res://collections/levels/expanded_animals_06_02_new_salamander.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwischen dunklen Blättern kann ein kleiner Körper ein auffälliges Zeichen setzen."
+    },
+    "res://collections/levels/expanded_animals_06_03_new_frog.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein stiller Teich hat selten einen stillen Alltag."
+    },
+    "res://collections/levels/expanded_animals_06_04_new_frog_prince.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Märchen darf mit einem kleinen Sprung beginnen."
+    },
+    "res://collections/levels/expanded_animals_01_01_new_anteater.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine ungewöhnliche Nase kann ein sehr gutes Werkzeug sein."
+    },
+    "res://collections/levels/expanded_animals_01_02_new_armadillo.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Reisende bringen ihren Schutz gleich mit."
+    },
+    "res://collections/levels/expanded_animals_01_03_new_bat.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wenn andere schlafen gehen, beginnt für manche erst der Tag."
+    },
+    "res://collections/levels/expanded_animals_01_04_new_hedgehog.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein stacheliges Äußeres schließt einen ruhigen Spaziergang nicht aus."
+    },
+    "res://collections/levels/expanded_animals_01_05_new_kangaroo.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder gute Weg braucht viele kleine Schritte."
+    },
+    "res://collections/levels/expanded_animals_02_01_new_flamingo.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Wenn Flamingos ihre Jungen füttern, können die Eltern so viel von ihrer rosa Farbe verlieren, dass sie fast weiß aussehen. Später kehrt die Farbe zurück.",
+      "source": "San Diego Zoo",
+      "url": "https://animals.sandiegozoo.org/animals/flamingo"
+    },
+    "res://collections/levels/expanded_animals_02_02_new_kiwi_bird.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Flügel sind nicht die einzige Möglichkeit, seinen Weg zu finden."
+    },
+    "res://collections/levels/expanded_animals_02_03_new_stork_delivery.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier darf eine alte Geschichte einmal ganz ohne Erklärung landen."
+    },
+    "res://collections/levels/expanded_animals_07_01_new_nautilus_shell.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Spirale kann aussehen wie ein sorgfältig gezeichneter Gedanke."
+    },
+    "res://collections/levels/expanded_animals_07_02_new_seahorse.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht alles, was im Wasser lebt, braucht eine stromlinienförmige Silhouette."
+    },
+    "res://collections/levels/expanded_animals_07_03_new_manta_ray.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Unter Wasser hat Leichtigkeit eine besonders weite Form."
+    },
+    "res://collections/levels/expanded_animals_07_04_new_coral.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Muster kann Teil einer erstaunlich großen Gemeinschaft sein."
+    },
+    "res://collections/levels/expanded_plants_02_01_new_willow_tree.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder starke Baum muss aufrecht in den Himmel zeigen."
+    },
+    "res://collections/levels/expanded_plants_02_02_new_birch_trees.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein heller Stamm macht auch einen dunklen Wald ein wenig freundlicher."
+    },
+    "res://collections/levels/expanded_plants_02_03_new_beech.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Schattenplatz beginnt mit sehr viel geduldigem Wachstum."
+    },
+    "res://collections/levels/expanded_plants_02_04_new_tree_roots.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein großer Teil dessen, was Halt gibt, bleibt unsichtbar."
+    },
+    "res://collections/levels/expanded_plants_02_05_new_ginkgo_leaf.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Formen wirken wie ein kleiner Fächer aus einer anderen Zeit."
+    },
+    "res://collections/levels/expanded_plants_02_06_new_oak_leaf.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine vertraute Form muss nicht langweilig sein. Man muss nur genauer hinsehen."
+    },
+    "res://collections/levels/expanded_plants_03_01_new_monstera_leaf.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch die Lücken gehören zur Form."
+    },
+    "res://collections/levels/expanded_plants_03_02_new_carnivorous_plant.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder Besucher bekommt in einem Garten dieselbe Einladung."
+    },
+    "res://collections/levels/expanded_plants_03_03_new_agave.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Geduld kann eine ziemlich markante Silhouette haben."
+    },
+    "res://collections/levels/expanded_plants_03_04_new_banana_bunch.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine ganze Ernte kann wie ein sorgfältig gebündeltes Muster aussehen."
+    },
+    "res://collections/levels/expanded_plants_04_01_new_chanterelles.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Entdeckung kann einen Spaziergang verändern."
+    },
+    "res://collections/levels/expanded_plants_04_02_new_mushroom_gills.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Die Unterseite erzählt oft eine andere Geschichte als der erste Blick."
+    },
+    "res://collections/levels/expanded_plants_04_03_new_mushrooms_cluster.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal ist das, was wir sehen, nur ein kleiner Teil eines viel größeren Netzes."
+    },
+    "res://collections/levels/expanded_plants_05_01_new_plant_roots.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Was nach oben wächst, braucht auch einen Weg nach unten."
+    },
+    "res://collections/levels/expanded_plants_05_02_new_gardening_shears.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wachstum zu begleiten heißt gelegentlich auch, Platz zu schaffen."
+    },
+    "res://collections/levels/expanded_plants_05_03_new_plant_watering.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Gute Pflege ist oft eine Reihe kleiner, rechtzeitiger Handlungen."
+    },
+    "res://collections/levels/expanded_plants_01_01_new_cotton_flower.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine weiche Geschichte kann auf einer sehr kleinen Blüte beginnen."
+    },
+    "res://collections/levels/expanded_plants_01_02_new_dandelion_flower.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Pflanzen brauchen keine Einladung, um einen Platz heller zu machen."
+    },
+    "res://collections/levels/expanded_plants_01_03_new_fern.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine entrollte Spirale kann den Anfang eines ganzen Blattes tragen."
+    },
+    "res://collections/levels/expanded_home_01_01_new_house_keys.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Gegenstand kann bedeuten: Hier darfst du ankommen."
+    },
+    "res://collections/levels/expanded_home_01_02_new_dog_house.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch ein kleines Zuhause darf einen großen Lieblingsplatz haben."
+    },
+    "res://collections/levels/expanded_home_01_03_new_igloo.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Gemütlichkeit hat mehr als eine Bauweise."
+    },
+    "res://collections/levels/expanded_home_01_04_new_treehouse.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Aussicht ist schon deshalb schön, weil man erst hinaufklettern musste."
+    },
+    "res://collections/levels/expanded_home_02_01_new_gas_stove.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier darf etwas Gutes langsam warm werden."
+    },
+    "res://collections/levels/expanded_home_02_02_new_fridge.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal beginnt eine kreative Idee mit einem Blick auf die Reste."
+    },
+    "res://collections/levels/expanded_home_02_03_new_kitchen_tap.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der einfachste Handgriff ist oft der, den man am meisten vermissen würde."
+    },
+    "res://collections/levels/expanded_home_02_04_new_pressure_cooker.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht alles muss offen vor sich hin köcheln, um gut zu werden."
+    },
+    "res://collections/levels/expanded_home_03_01_new_armchair.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Platz kann eine Reise beginnen, ohne dass du aufstehen musst."
+    },
+    "res://collections/levels/expanded_home_03_02_new_sofa.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede freie Minute braucht einen Plan."
+    },
+    "res://collections/levels/expanded_home_03_03_new_rocking_chair.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch ohne voranzukommen kann Bewegung beruhigen."
+    },
+    "res://collections/levels/expanded_home_03_04_new_fireplace.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein warmes Licht macht aus einem Raum manchmal einen Lieblingsort."
+    },
+    "res://collections/levels/expanded_home_03_05_new_bookshelf.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier stehen viele Reisen nebeneinander und brauchen erstaunlich wenig Platz."
+    },
+    "res://collections/levels/expanded_home_04_01_new_bed.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch das Ausschalten kann eine gute Entscheidung sein."
+    },
+    "res://collections/levels/expanded_home_04_02_new_bunk_beds.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei Schlafplätze, eine kleine Leiter und meistens mehr als eine Geschichte."
+    },
+    "res://collections/levels/expanded_home_04_03_new_bed_lamp.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Licht kann genau groß genug für den letzten Gedanken sein."
+    },
+    "res://collections/levels/expanded_home_04_04_new_alarm_clock.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute hat zuerst das Rätsel geklingelt: fertig."
+    },
+    "res://collections/levels/expanded_home_05_01_new_bathtub.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Rätselbad. Das Handtuch bleibt trocken."
+    },
+    "res://collections/levels/expanded_home_05_02_new_shower.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein klarer Kopf entsteht manchmal unter sehr einfachen Bedingungen."
+    },
+    "res://collections/levels/expanded_home_05_03_new_sink.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Alltag besteht aus vielen kleinen Handgriffen, die selten Applaus bekommen."
+    },
+    "res://collections/levels/expanded_home_05_04_new_plunger.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Es gibt Werkzeuge, die ihre besten Auftritte lieber ohne Publikum haben."
+    },
+    "res://collections/levels/expanded_home_06_01_new_toy_mallet.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier darf Ausprobieren lauter sein als Perfektion."
+    },
+    "res://collections/levels/expanded_home_07_01_new_desk.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein freier Platz kann manchmal hilfreicher sein als eine volle To-do-Liste."
+    },
+    "res://collections/levels/expanded_home_07_02_new_office_chair.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine neue Perspektive braucht gelegentlich nur eine kleine Drehung."
+    },
+    "res://collections/levels/expanded_home_07_03_new_desk_lamp.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Gute Ideen verlangen nicht immer großes Licht. Nur das richtige."
+    },
+    "res://collections/levels/expanded_home_08_01_new_flower_pot.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein wenig Grün passt auch in einen kleinen Ausschnitt der Welt."
+    },
+    "res://collections/levels/expanded_home_10_01_new_washing_machine.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Kreislauf, der zum Glück irgendwann fertig ist."
+    },
+    "res://collections/levels/expanded_home_10_02_new_vacuum_cleaner.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier blieb nach dem letzten Pfeil wirklich nichts mehr liegen."
+    },
+    "res://collections/levels/expanded_home_10_03_new_broom.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Ordnung entsteht durch Wegnehmen statt durch Hinzufügen."
+    },
+    "res://collections/levels/expanded_home_10_04_new_sewing_machine.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein langer Faden kann viele kleine Entscheidungen verbinden."
+    },
+    "res://collections/levels/expanded_home_11_01_new_pearl_necklace.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein einzelner heller Punkt ist schön. Eine Reihe kann daraus einen Rhythmus machen."
+    },
+    "res://collections/levels/expanded_home_11_02_new_bow_tie.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal genügt ein kleines Detail, damit sich ein Tag anders anfühlt."
+    },
+    "res://collections/levels/expanded_home_11_03_new_umbrella.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Dach kann genau im richtigen Moment sehr wertvoll sein."
+    },
+    "res://collections/levels/expanded_home_11_04_new_high_heel.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine markante Form hat ihren ganz eigenen Auftritt."
+    },
+    "res://collections/levels/expanded_food_02_01_new_asparagus.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Jahreszeiten erkennt man auch auf dem Teller."
+    },
+    "res://collections/levels/expanded_food_02_02_new_beet.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kräftiger Farbton kann selbst aus einem stillen Motiv einen Auftritt machen."
+    },
+    "res://collections/levels/expanded_food_02_03_new_broccoli.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Baum für den Teller und für den Blick."
+    },
+    "res://collections/levels/expanded_food_02_04_new_garlic.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein unscheinbarer Gast kann in einer Küche ziemlich präsent sein."
+    },
+    "res://collections/levels/expanded_food_02_05_new_corn.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Viele kleine Teile können erstaunlich ordentlich nebeneinander wohnen."
+    },
+    "res://collections/levels/expanded_food_03_01_new_pretzel.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Knoten, den man normalerweise lieber isst als löst."
+    },
+    "res://collections/levels/expanded_food_03_02_new_croissant.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Gebäck darf große Bögen machen."
+    },
+    "res://collections/levels/expanded_food_04_01_new_chocolate_bar.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Heute darfst du gedanklich noch ein Stück abbrechen."
+    },
+    "res://collections/levels/expanded_food_04_02_new_honeycomb.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Süße Ordnung kann erstaunlich geometrisch aussehen."
+    },
+    "res://collections/levels/expanded_food_05_01_new_coffee_beans.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein ganzer Morgen kann in einer sehr kleinen Bohne stecken."
+    },
+    "res://collections/levels/expanded_food_05_02_new_coffee_pot.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Turm, der seine schönsten Nachrichten duften lässt."
+    },
+    "res://collections/levels/expanded_food_05_03_new_corked_tube.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede gute Pause muss sofort geöffnet werden."
+    },
+    "res://collections/levels/expanded_food_07_01_new_kitchen_scale.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein wenig Genauigkeit macht Platz für viel Kreativität."
+    },
+    "res://collections/levels/expanded_food_07_02_new_whisk.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Werkzeug, das aus Bewegung Leichtigkeit machen kann."
+    },
+    "res://collections/levels/expanded_food_07_03_new_corkscrew.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede Spirale führt in ein Rätsel. Manche führt zu einer kleinen Feier."
+    },
+    "res://collections/levels/expanded_food_08_01_new_sushis.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Arrangement kann eine ganze Mahlzeit elegant zusammenhalten."
+    },
+    "res://collections/levels/expanded_food_08_02_new_tacos.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine gute Füllung darf sichtbar bleiben."
+    },
+    "res://collections/levels/expanded_food_08_03_new_noodles.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Durcheinander kann sehr einladend aussehen, wenn es in der richtigen Schale liegt."
+    },
+    "res://collections/levels/expanded_food_08_04_new_dumpling.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Überraschung wartet hinter einer sorgfältig gefalteten Hülle."
+    },
+    "res://collections/levels/expanded_craft_02_01_new_hand_saw.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Schnitt beginnt meistens vor der ersten Bewegung."
+    },
+    "res://collections/levels/expanded_craft_02_02_new_chisel.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein wenig Material weniger kann eine Form deutlicher machen."
+    },
+    "res://collections/levels/expanded_craft_02_03_new_wood_pile.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Stapel ist eine kleine Vereinbarung darüber, wie Dinge zusammenhalten."
+    },
+    "res://collections/levels/expanded_craft_02_04_new_wooden_crate.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein einfacher Rahmen kann viel aufbewahren."
+    },
+    "res://collections/levels/expanded_craft_03_01_new_anvil.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Werkzeug darf schwer sein, wenn es anderen Formen Halt gibt."
+    },
+    "res://collections/levels/expanded_craft_03_02_new_metal_bar.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein klarer Querschnitt kann eine überraschend große Last tragen."
+    },
+    "res://collections/levels/expanded_craft_03_03_new_blacksmith.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Form entsteht nicht nur im Kopf. Manchmal braucht sie Wärme und Ausdauer."
+    },
+    "res://collections/levels/expanded_craft_03_04_new_horseshoe.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Glück ist ein schönes Extra. Gute Arbeit steckt trotzdem dahinter."
+    },
+    "res://collections/levels/expanded_craft_04_01_new_electrical_resistance.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder Widerstand ist ein Hindernis. Manche halten ein System im Gleichgewicht."
+    },
+    "res://collections/levels/expanded_craft_04_02_new_electrical_socket.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Verbindung, an der erstaunlich viel Alltag hängt."
+    },
+    "res://collections/levels/expanded_craft_04_03_new_plug.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal fehlt nur die passende Verbindung."
+    },
+    "res://collections/levels/expanded_craft_05_01_new_brick_pile.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Haus beginnt oft mit vielen einzelnen Teilen, die noch keines sind."
+    },
+    "res://collections/levels/expanded_craft_05_02_new_paint_roller.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine neue Farbe kann einen vertrauten Ort neu erscheinen lassen."
+    },
+    "res://collections/levels/expanded_craft_05_03_new_paint_bucket.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal passt ein ganz neuer Blick in einen kleinen Eimer."
+    },
+    "res://collections/levels/expanded_craft_05_04_new_wheelbarrow.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Hebel macht aus schwerer Arbeit eine bewegliche Sache."
+    },
+    "res://collections/levels/expanded_craft_06_01_new_sewing_needle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein dünner Faden hält oft mehr zusammen, als man ihm zutraut."
+    },
+    "res://collections/levels/expanded_craft_06_02_new_yarn.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein verhedderter Anfang kann trotzdem etwas Warmes werden."
+    },
+    "res://collections/levels/expanded_craft_06_03_new_scissors.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Gute Gestaltung braucht manchmal auch den Mut zum Wegschneiden."
+    },
+    "res://collections/levels/expanded_craft_06_04_new_spinning_wheel.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine ruhige Drehung kann einen langen Faden hervorbringen."
+    },
+    "res://collections/levels/expanded_craft_07_01_new_amphora.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Gefäß trägt manchmal mehr Geschichte als sein Inhalt."
+    },
+    "res://collections/levels/expanded_craft_07_02_new_painted_pottery.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Oberfläche kann erzählen, bevor man weiß, was darin war."
+    },
+    "res://collections/levels/expanded_craft_07_03_new_broken_pottery.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht alles muss vollständig sein, um eine Geschichte zu behalten."
+    },
+    "res://collections/levels/expanded_craft_08_01_new_watering_can.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Portion zur richtigen Zeit ist oft besser als alles auf einmal."
+    },
+    "res://collections/levels/expanded_craft_09_01_new_chef_toque.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Beruf kann auch eine Einladung zum Genießen sein."
+    },
+    "res://collections/levels/expanded_craft_09_02_new_diving_helmet.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Arbeitsplätze liegen dort, wo ein normaler Atemzug nicht reicht."
+    },
+    "res://collections/levels/expanded_tech_01_01_new_quill_ink.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Gedanke kann einen sehr langen Weg beginnen, sobald ihn jemand aufschreibt."
+    },
+    "res://collections/levels/expanded_tech_01_02_new_wax_tablet.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede alte Notiz war für die Ewigkeit gedacht."
+    },
+    "res://collections/levels/expanded_tech_02_01_new_newspaper.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Tag vergeht. Was jemand darüber festhält, kann viel länger bleiben."
+    },
+    "res://collections/levels/expanded_tech_02_02_new_scroll_unfurled.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder Text beginnt mit einem Bildschirm."
+    },
+    "res://collections/levels/expanded_tech_03_01_new_vintage_robot.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Jede Zeit erfindet sich ihre eigene Zukunft."
+    },
+    "res://collections/levels/expanded_tech_03_02_new_pocket_radio.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Kiste konnte eine ganze Welt ins Zimmer holen."
+    },
+    "res://collections/levels/expanded_tech_04_01_new_cuckoo_clock.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Zeitmesser haben eine besonders eigenwillige Stimme."
+    },
+    "res://collections/levels/expanded_tech_04_02_new_gears.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein einzelnes Rad dreht sich. Gemeinsam wird daraus ein Ablauf."
+    },
+    "res://collections/levels/expanded_tech_04_03_new_spring.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal ist eine Pause nur eine andere Form von Bereitschaft."
+    },
+    "res://collections/levels/expanded_tech_04_04_new_hourglass.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zeit wird nicht langsamer, wenn man ihr zusieht. Ein ruhiger Blick kann trotzdem helfen."
+    },
+    "res://collections/levels/expanded_tech_07_01_new_robot_golem.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Technik wirkt manchmal freundlicher, sobald sie eine eigene Silhouette bekommt."
+    },
+    "res://collections/levels/expanded_tech_07_02_new_mechanical_arm.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine präzise Bewegung beginnt oft mit einer gut gestellten Frage."
+    },
+    "res://collections/levels/expanded_tech_07_03_new_delivery_drone.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kurzer Weg kann auch über den Dächern liegen."
+    },
+    "res://collections/levels/expanded_tech_09_01_new_wind_turbine.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein unsichtbarer Antrieb kann eine sehr sichtbare Bewegung erzeugen."
+    },
+    "res://collections/levels/expanded_tech_09_02_new_water_mill.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Strömung kann mehr antreiben als den nächsten schwimmenden Zweig."
+    },
+    "res://collections/levels/expanded_tech_09_03_new_nuclear_plant.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Bauwerk kann gleichzeitig eine markante Form und eine schwierige Frage sein."
+    },
+    "res://collections/levels/expanded_space_01_01_new_comet_spark.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Die Sonde Stardust brachte 2006 Staub des Kometen Wild 2 zur Erde. Darin fanden sich Minerale, die nahe der Sonne oder anderen Sternen entstanden waren.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/solar-system/comets/facts/"
+    },
+    "res://collections/levels/expanded_space_01_02_new_asteroid.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Am 12. Februar 2001 landete die NASA-Sonde NEAR Shoemaker auf dem Asteroiden Eros: ein kleiner Himmelskörper wurde zum Landeplatz.",
+      "source": "NASA",
+      "url": "https://science.nasa.gov/learn/basics-of-space-flight/chapter1-3/"
+    },
+    "res://collections/levels/expanded_space_01_03_new_eclipse.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kurzer Schatten kann ein seltenes gemeinsames Staunen auslösen."
+    },
+    "res://collections/levels/expanded_space_02_01_new_space_shuttle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Flug kann am Boden mit jahrelanger Geduld beginnen."
+    },
+    "res://collections/levels/expanded_space_02_02_new_space_suit.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Für manche Reisen muss man ein kleines Stück Zuhause mitnehmen."
+    },
+    "res://collections/levels/expanded_space_03_01_new_observatory.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Blick in die Ferne ist auch eine Frage an unsere eigene Geschichte."
+    },
+    "res://collections/levels/expanded_space_03_02_new_satellite_communication.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Verbindungen funktionieren, obwohl ihr Zwischenstopp sehr weit entfernt ist."
+    },
+    "res://collections/levels/expanded_space_03_03_new_orbital.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Um etwas herumzureisen kann ebenfalls ein Weg nach vorn sein."
+    },
+    "res://collections/levels/expanded_travel_04_01_new_biplane.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei Flügelpaare geben einem frühen Flugtraum eine unverwechselbare Form."
+    },
+    "res://collections/levels/expanded_travel_04_02_new_glider.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Aufwind ist manchmal wichtiger als ein eigener Motor."
+    },
+    "res://collections/levels/expanded_travel_04_03_new_hang_glider.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein bisschen Stoff, ein Rahmen und sehr viel Respekt vor dem Wind."
+    },
+    "res://collections/levels/expanded_travel_04_04_new_parachute.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch das langsamer Werden kann ein großer Erfolg sein."
+    },
+    "res://collections/levels/expanded_travel_04_05_new_jetpack.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Reiseidee beginnt mit dem Wunsch, die Treppe auszulassen."
+    },
+    "res://collections/levels/expanded_travel_05_01_new_chariot.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Geschichte war nicht immer gemütlich unterwegs."
+    },
+    "res://collections/levels/expanded_travel_05_02_new_steam_locomotive.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier hat Fortschritt noch mit hörbarem Atem gearbeitet."
+    },
+    "res://collections/levels/expanded_travel_07_01_new_egyptian_sphinx.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein ruhiger Blick kann länger bleiben als die Menschen, die an ihm vorbeigehen."
+    },
+    "res://collections/levels/expanded_travel_07_02_new_pagoda.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Dach kann nicht nur schützen, sondern auch einen Rhythmus in den Himmel zeichnen."
+    },
+    "res://collections/levels/expanded_travel_07_03_new_pisa_tower.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal macht gerade die Abweichung eine Form unverwechselbar."
+    },
+    "res://collections/levels/expanded_travel_07_04_new_rialto_bridge.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Brücke verbindet nicht nur Ufer, sondern auch viele kleine Wege des Alltags."
+    },
+    "res://collections/levels/expanded_travel_09_01_new_campfire.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein gemeinsames Licht macht selbst einen fremden Ort ein wenig vertrauter."
+    },
+    "res://collections/levels/expanded_travel_09_02_new_sleeping_bag.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Stück Gemütlichkeit lässt sich erstaunlich eng einrollen."
+    },
+    "res://collections/levels/expanded_travel_09_03_new_rope_coil.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine gute Verbindung wird am besten vorbereitet, bevor man sie braucht."
+    },
+    "res://collections/levels/expanded_history_01_01_new_ancient_columns.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Bauwerk kann verschwinden und trotzdem in wenigen Formen weiterleben."
+    },
+    "res://collections/levels/expanded_history_01_02_new_greek_temple.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ordnung lässt sich manchmal schon aus großer Entfernung erkennen."
+    },
+    "res://collections/levels/expanded_history_01_03_new_roman_toga.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch Kleidung kann erzählen, welche Rolle jemand in einer Gesellschaft hatte."
+    },
+    "res://collections/levels/expanded_history_01_04_new_laurels.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Erfolg braucht nicht immer ein Podest. Manchmal genügt ein Kranz."
+    },
+    "res://collections/levels/expanded_history_02_01_new_closed_barbute.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein schmaler Blickschlitz ist ein guter Grund, die eigene Perspektive nicht zu unterschätzen."
+    },
+    "res://collections/levels/expanded_history_02_02_new_crossed_swords.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche alten Geschichten erzählen vor allem davon, was Menschen miteinander austrugen."
+    },
+    "res://collections/levels/expanded_history_02_03_new_medieval_pavilion.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Auch ein Lagerplatz kann ein Stück Bühne sein."
+    },
+    "res://collections/levels/expanded_history_03_01_new_castle_ruins.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede verschwundene Mauer nimmt ihre Geschichte mit."
+    },
+    "res://collections/levels/expanded_history_03_02_new_drawbridge.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Grenze kann sich heben und senken. Eine Einladung manchmal auch."
+    },
+    "res://collections/levels/expanded_history_03_03_new_tower_flag.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Zeichen in großer Höhe konnte weithin eine Botschaft tragen."
+    },
+    "res://collections/levels/expanded_history_04_01_new_dinosaur_bones.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Aus einzelnen Funden entsteht manchmal ein Bild von einer ganzen verlorenen Welt."
+    },
+    "res://collections/levels/expanded_history_04_02_new_fossil.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Spur ist eine Antwort, die man erst als solche erkennen muss."
+    },
+    "res://collections/levels/expanded_history_04_03_new_stone_tablet.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Gedanke kann erstaunlich schwer werden, wenn man ihn für lange Zeit festhalten will."
+    },
+    "res://collections/levels/expanded_history_06_01_new_egyptian_profile.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine charakteristische Ansicht kann eine ganze Bildsprache erkennbar machen."
+    },
+    "res://collections/levels/expanded_history_06_02_new_hieroglyph_y.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Bild kann eine Bedeutung tragen, die über seine Form hinausgeht."
+    },
+    "res://collections/levels/expanded_history_07_01_new_byzantin_temple.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine runde Dachlinie kann einer Stadt ihren eigenen Takt geben."
+    },
+    "res://collections/levels/expanded_history_07_02_new_mayan_pyramid.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Aufstieg lässt sich manchmal schon in der Silhouette mitlesen."
+    },
+    "res://collections/levels/expanded_culture_02_01_new_philosopher_bust.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Gesicht im Stein stellt manchmal mehr Fragen, als es beantwortet."
+    },
+    "res://collections/levels/expanded_culture_02_02_new_stone_bust.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein stilles Kunstwerk kann sehr lange im Gespräch bleiben."
+    },
+    "res://collections/levels/expanded_culture_02_03_new_venus_of_willendorf.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Objekt kann eine überraschend große Debatte auslösen."
+    },
+    "res://collections/levels/expanded_culture_03_01_new_feather.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Geschichte beginnt oft kleiner, als sie später im Kopf ihrer Leser wird."
+    },
+    "res://collections/levels/expanded_culture_03_02_new_open_book.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei Seiten können ein Fenster sein, obwohl kein Glas darin steckt."
+    },
+    "res://collections/levels/expanded_culture_03_03_new_book_pile.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Viele Welten, ordentlich übereinandergestellt."
+    },
+    "res://collections/levels/expanded_culture_04_01_new_windmill.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal kämpft eine Vorstellung gegen etwas, das andere ganz anders sehen."
+    },
+    "res://collections/levels/expanded_culture_04_02_new_submarine.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine erfundene Reise kann die Lust auf echte Entdeckungen wecken."
+    },
+    "res://collections/levels/expanded_culture_04_03_new_drink_me.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "In manchen Geschichten beginnt das Ungewöhnliche mit einer ziemlich kleinen Einladung."
+    },
+    "res://collections/levels/expanded_culture_04_04_new_insect_jaws.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein neuer Blick auf den Alltag kann sehr viel verstörender sein als eine ferne Fantasiewelt."
+    },
+    "res://collections/levels/expanded_culture_05_01_new_bookmark.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Pause in einer Geschichte ist noch nicht ihr Ende."
+    },
+    "res://collections/levels/expanded_culture_05_02_new_scroll_quill.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Gedanke wird beweglicher, sobald man ihn weitergeben kann."
+    },
+    "res://collections/levels/expanded_culture_05_03_new_book_cover.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine gute Hülle schützt nicht nur Papier, sondern auch mögliche Reisen."
+    },
+    "res://collections/levels/expanded_leisure_04_01_new_surf_board.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Wege entstehen erst, wenn man auf eine Bewegung wartet."
+    },
+    "res://collections/levels/expanded_leisure_04_02_new_water_polo.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Spielfeld muss nicht stillhalten, damit ein Spiel spannend wird."
+    },
+    "res://collections/levels/expanded_leisure_06_01_new_boxing_ring.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein klarer Rahmen macht aus Bewegung ein Spiel mit Regeln."
+    },
+    "res://collections/levels/expanded_leisure_06_02_new_fencer.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Abstand kann einen großen Unterschied machen."
+    },
+    "res://collections/levels/expanded_leisure_06_03_new_high_kick.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Balance wird besonders sichtbar, wenn man sie kurz herausfordert."
+    },
+    "res://collections/levels/expanded_leisure_10_01_new_chess_knight.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jeder Fortschritt verläuft in einer geraden Linie."
+    },
+    "res://collections/levels/expanded_leisure_10_02_new_chess_rook.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein klarer Weg kann weit führen, wenn er frei ist."
+    },
+    "res://collections/levels/expanded_leisure_10_03_new_backgammon.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Plan darf Platz für eine unerwartete Zahl lassen."
+    },
+    "res://collections/levels/expanded_leisure_10_04_new_domino_tiles.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Entscheidung kann die nächste schon in Bewegung setzen."
+    },
+    "res://collections/levels/expanded_leisure_10_05_new_meeple.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Spielfigur trägt sehr viele Geschichten, obwohl sie kein Gesicht hat."
+    },
+    "res://collections/levels/expanded_leisure_11_01_new_juggler.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Mehrere Dinge in Bewegung zu halten heißt nicht, alle zugleich festhalten zu müssen."
+    },
+    "res://collections/levels/expanded_leisure_11_02_new_unicycle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Kontakt zum Boden kann für einen großen Auftritt reichen."
+    },
+    "res://collections/levels/expanded_leisure_11_03_new_tightrope.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein schmaler Weg muss nicht einsam sein, wenn jemand mitfiebert."
+    },
+    "res://collections/levels/expanded_leisure_12_01_new_drama_masks.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Abend kann mehr als ein Gefühl tragen."
+    },
+    "res://collections/levels/expanded_leisure_12_02_new_theater_curtains.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Ende ist manchmal genau der richtige Moment für einen neuen Auftritt."
+    },
+    "res://collections/levels/expanded_leisure_13_01_new_film_projector.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Viele unbewegte Bilder können gemeinsam eine Bewegung erzählen."
+    },
+    "res://collections/levels/expanded_leisure_13_02_new_film_spool.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine lange Geschichte passt manchmal auf eine kleine Spule."
+    },
+    "res://collections/levels/expanded_leisure_13_03_new_director_chair.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Blick braucht gelegentlich auch einen guten Platz."
+    },
+    "res://collections/levels/expanded_leisure_14_01_new_carousel.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Runde im Kreis kann trotzdem ein kleines Abenteuer sein."
+    },
+    "res://collections/levels/expanded_fantasy_02_01_new_griffin_symbol.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Fantasiefigur darf Eigenschaften verbinden, die draußen getrennte Wege gehen."
+    },
+    "res://collections/levels/expanded_fantasy_02_02_new_unicorn.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Silhouetten genügen für eine ganze Einladung zum Träumen."
+    },
+    "res://collections/levels/expanded_fantasy_02_03_new_dragon_head.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein imposanter Blick muss nicht das letzte Wort behalten."
+    },
+    "res://collections/levels/expanded_fantasy_02_04_new_mermaid.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Geschichte kann dort weitergehen, wo für uns das Ufer endet."
+    },
+    "res://collections/levels/expanded_fantasy_03_01_new_pegasus.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein vertrautes Tier kann mit einer einzigen Idee eine ganz neue Welt betreten."
+    },
+    "res://collections/levels/expanded_fantasy_03_02_new_minotaur.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht jede Geschichte im Labyrinth endet mit derselben Sicht auf seinen Bewohner."
+    },
+    "res://collections/levels/expanded_fantasy_03_03_new_sea_serpent.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Wo der Horizont offen bleibt, findet die Fantasie gern einen Platz."
+    },
+    "res://collections/levels/expanded_fantasy_04_01_new_portal.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Tür ist auch eine Frage danach, was dahinter möglich sein könnte."
+    },
+    "res://collections/levels/expanded_fantasy_04_02_new_cloud_ring.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Traum darf seine Form ändern, ohne sich entschuldigen zu müssen."
+    },
+    "res://collections/levels/expanded_seasons_01_01_new_butterfly_flower.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine kleine Begegnung kann das Gefühl einer ganzen Jahreszeit tragen."
+    },
+    "res://collections/levels/expanded_seasons_01_02_new_plant_seed.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Versprechen muss noch nicht groß aussehen."
+    },
+    "res://collections/levels/expanded_seasons_02_01_new_beach_ball.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein sommerlicher Plan darf rund und ziemlich unkompliziert sein."
+    },
+    "res://collections/levels/expanded_seasons_02_02_new_ice_pop.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleiner Moment kühler Freude. Hier schmilzt er nicht sofort."
+    },
+    "res://collections/levels/expanded_seasons_03_01_new_chestnut_leaf.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Blatt kann einen Sommer behalten und trotzdem eine neue Farbe annehmen."
+    },
+    "res://collections/levels/expanded_seasons_03_02_new_acorn.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine große Krone beginnt manchmal mit einem sehr kleinen Vorrat."
+    },
+    "res://collections/levels/expanded_seasons_03_03_new_maple_leaf.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Herbst malt gern mit Farben, die sich im Licht besonders gut behaupten."
+    },
+    "res://collections/levels/expanded_seasons_08_01_new_carnival_mask.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein anderes Gesicht kann die Freiheit geben, etwas Neues auszuprobieren."
+    },
+    "res://collections/levels/expanded_seasons_08_02_new_jester_hat.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein wenig Unsinn kann einem sehr ernsten Tag guttun."
+    },
+    "res://collections/levels/expanded_seasons_09_01_new_grain_bundle.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Vorrat ist auch eine Erinnerung daran, was zuvor gewachsen ist."
+    },
+    "res://collections/levels/expanded_seasons_09_02_new_fruit_bowl.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein gemeinsamer Tisch erzählt oft mehr als ein einzelner Teller."
+    },
+    "res://collections/levels/expanded_seasons_09_03_new_cornucopia.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Genug zu haben ist ein schöner Anlass, etwas davon zu teilen."
+    },
+    "res://collections/levels/expanded_seasons_10_01_new_firework_rocket.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kurzer heller Moment kann einen neuen Anfang begleiten."
+    },
+    "res://collections/levels/expanded_seasons_10_02_new_party_popper.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Hier darf der letzte freie Weg einmal ein Startsignal zum Feiern sein."
+    },
+    "res://collections/levels/expanded_seasons_10_03_new_balloons.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein wenig Auftrieb passt gut zu einem frischen Anfang."
+    },
+    "res://collections/levels/expanded_seasons_11_01_new_asian_lantern.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein gemeinsames Licht kann auch ohne gemeinsame Sprache verstanden werden."
+    },
+    "res://collections/levels/expanded_seasons_11_02_new_diablo_skull.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Erinnerung darf in manchen Traditionen auch farbenfroh sein."
+    },
+    "res://collections/levels/expanded_seasons_11_03_new_shamrock.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Zeichen kann Menschen an eine gemeinsame Geschichte erinnern."
+    },
+    "res://collections/levels/expanded_medicine_04_05_new_crutches.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Fortschritt darf langsam sein. Hauptsache, der nächste Schritt gehört dir."
+    },
+    "res://collections/levels/expanded_science_04_04_new_cell.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Größe ist ein schlechter Maßstab dafür, wie viel in etwas passiert."
+    },
+    "res://collections/levels/expanded_science_04_05_new_bacteria.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht alles, was unseren Alltag mitgestaltet, lässt sich mit bloßem Auge sehen."
+    },
+    "res://collections/levels/expanded_science_05_04_new_geode.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Von außen unscheinbar. Innen voller Überraschungen. Ein sympathisches Lebensmodell."
+    },
+    "res://collections/levels/expanded_animals_02_04_new_pelican.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein großer Schnabel kann ein erstaunlich praktisches Gepäckstück sein."
+    },
+    "res://collections/levels/expanded_animals_02_05_new_woodpecker.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche Nachbarn melden sich mit einem eigenen Rhythmus."
+    },
+    "res://collections/levels/expanded_home_04_05_new_wardrobe.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Nicht alles muss offen liegen, um seinen Platz zu haben."
+    },
+    "res://collections/levels/expanded_home_05_05_new_toilet.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein praktischer Ort darf ausnahmsweise auch einmal Kunstwerk sein."
+    },
+    "res://collections/levels/expanded_home_06_02_new_rocking_horse.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manche großen Abenteuer beginnen, ohne den Teppich zu verlassen."
+    },
+    "res://collections/levels/expanded_home_08_02_new_garden_bench.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein guter Aussichtspunkt ist manchmal einfach der Platz, an dem man innehält."
+    },
+    "res://collections/levels/expanded_food_03_03_new_baguette.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein langes Bild für einen kurzen Moment französischer Pause."
+    },
+    "res://collections/levels/expanded_food_07_04_new_rolling_pin.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Manchmal hilft es, eine Sache ganz in Ruhe auszurollen."
+    },
+    "res://collections/levels/expanded_tech_01_03_new_typewriter.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Zeile wurde einmal mit sehr viel mehr Geräusch geschrieben."
+    },
+    "res://collections/levels/expanded_tech_02_03_new_printing_press.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Eine Idee kann größer werden, sobald sie viele Menschen lesen können."
+    },
+    "res://collections/levels/expanded_tech_03_03_new_gramophone.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Emile Berliner ließ das Grammophon 1887 patentieren. Anfangs wurde es als Spielzeug vermarktet, bevor Schallplatten den Musikalltag veränderten.",
+      "source": "Science Museum Group",
+      "url": "https://blog.sciencemuseumgroup.org.uk/eavesdropping-on-history/"
+    },
+    "res://collections/levels/expanded_history_05_01_new_oil_lamp.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein kleines Licht konnte einmal den Unterschied zwischen Tag und Feierabend verlängern."
+    },
+    "res://collections/levels/expanded_history_05_02_new_water_jug.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Viele große Geschichten beruhen auf sehr gewöhnlichen Bedürfnissen."
+    },
+    "res://collections/levels/expanded_history_05_03_new_balance_scale.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Fairness wurde schon lange vor digitalen Zahlen sichtbar gemacht."
+    },
+    "res://collections/levels/expanded_history_07_03_new_torii_gate.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Tor kann eine Schwelle markieren, ohne eine geschlossene Tür zu brauchen."
     }
   }
 }

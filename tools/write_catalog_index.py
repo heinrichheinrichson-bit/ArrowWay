@@ -7,8 +7,8 @@ catalog=json.loads((root/'collections/catalog.json').read_text(encoding='utf-8-s
 groups={}
 for entry in catalog['levels']:
     groups.setdefault(entry['collection']['id'],[]).append(entry)
-lines=['# ArrowWay · Alle 500 Katalogmotive','',
-       f'{len(catalog["levels"])} spielbare Sammlungsrätsel in {len(groups)} Sammlungen. Mit den neun Einstiegspuzzles enthält die Spielerreise 509 Motive. Eigene Editorentwürfe bleiben getrennt.', '',
+lines=['# ArrowWay · Alle 814 Katalogmotive','',
+       f'{len(catalog["levels"])} spielbare Sammlungsrätsel in {len(groups)} Sammlungen. Mit den neun Einstiegspuzzles enthält die Spielerreise {len(catalog["levels"])+9} Motive. Eigene Editorentwürfe bleiben getrennt.', '',
        'Im Spiel **Reise** öffnen und eine freigeschaltete Sammlung im Themenbaum wählen. Zum Nachbearbeiten die verlinkte JSON-Datei in der Motivwerkstatt über **Öffnen → Bild, Motiv oder Level-Datei** laden. Persönliche Varianten unter einem eigenen Namen in `levels/` exportieren.', '',
        'Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamilien, etwa unterschiedliche Tiergesichter, Stadtansichten und Smartphoneanzeigen. Pfeilgeometrie und Farbflächen unterscheiden sich; bloße Umfärbungen werden nicht als neue Motive gezählt. Die Gestaltungsrezepte bleiben reproduzierbar. Menschliche Spieltests und individuelle gestalterische Verfeinerungen bleiben sinnvoll.', '',
        '| Sammlung | Motive | Bildübersicht |','|---|---:|---|']
