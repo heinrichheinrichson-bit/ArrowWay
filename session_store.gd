@@ -7,6 +7,7 @@ var completed_paths: Array[String] = []
 var filename := ""
 var fingerprint := ""
 var fingerprint_path := ""
+var compatible_color_fingerprints: Array[String] = []
 var dirty := false
 var worker: Thread
 var last_error := OK
@@ -44,6 +45,18 @@ func configure() -> void:
 	if not enabled(): return
 	fingerprint_path=game.level_path(game.level)
 	fingerprint=FileAccess.get_sha256(fingerprint_path)
+	compatible_color_fingerprints.clear()
+	var document=JSON.parse_string(FileAccess.get_file_as_string(fingerprint_path))
+	if not document is Dictionary or not document.get("compatible_color_checkpoints") is Array: return
+	var paths: Array[String]=[]
+	for arrow in game.arrows:
+		var points: Array[String]=[]
+		for point in arrow.points: points.append("%d,%d" % [int(point.x),int(point.y)])
+		paths.append(";".join(points))
+	var geometry: String="|".join(paths).sha256_text()
+	for predecessor in document.compatible_color_checkpoints:
+		if predecessor is Dictionary and predecessor.get("geometry")==geometry and predecessor.get("fingerprint") is String and predecessor.fingerprint.length()==64:
+			compatible_color_fingerprints.append(predecessor.fingerprint)
 
 func capture() -> void:
 	if not enabled() or not is_instance_valid(game.board_navigation) or game.arrows.is_empty(): return
@@ -71,7 +84,8 @@ func restore() -> bool:
 	if not enabled(): return false
 	configure()
 	var data=states.get(fingerprint_path)
-	if not data is Dictionary or data.get("fingerprint")!=fingerprint or data.get("count")!=game.arrows.size(): return false
+	if not data is Dictionary or data.get("count")!=game.arrows.size(): return false
+	if data.get("fingerprint")!=fingerprint and not compatible_color_fingerprints.has(str(data.get("fingerprint",""))): return false
 	if not data.get("removed") is Array or not data.get("escaping") is Array: return false
 	if data.removed.size()+data.escaping.size()>game.arrows.size(): return false
 	var used := {}

@@ -18,6 +18,7 @@ Im Projektverzeichnis mit Python und Godot 4.7.2 ausführen. Die bereits gespeic
 godot --headless --path . --editor --quit
 godot --headless --path . --script tools/generate_collections.gd
 python tools/install_expansion.py
+python tools/color_expansion.py
 python tools/write_catalog_index.py
 godot --path . --script tools/preview_collections.gd -- --catalog res://collections/catalog.json
 ```
@@ -28,6 +29,7 @@ Für eine erneute Umwandlung der ausgewählten SVGs:
 godot --headless --path . --script tools/rasterize_expansion.gd
 godot --headless --path . --script tools/generate_collections.gd -- --source res://collections/expansion_masks.json --output res://collections/expansion_catalog.json
 python tools/install_expansion.py
+python tools/color_expansion.py
 ```
 
 `tools/prepare_motif_expansion.py --icons PFAD` ist nur nötig, wenn die kuratierte Auswahl aus einem Checkout von `game-icons/icons` neu zusammengestellt wird. Dafür den oben genannten Quell-Commit verwenden. Die eigenen SVGs liegen in `collections/original_vectors/`.
@@ -46,3 +48,9 @@ python tools/install_expansion.py
 Testaufruf: `godot --headless --path . --script tests/test_NAME.gd -- --test`. Für sichtbare Lizenzdialog-Aufnahmen: `godot --path . --script tests/test_expansion.gd -- --test --capture`.
 
 Die praktische Bedienung der neuen Motive auf dem S22 und die subjektive Schwierigkeitskurve benötigen weiterhin menschliche Spieltests. Der spätere Bereich Formen & Denkwege ist nur als Konzept vorgemerkt.
+
+## Farbkorrektur 0.20.1-dev
+
+Alle 314 neuen Motive besitzen benannte Materialflächen und Farbabstufungen. Farbgrenzen werden an vollständigen vorhandenen Pfeilen ausgerichtet, damit Richtung, Länge, Reihenfolge und Lösbarkeit unverändert bleiben. An schmalen Details folgen die Farbgrenzen deshalb dem vorhandenen Raster und den Pfeilwegen. Die räumlichen Gestaltungsregeln liegen in `tools/color_expansion.py`; `collections/expansion_color_designs.json` dokumentiert sie pro Motiv.
+
+`test_recolor.gd` prüft alle Farbflächen und Verläufe sowie die Übernahme eines alten einfarbigen Checkpoints einschließlich entfernter Pfeile und Zoom. Eine unbekannte Dateiversion oder geänderte Geometrie bleibt ausgeschlossen. `compatible_color_checkpoints` enthält geprüfte alte Datei-Hashes zusammen mit dem unveränderten Pfeilgeometrie-Hash. Die ursprünglichen 500 Katalogdateien bleiben unberührt.

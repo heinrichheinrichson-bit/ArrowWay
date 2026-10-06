@@ -1,0 +1,8613 @@
+{
+  "version": 1,
+  "notice": "Materialfarben und benannte, an vorhandenen Pfeilwegen ausgerichtete Farbflächen. Keine Neugenerierung der Geometrie.",
+  "entries": {
+    "new_heart_organ": {
+      "base": {
+        "name": "Herzmuskel",
+        "color": "ff557d"
+      },
+      "regions": [
+        {
+          "name": "Große Gefäße",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.26
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_lungs": {
+      "base": {
+        "name": "Lungengewebe",
+        "color": "ff92af"
+      },
+      "regions": [
+        {
+          "name": "Luftröhre",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.38,
+            0,
+            0.62,
+            0.44
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_brain": {
+      "base": {
+        "name": "Gehirnwindungen",
+        "color": "ffa4c9"
+      },
+      "regions": [
+        {
+          "name": "Hirnstamm",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0.7,
+            0.7,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pelvis_bone": {
+      "base": {
+        "name": "Knochen",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Gelenkflächen",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_forearm": {
+      "base": {
+        "name": "Knochen",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Gelenkflächen",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_anatomy": {
+      "base": {
+        "name": "Körperkontur",
+        "color": "ffc291"
+      },
+      "regions": [
+        {
+          "name": "Kopf und Hals",
+          "color": "ffe0b5",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Innere Organe",
+          "color": "ff7c99",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0.35,
+            0.7,
+            0.69
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_human_ear": {
+      "base": {
+        "name": "Haut",
+        "color": "ffc49b"
+      },
+      "regions": [
+        {
+          "name": "Sanfte Vertiefung",
+          "color": "ef9e92",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.3,
+            0.3
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_nose_front": {
+      "base": {
+        "name": "Haut",
+        "color": "ffc49b"
+      },
+      "regions": [
+        {
+          "name": "Sanfte Vertiefung",
+          "color": "ef9e92",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.3,
+            0.3
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_finger_print": {
+      "base": {
+        "name": "Haut",
+        "color": "ffc49b"
+      },
+      "regions": [
+        {
+          "name": "Sanfte Vertiefung",
+          "color": "ef9e92",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.3,
+            0.3
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_tongue": {
+      "base": {
+        "name": "Zunge",
+        "color": "ff6688"
+      },
+      "regions": [
+        {
+          "name": "Ansatz",
+          "color": "ffc0cb",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.26
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_eyeball": {
+      "base": {
+        "name": "Augapfel",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Iris",
+          "color": "51d9d1",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.28,
+            0.32
+          ]
+        },
+        {
+          "name": "Pupille",
+          "color": "7893b2",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.13,
+            0.17
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_stethoscope": {
+      "base": {
+        "name": "Schlauch",
+        "color": "a78bfb"
+      },
+      "regions": [
+        {
+          "name": "Ohrbügel",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.35
+          ]
+        },
+        {
+          "name": "Bruststück",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_syringe": {
+      "base": {
+        "name": "Spritzenkörper",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Kolben und Skala",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Kanüle",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.74,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_medical_thermometer": {
+      "base": {
+        "name": "Glas und Skala",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Messflüssigkeit",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.38,
+            0.35,
+            0.67,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_thermometer_scale": {
+      "base": {
+        "name": "Glas und Skala",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Messflüssigkeit",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.38,
+            0.35,
+            0.67,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_medical_drip": {
+      "base": {
+        "name": "Schlauch und Halterung",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Infusionsbeutel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.4
+          ]
+        },
+        {
+          "name": "Flüssigkeit",
+          "color": "4ee9cb",
+          "shape": "box",
+          "bounds": [
+            0.25,
+            0.28,
+            0.78,
+            0.58
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bandage_roll": {
+      "base": {
+        "name": "Verband",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Gewebe im Schatten",
+          "color": "a1cadb",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_arm_bandage": {
+      "base": {
+        "name": "Verband",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Gewebe im Schatten",
+          "color": "a1cadb",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hospital": {
+      "base": {
+        "name": "Fassade",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.77,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Zeichen der Hilfe",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.32,
+            0,
+            0.68,
+            0.36
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hospital_cross": {
+      "base": {
+        "name": "Hilfssymbol",
+        "color": "ff657e"
+      },
+      "regions": [
+        {
+          "name": "Lichtseite",
+          "color": "ffb08b",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.44,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_medical_pack": {
+      "base": {
+        "name": "Tasche",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Griff",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        },
+        {
+          "name": "Hilfezeichen",
+          "color": "ff637d",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.55,
+            0.25,
+            0.25
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_crutches": {
+      "base": {
+        "name": "Stützen",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Polster",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.18
+          ]
+        },
+        {
+          "name": "Gummifüße",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.82,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_tooth": {
+      "base": {
+        "name": "Zahnschmelz",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Wurzellicht",
+          "color": "a4d9e9",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.57,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_toothbrush": {
+      "base": {
+        "name": "Griff",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Borsten",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_mouth_watering": {
+      "base": {
+        "name": "Zähne",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Lippen",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Lippen",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_rod_of_asclepius": {
+      "base": {
+        "name": "Stab",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schlange",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.18,
+            0.43,
+            0.87
+          ]
+        },
+        {
+          "name": "Schlange",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0.57,
+            0.18,
+            1,
+            0.87
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_herbs_bundle": {
+      "base": {
+        "name": "Blätter",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Stiele",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Bindeband",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.61,
+            1,
+            0.73
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_mortar": {
+      "base": {
+        "name": "Steinmörser",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Stößel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.43
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_abacus": {
+      "base": {
+        "name": "Holzrahmen",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Obere Kugeln",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.13,
+            0.16,
+            0.86,
+            0.43
+          ]
+        },
+        {
+          "name": "Mittlere Kugeln",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.13,
+            0.44,
+            0.86,
+            0.66
+          ]
+        },
+        {
+          "name": "Untere Kugeln",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.13,
+            0.67,
+            0.86,
+            0.85
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_triangle_target": {
+      "base": {
+        "name": "Geometrische Linien",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Vordere Linien",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.45,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pentacle": {
+      "base": {
+        "name": "Geometrische Linien",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Vordere Linien",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.45,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_cube": {
+      "base": {
+        "name": "Linke Fläche",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Rechte Fläche",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.5,
+            0.25,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Oberseite",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_infinity": {
+      "base": {
+        "name": "Linke Schleife",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Rechte Schleife",
+          "color": "ff85be",
+          "shape": "box",
+          "bounds": [
+            0.5,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_prism": {
+      "base": {
+        "name": "Glaskörper",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Lichtstrahlen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.64,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Spektralfarbe",
+          "color": "ff76b9",
+          "shape": "box",
+          "bounds": [
+            0.64,
+            0.52,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pendulum_swing": {
+      "base": {
+        "name": "Aufhängung",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Pendelkörper",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.63,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_gyroscope": {
+      "base": {
+        "name": "Außenring",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Innerer Kreisel",
+          "color": "ffd35e",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.29,
+            0.33
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_weight": {
+      "base": {
+        "name": "Metallgewicht",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griff",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.26
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chemical_drop": {
+      "base": {
+        "name": "Reagenz",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Glanzseite",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.38,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_test_tubes": {
+      "base": {
+        "name": "Glas",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Rotes Reagenz",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.44,
+            0.34,
+            1
+          ]
+        },
+        {
+          "name": "Blaues Reagenz",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.34,
+            0.44,
+            0.67,
+            1
+          ]
+        },
+        {
+          "name": "Grünes Reagenz",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0.67,
+            0.44,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_molecule": {
+      "base": {
+        "name": "Bindungen",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Atom links",
+          "color": "ff637d",
+          "shape": "ellipse",
+          "bounds": [
+            0.2,
+            0.5,
+            0.22,
+            0.26
+          ]
+        },
+        {
+          "name": "Atom rechts",
+          "color": "66cfff",
+          "shape": "ellipse",
+          "bounds": [
+            0.78,
+            0.5,
+            0.22,
+            0.26
+          ]
+        },
+        {
+          "name": "Atom oben",
+          "color": "ffd35e",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.17,
+            0.23,
+            0.23
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_crystal_growth": {
+      "base": {
+        "name": "Kristallflächen",
+        "color": "56dfc8"
+      },
+      "regions": [
+        {
+          "name": "Facetten",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.53,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Gestein",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_microscope": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Optik",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.37
+          ]
+        },
+        {
+          "name": "Standfuß",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_dna1": {
+      "base": {
+        "name": "Linker Strang",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Rechter Strang",
+          "color": "ff87bc",
+          "shape": "box",
+          "bounds": [
+            0.55,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Basenpaare",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.35,
+            0,
+            0.55,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_cell": {
+      "base": {
+        "name": "Zellmembran",
+        "color": "62e8ca"
+      },
+      "regions": [
+        {
+          "name": "Zellkern",
+          "color": "b592ff",
+          "shape": "ellipse",
+          "bounds": [
+            0.55,
+            0.48,
+            0.26,
+            0.27
+          ]
+        },
+        {
+          "name": "Zellbestandteile",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.75,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_antibody": {
+      "base": {
+        "name": "Antikörper",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Bindungsstellen",
+          "color": "ff85c0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bacteria": {
+      "base": {
+        "name": "Zellhülle",
+        "color": "6be7ab"
+      },
+      "regions": [
+        {
+          "name": "Zellinneres",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.29,
+            0.25,
+            0.72,
+            0.78
+          ]
+        },
+        {
+          "name": "Geißeln",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_ammonite_fossil": {
+      "base": {
+        "name": "Fossil",
+        "color": "eac38a"
+      },
+      "regions": [
+        {
+          "name": "Mineralisierte Schatten",
+          "color": "c79af0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.61,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_trilobite": {
+      "base": {
+        "name": "Fossil",
+        "color": "eac38a"
+      },
+      "regions": [
+        {
+          "name": "Mineralisierte Schatten",
+          "color": "c79af0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.61,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_archaeopteryx_fossil": {
+      "base": {
+        "name": "Fossil",
+        "color": "eac38a"
+      },
+      "regions": [
+        {
+          "name": "Mineralisierte Schatten",
+          "color": "c79af0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.61,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_fossil": {
+      "base": {
+        "name": "Fossil",
+        "color": "eac38a"
+      },
+      "regions": [
+        {
+          "name": "Mineralisierte Schatten",
+          "color": "c79af0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.61,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_geode": {
+      "base": {
+        "name": "Gestein",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Kristalle",
+          "color": "b592ff",
+          "shape": "ellipse",
+          "bounds": [
+            0.53,
+            0.53,
+            0.29,
+            0.39
+          ]
+        },
+        {
+          "name": "Kristalllicht",
+          "color": "66cfff",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.16,
+            0.24
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_scales": {
+      "base": {
+        "name": "Gestell",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Waagschalen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.39,
+            0.38,
+            0.77
+          ]
+        },
+        {
+          "name": "Waagschalen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.62,
+            0.39,
+            1,
+            0.77
+          ]
+        },
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.82,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_balance_scale": {
+      "base": {
+        "name": "Gestell",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Waagschalen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.39,
+            0.38,
+            0.77
+          ]
+        },
+        {
+          "name": "Waagschalen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.62,
+            0.39,
+            1,
+            0.77
+          ]
+        },
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.82,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_measure_tape": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Maßband",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.45,
+            0.58,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_stopwatch": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Zifferblatt",
+          "color": "e4f5ff",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.54,
+            0.29,
+            0.3
+          ]
+        },
+        {
+          "name": "Bedienelemente",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.18
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_alarm_clock": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Zifferblatt",
+          "color": "e4f5ff",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.54,
+            0.29,
+            0.3
+          ]
+        },
+        {
+          "name": "Bedienelemente",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.18
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_archive_research": {
+      "base": {
+        "name": "Papier",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Einband",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Markierung",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.65,
+            0,
+            1,
+            0.4
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_praying_mantis": {
+      "base": {
+        "name": "Körper",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Fangbeine",
+          "color": "b6f46e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.38,
+            0.43,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_dragonfly": {
+      "base": {
+        "name": "Flügel",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Körper",
+          "color": "70e6ab",
+          "shape": "box",
+          "bounds": [
+            0.41,
+            0,
+            0.61,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_ant": {
+      "base": {
+        "name": "Panzer",
+        "color": "d99561"
+      },
+      "regions": [
+        {
+          "name": "Beine und Fühler",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.24
+          ]
+        },
+        {
+          "name": "Hinterleib",
+          "color": "e78373",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_earwig": {
+      "base": {
+        "name": "Panzer",
+        "color": "d99561"
+      },
+      "regions": [
+        {
+          "name": "Beine und Fühler",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.24
+          ]
+        },
+        {
+          "name": "Hinterleib",
+          "color": "e78373",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_long_antennae_bug": {
+      "base": {
+        "name": "Panzer",
+        "color": "d99561"
+      },
+      "regions": [
+        {
+          "name": "Beine und Fühler",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.24
+          ]
+        },
+        {
+          "name": "Hinterleib",
+          "color": "e78373",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_ladybug": {
+      "base": {
+        "name": "Flügeldecken",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Kopf und Fühler",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.24
+          ]
+        },
+        {
+          "name": "Trennlinie",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0.44,
+            0.24,
+            0.57,
+            0.83
+          ]
+        },
+        {
+          "name": "Punkte",
+          "color": "7893b2",
+          "shape": "ellipse",
+          "bounds": [
+            0.23,
+            0.48,
+            0.13,
+            0.15
+          ]
+        },
+        {
+          "name": "Punkte",
+          "color": "7893b2",
+          "shape": "ellipse",
+          "bounds": [
+            0.78,
+            0.48,
+            0.13,
+            0.15
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_scarab_beetle": {
+      "base": {
+        "name": "Panzer",
+        "color": "4fdfbc"
+      },
+      "regions": [
+        {
+          "name": "Kopf",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.26
+          ]
+        },
+        {
+          "name": "Beine",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.75,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_flying_beetle": {
+      "base": {
+        "name": "Flügeldecken",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Kopf",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Unterflügel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.55,
+            0.27,
+            1
+          ]
+        },
+        {
+          "name": "Unterflügel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.73,
+            0.55,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bee": {
+      "base": {
+        "name": "Körper",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Kopf",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.6,
+            0,
+            1,
+            0.5
+          ]
+        },
+        {
+          "name": "Flügel",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.55,
+            0.37
+          ]
+        },
+        {
+          "name": "Hinterleibzeichnung",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.54,
+            0.5,
+            0.71
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_spider_web": {
+      "base": {
+        "name": "Spinnfäden",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Morgenlicht",
+          "color": "66cfff",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.26,
+            0.26
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hanging_spider": {
+      "base": {
+        "name": "Spinne",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Faden",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.33
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_scorpion": {
+      "base": {
+        "name": "Panzer",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Scheren",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.4
+          ]
+        },
+        {
+          "name": "Schwanz",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.67,
+            0.3,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_tick": {
+      "base": {
+        "name": "Körper",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Beine",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.34
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_gecko": {
+      "base": {
+        "name": "Körper",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Bauch und Füße",
+          "color": "c7ee79",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.6,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Schwanz",
+          "color": "59d9ce",
+          "shape": "box",
+          "bounds": [
+            0.75,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chameleon_glyph": {
+      "base": {
+        "name": "Körper",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Bauch und Füße",
+          "color": "c7ee79",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.6,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Schwanz",
+          "color": "59d9ce",
+          "shape": "box",
+          "bounds": [
+            0.75,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_snake_spiral": {
+      "base": {
+        "name": "Schuppen",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Bauch",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.67,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sea_turtle": {
+      "base": {
+        "name": "Flossen",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Panzer",
+          "color": "c49a67",
+          "shape": "ellipse",
+          "bounds": [
+            0.51,
+            0.5,
+            0.28,
+            0.33
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_snake_egg": {
+      "base": {
+        "name": "Schlange",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Eierschale",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.58,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_axolotl": {
+      "base": {
+        "name": "Körper",
+        "color": "ffa8c5"
+      },
+      "regions": [
+        {
+          "name": "Federkiemen",
+          "color": "ff658f",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.29,
+            0.45
+          ]
+        },
+        {
+          "name": "Federkiemen",
+          "color": "ff658f",
+          "shape": "box",
+          "bounds": [
+            0.71,
+            0,
+            1,
+            0.45
+          ]
+        },
+        {
+          "name": "Schwanz",
+          "color": "c5a6ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.73,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_salamander": {
+      "base": {
+        "name": "Körper",
+        "color": "7893b2"
+      },
+      "regions": [
+        {
+          "name": "Rückenzeichnung",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.32,
+            0,
+            0.68,
+            0.85
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_frog": {
+      "base": {
+        "name": "Körper",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Bauch",
+          "color": "d7ed83",
+          "shape": "box",
+          "bounds": [
+            0.24,
+            0.42,
+            0.75,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_frog_prince": {
+      "base": {
+        "name": "Frosch",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Krone",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.25
+          ]
+        },
+        {
+          "name": "Bauch",
+          "color": "b9eda1",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0.55,
+            0.75,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_anteater": {
+      "base": {
+        "name": "Fell",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schnauze",
+          "color": "eac8a0",
+          "shape": "box",
+          "bounds": [
+            0.63,
+            0,
+            1,
+            0.58
+          ]
+        },
+        {
+          "name": "Vorderbeine",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0.25,
+            0.63,
+            0.6,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_armadillo": {
+      "base": {
+        "name": "Panzer",
+        "color": "d5ad76"
+      },
+      "regions": [
+        {
+          "name": "Kopf und Beine",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.63,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bat": {
+      "base": {
+        "name": "Flügel",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Körper",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.36,
+            0,
+            0.65,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hedgehog": {
+      "base": {
+        "name": "Stacheln",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schnauze und Bauch",
+          "color": "f4c78e",
+          "shape": "box",
+          "bounds": [
+            0.65,
+            0.3,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Schnauze und Bauch",
+          "color": "f4c78e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_kangaroo": {
+      "base": {
+        "name": "Fell",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Brust und Bauch",
+          "color": "ffd6a0",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0.33,
+            0.73,
+            0.79
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pelican": {
+      "base": {
+        "name": "Gefieder",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Schnabel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.65,
+            0.06,
+            1,
+            0.5
+          ]
+        },
+        {
+          "name": "Füße",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.82,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_flamingo": {
+      "base": {
+        "name": "Gefieder",
+        "color": "ff8bb6"
+      },
+      "regions": [
+        {
+          "name": "Schnabel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.78,
+            0,
+            1,
+            0.2
+          ]
+        },
+        {
+          "name": "Beine",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.64,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_woodpecker": {
+      "base": {
+        "name": "Gefieder",
+        "color": "7893b2"
+      },
+      "regions": [
+        {
+          "name": "Rote Haube",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        },
+        {
+          "name": "Bauch",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.44,
+            0.4,
+            0.78,
+            0.8
+          ]
+        },
+        {
+          "name": "Schnabel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.6,
+            0.18,
+            0.83,
+            0.38
+          ]
+        },
+        {
+          "name": "Baumstamm",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.79,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_kiwi_bird": {
+      "base": {
+        "name": "Gefieder",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schnabel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.57,
+            0,
+            1,
+            0.65
+          ]
+        },
+        {
+          "name": "Beine",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_stork_delivery": {
+      "base": {
+        "name": "Gefieder",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Schnabel",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0.6,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Bündel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.64,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_nautilus_shell": {
+      "base": {
+        "name": "Schale",
+        "color": "ffd6a1"
+      },
+      "regions": [
+        {
+          "name": "Schalenzeichnung",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0.48,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_seahorse": {
+      "base": {
+        "name": "Körper",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Bauch",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0.46,
+            0.25,
+            0.78,
+            0.73
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_manta_ray": {
+      "base": {
+        "name": "Flügel",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Körper",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.38,
+            0,
+            0.64,
+            0.7
+          ]
+        },
+        {
+          "name": "Schwanz",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.79,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_coral": {
+      "base": {
+        "name": "Korallenäste",
+        "color": "ff83a6"
+      },
+      "regions": [
+        {
+          "name": "Ansatz",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.77,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_willow_tree": {
+      "base": {
+        "name": "Laub",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Stamm",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.41,
+            0.42,
+            0.61,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_beech": {
+      "base": {
+        "name": "Laub",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Stamm",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.41,
+            0.42,
+            0.61,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_treehouse": {
+      "base": {
+        "name": "Laub",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Stamm",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.41,
+            0.42,
+            0.61,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_birch_trees": {
+      "base": {
+        "name": "Laub",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Birkenstämme",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.06,
+            0.27,
+            0.28,
+            1
+          ]
+        },
+        {
+          "name": "Birkenstämme",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.74,
+            0.27,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_tree_roots": {
+      "base": {
+        "name": "Wurzeln",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Pflanzengrün",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.43
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_plant_roots": {
+      "base": {
+        "name": "Wurzeln",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Pflanzengrün",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.43
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_ginkgo_leaf": {
+      "base": {
+        "name": "Blattgrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Blattrippe",
+          "color": "c0f183",
+          "shape": "box",
+          "bounds": [
+            0.43,
+            0.45,
+            0.59,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_oak_leaf": {
+      "base": {
+        "name": "Blattgrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Blattrippe",
+          "color": "c0f183",
+          "shape": "box",
+          "bounds": [
+            0.43,
+            0.45,
+            0.59,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_monstera_leaf": {
+      "base": {
+        "name": "Blattgrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Blattrippe",
+          "color": "c0f183",
+          "shape": "box",
+          "bounds": [
+            0.43,
+            0.45,
+            0.59,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_fern": {
+      "base": {
+        "name": "Blattgrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Blattrippe",
+          "color": "c0f183",
+          "shape": "box",
+          "bounds": [
+            0.43,
+            0.45,
+            0.59,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_agave": {
+      "base": {
+        "name": "Blattgrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Blattrippe",
+          "color": "c0f183",
+          "shape": "box",
+          "bounds": [
+            0.43,
+            0.45,
+            0.59,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_carnivorous_plant": {
+      "base": {
+        "name": "Blätter",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Fangblatt innen",
+          "color": "ff8797",
+          "shape": "box",
+          "bounds": [
+            0.25,
+            0,
+            0.85,
+            0.48
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_banana_bunch": {
+      "base": {
+        "name": "Frucht",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Stiel",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chanterelles": {
+      "base": {
+        "name": "Pilzhüte",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Stiele",
+          "color": "f4c393",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.55,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_mushroom_gills": {
+      "base": {
+        "name": "Pilzhüte",
+        "color": "ff857f"
+      },
+      "regions": [
+        {
+          "name": "Lamellen und Stiele",
+          "color": "ffe1b4",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.53,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_mushrooms_cluster": {
+      "base": {
+        "name": "Pilzhüte",
+        "color": "ff857f"
+      },
+      "regions": [
+        {
+          "name": "Lamellen und Stiele",
+          "color": "ffe1b4",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.53,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_gardening_shears": {
+      "base": {
+        "name": "Klingen",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griffe",
+          "color": "ff86bc",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.53,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_scissors": {
+      "base": {
+        "name": "Klingen",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griffe",
+          "color": "ff86bc",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.53,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_plant_watering": {
+      "base": {
+        "name": "Pflanzengrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Wasser",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.45,
+            0.57
+          ]
+        },
+        {
+          "name": "Topf",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_cotton_flower": {
+      "base": {
+        "name": "Blüte",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Stängel und Blätter",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.47,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_dandelion_flower": {
+      "base": {
+        "name": "Blüte",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Stängel und Blätter",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.5,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_flower_pot": {
+      "base": {
+        "name": "Blätter",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Blüten",
+          "color": "ff88b2",
+          "shape": "box",
+          "bounds": [
+            0.32,
+            0,
+            0.67,
+            0.24
+          ]
+        },
+        {
+          "name": "Blüten",
+          "color": "ff88b2",
+          "shape": "box",
+          "bounds": [
+            0.8,
+            0.2,
+            1,
+            0.4
+          ]
+        },
+        {
+          "name": "Terrakottatopf",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.66,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_house_keys": {
+      "base": {
+        "name": "Schlüssel",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Schlüsselring",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_dog_house": {
+      "base": {
+        "name": "Holzwände",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Dach",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.35
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_igloo": {
+      "base": {
+        "name": "Schneeblöcke",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Eislicht",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.66,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_gas_stove": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Bedienelemente",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Metallteile",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_fridge": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Bedienelemente",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Metallteile",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_kitchen_tap": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Bedienelemente",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Metallteile",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pressure_cooker": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Bedienelemente",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Metallteile",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_washing_machine": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Bedienelemente",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Metallteile",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sewing_machine": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Bedienelemente",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Metallteile",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_armchair": {
+      "base": {
+        "name": "Polster",
+        "color": "ff9cb6"
+      },
+      "regions": [
+        {
+          "name": "Füße und Gestell",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sofa": {
+      "base": {
+        "name": "Polster",
+        "color": "ff9cb6"
+      },
+      "regions": [
+        {
+          "name": "Füße und Gestell",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_rocking_chair": {
+      "base": {
+        "name": "Holz",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Beschläge",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.81,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_garden_bench": {
+      "base": {
+        "name": "Holz",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Beschläge",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.81,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_desk": {
+      "base": {
+        "name": "Holz",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Beschläge",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.81,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_wardrobe": {
+      "base": {
+        "name": "Holz",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Beschläge",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.81,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_fireplace": {
+      "base": {
+        "name": "Mauerwerk",
+        "color": "e9ad83"
+      },
+      "regions": [
+        {
+          "name": "Feuer",
+          "color": "ffa35d",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.63,
+            0.3,
+            0.32
+          ]
+        },
+        {
+          "name": "Flammenkern",
+          "color": "ffd35e",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.54,
+            0.16,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bookshelf": {
+      "base": {
+        "name": "Regal",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Bücher links",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.08,
+            0.12,
+            0.35,
+            0.77
+          ]
+        },
+        {
+          "name": "Bücher Mitte",
+          "color": "ff85b3",
+          "shape": "box",
+          "bounds": [
+            0.36,
+            0.12,
+            0.62,
+            0.77
+          ]
+        },
+        {
+          "name": "Bücher rechts",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0.65,
+            0.12,
+            0.9,
+            0.77
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bed": {
+      "base": {
+        "name": "Bettgestell",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Bettwäsche",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.13,
+            0.25,
+            0.85,
+            0.66
+          ]
+        },
+        {
+          "name": "Kissen",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.12,
+            0.25,
+            0.4,
+            0.52
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bunk_beds": {
+      "base": {
+        "name": "Bettgestell",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Bettwäsche",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.13,
+            0.25,
+            0.85,
+            0.66
+          ]
+        },
+        {
+          "name": "Kissen",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.12,
+            0.25,
+            0.4,
+            0.52
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bed_lamp": {
+      "base": {
+        "name": "Gestell",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Lampenschirm",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.4
+          ]
+        },
+        {
+          "name": "Sockel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_desk_lamp": {
+      "base": {
+        "name": "Gestell",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Lampenschirm",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.4
+          ]
+        },
+        {
+          "name": "Sockel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bathtub": {
+      "base": {
+        "name": "Keramik",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Wasser und Armatur",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.31
+          ]
+        },
+        {
+          "name": "Keramikschatten",
+          "color": "a6d0ed",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.77,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_shower": {
+      "base": {
+        "name": "Keramik",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Wasser und Armatur",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.31
+          ]
+        },
+        {
+          "name": "Keramikschatten",
+          "color": "a6d0ed",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.77,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sink": {
+      "base": {
+        "name": "Keramik",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Wasser und Armatur",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.31
+          ]
+        },
+        {
+          "name": "Keramikschatten",
+          "color": "a6d0ed",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.77,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_toilet": {
+      "base": {
+        "name": "Keramik",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Wasser und Armatur",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.31
+          ]
+        },
+        {
+          "name": "Keramikschatten",
+          "color": "a6d0ed",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.77,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_plunger": {
+      "base": {
+        "name": "Stiel",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Saugglocke",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.67,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_toy_mallet": {
+      "base": {
+        "name": "Holzgriff",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Spielzeugkopf",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.42
+          ]
+        },
+        {
+          "name": "Farbdetail",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.65,
+            0,
+            1,
+            0.42
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_rocking_horse": {
+      "base": {
+        "name": "Holzpferd",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schaukelkufen",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.83,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Sattel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.27,
+            0.4,
+            0.68,
+            0.62
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_office_chair": {
+      "base": {
+        "name": "Polster",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Gestell",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.58,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_vacuum_cleaner": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Schlauch und Rohr",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.46
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_broom": {
+      "base": {
+        "name": "Stiel",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Borsten",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pearl_necklace": {
+      "base": {
+        "name": "Perlen",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Verschluss",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.19
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bow_tie": {
+      "base": {
+        "name": "Stoff",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Knoten",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0.25,
+            0.61,
+            0.77
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_umbrella": {
+      "base": {
+        "name": "Schirmstoff",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Zweites Stofffeld",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.53,
+            0,
+            1,
+            0.61
+          ]
+        },
+        {
+          "name": "Griff",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.62,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_high_heel": {
+      "base": {
+        "name": "Schuh",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Sohle und Absatz",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_asparagus": {
+      "base": {
+        "name": "Gemüsegrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Stängel",
+          "color": "b8ed8b",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.62,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_broccoli": {
+      "base": {
+        "name": "Gemüsegrün",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Stängel",
+          "color": "b8ed8b",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.62,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_beet": {
+      "base": {
+        "name": "Knolle",
+        "color": "ff679c"
+      },
+      "regions": [
+        {
+          "name": "Blätter",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.37
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_garlic": {
+      "base": {
+        "name": "Knolle",
+        "color": "ffebcb"
+      },
+      "regions": [
+        {
+          "name": "Stängel",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.23
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_corn": {
+      "base": {
+        "name": "Maiskörner",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Hüllblätter",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.59,
+            0.3,
+            1
+          ]
+        },
+        {
+          "name": "Hüllblätter",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0.7,
+            0.5,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pretzel": {
+      "base": {
+        "name": "Kruste",
+        "color": "f5b66f"
+      },
+      "regions": [
+        {
+          "name": "Backlicht",
+          "color": "ffe4a0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.38
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_baguette": {
+      "base": {
+        "name": "Kruste",
+        "color": "f5b66f"
+      },
+      "regions": [
+        {
+          "name": "Backlicht",
+          "color": "ffe4a0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.38
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_croissant": {
+      "base": {
+        "name": "Kruste",
+        "color": "f5b66f"
+      },
+      "regions": [
+        {
+          "name": "Backlicht",
+          "color": "ffe4a0",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.38
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chocolate_bar": {
+      "base": {
+        "name": "Schokolade",
+        "color": "d1916b"
+      },
+      "regions": [
+        {
+          "name": "Verpackung",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_honeycomb": {
+      "base": {
+        "name": "Wachs",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Honig",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.6,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_coffee_beans": {
+      "base": {
+        "name": "Kaffeebohnen",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Röstlicht",
+          "color": "f2bc81",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.44,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_coffee_pot": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griff",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0.69,
+            0.17,
+            1,
+            0.73
+          ]
+        },
+        {
+          "name": "Deckel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_corked_tube": {
+      "base": {
+        "name": "Glas",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Korken",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        },
+        {
+          "name": "Inhalt",
+          "color": "ff8db5",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.6,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_kitchen_scale": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Waagschale",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.35
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_whisk": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griff",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.67,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_corkscrew": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griff",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.67,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_rolling_pin": {
+      "base": {
+        "name": "Holzrolle",
+        "color": "f2c18d"
+      },
+      "regions": [
+        {
+          "name": "Griffe",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.2,
+            1
+          ]
+        },
+        {
+          "name": "Griffe",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.8,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sushis": {
+      "base": {
+        "name": "Reis",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Fisch und Füllung",
+          "color": "ff908e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.38
+          ]
+        },
+        {
+          "name": "Algenblatt",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.68,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_tacos": {
+      "base": {
+        "name": "Teig",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Salat",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.35
+          ]
+        },
+        {
+          "name": "Tomaten",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.25,
+            0.25,
+            0.67,
+            0.43
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_noodles": {
+      "base": {
+        "name": "Schale",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Nudeln",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.53
+          ]
+        },
+        {
+          "name": "Stäbchen",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.17
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_dumpling": {
+      "base": {
+        "name": "Teig",
+        "color": "ffe0a0"
+      },
+      "regions": [
+        {
+          "name": "Falten",
+          "color": "efb986",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.42
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hand_saw": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Holzgriff",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.4,
+            0.62
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chisel": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Holzgriff",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.4,
+            0.62
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_wood_pile": {
+      "base": {
+        "name": "Holz",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schnittflächen",
+          "color": "f6ce98",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.35
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_wooden_crate": {
+      "base": {
+        "name": "Holz",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schnittflächen",
+          "color": "f6ce98",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.35
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_spinning_wheel": {
+      "base": {
+        "name": "Holz",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Schnittflächen",
+          "color": "f6ce98",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.35
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_anvil": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Materialschatten",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_metal_bar": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Materialschatten",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_horseshoe": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Materialschatten",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_blacksmith": {
+      "base": {
+        "name": "Werkstatt",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Feuer und Glut",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Schürze",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0.25,
+            0.65,
+            0.72
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_electrical_resistance": {
+      "base": {
+        "name": "Anschlussdrähte",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Widerstandskörper",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0.2,
+            0.7,
+            0.8
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_electrical_socket": {
+      "base": {
+        "name": "Isolierung",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Kontakte",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.58,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_plug": {
+      "base": {
+        "name": "Isolierung",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Kontakte",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.58,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_brick_pile": {
+      "base": {
+        "name": "Ziegel",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Gebrannte Kanten",
+          "color": "dc7c77",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_paint_roller": {
+      "base": {
+        "name": "Griff",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Farbwalze",
+          "color": "ff8fb9",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.38
+          ]
+        },
+        {
+          "name": "Metallbügel",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.39,
+            1,
+            0.62
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_paint_bucket": {
+      "base": {
+        "name": "Eimer",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Farbe",
+          "color": "ff8fb9",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.33
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_wheelbarrow": {
+      "base": {
+        "name": "Wanne",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Gestell und Rad",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.58,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sewing_needle": {
+      "base": {
+        "name": "Nadel",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Faden",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.55,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_yarn": {
+      "base": {
+        "name": "Wolle",
+        "color": "ff86b2"
+      },
+      "regions": [
+        {
+          "name": "Abrollender Faden",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.72,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_amphora": {
+      "base": {
+        "name": "Terrakotta",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Glasurband",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.44,
+            1,
+            0.62
+          ]
+        },
+        {
+          "name": "Rand",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.17
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_painted_pottery": {
+      "base": {
+        "name": "Terrakotta",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Glasurband",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.44,
+            1,
+            0.62
+          ]
+        },
+        {
+          "name": "Rand",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.17
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_broken_pottery": {
+      "base": {
+        "name": "Terrakotta",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Glasurband",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.44,
+            1,
+            0.62
+          ]
+        },
+        {
+          "name": "Rand",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.17
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_water_jug": {
+      "base": {
+        "name": "Terrakotta",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Glasurband",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.44,
+            1,
+            0.62
+          ]
+        },
+        {
+          "name": "Rand",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.17
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_watering_can": {
+      "base": {
+        "name": "Gießkanne",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Brause",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0.72,
+            0.1,
+            1,
+            0.66
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chef_toque": {
+      "base": {
+        "name": "Stoff",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Mützenband",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_diving_helmet": {
+      "base": {
+        "name": "Kupferhelm",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Sichtfenster",
+          "color": "66cfff",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.46,
+            0.28,
+            0.29
+          ]
+        },
+        {
+          "name": "Halsring",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_typewriter": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Papier",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.12,
+            0,
+            0.89,
+            0.33
+          ]
+        },
+        {
+          "name": "Tasten",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.6,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_quill_ink": {
+      "base": {
+        "name": "Feder",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Tintenfass",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.67,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_feather": {
+      "base": {
+        "name": "Feder",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Federkiel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.73,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_wax_tablet": {
+      "base": {
+        "name": "Holzrahmen",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Wachs",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.14,
+            0.14,
+            0.85,
+            0.8
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_printing_press": {
+      "base": {
+        "name": "Holzgestell",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Pressmechanik",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0.31,
+            0.12,
+            0.67,
+            0.6
+          ]
+        },
+        {
+          "name": "Papier",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.62,
+            1,
+            0.8
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_newspaper": {
+      "base": {
+        "name": "Papier",
+        "color": "fff0d0"
+      },
+      "regions": [
+        {
+          "name": "Schrift",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.14,
+            0.25,
+            0.86,
+            0.8
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_scroll_unfurled": {
+      "base": {
+        "name": "Papier",
+        "color": "fff0d0"
+      },
+      "regions": [
+        {
+          "name": "Schrift",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.14,
+            0.25,
+            0.86,
+            0.8
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_gramophone": {
+      "base": {
+        "name": "Holzkasten",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Messingtrichter",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.55
+          ]
+        },
+        {
+          "name": "Tonarm",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.55,
+            1,
+            0.7
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_vintage_robot": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Anzeigen und Sensoren",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Gelenke und Antrieb",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_robot_golem": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Anzeigen und Sensoren",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Gelenke und Antrieb",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_mechanical_arm": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Anzeigen und Sensoren",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Gelenke und Antrieb",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_delivery_drone": {
+      "base": {
+        "name": "Metall",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Anzeigen und Sensoren",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Gelenke und Antrieb",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pocket_radio": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Antenne",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.21
+          ]
+        },
+        {
+          "name": "Skala",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.52,
+            0.22,
+            1,
+            0.53
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_cuckoo_clock": {
+      "base": {
+        "name": "Holzgehäuse",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Zifferblatt",
+          "color": "e4f5ff",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.4,
+            0.24,
+            0.21
+          ]
+        },
+        {
+          "name": "Gewichte",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_gears": {
+      "base": {
+        "name": "Zahnräder",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Messingräder",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.54,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_spring": {
+      "base": {
+        "name": "Federstahl",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Reflexlicht",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.38,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hourglass": {
+      "base": {
+        "name": "Glas",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Holzrahmen",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.18
+          ]
+        },
+        {
+          "name": "Holzrahmen",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.82,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Sand",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0.61,
+            0.72,
+            0.81
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_wind_turbine": {
+      "base": {
+        "name": "Rotor und Turm",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Antrieb",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0.25,
+            0.65,
+            0.49
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_water_mill": {
+      "base": {
+        "name": "Mühlenhaus",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Wasserrad",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.55,
+            0.4,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Wasser",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.83,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_nuclear_plant": {
+      "base": {
+        "name": "Beton",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Dampf",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Sockellicht",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.79,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_comet_spark": {
+      "base": {
+        "name": "Schweif",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Kern",
+          "color": "e4f5ff",
+          "shape": "ellipse",
+          "bounds": [
+            0.72,
+            0.72,
+            0.23,
+            0.23
+          ]
+        },
+        {
+          "name": "Schweifsaum",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.35,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_asteroid": {
+      "base": {
+        "name": "Gestein",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Minerale",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.5,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_eclipse": {
+      "base": {
+        "name": "Sonnenkorona",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Mondrand",
+          "color": "b592ff",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.32,
+            0.32
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_space_shuttle": {
+      "base": {
+        "name": "Rumpf",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Flügel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.44,
+            0.3,
+            1
+          ]
+        },
+        {
+          "name": "Flügel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.7,
+            0.44,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Triebwerke",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_space_suit": {
+      "base": {
+        "name": "Raumanzug",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Helmvisier",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.24,
+            0,
+            0.78,
+            0.26
+          ]
+        },
+        {
+          "name": "Bedienfeld",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.32,
+            0.35,
+            0.7,
+            0.59
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_observatory": {
+      "base": {
+        "name": "Gebäude",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Kuppel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.54
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_satellite_communication": {
+      "base": {
+        "name": "Metallkörper",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Solarpaneele",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.25,
+            0.32,
+            0.82
+          ]
+        },
+        {
+          "name": "Solarpaneele",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.68,
+            0.25,
+            1,
+            0.82
+          ]
+        },
+        {
+          "name": "Antenne",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.24
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_orbital": {
+      "base": {
+        "name": "Umlaufbahnen",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Himmelskörper",
+          "color": "ffd35e",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.5,
+            0.24,
+            0.24
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_biplane": {
+      "base": {
+        "name": "Flügel",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Rumpf",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0,
+            0.63,
+            1
+          ]
+        },
+        {
+          "name": "Leitwerk",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_glider": {
+      "base": {
+        "name": "Flügel",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Rumpf",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0,
+            0.63,
+            1
+          ]
+        },
+        {
+          "name": "Leitwerk",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hang_glider": {
+      "base": {
+        "name": "Flügel",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Rumpf",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0,
+            0.63,
+            1
+          ]
+        },
+        {
+          "name": "Leitwerk",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.76,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_parachute": {
+      "base": {
+        "name": "Schirm",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Stoffbahn",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.35,
+            0,
+            0.65,
+            0.54
+          ]
+        },
+        {
+          "name": "Leinen und Last",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.55,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_jetpack": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Flammen",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Energieanzeige",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.33,
+            0.28,
+            0.65,
+            0.52
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chariot": {
+      "base": {
+        "name": "Wagen",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Metallbeschläge",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_steam_locomotive": {
+      "base": {
+        "name": "Lokomotive",
+        "color": "7893b2"
+      },
+      "regions": [
+        {
+          "name": "Räder",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Dampf",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Kessel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.25,
+            0.4,
+            0.7,
+            0.68
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_egyptian_sphinx": {
+      "base": {
+        "name": "Sandstein",
+        "color": "f7c781"
+      },
+      "regions": [
+        {
+          "name": "Kopfschmuck",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.32
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pagoda": {
+      "base": {
+        "name": "Wände",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Oberes Dach",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Dachbänder",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.43,
+            1,
+            0.55
+          ]
+        },
+        {
+          "name": "Dachbänder",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.74,
+            1,
+            0.85
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pisa_tower": {
+      "base": {
+        "name": "Marmor",
+        "color": "ffe3b4"
+      },
+      "regions": [
+        {
+          "name": "Arkadenlicht",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_rialto_bridge": {
+      "base": {
+        "name": "Stein",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Dach",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.28
+          ]
+        },
+        {
+          "name": "Sockellicht",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.77,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_campfire": {
+      "base": {
+        "name": "Holzscheite",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Flammen",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.68
+          ]
+        },
+        {
+          "name": "Flammenkern",
+          "color": "ffd35e",
+          "shape": "ellipse",
+          "bounds": [
+            0.5,
+            0.36,
+            0.22,
+            0.28
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sleeping_bag": {
+      "base": {
+        "name": "Stoff",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Futter",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.25
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_rope_coil": {
+      "base": {
+        "name": "Seil",
+        "color": "f2c58b"
+      },
+      "regions": [
+        {
+          "name": "Seilschatten",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_ancient_columns": {
+      "base": {
+        "name": "Stein",
+        "color": "e4c698"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Dach und Fahne",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_greek_temple": {
+      "base": {
+        "name": "Stein",
+        "color": "e4c698"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Dach und Fahne",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_castle_ruins": {
+      "base": {
+        "name": "Stein",
+        "color": "e4c698"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Dach und Fahne",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_drawbridge": {
+      "base": {
+        "name": "Stein",
+        "color": "e4c698"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Dach und Fahne",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_tower_flag": {
+      "base": {
+        "name": "Stein",
+        "color": "e4c698"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Dach und Fahne",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_mayan_pyramid": {
+      "base": {
+        "name": "Stein",
+        "color": "e4c698"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Dach und Fahne",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_roman_toga": {
+      "base": {
+        "name": "Stoff",
+        "color": "fff0d0"
+      },
+      "regions": [
+        {
+          "name": "Saumband",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.75,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_laurels": {
+      "base": {
+        "name": "Blätter",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Band und Stiele",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_shamrock": {
+      "base": {
+        "name": "Blätter",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Band und Stiele",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_closed_barbute": {
+      "base": {
+        "name": "Stahl",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griffe und Zier",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.66,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_crossed_swords": {
+      "base": {
+        "name": "Stahl",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Griffe und Zier",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.66,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_medieval_pavilion": {
+      "base": {
+        "name": "Zeltstoff",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Zweite Stoffbahn",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.35,
+            0,
+            0.63,
+            0.82
+          ]
+        },
+        {
+          "name": "Fahne",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.18
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_dinosaur_bones": {
+      "base": {
+        "name": "Fossile Knochen",
+        "color": "ffe3b8"
+      },
+      "regions": [
+        {
+          "name": "Sockel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.88,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_stone_tablet": {
+      "base": {
+        "name": "Stein",
+        "color": "e5c499"
+      },
+      "regions": [
+        {
+          "name": "Schriftspuren",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.2,
+            0.25,
+            0.82,
+            0.8
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_oil_lamp": {
+      "base": {
+        "name": "Lampenkörper",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Flamme",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.42
+          ]
+        },
+        {
+          "name": "Standfuß",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_egyptian_profile": {
+      "base": {
+        "name": "Haut",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Kopfschmuck",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Schmuck",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.66,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_hieroglyph_y": {
+      "base": {
+        "name": "Zeichen",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Farbakzent",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_byzantin_temple": {
+      "base": {
+        "name": "Mauerwerk",
+        "color": "ffdab0"
+      },
+      "regions": [
+        {
+          "name": "Kuppel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.44
+          ]
+        },
+        {
+          "name": "Sockel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_torii_gate": {
+      "base": {
+        "name": "Holzpfosten",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Dachbalken",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.22
+          ]
+        },
+        {
+          "name": "Querbalken",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.27,
+            1,
+            0.39
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_philosopher_bust": {
+      "base": {
+        "name": "Skulptur",
+        "color": "f2d8be"
+      },
+      "regions": [
+        {
+          "name": "Materialschatten",
+          "color": "b8badb",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_stone_bust": {
+      "base": {
+        "name": "Skulptur",
+        "color": "f2d8be"
+      },
+      "regions": [
+        {
+          "name": "Materialschatten",
+          "color": "b8badb",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_venus_of_willendorf": {
+      "base": {
+        "name": "Skulptur",
+        "color": "f2d8be"
+      },
+      "regions": [
+        {
+          "name": "Materialschatten",
+          "color": "b8badb",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_open_book": {
+      "base": {
+        "name": "Papier",
+        "color": "fff0d0"
+      },
+      "regions": [
+        {
+          "name": "Einband",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.79,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_book_pile": {
+      "base": {
+        "name": "Buch oben",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Buch Mitte",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.34,
+            1,
+            0.67
+          ]
+        },
+        {
+          "name": "Buch unten",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.68,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_windmill": {
+      "base": {
+        "name": "Mühlenhaus",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Flügel",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.51
+          ]
+        },
+        {
+          "name": "Dach",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.35,
+            0.2,
+            0.7,
+            0.38
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_submarine": {
+      "base": {
+        "name": "Nautilus",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Bullaugen",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.22,
+            0.35,
+            0.76,
+            0.62
+          ]
+        },
+        {
+          "name": "Schraube",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0.79,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_drink_me": {
+      "base": {
+        "name": "Fläschchen",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Etikett",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.16,
+            0.41,
+            0.84,
+            0.67
+          ]
+        },
+        {
+          "name": "Trank",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Verschluss",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.2
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_insect_jaws": {
+      "base": {
+        "name": "Panzer",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Mundwerkzeuge",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.54,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_bookmark": {
+      "base": {
+        "name": "Leseband",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Zierkante",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.75,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_scroll_quill": {
+      "base": {
+        "name": "Pergament",
+        "color": "ffe7b5"
+      },
+      "regions": [
+        {
+          "name": "Feder",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.55,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_book_cover": {
+      "base": {
+        "name": "Einband",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Buchrücken",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.22,
+            1
+          ]
+        },
+        {
+          "name": "Zierprägung",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0.25,
+            0.8,
+            0.6
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_surf_board": {
+      "base": {
+        "name": "Brett",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Dekorstreifen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.32,
+            0,
+            0.58,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_water_polo": {
+      "base": {
+        "name": "Ball",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Blaues Segment",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.35,
+            1
+          ]
+        },
+        {
+          "name": "Rotes Segment",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.68,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_beach_ball": {
+      "base": {
+        "name": "Ball",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Blaues Segment",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.35,
+            1
+          ]
+        },
+        {
+          "name": "Rotes Segment",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.68,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_boxing_ring": {
+      "base": {
+        "name": "Ringseile",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Matte",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.13,
+            0.32,
+            0.86,
+            0.78
+          ]
+        },
+        {
+          "name": "Pfosten",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.79,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_fencer": {
+      "base": {
+        "name": "Schutzkleidung",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Maske",
+          "color": "7893b2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.2
+          ]
+        },
+        {
+          "name": "Waffe",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0.6,
+            0.23,
+            1,
+            0.65
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_high_kick": {
+      "base": {
+        "name": "Sportkleidung",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Haut",
+          "color": "ffd0a2",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.23
+          ]
+        },
+        {
+          "name": "Haut",
+          "color": "ffd0a2",
+          "shape": "box",
+          "bounds": [
+            0.7,
+            0.3,
+            1,
+            0.6
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chess_knight": {
+      "base": {
+        "name": "Spielfigur",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Sockellicht",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.79,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chess_rook": {
+      "base": {
+        "name": "Spielfigur",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Sockellicht",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.79,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_meeple": {
+      "base": {
+        "name": "Spielfigur",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Sockellicht",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.79,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_backgammon": {
+      "base": {
+        "name": "Brett",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Linkes Spielfeld",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.16,
+            0.46,
+            0.83
+          ]
+        },
+        {
+          "name": "Rechtes Spielfeld",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0.54,
+            0.16,
+            1,
+            0.83
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_domino_tiles": {
+      "base": {
+        "name": "Spielsteine",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Augenzeichnung",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.32,
+            0.2,
+            0.74,
+            0.79
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_juggler": {
+      "base": {
+        "name": "Kleidung",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Jonglierbälle",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Kopf",
+          "color": "ffd0a2",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0.3,
+            0.67,
+            0.48
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_unicycle": {
+      "base": {
+        "name": "Metallrahmen",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Sattel",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.24
+          ]
+        },
+        {
+          "name": "Rad",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.52,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_tightrope": {
+      "base": {
+        "name": "Seil",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Artist",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.7
+          ]
+        },
+        {
+          "name": "Kopf",
+          "color": "ffd0a2",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0,
+            0.7,
+            0.2
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_drama_masks": {
+      "base": {
+        "name": "Heitere Maske",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Tragische Maske",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.5,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_theater_curtains": {
+      "base": {
+        "name": "Vorhang",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Saum",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.23
+          ]
+        },
+        {
+          "name": "Bühne",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.89,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_film_projector": {
+      "base": {
+        "name": "Gehäuse",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Filmspulen",
+          "color": "90cce8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.43
+          ]
+        },
+        {
+          "name": "Lichtstrahl",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.74,
+            0.35,
+            1,
+            0.82
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_film_spool": {
+      "base": {
+        "name": "Filmspule",
+        "color": "90cce8"
+      },
+      "regions": [
+        {
+          "name": "Filmstreifen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.67,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_director_chair": {
+      "base": {
+        "name": "Holzgestell",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Stoff",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.55
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_carousel": {
+      "base": {
+        "name": "Karussell",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Dach",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.34
+          ]
+        },
+        {
+          "name": "Pferde",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.42,
+            1,
+            0.73
+          ]
+        },
+        {
+          "name": "Sockel",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_griffin_symbol": {
+      "base": {
+        "name": "Löwenkörper",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Adlerflügel",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.51
+          ]
+        },
+        {
+          "name": "Schnabel",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0.76,
+            0,
+            1,
+            0.34
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_unicorn": {
+      "base": {
+        "name": "Fell",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Mähne",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.38
+          ]
+        },
+        {
+          "name": "Horn",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0,
+            0.69,
+            0.15
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_pegasus": {
+      "base": {
+        "name": "Fell",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Mähne",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.38
+          ]
+        },
+        {
+          "name": "Horn",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0,
+            0.69,
+            0.15
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_dragon_head": {
+      "base": {
+        "name": "Schuppen",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Hörner",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.3
+          ]
+        },
+        {
+          "name": "Maul",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0.5,
+            0.6,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_mermaid": {
+      "base": {
+        "name": "Haut",
+        "color": "ffcfa6"
+      },
+      "regions": [
+        {
+          "name": "Haare",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.25
+          ]
+        },
+        {
+          "name": "Fischschwanz",
+          "color": "55dfc8",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.53,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_minotaur": {
+      "base": {
+        "name": "Fell",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Hörner",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.25
+          ]
+        },
+        {
+          "name": "Rüstung",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.6,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_sea_serpent": {
+      "base": {
+        "name": "Schuppen",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Bauch",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_portal": {
+      "base": {
+        "name": "Portalrahmen",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Energiesaum",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0.3,
+            0,
+            0.75,
+            1
+          ]
+        },
+        {
+          "name": "Sockel",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.88,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_cloud_ring": {
+      "base": {
+        "name": "Wolken",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Traumlicht",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.54,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_butterfly_flower": {
+      "base": {
+        "name": "Blüte",
+        "color": "ff83b2"
+      },
+      "regions": [
+        {
+          "name": "Schmetterling",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.44
+          ]
+        },
+        {
+          "name": "Stängel",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.73,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_plant_seed": {
+      "base": {
+        "name": "Keimling",
+        "color": "55ec91"
+      },
+      "regions": [
+        {
+          "name": "Samen",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.57,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_ice_pop": {
+      "base": {
+        "name": "Fruchteis",
+        "color": "ff829f"
+      },
+      "regions": [
+        {
+          "name": "Zweite Eisschicht",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.38,
+            1,
+            0.68
+          ]
+        },
+        {
+          "name": "Holzstiel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_chestnut_leaf": {
+      "base": {
+        "name": "Herbstlaub",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Blattspitzen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.32
+          ]
+        },
+        {
+          "name": "Blattadern",
+          "color": "f36f85",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_maple_leaf": {
+      "base": {
+        "name": "Herbstlaub",
+        "color": "ffa35d"
+      },
+      "regions": [
+        {
+          "name": "Blattspitzen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.32
+          ]
+        },
+        {
+          "name": "Blattadern",
+          "color": "f36f85",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.65,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_acorn": {
+      "base": {
+        "name": "Eichel",
+        "color": "db975d"
+      },
+      "regions": [
+        {
+          "name": "Fruchtbecher",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.45
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_carnival_mask": {
+      "base": {
+        "name": "Maske",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Linke Verzierung",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.35,
+            1
+          ]
+        },
+        {
+          "name": "Rechte Verzierung",
+          "color": "ff8fba",
+          "shape": "box",
+          "bounds": [
+            0.7,
+            0,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_jester_hat": {
+      "base": {
+        "name": "Kappe",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Linke Zacke",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.35,
+            0.7
+          ]
+        },
+        {
+          "name": "Rechte Zacke",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0.65,
+            0,
+            1,
+            0.7
+          ]
+        },
+        {
+          "name": "Schellen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.8,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_grain_bundle": {
+      "base": {
+        "name": "Ähren",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Stängel",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.67,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "Bindeband",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.55,
+            1,
+            0.68
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_fruit_bowl": {
+      "base": {
+        "name": "Schale",
+        "color": "66cfff"
+      },
+      "regions": [
+        {
+          "name": "Apfel",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.4,
+            0.63
+          ]
+        },
+        {
+          "name": "Zitrusfrucht",
+          "color": "ffa35d",
+          "shape": "box",
+          "bounds": [
+            0.4,
+            0,
+            0.7,
+            0.63
+          ]
+        },
+        {
+          "name": "Trauben",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0.7,
+            0,
+            1,
+            0.63
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_cornucopia": {
+      "base": {
+        "name": "Horn",
+        "color": "ffd35e"
+      },
+      "regions": [
+        {
+          "name": "Blätter",
+          "color": "55ec91",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.6,
+            0.28
+          ]
+        },
+        {
+          "name": "Früchte",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.3,
+            0.37,
+            0.69
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_firework_rocket": {
+      "base": {
+        "name": "Rakete",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Spitze",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.23
+          ]
+        },
+        {
+          "name": "Stab",
+          "color": "db975d",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.7,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_party_popper": {
+      "base": {
+        "name": "Hülle",
+        "color": "b592ff"
+      },
+      "regions": [
+        {
+          "name": "Konfetti",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.5,
+            0.52
+          ]
+        },
+        {
+          "name": "Konfetti",
+          "color": "ff637d",
+          "shape": "box",
+          "bounds": [
+            0.5,
+            0,
+            1,
+            0.52
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_balloons": {
+      "base": {
+        "name": "Ballon",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Ballon links",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            0.34,
+            0.78
+          ]
+        },
+        {
+          "name": "Ballon rechts",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0.68,
+            0,
+            1,
+            0.78
+          ]
+        },
+        {
+          "name": "Schnüre",
+          "color": "e4f5ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.78,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_asian_lantern": {
+      "base": {
+        "name": "Laterne",
+        "color": "ff637d"
+      },
+      "regions": [
+        {
+          "name": "Rahmen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.18
+          ]
+        },
+        {
+          "name": "Fransen",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.82,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    },
+    "new_diablo_skull": {
+      "base": {
+        "name": "Schädel",
+        "color": "e4f5ff"
+      },
+      "regions": [
+        {
+          "name": "Stirndekor",
+          "color": "ffd35e",
+          "shape": "box",
+          "bounds": [
+            0,
+            0,
+            1,
+            0.26
+          ]
+        },
+        {
+          "name": "Dekor links",
+          "color": "66cfff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.26,
+            0.34,
+            0.72
+          ]
+        },
+        {
+          "name": "Dekor rechts",
+          "color": "ff86b8",
+          "shape": "box",
+          "bounds": [
+            0.67,
+            0.26,
+            1,
+            0.72
+          ]
+        },
+        {
+          "name": "Kieferdekor",
+          "color": "b592ff",
+          "shape": "box",
+          "bounds": [
+            0,
+            0.74,
+            1,
+            1
+          ]
+        }
+      ],
+      "mode": 3,
+      "strength": 0.48
+    }
+  }
+}
