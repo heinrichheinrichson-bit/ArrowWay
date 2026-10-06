@@ -8,7 +8,9 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.17.7-dev
+## Aktueller Stand · 0.18.0-dev
+
+- **Werbegrundlage mit Offline-Testmodus**: Fünf erste Rätsel werbefrei, danach mindestens vier neue Abschlüsse und sechs aktive Spielminuten zwischen Anzeigen. Nur normale Rätselwechsel kommen infrage; Abschlussfeiern und neue Welten sind geschützt. In den Entwicklungseinstellungen lassen sich Testanzeigen und ein simulierter Werbefrei-Status einschalten. Keine echten Anzeigen oder Käufe. Regeln und späterer Anschluss stehen in [MONETIZATION.md](MONETIZATION.md).
 
 Der Lichtschein im Spielfeld ist etwas kräftiger und breiter abgestimmt; die dunkle Mitte bleibt erhalten.
 Einzelne schwache, unbewegte Sternpunkte ergänzen die Atmosphäre und bleiben am Rand sichtbarer als in der Mitte.

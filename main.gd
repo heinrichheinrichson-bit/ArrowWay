@@ -47,6 +47,7 @@ var journey_legacy_paths: Array[String] = []
 var journey_scroll_memory := {}
 var journey_reward := {}
 var session_store: Node
+var ads: Node
 var session_in_progress := false
 var resume_enabled := not OS.get_cmdline_user_args().has("--test")
 var compact_buttons: Array[Button] = []
@@ -146,6 +147,9 @@ func _ready() -> void:
 	session_store.game=self
 	add_child(session_store)
 	session_store.recover_progress()
+	ads=Node.new()
+	ads.set_script(load("res://ad_controller.gd")); ads.game=self
+	add_child(ads); ads.initialize()
 	var saved_level: int=level_files.find(session_store.active_path)
 	if saved_level>=0 and level_available(saved_level): level=saved_level
 	if journey_mode and not level_available(level): level=JourneyProgress.resume_index(self)
@@ -902,7 +906,7 @@ func advance() -> void:
 		var world := JourneyProgress.world_index(group)
 		var next := JourneyProgress.next_open(self,level)
 		if group != "custom" and JourneyProgress.group_complete(self,group): open_journey()
-		elif next >= 0: start_journey_puzzle(next)
+		elif next >= 0: ads.transition(world,func(): start_journey_puzzle(next))
 		else: open_journey(world,group)
 		return
 	var next := next_collection_level(level)
@@ -918,6 +922,7 @@ func advance() -> void:
 	reset()
 
 func _process(delta: float) -> void:
+	if is_instance_valid(ads) and ads.showing: return
 	if is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey):
 		return
 	clock_time += delta
@@ -961,6 +966,8 @@ func finish_puzzle(restored := false) -> void:
 		if journey_mode: next_button.text = "Weiterreisen"
 		if not completed.has(level):
 			completed.append(level)
+			if not restored and journey_mode and not authoring and JourneyProgress.world_index(level_collection(level).id)>=0:
+				ads.completed(level_path(level),JourneyProgress.world_index(level_collection(level).id))
 			if journey_mode:
 				var group: String = level_collection(level).id
 				var wi := JourneyProgress.world_index(group)
@@ -1000,6 +1007,7 @@ func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_CLOSE_REQUEST,NOTIFICATION_WM_GO_BACK_REQUEST] and is_instance_valid(session_store):
 		queue_session(); session_store.flush()
 	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not journey_mode: return
+	if is_instance_valid(ads) and ads.showing: ads.dismiss(); return
 	for child in get_children():
 		if child is Window and child.visible:
 			child.hide(); child.queue_free(); return

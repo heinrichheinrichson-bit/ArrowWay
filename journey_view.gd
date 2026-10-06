@@ -340,6 +340,7 @@ func play_next(selected_world: int) -> void:
 	tell("Du hast hier schon alle Kunstwerke entdeckt.")
 
 func build_collection() -> void:
+	if world>=0: game.ads.opened_world(world)
 	var color := JourneyProgress.group_color(group)
 	var parent_title: String = "EIGENE MOTIVE" if world<0 else JourneyProgress.worlds()[world].title.to_upper()
 	label(parent_title,Vector2(88,29),size.x-110,12,Color(color,0.75))
@@ -475,6 +476,21 @@ func build_settings() -> void:
 	toggle.add_theme_font_size_override("font_size",20)
 	toggle.toggled.connect(func(_enabled): game.toggle_sound())
 	add_child(toggle)
+	if OS.has_feature("debug"):
+		label("ENTWICKLERTEST · KEINE ECHTE WERBUNG",Vector2(24,319),size.x-48,12,Color("#8fa8b7"))
+		var ad_toggle := CheckButton.new()
+		ad_toggle.text="Testanzeigen aktivieren"
+		ad_toggle.position=Vector2(24,351); ad_toggle.size=Vector2(size.x-48,54)
+		ad_toggle.button_pressed=game.ads.test_mode
+		ad_toggle.toggled.connect(game.ads.set_test_mode)
+		add_child(ad_toggle)
+		var premium_toggle := CheckButton.new()
+		premium_toggle.text="Werbefrei simulieren"
+		premium_toggle.position=Vector2(24,415); premium_toggle.size=Vector2(size.x-48,54)
+		premium_toggle.button_pressed=game.ads.simulate_ad_free
+		premium_toggle.toggled.connect(game.ads.set_simulated_ad_free)
+		add_child(premium_toggle)
+		label("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten",Vector2(24,490),size.x-48,13,Color("#8fa8b7"))
 
 func tell(message: String) -> void:
 	if is_instance_valid(toast): toast.queue_free()
