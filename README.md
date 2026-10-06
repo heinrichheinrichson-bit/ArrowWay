@@ -8,7 +8,9 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.17.3-dev
+## Aktueller Stand · 0.17.4-dev
+
+- **Lichtwelt für Startseite und Reise**: Farbiger Lichtnebel, ruhige Sternpunkte und feine Konturen am Rand. Die Atmosphäre wechselt entlang des Pfads mit der Themenwelt; Hintergrundkonturen bewegen sich beim Scrollen langsamer als die Stationen. Nach dem ersten Abschluss zeigt die Startseite das zuletzt gelöste veröffentlichte Kunstwerk mit sanftem Leuchten und direktem Zugang zum Album. Der Spielstart bleibt separat erreichbar. Hintergrundelemente fangen keine Eingaben ab und verraten keine gesperrten Unterkategorien.
 
 Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
 

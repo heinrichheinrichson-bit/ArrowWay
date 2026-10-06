@@ -19,7 +19,7 @@ func _ready() -> void:
 	preview = Node2D.new()
 	preview.set_script(load("res://motif_preview.gd"))
 	preview.rounder = game
-	preview.win_time = 2.2 if display_mode in ["album","display"] else -1.0
+	preview.win_time = 2.2 if display_mode in ["album","display","home_art"] else -1.0
 	preview.motif = motif
 	preview.arrows = CustomMotif.decode_paths(document.paths,motif,false)
 	add_child(preview)
@@ -46,7 +46,8 @@ func _ready() -> void:
 	add_child(title)
 	var caption := Label.new()
 	caption.text = "Kunstwerk ansehen" if display_mode=="album" else ("Erneut spielen" if complete else ("Losspielen" if hero else "Spielen"))
-	continuing = display_mode!="album" and index==game.level and game.session_in_progress and game.win_time<0
+	if display_mode=="home_art": caption.text="Dein zuletzt entdecktes Kunstwerk"
+	continuing = display_mode in ["puzzle","resume"] and index==game.level and game.session_in_progress and game.win_time<0
 	if continuing: caption.text="Fortsetzen"
 	caption.position = Vector2(12,size.y-31)
 	caption.size.x = size.x-24
@@ -59,6 +60,10 @@ func _ready() -> void:
 		caption.text=""; mouse_filter=Control.MOUSE_FILTER_IGNORE
 	elif activate.is_valid(): pressed.connect(activate)
 	else: pressed.connect(func(): game.start_journey_puzzle(index))
+
+func _process(_delta: float) -> void:
+	if display_mode=="home_art" and is_instance_valid(preview):
+		preview.modulate=Color(1,1,1,0.88+sin(preview.clock_time*0.65)*0.10)
 
 func _draw() -> void:
 	var panel := StyleBoxFlat.new()

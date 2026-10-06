@@ -9,6 +9,8 @@ func require(condition: bool, message: String) -> void:
 func _initialize() -> void: call_deferred("run")
 
 func tap(point: Vector2) -> void:
+	# Newly rebuilt controls need a layout frame before the first touch.
+	await process_frame
 	for down in [true,false]:
 		var event:=InputEventScreenTouch.new()
 		event.position=root.get_final_transform()*point; event.pressed=down
@@ -109,6 +111,12 @@ func run() -> void:
 		require(scene.completed.has(child.index) and scene.level_collection(child.index).id!="custom","Last album page contains only published solved images")
 	root.size=Vector2i(540,1170); await process_frame
 	scene.open_home(); await capture("home-tall")
+	require(scene.home_menu.canvas.get_child(0).index==JourneyProgress.album_indices(scene).back(),"Home celebrates the latest completed public artwork")
+	var featured: Button=scene.home_menu.canvas.get_child(0)
+	var featured_index: int=featured.index
+	await tap(featured.global_position+featured.size*0.5)
+	require(is_instance_valid(scene.journey) and scene.journey.screen=="artwork" and scene.journey.selected_art==featured_index,"Home artwork opens its solved album picture")
+	scene.close_journey(); scene.open_home()
 	scene.home_menu.navigate("settings")
 	scene._notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
 	require(scene.home_menu.screen=="home","Android back returns settings to the home screen")

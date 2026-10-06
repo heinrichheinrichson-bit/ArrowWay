@@ -28,12 +28,37 @@ var selected_art := -1
 var reward := {}
 var reward_age := 0.0
 var camera_tween: Tween
+var atmosphere: Control
+var backdrop: ShaderMaterial
+var ambient_age := 0.0
+var edge_materials: Array[ShaderMaterial] = []
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	relayout()
 
 func _process(delta: float) -> void:
+	ambient_age+=delta
+	if is_instance_valid(atmosphere):
+		var offset := float(scroller.scroll_vertical) if is_instance_valid(scroller) else 0.0
+		var ambient_color := ui_accent
+		var ambient_icon := JourneyProgress.worlds()[JourneyProgress.frontier(game)].icon as String
+		if screen=="map" and not world_centers.is_empty():
+			var center_y := offset+scroller.size.y*0.55
+			var nearest := 0
+			for i in world_centers.size():
+				if absf(world_centers[i].y-center_y)<absf(world_centers[nearest].y-center_y): nearest=i
+			ambient_color=Color(JourneyProgress.worlds()[nearest].color)
+			ambient_icon=JourneyProgress.worlds()[nearest].icon if nearest<=JourneyProgress.frontier(game) else "spark"
+		atmosphere.camera=offset
+		atmosphere.tint=atmosphere.tint.lerp(ambient_color,1.0-exp(-delta*2.0))
+		atmosphere.decor_icon=ambient_icon
+		atmosphere.queue_redraw()
+		backdrop.set_shader_parameter("accent",atmosphere.tint)
+		backdrop.set_shader_parameter("drift",ambient_age*0.035+offset*0.0003)
+		for edge in edge_materials:
+			edge.set_shader_parameter("accent",atmosphere.tint)
+			edge.set_shader_parameter("drift",ambient_age*0.035+offset*0.0003)
 	if not reward.is_empty():
 		reward_age+=delta
 		if reward_age>3.5: reward.clear()
@@ -141,6 +166,7 @@ func relayout() -> void:
 	if is_instance_valid(scroller): scroll_positions[key] = scroller.get_meta("wanted_scroll",scroller.scroll_vertical)
 	for child in get_children(): remove_child(child); child.queue_free()
 	scroller = null
+	edge_materials.clear()
 	size = get_viewport_rect().size
 	seen.assign(game.journey_seen)
 	visible_station_ids.clear()
@@ -153,7 +179,13 @@ func relayout() -> void:
 	material.shader = load("res://journey_background.gdshader")
 	material.set_shader_parameter("accent",color)
 	background.material = material
+	backdrop=material
 	add_child(background)
+	atmosphere=Control.new()
+	atmosphere.set_script(load("res://journey_atmosphere.gd"))
+	atmosphere.size=size; atmosphere.tint=ui_accent; atmosphere.home=screen=="home"
+	atmosphere.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	add_child(atmosphere)
 	if screen == "home":
 		build_home()
 	elif screen == "settings":
@@ -166,16 +198,14 @@ func relayout() -> void:
 		else: build_collection()
 		if is_instance_valid(scroller):
 			for lower in [false,true]:
-				var edge:=ColorRect.new()
+				var edge := ColorRect.new()
 				edge.position=Vector2(0,scroller.position.y+(scroller.size.y-32 if lower else 0))
-				edge.size=Vector2(size.x,32)
-				edge.mouse_filter=Control.MOUSE_FILTER_IGNORE
-				var fade:=ShaderMaterial.new()
+				edge.size=Vector2(size.x,32); edge.mouse_filter=Control.MOUSE_FILTER_IGNORE
+				var fade := ShaderMaterial.new()
 				fade.shader=load("res://journey_edge_fade.gdshader")
-				fade.set_shader_parameter("accent",color)
+				fade.set_shader_parameter("accent",ui_accent)
 				fade.set_shader_parameter("lower",lower)
-				edge.material=fade
-				add_child(edge)
+				edge.material=fade; edge_materials.append(fade); add_child(edge)
 	game.remember_journey_stations(visible_station_ids)
 	rebuilding = false
 
@@ -360,6 +390,10 @@ func art_card(index: int, position: Vector2, dimensions: Vector2, mode := "puzzl
 
 func build_home() -> void:
 	var resume := JourneyProgress.resume_index(game)
+	var featured := -1
+	var public_art := JourneyProgress.album_indices(game)
+	for index in game.completed:
+		if public_art.has(index): featured=index
 	label("ARROW WAY",Vector2(24,size.y*0.10),size.x-48,36).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	label("Kunstwerke aus Licht",Vector2(24,size.y*0.10+53),size.x-48,15,Color("#a7a3c5")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	canvas=Control.new()
@@ -369,7 +403,10 @@ func build_home() -> void:
 	add_child(canvas)
 	var top := size.y*0.24
 	var height := minf(330,size.y*0.32)
-	art_card(resume,Vector2(32,top),Vector2(size.x-64,height),"resume",func(): game.start_journey_puzzle(resume))
+	if featured>=0:
+		art_card(featured,Vector2(32,top),Vector2(size.x-64,height),"home_art",func(): game.open_album(); game.journey.open_artwork(featured))
+	else:
+		art_card(resume,Vector2(32,top),Vector2(size.x-64,height),"resume",func(): game.start_journey_puzzle(resume))
 	var next_y := top+height+24
 	action("Erneut spielen" if game.completed.has(resume) else "Weiter spielen",Vector2(32,next_y),Vector2(size.x-64,58),func(): game.start_journey_puzzle(resume),true)
 	action("Deine Reise",Vector2(32,next_y+74),Vector2(size.x-64,54),func(): game.close_home(); game.open_journey())
