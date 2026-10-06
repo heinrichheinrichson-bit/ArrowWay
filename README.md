@@ -8,7 +8,9 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.18.0-dev
+## Aktueller Stand · 0.19.0-dev
+
+- **Neu geordneter Katalog**: 509 Motive in 14 spielbaren Themenwelten und 43 Sammlungen. Tierwelt, Pflanzen, Landschaften, Zuhause, Handwerk und Weltraum haben eigene Stationen. Eine Taxonomie mit 17 Oberthemen und 123 Unterkategorien bereitet weitere Motive vor; leere Bereiche bleiben im Spiel verborgen. Alte Freischaltungen werden übertragen, ohne falsche Abschluss-Häkchen. Motivdateien und Pfeilstände bleiben erhalten. [Aktuelle Struktur und Ausbauplanung](planning/KATALOGSTRUKTUR_AKTUELL.md).
 
 - **Werbegrundlage mit Offline-Testmodus**: Fünf erste Rätsel werbefrei, danach mindestens vier neue Abschlüsse und sechs aktive Spielminuten zwischen Anzeigen. Nur normale Rätselwechsel kommen infrage; Abschlussfeiern und neue Welten sind geschützt. In den Entwicklungseinstellungen lassen sich Testanzeigen und ein simulierter Werbefrei-Status einschalten. Keine echten Anzeigen oder Käufe. Regeln und späterer Anschluss stehen in [MONETIZATION.md](MONETIZATION.md).
 
@@ -21,7 +23,7 @@ Einzelne schwache, unbewegte Sternpunkte ergänzen die Atmosphäre und bleiben a
 
 Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der vorherigen Version.
 
-- **Deine Reise**: ein nach oben führender Neonpfad mit sieben großen Themenstationen. Überkategorien und ihre Unterkategorien liegen durch sichtbare Pfade verbunden auf derselben Karte. Erst Unterkategorien öffnen ihre vollständige Rätselübersicht. Häkchen und die nächste Themenwelt gibt es erst nach sämtlichen zugehörigen Lösungen. Zukünftige Themen bleiben dezent sichtbar, ihre Inhalte verborgen. Wischen, sanftes Ausgleiten und gespeicherte Kartenpositionen erleichtern die Navigation. [Ansichten und Freischaltungen](JOURNEY.md).
+- **Deine Reise**: ein nach oben führender Neonpfad mit vierzehn großen Themenstationen. Überkategorien und ihre Unterkategorien liegen durch sichtbare Pfade verbunden auf derselben Karte. Erst Unterkategorien öffnen ihre vollständige Rätselübersicht. Häkchen und die nächste Themenwelt gibt es erst nach sämtlichen zugehörigen Lösungen. Zukünftige Themen bleiben dezent sichtbar, ihre Inhalte verborgen. Wischen, sanftes Ausgleiten und gespeicherte Kartenpositionen erleichtern die Navigation. [Ansichten und Freischaltungen](JOURNEY.md).
 
 - **Begonnene Rätsel fortsetzen**: Jeder angefangene Spielstand bleibt separat erhalten – einschließlich entkommener Pfeile, laufender Animationen, Zoom und Bildposition. Speichern läuft im Hintergrund; beim Verlassen oder Wechsel in den Hintergrund wird der letzte Stand gesichert. Eine vorherige Sicherung dient bei beschädigter Datei als Rückfall. Veränderte Motive übernehmen keine unpassenden alten Pfeilstände. Ein bestätigter Neustart beginnt bewusst von vorn.
 
@@ -41,7 +43,7 @@ Der Menüumbau liegt auf `feature/neon-progression-map`; `main` bleibt bei der v
 
 - **Farbenfrohe Mindmap**: große sechseckige Themenwelten, kleinere runde Unterkategorien und individuelle Zweigfarben. Sanft wanderndes Licht zeigt den nächsten Weg. Vollständig gelöste Sammlungen erhalten einen Leuchtmoment; eine fertige Themenwelt öffnet den nächsten Pfad mit einer Kamerafahrt. Android-Zurück folgt derselben Menüstruktur.
 
-- **500 Motive in 29 Sammlungen**: unter anderem Halloween, Weihnachten, Winter, Ostern, Technik, Computer, Smartphones, Skylines, Tiere, Fahrzeuge, Musik und Landschaften. Über die Reise nach und nach spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle 500 Motive und Vorschauen](CATALOG.md).
+- **500 Katalogmotive in 42 Sammlungen**: unter anderem Halloween, Weihnachten, Winter, Ostern, Technik, Computer, Smartphones, Skylines, Tiere, Fahrzeuge, Musik und Landschaften. Über die Reise nach und nach spielbar, vollständig gefüllt und mit abgestimmten Neonverläufen. [Alle 500 Motive und Vorschauen](CATALOG.md).
 
 
 - Neun gestaltete Levels mit 25–39 Pfaden, jeweils vollständig gefüllten Motiven und allen vier Pfeilrichtungen.
@@ -99,6 +101,7 @@ godot --headless --path . --script res://tests/test_runner.gd -- --test
 godot --headless --path . --script res://tests/test_import.gd -- --test
 godot --headless --path . --script res://tests/test_colors.gd -- --test
 godot --headless --path . --script res://tests/test_collections.gd -- --test
+godot --headless --path . --script res://tests/test_taxonomy.gd -- --test
 godot --headless --path . --script res://tests/test_library.gd -- --test
 godot --headless --path . --script res://tests/test_catalog_editing.gd -- --test
 godot --headless --path . --script res://tests/test_completion.gd -- --test

@@ -79,17 +79,17 @@ func run() -> void:
 		for group in world.groups:
 			require(not mapped.has(group),"A collection belongs to exactly one theme")
 			mapped.append(group)
-	require(mapped.size()==30,"All 29 collections plus introduction have a theme")
+	require(mapped.size()==43,"All 42 collections plus introduction have a theme")
 	for index in scene.level_count():
 		var group: String = scene.level_collection(index).id
 		require(group=="custom" or mapped.has(group),"Every catalog entry has a map category")
 	require(JourneyProgress.frontier(scene)==0,"Fresh journey starts at the first light")
 	for index in range(9): require(scene.level_available(index),"All introduction puzzles are immediately in the collection")
-	var garden := JourneyProgress.indices(scene,"garden")
+	var garden := JourneyProgress.indices(scene,"animals")
 	require(not scene.level_available(garden[0]),"Future-world puzzles cannot be selected")
 	scene.open_home(); await capture("home"); scene.close_home()
 	scene.open_journey(); await process_frame
-	require(scene.journey.canvas.get_child_count()==8,"Seven major themes plus reached subcategory share a single canvas")
+	require(scene.journey.canvas.get_child_count()==15,"Fourteen major themes plus reached subcategory share a single canvas")
 	require(scene.journey.visible_station_ids==["world:beginning","group:base"],"Future themes have no subcategory nodes")
 	await capture("map-new")
 	await swipe_map(); await swipe_map(true)
@@ -108,14 +108,14 @@ func run() -> void:
 	solve(8); scene.advance()
 	require(scene.journey.screen=="map" and JourneyProgress.frontier(scene)==1,"All nine completions open Nature on the SAME map")
 	require(station_named("world:beginning").achieved and not station_named("world:nature").achieved,"Only fully completed themes get checkmarks")
-	require(scene.journey.canvas.get_child_count()==14,"Nature's six child nodes join the original map")
-	require(JourneyProgress.group_visible(scene,"animals") and JourneyProgress.group_visible(scene,"flowers"),"Reached theme displays all its subcategory branches")
-	for group in ["garden","animals","birds","flowers","ocean","landscapes"]:
+	require(scene.journey.canvas.get_child_count()==18,"Tierwelt's three child nodes join the original map")
+	require(JourneyProgress.group_visible(scene,"animals") and JourneyProgress.group_visible(scene,"birds") and not JourneyProgress.group_visible(scene,"flowers"),"Only reached themes display their subcategory branches")
+	for group in ["animals","birds","ocean"]:
 		require(station_named("group:"+group)!=null,"Each Nature collection is connected on the same canvas")
 	await capture("map-progress")
 	scene.open_journey(1); await process_frame
 	await capture("nature-new")
-	station_named("group:garden").pressed.emit()
+	station_named("group:animals").pressed.emit()
 	require(scene.journey.canvas.get_child_count()==garden.size(),"Collection displays solved and unsolved cards together")
 	await capture("nature-motifs")
 	var card:Button=scene.journey.canvas.get_child(0)
@@ -124,7 +124,7 @@ func run() -> void:
 	require(not scene.arrows.any(func(arrow): return arrow.escaping),"Card tap never shoots an arrow behind the interface")
 	var live:int=ArrowPuzzle.solution(scene.arrows)[0]
 	scene.click_at(scene.arrows[live].points[0]); scene.open_current_journey()
-	require(scene.journey.group=="garden","Play back-button returns to its subcategory")
+	require(scene.journey.group=="animals","Play back-button returns to its subcategory")
 	scene.start_journey_puzzle(garden[0])
 	require(scene.arrows[live].escaping,"Returning preserves the current move")
 	scene.reset(); solve(garden[0])
@@ -136,7 +136,7 @@ func run() -> void:
 	for index in garden:
 		if not scene.completed.has(index): scene.completed.append(index)
 	scene.open_journey(1)
-	require(station_named("group:garden").achieved and not station_named("world:nature").achieved,"Completed subcategory never prematurely checks its parent theme")
+	require(station_named("group:animals").achieved and not station_named("world:nature").achieved,"Completed subcategory never prematurely checks its parent theme")
 	require(JourneyProgress.frontier(scene)==1,"Completing one Nature category keeps next theme locked")
 	await capture("nature-expanded")
 	var last := -1

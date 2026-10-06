@@ -80,7 +80,47 @@ static func frontier(game: Node) -> int:
 static func group_visible(game: Node, group: String) -> bool:
 	if group == "custom": return not game.journey_mode or game.authoring
 	var world := world_index(group)
-	return world >= 0 and world <= frontier(game)
+	return world >= 0 and (world <= frontier(game) or game.journey_access_groups.has(group))
+
+static func visible_groups(game: Node, world: int) -> Array[String]:
+	var result: Array[String] = []
+	for group in worlds()[world].groups:
+		if group_visible(game,group): result.append(group)
+	return result
+
+static func world_open(game: Node, world: int) -> bool:
+	return world >= 0 and world < worlds().size() and not visible_groups(game,world).is_empty()
+
+static func remember_access(game: Node) -> void:
+	if not game.journey_mode: return
+	for world in worlds().size():
+		for group in visible_groups(game,world):
+			if not game.journey_access_groups.has(group): game.journey_access_groups.append(group)
+
+static func migrate_access(game: Node, config: ConfigFile) -> void:
+	for group in config.get_value("game","journey_access_groups",[]):
+		if group is String and world_index(group)>=0 and not game.journey_access_groups.has(group): game.journey_access_groups.append(group)
+	if int(config.get_value("game","journey_version",0))>=3 or not bool(config.get_value("game","journey_migrated",false)): return
+	worlds()
+	var taxonomy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/taxonomy.json"))
+	var done := {}
+	for index in game.completed: done[game.level_path(index)]=true
+	var old_groups := {}
+	for item in taxonomy.assignments:
+		if not old_groups.has(item.old_collection): old_groups[item.old_collection]=[]
+		old_groups[item.old_collection].append(item.path)
+	var reached := {}
+	var previous_complete := true
+	for old_world in definition.legacy_worlds:
+		var available: bool = previous_complete or game.journey_seen.has("world:"+old_world.id)
+		var complete := true
+		for group in old_world.groups:
+			if available or game.journey_seen.has("group:"+group): reached[group]=true
+			for path in old_groups.get(group,[]):
+				if not done.has(path): complete=false
+		previous_complete=previous_complete and complete
+	for item in taxonomy.assignments:
+		if reached.has(item.old_collection) and not game.journey_access_groups.has(item.group): game.journey_access_groups.append(item.group)
 
 static func level_open(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.level_count(): return false
@@ -105,10 +145,14 @@ static func group_title(game: Node, group: String) -> String:
 	return game.level_collection(found[0]).title if not found.is_empty() else group
 
 static func group_icon(group: String) -> String:
+	worlds()
+	if definition.get("groups",{}).has(group): return definition.groups[group].icon
 	var icons := {"base":"spark","garden":"tree","animals":"paw","birds":"bird","flowers":"flower","ocean":"fish","landscapes":"mountain","winter":"snow","christmas":"tree","halloween":"moon","easter":"flower","space":"planet","cosmos":"planet","technology":"chip","computers":"chip","smartphones":"phone","workshop":"chip","world":"city","skylines":"city","vehicles":"car","travel":"mountain","taste":"cup","bakery":"cup","fruit":"flower","cozy":"cup","art":"palette","music":"music","sports":"ball","toys":"spark","fantasy":"moon","custom":"spark"}
 	return icons.get(group, "spark")
 
 static func group_color(group: String) -> Color:
+	worlds()
+	if definition.get("groups",{}).has(group): return Color(definition.groups[group].color)
 	var colors := {"base":"ffd17c","garden":"72f09e","animals":"ffc17a","birds":"79c9ff","flowers":"ff87bd","ocean":"64e6e2","landscapes":"c6a2ff","winter":"91e9ff","christmas":"ff7b88","halloween":"ffb066","easter":"e4a0ff","space":"b99aff","technology":"6af0d5","computers":"7faaff","smartphones":"f99cdc","cosmos":"ffb973","workshop":"f0da7f","world":"7bdfff","skylines":"a8a1ff","vehicles":"ffab74","travel":"82edb1","taste":"ff9bbd","bakery":"ffcb82","fruit":"a4ee78","cozy":"c2a6ff","art":"ff95c9","music":"b299ff","sports":"73e3ec","toys":"ffd078","fantasy":"dca1ff"}
 	return Color(colors.get(group,"b8a8ff"))
 
@@ -116,7 +160,7 @@ static func next_group(game: Node, world: int) -> String:
 	var current: String = game.level_collection(game.level).id
 	if worlds()[world].groups.has(current) and not group_complete(game,current): return current
 	for item in worlds()[world].groups:
-		if not group_complete(game,item): return item
+		if group_visible(game,item) and not group_complete(game,item): return item
 	return ""
 
 static func album_indices(game: Node, favorites_only := false) -> Array[int]:
@@ -131,8 +175,8 @@ static func album_indices(game: Node, favorites_only := false) -> Array[int]:
 static func resume_index(game: Node) -> int:
 	if level_open(game,game.level) and game.session_in_progress and game.win_time<0: return game.level
 	if level_open(game,game.level) and not game.completed.has(game.level) and group_visible(game,game.level_collection(game.level).id): return game.level
-	for world in range(frontier(game)+1):
-		for item in worlds()[world].groups:
+	for world in worlds().size():
+		for item in visible_groups(game,world):
 			for index in indices(game,item):
 				if not game.completed.has(index): return index
 	return 0

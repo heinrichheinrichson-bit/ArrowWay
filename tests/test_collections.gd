@@ -53,9 +53,11 @@ func run() -> void:
 		var next: int = scene.next_collection_level(scene.level)
 		require(next < 0 or scene.level_collection(next).id == entry.collection.id, "Next puzzle stays within its collection")
 		if titles.size() % 50 == 0: print("PLAYED ",titles.size(),"/500")
-	var expected := {"world":6,"garden":6,"taste":6,"space":6,"art":4,"cozy":12}
-	for id in ["halloween","christmas","winter","easter","technology","computers","skylines","smartphones","vehicles","ocean","animals","birds","bakery","fruit","flowers","workshop","music","sports","toys","travel","fantasy","landscapes","cosmos"]: expected[id] = 20
-	require(groups == expected, "29 complete collections have the intended counts")
+	var definition: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/journey.json"))
+	var expected := {}
+	for id in definition.groups:
+		if id!="base": expected[id]=int(definition.groups[id].count)
+	require(groups == expected and groups.size()==42, "42 complete collections have the intended counts")
 	require(scene.unlocked == 0, "Completing collections does not change campaign unlocks")
 	scene.collection_filter = "all"
 	scene.gallery_page = 0
@@ -68,11 +70,11 @@ func run() -> void:
 	var filters: OptionButton = scene.gallery.get_child(4)
 	filters.item_selected.emit(2)
 	cards = scene.gallery.get_child(3).get_child(0)
-	require(scene.collection_filter == "world" and scene.gallery_page == 0 and cards.get_child_count() == 6, "Collection filter resets pagination and displays six world motifs")
+	require(scene.collection_filter == "world" and scene.gallery_page == 0 and cards.get_child_count() == 7, "Collection filter resets pagination and displays seven landmark motifs")
 	var first_index: int = cards.get_child(0).number
 	cards.get_child(0).pressed.emit()
 	require(scene.level == first_index and not is_instance_valid(scene.gallery), "Filtered card launches its correct puzzle")
-	var last_world: int = scene.level_files.find("res://collections/levels/world_06_prater.json")
+	var last_world: int = JourneyProgress.indices(scene,"world")[-1]
 	scene.level = last_world
 	scene.advance()
 	require(is_instance_valid(scene.gallery) and scene.collection_filter == "world", "End of collection returns to its overview")

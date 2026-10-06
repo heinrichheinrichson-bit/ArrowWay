@@ -12,7 +12,7 @@ Auf Android startet ArrowWay im festen Hochformat und bleibt auch beim Drehen de
 
 Tippe oder klicke auf einen farbigen Pfad. Nur wenn die Richtung seiner Spitze frei ist, kann er entkommen. Blockierte Pfade federn kurz zurück und blinken rot. Neu geöffnete Wege leuchten kurz stärker in ihrer eigenen Farbe. Die Glühbirne oben rechts lässt einen freien Pfad weiß leuchten; der kreisförmige Pfeil daneben startet das Rätsel neu. Nach begonnenem Spiel wird der Neustart bestätigt. Sobald alle Pfade entfernt sind, erscheint **Weiter**. Freigeschaltete Levels bleiben lokal gespeichert. Soundeffekte schaltest du im **Hauptmenü → Einstellungen** ein oder aus; die Einstellung bleibt gespeichert.
 
-Das Spiel startet im Hauptmenü. **Deine Reise** öffnet den geschwungenen Weg durch sieben Themenwelten. **Weiter spielen** setzt das laufende Puzzle fort. Der Zurück-Pfeil im Puzzle führt zur passenden Sammlung; dein laufendes Puzzle bleibt erhalten.
+Das Spiel startet im Hauptmenü. **Deine Reise** öffnet den geschwungenen Weg durch vierzehn Themenwelten. **Weiter spielen** setzt das laufende Puzzle fort. Der Zurück-Pfeil im Puzzle führt zur passenden Sammlung; dein laufendes Puzzle bleibt erhalten.
 
 Ziehe die Karte mit dem Finger nach oben oder unten; am PC funktioniert auch das Mausrad. Auf dieser einen Mindmap führen sichtbare Pfade von den großen Themenwelten zu ihren Unterkategorien. Ein Klick auf eine Themenwelt bleibt auf der Karte, ein Klick auf eine Unterkategorie öffnet direkt alle ihre Rätselbilder. Gelöste und ungelöste Bilder stehen zusammen in fester Reihenfolge. Zurück führt wieder auf dieselbe Mindmap.
 

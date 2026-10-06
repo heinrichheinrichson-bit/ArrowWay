@@ -1,44 +1,57 @@
 # ArrowWay · Alle 500 Katalogmotive
 
-500 spielbare Sammlungsrätsel in 29 Sammlungen. Die neun Einstiegspuzzles und eigene Exporte kommen zusätzlich hinzu.
+500 spielbare Sammlungsrätsel in 42 Sammlungen. Mit den neun Einstiegspuzzles enthält die Spielerreise 509 Motive. Eigene Editorentwürfe bleiben getrennt.
 
-Im Spiel **Alle Levels** öffnen und eine Sammlung wählen. Zum Nachbearbeiten die verlinkte JSON-Datei in der Motivwerkstatt über **Öffnen → Bild, Motiv oder Level-Datei** laden. Persönliche Varianten unter einem eigenen Namen in `levels/` exportieren.
+Im Spiel **Reise** öffnen und eine freigeschaltete Sammlung im Themenbaum wählen. Zum Nachbearbeiten die verlinkte JSON-Datei in der Motivwerkstatt über **Öffnen → Bild, Motiv oder Level-Datei** laden. Persönliche Varianten unter einem eigenen Namen in `levels/` exportieren.
 
 Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamilien, etwa unterschiedliche Tiergesichter, Stadtansichten und Smartphoneanzeigen. Pfeilgeometrie und Farbflächen unterscheiden sich; bloße Umfärbungen werden nicht als neue Motive gezählt. Die Gestaltungsrezepte bleiben reproduzierbar. Menschliche Spieltests und individuelle gestalterische Verfeinerungen bleiben sinnvoll.
 
 | Sammlung | Motive | Bildübersicht |
 |---|---:|---|
-| Weltreise in Neon | 6 | [Ansehen](previews/collection-world.png) |
-| Naturzauber | 6 | [Ansehen](previews/collection-garden.png) |
-| Kleine Genussmomente | 6 | [Ansehen](previews/collection-taste.png) |
-| Kosmische Reise | 6 | [Ansehen](previews/collection-space.png) |
-| Meisterwerke neu gedacht | 4 | [Ansehen](previews/collection-art.png) |
-| Halloween im Neonlicht | 20 | [Ansehen](previews/collection-halloween.png) |
-| Weihnachtszauber | 20 | [Ansehen](previews/collection-christmas.png) |
-| Winter und Eis | 20 | [Ansehen](previews/collection-winter.png) |
-| Ostern und Frühling | 20 | [Ansehen](previews/collection-easter.png) |
-| Technik entdecken | 20 | [Ansehen](previews/collection-technology.png) |
-| Computer und Gaming | 20 | [Ansehen](previews/collection-computers.png) |
-| Skyline bei Nacht | 20 | [Ansehen](previews/collection-skylines.png) |
-| Smartphonewelten | 20 | [Ansehen](previews/collection-smartphones.png) |
-| Unterwegs auf Rädern | 20 | [Ansehen](previews/collection-vehicles.png) |
-| Unter dem Meer | 20 | [Ansehen](previews/collection-ocean.png) |
-| Tierische Freunde | 20 | [Ansehen](previews/collection-animals.png) |
-| Vogelparadies | 20 | [Ansehen](previews/collection-birds.png) |
-| Bäckerei und Süßes | 20 | [Ansehen](previews/collection-bakery.png) |
-| Obstkorb in Neon | 20 | [Ansehen](previews/collection-fruit.png) |
-| Blüten und Botanik | 20 | [Ansehen](previews/collection-flowers.png) |
-| Werkstatt und Garten | 20 | [Ansehen](previews/collection-workshop.png) |
-| Musik im Licht | 20 | [Ansehen](previews/collection-music.png) |
-| Sport und Bewegung | 20 | [Ansehen](previews/collection-sports.png) |
-| Spielzeug und Kindheit | 20 | [Ansehen](previews/collection-toys.png) |
-| Urlaub und Abenteuer | 20 | [Ansehen](previews/collection-travel.png) |
-| Märchen und Magie | 20 | [Ansehen](previews/collection-fantasy.png) |
-| Landschaften und Fernweh | 20 | [Ansehen](previews/collection-landscapes.png) |
-| Sterne und Zukunft | 20 | [Ansehen](previews/collection-cosmos.png) |
-| Kleine Wohlfühlmomente | 12 | [Ansehen](previews/collection-cozy.png) |
+| Wahrzeichen & Baukunst | 7 | [Ansehen](previews/collection-world.png) |
+| Blumen & Blüten | 21 | [Ansehen](previews/collection-flowers.png) |
+| Garten & grünes Leben | 13 | [Ansehen](previews/collection-garden.png) |
+| Tiere an Land | 19 | [Ansehen](previews/collection-animals.png) |
+| Berge & Naturkräfte | 7 | [Ansehen](previews/collection-landscapes.png) |
+| Obst | 23 | [Ansehen](previews/collection-fruit.png) |
+| Gebäck & süße Freuden | 14 | [Ansehen](previews/collection-bakery.png) |
+| Getränke & Café | 4 | [Ansehen](previews/collection-taste.png) |
+| Sonne, Mond & Planeten | 4 | [Ansehen](previews/collection-space.png) |
+| Raumfahrt & Forschung | 10 | [Ansehen](previews/collection-spaceflight.png) |
+| Zukunft & erfundene Welten | 12 | [Ansehen](previews/collection-cosmos.png) |
+| Kunst & Bücher | 5 | [Ansehen](previews/collection-art.png) |
+| Halloween | 20 | [Ansehen](previews/collection-halloween.png) |
+| Weihnachten | 20 | [Ansehen](previews/collection-christmas.png) |
+| Winter & Eis | 20 | [Ansehen](previews/collection-winter.png) |
+| Ostern | 20 | [Ansehen](previews/collection-easter.png) |
+| Elektronik & Mechanik | 12 | [Ansehen](previews/collection-technology.png) |
+| Musik & Medien | 22 | [Ansehen](previews/collection-music.png) |
+| Kommunikation & Aufnahme | 4 | [Ansehen](previews/collection-communication.png) |
+| Physik & Chemie | 3 | [Ansehen](previews/collection-science_basics.png) |
+| Computer & Bürotechnik | 20 | [Ansehen](previews/collection-computers.png) |
+| Städte & Skylines | 19 | [Ansehen](previews/collection-skylines.png) |
+| Smartphones & Apps | 20 | [Ansehen](previews/collection-smartphones.png) |
+| Straßenfahrzeuge | 13 | [Ansehen](previews/collection-vehicles.png) |
+| Schienenverkehr | 3 | [Ansehen](previews/collection-rail.png) |
+| Fluggeräte | 6 | [Ansehen](previews/collection-aircraft.png) |
+| Meerestiere & Riffe | 12 | [Ansehen](previews/collection-ocean.png) |
+| Schiffe & Boote | 6 | [Ansehen](previews/collection-ships.png) |
+| Küsten & Inseln | 8 | [Ansehen](previews/collection-coasts.png) |
+| Vögel | 21 | [Ansehen](previews/collection-birds.png) |
+| Spielzeug & Kindheit | 22 | [Ansehen](previews/collection-toys.png) |
+| Kochen & Küche | 5 | [Ansehen](previews/collection-meals.png) |
+| Werkstatt & Handwerk | 13 | [Ansehen](previews/collection-workshop.png) |
+| Ballsport | 7 | [Ansehen](previews/collection-ball_sports.png) |
+| Sport & Bewegung | 13 | [Ansehen](previews/collection-sports.png) |
+| Reisen & Orientierung | 8 | [Ansehen](previews/collection-travel.png) |
+| Camping & Outdoor | 6 | [Ansehen](previews/collection-camping.png) |
+| Wüsten & Savannen | 5 | [Ansehen](previews/collection-deserts.png) |
+| Märchenwelten & Magie | 16 | [Ansehen](previews/collection-fantasy.png) |
+| Fabelwesen | 4 | [Ansehen](previews/collection-creatures.png) |
+| Seen & Flüsse | 4 | [Ansehen](previews/collection-lakes.png) |
+| Kleine Alltagsmomente | 9 | [Ansehen](previews/collection-cozy.png) |
 
-## Weltreise in Neon
+## Wahrzeichen & Baukunst
 
 [Bildübersicht dieser Sammlung](previews/collection-world.png)
 
@@ -48,41 +61,186 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Wind über Holland](collections/levels/world_04_windmill.json) · 53.0 Pfeile
 - [Licht an der Küste](collections/levels/world_05_lighthouse.json) · 32.0 Pfeile
 - [Prater bei Nacht](collections/levels/world_06_prater.json) · 67.0 Pfeile
+- [Leuchtturm im Nebel](collections/levels/ocean_18_ocean_18.json) · 22.0 Pfeile
 
-## Naturzauber
+## Blumen & Blüten
+
+[Bildübersicht dieser Sammlung](previews/collection-flowers.png)
+
+- [Tulpe im Morgenlicht](collections/levels/garden_01_tulip.json) · 32.0 Pfeile
+- [Rote Rose](collections/levels/flowers_01_flowers_01.json) · 52.0 Pfeile
+- [Gänseblümchen](collections/levels/flowers_02_flowers_02.json) · 50.0 Pfeile
+- [Goldene Sonnenblume](collections/levels/flowers_03_flowers_03.json) · 50.0 Pfeile
+- [Klatschmohn](collections/levels/flowers_04_flowers_04.json) · 42.0 Pfeile
+- [Violettes Veilchen](collections/levels/flowers_05_flowers_05.json) · 52.0 Pfeile
+- [Weiße Lilie](collections/levels/flowers_06_flowers_06.json) · 49.0 Pfeile
+- [Orchideenlicht](collections/levels/flowers_07_flowers_07.json) · 48.0 Pfeile
+- [Hibiskus im Sommer](collections/levels/flowers_08_flowers_08.json) · 54.0 Pfeile
+- [Gerbera in Pink](collections/levels/flowers_09_flowers_09.json) · 51.0 Pfeile
+- [Lila Aster](collections/levels/flowers_10_flowers_10.json) · 47.0 Pfeile
+- [Goldene Ringelblume](collections/levels/flowers_11_flowers_11.json) · 53.0 Pfeile
+- [Anemonenzauber](collections/levels/flowers_12_flowers_12.json) · 56.0 Pfeile
+- [Lavendelduft](collections/levels/flowers_13_flowers_13.json) · 25.0 Pfeile
+- [Blaue Hyazinthe](collections/levels/flowers_14_flowers_14.json) · 27.0 Pfeile
+- [Lupine im Garten](collections/levels/flowers_15_flowers_15.json) · 31.0 Pfeile
+- [Lotus im Teich](collections/levels/flowers_16_flowers_16.json) · 45.0 Pfeile
+- [Bunter Blumenstrauß](collections/levels/flowers_17_flowers_17.json) · 72.0 Pfeile
+- [Tulpe im Abendrot](collections/levels/flowers_18_flowers_18.json) · 41.0 Pfeile
+- [Dahlienblüte](collections/levels/flowers_19_flowers_19.json) · 52.0 Pfeile
+- [Sommerblumen](collections/levels/flowers_20_flowers_20.json) · 70.0 Pfeile
+
+## Garten & grünes Leben
 
 [Bildübersicht dieser Sammlung](previews/collection-garden.png)
 
-- [Tulpe im Morgenlicht](collections/levels/garden_01_tulip.json) · 32.0 Pfeile
 - [Kaktus in der Sonne](collections/levels/garden_02_cactus.json) · 20.0 Pfeile
 - [Glückspilz](collections/levels/garden_03_mushroom.json) · 50.0 Pfeile
 - [Palme am Strand](collections/levels/garden_04_palm.json) · 35.0 Pfeile
+- [Gartenbesen](collections/levels/workshop_05_workshop_05.json) · 22.0 Pfeile
+- [Spaten im Garten](collections/levels/workshop_06_workshop_06.json) · 18.0 Pfeile
+- [Rechen im Herbst](collections/levels/workshop_07_workshop_07.json) · 26.0 Pfeile
+- [Gartenhandschuh](collections/levels/workshop_11_workshop_11.json) · 27.0 Pfeile
+- [Blumentopf mit Bonsai](collections/levels/workshop_14_workshop_14.json) · 34.0 Pfeile
+- [Saatgutpäckchen](collections/levels/workshop_15_workshop_15.json) · 72.0 Pfeile
+- [Gießflasche](collections/levels/workshop_16_workshop_16.json) · 32.0 Pfeile
+- [Wald am See](collections/levels/landscapes_18_landscapes_18.json) · 42.0 Pfeile
+- [Dunkler Tannenwald](collections/levels/landscapes_19_landscapes_19.json) · 49.0 Pfeile
+- [Bonsai auf dem Tisch](collections/levels/cozy_05_cozy_05.json) · 40.0 Pfeile
+
+## Tiere an Land
+
+[Bildübersicht dieser Sammlung](previews/collection-animals.png)
+
 - [Schildkrötenreise](collections/levels/garden_05_turtle.json) · 55.0 Pfeile
+- [Neugierige Katze](collections/levels/animals_01_animals_01.json) · 57.0 Pfeile
+- [Treuer Hund](collections/levels/animals_02_animals_02.json) · 69.0 Pfeile
+- [Kleiner Bär](collections/levels/animals_03_animals_03.json) · 57.0 Pfeile
+- [Panda im Bambus](collections/levels/animals_04_animals_04.json) · 71.0 Pfeile
+- [Fuchs im Wald](collections/levels/animals_05_animals_05.json) · 54.0 Pfeile
+- [Hase auf der Wiese](collections/levels/animals_06_animals_06.json) · 54.0 Pfeile
+- [Maus mit großen Ohren](collections/levels/animals_07_animals_07.json) · 56.0 Pfeile
+- [Koalablick](collections/levels/animals_08_animals_08.json) · 63.0 Pfeile
+- [König der Tiere](collections/levels/animals_09_animals_09.json) · 87.0 Pfeile
+- [Wolf im Mondlicht](collections/levels/animals_10_animals_10.json) · 54.0 Pfeile
+- [Tigeraugen](collections/levels/animals_12_animals_12.json) · 60.0 Pfeile
+- [Kleiner Welpe](collections/levels/animals_14_animals_14.json) · 66.0 Pfeile
+- [Wüstenfuchs](collections/levels/animals_15_animals_15.json) · 58.0 Pfeile
+- [Schneehasenblick](collections/levels/animals_16_animals_16.json) · 64.0 Pfeile
+- [Waschbärenmaske](collections/levels/animals_17_animals_17.json) · 68.0 Pfeile
+- [Hamsterfreund](collections/levels/animals_18_animals_18.json) · 60.0 Pfeile
+- [Kätzchen mit Stern](collections/levels/animals_19_animals_19.json) · 61.0 Pfeile
+- [Löwenkind](collections/levels/animals_20_animals_20.json) · 87.0 Pfeile
+
+## Berge & Naturkräfte
+
+[Bildübersicht dieser Sammlung](previews/collection-landscapes.png)
+
 - [Spiegel der Alpen](collections/levels/garden_06_alps.json) · 35.0 Pfeile
+- [Berge im Morgenlicht](collections/levels/landscapes_01_landscapes_01.json) · 45.0 Pfeile
+- [Tiefe Schlucht](collections/levels/landscapes_07_landscapes_07.json) · 50.0 Pfeile
+- [Weites Tal](collections/levels/landscapes_08_landscapes_08.json) · 40.0 Pfeile
+- [Abendsonne am Horizont](collections/levels/landscapes_13_landscapes_13.json) · 32.0 Pfeile
+- [Vulkan im Feuerschein](collections/levels/landscapes_20_landscapes_20.json) · 39.0 Pfeile
+- [Polarlichtnacht](collections/levels/cosmos_19_cosmos_19.json) · 51.0 Pfeile
 
-## Kleine Genussmomente
+## Obst
 
-[Bildübersicht dieser Sammlung](previews/collection-taste.png)
+[Bildübersicht dieser Sammlung](previews/collection-fruit.png)
 
 - [Knackiger Apfel](collections/levels/taste_01_apple.json) · 40.0 Pfeile
 - [Erdbeerzeit](collections/levels/taste_02_strawberry.json) · 44.0 Pfeile
-- [Drei Kugeln Glück](collections/levels/taste_03_icecream.json) · 35.0 Pfeile
-- [Kleine Kaffeepause](collections/levels/taste_04_coffee.json) · 36.0 Pfeile
 - [Kirschen im Sommer](collections/levels/taste_05_cherries.json) · 45.0 Pfeile
-- [Lime & Neon](collections/levels/taste_06_cocktail.json) · 38.0 Pfeile
+- [Sonnige Orange](collections/levels/fruit_01_fruit_01.json) · 57.0 Pfeile
+- [Frische Zitrone](collections/levels/fruit_02_fruit_02.json) · 53.0 Pfeile
+- [Sommermelone](collections/levels/fruit_03_fruit_03.json) · 50.0 Pfeile
+- [Goldene Birne](collections/levels/fruit_04_fruit_04.json) · 28.0 Pfeile
+- [Tropische Ananas](collections/levels/fruit_05_fruit_05.json) · 61.0 Pfeile
+- [Violette Trauben](collections/levels/fruit_06_fruit_06.json) · 38.0 Pfeile
+- [Reife Avocado](collections/levels/fruit_07_fruit_07.json) · 52.0 Pfeile
+- [Pfirsich im Sommer](collections/levels/fruit_08_fruit_08.json) · 38.0 Pfeile
+- [Dunkle Pflaume](collections/levels/fruit_09_fruit_09.json) · 34.0 Pfeile
+- [Süße Mango](collections/levels/fruit_10_fruit_10.json) · 34.0 Pfeile
+- [Kokosnuss am Strand](collections/levels/fruit_11_fruit_11.json) · 59.0 Pfeile
+- [Grüne Kiwi](collections/levels/fruit_12_fruit_12.json) · 57.0 Pfeile
+- [Obstkorb am Morgen](collections/levels/fruit_13_fruit_13.json) · 42.0 Pfeile
+- [Birne mit Blatt](collections/levels/fruit_14_fruit_14.json) · 36.0 Pfeile
+- [Zitrusfrucht im Anschnitt](collections/levels/fruit_15_fruit_15.json) · 53.0 Pfeile
+- [Melonenscheibe](collections/levels/fruit_16_fruit_16.json) · 45.0 Pfeile
+- [Ananas im Sonnenlicht](collections/levels/fruit_17_fruit_17.json) · 65.0 Pfeile
+- [Traubenlese](collections/levels/fruit_18_fruit_18.json) · 42.0 Pfeile
+- [Avocadohälfte](collections/levels/fruit_19_fruit_19.json) · 54.0 Pfeile
+- [Goldene Pfirsichernte](collections/levels/fruit_20_fruit_20.json) · 35.0 Pfeile
 
-## Kosmische Reise
+## Gebäck & süße Freuden
+
+[Bildübersicht dieser Sammlung](previews/collection-bakery.png)
+
+- [Drei Kugeln Glück](collections/levels/taste_03_icecream.json) · 35.0 Pfeile
+- [Glasierter Donut](collections/levels/bakery_02_bakery_02.json) · 58.0 Pfeile
+- [Schokokeks](collections/levels/bakery_03_bakery_03.json) · 56.0 Pfeile
+- [Geburtstagstorte](collections/levels/bakery_04_bakery_04.json) · 30.0 Pfeile
+- [Frisches Brot](collections/levels/bakery_05_bakery_05.json) · 45.0 Pfeile
+- [Goldene Waffel](collections/levels/bakery_08_bakery_08.json) · 70.0 Pfeile
+- [Pfannkuchenstapel](collections/levels/bakery_09_bakery_09.json) · 42.0 Pfeile
+- [Ofenwarme Brezel](collections/levels/bakery_10_bakery_10.json) · 40.0 Pfeile
+- [Kleine Pralinenschachtel](collections/levels/bakery_11_bakery_11.json) · 46.0 Pfeile
+- [Marmeladenglas](collections/levels/bakery_12_bakery_12.json) · 25.0 Pfeile
+- [Bunte Süßigkeit](collections/levels/bakery_17_bakery_17.json) · 42.0 Pfeile
+- [Eiswaffelzeichen](collections/levels/bakery_18_bakery_18.json) · 52.0 Pfeile
+- [Süßer Stern](collections/levels/bakery_19_bakery_19.json) · 55.0 Pfeile
+- [Liebesplätzchen](collections/levels/bakery_20_bakery_20.json) · 61.0 Pfeile
+
+## Getränke & Café
+
+[Bildübersicht dieser Sammlung](previews/collection-taste.png)
+
+- [Kleine Kaffeepause](collections/levels/taste_04_coffee.json) · 36.0 Pfeile
+- [Lime & Neon](collections/levels/taste_06_cocktail.json) · 38.0 Pfeile
+- [Milch zum Frühstück](collections/levels/bakery_13_bakery_13.json) · 25.0 Pfeile
+- [Bäckerkaffee](collections/levels/bakery_14_bakery_14.json) · 36.0 Pfeile
+
+## Sonne, Mond & Planeten
 
 [Bildübersicht dieser Sammlung](previews/collection-space.png)
 
 - [Sternenlicht](collections/levels/space_01_star.json) · 19.0 Pfeile
 - [Mondnacht](collections/levels/space_02_moon.json) · 26.0 Pfeile
-- [Auf zu den Sternen](collections/levels/space_03_rocket.json) · 39.0 Pfeile
 - [Ringe des Saturn](collections/levels/space_04_saturn.json) · 33.0 Pfeile
 - [Kometenschweif](collections/levels/space_05_comet.json) · 44.0 Pfeile
-- [Besuch aus dem All](collections/levels/space_06_ufo.json) · 42.0 Pfeile
 
-## Meisterwerke neu gedacht
+## Raumfahrt & Forschung
+
+[Bildübersicht dieser Sammlung](previews/collection-spaceflight.png)
+
+- [Auf zu den Sternen](collections/levels/space_03_rocket.json) · 39.0 Pfeile
+- [Mondstation](collections/levels/cosmos_05_cosmos_05.json) · 35.0 Pfeile
+- [Marsroboter](collections/levels/cosmos_06_cosmos_06.json) · 35.0 Pfeile
+- [Raumfahrerhelm](collections/levels/cosmos_07_cosmos_07.json) · 33.0 Pfeile
+- [Raumschiffsteuerung](collections/levels/cosmos_08_cosmos_08.json) · 39.0 Pfeile
+- [Funkkontakt zur Erde](collections/levels/cosmos_09_cosmos_09.json) · 40.0 Pfeile
+- [Planetenerkundung](collections/levels/cosmos_10_cosmos_10.json) · 44.0 Pfeile
+- [Sternenkarte](collections/levels/cosmos_11_cosmos_11.json) · 53.0 Pfeile
+- [Labor im All](collections/levels/cosmos_12_cosmos_12.json) · 24.0 Pfeile
+- [Raumcomputer](collections/levels/cosmos_14_cosmos_14.json) · 43.0 Pfeile
+
+## Zukunft & erfundene Welten
+
+[Bildübersicht dieser Sammlung](previews/collection-cosmos.png)
+
+- [Besuch aus dem All](collections/levels/space_06_ufo.json) · 42.0 Pfeile
+- [Grüne Zukunftsstadt](collections/levels/skylines_05_skylines_05.json) · 72.0 Pfeile
+- [Sternenkompass](collections/levels/cosmos_01_cosmos_01.json) · 57.0 Pfeile
+- [Planet mit Leuchtkern](collections/levels/cosmos_02_cosmos_02.json) · 61.0 Pfeile
+- [Kosmischer Kristall](collections/levels/cosmos_03_cosmos_03.json) · 65.0 Pfeile
+- [Galaktischer Stern](collections/levels/cosmos_04_cosmos_04.json) · 59.0 Pfeile
+- [Kosmische Batterie](collections/levels/cosmos_13_cosmos_13.json) · 27.0 Pfeile
+- [Sternenschlüssel](collections/levels/cosmos_15_cosmos_15.json) · 23.0 Pfeile
+- [Sternenblüte](collections/levels/cosmos_16_cosmos_16.json) · 44.0 Pfeile
+- [Himmelslaterne](collections/levels/cosmos_17_cosmos_17.json) · 43.0 Pfeile
+- [Himmelsbrücke](collections/levels/cosmos_18_cosmos_18.json) · 21.0 Pfeile
+- [Leuchtender Zukunftsturm](collections/levels/cosmos_20_cosmos_20.json) · 50.0 Pfeile
+
+## Kunst & Bücher
 
 [Bildübersicht dieser Sammlung](previews/collection-art.png)
 
@@ -90,8 +248,9 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Die große Neonwelle](collections/levels/art_02_wave.json) · 30.0 Pfeile
 - [Goldenes Korn](collections/levels/art_03_wheat.json) · 40.0 Pfeile
 - [Brücke über Seerosen](collections/levels/art_04_bridge.json) · 38.0 Pfeile
+- [Lesestunde](collections/levels/cozy_01_cozy_01.json) · 37.0 Pfeile
 
-## Halloween im Neonlicht
+## Halloween
 
 [Bildübersicht dieser Sammlung](previews/collection-halloween.png)
 
@@ -116,7 +275,7 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Mystisches Auge](collections/levels/halloween_19_halloween_19.json) · 59.0 Pfeile
 - [Zauberkristall](collections/levels/halloween_20_halloween_20.json) · 69.0 Pfeile
 
-## Weihnachtszauber
+## Weihnachten
 
 [Bildübersicht dieser Sammlung](previews/collection-christmas.png)
 
@@ -141,7 +300,7 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Schneemann mit Zylinder](collections/levels/christmas_19_christmas_19.json) · 50.0 Pfeile
 - [Festliche Krone](collections/levels/christmas_20_christmas_20.json) · 30.0 Pfeile
 
-## Winter und Eis
+## Winter & Eis
 
 [Bildübersicht dieser Sammlung](previews/collection-winter.png)
 
@@ -166,7 +325,7 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Schneekugeltraum](collections/levels/winter_19_winter_19.json) · 50.0 Pfeile
 - [Wintersonne](collections/levels/winter_20_winter_20.json) · 41.0 Pfeile
 
-## Ostern und Frühling
+## Ostern
 
 [Bildübersicht dieser Sammlung](previews/collection-easter.png)
 
@@ -191,7 +350,7 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Frühlingswiese](collections/levels/easter_19_easter_19.json) · 52.0 Pfeile
 - [Schokoladengold](collections/levels/easter_20_easter_20.json) · 71.0 Pfeile
 
-## Technik entdecken
+## Elektronik & Mechanik
 
 [Bildübersicht dieser Sammlung](previews/collection-technology.png)
 
@@ -201,22 +360,58 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Elektronische Leiterbahn](collections/levels/technology_04_technology_04.json) · 82.0 Pfeile
 - [Volle Batterie](collections/levels/technology_05_technology_05.json) · 26.0 Pfeile
 - [Technikkompass](collections/levels/technology_06_technology_06.json) · 51.0 Pfeile
-- [Digitale Kamera](collections/levels/technology_07_technology_07.json) · 57.0 Pfeile
-- [Überwachungsauge](collections/levels/technology_08_technology_08.json) · 48.0 Pfeile
-- [Funkstation](collections/levels/technology_09_technology_09.json) · 40.0 Pfeile
-- [Laborflasche](collections/levels/technology_10_technology_10.json) · 27.0 Pfeile
-- [Mikrofon für Ideen](collections/levels/technology_11_technology_11.json) · 23.0 Pfeile
 - [Technikleuchte](collections/levels/technology_12_technology_12.json) · 22.0 Pfeile
 - [Technische Uhr](collections/levels/technology_13_technology_13.json) · 55.0 Pfeile
-- [Funkradio](collections/levels/technology_14_technology_14.json) · 47.0 Pfeile
 - [Fernbedienung](collections/levels/technology_15_technology_15.json) · 49.0 Pfeile
 - [Solarzeichen](collections/levels/technology_16_technology_16.json) · 60.0 Pfeile
-- [Magnetisches Feld](collections/levels/technology_17_technology_17.json) · 57.0 Pfeile
-- [Energieblitz](collections/levels/technology_18_technology_18.json) · 63.0 Pfeile
 - [Digitale Raute](collections/levels/technology_19_technology_19.json) · 70.0 Pfeile
 - [Werkzeug der Zukunft](collections/levels/technology_20_technology_20.json) · 22.0 Pfeile
 
-## Computer und Gaming
+## Musik & Medien
+
+[Bildübersicht dieser Sammlung](previews/collection-music.png)
+
+- [Digitale Kamera](collections/levels/technology_07_technology_07.json) · 57.0 Pfeile
+- [Akustische Gitarre](collections/levels/music_01_music_01.json) · 45.0 Pfeile
+- [Kleine Ukulele](collections/levels/music_02_music_02.json) · 42.0 Pfeile
+- [Geige im Scheinwerferlicht](collections/levels/music_03_music_03.json) · 50.0 Pfeile
+- [Banjo im Sommer](collections/levels/music_04_music_04.json) · 63.0 Pfeile
+- [Bunte Trommel](collections/levels/music_05_music_05.json) · 46.0 Pfeile
+- [Tamburin im Takt](collections/levels/music_06_music_06.json) · 42.0 Pfeile
+- [Maracas für Rhythmus](collections/levels/music_07_music_07.json) · 33.0 Pfeile
+- [Goldene Trompete](collections/levels/music_08_music_08.json) · 25.0 Pfeile
+- [Saxofon bei Nacht](collections/levels/music_09_music_09.json) · 22.0 Pfeile
+- [Flötenmelodie](collections/levels/music_10_music_10.json) · 35.0 Pfeile
+- [Harfe im Licht](collections/levels/music_11_music_11.json) · 47.0 Pfeile
+- [Bühnenmikrofon](collections/levels/music_12_music_12.json) · 22.0 Pfeile
+- [Doppelte Musiknote](collections/levels/music_13_music_13.json) · 28.0 Pfeile
+- [Synthesizer](collections/levels/music_14_music_14.json) · 59.0 Pfeile
+- [Kopfhörer für Melodien](collections/levels/music_15_music_15.json) · 22.0 Pfeile
+- [Musiklautsprecher](collections/levels/music_16_music_16.json) · 48.0 Pfeile
+- [Retro-Musikradio](collections/levels/music_17_music_17.json) · 45.0 Pfeile
+- [Plattenspielerzeichen](collections/levels/music_18_music_18.json) · 63.0 Pfeile
+- [Musik am Display](collections/levels/music_19_music_19.json) · 53.0 Pfeile
+- [Bühnenstern](collections/levels/music_20_music_20.json) · 50.0 Pfeile
+- [Reisefotografie](collections/levels/travel_14_travel_14.json) · 61.0 Pfeile
+
+## Kommunikation & Aufnahme
+
+[Bildübersicht dieser Sammlung](previews/collection-communication.png)
+
+- [Überwachungsauge](collections/levels/technology_08_technology_08.json) · 48.0 Pfeile
+- [Funkstation](collections/levels/technology_09_technology_09.json) · 40.0 Pfeile
+- [Mikrofon für Ideen](collections/levels/technology_11_technology_11.json) · 23.0 Pfeile
+- [Funkradio](collections/levels/technology_14_technology_14.json) · 47.0 Pfeile
+
+## Physik & Chemie
+
+[Bildübersicht dieser Sammlung](previews/collection-science_basics.png)
+
+- [Laborflasche](collections/levels/technology_10_technology_10.json) · 27.0 Pfeile
+- [Magnetisches Feld](collections/levels/technology_17_technology_17.json) · 57.0 Pfeile
+- [Energieblitz](collections/levels/technology_18_technology_18.json) · 63.0 Pfeile
+
+## Computer & Bürotechnik
 
 [Bildübersicht dieser Sammlung](previews/collection-computers.png)
 
@@ -241,7 +436,7 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Netzwerkrouter](collections/levels/computers_19_computers_19.json) · 42.0 Pfeile
 - [Computertablet](collections/levels/computers_20_computers_20.json) · 51.0 Pfeile
 
-## Skyline bei Nacht
+## Städte & Skylines
 
 [Bildübersicht dieser Sammlung](previews/collection-skylines.png)
 
@@ -249,7 +444,6 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Blaue Hafenstadt](collections/levels/skylines_02_skylines_02.json) · 60.0 Pfeile
 - [Goldene Türme](collections/levels/skylines_03_skylines_03.json) · 55.0 Pfeile
 - [Violette Abendstadt](collections/levels/skylines_04_skylines_04.json) · 56.0 Pfeile
-- [Grüne Zukunftsstadt](collections/levels/skylines_05_skylines_05.json) · 72.0 Pfeile
 - [Türme am Fluss](collections/levels/skylines_06_skylines_06.json) · 61.0 Pfeile
 - [Dächer im Morgenlicht](collections/levels/skylines_07_skylines_07.json) · 59.0 Pfeile
 - [Rote Nachtstadt](collections/levels/skylines_08_skylines_08.json) · 62.0 Pfeile
@@ -266,7 +460,7 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Bunte Weltenstadt](collections/levels/skylines_19_skylines_19.json) · 52.0 Pfeile
 - [Stadt im Abendrot](collections/levels/skylines_20_skylines_20.json) · 58.0 Pfeile
 
-## Smartphonewelten
+## Smartphones & Apps
 
 [Bildübersicht dieser Sammlung](previews/collection-smartphones.png)
 
@@ -291,7 +485,7 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Notiz auf dem Display](collections/levels/smartphones_19_smartphones_19.json) · 56.0 Pfeile
 - [Einstellungen im Neonlicht](collections/levels/smartphones_20_smartphones_20.json) · 51.0 Pfeile
 
-## Unterwegs auf Rädern
+## Straßenfahrzeuge
 
 [Bildübersicht dieser Sammlung](previews/collection-vehicles.png)
 
@@ -308,15 +502,27 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Fahrrad im Sommer](collections/levels/vehicles_11_vehicles_11.json) · 48.0 Pfeile
 - [Motorradfreiheit](collections/levels/vehicles_12_vehicles_12.json) · 53.0 Pfeile
 - [Roller in der Stadt](collections/levels/vehicles_13_vehicles_13.json) · 41.0 Pfeile
+
+## Schienenverkehr
+
+[Bildübersicht dieser Sammlung](previews/collection-rail.png)
+
 - [Schnellzug](collections/levels/vehicles_14_vehicles_14.json) · 36.0 Pfeile
 - [Straßenbahn](collections/levels/vehicles_15_vehicles_15.json) · 52.0 Pfeile
 - [Metroexpress](collections/levels/vehicles_16_vehicles_16.json) · 37.0 Pfeile
+
+## Fluggeräte
+
+[Bildübersicht dieser Sammlung](previews/collection-aircraft.png)
+
 - [Flugzeug über Wolken](collections/levels/vehicles_17_vehicles_17.json) · 31.0 Pfeile
 - [Düsenjet](collections/levels/vehicles_18_vehicles_18.json) · 33.0 Pfeile
 - [Segelflug](collections/levels/vehicles_19_vehicles_19.json) · 23.0 Pfeile
 - [Wasserflugzeug](collections/levels/vehicles_20_vehicles_20.json) · 33.0 Pfeile
+- [Heißluftballonfahrt](collections/levels/travel_12_travel_12.json) · 45.0 Pfeile
+- [Luftschiffreise](collections/levels/travel_13_travel_13.json) · 31.0 Pfeile
 
-## Unter dem Meer
+## Meerestiere & Riffe
 
 [Bildübersicht dieser Sammlung](previews/collection-ocean.png)
 
@@ -332,44 +538,36 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Perlmuttmuschel](collections/levels/ocean_10_ocean_10.json) · 60.0 Pfeile
 - [Korallengarten](collections/levels/ocean_11_ocean_11.json) · 31.0 Pfeile
 - [Meeresschmetterling](collections/levels/ocean_12_ocean_12.json) · 59.0 Pfeile
+
+## Schiffe & Boote
+
+[Bildübersicht dieser Sammlung](previews/collection-ships.png)
+
 - [U-Boot auf Tauchgang](collections/levels/ocean_13_ocean_13.json) · 47.0 Pfeile
 - [Segel im Wind](collections/levels/ocean_14_ocean_14.json) · 32.0 Pfeile
 - [Schiff auf See](collections/levels/ocean_15_ocean_15.json) · 27.0 Pfeile
 - [Yacht im Hafen](collections/levels/ocean_16_ocean_16.json) · 30.0 Pfeile
 - [Kanu auf ruhigem Wasser](collections/levels/ocean_17_ocean_17.json) · 10.0 Pfeile
-- [Leuchtturm im Nebel](collections/levels/ocean_18_ocean_18.json) · 22.0 Pfeile
+- [Segelurlaub](collections/levels/travel_11_travel_11.json) · 42.0 Pfeile
+
+## Küsten & Inseln
+
+[Bildübersicht dieser Sammlung](previews/collection-coasts.png)
+
 - [Insel im Ozean](collections/levels/ocean_19_ocean_19.json) · 39.0 Pfeile
 - [Blaue Lagune](collections/levels/ocean_20_ocean_20.json) · 39.0 Pfeile
+- [Strandurlaub](collections/levels/travel_08_travel_08.json) · 39.0 Pfeile
+- [Fjord im Norden](collections/levels/landscapes_04_landscapes_04.json) · 46.0 Pfeile
+- [Strand mit Palme](collections/levels/landscapes_14_landscapes_14.json) · 36.0 Pfeile
+- [Kleine Tropeninsel](collections/levels/landscapes_15_landscapes_15.json) · 40.0 Pfeile
+- [Türkisblaue Lagune](collections/levels/landscapes_16_landscapes_16.json) · 43.0 Pfeile
+- [Küste im Sommer](collections/levels/landscapes_17_landscapes_17.json) · 40.0 Pfeile
 
-## Tierische Freunde
-
-[Bildübersicht dieser Sammlung](previews/collection-animals.png)
-
-- [Neugierige Katze](collections/levels/animals_01_animals_01.json) · 57.0 Pfeile
-- [Treuer Hund](collections/levels/animals_02_animals_02.json) · 69.0 Pfeile
-- [Kleiner Bär](collections/levels/animals_03_animals_03.json) · 57.0 Pfeile
-- [Panda im Bambus](collections/levels/animals_04_animals_04.json) · 71.0 Pfeile
-- [Fuchs im Wald](collections/levels/animals_05_animals_05.json) · 54.0 Pfeile
-- [Hase auf der Wiese](collections/levels/animals_06_animals_06.json) · 54.0 Pfeile
-- [Maus mit großen Ohren](collections/levels/animals_07_animals_07.json) · 56.0 Pfeile
-- [Koalablick](collections/levels/animals_08_animals_08.json) · 63.0 Pfeile
-- [König der Tiere](collections/levels/animals_09_animals_09.json) · 87.0 Pfeile
-- [Wolf im Mondlicht](collections/levels/animals_10_animals_10.json) · 54.0 Pfeile
-- [Eule im Baum](collections/levels/animals_11_animals_11.json) · 72.0 Pfeile
-- [Tigeraugen](collections/levels/animals_12_animals_12.json) · 60.0 Pfeile
-- [Teddy im Kinderzimmer](collections/levels/animals_13_animals_13.json) · 60.0 Pfeile
-- [Kleiner Welpe](collections/levels/animals_14_animals_14.json) · 66.0 Pfeile
-- [Wüstenfuchs](collections/levels/animals_15_animals_15.json) · 58.0 Pfeile
-- [Schneehasenblick](collections/levels/animals_16_animals_16.json) · 64.0 Pfeile
-- [Waschbärenmaske](collections/levels/animals_17_animals_17.json) · 68.0 Pfeile
-- [Hamsterfreund](collections/levels/animals_18_animals_18.json) · 60.0 Pfeile
-- [Kätzchen mit Stern](collections/levels/animals_19_animals_19.json) · 61.0 Pfeile
-- [Löwenkind](collections/levels/animals_20_animals_20.json) · 87.0 Pfeile
-
-## Vogelparadies
+## Vögel
 
 [Bildübersicht dieser Sammlung](previews/collection-birds.png)
 
+- [Eule im Baum](collections/levels/animals_11_animals_11.json) · 72.0 Pfeile
 - [Ente am Teich](collections/levels/birds_01_birds_01.json) · 53.0 Pfeile
 - [Schwan auf dem See](collections/levels/birds_02_birds_02.json) · 52.0 Pfeile
 - [Flamingo in Pink](collections/levels/birds_03_birds_03.json) · 42.0 Pfeile
@@ -391,160 +589,11 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Blauer Singvogel](collections/levels/birds_19_birds_19.json) · 46.0 Pfeile
 - [Wintervogel](collections/levels/birds_20_birds_20.json) · 42.0 Pfeile
 
-## Bäckerei und Süßes
-
-[Bildübersicht dieser Sammlung](previews/collection-bakery.png)
-
-- [Pizza aus dem Ofen](collections/levels/bakery_01_bakery_01.json) · 46.0 Pfeile
-- [Glasierter Donut](collections/levels/bakery_02_bakery_02.json) · 58.0 Pfeile
-- [Schokokeks](collections/levels/bakery_03_bakery_03.json) · 56.0 Pfeile
-- [Geburtstagstorte](collections/levels/bakery_04_bakery_04.json) · 30.0 Pfeile
-- [Frisches Brot](collections/levels/bakery_05_bakery_05.json) · 45.0 Pfeile
-- [Burgerpause](collections/levels/bakery_06_bakery_06.json) · 40.0 Pfeile
-- [Belegtes Sandwich](collections/levels/bakery_07_bakery_07.json) · 50 Pfeile
-- [Goldene Waffel](collections/levels/bakery_08_bakery_08.json) · 70.0 Pfeile
-- [Pfannkuchenstapel](collections/levels/bakery_09_bakery_09.json) · 42 Pfeile
-- [Ofenwarme Brezel](collections/levels/bakery_10_bakery_10.json) · 40.0 Pfeile
-- [Kleine Pralinenschachtel](collections/levels/bakery_11_bakery_11.json) · 46.0 Pfeile
-- [Marmeladenglas](collections/levels/bakery_12_bakery_12.json) · 25.0 Pfeile
-- [Milch zum Frühstück](collections/levels/bakery_13_bakery_13.json) · 25.0 Pfeile
-- [Bäckerkaffee](collections/levels/bakery_14_bakery_14.json) · 36.0 Pfeile
-- [Kuchenbesteck](collections/levels/bakery_15_bakery_15.json) · 19.0 Pfeile
-- [Honiglöffel](collections/levels/bakery_16_bakery_16.json) · 23.0 Pfeile
-- [Bunte Süßigkeit](collections/levels/bakery_17_bakery_17.json) · 42.0 Pfeile
-- [Eiswaffelzeichen](collections/levels/bakery_18_bakery_18.json) · 52.0 Pfeile
-- [Süßer Stern](collections/levels/bakery_19_bakery_19.json) · 55.0 Pfeile
-- [Liebesplätzchen](collections/levels/bakery_20_bakery_20.json) · 61.0 Pfeile
-
-## Obstkorb in Neon
-
-[Bildübersicht dieser Sammlung](previews/collection-fruit.png)
-
-- [Sonnige Orange](collections/levels/fruit_01_fruit_01.json) · 57.0 Pfeile
-- [Frische Zitrone](collections/levels/fruit_02_fruit_02.json) · 53.0 Pfeile
-- [Sommermelone](collections/levels/fruit_03_fruit_03.json) · 50.0 Pfeile
-- [Goldene Birne](collections/levels/fruit_04_fruit_04.json) · 28.0 Pfeile
-- [Tropische Ananas](collections/levels/fruit_05_fruit_05.json) · 61.0 Pfeile
-- [Violette Trauben](collections/levels/fruit_06_fruit_06.json) · 38.0 Pfeile
-- [Reife Avocado](collections/levels/fruit_07_fruit_07.json) · 52.0 Pfeile
-- [Pfirsich im Sommer](collections/levels/fruit_08_fruit_08.json) · 38.0 Pfeile
-- [Dunkle Pflaume](collections/levels/fruit_09_fruit_09.json) · 34.0 Pfeile
-- [Süße Mango](collections/levels/fruit_10_fruit_10.json) · 34.0 Pfeile
-- [Kokosnuss am Strand](collections/levels/fruit_11_fruit_11.json) · 59.0 Pfeile
-- [Grüne Kiwi](collections/levels/fruit_12_fruit_12.json) · 57.0 Pfeile
-- [Obstkorb am Morgen](collections/levels/fruit_13_fruit_13.json) · 42.0 Pfeile
-- [Birne mit Blatt](collections/levels/fruit_14_fruit_14.json) · 36.0 Pfeile
-- [Zitrusfrucht im Anschnitt](collections/levels/fruit_15_fruit_15.json) · 53.0 Pfeile
-- [Melonenscheibe](collections/levels/fruit_16_fruit_16.json) · 45 Pfeile
-- [Ananas im Sonnenlicht](collections/levels/fruit_17_fruit_17.json) · 65.0 Pfeile
-- [Traubenlese](collections/levels/fruit_18_fruit_18.json) · 42.0 Pfeile
-- [Avocadohälfte](collections/levels/fruit_19_fruit_19.json) · 54.0 Pfeile
-- [Goldene Pfirsichernte](collections/levels/fruit_20_fruit_20.json) · 35.0 Pfeile
-
-## Blüten und Botanik
-
-[Bildübersicht dieser Sammlung](previews/collection-flowers.png)
-
-- [Rote Rose](collections/levels/flowers_01_flowers_01.json) · 52.0 Pfeile
-- [Gänseblümchen](collections/levels/flowers_02_flowers_02.json) · 50.0 Pfeile
-- [Goldene Sonnenblume](collections/levels/flowers_03_flowers_03.json) · 50.0 Pfeile
-- [Klatschmohn](collections/levels/flowers_04_flowers_04.json) · 42.0 Pfeile
-- [Violettes Veilchen](collections/levels/flowers_05_flowers_05.json) · 52.0 Pfeile
-- [Weiße Lilie](collections/levels/flowers_06_flowers_06.json) · 49.0 Pfeile
-- [Orchideenlicht](collections/levels/flowers_07_flowers_07.json) · 48.0 Pfeile
-- [Hibiskus im Sommer](collections/levels/flowers_08_flowers_08.json) · 54.0 Pfeile
-- [Gerbera in Pink](collections/levels/flowers_09_flowers_09.json) · 51.0 Pfeile
-- [Lila Aster](collections/levels/flowers_10_flowers_10.json) · 47.0 Pfeile
-- [Goldene Ringelblume](collections/levels/flowers_11_flowers_11.json) · 53.0 Pfeile
-- [Anemonenzauber](collections/levels/flowers_12_flowers_12.json) · 56.0 Pfeile
-- [Lavendelduft](collections/levels/flowers_13_flowers_13.json) · 25.0 Pfeile
-- [Blaue Hyazinthe](collections/levels/flowers_14_flowers_14.json) · 27.0 Pfeile
-- [Lupine im Garten](collections/levels/flowers_15_flowers_15.json) · 31.0 Pfeile
-- [Lotus im Teich](collections/levels/flowers_16_flowers_16.json) · 45.0 Pfeile
-- [Bunter Blumenstrauß](collections/levels/flowers_17_flowers_17.json) · 72.0 Pfeile
-- [Tulpe im Abendrot](collections/levels/flowers_18_flowers_18.json) · 41.0 Pfeile
-- [Dahlienblüte](collections/levels/flowers_19_flowers_19.json) · 52.0 Pfeile
-- [Sommerblumen](collections/levels/flowers_20_flowers_20.json) · 70.0 Pfeile
-
-## Werkstatt und Garten
-
-[Bildübersicht dieser Sammlung](previews/collection-workshop.png)
-
-- [Hammer für Ideen](collections/levels/workshop_01_workshop_01.json) · 24.0 Pfeile
-- [Schraubenschlüssel](collections/levels/workshop_02_workshop_02.json) · 22.0 Pfeile
-- [Schraubendreher](collections/levels/workshop_03_workshop_03.json) · 20.0 Pfeile
-- [Farbpinsel](collections/levels/workshop_04_workshop_04.json) · 22.0 Pfeile
-- [Gartenbesen](collections/levels/workshop_05_workshop_05.json) · 22.0 Pfeile
-- [Spaten im Garten](collections/levels/workshop_06_workshop_06.json) · 18.0 Pfeile
-- [Rechen im Herbst](collections/levels/workshop_07_workshop_07.json) · 26.0 Pfeile
-- [Werkstattschlüssel](collections/levels/workshop_08_workshop_08.json) · 32.0 Pfeile
-- [Werkzeugkiste](collections/levels/workshop_09_workshop_09.json) · 31.0 Pfeile
-- [Arbeitshelm](collections/levels/workshop_10_workshop_10.json) · 36.0 Pfeile
-- [Gartenhandschuh](collections/levels/workshop_11_workshop_11.json) · 27.0 Pfeile
-- [Messkompass](collections/levels/workshop_12_workshop_12.json) · 62.0 Pfeile
-- [Werkstattlampe](collections/levels/workshop_13_workshop_13.json) · 24.0 Pfeile
-- [Blumentopf mit Bonsai](collections/levels/workshop_14_workshop_14.json) · 34.0 Pfeile
-- [Saatgutpäckchen](collections/levels/workshop_15_workshop_15.json) · 72.0 Pfeile
-- [Gießflasche](collections/levels/workshop_16_workshop_16.json) · 32.0 Pfeile
-- [Handwerkermesser](collections/levels/workshop_17_workshop_17.json) · 20.0 Pfeile
-- [Farbtopf](collections/levels/workshop_18_workshop_18.json) · 44.0 Pfeile
-- [Werkzeugtasche](collections/levels/workshop_19_workshop_19.json) · 40.0 Pfeile
-- [Elektrische Werkbank](collections/levels/workshop_20_workshop_20.json) · 82.0 Pfeile
-
-## Musik im Licht
-
-[Bildübersicht dieser Sammlung](previews/collection-music.png)
-
-- [Akustische Gitarre](collections/levels/music_01_music_01.json) · 45.0 Pfeile
-- [Kleine Ukulele](collections/levels/music_02_music_02.json) · 42.0 Pfeile
-- [Geige im Scheinwerferlicht](collections/levels/music_03_music_03.json) · 50.0 Pfeile
-- [Banjo im Sommer](collections/levels/music_04_music_04.json) · 63.0 Pfeile
-- [Bunte Trommel](collections/levels/music_05_music_05.json) · 46.0 Pfeile
-- [Tamburin im Takt](collections/levels/music_06_music_06.json) · 42.0 Pfeile
-- [Maracas für Rhythmus](collections/levels/music_07_music_07.json) · 33.0 Pfeile
-- [Goldene Trompete](collections/levels/music_08_music_08.json) · 25 Pfeile
-- [Saxofon bei Nacht](collections/levels/music_09_music_09.json) · 22 Pfeile
-- [Flötenmelodie](collections/levels/music_10_music_10.json) · 35 Pfeile
-- [Harfe im Licht](collections/levels/music_11_music_11.json) · 47.0 Pfeile
-- [Bühnenmikrofon](collections/levels/music_12_music_12.json) · 22.0 Pfeile
-- [Doppelte Musiknote](collections/levels/music_13_music_13.json) · 28.0 Pfeile
-- [Synthesizer](collections/levels/music_14_music_14.json) · 59.0 Pfeile
-- [Kopfhörer für Melodien](collections/levels/music_15_music_15.json) · 22.0 Pfeile
-- [Musiklautsprecher](collections/levels/music_16_music_16.json) · 48.0 Pfeile
-- [Retro-Musikradio](collections/levels/music_17_music_17.json) · 45.0 Pfeile
-- [Plattenspielerzeichen](collections/levels/music_18_music_18.json) · 63.0 Pfeile
-- [Musik am Display](collections/levels/music_19_music_19.json) · 53.0 Pfeile
-- [Bühnenstern](collections/levels/music_20_music_20.json) · 50.0 Pfeile
-
-## Sport und Bewegung
-
-[Bildübersicht dieser Sammlung](previews/collection-sports.png)
-
-- [Fußball im Flutlicht](collections/levels/sports_01_sports_01.json) · 47.0 Pfeile
-- [Basketballtraining](collections/levels/sports_02_sports_02.json) · 54.0 Pfeile
-- [Volleyball am Strand](collections/levels/sports_03_sports_03.json) · 49.0 Pfeile
-- [Tennisball im Sommer](collections/levels/sports_04_sports_04.json) · 57.0 Pfeile
-- [Baseball am Nachmittag](collections/levels/sports_05_sports_05.json) · 53.0 Pfeile
-- [Bowlingabend](collections/levels/sports_06_sports_06.json) · 52.0 Pfeile
-- [Tennisschläger](collections/levels/sports_07_sports_07.json) · 32.0 Pfeile
-- [Boxhandschuh](collections/levels/sports_08_sports_08.json) · 30.0 Pfeile
-- [Krafttraining](collections/levels/sports_09_sports_09.json) · 20.0 Pfeile
-- [Goldener Pokal](collections/levels/sports_10_sports_10.json) · 36.0 Pfeile
-- [Siegermedaille](collections/levels/sports_11_sports_11.json) · 42.0 Pfeile
-- [Skateboardspaß](collections/levels/sports_12_sports_12.json) · 37.0 Pfeile
-- [Schlittschuhtraining](collections/levels/sports_13_sports_13.json) · 26.0 Pfeile
-- [Skitag](collections/levels/sports_14_sports_14.json) · 40.0 Pfeile
-- [Snowboardabenteuer](collections/levels/sports_15_sports_15.json) · 38.0 Pfeile
-- [Fahrradtour](collections/levels/sports_16_sports_16.json) · 49.0 Pfeile
-- [Sporthelm](collections/levels/sports_17_sports_17.json) · 35.0 Pfeile
-- [Startuhr](collections/levels/sports_18_sports_18.json) · 61.0 Pfeile
-- [Zielmarkierung](collections/levels/sports_19_sports_19.json) · 70.0 Pfeile
-- [Fitnessherz](collections/levels/sports_20_sports_20.json) · 66.0 Pfeile
-
-## Spielzeug und Kindheit
+## Spielzeug & Kindheit
 
 [Bildübersicht dieser Sammlung](previews/collection-toys.png)
 
+- [Teddy im Kinderzimmer](collections/levels/animals_13_animals_13.json) · 60.0 Pfeile
 - [Teddybär im Regal](collections/levels/toys_01_toys_01.json) · 62.0 Pfeile
 - [Bunte Spielzeugpuppe](collections/levels/toys_02_toys_02.json) · 42.0 Pfeile
 - [Spielzeugroboter](collections/levels/toys_03_toys_03.json) · 39.0 Pfeile
@@ -565,8 +614,67 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Spielkonsole am Abend](collections/levels/toys_18_toys_18.json) · 39.0 Pfeile
 - [Bunter Kreisel](collections/levels/toys_19_toys_19.json) · 62.0 Pfeile
 - [Geschenk fürs Kinderzimmer](collections/levels/toys_20_toys_20.json) · 41.0 Pfeile
+- [Kuschelbär](collections/levels/cozy_06_cozy_06.json) · 65.0 Pfeile
 
-## Urlaub und Abenteuer
+## Kochen & Küche
+
+[Bildübersicht dieser Sammlung](previews/collection-meals.png)
+
+- [Pizza aus dem Ofen](collections/levels/bakery_01_bakery_01.json) · 46.0 Pfeile
+- [Burgerpause](collections/levels/bakery_06_bakery_06.json) · 40.0 Pfeile
+- [Belegtes Sandwich](collections/levels/bakery_07_bakery_07.json) · 50.0 Pfeile
+- [Kuchenbesteck](collections/levels/bakery_15_bakery_15.json) · 19.0 Pfeile
+- [Honiglöffel](collections/levels/bakery_16_bakery_16.json) · 23.0 Pfeile
+
+## Werkstatt & Handwerk
+
+[Bildübersicht dieser Sammlung](previews/collection-workshop.png)
+
+- [Hammer für Ideen](collections/levels/workshop_01_workshop_01.json) · 24.0 Pfeile
+- [Schraubenschlüssel](collections/levels/workshop_02_workshop_02.json) · 22.0 Pfeile
+- [Schraubendreher](collections/levels/workshop_03_workshop_03.json) · 20.0 Pfeile
+- [Farbpinsel](collections/levels/workshop_04_workshop_04.json) · 22.0 Pfeile
+- [Werkstattschlüssel](collections/levels/workshop_08_workshop_08.json) · 32.0 Pfeile
+- [Werkzeugkiste](collections/levels/workshop_09_workshop_09.json) · 31.0 Pfeile
+- [Arbeitshelm](collections/levels/workshop_10_workshop_10.json) · 36.0 Pfeile
+- [Messkompass](collections/levels/workshop_12_workshop_12.json) · 62.0 Pfeile
+- [Werkstattlampe](collections/levels/workshop_13_workshop_13.json) · 24.0 Pfeile
+- [Handwerkermesser](collections/levels/workshop_17_workshop_17.json) · 20.0 Pfeile
+- [Farbtopf](collections/levels/workshop_18_workshop_18.json) · 44.0 Pfeile
+- [Werkzeugtasche](collections/levels/workshop_19_workshop_19.json) · 40.0 Pfeile
+- [Elektrische Werkbank](collections/levels/workshop_20_workshop_20.json) · 82.0 Pfeile
+
+## Ballsport
+
+[Bildübersicht dieser Sammlung](previews/collection-ball_sports.png)
+
+- [Fußball im Flutlicht](collections/levels/sports_01_sports_01.json) · 47.0 Pfeile
+- [Basketballtraining](collections/levels/sports_02_sports_02.json) · 54.0 Pfeile
+- [Volleyball am Strand](collections/levels/sports_03_sports_03.json) · 49.0 Pfeile
+- [Tennisball im Sommer](collections/levels/sports_04_sports_04.json) · 57.0 Pfeile
+- [Baseball am Nachmittag](collections/levels/sports_05_sports_05.json) · 53.0 Pfeile
+- [Bowlingabend](collections/levels/sports_06_sports_06.json) · 52.0 Pfeile
+- [Tennisschläger](collections/levels/sports_07_sports_07.json) · 32.0 Pfeile
+
+## Sport & Bewegung
+
+[Bildübersicht dieser Sammlung](previews/collection-sports.png)
+
+- [Boxhandschuh](collections/levels/sports_08_sports_08.json) · 30.0 Pfeile
+- [Krafttraining](collections/levels/sports_09_sports_09.json) · 20.0 Pfeile
+- [Goldener Pokal](collections/levels/sports_10_sports_10.json) · 36.0 Pfeile
+- [Siegermedaille](collections/levels/sports_11_sports_11.json) · 42.0 Pfeile
+- [Skateboardspaß](collections/levels/sports_12_sports_12.json) · 37.0 Pfeile
+- [Schlittschuhtraining](collections/levels/sports_13_sports_13.json) · 26.0 Pfeile
+- [Skitag](collections/levels/sports_14_sports_14.json) · 40.0 Pfeile
+- [Snowboardabenteuer](collections/levels/sports_15_sports_15.json) · 38.0 Pfeile
+- [Fahrradtour](collections/levels/sports_16_sports_16.json) · 49.0 Pfeile
+- [Sporthelm](collections/levels/sports_17_sports_17.json) · 35.0 Pfeile
+- [Startuhr](collections/levels/sports_18_sports_18.json) · 61.0 Pfeile
+- [Zielmarkierung](collections/levels/sports_19_sports_19.json) · 70.0 Pfeile
+- [Fitnessherz](collections/levels/sports_20_sports_20.json) · 66.0 Pfeile
+
+## Reisen & Orientierung
 
 [Bildübersicht dieser Sammlung](previews/collection-travel.png)
 
@@ -575,23 +683,32 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Karte fürs Abenteuer](collections/levels/travel_03_travel_03.json) · 44.0 Pfeile
 - [Kompass auf Reisen](collections/levels/travel_04_travel_04.json) · 52.0 Pfeile
 - [Weltkugel](collections/levels/travel_05_travel_05.json) · 47.0 Pfeile
-- [Zelt unterm Sternenhimmel](collections/levels/travel_06_travel_06.json) · 29.0 Pfeile
-- [Ferienhütte](collections/levels/travel_07_travel_07.json) · 40.0 Pfeile
-- [Strandurlaub](collections/levels/travel_08_travel_08.json) · 39.0 Pfeile
-- [Wüstenoase](collections/levels/travel_09_travel_09.json) · 59.0 Pfeile
-- [Bergtour](collections/levels/travel_10_travel_10.json) · 55.0 Pfeile
-- [Segelurlaub](collections/levels/travel_11_travel_11.json) · 42.0 Pfeile
-- [Heißluftballonfahrt](collections/levels/travel_12_travel_12.json) · 45.0 Pfeile
-- [Luftschiffreise](collections/levels/travel_13_travel_13.json) · 31.0 Pfeile
-- [Reisefotografie](collections/levels/travel_14_travel_14.json) · 61.0 Pfeile
-- [Camperfreiheit](collections/levels/travel_15_travel_15.json) · 38.0 Pfeile
 - [Urlaubsbrief](collections/levels/travel_16_travel_16.json) · 65.0 Pfeile
 - [Sonnenhut](collections/levels/travel_17_travel_17.json) · 28.0 Pfeile
-- [Wasserflasche unterwegs](collections/levels/travel_18_travel_18.json) · 26.0 Pfeile
-- [Abenteuerlaterne](collections/levels/travel_19_travel_19.json) · 37.0 Pfeile
 - [Fernwehschlüssel](collections/levels/travel_20_travel_20.json) · 32.0 Pfeile
 
-## Märchen und Magie
+## Camping & Outdoor
+
+[Bildübersicht dieser Sammlung](previews/collection-camping.png)
+
+- [Zelt unterm Sternenhimmel](collections/levels/travel_06_travel_06.json) · 29.0 Pfeile
+- [Ferienhütte](collections/levels/travel_07_travel_07.json) · 40.0 Pfeile
+- [Bergtour](collections/levels/travel_10_travel_10.json) · 55.0 Pfeile
+- [Camperfreiheit](collections/levels/travel_15_travel_15.json) · 38.0 Pfeile
+- [Wasserflasche unterwegs](collections/levels/travel_18_travel_18.json) · 26.0 Pfeile
+- [Abenteuerlaterne](collections/levels/travel_19_travel_19.json) · 37.0 Pfeile
+
+## Wüsten & Savannen
+
+[Bildübersicht dieser Sammlung](previews/collection-deserts.png)
+
+- [Wüstenoase](collections/levels/travel_09_travel_09.json) · 59.0 Pfeile
+- [Wüste im Abendrot](collections/levels/landscapes_09_landscapes_09.json) · 34.0 Pfeile
+- [Goldene Dünen](collections/levels/landscapes_10_landscapes_10.json) · 33.0 Pfeile
+- [Oase im Sand](collections/levels/landscapes_11_landscapes_11.json) · 55.0 Pfeile
+- [Sonnenuntergang in der Savanne](collections/levels/landscapes_12_landscapes_12.json) · 32.0 Pfeile
+
+## Märchenwelten & Magie
 
 [Bildübersicht dieser Sammlung](previews/collection-fantasy.png)
 
@@ -609,73 +726,34 @@ Der Katalog enthält eigenständige Motive und Varianten gemeinsamer Motivfamili
 - [Feenherz](collections/levels/fantasy_12_fantasy_12.json) · 59.0 Pfeile
 - [Orakelauge](collections/levels/fantasy_13_fantasy_13.json) · 65.0 Pfeile
 - [Mondkompass](collections/levels/fantasy_14_fantasy_14.json) · 53.0 Pfeile
+- [Zauberblüte](collections/levels/fantasy_19_fantasy_19.json) · 42.0 Pfeile
+- [Wald der Wunder](collections/levels/fantasy_20_fantasy_20.json) · 43.0 Pfeile
+
+## Fabelwesen
+
+[Bildübersicht dieser Sammlung](previews/collection-creatures.png)
+
 - [Phönix im Licht](collections/levels/fantasy_15_fantasy_15.json) · 61.0 Pfeile
 - [Drachenmaske](collections/levels/fantasy_16_fantasy_16.json) · 57.0 Pfeile
 - [Eulenwächter](collections/levels/fantasy_17_fantasy_17.json) · 70.0 Pfeile
 - [Geisterfreund](collections/levels/fantasy_18_fantasy_18.json) · 48.0 Pfeile
-- [Zauberblüte](collections/levels/fantasy_19_fantasy_19.json) · 42.0 Pfeile
-- [Wald der Wunder](collections/levels/fantasy_20_fantasy_20.json) · 43.0 Pfeile
 
-## Landschaften und Fernweh
+## Seen & Flüsse
 
-[Bildübersicht dieser Sammlung](previews/collection-landscapes.png)
+[Bildübersicht dieser Sammlung](previews/collection-lakes.png)
 
-- [Berge im Morgenlicht](collections/levels/landscapes_01_landscapes_01.json) · 45.0 Pfeile
 - [Sonnenaufgang am See](collections/levels/landscapes_02_landscapes_02.json) · 48.0 Pfeile
 - [Bergsee im Tal](collections/levels/landscapes_03_landscapes_03.json) · 33.0 Pfeile
-- [Fjord im Norden](collections/levels/landscapes_04_landscapes_04.json) · 46.0 Pfeile
 - [Wasserfall zwischen Felsen](collections/levels/landscapes_05_landscapes_05.json) · 42.0 Pfeile
 - [Fluss durch das Tal](collections/levels/landscapes_06_landscapes_06.json) · 51.0 Pfeile
-- [Tiefe Schlucht](collections/levels/landscapes_07_landscapes_07.json) · 50.0 Pfeile
-- [Weites Tal](collections/levels/landscapes_08_landscapes_08.json) · 40.0 Pfeile
-- [Wüste im Abendrot](collections/levels/landscapes_09_landscapes_09.json) · 34.0 Pfeile
-- [Goldene Dünen](collections/levels/landscapes_10_landscapes_10.json) · 33.0 Pfeile
-- [Oase im Sand](collections/levels/landscapes_11_landscapes_11.json) · 55.0 Pfeile
-- [Sonnenuntergang in der Savanne](collections/levels/landscapes_12_landscapes_12.json) · 32.0 Pfeile
-- [Abendsonne am Horizont](collections/levels/landscapes_13_landscapes_13.json) · 32.0 Pfeile
-- [Strand mit Palme](collections/levels/landscapes_14_landscapes_14.json) · 36.0 Pfeile
-- [Kleine Tropeninsel](collections/levels/landscapes_15_landscapes_15.json) · 40.0 Pfeile
-- [Türkisblaue Lagune](collections/levels/landscapes_16_landscapes_16.json) · 43.0 Pfeile
-- [Küste im Sommer](collections/levels/landscapes_17_landscapes_17.json) · 40.0 Pfeile
-- [Wald am See](collections/levels/landscapes_18_landscapes_18.json) · 42.0 Pfeile
-- [Dunkler Tannenwald](collections/levels/landscapes_19_landscapes_19.json) · 49.0 Pfeile
-- [Vulkan im Feuerschein](collections/levels/landscapes_20_landscapes_20.json) · 39.0 Pfeile
 
-## Sterne und Zukunft
-
-[Bildübersicht dieser Sammlung](previews/collection-cosmos.png)
-
-- [Sternenkompass](collections/levels/cosmos_01_cosmos_01.json) · 57.0 Pfeile
-- [Planet mit Leuchtkern](collections/levels/cosmos_02_cosmos_02.json) · 61.0 Pfeile
-- [Kosmischer Kristall](collections/levels/cosmos_03_cosmos_03.json) · 65.0 Pfeile
-- [Galaktischer Stern](collections/levels/cosmos_04_cosmos_04.json) · 59.0 Pfeile
-- [Mondstation](collections/levels/cosmos_05_cosmos_05.json) · 35.0 Pfeile
-- [Marsroboter](collections/levels/cosmos_06_cosmos_06.json) · 35.0 Pfeile
-- [Raumfahrerhelm](collections/levels/cosmos_07_cosmos_07.json) · 33.0 Pfeile
-- [Raumschiffsteuerung](collections/levels/cosmos_08_cosmos_08.json) · 39.0 Pfeile
-- [Funkkontakt zur Erde](collections/levels/cosmos_09_cosmos_09.json) · 40.0 Pfeile
-- [Planetenerkundung](collections/levels/cosmos_10_cosmos_10.json) · 44.0 Pfeile
-- [Sternenkarte](collections/levels/cosmos_11_cosmos_11.json) · 53.0 Pfeile
-- [Labor im All](collections/levels/cosmos_12_cosmos_12.json) · 24.0 Pfeile
-- [Kosmische Batterie](collections/levels/cosmos_13_cosmos_13.json) · 27.0 Pfeile
-- [Raumcomputer](collections/levels/cosmos_14_cosmos_14.json) · 43.0 Pfeile
-- [Sternenschlüssel](collections/levels/cosmos_15_cosmos_15.json) · 23.0 Pfeile
-- [Sternenblüte](collections/levels/cosmos_16_cosmos_16.json) · 44.0 Pfeile
-- [Himmelslaterne](collections/levels/cosmos_17_cosmos_17.json) · 43.0 Pfeile
-- [Himmelsbrücke](collections/levels/cosmos_18_cosmos_18.json) · 21.0 Pfeile
-- [Polarlichtnacht](collections/levels/cosmos_19_cosmos_19.json) · 51.0 Pfeile
-- [Leuchtender Zukunftsturm](collections/levels/cosmos_20_cosmos_20.json) · 50.0 Pfeile
-
-## Kleine Wohlfühlmomente
+## Kleine Alltagsmomente
 
 [Bildübersicht dieser Sammlung](previews/collection-cozy.png)
 
-- [Lesestunde](collections/levels/cozy_01_cozy_01.json) · 37.0 Pfeile
 - [Tee am Fenster](collections/levels/cozy_02_cozy_02.json) · 48.0 Pfeile
 - [Warmes Kerzenlicht](collections/levels/cozy_03_cozy_03.json) · 24.0 Pfeile
 - [Blumenvase im Wohnzimmer](collections/levels/cozy_04_cozy_04.json) · 22.0 Pfeile
-- [Bonsai auf dem Tisch](collections/levels/cozy_05_cozy_05.json) · 40.0 Pfeile
-- [Kuschelbär](collections/levels/cozy_06_cozy_06.json) · 65.0 Pfeile
 - [Kleine Tischlampe](collections/levels/cozy_07_cozy_07.json) · 24.0 Pfeile
 - [Brief von Freunden](collections/levels/cozy_08_cozy_08.json) · 72.0 Pfeile
 - [Frühstücksbecher](collections/levels/cozy_09_cozy_09.json) · 42.0 Pfeile

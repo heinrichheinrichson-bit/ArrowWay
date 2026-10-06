@@ -4,6 +4,10 @@ func _initialize() -> void: call_deferred("generate")
 func generate() -> void:
 	var source = JSON.parse_string(FileAccess.get_file_as_string("res://collections/source_masks.json"))
 	var entries: Array = []
+	var previous_order := {}
+	var existing = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
+	if existing is Dictionary:
+		for entry in existing.get("levels",[]): previous_order[entry.path]=previous_order.size()
 	var group_order: Array[String] = []
 	for index in range(source.size()):
 		var item: Dictionary = source[index]
@@ -70,10 +74,23 @@ func generate() -> void:
 		entries.append({"path":path,"title":motif.title,"collection":item.collection,"tags":tags,"design":design})
 		print("BUILT %02d/%02d %s: %d cells, %d arrows, %d starts, depth %d" % [index+1,source.size(),item.key,motif.cells.size(),paths.size(),design.starts,design.depth])
 	entries.sort_custom(func(a: Dictionary, b: Dictionary):
+		if previous_order.has(a.path) or previous_order.has(b.path):
+			return int(previous_order.get(a.path,previous_order.size()))<int(previous_order.get(b.path,previous_order.size()))
 		var left := group_order.find(a.collection.id)
 		var right := group_order.find(b.collection.id)
 		return left < right if left != right else int(a.collection.order) < int(b.collection.order))
 	if failed == 0:
+		# Taxonomy is independent of the immutable source recipe and puzzle files.
+		var taxonomy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/taxonomy.json"))
+		var journey: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/journey.json"))
+		var assignments := {}
+		for item in taxonomy.assignments: assignments[item.path]=item
+		for entry in entries:
+			if not assignments.has(entry.path): continue
+			var item: Dictionary = assignments[entry.path]
+			entry.legacy_collection=entry.collection.duplicate()
+			entry.collection={"id":item.group,"title":journey.groups[item.group].title,"order":entry.legacy_collection.order}
+			entry.taxonomy={"world":item.world,"category":item.category_id}
 		var catalog := FileAccess.open("res://collections/catalog.json", FileAccess.WRITE)
 		catalog.store_string(JSON.stringify({"version":1,"levels":entries}, "\t"))
 	print("DONE %d levels; %d failures" % [entries.size(),failed])

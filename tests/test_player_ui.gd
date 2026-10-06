@@ -89,7 +89,7 @@ func run() -> void:
 	await tap(Vector2(scene.get_viewport_rect().size.x*0.6,scene.get_viewport_rect().size.y-50))
 	require(not is_instance_valid(scene.journey) and scene.win_time<0 and scene.cleared==0,"Replay resets the already completed current puzzle")
 	scene.open_journey(1); await process_frame
-	require(station("world:nature").major and not station("group:garden").major,"Themes and subcategories have distinct visual shapes")
+	require(station("world:nature").major and not station("group:animals").major,"Themes and subcategories have distinct visual shapes")
 	var colors: Array[Color]=[]
 	for group in JourneyProgress.worlds()[1].groups:
 		var color:Color=station("group:"+group).tint

@@ -33,6 +33,6 @@ func run() -> void:
 		checked += 1
 		if checked % 100 == 0: print("OPENED ",checked,"/500")
 	for name in ["editor_colors.json","editor_backup.json","motif_draft.json","progress.cfg"]: DirAccess.remove_absolute(scene.storage_prefix + name)
-	require(checked == 500 and edited_groups.size() == 29, "All 500 motifs and all 29 collections were checked")
-	print("PASS all 500 catalog motifs open unchanged in the actual editor; individual recoloring and undo work in all 29 collections" if failures == 0 else "%d FAILURES" % failures)
+	require(checked == 500 and edited_groups.size() == 42, "All 500 motifs and all 42 collections were checked")
+	print("PASS all 500 catalog motifs open unchanged in the actual editor; individual recoloring and undo work in all 42 collections" if failures == 0 else "%d FAILURES" % failures)
 	quit(0 if failures == 0 else 1)

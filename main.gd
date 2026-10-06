@@ -43,6 +43,7 @@ var journey: Control
 var journey_mode := not OS.get_cmdline_user_args().has("--test") and not OS.get_cmdline_user_args().has("--editor-tool")
 var journey_index_revision := 0
 var journey_seen: Array[String] = []
+var journey_access_groups: Array[String] = []
 var journey_legacy_paths: Array[String] = []
 var journey_scroll_memory := {}
 var journey_reward := {}
@@ -147,6 +148,7 @@ func _ready() -> void:
 	session_store.game=self
 	add_child(session_store)
 	session_store.recover_progress()
+	JourneyProgress.migrate_access(self,config)
 	ads=Node.new()
 	ads.set_script(load("res://ad_controller.gd")); ads.game=self
 	add_child(ads); ads.initialize()
@@ -871,6 +873,9 @@ func queue_session() -> void:
 
 func save_progress() -> void:
 	var config := ConfigFile.new()
+	JourneyProgress.remember_access(self)
+	config.set_value("game", "journey_version", 3)
+	config.set_value("game", "journey_access_groups", journey_access_groups)
 	config.set_value("game", "journey_seen", journey_seen)
 	config.set_value("game", "journey_legacy_paths", journey_legacy_paths)
 	config.set_value("game", "journey_migrated", journey_mode)

@@ -76,6 +76,30 @@ func _draw() -> void:
 	if is_pressed(): draw_circle(center, 48, Color(color, 0.08))
 	color.a = 0.34 if locked else 0.95
 	match icon_name:
+		"house":
+			line([Vector2(-38,-3),Vector2(0,-35),Vector2(38,-3)],color)
+			line([Vector2(-28,-9),Vector2(-28,32),Vector2(28,32),Vector2(28,-9)],color)
+			line([Vector2(-6,32),Vector2(-6,8),Vector2(9,8),Vector2(9,32)],color,1.6)
+			line([Vector2(-19,-3),Vector2(-9,-3),Vector2(-9,7),Vector2(-19,7),Vector2(-19,-3)],color,1.5)
+		"tool":
+			line([Vector2(-27,32),Vector2(9,-4),Vector2(3,-17),Vector2(8,-31),Vector2(22,-36),Vector2(16,-20),Vector2(27,-12),Vector2(38,-25),Vector2(36,-9),Vector2(25,2),Vector2(14,3),Vector2(-22,39),Vector2(-27,32)],color)
+		"flask":
+			line([Vector2(-12,-34),Vector2(12,-34)],color)
+			line([Vector2(-7,-34),Vector2(-7,-13),Vector2(-30,25),Vector2(-26,34),Vector2(26,34),Vector2(30,25),Vector2(7,-13),Vector2(7,-34)],color)
+			line([Vector2(-20,12),Vector2(20,12)],color,1.5)
+			ring(center+Vector2(-5,22)*0.68,3,color,1.3)
+		"train":
+			line([Vector2(-23,-32),Vector2(23,-32),Vector2(27,25),Vector2(-27,25),Vector2(-23,-32)],color)
+			line([Vector2(-19,-21),Vector2(19,-21),Vector2(19,0),Vector2(-19,0),Vector2(-19,-21)],color,1.5)
+			for x in [-16,16]: ring(center+Vector2(x,14)*0.68,3,color,1.5)
+			line([Vector2(-16,25),Vector2(-27,40)],color); line([Vector2(16,25),Vector2(27,40)],color)
+		"ship":
+			line([Vector2(-38,11),Vector2(36,11),Vector2(22,31),Vector2(-24,31),Vector2(-38,11)],color)
+			line([Vector2(-4,8),Vector2(-4,-36),Vector2(25,3),Vector2(-4,3)],color)
+			line([Vector2(-11,-26),Vector2(-29,3),Vector2(-11,3)],color,1.5)
+			line([Vector2(-37,39),Vector2(-24,35),Vector2(-11,39),Vector2(3,35),Vector2(17,39),Vector2(31,35)],color,1.5)
+		"plane":
+			line([Vector2(0,-38),Vector2(6,-27),Vector2(6,-7),Vector2(34,13),Vector2(34,22),Vector2(6,9),Vector2(5,28),Vector2(16,34),Vector2(16,40),Vector2(0,35),Vector2(-16,40),Vector2(-16,34),Vector2(-5,28),Vector2(-6,9),Vector2(-34,22),Vector2(-34,13),Vector2(-6,-7),Vector2(-6,-27),Vector2(0,-38)],color)
 		"tree":
 			line([Vector2(0,-35),Vector2(-18,-12),Vector2(-9,-12),Vector2(-28,11),Vector2(-16,11),Vector2(-37,31),Vector2(37,31),Vector2(16,11),Vector2(28,11),Vector2(9,-12),Vector2(18,-12),Vector2(0,-35)],color)
 			line([Vector2(-5,31),Vector2(-5,43),Vector2(5,43),Vector2(5,31)],color)

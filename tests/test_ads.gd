@@ -99,7 +99,7 @@ func run() -> void:
 	scene.level=8; scene.win_time=2.6; scene.advance()
 	require(is_instance_valid(scene.journey) and not scene.ads.showing,"A real collection and world milestone bypasses due ads")
 	scene.ads.policy.seen_worlds.clear()
-	scene.journey.navigate("collection",1,"garden")
+	scene.journey.navigate("collection",1,"animals")
 	require(scene.ads.policy.protected_world==1 and not scene.ads.showing,"First entry into a new-world collection is protected")
 	scene.ads.policy.active_since_ad=123; scene.ads.save()
 	var controller=load("res://ad_controller.gd").new()

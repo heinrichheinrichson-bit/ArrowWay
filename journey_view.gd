@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 			for i in world_centers.size():
 				if absf(world_centers[i].y-center_y)<absf(world_centers[nearest].y-center_y): nearest=i
 			ambient_color=Color(JourneyProgress.worlds()[nearest].color)
-			ambient_icon=JourneyProgress.worlds()[nearest].icon if nearest<=JourneyProgress.frontier(game) else "spark"
+			ambient_icon=JourneyProgress.worlds()[nearest].icon if JourneyProgress.world_open(game,nearest) else "spark"
 		atmosphere.camera=offset
 		atmosphere.tint=atmosphere.tint.lerp(ambient_color,1.0-exp(-delta*2.0))
 		atmosphere.decor_icon=ambient_icon
@@ -288,7 +288,7 @@ func build_map() -> void:
 	var blocks: Array[Dictionary] = []
 	var offset := 170.0
 	for index in worlds.size():
-		var rows := ceili(worlds[index].groups.size()/2.0) if index<=frontier else 0
+		var rows := ceili(JourneyProgress.visible_groups(game,index).size()/2.0)
 		blocks.append({"offset":offset,"rows":rows})
 		offset += 270.0+rows*230.0
 	var height := offset+30
@@ -297,20 +297,21 @@ func build_map() -> void:
 	for block in blocks: world_centers.append(Vector2(size.x*0.5,height-block.offset))
 	for index in worlds.size():
 		var data: Dictionary = worlds[index]
-		var available := index<=frontier
+		var available := JourneyProgress.world_open(game,index)
 		var center := world_centers[index]
 		var color := Color(data.color)
 		var recommended := JourneyProgress.next_group(game,index) if available else ""
 		var caption := "%d / %d Rätsel gelöst" % [JourneyProgress.world_done(game,index),JourneyProgress.world_total(game,index)] if available else "Noch gesperrt"
 		station("world:"+data.id,data.title,caption,data.icon,color,center,available,JourneyProgress.world_complete(game,index),index==frontier,func(): focus_world(index),minf(300,size.x-48))
 		if index>0:
-			canvas.routes.append({"start":world_centers[index-1],"finish":center,"open":available,"color":color,"fresh":available and not seen.has("world:"+data.id),"opacity":0.65,"reward":reward.get("next",-1)==index,"guide":index==frontier})
+			canvas.routes.append({"start":world_centers[index-1],"finish":center,"open":available and JourneyProgress.world_open(game,index-1),"color":color,"fresh":available and not seen.has("world:"+data.id),"opacity":0.65,"reward":reward.get("next",-1)==index,"guide":index==frontier})
 		if not available: continue
-		for position in data.groups.size():
-			var item: String = data.groups[position]
+		var visible := JourneyProgress.visible_groups(game,index)
+		for position in visible.size():
+			var item: String = visible[position]
 			var branch_color := JourneyProgress.group_color(item)
 			var row: int = position/2
-			var single: bool = data.groups.size()==1 or (position==data.groups.size()-1 and data.groups.size()%2==1)
+			var single: bool = visible.size()==1 or (position==visible.size()-1 and visible.size()%2==1)
 			var point := Vector2(size.x*(0.5 if single else (0.265 if position%2==0 else 0.735)),center.y-230*(row+1))
 			var junction := Vector2(size.x*0.5,point.y+95)
 			if position%2==0:
@@ -318,7 +319,7 @@ func build_map() -> void:
 				canvas.routes.append({"start":previous,"finish":junction,"open":true,"color":color,"opacity":0.8,"guide":item==recommended})
 			canvas.routes.append({"start":junction,"finish":point,"open":true,"color":branch_color,"fresh":not seen.has("group:"+item),"guide":item==recommended})
 			station("group:"+item,JourneyProgress.group_title(game,item),"%d / %d Rätsel gelöst" % [JourneyProgress.group_done(game,item),JourneyProgress.indices(game,item).size()],JourneyProgress.group_icon(item),branch_color,point,true,JourneyProgress.group_complete(game,item),item==recommended,func(): navigate("collection",index,item),minf(216,size.x*0.44))
-	var selected := world if world>=0 and world<=frontier else frontier
+	var selected := world if JourneyProgress.world_open(game,world) else frontier
 	var target := maxi(0,int(world_centers[selected].y-scroller.size.y*0.72))
 	var key := "map:%d::false" % world
 	if world<0 and seen.has("world:"+worlds[frontier].id): target=int(scroll_positions.get(key,target))

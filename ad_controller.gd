@@ -61,15 +61,20 @@ func _process(delta: float) -> void:
 		if save_clock>=15: save_clock=0.0; save()
 
 func completed(path: String, world: int) -> void:
-	policy.record_completion(path,world); save()
+	policy.record_completion(path,world_key(world)); save()
+
+func world_key(world: int) -> int:
+	# Stable keys preserve existing ad protection when the map is reordered.
+	if world<0 or world>=JourneyProgress.worlds().size(): return -1
+	return int(JourneyProgress.worlds()[world].ad_id)
 
 func opened_world(world: int) -> void:
-	policy.open_world(world); save()
+	policy.open_world(world_key(world)); save()
 
 func transition(world: int, callback: Callable) -> void:
 	if showing: return
 	# This provider is deliberately offline. With no ready provider, continue now.
-	if is_ad_free() or not policy.eligible(true,world) or not test_mode or not OS.has_feature("debug"):
+	if is_ad_free() or not policy.eligible(true,world_key(world)) or not test_mode or not OS.has_feature("debug"):
 		callback.call(); return
 	continuation=callback
 	dialog=AcceptDialog.new()

@@ -1,6 +1,494 @@
 {
-  "version": 2,
+  "version": 3,
   "worlds": [
+    {
+      "id": "beginning",
+      "title": "Das erste Licht",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "spark",
+      "color": "ffd17c",
+      "ad_id": 0,
+      "groups": [
+        "base"
+      ]
+    },
+    {
+      "id": "nature",
+      "title": "Tierwelt",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "paw",
+      "color": "ffc17a",
+      "ad_id": 1,
+      "groups": [
+        "animals",
+        "birds",
+        "ocean"
+      ]
+    },
+    {
+      "id": "plants",
+      "title": "Pflanzen & Garten",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "flower",
+      "color": "85efa9",
+      "ad_id": 7,
+      "groups": [
+        "flowers",
+        "garden"
+      ]
+    },
+    {
+      "id": "landscapes",
+      "title": "Landschaften & Naturkräfte",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "mountain",
+      "color": "b9a0ff",
+      "ad_id": 8,
+      "groups": [
+        "landscapes",
+        "lakes",
+        "coasts",
+        "deserts"
+      ]
+    },
+    {
+      "id": "celebrations",
+      "title": "Feste & Jahreszeiten",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "snow",
+      "color": "ff9c83",
+      "ad_id": 2,
+      "groups": [
+        "winter",
+        "christmas",
+        "halloween",
+        "easter"
+      ]
+    },
+    {
+      "id": "home",
+      "title": "Zuhause & Alltag",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "house",
+      "color": "ffbb93",
+      "ad_id": 9,
+      "groups": [
+        "cozy"
+      ]
+    },
+    {
+      "id": "comfort",
+      "title": "Essen & Genuss",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "cup",
+      "color": "ff90b7",
+      "ad_id": 5,
+      "groups": [
+        "fruit",
+        "bakery",
+        "taste",
+        "meals"
+      ]
+    },
+    {
+      "id": "craft",
+      "title": "Handwerk & Arbeitswelten",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "tool",
+      "color": "f0da7f",
+      "ad_id": 10,
+      "groups": [
+        "workshop"
+      ]
+    },
+    {
+      "id": "discovery",
+      "title": "Technik & Wissenschaft",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "chip",
+      "color": "77dfe8",
+      "ad_id": 3,
+      "groups": [
+        "computers",
+        "smartphones",
+        "technology",
+        "communication",
+        "science_basics"
+      ]
+    },
+    {
+      "id": "space",
+      "title": "Weltraum & Zukunft",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "planet",
+      "color": "a997ff",
+      "ad_id": 11,
+      "groups": [
+        "space",
+        "spaceflight",
+        "cosmos"
+      ]
+    },
+    {
+      "id": "travel",
+      "title": "Unterwegs & Bauwerke",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "city",
+      "color": "73d9ff",
+      "ad_id": 4,
+      "groups": [
+        "vehicles",
+        "rail",
+        "ships",
+        "aircraft",
+        "skylines",
+        "world",
+        "travel",
+        "camping"
+      ]
+    },
+    {
+      "id": "imagination",
+      "title": "Kunst & Literatur",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "palette",
+      "color": "ff95c9",
+      "ad_id": 6,
+      "groups": [
+        "art"
+      ]
+    },
+    {
+      "id": "leisure",
+      "title": "Musik, Spiel & Sport",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "music",
+      "color": "df9aff",
+      "ad_id": 12,
+      "groups": [
+        "music",
+        "ball_sports",
+        "sports",
+        "toys"
+      ]
+    },
+    {
+      "id": "fantasy",
+      "title": "Fantasie & Märchen",
+      "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
+      "icon": "moon",
+      "color": "dca1ff",
+      "ad_id": 13,
+      "groups": [
+        "fantasy",
+        "creatures"
+      ]
+    }
+  ],
+  "groups": {
+    "base": {
+      "id": "base",
+      "title": "Einstieg",
+      "icon": "spark",
+      "color": "ffd17c",
+      "count": 9
+    },
+    "animals": {
+      "id": "animals",
+      "title": "Tiere an Land",
+      "icon": "paw",
+      "color": "ffc17a",
+      "count": 19
+    },
+    "birds": {
+      "id": "birds",
+      "title": "Vögel",
+      "icon": "bird",
+      "color": "79c9ff",
+      "count": 21
+    },
+    "ocean": {
+      "id": "ocean",
+      "title": "Meerestiere & Riffe",
+      "icon": "fish",
+      "color": "64e6e2",
+      "count": 12
+    },
+    "flowers": {
+      "id": "flowers",
+      "title": "Blumen & Blüten",
+      "icon": "flower",
+      "color": "ff87bd",
+      "count": 21
+    },
+    "garden": {
+      "id": "garden",
+      "title": "Garten & grünes Leben",
+      "icon": "tree",
+      "color": "72f09e",
+      "count": 13
+    },
+    "landscapes": {
+      "id": "landscapes",
+      "title": "Berge & Naturkräfte",
+      "icon": "mountain",
+      "color": "c6a2ff",
+      "count": 7
+    },
+    "lakes": {
+      "id": "lakes",
+      "title": "Seen & Flüsse",
+      "icon": "fish",
+      "color": "76dfff",
+      "count": 4
+    },
+    "coasts": {
+      "id": "coasts",
+      "title": "Küsten & Inseln",
+      "icon": "mountain",
+      "color": "70e6cc",
+      "count": 8
+    },
+    "deserts": {
+      "id": "deserts",
+      "title": "Wüsten & Savannen",
+      "icon": "mountain",
+      "color": "ffd18a",
+      "count": 5
+    },
+    "winter": {
+      "id": "winter",
+      "title": "Winter & Eis",
+      "icon": "snow",
+      "color": "91e9ff",
+      "count": 20
+    },
+    "christmas": {
+      "id": "christmas",
+      "title": "Weihnachten",
+      "icon": "tree",
+      "color": "ff7b88",
+      "count": 20
+    },
+    "halloween": {
+      "id": "halloween",
+      "title": "Halloween",
+      "icon": "moon",
+      "color": "ffb066",
+      "count": 20
+    },
+    "easter": {
+      "id": "easter",
+      "title": "Ostern",
+      "icon": "flower",
+      "color": "e4a0ff",
+      "count": 20
+    },
+    "cozy": {
+      "id": "cozy",
+      "title": "Kleine Alltagsmomente",
+      "icon": "house",
+      "color": "c2a6ff",
+      "count": 9
+    },
+    "fruit": {
+      "id": "fruit",
+      "title": "Obst",
+      "icon": "flower",
+      "color": "a4ee78",
+      "count": 23
+    },
+    "bakery": {
+      "id": "bakery",
+      "title": "Gebäck & süße Freuden",
+      "icon": "cup",
+      "color": "ffcb82",
+      "count": 14
+    },
+    "taste": {
+      "id": "taste",
+      "title": "Getränke & Café",
+      "icon": "cup",
+      "color": "ff9bbd",
+      "count": 4
+    },
+    "meals": {
+      "id": "meals",
+      "title": "Kochen & Küche",
+      "icon": "cup",
+      "color": "ffab74",
+      "count": 5
+    },
+    "workshop": {
+      "id": "workshop",
+      "title": "Werkstatt & Handwerk",
+      "icon": "tool",
+      "color": "f0da7f",
+      "count": 13
+    },
+    "computers": {
+      "id": "computers",
+      "title": "Computer & Bürotechnik",
+      "icon": "chip",
+      "color": "7faaff",
+      "count": 20
+    },
+    "smartphones": {
+      "id": "smartphones",
+      "title": "Smartphones & Apps",
+      "icon": "phone",
+      "color": "f99cdc",
+      "count": 20
+    },
+    "technology": {
+      "id": "technology",
+      "title": "Elektronik & Mechanik",
+      "icon": "chip",
+      "color": "6af0d5",
+      "count": 12
+    },
+    "communication": {
+      "id": "communication",
+      "title": "Kommunikation & Aufnahme",
+      "icon": "phone",
+      "color": "ffd078",
+      "count": 4
+    },
+    "science_basics": {
+      "id": "science_basics",
+      "title": "Physik & Chemie",
+      "icon": "flask",
+      "color": "c6a2ff",
+      "count": 3
+    },
+    "space": {
+      "id": "space",
+      "title": "Sonne, Mond & Planeten",
+      "icon": "planet",
+      "color": "b99aff",
+      "count": 4
+    },
+    "spaceflight": {
+      "id": "spaceflight",
+      "title": "Raumfahrt & Forschung",
+      "icon": "planet",
+      "color": "79c9ff",
+      "count": 10
+    },
+    "cosmos": {
+      "id": "cosmos",
+      "title": "Zukunft & erfundene Welten",
+      "icon": "city",
+      "color": "ffb973",
+      "count": 12
+    },
+    "vehicles": {
+      "id": "vehicles",
+      "title": "Straßenfahrzeuge",
+      "icon": "car",
+      "color": "ffab74",
+      "count": 13
+    },
+    "rail": {
+      "id": "rail",
+      "title": "Schienenverkehr",
+      "icon": "train",
+      "color": "f0da7f",
+      "count": 3
+    },
+    "ships": {
+      "id": "ships",
+      "title": "Schiffe & Boote",
+      "icon": "ship",
+      "color": "64e6e2",
+      "count": 6
+    },
+    "aircraft": {
+      "id": "aircraft",
+      "title": "Fluggeräte",
+      "icon": "plane",
+      "color": "b99aff",
+      "count": 6
+    },
+    "skylines": {
+      "id": "skylines",
+      "title": "Städte & Skylines",
+      "icon": "city",
+      "color": "a8a1ff",
+      "count": 19
+    },
+    "world": {
+      "id": "world",
+      "title": "Wahrzeichen & Baukunst",
+      "icon": "city",
+      "color": "7bdfff",
+      "count": 7
+    },
+    "travel": {
+      "id": "travel",
+      "title": "Reisen & Orientierung",
+      "icon": "mountain",
+      "color": "82edb1",
+      "count": 8
+    },
+    "camping": {
+      "id": "camping",
+      "title": "Camping & Outdoor",
+      "icon": "tree",
+      "color": "ffc17a",
+      "count": 6
+    },
+    "art": {
+      "id": "art",
+      "title": "Kunst & Bücher",
+      "icon": "palette",
+      "color": "ff95c9",
+      "count": 5
+    },
+    "music": {
+      "id": "music",
+      "title": "Musik & Medien",
+      "icon": "music",
+      "color": "b299ff",
+      "count": 22
+    },
+    "ball_sports": {
+      "id": "ball_sports",
+      "title": "Ballsport",
+      "icon": "ball",
+      "color": "ffab74",
+      "count": 7
+    },
+    "sports": {
+      "id": "sports",
+      "title": "Sport & Bewegung",
+      "icon": "ball",
+      "color": "73e3ec",
+      "count": 13
+    },
+    "toys": {
+      "id": "toys",
+      "title": "Spielzeug & Kindheit",
+      "icon": "spark",
+      "color": "ffd078",
+      "count": 22
+    },
+    "fantasy": {
+      "id": "fantasy",
+      "title": "Märchenwelten & Magie",
+      "icon": "moon",
+      "color": "dca1ff",
+      "count": 16
+    },
+    "creatures": {
+      "id": "creatures",
+      "title": "Fabelwesen",
+      "icon": "paw",
+      "color": "ff9bbd",
+      "count": 4
+    }
+  },
+  "legacy_worlds": [
     {
       "id": "beginning",
       "title": "Das erste Licht",
