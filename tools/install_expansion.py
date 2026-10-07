@@ -91,6 +91,14 @@ def main():
     order=['beginning','nature','plants','landscapes','celebrations','home','comfort','craft','discovery','science','medicine','space','travel','history','imagination','leisure','fantasy']
     journey['worlds']=[worlds[w] for w in order]; journey['version']=4
     taxonomy['assignments']=list(assignments.values()); taxonomy['version']=2
+    protected=read('collections/editor_overrides.json')['entries'] if (ROOT/'collections/editor_overrides.json').exists() else {}
+    for path,override in protected.items():
+        doc=read(path)
+        for entry in catalog['levels']:
+            if entry['path'].removeprefix('res://')==path: entry.update(title=doc['title'],design=doc['design'])
+        for assignment in taxonomy['assignments']:
+            if assignment['path'].removeprefix('res://')==path: assignment['title']=doc['title']
+        discoveries['entries']['res://'+path]=override['discovery']
     write('collections/catalog.json',catalog); write('collections/journey.json',journey); write('collections/taxonomy.json',taxonomy); write('collections/discoveries.json',discoveries)
     sources=read('collections/source_masks.json')
     sources=[e for e in sources if e['key'] not in recipes]+masks

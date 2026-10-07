@@ -14,6 +14,9 @@ func generate() -> void:
 	var existing = JSON.parse_string(FileAccess.get_file_as_string(output_path)) if FileAccess.file_exists(output_path) else null
 	if existing is Dictionary:
 		for entry in existing.get("levels",[]): previous_order[entry.path]=previous_order.size()
+	var protected: Dictionary = {}
+	if FileAccess.file_exists("res://collections/editor_overrides.json"):
+		protected = JSON.parse_string(FileAccess.get_file_as_string("res://collections/editor_overrides.json")).entries
 	var group_order: Array[String] = []
 	for index in range(source.size()):
 		var item: Dictionary = source[index]
@@ -21,15 +24,20 @@ func generate() -> void:
 		var filename: String = "%s_%02d_%s.json" % [item.collection.id, item.collection.order, item.key]
 		var path := "res://collections/levels/" + filename
 		var source_hash := JSON.stringify(item).sha256_text()
-		if FileAccess.file_exists(path) and not OS.get_cmdline_user_args().has("--rebuild"):
+		var manually_edited := protected.has(path.trim_prefix("res://"))
+		if manually_edited and not FileAccess.file_exists(path):
+			push_error("Protected catalog motif missing: " + path); quit(1); return
+		if FileAccess.file_exists(path) and (manually_edited or not OS.get_cmdline_user_args().has("--rebuild")):
 			var cached = JSON.parse_string(FileAccess.get_file_as_string(path))
-			if cached is Dictionary and (cached.get("source_hash", "") == source_hash or index < 28):
+			if cached is Dictionary and (manually_edited or cached.get("source_hash", "") == source_hash or index < 28):
 				var cached_motif := CustomMotif.decode(cached.motif)
 				if not CustomMotif.decode_paths(cached.paths,cached_motif).is_empty():
 					entries.append({"path":path,"title":cached.title,"collection":cached.collection,"tags":cached.get("tags",[]),"design":cached.design})
 					if cached.has("attribution"): entries[-1].attribution=cached.attribution
 					print("CACHED %d/%d %s" % [index+1,source.size(),item.key])
 					continue
+		if manually_edited:
+			push_error("Protected catalog motif invalid: " + path); quit(1); return
 		var motif := CustomMotif.decode(item.motif)
 		var source_cells: int = motif.get("cells",{}).size()
 		if motif.is_empty() or not CustomMotif.isolated(motif).is_empty():

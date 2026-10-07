@@ -1,5 +1,15 @@
 extends Window
 
+var catalog_root := "res://"
+var catalog_baseline := ""
+var catalog_path := ""
+var catalog_document := {}
+var catalog_hashes := {}
+var completion_text: TextEdit
+var completion_kind: LineEdit
+var completion_source: LineEdit
+var completion_url: LineEdit
+
 var game: Node2D
 var motif := {}
 var paths: Array[Dictionary] = []
@@ -245,6 +255,24 @@ func _ready() -> void:
 		if busy: return
 		confirm_replace(func(): fill(true), "Eine komplette Neufüllung ersetzt auch deine eigenen Pfeile. Deine letzte Füllung wird zusätzlich gesichert."))
 	add_row_button(areas_page, "Letzte ersetzte Füllung wiederherstellen", restore_backup)
+	var data_page := make_page("Bilddaten")
+	add_label(data_page, "ABSCHLUSSTEXT")
+	completion_text = TextEdit.new()
+	completion_text.custom_minimum_size.y = 150
+	completion_text.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
+	data_page.add_child(completion_text)
+	completion_kind = LineEdit.new()
+	completion_kind.placeholder_text = "Art: Ein kleiner Gedanke / Wissenswert …"
+	data_page.add_child(completion_kind)
+	completion_source = LineEdit.new()
+	completion_source.placeholder_text = "Quelle (bei Fakten und Zitaten)"
+	data_page.add_child(completion_source)
+	completion_url = LineEdit.new()
+	completion_url.placeholder_text = "https://… Quellenlink"
+	data_page.add_child(completion_url)
+	add_row_button(data_page, "Am bisherigen Katalogplatz speichern", save_catalog)
+	add_row_button(data_page, "Katalogmotiv auswählen …", choose_catalog)
+	add_label(data_page, "Speichern aktualisiert das Projekt. Für das Handy\nist anschließend eine neue APK nötig.")
 	pages.tab_changed.connect(func(index: int):
 		if index == 0: activate_tool(0)
 		else: activate_tool(8))
@@ -252,17 +280,23 @@ func _ready() -> void:
 	add_row_button(sidebar, "Im Spiel testen", apply)
 	var files := HBoxContainer.new()
 	sidebar.add_child(files)
-	add_row_button(files, "Speichern …", choose_save_document)
+	add_row_button(files, "Speichern", func():
+		if catalog_path.is_empty(): choose_save_document()
+		else: save_catalog())
 	var open_menu := MenuButton.new()
 	open_menu.text = "Öffnen ▾"
 	open_menu.flat = false
 	open_menu.custom_minimum_size.y = 34
 	open_menu.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	open_menu.get_popup().add_item("Katalogmotiv auswählen …", 3)
+	open_menu.get_popup().add_item("Kopie speichern …", 4)
 	open_menu.get_popup().add_item("Bild, Motiv oder Level-Datei …", 0)
 	open_menu.get_popup().add_item("Letzten lokalen Entwurf laden", 1)
 	open_menu.get_popup().add_item("Letzte ersetzte Füllung wiederherstellen", 2)
 	open_menu.get_popup().id_pressed.connect(func(id: int):
-		if id == 0: choose_open_document()
+		if id == 3: choose_catalog()
+		elif id == 4: choose_save_document()
+		elif id == 0: choose_open_document()
 		elif id == 1: load_draft()
 		else: restore_backup())
 	files.add_child(open_menu)
@@ -703,7 +737,8 @@ func apply() -> void:
 	game.arrows = game.clone_data(paths)
 	game.draft.clear()
 	game.test_editor()
-	close_studio()
+	if catalog_path.is_empty(): close_studio()
+	else: hide()
 
 func save_draft() -> void:
 	var file := FileAccess.open(game.storage_prefix + "motif_draft.json", FileAccess.WRITE)
@@ -734,6 +769,9 @@ func load_draft(replace_confirmed: bool = false) -> void:
 	if not replace_confirmed and not paths.is_empty():
 		confirm_replace(func(): load_draft(true), "Laden ersetzt den aktuellen Entwurf. Deine letzte Füllung wird zusätzlich gesichert.")
 		return
+	catalog_path = ""
+	catalog_document = {}
+	completion_text.text = ""
 	remember()
 	motif = loaded
 	paths = restored
@@ -741,6 +779,16 @@ func load_draft(replace_confirmed: bool = false) -> void:
 	show_overview()
 
 func close_studio() -> void:
+	if not catalog_path.is_empty() and catalog_state() != catalog_baseline:
+		var dialog := ConfirmationDialog.new()
+		dialog.title = "Ungespeicherte Katalogänderungen"
+		dialog.dialog_text = "Deine Änderungen sind noch nicht im Katalog gespeichert. Werkstatt trotzdem schließen? Der lokale Entwurf bleibt erhalten."
+		dialog.ok_button_text = "Ohne Katalogspeichern schließen"
+		add_child(dialog)
+		dialog.confirmed.connect(func(): catalog_path = ""; close_studio(); dialog.queue_free())
+		dialog.canceled.connect(dialog.queue_free)
+		dialog.popup_centered()
+		return
 	if busy:
 		notice.text = "Die Berechnung läuft noch. Das Fenster kann danach geschlossen werden."
 		return
@@ -1140,6 +1188,9 @@ func open_document(path: String, replace_confirmed: bool = false) -> bool:
 	if not replace_confirmed and not paths.is_empty():
 		confirm_replace(func(): open_document(path, true), "Öffnen ersetzt den aktuellen Entwurf. Deine letzte Füllung wird zusätzlich gesichert.")
 		return true
+	catalog_path = ""
+	catalog_document = {}
+	completion_text.text = ""
 	remember()
 	motif = loaded
 	paths = restored
@@ -1147,3 +1198,164 @@ func open_document(path: String, replace_confirmed: bool = false) -> bool:
 	show_overview()
 	notice.text = "Motiv geöffnet: " + path.get_file() + ". Auswählen bearbeitet Pfeile; Vorlage & Flächen ergänzt neue Flächen."
 	return true
+
+func choose_catalog() -> void:
+	var picker := Window.new()
+	picker.title = "Katalog · Motiv auswählen"
+	picker.size = Vector2i(760, 650)
+	add_child(picker)
+	var box := VBoxContainer.new()
+	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	picker.add_child(box)
+	var search := LineEdit.new()
+	search.placeholder_text = "Motiv oder Sammlung suchen …"
+	box.add_child(search)
+	var list := ItemList.new()
+	list.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(list)
+	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
+	var entries: Array = catalog.levels.duplicate(true)
+	for assignment in JSON.parse_string(FileAccess.get_file_as_string("res://collections/taxonomy.json")).assignments:
+		if str(assignment.path).trim_prefix("res://").begins_with("levels/"):
+			entries.append({"path": assignment.path, "title": assignment.title, "collection": {"title": "Das erste Licht"}})
+	var refresh_list := func(query: String):
+		list.clear()
+		for entry in entries:
+			var label: String = str(entry.title) + " · " + str(entry.collection.title)
+			if query.is_empty() or label.to_lower().contains(query.to_lower()):
+				list.add_item(label)
+				list.set_item_metadata(list.item_count - 1, entry.path)
+	search.text_changed.connect(refresh_list)
+	refresh_list.call("")
+	list.item_activated.connect(func(index: int):
+		var path: String = list.get_item_metadata(index)
+		confirm_replace(func(): bind_catalog(path); picker.queue_free(), "Katalogmotiv öffnen? Der aktuelle Entwurf wird vorher gesichert."))
+	var open_button := Button.new()
+	open_button.text = "Ausgewähltes Motiv öffnen"
+	open_button.pressed.connect(func():
+		var selection := list.get_selected_items()
+		if not selection.is_empty(): list.item_activated.emit(selection[0]))
+	box.add_child(open_button)
+	var hint := Label.new()
+	hint.text = "Doppelklick öffnet das Motiv. Alle Änderungen bleiben am bisherigen Platz."
+	box.add_child(hint)
+	picker.close_requested.connect(picker.queue_free)
+	picker.popup_centered()
+
+func bind_catalog(path: String) -> void:
+	path = path.trim_prefix("res://")
+	if not open_document(catalog_root + path, true): return
+	catalog_path = path
+	history.clear()
+	catalog_document = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + path))
+	var discovery: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + "collections/discoveries.json")).entries.get("res://" + path, {})
+	completion_text.text = discovery.get("text", "")
+	completion_kind.text = discovery.get("kind", "Ein kleiner Gedanke")
+	completion_source.text = discovery.get("source", "")
+	completion_url.text = discovery.get("url", "")
+	catalog_hashes = catalog_fingerprints()
+	catalog_baseline = catalog_state()
+	notice.text = "Katalogmotiv geöffnet. Speichern aktualisiert dieses Rätsel an seinem bisherigen Platz."
+
+func catalog_state() -> String:
+	return JSON.stringify([CustomMotif.encode(motif), CustomMotif.encode_paths(paths), title_field.text, completion_text.text, completion_kind.text, completion_source.text, completion_url.text])
+
+func catalog_fingerprints() -> Dictionary:
+	var result := {}
+	for path in [catalog_path, "collections/catalog.json", "collections/taxonomy.json", "collections/discoveries.json", "collections/editor_overrides.json"]:
+		result[path] = FileAccess.get_sha256(catalog_root + path) if FileAccess.file_exists(catalog_root + path) else ""
+	return result
+
+func save_catalog() -> void:
+	if catalog_path.is_empty():
+		notice.text = "Öffne zuerst ein Motiv über Katalogmotiv auswählen."
+		return
+	if catalog_hashes != catalog_fingerprints():
+		notice.text = "Die Katalogdateien wurden inzwischen geändert. Bitte das Motiv neu öffnen; nichts wurde überschrieben."
+		return
+	var encoded := CustomMotif.encode_paths(paths)
+	var checked := CustomMotif.decode_paths(encoded, motif)
+	if checked.is_empty() or not LevelDesign.metrics(checked).get("solvable", false):
+		notice.text = "Nicht gespeichert: Alle Flächen müssen gültig mit lösbaren Pfeilen gefüllt sein."
+		return
+	var new_title := title_field.text.strip_edges()
+	var text := completion_text.text.strip_edges()
+	if new_title.is_empty() or text.is_empty() or text.length() > 600:
+		notice.text = "Name und Abschlusstext sind erforderlich; der Text darf höchstens 600 Zeichen haben."
+		return
+	var kind := completion_kind.text.strip_edges()
+	if kind.is_empty(): kind = "Ein kleiner Gedanke"
+	if kind != "Ein kleiner Gedanke" and (completion_source.text.strip_edges().is_empty() or not completion_url.text.begins_with("https://")):
+		notice.text = "Für Fakten und Zitate bitte Quelle und einen https://-Link angeben."
+		return
+	var document := catalog_document.duplicate(true)
+	document.title = new_title
+	document.shape = 6
+	document.motif = CustomMotif.encode(motif)
+	document.paths = encoded
+	document.design = LevelDesign.metrics(checked)
+	if JSON.stringify(catalog_document.get("paths", []).map(func(a): return a.points)) != JSON.stringify(encoded.map(func(a): return a.points)):
+		document.erase("compatible_color_checkpoints")
+	else:
+		var geometry_paths: Array[String] = []
+		for arrow in encoded:
+			var points: Array[String] = []
+			for point in arrow.points: points.append("%d,%d" % [point[0], point[1]])
+			geometry_paths.append(";".join(points))
+		var predecessor := {"fingerprint": catalog_hashes[catalog_path], "geometry": "|".join(geometry_paths).sha256_text()}
+		if not document.has("compatible_color_checkpoints"): document.compatible_color_checkpoints = []
+		if not document.compatible_color_checkpoints.has(predecessor): document.compatible_color_checkpoints.append(predecessor)
+	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + "collections/catalog.json"))
+	for entry in catalog.levels:
+		if str(entry.path).trim_prefix("res://") == catalog_path:
+			entry.title = new_title
+			entry.design = document.design
+	var taxonomy: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + "collections/taxonomy.json"))
+	for entry in taxonomy.assignments:
+		if str(entry.path).trim_prefix("res://") == catalog_path: entry.title = new_title
+	var discoveries: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + "collections/discoveries.json"))
+	var discovery := {"kind": kind, "text": text}
+	if not completion_source.text.is_empty(): discovery.source = completion_source.text.strip_edges()
+	if not completion_url.text.is_empty(): discovery.url = completion_url.text.strip_edges()
+	discoveries.entries["res://" + catalog_path] = discovery
+	var overrides := {"version": 1, "entries": {}}
+	if FileAccess.file_exists(catalog_root + "collections/editor_overrides.json"):
+		overrides = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + "collections/editor_overrides.json"))
+	overrides.entries[catalog_path] = {"protected": true, "title": new_title, "discovery": discovery}
+	var updates := {catalog_path: document, "collections/catalog.json": catalog, "collections/taxonomy.json": taxonomy, "collections/discoveries.json": discoveries, "collections/editor_overrides.json": overrides}
+	var backup_dir := catalog_root + "work/catalog-backups/" + str(Time.get_unix_time_from_system()).replace(".", "-")
+	if DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(backup_dir)) != OK:
+		notice.text = "Die Sicherung konnte nicht angelegt werden. Nichts gespeichert."
+		return
+	var originals := {}
+	for path in updates:
+		var original := FileAccess.get_file_as_string(catalog_root + path) if FileAccess.file_exists(catalog_root + path) else ""
+		originals[path] = original
+		var backup := FileAccess.open(backup_dir + "/" + path.replace("/", "__"), FileAccess.WRITE)
+		if backup == null:
+			notice.text = "Sicherung fehlgeschlagen. Nichts gespeichert."
+			return
+		backup.store_string(original)
+		backup.close()
+		var temporary := FileAccess.open(catalog_root + path + ".pending", FileAccess.WRITE)
+		if temporary == null:
+			notice.text = "Datei kann nicht vorbereitet werden. Nichts gespeichert."
+			return
+		temporary.store_string(JSON.stringify(updates[path], "\t"))
+		temporary.close()
+	for path in updates:
+		var error := DirAccess.rename_absolute(ProjectSettings.globalize_path(catalog_root + path + ".pending"), ProjectSettings.globalize_path(catalog_root + path))
+		if error != OK:
+			for old_path in originals:
+				if originals[old_path].is_empty(): DirAccess.remove_absolute(ProjectSettings.globalize_path(catalog_root + old_path))
+				else:
+					var restore := FileAccess.open(catalog_root + old_path, FileAccess.WRITE)
+					if restore != null: restore.store_string(originals[old_path]); restore.close()
+			notice.text = "Speichern fehlgeschlagen. Vorherige Dateien wurden wiederhergestellt."
+			return
+	catalog_document = document
+	catalog_hashes = catalog_fingerprints()
+	catalog_baseline = catalog_state()
+	load("res://discoveries.gd").entries = {}
+	game.discover_levels()
+	notice.text = "Im Katalog gespeichert: " + new_title + ". Sicherung: " + backup_dir.get_file()

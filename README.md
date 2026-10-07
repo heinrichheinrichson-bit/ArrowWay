@@ -135,3 +135,10 @@ Dieser Stand ist ein Desktop-Prototyp. Android-Export, Bedienung auf echten Smar
 Die neue Reise wird separat mit `godot --path . --script res://tests/test_journey.gd -- --test` geprüft: Freischaltungen, alte Spielstände, Touchbedienung und Erreichbarkeit aller Katalogmotive.
 
 `tests/test_player_ui.gd` prüft Albumzugriff ausschließlich auf gelöste Bilder, gespeicherte Herzen, interne Entwürfe, echte Touchereignisse, Wiederholung abgeschlossener Rätsel, Android-Zurück, Zweigfarben und die Kamerafahrt nach einer vollständigen Themenwelt.
+
+
+### Direkte Katalogbearbeitung (0.21)
+
+Im separaten `Level-Werkzeug.cmd`: **Öffnen → Katalogmotiv auswählen**. Nach dem Bearbeiten aktualisiert **Speichern** dasselbe Rätsel an seinem bisherigen Platz. Der Reiter **Bilddaten** bearbeitet Abschlusstext und Quellen. Automatische Sicherungen, Lösbarkeitsprüfung und Schutz vor parallelem Überschreiben sind enthalten. **Kopie speichern** bleibt für separate Entwürfe verfügbar.
+
+Details und die noch ausstehenden Verwaltungsschritte: [Katalogwerkstatt](planning/KATALOGWERKSTATT.md). Spieler-APKs mit `tools/build_player.py` bauen; dieser Export enthält keine privaten Werkstattmodule, Beispiele oder Tests.

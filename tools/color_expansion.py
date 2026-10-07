@@ -283,10 +283,13 @@ def main():
  assert not missing,missing
  profiles={'version':1,'notice':'Materialfarben und benannte, an vorhandenen Pfeilwegen ausgerichtete Farbflächen. Keine Neugenerierung der Geometrie.','entries':PROFILES}
  write('collections/expansion_color_designs.json',profiles)
+ protected=read("collections/editor_overrides.json")["entries"] if (ROOT/"collections/editor_overrides.json").exists() else {}
  counts=[]
  for recipe in recipes:
   key=recipe['key'];mask=lookup[key];profile=PROFILES[key]
   path=f"collections/levels/{mask['collection']['id']}_{int(mask['collection']['order']):02d}_{key}.json"
+  if path in protected:
+   doc=read(path);counts.append((doc["title"],len(doc["motif"]["parts"])));continue
   file=ROOT/path; before=file.read_bytes();doc=json.loads(before.decode('utf-8-sig')); oldpaint=json.dumps([doc['motif'],doc['paths']],sort_keys=True);oldpoints=[a['points'] for a in doc['paths']];oldcells={(x,y) for x,y,_ in doc['motif']['cells']}
   xs=[x for x,y in oldcells];ys=[y for x,y in oldcells];lo=(min(xs),min(ys));span=(max(1,max(xs)-lo[0]),max(1,max(ys)-lo[1]))
   roles=[profile['base']]+profile['regions']; regioncells={}

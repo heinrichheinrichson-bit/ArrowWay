@@ -59,7 +59,7 @@ var board: Node2D
 var generation_seed := 9121
 var clock_time := 0.0
 var storage_prefix := "user://test_" if OS.get_cmdline_user_args().has("--test") else "user://"
-var authoring := OS.get_cmdline_user_args().has("--editor-tool")
+var authoring := OS.has_feature("editor") and OS.get_cmdline_user_args().has("--editor-tool")
 var known_free := {}
 var scan_clock := 0.0
 var generating := false
@@ -1124,6 +1124,7 @@ func enter_editor() -> void:
 	build_controls()
 
 func open_studio() -> void:
+	if not OS.has_feature("editor"): return
 	if is_instance_valid(studio):
 		studio.grab_focus()
 		return
