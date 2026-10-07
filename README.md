@@ -142,3 +142,10 @@ Die neue Reise wird separat mit `godot --path . --script res://tests/test_journe
 Im separaten `Level-Werkzeug.cmd`: **Öffnen → Katalogmotiv auswählen**. Nach dem Bearbeiten aktualisiert **Speichern** dasselbe Rätsel an seinem bisherigen Platz. Der Reiter **Bilddaten** bearbeitet Abschlusstext und Quellen. Automatische Sicherungen, Lösbarkeitsprüfung und Schutz vor parallelem Überschreiben sind enthalten. **Kopie speichern** bleibt für separate Entwürfe verfügbar.
 
 Details und die noch ausstehenden Verwaltungsschritte: [Katalogwerkstatt](planning/KATALOGWERKSTATT.md). Spieler-APKs mit `tools/build_player.py` bauen; dieser Export enthält keine privaten Werkstattmodule, Beispiele oder Tests.
+
+
+### Zentrale Motivwerkstatt (0.22)
+
+`Level-Werkzeug.cmd` öffnet eine Verwaltung mit echten Vorschaubildern, Suche, Sammlungsfilter, Entwürfen und Papierkorb. Vorhandene Bilder lassen sich verschieben, kopieren, löschen und wiederherstellen; neue Zeichnungen und importierte Vorlagen erhalten nach der Bearbeitung direkt eine Kategorie und einen Platz im Spiel. Namen und Abschlusstexte gehören zum selben Entwurf. Automatische Füllung und manuelle Pfeilbearbeitung bleiben integriert.
+
+Katalogzählungen werden angepasst, Spielstände bleiben an ihre Motivpfade gebunden und leere Sammlungen werden im Spielerpfad ausgeblendet. Ein Transaktionsjournal sichert Mehrdateiänderungen gegen Unterbrechungen. Die Automatikgeneratoren respektieren manuelle Motive und Löschungen. Details: [Katalogwerkstatt](planning/KATALOGWERKSTATT.md).

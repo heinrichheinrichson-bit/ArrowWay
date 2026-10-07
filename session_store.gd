@@ -39,7 +39,7 @@ func recover_progress() -> void:
 		var index: int=game.level_files.find(path)
 		if index<0 or JourneyProgress.world_index(game.level_collection(index).id)<0: continue
 		if not game.completed.has(index): game.completed.append(index)
-		if index<game.TITLES.size(): game.unlocked=maxi(game.unlocked,mini(index+1,game.TITLES.size()-1))
+		if index<game.base_level_count: game.unlocked=maxi(game.unlocked,mini(index+1,game.base_level_count-1))
 
 func configure() -> void:
 	if not enabled(): return

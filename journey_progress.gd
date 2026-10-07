@@ -73,7 +73,7 @@ static func frontier(game: Node) -> int:
 	refresh(game)
 	if cached_frontier >= 0: return cached_frontier
 	var result := 0
-	while result + 1 < worlds().size() and world_complete(game, result): result += 1
+	while result + 1 < worlds().size() and (world_total(game, result) == 0 or world_complete(game, result)): result += 1
 	cached_frontier = result
 	return result
 
@@ -85,7 +85,7 @@ static func group_visible(game: Node, group: String) -> bool:
 static func visible_groups(game: Node, world: int) -> Array[String]:
 	var result: Array[String] = []
 	for group in worlds()[world].groups:
-		if group_visible(game,group): result.append(group)
+		if group_visible(game,group) and not indices(game, group).is_empty(): result.append(group)
 	return result
 
 static func world_open(game: Node, world: int) -> bool:

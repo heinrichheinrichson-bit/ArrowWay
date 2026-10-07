@@ -24,7 +24,9 @@ func generate() -> void:
 		var filename: String = "%s_%02d_%s.json" % [item.collection.id, item.collection.order, item.key]
 		var path := "res://collections/levels/" + filename
 		var source_hash := JSON.stringify(item).sha256_text()
-		var manually_edited := protected.has(path.trim_prefix("res://"))
+		var protection: Dictionary = protected.get(path.trim_prefix("res://"), {})
+		if protection.get("deleted", false): continue
+		var manually_edited := not protection.is_empty()
 		if manually_edited and not FileAccess.file_exists(path):
 			push_error("Protected catalog motif missing: " + path); quit(1); return
 		if FileAccess.file_exists(path) and (manually_edited or not OS.get_cmdline_user_args().has("--rebuild")):
@@ -90,6 +92,13 @@ func generate() -> void:
 		entries.append({"path":path,"title":motif.title,"collection":item.collection,"tags":tags,"design":design})
 		if item.has("attribution"): entries[-1].attribution=item.attribution
 		print("BUILT %02d/%02d %s: %d cells, %d arrows, %d starts, depth %d" % [index+1,source.size(),item.key,motif.cells.size(),paths.size(),design.starts,design.depth])
+	# Author-created motifs have no immutable source recipe but remain in the catalog.
+	if existing is Dictionary:
+		for entry in existing.get("levels", []):
+			var protection: Dictionary = protected.get(str(entry.path).trim_prefix("res://"), {})
+			if protection.is_empty() or protection.get("deleted", false) or entries.any(func(item): return item.path == entry.path): continue
+			if not FileAccess.file_exists(entry.path): push_error("Protected motif missing: " + entry.path); failed += 1; continue
+			entries.append(entry)
 	entries.sort_custom(func(a: Dictionary, b: Dictionary):
 		if previous_order.has(a.path) or previous_order.has(b.path):
 			return int(previous_order.get(a.path,previous_order.size()))<int(previous_order.get(b.path,previous_order.size()))

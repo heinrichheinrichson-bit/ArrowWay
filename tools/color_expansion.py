@@ -288,6 +288,7 @@ def main():
  for recipe in recipes:
   key=recipe['key'];mask=lookup[key];profile=PROFILES[key]
   path=f"collections/levels/{mask['collection']['id']}_{int(mask['collection']['order']):02d}_{key}.json"
+  if path in protected and protected[path].get("deleted"):continue
   if path in protected:
    doc=read(path);counts.append((doc["title"],len(doc["motif"]["parts"])));continue
   file=ROOT/path; before=file.read_bytes();doc=json.loads(before.decode('utf-8-sig')); oldpaint=json.dumps([doc['motif'],doc['paths']],sort_keys=True);oldpoints=[a['points'] for a in doc['paths']];oldcells={(x,y) for x,y,_ in doc['motif']['cells']}

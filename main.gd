@@ -3,6 +3,9 @@ extends Node2D
 const SPEED := 950.0
 const TITLES := ["Erste Lichtung", "Herzenswege", "Das erste Haus", "Winterlabyrinth", "Herzklopfen", "Haus bei Nacht", "Flügeltanz", "Meerespause", "Neonblüte"]
 const SHAPES := [1, 2, 0, 1, 2, 0, 3, 4, 5]
+var base_level_count := 9
+var workshop_deleted: Array = []
+var workshop_manifest_path := "res://collections/workshop_manifest.json"
 var level_files: Array[String] = []
 var catalog_metadata := {}
 var collection_filter := "all"
@@ -81,6 +84,9 @@ static func escape_distance(time: float) -> float:
 	return SPEED * (time - RAMP * 0.5)
 
 func _ready() -> void:
+	if authoring:
+		var store: RefCounted = load("res://catalog_workshop_store.gd").new()
+		if not store.recover(): push_error(store.error)
 	if journey_mode: get_tree().quit_on_go_back=false
 	get_window().title = "ArrowWay · " + str(ProjectSettings.get_setting("application/config/version", "")) + (" · Level-Werkzeug" if authoring else "")
 	feedback = FeedbackAudio.new()
@@ -128,11 +134,12 @@ func _ready() -> void:
 	load_library_preferences()
 	var config := ConfigFile.new()
 	if config.load(storage_prefix + "progress.cfg") == OK:
-		unlocked = clampi(int(config.get_value("game", "unlocked", 0)), 0, TITLES.size() - 1)
+		unlocked = clampi(int(config.get_value("game", "unlocked", 0)), 0, maxi(0, base_level_count - 1))
 		level = clampi(int(config.get_value("game", "level", 0)), 0, unlocked)
 		for index in config.get_value("game", "completed", range(unlocked)):
-			if index is int and index >= 0 and index < TITLES.size() and not completed.has(index):
-				completed.append(index)
+			if index is int and index >= 0 and index < TITLES.size():
+				var original_index := level_files.find("res://levels/%02d.json" % (index + 1))
+				if original_index >= 0 and not completed.has(original_index): completed.append(original_index)
 		var custom_path: String = config.get_value("game", "custom_level", "")
 		if level_files.has(custom_path): level = level_files.find(custom_path)
 		for id in config.get_value("game", "journey_seen", []):
@@ -142,7 +149,12 @@ func _ready() -> void:
 		if journey_mode and not bool(config.get_value("game", "journey_migrated", false)) and level_files.has(custom_path) and not custom_path.is_empty(): journey_legacy_paths.append(custom_path)
 		for path in config.get_value("game", "completed_custom", []):
 			var index := level_files.find(str(path))
-			if index >= TITLES.size() and not completed.has(index): completed.append(index)
+			if index >= base_level_count and not completed.has(index): completed.append(index)
+		if config.has_section_key("game", "completed_paths"):
+			completed.clear()
+			for path in config.get_value("game", "completed_paths", []):
+				var saved_index := level_files.find(str(path))
+				if saved_index >= 0 and not completed.has(saved_index): completed.append(saved_index)
 	session_store=Node.new()
 	session_store.set_script(load("res://session_store.gd"))
 	session_store.game=self
@@ -171,6 +183,7 @@ func _ready() -> void:
 	if authoring:
 		enter_editor()
 		open_studio()
+		studio.call_deferred("choose_catalog")
 	elif startup_args.has("--library") or startup_args.has("--journey"):
 		if journey_mode: open_journey()
 		else: open_gallery()
@@ -188,7 +201,7 @@ func button(label: String, x: float, y: float, width: float, action: Callable) -
 	return b
 
 func level_count() -> int:
-	return level_files.size() if not level_files.is_empty() else TITLES.size()
+	return level_files.size() if not level_files.is_empty() else base_level_count
 
 func level_path(index: int) -> String:
 	return level_files[index] if index < level_files.size() else "res://levels/%02d.json" % (index + 1)
@@ -198,7 +211,7 @@ func level_shape(index: int) -> int:
 
 func level_available(index: int) -> bool:
 	if journey_mode and not authoring: return JourneyProgress.level_open(self,index)
-	return index >= TITLES.size() or index <= unlocked
+	return index >= base_level_count or index <= unlocked
 
 func discover_levels(include_user_exports: bool = true, directory: String = "") -> void:
 	journey_index_revision += 1
@@ -206,24 +219,34 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 	var current_path := level_path(level) if not level_files.is_empty() else ""
 	var completed_paths: Array[String] = []
 	for index in completed:
-		if index >= TITLES.size() and index < level_files.size(): completed_paths.append(level_files[index])
+		if index >= 0 and index < level_files.size(): completed_paths.append(level_files[index])
 	level_files.clear()
 	catalog_metadata.clear()
-	for index in range(TITLES.size()): level_files.append(directory.path_join("%02d.json" % (index + 1)))
+	var manifest: Dictionary = {}
+	if directory == "res://levels" and FileAccess.file_exists(workshop_manifest_path):
+		manifest = JSON.parse_string(FileAccess.get_file_as_string(workshop_manifest_path))
+	workshop_deleted = manifest.get("deleted", [])
+	if manifest.has("intro_paths"):
+		for path in manifest.intro_paths:
+			if FileAccess.file_exists(path): level_files.append(path)
+	else:
+		for index in range(TITLES.size()): level_files.append(directory.path_join("%02d.json" % (index + 1)))
+	base_level_count = level_files.size()
 	if include_user_exports and scan_user_exports and directory == "res://levels":
 		var catalog = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json")) if FileAccess.file_exists("res://collections/catalog.json") else null
 		if catalog is Dictionary and catalog.get("levels") is Array:
 			for entry in catalog.levels:
 				if not entry is Dictionary or not entry.get("path") is String or not entry.path.begins_with("res://collections/levels/") or not entry.get("collection") is Dictionary or not FileAccess.file_exists(entry.path): continue
+				if workshop_deleted.has(entry.path): continue
+				catalog_metadata[entry.path] = entry
 				if level_files.has(entry.path): continue
 				level_files.append(entry.path)
-				catalog_metadata[entry.path] = entry
 	if include_user_exports and scan_user_exports:
 		var files := Array(DirAccess.get_files_at(directory))
 		files.sort_custom(func(a: String, b: String): return a.naturalnocasecmp_to(b) < 0)
 		for filename in files:
 			var path := directory.path_join(filename)
-			if filename.get_extension().to_lower() != "json" or level_files.has(path): continue
+			if filename.get_extension().to_lower() != "json" or level_files.has(path) or workshop_deleted.has(path): continue
 			var data = JSON.parse_string(FileAccess.get_file_as_string(path))
 			if not data is Dictionary or (data.get("version") != 1 and data.get("version") != 2) or not (data.get("shape") is int or data.get("shape") is float): continue
 			var shape := int(data.shape)
@@ -240,10 +263,8 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 				if not entry.path.begins_with("res://levels/") or not catalog_metadata.has(entry.path) or not level_files.has(entry.path) or JourneyProgress.world_index(entry.group)<0: continue
 				catalog_metadata[entry.path]["collection"]={"id":entry.group,"title":entry.get("collection_title",entry.group)}
 				catalog_metadata[entry.path]["published"]=true
-	level = level_files.find(current_path) if level_files.has(current_path) else mini(level, TITLES.size() - 1)
+	level = level_files.find(current_path) if level_files.has(current_path) else clampi(level, 0, maxi(0, level_files.size() - 1))
 	var retained: Array[int] = []
-	for index in completed:
-		if index < TITLES.size(): retained.append(index)
 	for path in completed_paths:
 		if level_files.has(path): retained.append(level_files.find(path))
 	completed = retained
@@ -736,7 +757,7 @@ func library_view_key() -> String:
 	return JSON.stringify([collection_filter,library_query,library_status,library_tag,favorites_only,gallery_page])
 
 func level_tags(index: int) -> Array[String]:
-	if index < TITLES.size():
+	if index < base_level_count and index < SHAPES.size():
 		return LibraryIndex.tags(["Pflanzen", "Natur"] if SHAPES[index] in [1,5] else (["Tiere", "Natur"] if SHAPES[index] in [3,4] else (["Architektur"] if SHAPES[index] == 0 else ["Symbole"])))
 	return LibraryIndex.tags(catalog_metadata.get(level_path(index), {}).get("tags", []))
 
@@ -882,10 +903,14 @@ func save_progress() -> void:
 	config.set_value("game", "unlocked", unlocked)
 	config.set_value("game", "level", level)
 	config.set_value("game", "completed", completed)
-	config.set_value("game", "custom_level", level_path(level) if level >= TITLES.size() else "")
+	var completed_paths: Array[String] = []
+	for index in completed:
+		if index >= 0 and index < level_files.size(): completed_paths.append(level_path(index))
+	config.set_value("game", "completed_paths", completed_paths)
+	config.set_value("game", "custom_level", level_path(level) if level >= base_level_count else "")
 	var custom_completed: Array[String] = []
 	for index in completed:
-		if index >= TITLES.size() and index < level_files.size(): custom_completed.append(level_path(index))
+		if index >= base_level_count and index < level_files.size(): custom_completed.append(level_path(index))
 	config.set_value("game", "completed_custom", custom_completed)
 	config.save(storage_prefix + "progress.cfg")
 
@@ -898,8 +923,8 @@ func toggle_sound() -> void:
 
 func next_collection_level(index: int) -> int:
 	if journey_mode: return JourneyProgress.next_open(self,index)
-	if index < TITLES.size():
-		return index + 1 if index < TITLES.size() - 1 else -1
+	if index < base_level_count:
+		return index + 1 if index < base_level_count - 1 else -1
 	var group: String = level_collection(index).id
 	for candidate in range(index + 1, level_count()):
 		if level_collection(candidate).id == group: return candidate
@@ -922,7 +947,7 @@ func advance() -> void:
 		open_gallery()
 		return
 	level = next
-	if level < TITLES.size(): unlocked = maxi(unlocked, level)
+	if level < base_level_count: unlocked = maxi(unlocked, level)
 	save_progress()
 	reset()
 
@@ -977,7 +1002,7 @@ func finish_puzzle(restored := false) -> void:
 				var group: String = level_collection(level).id
 				var wi := JourneyProgress.world_index(group)
 				if wi>=0 and JourneyProgress.group_complete(self,group): journey_reward={"group":group,"world":wi,"next":JourneyProgress.frontier(self) if JourneyProgress.world_complete(self,wi) and wi+1<JourneyProgress.worlds().size() else -1}
-		if level < TITLES.size(): unlocked = maxi(unlocked, mini(level + 1, TITLES.size() - 1))
+		if level < base_level_count: unlocked = maxi(unlocked, mini(level + 1, base_level_count - 1))
 		level_picker.set_item_disabled(unlocked, false)
 		save_progress()
 	session_in_progress=false
@@ -1126,6 +1151,7 @@ func enter_editor() -> void:
 func open_studio() -> void:
 	if not OS.has_feature("editor"): return
 	if is_instance_valid(studio):
+		studio.show()
 		studio.grab_focus()
 		return
 	get_viewport().gui_embed_subwindows = DisplayServer.get_name() == "headless"
@@ -1140,6 +1166,7 @@ func open_studio() -> void:
 		studio.set("paths", clone_data(arrows))
 	studio.set("motif", initial)
 	add_child(studio)
+	if not studio_draft.is_empty(): studio.restore_workshop_state(studio_draft.get("workshop", {}))
 	studio.popup_centered(Vector2i(1040, 800))
 
 func fill_template() -> void:
@@ -1458,8 +1485,8 @@ func _draw() -> void:
 	text_at(detail, Vector2(20, 724), 12, Color("#8296b0"), 500)
 
 func level_collection(index: int) -> Dictionary:
-	if journey_mode and index >= TITLES.size() and level_path(index).begins_with("res://levels/") and not bool(catalog_metadata.get(level_path(index),{}).get("published",false)): return {"id":"custom","title":"Eigene Motive"}
-	if index < TITLES.size(): return {"id":"base","title":"Erste Neonreise"}
+	if journey_mode and index >= base_level_count and level_path(index).begins_with("res://levels/") and not bool(catalog_metadata.get(level_path(index),{}).get("published",false)): return {"id":"custom","title":"Eigene Motive"}
+	if index < base_level_count: return {"id":"base","title":"Erste Neonreise"}
 	var data: Dictionary = catalog_metadata.get(level_path(index), {})
 	var group: Dictionary = data.get("collection", {}) if data.get("collection", {}) is Dictionary else {}
 	if not group.get("id") is String or not group.get("title") is String:

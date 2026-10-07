@@ -50,7 +50,6 @@ def main():
     catalog=read('collections/catalog.json'); taxonomy=read('collections/taxonomy.json'); journey=read('collections/journey.json'); discoveries=read('collections/discoveries.json')
     categories={c['id']:(w,c) for w in taxonomy['worlds'] for c in w['categories']}
     assignments={a['path']:a for a in taxonomy['assignments'] if a['path'] not in key_by_path}
-    assert len(assignments)==509
     registry=journey['groups']
     for gid,(title,icon,color) in NEW_GROUPS.items(): registry[gid]=dict(id=gid,title=title,icon=icon,color=color)
     for entry in expansion:
@@ -66,15 +65,30 @@ def main():
     by_path.update({e['path']:e for e in expansion})
     old_order=[e['path'] for e in catalog['levels']]
     catalog['levels']=[by_path[p] for p in old_order]+[e for e in expansion if e['path'] not in set(old_order)]
-    assert len(catalog['levels'])==500+len(expansion)
+    protected=read('collections/editor_overrides.json')['entries'] if (ROOT/'collections/editor_overrides.json').exists() else {}
+    for path,override in protected.items():
+        public_path='res://'+path
+        if override.get('deleted'):
+            catalog['levels']=[e for e in catalog['levels'] if e['path']!=public_path]
+            assignments.pop(public_path,None)
+            discoveries['entries'].pop(public_path,None)
+            continue
+        doc=read(path)
+        for entry in catalog['levels']:
+            if entry['path']==public_path:
+                entry.update(title=doc['title'],design=doc['design'])
+                if 'collection' in override: entry['collection']=override['collection']
+                if 'assignment' in override: entry['taxonomy']={'world':override['assignment']['world'],'category':override['assignment']['category_id']}
+        if 'assignment' in override: assignments[public_path]=override['assignment']
+        if public_path in assignments: assignments[public_path]['title']=doc['title']
+        discoveries['entries'][public_path]=override['discovery']
     counts=Counter(a['group'] for a in assignments.values())
     for group in list(registry):
-        if group not in counts: del registry[group]
-        else: registry[group]['count']=counts[group]
+        registry[group]['count']=counts.get(group,0)
     for w in taxonomy['worlds']:
         for c in w['categories']:
             members=[a for a in assignments.values() if a['category_id']==c['id']]
-            c['existing_count']=len(members); c['status']='populated' if members else 'prepared'; c['playable_groups']=sorted({a['group'] for a in members})
+            c['existing_count']=len(members); c['status']='populated' if members else 'prepared'; c['playable_groups']=sorted(set(c.get('playable_groups',[]))|{a['group'] for a in members})
     worlds={w['id']:w for w in journey['worlds']}
     worlds['discovery']['title']='Technik gestern & heute'
     for wid,title,icon,color,ad_id in [('science','Wissenschaft & Entdeckungen','flask','91d9ff',14),('medicine','Medizin & Mensch','flask','ff9dbc',15),('history','Geschichte & Kulturen','city','efc289',16)]:
@@ -87,18 +101,10 @@ def main():
     canonical_world['science_basics']='science'
     for wid,w in worlds.items():
         prior=[g for g in w['groups'] if canonical_world.get(g)==wid]
-        w['groups']=prior+[g for g in registry if canonical_world[g]==wid and g not in prior]
+        w['groups']=prior+[g for g in registry if canonical_world.get(g)==wid and g not in prior]
     order=['beginning','nature','plants','landscapes','celebrations','home','comfort','craft','discovery','science','medicine','space','travel','history','imagination','leisure','fantasy']
     journey['worlds']=[worlds[w] for w in order]; journey['version']=4
     taxonomy['assignments']=list(assignments.values()); taxonomy['version']=2
-    protected=read('collections/editor_overrides.json')['entries'] if (ROOT/'collections/editor_overrides.json').exists() else {}
-    for path,override in protected.items():
-        doc=read(path)
-        for entry in catalog['levels']:
-            if entry['path'].removeprefix('res://')==path: entry.update(title=doc['title'],design=doc['design'])
-        for assignment in taxonomy['assignments']:
-            if assignment['path'].removeprefix('res://')==path: assignment['title']=doc['title']
-        discoveries['entries']['res://'+path]=override['discovery']
     write('collections/catalog.json',catalog); write('collections/journey.json',journey); write('collections/taxonomy.json',taxonomy); write('collections/discoveries.json',discoveries)
     sources=read('collections/source_masks.json')
     sources=[e for e in sources if e['key'] not in recipes]+masks

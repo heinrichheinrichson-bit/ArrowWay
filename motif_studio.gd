@@ -1,5 +1,9 @@
 extends Window
 
+var draft_key := ""
+var save_button: Button
+var draft_clock := 0.0
+var saved_draft_state := ""
 var catalog_root := "res://"
 var catalog_baseline := ""
 var catalog_path := ""
@@ -33,6 +37,7 @@ var swatches: Array[ColorPickerButton] = []
 var actions: Array[BaseButton] = []
 var arrow_actions: Array[BaseButton] = []
 var source: Image
+var player_export_worker: Thread
 var worker: Thread
 var filling := false
 var preserving_fill := false
@@ -73,11 +78,7 @@ func _ready() -> void:
 	background.size = root.size
 	background.color = Color("#080e19")
 	root.add_child(background)
-	var heading := Label.new()
-	heading.text = "MOTIVWERKSTATT"
-	heading.position = Vector2(25, 18)
-	heading.add_theme_font_size_override("font_size", 24)
-	root.add_child(heading)
+	add_button(root, "← Katalog & Entwürfe", Vector2(25, 18), Vector2(245, 34), choose_catalog)
 	view_button = Button.new()
 	view_button.text = "Gesamtansicht · Esc"
 	view_button.toggle_mode = true
@@ -272,16 +273,17 @@ func _ready() -> void:
 	data_page.add_child(completion_url)
 	add_row_button(data_page, "Am bisherigen Katalogplatz speichern", save_catalog)
 	add_row_button(data_page, "Katalogmotiv auswählen …", choose_catalog)
+	add_row_button(data_page, "Als neues Katalogmotiv hinzufügen …", publish_catalog)
 	add_label(data_page, "Speichern aktualisiert das Projekt. Für das Handy\nist anschließend eine neue APK nötig.")
 	pages.tab_changed.connect(func(index: int):
 		if index == 0: activate_tool(0)
-		else: activate_tool(8))
+		elif index == 1: activate_tool(8))
 	add_row_button(sidebar, "Freie Flächen mit Pfeilen füllen", fill)
 	add_row_button(sidebar, "Im Spiel testen", apply)
 	var files := HBoxContainer.new()
 	sidebar.add_child(files)
-	add_row_button(files, "Speichern", func():
-		if catalog_path.is_empty(): choose_save_document()
+	save_button = add_row_button(files, "Speichern", func():
+		if catalog_path.is_empty(): save_draft()
 		else: save_catalog())
 	var open_menu := MenuButton.new()
 	open_menu.text = "Öffnen ▾"
@@ -339,7 +341,7 @@ func add_button(parent: Node, text: String, pos: Vector2, extent: Vector2, actio
 
 	return button
 
-func add_row_button(parent: Node, text: String, action: Callable) -> void:
+func add_row_button(parent: Node, text: String, action: Callable) -> Button:
 	var button := Button.new()
 	button.text = text
 	button.custom_minimum_size.y = 34
@@ -347,9 +349,10 @@ func add_row_button(parent: Node, text: String, action: Callable) -> void:
 	button.pressed.connect(action)
 	parent.add_child(button)
 	actions.append(button)
+	return button
 
 func remember() -> void:
-	history.append({"motif": motif.duplicate(true), "paths": game.clone_data(paths), "selected_arrow": selected_arrow})
+	history.append({"motif": motif.duplicate(true), "paths": game.clone_data(paths), "selected_arrow": selected_arrow, "workshop": workshop_state()})
 	if history.size() > 40:
 		history.pop_front()
 
@@ -359,6 +362,7 @@ func undo() -> void:
 	var state: Dictionary = history.pop_back()
 	motif = state.motif
 	paths = state.paths
+	restore_workshop_state(state.get("workshop", {}))
 	selected_arrow = state.get("selected_arrow", -1)
 	view_mode = false
 	tool = 0
@@ -689,6 +693,18 @@ func fill(replace_confirmed: bool = false) -> void:
 		return [])
 
 func _process(_delta: float) -> void:
+	if player_export_worker != null and not player_export_worker.is_alive():
+		var report: Dictionary = player_export_worker.wait_to_finish()
+		player_export_worker = null; set_busy(false)
+		if report.code == 0: notice.text = "Spieler-APK erstellt: " + str(report.path)
+		else: notice.text = "APK konnte nicht erstellt werden. Exportprotokoll: " + str(report.log)
+	draft_clock += _delta
+	if draft_clock >= 2.0 and completion_text != null:
+		draft_clock = 0.0
+		var state := catalog_state()
+		if save_button != null: save_button.text = "Entwurf speichern" if catalog_path.is_empty() else ("Speichern •" if state != catalog_baseline else "Speichern")
+		if visible and not busy and state != saved_draft_state:
+			save_draft(false); saved_draft_state = state
 	if worker == null or worker.is_alive():
 		return
 	var result = worker.wait_to_finish()
@@ -740,15 +756,21 @@ func apply() -> void:
 	if catalog_path.is_empty(): close_studio()
 	else: hide()
 
-func save_draft() -> void:
+func save_draft(show_notice: bool = true) -> void:
 	var file := FileAccess.open(game.storage_prefix + "motif_draft.json", FileAccess.WRITE)
 	if file == null:
 		notice.text = "Entwurf konnte nicht gespeichert werden."
 		return
 	var document := CustomMotif.encode(motif)
 	document["paths"] = CustomMotif.encode_paths(paths)
+	if draft_key.is_empty(): draft_key = "draft_" + str(Time.get_unix_time_from_system()).replace(".", "_") + "_" + str(Time.get_ticks_usec())
+	document["workshop"] = workshop_state()
+	var directory := drafts_directory()
+	if DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory)) == OK:
+		var archived := FileAccess.open(directory + draft_key + ".json", FileAccess.WRITE)
+		if archived != null: archived.store_string(JSON.stringify(document, "\t")); archived.close()
 	file.store_string(JSON.stringify(document, "\t"))
-	notice.text = "Flächen, Namen, Paletten, Bildvorlage und aktuelle Pfeilfüllung sind lokal gespeichert."
+	if show_notice: notice.text = "Entwurf einschließlich Name, Abschlusstext und Pfeilfüllung lokal gespeichert."
 
 func load_draft(replace_confirmed: bool = false) -> void:
 	var path: String = game.storage_prefix + "motif_draft.json"
@@ -771,32 +793,52 @@ func load_draft(replace_confirmed: bool = false) -> void:
 		return
 	catalog_path = ""
 	catalog_document = {}
-	completion_text.text = ""
+	completion_text.text = ""; completion_kind.text = "Ein kleiner Gedanke"; completion_source.text = ""; completion_url.text = ""
 	remember()
 	motif = loaded
 	paths = restored
 	source = null
 	show_overview()
+	restore_workshop_state(document.get("workshop", {}))
+
+func drafts_directory() -> String:
+	return game.storage_prefix + "workshop_drafts/"
+
+func workshop_state() -> Dictionary:
+	return {"path": catalog_path, "document": catalog_document, "hashes": catalog_hashes, "baseline": catalog_baseline, "text": completion_text.text, "kind": completion_kind.text, "source": completion_source.text, "url": completion_url.text, "root": catalog_root, "draft_key": draft_key}
+
+func restore_workshop_state(state: Dictionary) -> void:
+	draft_key = state.get("draft_key", "")
+	catalog_path = state.get("path", ""); catalog_document = state.get("document", {})
+	catalog_hashes = state.get("hashes", {}); catalog_baseline = state.get("baseline", "")
+	completion_text.text = state.get("text", ""); completion_kind.text = state.get("kind", "Ein kleiner Gedanke")
+	completion_source.text = state.get("source", ""); completion_url.text = state.get("url", "")
+	catalog_root = state.get("root", "res://")
 
 func close_studio() -> void:
-	if not catalog_path.is_empty() and catalog_state() != catalog_baseline:
-		var dialog := ConfirmationDialog.new()
-		dialog.title = "Ungespeicherte Katalogänderungen"
-		dialog.dialog_text = "Deine Änderungen sind noch nicht im Katalog gespeichert. Werkstatt trotzdem schließen? Der lokale Entwurf bleibt erhalten."
-		dialog.ok_button_text = "Ohne Katalogspeichern schließen"
-		add_child(dialog)
-		dialog.confirmed.connect(func(): catalog_path = ""; close_studio(); dialog.queue_free())
-		dialog.canceled.connect(dialog.queue_free)
-		dialog.popup_centered()
-		return
 	if busy:
 		notice.text = "Die Berechnung läuft noch. Das Fenster kann danach geschlossen werden."
 		return
-	game.studio_draft = {"motif": motif.duplicate(true), "paths": game.clone_data(paths)}
+	if not catalog_path.is_empty() and catalog_state() != catalog_baseline:
+		var dialog := ConfirmationDialog.new()
+		dialog.title = "Ungespeicherte Katalogänderungen"
+		dialog.dialog_text = "Deine Änderungen sind noch nicht im Katalog gespeichert. Werkstatt schließen und als Entwurf behalten?"
+		dialog.ok_button_text = "Als Entwurf behalten und schließen"
+		add_child(dialog)
+		dialog.confirmed.connect(finish_close_studio)
+		dialog.canceled.connect(dialog.queue_free)
+		dialog.popup_centered()
+		return
+	finish_close_studio()
+
+func finish_close_studio() -> void:
+	save_draft(false)
+	game.studio_draft = {"motif": motif.duplicate(true), "paths": game.clone_data(paths), "workshop": workshop_state()}
 	game.studio = null
 	queue_free()
 
 func _exit_tree() -> void:
+	if player_export_worker != null and player_export_worker.is_started(): player_export_worker.wait_to_finish()
 	if worker != null and worker.is_started():
 		worker.wait_to_finish()
 
@@ -1020,6 +1062,7 @@ func confirm_replace(action: Callable, message: String) -> void:
 func save_backup() -> bool:
 	var document := CustomMotif.encode(motif)
 	document["paths"] = CustomMotif.encode_paths(paths)
+	document["workshop"] = workshop_state()
 	var file := FileAccess.open(game.storage_prefix + "editor_backup.json", FileAccess.WRITE)
 	if file == null: return false
 	file.store_string(JSON.stringify(document))
@@ -1041,6 +1084,7 @@ func restore_backup() -> void:
 	motif = loaded
 	paths = restored
 	show_overview()
+	restore_workshop_state(document.get("workshop", {}))
 	notice.text = "Die letzte ersetzte Füllung ist wiederhergestellt. Rückgängig bringt dich zum vorigen Entwurf."
 
 func load_recent_colors() -> void:
@@ -1151,7 +1195,9 @@ func choose_open_document() -> void:
 			if image == null or image.is_empty():
 				notice.text = "Das Bild konnte nicht geöffnet werden."
 			else:
-				var action := func(): source = image; analyze_image(true)
+				var action := func():
+					catalog_path = ""; catalog_document = {}; draft_key = ""; completion_text.text = ""; completion_kind.text = "Ein kleiner Gedanke"; completion_source.text = ""; completion_url.text = ""
+					source = image; analyze_image(true)
 				if paths.is_empty(): action.call()
 				else: confirm_replace(action, "Ein anderes Bild ersetzt den aktuellen Entwurf. Deine letzte Füllung wird zusätzlich gesichert.")
 		dialog.queue_free())
@@ -1188,9 +1234,10 @@ func open_document(path: String, replace_confirmed: bool = false) -> bool:
 	if not replace_confirmed and not paths.is_empty():
 		confirm_replace(func(): open_document(path, true), "Öffnen ersetzt den aktuellen Entwurf. Deine letzte Füllung wird zusätzlich gesichert.")
 		return true
+	draft_key = ""
 	catalog_path = ""
 	catalog_document = {}
-	completion_text.text = ""
+	completion_text.text = ""; completion_kind.text = "Ein kleiner Gedanke"; completion_source.text = ""; completion_url.text = ""
 	remember()
 	motif = loaded
 	paths = restored
@@ -1200,52 +1247,106 @@ func open_document(path: String, replace_confirmed: bool = false) -> bool:
 	return true
 
 func choose_catalog() -> void:
+	if busy:
+		notice.text = "Die Berechnung läuft noch. Danach kannst du den Katalog öffnen."
+		return
 	var picker := Window.new()
-	picker.title = "Katalog · Motiv auswählen"
-	picker.size = Vector2i(760, 650)
+	picker.set_script(load("res://catalog_workshop_browser.gd"))
+	picker.studio = self
+	picker.theme = game.panel.theme
 	add_child(picker)
-	var box := VBoxContainer.new()
-	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	picker.add_child(box)
-	var search := LineEdit.new()
-	search.placeholder_text = "Motiv oder Sammlung suchen …"
-	box.add_child(search)
-	var list := ItemList.new()
-	list.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(list)
-	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
-	var entries: Array = catalog.levels.duplicate(true)
-	for assignment in JSON.parse_string(FileAccess.get_file_as_string("res://collections/taxonomy.json")).assignments:
-		if str(assignment.path).trim_prefix("res://").begins_with("levels/"):
-			entries.append({"path": assignment.path, "title": assignment.title, "collection": {"title": "Das erste Licht"}})
-	var refresh_list := func(query: String):
-		list.clear()
-		for entry in entries:
-			var label: String = str(entry.title) + " · " + str(entry.collection.title)
-			if query.is_empty() or label.to_lower().contains(query.to_lower()):
-				list.add_item(label)
-				list.set_item_metadata(list.item_count - 1, entry.path)
-	search.text_changed.connect(refresh_list)
-	refresh_list.call("")
-	list.item_activated.connect(func(index: int):
-		var path: String = list.get_item_metadata(index)
-		confirm_replace(func(): bind_catalog(path); picker.queue_free(), "Katalogmotiv öffnen? Der aktuelle Entwurf wird vorher gesichert."))
-	var open_button := Button.new()
-	open_button.text = "Ausgewähltes Motiv öffnen"
-	open_button.pressed.connect(func():
-		var selection := list.get_selected_items()
-		if not selection.is_empty(): list.item_activated.emit(selection[0]))
-	box.add_child(open_button)
-	var hint := Label.new()
-	hint.text = "Doppelklick öffnet das Motiv. Alle Änderungen bleiben am bisherigen Platz."
-	box.add_child(hint)
-	picker.close_requested.connect(picker.queue_free)
 	picker.popup_centered()
+
+func workshop_store() -> RefCounted:
+	var store: RefCounted = load("res://catalog_workshop_store.gd").new()
+	store.root = catalog_root
+	return store
+
+func catalog_changed() -> void:
+	load("res://discoveries.gd").entries = {}
+	JourneyProgress.definition = {}
+	game.discover_levels()
+	if not catalog_path.is_empty():
+		if FileAccess.file_exists(catalog_root + catalog_path):
+			catalog_document = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + catalog_path))
+			catalog_hashes = catalog_fingerprints()
+		else: catalog_path = ""; catalog_document = {}; notice.text = "Dieses Motiv liegt jetzt im Papierkorb. Der Entwurf bleibt geöffnet."
+
+func new_workshop_motif() -> void:
+	confirm_replace(func():
+		catalog_path = ""; catalog_document = {}; draft_key = ""; history.clear()
+		motif = CustomMotif.from_shape(0); motif.cells.clear(); motif.title = "Neues Motiv"
+		paths.clear(); source = null; completion_text.text = ""; completion_kind.text = "Ein kleiner Gedanke"; completion_source.text = ""; completion_url.text = ""
+		show_overview(); activate_tool(1); notice.text = "Zeichne deine Flächen oder öffne eine Bildvorlage. Danach freie Flächen mit Pfeilen füllen.", "Neues Motiv beginnen? Dein aktueller Entwurf wird vorher gesichert.")
+
+func choose_workshop_target(action: Callable, initial_path: String = "") -> void:
+	var state: Dictionary = workshop_store().load_state()
+	var initial := {}
+	var requested := initial_path if not initial_path.is_empty() else "res://" + catalog_path
+	for assignment in state.taxonomy.assignments:
+		if assignment.path == requested: initial = assignment
+	var dialog := Window.new(); dialog.title = "Motiv einordnen"; dialog.size = Vector2i(640, 360); add_child(dialog)
+	var box := VBoxContainer.new(); box.position = Vector2(20, 20); box.size = Vector2(600, 320); box.add_theme_constant_override("separation", 8); dialog.add_child(box)
+	add_label(box, "THEMENWELT")
+	var world_picker := OptionButton.new(); world_picker.fit_to_longest_item = false; world_picker.custom_minimum_size.y = 36; box.add_child(world_picker)
+	add_label(box, "KATEGORIE")
+	var category_picker := OptionButton.new(); category_picker.fit_to_longest_item = false; category_picker.custom_minimum_size.y = 36; box.add_child(category_picker)
+	add_label(box, "SPIELBARE SAMMLUNG")
+	var group_picker := OptionButton.new(); group_picker.fit_to_longest_item = false; group_picker.custom_minimum_size.y = 36; box.add_child(group_picker)
+	var accept := Button.new(); accept.text = "Zuordnung übernehmen"; accept.custom_minimum_size.y = 38; box.add_child(accept)
+	var populate_groups := func():
+		group_picker.clear()
+		if world_picker.selected < 0 or category_picker.selected < 0: accept.disabled = true; return
+		var world: Dictionary = state.taxonomy.worlds[world_picker.selected]
+		var category: Dictionary = world.categories[category_picker.selected]
+		for group in category.get("playable_groups", []):
+			if not state.journey.groups.has(group): continue
+			group_picker.add_item(str(state.journey.groups[group].title))
+			group_picker.set_item_metadata(group_picker.item_count - 1, {"world": world.id, "world_title": world.title, "category": category.title, "category_id": category.id, "group": group})
+		accept.disabled = group_picker.item_count == 0
+	var populate_categories := func():
+		category_picker.clear()
+		for category in state.taxonomy.worlds[world_picker.selected].categories:
+			category_picker.add_item(str(category.title) + " · " + str(category.get("existing_count", 0)) + " Motive")
+		populate_groups.call()
+	for world in state.taxonomy.worlds: world_picker.add_item(world.title)
+	world_picker.item_selected.connect(func(_index): populate_categories.call())
+	category_picker.item_selected.connect(func(_index): populate_groups.call())
+	populate_categories.call()
+	if not initial.is_empty():
+		for index in state.taxonomy.worlds.size():
+			if state.taxonomy.worlds[index].id == initial.world: world_picker.select(index); populate_categories.call()
+		for index in state.taxonomy.worlds[world_picker.selected].categories.size():
+			if state.taxonomy.worlds[world_picker.selected].categories[index].id == initial.category_id: category_picker.select(index); populate_groups.call()
+		for index in group_picker.item_count:
+			if group_picker.get_item_metadata(index).group == initial.group: group_picker.select(index)
+	accept.pressed.connect(func():
+		if group_picker.selected >= 0: action.call(group_picker.get_item_metadata(group_picker.selected)); dialog.queue_free())
+	dialog.close_requested.connect(dialog.queue_free); dialog.popup_centered()
+
+func publish_catalog() -> void:
+	if busy: return
+	var document := {"version": 2, "title": title_field.text.strip_edges(), "shape": 6, "motif": CustomMotif.encode(motif), "paths": CustomMotif.encode_paths(paths)}
+	var discovery := {"kind": completion_kind.text.strip_edges(), "text": completion_text.text.strip_edges()}
+	if str(discovery.kind).is_empty(): discovery.kind = "Ein kleiner Gedanke"
+	if discovery.kind != "Ein kleiner Gedanke" and (completion_source.text.strip_edges().is_empty() or not completion_url.text.begins_with("https://")):
+		notice.text = "Für Fakten und Zitate bitte Quelle und https://-Link angeben."; return
+	if not completion_source.text.is_empty(): discovery.source = completion_source.text.strip_edges()
+	if not completion_url.text.is_empty(): discovery.url = completion_url.text.strip_edges()
+	var store := workshop_store()
+	var expected: Dictionary = store.fingerprints()
+	choose_workshop_target(func(target: Dictionary):
+		var path: String = store.publish(document, discovery, target, expected)
+		if path.is_empty(): notice.text = store.error
+		else: catalog_changed(); bind_catalog(path); notice.text = "Neues Motiv im Katalog hinzugefügt: " + title_field.text)
 
 func bind_catalog(path: String) -> void:
 	path = path.trim_prefix("res://")
+	var store := workshop_store()
+	if not store.recover(): notice.text = store.error; return
 	if not open_document(catalog_root + path, true): return
 	catalog_path = path
+	draft_key = "catalog_" + path.sha256_text().left(24)
 	history.clear()
 	catalog_document = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + path))
 	var discovery: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + "collections/discoveries.json")).entries.get("res://" + path, {})
@@ -1262,7 +1363,7 @@ func catalog_state() -> String:
 
 func catalog_fingerprints() -> Dictionary:
 	var result := {}
-	for path in [catalog_path, "collections/catalog.json", "collections/taxonomy.json", "collections/discoveries.json", "collections/editor_overrides.json"]:
+	for path in [catalog_path, "collections/catalog.json", "collections/taxonomy.json", "collections/discoveries.json", "collections/editor_overrides.json", "collections/workshop_manifest.json", "collections/workshop_trash.json", "collections/journey.json"]:
 		result[path] = FileAccess.get_sha256(catalog_root + path) if FileAccess.file_exists(catalog_root + path) else ""
 	return result
 
@@ -1321,41 +1422,40 @@ func save_catalog() -> void:
 	var overrides := {"version": 1, "entries": {}}
 	if FileAccess.file_exists(catalog_root + "collections/editor_overrides.json"):
 		overrides = JSON.parse_string(FileAccess.get_file_as_string(catalog_root + "collections/editor_overrides.json"))
-	overrides.entries[catalog_path] = {"protected": true, "title": new_title, "discovery": discovery}
+	var protection: Dictionary = overrides.entries.get(catalog_path, {})
+	protection.merge({"protected": true, "title": new_title, "discovery": discovery}, true)
+	overrides.entries[catalog_path] = protection
 	var updates := {catalog_path: document, "collections/catalog.json": catalog, "collections/taxonomy.json": taxonomy, "collections/discoveries.json": discoveries, "collections/editor_overrides.json": overrides}
-	var backup_dir := catalog_root + "work/catalog-backups/" + str(Time.get_unix_time_from_system()).replace(".", "-")
-	if DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(backup_dir)) != OK:
-		notice.text = "Die Sicherung konnte nicht angelegt werden. Nichts gespeichert."
+	var store := workshop_store()
+	if not store.commit(updates, catalog_hashes):
+		notice.text = store.error
 		return
-	var originals := {}
-	for path in updates:
-		var original := FileAccess.get_file_as_string(catalog_root + path) if FileAccess.file_exists(catalog_root + path) else ""
-		originals[path] = original
-		var backup := FileAccess.open(backup_dir + "/" + path.replace("/", "__"), FileAccess.WRITE)
-		if backup == null:
-			notice.text = "Sicherung fehlgeschlagen. Nichts gespeichert."
-			return
-		backup.store_string(original)
-		backup.close()
-		var temporary := FileAccess.open(catalog_root + path + ".pending", FileAccess.WRITE)
-		if temporary == null:
-			notice.text = "Datei kann nicht vorbereitet werden. Nichts gespeichert."
-			return
-		temporary.store_string(JSON.stringify(updates[path], "\t"))
-		temporary.close()
-	for path in updates:
-		var error := DirAccess.rename_absolute(ProjectSettings.globalize_path(catalog_root + path + ".pending"), ProjectSettings.globalize_path(catalog_root + path))
-		if error != OK:
-			for old_path in originals:
-				if originals[old_path].is_empty(): DirAccess.remove_absolute(ProjectSettings.globalize_path(catalog_root + old_path))
-				else:
-					var restore := FileAccess.open(catalog_root + old_path, FileAccess.WRITE)
-					if restore != null: restore.store_string(originals[old_path]); restore.close()
-			notice.text = "Speichern fehlgeschlagen. Vorherige Dateien wurden wiederhergestellt."
-			return
 	catalog_document = document
 	catalog_hashes = catalog_fingerprints()
 	catalog_baseline = catalog_state()
 	load("res://discoveries.gd").entries = {}
 	game.discover_levels()
-	notice.text = "Im Katalog gespeichert: " + new_title + ". Sicherung: " + backup_dir.get_file()
+	notice.text = "Im Katalog gespeichert: " + new_title + ". Vorherige Dateien wurden gesichert."
+
+func choose_player_export() -> void:
+	if busy: return
+	if catalog_root != "res://": notice.text = "APK-Export ist nur für das tatsächliche Projekt verfügbar."; return
+	var python := OS.get_environment("USERPROFILE").path_join(".cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe")
+	if not FileAccess.file_exists(python): notice.text = "Die Python-Laufzeit für den APK-Export wurde nicht gefunden."; return
+	var dialog := FileDialog.new(); dialog.title = "Spieler-APK erstellen"; dialog.access = FileDialog.ACCESS_FILESYSTEM; dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE; dialog.filters = PackedStringArray(["*.apk ; Android-Spieler"])
+	dialog.current_dir = ProjectSettings.globalize_path("res://.."); dialog.current_file = "ArrowWay-S22.apk"; add_child(dialog)
+	dialog.file_selected.connect(func(path: String):
+		var helper := ProjectSettings.globalize_path("res://tools/build_player.py")
+		var godot := OS.get_executable_path()
+		var log_path := ProjectSettings.globalize_path("res://work/player-export.log")
+		DirAccess.make_dir_recursive_absolute(log_path.get_base_dir())
+		set_busy(true); notice.text = "Spieler-APK wird gebaut. Gespeicherte Katalogänderungen werden übernommen; Entwürfe bleiben privat."
+		player_export_worker = Thread.new()
+		player_export_worker.start(func():
+			var output: Array = []
+			var result := OS.execute(python, [helper, "--godot", godot, "--output", path], output, true, false)
+			var log_file := FileAccess.open(log_path, FileAccess.WRITE)
+			if log_file != null: log_file.store_string("\n".join(output)); log_file.close()
+			return {"code": result, "path": path, "log": log_path})
+		dialog.queue_free())
+	dialog.canceled.connect(dialog.queue_free); dialog.popup_centered(Vector2i(850, 650))

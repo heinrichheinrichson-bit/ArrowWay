@@ -10,8 +10,7 @@ func run() -> void:
 	var studio: Window = scene.studio
 	studio.choose_catalog()
 	var picker: Window = studio.get_child(studio.get_child_count() - 1)
-	var list: ItemList = picker.get_child(0).get_child(1)
-	check(list.item_count == 823, "Private browser includes all 814 catalog and nine intro puzzles")
+	check(picker.entries.size() == 823, "Private browser includes all 814 catalog and nine intro puzzles")
 	picker.queue_free()
 	var base := "user://catalog_workshop_test/"
 	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
@@ -49,6 +48,16 @@ func run() -> void:
 	studio.title_field.text = "Conflict"
 	studio.save_catalog()
 	check(FileAccess.get_file_as_string(base + path) == current + "\n", "Second author window cannot silently overwrite newer edits")
+	studio.bind_catalog(path)
+	studio.completion_text.text = "Dieser Abschlusstext bleibt als Entwurf erhalten."
+	studio.save_draft(false)
+	check(FileAccess.file_exists(studio.drafts_directory() + studio.draft_key + ".json"), "Draft is saved in the central draft library")
+	studio.completion_text.text = ""
+	studio.load_draft(true)
+	check(studio.completion_text.text == "Dieser Abschlusstext bleibt als Entwurf erhalten." and studio.catalog_path == path, "Draft recovery preserves completion text and catalog binding")
+	studio.finish_close_studio(); await process_frame
+	scene.open_studio(); studio = scene.studio
+	check(studio.completion_text.text == "Dieser Abschlusstext bleibt als Entwurf erhalten." and studio.catalog_path == path, "Closing and reopening retains the complete editor context")
 	studio.catalog_path = ""
 	scene.queue_free()
 	await process_frame
