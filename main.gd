@@ -1034,7 +1034,6 @@ func mark_releases() -> void:
 	for i in free:
 		known_free[i] = true
 	if opened > 0 and not status.begins_with("Der weiß"):
-		feedback.play("release")
 		status = "Ein neuer Weg ist jetzt frei." if opened == 1 else "%d neue Wege sind jetzt frei." % opened
 		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
 
