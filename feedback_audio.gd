@@ -2,18 +2,22 @@ class_name FeedbackAudio
 extends Node
 
 const SAMPLE_RATE := 44100
-const ESCAPE_PITCHES := [0.98, 1.02, 1.0, 1.035, 0.965]
+const ESCAPE_SOUND = preload("res://audio/arrow_escape.wav")
 static var bank := {}
 var enabled := true
 var quiet := OS.get_cmdline_user_args().has("--test")
 var voices: Array[AudioStreamPlayer] = []
 var last_played := {}
 var next_voice := 0
-var note_index := 0
+var flight_samples: Array = []
+var flight_cache := {}
+var flight_voices := {}
+var flight_paused := false
 
 func _ready() -> void:
+	flight_samples = JSON.parse_string(FileAccess.get_file_as_string("res://audio/arrow_flight.json")).entries
 	if bank.is_empty():
-		bank["escape"] = synthesize_escape()
+		bank["escape"] = ESCAPE_SOUND
 		bank["blocked"] = synthesize([[185.0, 0.0, 0.10, 0.28]], 0.11)
 		bank["release"] = synthesize([[880.0, 0.0, 0.14, 0.12]], 0.15)
 		bank["hint"] = synthesize([[783.99, 0.0, 0.24, 0.25]], 0.25)
@@ -23,37 +27,6 @@ func _ready() -> void:
 		player.volume_db = -12.0
 		add_child(player)
 		voices.append(player)
-
-static func synthesize_escape() -> AudioStreamWAV:
-	# A short breath of air: remove the low thump and soften the very top end.
-	const DURATION := 0.17
-	var count := int(ceil(DURATION * SAMPLE_RATE))
-	var bytes := PackedByteArray(); bytes.resize(count * 2)
-	var random := RandomNumberGenerator.new(); random.seed = 640219
-	var highpass_alpha := 1.0 / (1.0 + TAU * 1800.0 / SAMPLE_RATE)
-	var lowpass_alpha := TAU * 5000.0 / (SAMPLE_RATE + TAU * 5000.0)
-	var previous_noise := 0.0
-	var highpass := 0.0
-	var previous_highpass := 0.0
-	var second_highpass := 0.0
-	var softened := 0.0
-	var airy := 0.0
-	for index in range(count):
-		var time := float(index) / SAMPLE_RATE
-		var noise := random.randf_range(-1.0, 1.0)
-		highpass = highpass_alpha * (highpass + noise - previous_noise)
-		previous_noise = noise
-		second_highpass = highpass_alpha * (second_highpass + highpass - previous_highpass)
-		previous_highpass = highpass
-		softened += lowpass_alpha * (second_highpass - softened)
-		airy += lowpass_alpha * (softened - airy)
-		var attack := pow(sin(minf(time / 0.018, 1.0) * PI * 0.5), 2.0)
-		var release := pow(sin(minf((DURATION - time) / 0.035, 1.0) * PI * 0.5), 2.0)
-		var envelope := attack * release * exp(-time * 11.0)
-		bytes.encode_s16(index * 2, int(round(clampf(airy * envelope * 0.42, -0.75, 0.75) * 32767.0)))
-	var stream := AudioStreamWAV.new()
-	stream.format = AudioStreamWAV.FORMAT_16_BITS; stream.mix_rate = SAMPLE_RATE; stream.stereo = false; stream.data = bytes
-	return stream
 
 static func synthesize(notes: Array, length_seconds: float) -> AudioStreamWAV:
 	var count := int(ceil(length_seconds * SAMPLE_RATE))
@@ -86,10 +59,10 @@ func set_enabled(value: bool) -> void:
 		stop_all()
 
 func stop_all() -> void:
+	for id in flight_voices.keys(): stop_escape(id)
 	for voice in voices:
 		voice.stop()
 	last_played.clear()
-	note_index = 0
 
 func play(cue: String) -> bool:
 	if not enabled or quiet or not bank.has(cue) or voices.is_empty():
@@ -103,8 +76,41 @@ func play(cue: String) -> bool:
 	next_voice = (next_voice + 1) % voices.size()
 	voice.stop()
 	voice.stream = bank[cue]
-	voice.pitch_scale = ESCAPE_PITCHES[note_index % ESCAPE_PITCHES.size()] if cue == "escape" else 1.0
-	if cue == "escape":
-		note_index += 1
+	voice.pitch_scale = 1.0
 	voice.play()
 	return true
+
+func flight_stream(duration: float) -> AudioStreamWAV:
+	var selected: Dictionary = flight_samples[0]
+	var difference := INF
+	for sample in flight_samples:
+		var distance := absf(log(float(sample.duration) / maxf(duration, 0.01)))
+		if distance < difference: selected = sample; difference = distance
+	var path: String = selected.path
+	if not flight_cache.has(path):
+		if flight_cache.size() >= 8: flight_cache.erase(flight_cache.keys()[0])
+		flight_cache[path] = load(path)
+	return flight_cache[path]
+
+func play_escape(id: int, duration: float, elapsed: float = 0.0) -> bool:
+	if not enabled or quiet or duration <= elapsed or duration <= 0.0: return false
+	if flight_voices.has(id): return true
+	var player := AudioStreamPlayer.new()
+	var stream := flight_stream(duration)
+	player.stream = stream; player.pitch_scale = stream.get_length() / duration
+	player.volume_db = -12.0
+	add_child(player)
+	flight_voices[id] = player
+	player.play(elapsed * player.pitch_scale)
+	player.stream_paused = flight_paused
+	return true
+
+func stop_escape(id: int) -> void:
+	if not flight_voices.has(id): return
+	var player: AudioStreamPlayer = flight_voices[id]
+	player.stop(); player.queue_free(); flight_voices.erase(id)
+
+func pause_escape(paused: bool) -> void:
+	if flight_paused == paused: return
+	flight_paused = paused
+	for player in flight_voices.values(): player.stream_paused = paused

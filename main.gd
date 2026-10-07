@@ -952,6 +952,8 @@ func advance() -> void:
 	reset()
 
 func _process(delta: float) -> void:
+	var flight_paused: bool = (is_instance_valid(ads) and ads.showing) or is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey)
+	feedback.pause_escape(flight_paused)
 	if is_instance_valid(ads) and ads.showing: return
 	if is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey):
 		return
@@ -966,11 +968,15 @@ func _process(delta: float) -> void:
 		a.hint = maxf(0.0, a.hint - delta)
 		a.release = maxf(0.0, a.release - delta)
 		if a.escaping and not a.removed:
+			if not a.has("escape_duration"): a.escape_duration = escape_duration(a)
+			if not a.has("escape_sound_id"): a.escape_sound_id = arrows.find(a)
+			feedback.play_escape(a.escape_sound_id, a.escape_duration, a.escape_time)
 			a.escape_time += delta
 			a.travel = escape_distance(a.escape_time)
 			var p := visible_points(a)
 			if a.travel > path_length(a.draw_points) and not Rect2(12, 157, 516, 526).has_point(p[0]):
 				a.removed = true
+				feedback.stop_escape(a.escape_sound_id)
 				cleared += 1
 				if cleared == arrows.size(): finish_puzzle()
 				queue_session()
@@ -1113,7 +1119,9 @@ func click_at(pos: Vector2) -> void:
 		detail = "Ein anderer Pfad versperrt diesen Weg."
 	else:
 		arrows[chosen].escaping = true
-		feedback.play("escape")
+		arrows[chosen].escape_duration = escape_duration(arrows[chosen])
+		arrows[chosen].escape_sound_id = chosen
+		feedback.play_escape(chosen, arrows[chosen].escape_duration)
 		status = "Freie Bahn!"
 		detail = "Du kannst während der Animation weiterspielen."
 	queue_session()
@@ -1407,6 +1415,25 @@ func play_custom() -> void:
 		editor_data = clone_data(arrows)
 		testing = true
 		reset()
+
+func escape_duration(arrow: Dictionary) -> float:
+	visible_points(arrow)
+	var points: PackedVector2Array = arrow.draw_points
+	var direction := (points[-1] - points[-2]).normalized()
+	var boundary := Rect2(12, 157, 516, 526)
+	var outside := INF
+	if direction.x > 0.0001: outside = minf(outside, (boundary.end.x - points[-1].x) / direction.x)
+	elif direction.x < -0.0001: outside = minf(outside, (boundary.position.x - points[-1].x) / direction.x)
+	if direction.y > 0.0001: outside = minf(outside, (boundary.end.y - points[-1].y) / direction.y)
+	elif direction.y < -0.0001: outside = minf(outside, (boundary.position.y - points[-1].y) / direction.y)
+	var distance := path_length(points) + maxf(0.0, outside)
+	var low := 0.0
+	var high := distance / SPEED + 0.12
+	for iteration in range(32):
+		var middle := (low + high) * 0.5
+		if escape_distance(middle) < distance: low = middle
+		else: high = middle
+	return high
 
 func path_length(p: PackedVector2Array) -> float:
 	var total := 0.0

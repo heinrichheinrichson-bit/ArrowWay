@@ -188,6 +188,9 @@ func run() -> void:
 	require(is_equal_approx(scene.escape_distance(1.0), 893.0), "Escape reaches the normal speed after its ramp")
 	for cue in FeedbackAudio.bank:
 		var stream: AudioStreamWAV = FeedbackAudio.bank[cue]
+		if cue == "escape":
+			require(stream == FeedbackAudio.ESCAPE_SOUND and stream.get_length() > 0.0 and stream.loop_mode == AudioStreamWAV.LOOP_DISABLED, "Supplied launch reference is available without looping")
+			continue
 		var peak := 0
 		for sample in range(stream.data.size() / 2):
 			peak = maxi(peak, absi(stream.data.decode_s16(sample * 2)))
