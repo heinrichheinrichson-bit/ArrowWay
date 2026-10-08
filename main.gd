@@ -50,6 +50,8 @@ var journey_access_groups: Array[String] = []
 var journey_legacy_paths: Array[String] = []
 var journey_scroll_memory := {}
 var journey_reward := {}
+var app_state_reloading := false
+var app_state_backup: Node
 var session_store: Node
 var ads: Node
 var session_in_progress := false
@@ -84,6 +86,18 @@ static func escape_distance(time: float) -> float:
 	return SPEED * (time - RAMP * 0.5)
 
 func _ready() -> void:
+	var recovery: int = load("res://app_state_backup.gd").recover(storage_prefix)
+	if recovery != OK:
+		set_process(false); set_process_input(false); set_process_unhandled_input(false)
+		push_error("App-state recovery failed; refusing to overwrite the interrupted restore.")
+		var notice := AcceptDialog.new()
+		AppLanguage.initialize(storage_prefix, authoring)
+		notice.dialog_text = AppLanguage.text("Die vorherige Sicherung konnte nicht wiederhergestellt werden. Bitte starte die App erneut.")
+		add_child(notice)
+		notice.confirmed.connect(func(): get_tree().quit())
+		notice.canceled.connect(func(): get_tree().quit())
+		notice.popup_centered(Vector2i(400,220))
+		return
 	AppLanguage.initialize(storage_prefix, authoring)
 	if authoring:
 		var store: RefCounted = load("res://catalog_workshop_store.gd").new()
@@ -165,6 +179,9 @@ func _ready() -> void:
 	ads=Node.new()
 	ads.set_script(load("res://ad_controller.gd")); ads.game=self
 	add_child(ads); ads.initialize()
+	app_state_backup=Node.new()
+	app_state_backup.set_script(load("res://app_state_backup.gd")); app_state_backup.game=self
+	add_child(app_state_backup)
 	var saved_level: int=level_files.find(session_store.active_path)
 	if saved_level>=0 and level_available(saved_level): level=saved_level
 	if journey_mode and not level_available(level): level=JourneyProgress.resume_index(self)
@@ -856,7 +873,7 @@ func load_library_preferences() -> void:
 	var paths = config.get_value("library", "favorites", [])
 	if paths is Array or paths is PackedStringArray:
 		for path in paths:
-			if path is String and not favorite_paths.has(path): favorite_paths.append(path)
+			if path is String and level_files.has(path) and not favorite_paths.has(path): favorite_paths.append(path)
 
 func toggle_favorite(index: int) -> void:
 	if journey_mode and not JourneyProgress.album_indices(self).has(index): return
@@ -912,8 +929,9 @@ func reset(resume_saved := false) -> void:
 func queue_session() -> void:
 	if is_instance_valid(session_store): session_store.capture()
 
-func save_progress() -> void:
+func save_progress() -> int:
 	var config := ConfigFile.new()
+	config.load(storage_prefix + "progress.cfg")
 	JourneyProgress.remember_access(self)
 	config.set_value("game", "journey_version", 3)
 	config.set_value("game", "journey_access_groups", journey_access_groups)
@@ -932,7 +950,7 @@ func save_progress() -> void:
 	for index in completed:
 		if index >= base_level_count and index < level_files.size(): custom_completed.append(level_path(index))
 	config.set_value("game", "completed_custom", custom_completed)
-	config.save(storage_prefix + "progress.cfg")
+	return config.save(storage_prefix + "progress.cfg")
 
 func toggle_sound() -> void:
 	feedback.set_enabled(not feedback.enabled)
@@ -1096,7 +1114,7 @@ func _notification(what: int) -> void:
 			child.hide(); child.queue_free(); return
 	if is_instance_valid(journey): journey.go_back()
 	elif is_instance_valid(home_menu):
-		if home_menu.screen=="settings": home_menu.navigate("home")
+		if home_menu.screen in ["settings","backup"]: home_menu.go_back()
 		else: get_tree().quit()
 	else: open_current_journey()
 
@@ -1566,3 +1584,20 @@ func level_collection(index: int) -> Dictionary:
 	if not group.get("id") is String or not group.get("title") is String:
 		return {"id":"custom","title":AppLanguage.text("Eigene Motive")}
 	return AppLanguage.fields(group)
+
+func reload_app_state() -> void:
+	var restored: Node2D = load("res://main.tscn").instantiate()
+	restored.storage_prefix = storage_prefix
+	restored.journey_mode = journey_mode
+	restored.scan_user_exports = scan_user_exports
+	restored.resume_enabled = resume_enabled
+	restored.authoring = authoring
+	process_mode = Node.PROCESS_MODE_DISABLED
+	var parent := get_parent()
+	parent.add_child(restored)
+	if get_tree().current_scene == self: get_tree().current_scene = restored
+	queue_free()
+	if not is_instance_valid(restored.home_menu): restored.open_home()
+	if is_instance_valid(restored.home_menu):
+		restored.home_menu.navigate("backup")
+		restored.home_menu.tell(AppLanguage.text("Dein App-Stand wurde wiederhergestellt."))

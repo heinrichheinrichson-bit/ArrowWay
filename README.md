@@ -7,11 +7,15 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 ![ArrowWay Haus-Puzzle](previews/house.png)
 
+## App-Stand sichern
+
+Unter **Einstellungen → App-Stand** lassen sich Reise, alle gespeicherten Rätselstände, Lieblingsbilder, Einstellungen und Werbezähler gemeinsam als JSON-Datei sichern. Der Import zeigt eine Vorschau, erstellt automatisch eine Sicherung des bisherigen Stands und lädt den übernommenen Stand sofort. **Vorherigen Stand wiederherstellen** macht einen Import rückgängig. Die Android-Dateiauswahl speichert außerhalb des privaten App-Ordners. Details: [APP_STATE.md](APP_STATE.md).
+
 ## Start
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.24.0-dev
+## Aktueller Stand · 0.24.1-dev
 
 - **Deutsch / Englisch / Systemsprache**: Sprachwahl unter Einstellungen, standardmäßig Systemsprache. Oberfläche, Motive, Themen und Abschlusstexte werden offline übersetzt; der Wechsel erhält Rätsel, Zoom und Fortschritt. Die private Werkstatt arbeitet weiter mit den deutschen Originaldaten. [Übersetzungen pflegen](LOCALIZATION.md).
 

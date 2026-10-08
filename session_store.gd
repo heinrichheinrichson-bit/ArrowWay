@@ -14,7 +14,7 @@ var last_error := OK
 var retry_delay := 0.0
 
 func enabled() -> bool:
-	return game.resume_enabled and game.journey_mode and not game.authoring and not game.editor and not game.testing
+	return not game.app_state_reloading and game.resume_enabled and game.journey_mode and not game.authoring and not game.editor and not game.testing
 
 func _ready() -> void:
 	filename=ProjectSettings.globalize_path(game.storage_prefix+"sessions.json")

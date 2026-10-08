@@ -30,17 +30,23 @@ func initialize() -> void:
 	simulate_ad_free=bool(state.get("simulate_ad_free",false)) and OS.has_feature("debug")
 	initialized=true
 
-func save() -> void:
-	if not initialized: return
+func save() -> int:
+	if not initialized: return OK
 	var state: Dictionary=policy.snapshot()
 	state.test_mode=test_mode; state.simulate_ad_free=simulate_ad_free
 	var path := file_path()
 	var file := FileAccess.open(path+".tmp",FileAccess.WRITE)
-	if file==null: return
-	file.store_string(JSON.stringify(state)); file.flush(); file.close()
+	if file==null: return FileAccess.get_open_error()
+	file.store_string(JSON.stringify(state)); file.flush()
+	var error := file.get_error()
+	file.close()
+	if error != OK: return error
 	if FileAccess.file_exists(path):
-		if DirAccess.copy_absolute(path,path+".bak")!=OK: return
-	if DirAccess.rename_absolute(path+".tmp",path)!=OK: push_warning(AppLanguage.text("Werbezähler konnten nicht gespeichert werden."))
+		error = DirAccess.copy_absolute(path,path+".bak")
+		if error != OK: return error
+	error = DirAccess.rename_absolute(path+".tmp",path)
+	if error != OK: push_warning(AppLanguage.text("Werbezähler konnten nicht gespeichert werden."))
+	return error
 
 func is_ad_free() -> bool: return policy.ad_free or simulate_ad_free
 

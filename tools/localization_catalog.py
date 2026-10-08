@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PLAYER_SCRIPTS = ['main.gd', 'journey_view.gd', 'journey_progress.gd',
                   'journey_station.gd', 'journey_puzzle_card.gd', 'level_card.gd',
-                  'discovery_card.gd', 'discoveries.gd', 'ad_controller.gd']
+                  'discovery_card.gd', 'discoveries.gd', 'ad_controller.gd', 'app_state_backup.gd']
 STRING = re.compile(r'"(?:\\.|[^"\\])*"', re.S)
 SINGLES = {'Zurück','Weiter','Hinweis','Einstellungen','Soundeffekte','Geschafft',
            'Spielbar','Spielen','Losspielen','Fortsetzen','Gesperrt','Einstieg',

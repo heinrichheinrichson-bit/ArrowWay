@@ -40,7 +40,7 @@ func restore(data: Dictionary) -> void:
 	for path in data.get("completed_paths",[]):
 		if path is String and not completed_paths.has(path): completed_paths.append(path)
 	for world in data.get("seen_worlds",[]):
-		if world is int and world>=0 and not seen_worlds.has(world): seen_worlds.append(world)
+		if (world is int or world is float) and is_finite(float(world)) and float(world)==int(world) and world>=0 and not seen_worlds.has(int(world)): seen_worlds.append(int(world))
 	rounds_since_ad=maxi(0,int(data.get("rounds_since_ad",0)))
 	active_since_ad=maxf(0.0,float(data.get("active_since_ad",0.0)))
 	ad_free=bool(data.get("ad_free",false))

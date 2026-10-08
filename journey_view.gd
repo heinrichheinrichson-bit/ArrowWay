@@ -190,6 +190,8 @@ func relayout() -> void:
 		build_home()
 	elif screen == "settings":
 		build_settings()
+	elif screen == "backup":
+		build_backup()
 	else:
 		icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,AppLanguage.text("Zurück"))
 		if screen == "map": build_map()
@@ -222,6 +224,7 @@ func go_back() -> void:
 	elif screen == "artwork":
 		screen="album"; scroller=null; relayout()
 	elif screen == "settings": navigate("home")
+	elif screen == "backup": navigate("settings")
 	else: game.close_home()
 
 func make_scroll(height: float, tint: Color) -> void:
@@ -528,6 +531,8 @@ func build_settings() -> void:
 		label(AppLanguage.text("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten"),Vector2(24,580),size.x-48,13,Color("#8fa8b7"))
 
 	action(AppLanguage.text("Bildquellen & Lizenzen"),Vector2(24,635),Vector2(size.x-48,48),show_art_credits)
+	var backup_button := action(AppLanguage.text("App-Stand"),Vector2(24,699),Vector2(size.x-48,48),func(): navigate("backup"))
+	backup_button.name = "AppStateButton"
 
 func show_art_credits() -> void:
 	var dialog := AcceptDialog.new()
@@ -561,3 +566,27 @@ func tell(message: String) -> void:
 	toast.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var item := toast
 	get_tree().create_timer(2.5).timeout.connect(func(): if is_instance_valid(item): item.queue_free())
+
+func backup_text(text: String, y: float, height: float, font_size := 17) -> Label:
+	var item := label(text,Vector2(24,y),size.x-48,font_size,Color("#bdc4d9"))
+	item.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	item.size = Vector2(size.x-48,height)
+	return item
+
+func build_backup() -> void:
+	icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,AppLanguage.text("Zurück"))
+	label(AppLanguage.text("Dein App-Stand"),Vector2(24,104),size.x-48,28)
+	backup_text(AppLanguage.text("Deine Reise, angefangene Rätsel, Lieblingsbilder und Einstellungen – zusammen in einer Datei."),162,94)
+	var finished := JourneyProgress.album_indices(game).size()
+	label(AppLanguage.text("Gelöste Rätsel: %d · Lieblingsbilder: %d") % [finished,game.favorite_paths.size()],Vector2(24,275),size.x-48,17)
+	backup_text(AppLanguage.text("Speichere die Datei außerhalb der App, damit du sie auf einem anderen Gerät wieder öffnen kannst."),319,92,15)
+	var export_button := action(AppLanguage.text("App-Stand sichern"),Vector2(24,429),Vector2(size.x-48,56),func(): game.app_state_backup.choose_file(true),true)
+	export_button.name = "ExportAppState"
+	var import_button := action(AppLanguage.text("App-Stand wiederherstellen"),Vector2(24,501),Vector2(size.x-48,56),func(): game.app_state_backup.choose_file(false))
+	import_button.name = "ImportAppState"
+	if FileAccess.file_exists(game.storage_prefix+"before-restore.json"):
+		backup_text(AppLanguage.text("Der Stand vor deinem letzten Import wurde automatisch gesichert."),583,76,15)
+		var undo := action(AppLanguage.text("Vorherigen Stand wiederherstellen"),Vector2(24,675),Vector2(size.x-48,56),func(): game.app_state_backup.inspect_file(game.storage_prefix+"before-restore.json"))
+		undo.name = "UndoAppStateImport"
+	else:
+		backup_text(AppLanguage.text("Vor jeder Wiederherstellung sichern wir automatisch deinen bisherigen Stand."),591,104,15)
