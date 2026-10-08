@@ -10,7 +10,7 @@ func run() -> void:
 	var studio: Window = scene.studio
 	studio.choose_catalog()
 	var picker: Window = studio.get_child(studio.get_child_count() - 1)
-	check(picker.entries.size() == 823, "Private browser includes all 814 catalog and nine intro puzzles")
+	check(picker.entries.size() == JSON.parse_string(FileAccess.get_file_as_string("res://collections/taxonomy.json")).assignments.size(), "Private browser includes every active catalog and intro puzzle")
 	picker.queue_free()
 	var base := "user://catalog_workshop_test/"
 	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))

@@ -12,7 +12,7 @@ func run() -> void:
 	studio.choose_catalog()
 	var browser: Window = studio.get_child(studio.get_child_count() - 1)
 	await process_frame; await process_frame
-	check(browser.grid.get_child_count() == 9 and browser.entries.size() == 823, "Browser renders nine previews while retaining full private catalog")
+	check(browser.grid.get_child_count() == 9 and browser.entries.size() == JSON.parse_string(FileAccess.get_file_as_string("res://collections/taxonomy.json")).assignments.size(), "Browser renders nine previews while retaining full private catalog")
 	check(not browser.grid.get_child(0).paths.is_empty(), "Preview uses actual arrow geometry")
 	browser.grid.get_child(0).pressed.emit()
 	check(not browser.selected_path.is_empty() and not browser.open_button.disabled, "Selecting a card enables clear edit actions")

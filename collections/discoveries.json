@@ -414,31 +414,31 @@
     },
     "res://collections/levels/skylines_01_skylines_01.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Wenn diese Stadt eine Stimmung hätte: Welche wäre es?"
+      "text": "Zwischen hohen Häusern bleibt ein Weg frei. Manchmal reicht es, den nächsten hellen Schritt zu sehen."
     },
     "res://collections/levels/skylines_02_skylines_02.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Am Hafen könnte jedes Licht der Anfang einer Reise sein."
+      "text": "Am Hafen kommen Wege zusammen. Für einen Augenblick darf auch deine Reise hier anlegen."
     },
     "res://collections/levels/skylines_03_skylines_03.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Vielleicht wohnt ganz oben jemand, der trotzdem am liebsten am Boden spazieren geht."
+      "text": "Diese Türme tragen goldene Gedanken. Deiner darf gern dazwischen Platz nehmen."
     },
     "res://collections/levels/skylines_10_skylines_10.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Unten leuchten die Fenster. Oben braucht niemand einen Lichtschalter."
+      "text": "Über den Dächern bleibt Platz für Fragen. Nicht jede davon muss heute eine Antwort bekommen."
     },
     "res://collections/levels/skylines_11_skylines_11.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "In welchem dieser Fenster würdest du eine kleine Nachtbäckerei vermuten?"
+      "text": "Ein kleines Schaufenster, ein großes Leuchten. Manchmal genügt ein einziger freundlicher Blick."
     },
     "res://collections/levels/skylines_12_skylines_12.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Die Stadt hat sich verdoppelt. Das Wasser verlangt dafür keine zweite Miete."
+      "text": "Die Häuser stehen, als wollten sie Segel setzen. Das Wasser übernimmt derweil die Bewegung."
     },
     "res://collections/levels/skylines_18_skylines_18.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Welche Geschichte könnte gerade unter einem dieser Dächer beginnen?"
+      "text": "Die Dächer liegen unter einem kleinen Mond. Heute muss die Nacht nichts weiter erklären."
     },
     "res://collections/levels/smartphones_01_smartphones_01.json": {
       "kind": "Ein kleiner Gedanke",
@@ -490,31 +490,31 @@
     },
     "res://collections/levels/vehicles_03_vehicles_03.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein beleuchtetes Taxi, eine fremde Stadt. Wohin würdest du dich fahren lassen?"
+      "text": "Das Taxi wartet. Du darfst dir das Ziel für den nächsten kleinen Ausflug aussuchen."
     },
     "res://collections/levels/vehicles_09_vehicles_09.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Heute könntest du deinen Ausblick wechseln, ohne das Zuhause zu verlassen."
+      "text": "Das Zuhause hat Räder bekommen. Der Kalender darf ein paar freie Felder behalten."
     },
     "res://collections/levels/vehicles_10_vehicles_10.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Nicht jede Reise führt weit weg. Manche führt Reihe für Reihe durch ein Feld."
+      "text": "Ein großes Rad, ein kleines Rad. Zum Vorankommen müssen nicht alle gleich aussehen."
     },
     "res://collections/levels/vehicles_11_vehicles_11.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Für eine kleine Auszeit reichen manchmal zwei Räder und ein Weg ohne Termin."
+      "text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein."
     },
     "res://collections/levels/vehicles_14_vehicles_14.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Du darfst aus dem Fenster schauen. Der Zug kümmert sich schon um das Weiterkommen."
+      "text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden."
     },
     "res://collections/levels/vehicles_15_vehicles_15.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Welche Haltestelle würdest du wählen, wenn du heute einfach neugierig sein dürftest?"
+      "text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden."
     },
     "res://collections/levels/vehicles_19_vehicles_19.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Stell dir vor, der Wind würde für einen Moment die ganze Arbeit übernehmen."
+      "text": "Die langen Flügel tragen eine leise Reise. Der nächste Gedanke darf ruhig genauso leicht sein."
     },
     "res://collections/levels/ocean_07_ocean_07.json": {
       "kind": "Ein kleiner Gedanke",
@@ -526,7 +526,7 @@
     },
     "res://collections/levels/ocean_16_ocean_16.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein ruhiger Hafen ist manchmal das beste Reiseziel."
+      "text": "Die Yacht liegt still. Auch ein schöner Aufbruch darf mit einer Pause beginnen."
     },
     "res://collections/levels/ocean_17_ocean_17.json": {
       "kind": "Ein kleiner Gedanke",
@@ -534,7 +534,7 @@
     },
     "res://collections/levels/ocean_20_ocean_20.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Welche Farbe hätte die Ruhe, wenn du sie in ein Glas füllen könntest?"
+      "text": "Die Sandbank zieht einen Bogen. Das Wasser darf in der Mitte einfach still sein."
     },
     "res://collections/levels/animals_01_animals_01.json": {
       "kind": "Ein kleiner Gedanke",
@@ -718,11 +718,11 @@
     },
     "res://collections/levels/sports_01_sports_01.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Der Platz ist hell. Für den letzten entscheidenden Pass braucht es trotzdem einen guten Blick."
+      "text": "Das Tor steht noch. Der Ball auch. Für einen kurzen Moment muss niemand hinterherlaufen."
     },
     "res://collections/levels/sports_06_sports_06.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein guter Abend muss nicht bedeuten, dass alle zehn fallen."
+      "text": "Alle Kegel stehen noch. Es ist die kleine Ruhe vor einem ziemlich vergnüglichen Durcheinander."
     },
     "res://collections/levels/sports_08_sports_08.json": {
       "kind": "Ein kleiner Gedanke",
@@ -770,7 +770,7 @@
     },
     "res://collections/levels/travel_09_travel_09.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein kleines Stück Grün kann plötzlich wichtiger werden als der ganze Horizont."
+      "text": "Viel Sand und ein kleines Stück Wasser. Plötzlich wirkt die ganze Landschaft freundlicher."
     },
     "res://collections/levels/travel_12_travel_12.json": {
       "kind": "Ein kleiner Gedanke",
@@ -814,11 +814,11 @@
     },
     "res://collections/levels/landscapes_08_landscapes_08.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Hier muss kein Gedanke gegen den nächsten um Platz kämpfen."
+      "text": "Hier darf der Blick weiter werden. Der Weg hat Zeit, eine kleine Kurve zu machen."
     },
     "res://collections/levels/landscapes_10_landscapes_10.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein Weg kann sich verändern, ohne dass die Reise deshalb verloren ist."
+      "text": "Ein Hügel legt sich hinter den nächsten. Der Horizont hat heute weiche Kanten."
     },
     "res://collections/levels/landscapes_13_landscapes_13.json": {
       "kind": "Ein kleiner Gedanke",
@@ -1249,7 +1249,7 @@
     },
     "res://collections/levels/skylines_04_skylines_04.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "In dieser Stadt ist die Nacht violett. Vielleicht haben sogar die letzten Busse ein bisschen Abendhimmel dabei."
+      "text": "Kein Dach ist ganz wie das andere. Gerade deshalb passen sie so schön zusammen."
     },
     "res://collections/levels/skylines_05_skylines_05.json": {
       "kind": "Ein kleiner Gedanke",
@@ -1257,47 +1257,47 @@
     },
     "res://collections/levels/skylines_06_skylines_06.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Die Türme stehen still, das Wasser zieht weiter. Zwei verschiedene Arten, Zeit zu verbringen."
+      "text": "Eine Brücke beginnt an zwei Ufern. Ein guter Gedanke darf auch einmal die Seite wechseln."
     },
     "res://collections/levels/skylines_07_skylines_07.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Hinter jedem Dach könnte gerade jemand den ersten Kaffee machen. Die Stadt wacht Zimmer für Zimmer auf."
+      "text": "Oben wird es schon hell. Unten darf der Tag noch ein bisschen Anlauf nehmen."
     },
     "res://collections/levels/skylines_08_skylines_08.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Dieses Rot könnte der letzte Rest eines Sonnenuntergangs sein, der einfach noch nicht nach Hause möchte."
+      "text": "Über den Bögen fährt die Nacht weiter. Für dich hält sie gerade einen kleinen Moment an."
     },
     "res://collections/levels/skylines_09_skylines_09.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Die silbernen Kanten sehen aus, als hätte die Stadt für einen besonderen Abend ihren Schmuck angelegt."
+      "text": "Ein Turm zeigt nach oben. Dein Erfolg braucht heute keine zusätzliche Höhe."
     },
     "res://collections/levels/skylines_13_skylines_13.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein warmer Abend, offene Fenster, ein Gespräch am Gehsteig. So könnte diese Stadt gerade klingen."
+      "text": "Der Brunnen hat keine Einkaufsliste. Er steht einfach da und macht den Platz ein wenig schöner."
     },
     "res://collections/levels/skylines_14_skylines_14.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Stell dir warmes Licht hinter diesen Fenstern vor — lauter kleine Inseln in einer kalten Nacht."
+      "text": "Der Schnee hat die Dächer leiser gemacht. Du darfst die Gedanken darunter kurz zur Ruhe legen."
     },
     "res://collections/levels/skylines_15_skylines_15.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Diese Stadt hat sich ihre Abendfarbe offenbar direkt vom Meer ausgeliehen."
+      "text": "Stufe für Stufe wird der Turm schmaler. Schritt für Schritt wurde dein Rätsel klarer."
     },
     "res://collections/levels/skylines_16_skylines_16.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein einziges helles Fenster könnte eine ganze Geschichte verbergen: Wiedersehen, Geburtstag oder nur ein gutes Buch."
+      "text": "Das Rad kehrt immer wieder zurück. Der Blick von oben darf trotzdem jedes Mal neu sein."
     },
     "res://collections/levels/skylines_17_skylines_17.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Die Stadt wirkt wie ein Schmuckstück. Vielleicht ist ihre schönste Ecke trotzdem eine unscheinbare Bank am Wasser."
+      "text": "Zwei unterschiedliche Türme teilen sich eine Verbindung. Zusammen sieht die Sache gleich interessanter aus."
     },
     "res://collections/levels/skylines_19_skylines_19.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Wenn jedes Fenster eine andere Lieblingsfarbe hätte, könnte der Abend hier genau so aussehen."
+      "text": "Ein buntes Viertel muss sich nicht auf eine Lieblingsfarbe einigen."
     },
     "res://collections/levels/skylines_20_skylines_20.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Für einen kurzen Moment scheint die ganze Stadt dieselbe Farbe zu mögen. Gleich gehen die ersten Fenster an."
+      "text": "Das Tor ist offen. Der nächste kleine Aufbruch darf warten, bis du bereit bist."
     },
     "res://collections/levels/smartphones_03_smartphones_03.json": {
       "kind": "Ein kleiner Gedanke",
@@ -1336,55 +1336,55 @@
     },
     "res://collections/levels/vehicles_01_vehicles_01.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Dieses Auto würde wohl jede Parklücke als persönliche Einladung verstehen."
+      "text": "Die Stadt ist groß. Für diesen kleinen Flitzer findet sich bestimmt noch eine Lücke."
     },
     "res://collections/levels/vehicles_02_vehicles_02.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Wenn dieses Auto sprechen könnte, würde es vermutlich selbst ein freundliches Hallo ziemlich laut aussprechen."
+      "text": "Auch ein schneller Wagen darf stehen bleiben. Dieser Moment gehört dir."
     },
     "res://collections/levels/vehicles_04_vehicles_04.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Für heute könnte die wichtigste Mission lauten: den verschwundenen letzten Pfeil aufspüren. Fall gelöst."
+      "text": "Heute braucht niemand eine Sirene. Ein gelöstes Rätsel darf auch leise gefeiert werden."
     },
     "res://collections/levels/vehicles_05_vehicles_05.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein freier Weg kann für andere viel bedeuten. Dieses Motiv erinnert an Menschen, die sich auf den Weg machen, um zu helfen."
+      "text": "Platz machen, wenn Hilfe unterwegs ist. Platz lassen, wenn jemand eine Pause braucht."
     },
     "res://collections/levels/vehicles_06_vehicles_06.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Dieser Wagen trägt eine ganze Mannschaft guter Gründe, aufeinander aufzupassen."
+      "text": "Eine Leiter reicht weiter, wenn unten jemand aufpasst. Gute Wege entstehen oft gemeinsam."
     },
     "res://collections/levels/vehicles_07_vehicles_07.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein Bus voller Geschichten: jemand fährt zum ersten Mal ans Meer, jemand anderes endlich wieder nach Hause."
+      "text": "So viele Fenster, so viele mögliche Geschichten. Deine darf heute ein bisschen leuchten."
     },
     "res://collections/levels/vehicles_08_vehicles_08.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "In unserer Fantasie liefert dieser Lastwagen heute nur angenehme Dinge: frisches Brot, Bücher und einen neuen Schaukelstuhl."
+      "text": "Nicht jede wertvolle Ladung passt in eine Kiste. Geduld zum Beispiel."
     },
     "res://collections/levels/vehicles_12_vehicles_12.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Stell dir eine kurvige Straße vor, einen weiten Blick und einen Tag ohne engen Zeitplan."
+      "text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein."
     },
     "res://collections/levels/vehicles_13_vehicles_13.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Für diesen Roller könnte schon der Weg zur nächsten Eisdiele ein kleines Sommerabenteuer sein."
+      "text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein."
     },
     "res://collections/levels/vehicles_16_vehicles_16.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Für einen Moment teilen ganz verschiedene Lebensgeschichten denselben Zug. Dann gehen die Türen wieder auf."
+      "text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden."
     },
     "res://collections/levels/vehicles_17_vehicles_17.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein Fensterplatz über den Wolken: Die Welt darunter sieht aus, als hätte jemand ihre Lautstärke heruntergedreht."
+      "text": "Ein Rotor zeichnet Kreise. Dein Weg durch das Rätsel ist gerade an seinem Ziel angekommen."
     },
     "res://collections/levels/vehicles_18_vehicles_18.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Dieser Jet würde vermutlich sogar zum Bäcker mit einem sehr großen Auftritt starten."
+      "text": "Ein heller Strich bleibt am Himmel zurück. Nicht jeder schöne Weg braucht ein Schild."
     },
     "res://collections/levels/vehicles_20_vehicles_20.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Eine Landebahn aus Wasser — in der Fantasie wirkt schon die Ankunft wie Urlaub."
+      "text": "Dieses Flugzeug hat sich einen besonderen Parkplatz ausgesucht. Das Wasser scheint nichts dagegen zu haben."
     },
     "res://collections/levels/ocean_01_ocean_01.json": {
       "kind": "Ein kleiner Gedanke",
@@ -1419,7 +1419,7 @@
     },
     "res://collections/levels/ocean_15_ocean_15.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein Schiff am Horizont lässt offen, ob gerade ein Abenteuer beginnt oder jemand davon nach Hause kommt."
+      "text": "Dieses Schiff hat Platz für viele Geschichten. Heute darf deine ein kleines Kapitel dazu bekommen."
     },
     "res://collections/levels/ocean_18_ocean_18.json": {
       "kind": "Ein kleiner Gedanke",
@@ -1799,23 +1799,20 @@
       "text": "Ein leerer Platz im Scheinwerferlicht: Für einen Augenblick kannst du dir deinen eigenen Auftritt vorstellen."
     },
     "res://collections/levels/sports_02_sports_02.json": {
-      "kind": "Kleine Entdeckung",
-      "text": "Beim ersten Basketballspiel 1891 warfen zwei Teams mit je neun Spielern auf Pfirsichkörbe, die am Balkon der Turnhalle befestigt waren. Der Obstkorb wurde zum Sportgerät.",
-      "source": "New York City Municipal Archives",
-      "url": "https://www.archives.nyc/blog/2018/11/30/basketball",
-      "checked": "2026-10-05"
+      "kind": "Ein kleiner Gedanke",
+      "text": "Der Korb wartet geduldig. Er nimmt es nicht persönlich, wenn ein Wurf ein paar Anläufe braucht."
     },
     "res://collections/levels/sports_03_sports_03.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Stell dir Sand zwischen den Zehen vor und einen Ball, für den gerade alle anderen Pläne warten dürfen."
+      "text": "Das Netz teilt den Strand. Den Spaß muss es glücklicherweise nicht halbieren."
     },
     "res://collections/levels/sports_04_sports_04.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Dieses helle Gelb könnte das kleinste bewegliche Stück Sonne auf dem Platz sein."
+      "text": "So viele Linien und trotzdem Platz für einen Überraschungsball."
     },
     "res://collections/levels/sports_05_sports_05.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein weiter Rasen, ein warmer Nachmittag und der Augenblick kurz vor dem Wurf. Alles wartet auf Bewegung."
+      "text": "Der Handschuh hat den Ball aufgefangen. Du hast die Pause dazwischen verdient."
     },
     "res://collections/levels/sports_07_sports_07.json": {
       "kind": "Ein kleiner Gedanke",
@@ -1939,7 +1936,7 @@
     },
     "res://collections/levels/travel_08_travel_08.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Stell dir einen Tag vor, an dem die wichtigste Terminfrage lautet: Wann gehen wir wieder ins Wasser?"
+      "text": "Die Liege ist frei. Für die nächsten paar Gedanken ist kein Termin vorgesehen."
     },
     "res://collections/levels/travel_10_travel_10.json": {
       "kind": "Ein kleiner Gedanke",
@@ -1947,7 +1944,7 @@
     },
     "res://collections/levels/travel_11_travel_11.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein Segel, ein Horizont und der freundliche Gedanke, dass der Weg heute schon Teil des Ziels sein darf."
+      "text": "Heute wurde kein Schatz ausgegraben. Dafür hast du dieses Schiff ans Licht gebracht."
     },
     "res://collections/levels/travel_13_travel_13.json": {
       "kind": "Ein kleiner Gedanke",
@@ -2039,50 +2036,47 @@
     },
     "res://collections/levels/landscapes_04_landscapes_04.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Zwischen diesen steilen Ufern könnte selbst ein großes Schiff aussehen wie ein vorsichtig hineingelegtes Spielzeug."
+      "text": "Die Berge rücken nah zusammen. Für das Wasser bleibt trotzdem ein Weg."
     },
     "res://collections/levels/landscapes_05_landscapes_05.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Dieses Bild hätte vermutlich einen kräftigen Soundtrack. Für einen Moment dürfen wir uns das Rauschen dazudenken."
+      "text": "Eine kleine Pause für dich. Der Wasserfall hat offenbar andere Pläne."
     },
     "res://collections/levels/landscapes_06_landscapes_06.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Der Fluss findet eine Linie durch die Landschaft. Die schönste Route muss offenbar nicht gerade sein."
+      "text": "Dieser Fluss nimmt einen Umweg. Die Landschaft scheint damit vollkommen einverstanden."
     },
     "res://collections/levels/landscapes_07_landscapes_07.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Von oben sieht eine Schlucht wie eine Linie aus. Am Rand würde daraus plötzlich eine ganz andere Größenordnung."
+      "text": "Die Schlucht lässt nur einen schmalen Weg frei. Das Wasser scheint ihn gefunden zu haben."
     },
     "res://collections/levels/landscapes_09_landscapes_09.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Stell dir vor, der warme Sand wechselt langsam die Farbe. Ein Abend ohne Fenster, aber mit einem weiten Himmel."
+      "text": "Die Schatten werden länger. Selbst die Wüste scheint sich auf einen ruhigeren Ton zu einigen."
     },
     "res://collections/levels/landscapes_11_landscapes_11.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein kleiner grüner Fleck könnte in dieser Landschaft mehr bedeuten als jede noch so große goldene Fläche."
+      "text": "Dieser Zwischenstopp ist kein Umweg. Das Kamel würde die Sache vermutlich genauso sehen."
     },
     "res://collections/levels/landscapes_12_landscapes_12.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Das Licht wird weich, die Schatten lang. In Gedanken darf dieser Abend noch ein bisschen länger dauern."
+      "text": "Ein Baum spannt seinen grünen Schirm auf. Die Sonne braucht heute keinen Platz darunter."
     },
     "res://collections/levels/landscapes_14_landscapes_14.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Diese Palme könnte der perfekte Zeiger für eine Uhr sein, auf der nur noch Ferien steht."
+      "text": "Die Palme hat keinen Urlaub gebucht. Sie sieht trotzdem aus, als wäre sie längst angekommen."
     },
     "res://collections/levels/landscapes_15_landscapes_15.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Auf dieser Insel wäre der Horizont vielleicht das größte Möbelstück des ganzen Urlaubs."
+      "text": "Eine Insel mit eigenem kleinen Feuer. Zum Glück bleibt es heute im Bild."
     },
     "res://collections/levels/landscapes_16_landscapes_16.json": {
-      "kind": "Kleine Entdeckung",
-      "text": "Die Farbe des Meeres kommt nicht einfach nur vom gespiegelten Himmel. Wasser schluckt rotes Licht stärker als blaues; auch Teilchen im Wasser können die Farbe verändern.",
-      "source": "NOAA · Why is the ocean blue?",
-      "url": "https://oceanservice.noaa.gov/facts/oceanblue.html",
-      "checked": "2026-10-05"
+      "kind": "Ein kleiner Gedanke",
+      "text": "Man muss nicht den ganzen Weg beleuchten. Manchmal reicht ein Licht, das sagt: Hier entlang."
     },
     "res://collections/levels/landscapes_17_landscapes_17.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Stell dir die erste Meeresbrise nach einer langen Fahrt vor. Manchmal fühlt sich Ankommen genau so an."
+      "text": "Zwei kleine Hütten, zwei große Ferienpläne. Der wichtigste steht noch nicht im Kalender."
     },
     "res://collections/levels/landscapes_18_landscapes_18.json": {
       "kind": "Ein kleiner Gedanke",
@@ -2273,7 +2267,7 @@
     },
     "res://collections/levels/expanded_medicine_05_03_new_mouth_watering.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Für dieses fertige Bild ist ein kleines Lächeln ausdrücklich erlaubt."
+      "text": "Manchmal braucht man einen kleinen Spiegel, um die Dinge aus einem neuen Blickwinkel zu sehen."
     },
     "res://collections/levels/expanded_medicine_06_01_new_rod_of_asclepius.json": {
       "kind": "Ein kleiner Gedanke",
@@ -3023,7 +3017,7 @@
     },
     "res://collections/levels/expanded_travel_04_02_new_glider.json": {
       "kind": "Ein kleiner Gedanke",
-      "text": "Ein guter Aufwind ist manchmal wichtiger als ein eigener Motor."
+      "text": "Ein Blatt Papier hatte heute größere Pläne. Du hast ihnen Flügel gegeben."
     },
     "res://collections/levels/expanded_travel_04_03_new_hang_glider.json": {
       "kind": "Ein kleiner Gedanke",
@@ -3454,6 +3448,18 @@
     "res://collections/levels/expanded_history_07_03_new_torii_gate.json": {
       "kind": "Ein kleiner Gedanke",
       "text": "Ein Tor kann eine Schwelle markieren, ohne eine geschlossene Tür zu brauchen."
+    },
+    "res://collections/levels/variety_anchor.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Ein Anker ist eine Einladung, einen Moment zu bleiben. Du musst nicht sofort weiter."
+    },
+    "res://collections/levels/variety_rail_tracks.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Zwei Linien nähern sich am Horizont. Manchmal sieht ein langer Weg von hier aus ganz klein aus."
+    },
+    "res://collections/levels/variety_rail_bridge.json": {
+      "kind": "Ein kleiner Gedanke",
+      "text": "Oben fährt ein Zug, unten zieht das Wasser weiter. Zwei Reisen teilen sich einen stillen Augenblick."
     }
   }
 }

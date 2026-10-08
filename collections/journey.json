@@ -469,14 +469,14 @@
       "title": "Schienenverkehr",
       "icon": "train",
       "color": "f0da7f",
-      "count": 3
+      "count": 5
     },
     "ships": {
       "id": "ships",
       "title": "Schiffe & Boote",
       "icon": "ship",
       "color": "64e6e2",
-      "count": 6
+      "count": 7
     },
     "aircraft": {
       "id": "aircraft",

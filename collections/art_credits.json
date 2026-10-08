@@ -135,12 +135,6 @@
       "license": "CC BY 3.0",
       "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/caro-asercion/toothbrush.svg"
     },
-    "res://collections/levels/expanded_medicine_05_03_new_mouth_watering.json": {
-      "author": "lorc",
-      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
-      "license": "CC BY 3.0",
-      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/mouth-watering.svg"
-    },
     "res://collections/levels/expanded_medicine_06_01_new_rod_of_asclepius.json": {
       "author": "delapouite",
       "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
@@ -1238,12 +1232,6 @@
       "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
       "license": "CC BY 3.0",
       "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/quoting/biplane.svg"
-    },
-    "res://collections/levels/expanded_travel_04_02_new_glider.json": {
-      "author": "skoll",
-      "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
-      "license": "CC BY 3.0",
-      "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/glider.svg"
     },
     "res://collections/levels/expanded_travel_04_03_new_hang_glider.json": {
       "author": "delapouite",

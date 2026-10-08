@@ -32,7 +32,7 @@ def main():
                 file.unlink()
         config = stage / 'export_presets.cfg'
         text = config.read_text(encoding='utf-8-sig')
-        exclusions = ','.join(sorted(AUTHOR_FILES) + ['collections/editor_overrides.json', 'collections/workshop_trash.json', '*.cmd', '*.md'])
+        exclusions = ','.join(sorted(AUTHOR_FILES) + ['collections/editor_overrides.json', 'collections/workshop_trash.json', 'collections/variety_recipes.json', '*.cmd', '*.md'])
         text = re.sub(r'^exclude_filter=.*$', 'exclude_filter="' + exclusions + '"', text, flags=re.M)
         # Keep the installed application identity stable when the display name changes.
         android_options = {

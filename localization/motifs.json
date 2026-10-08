@@ -1,1 +1,1385 @@
-{"version": 1, "entries": {}}
+{
+	"entries": {
+		"res://collections/levels/expanded_medicine_05_03_new_mouth_watering.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Manchmal braucht man einen kleinen Spiegel, um die Dinge aus einem neuen Blickwinkel zu sehen.",
+				"title": "Der Zahnarztspiegel"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Sometimes a small mirror is all it takes to see things from a new angle.",
+				"title": "The Dental Mirror"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Manchmal braucht man einen kleinen Spiegel, um die Dinge aus einem neuen Blickwinkel zu sehen.",
+				"title": "Der Zahnarztspiegel"
+			}
+		},
+		"res://collections/levels/expanded_travel_04_02_new_glider.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Blatt Papier hatte heute größere Pläne. Du hast ihnen Flügel gegeben.",
+				"title": "Papierflieger im Aufwind"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A sheet of paper had bigger plans today. You gave them wings.",
+				"title": "Paper Plane on the Breeze"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Blatt Papier hatte heute größere Pläne. Du hast ihnen Flügel gegeben.",
+				"title": "Papierflieger im Aufwind"
+			}
+		},
+		"res://collections/levels/landscapes_04_landscapes_04.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Berge rücken nah zusammen. Für das Wasser bleibt trotzdem ein Weg.",
+				"title": "Fjord im Norden"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The mountains draw close together. There is still a way through for the water.",
+				"title": "Northern Fjord"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Berge rücken nah zusammen. Für das Wasser bleibt trotzdem ein Weg.",
+				"title": "Fjord im Norden"
+			}
+		},
+		"res://collections/levels/landscapes_05_landscapes_05.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine kleine Pause für dich. Der Wasserfall hat offenbar andere Pläne.",
+				"title": "Wasserfall zwischen Felsen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A little break for you. The waterfall clearly has other plans.",
+				"title": "Waterfall Between the Rocks"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine kleine Pause für dich. Der Wasserfall hat offenbar andere Pläne.",
+				"title": "Wasserfall zwischen Felsen"
+			}
+		},
+		"res://collections/levels/landscapes_06_landscapes_06.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieser Fluss nimmt einen Umweg. Die Landschaft scheint damit vollkommen einverstanden.",
+				"title": "Fluss durch das Tal"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "This river takes the scenic route. The landscape seems perfectly happy with that.",
+				"title": "River Through the Valley"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieser Fluss nimmt einen Umweg. Die Landschaft scheint damit vollkommen einverstanden.",
+				"title": "Fluss durch das Tal"
+			}
+		},
+		"res://collections/levels/landscapes_07_landscapes_07.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Schlucht lässt nur einen schmalen Weg frei. Das Wasser scheint ihn gefunden zu haben.",
+				"title": "Tiefe Schlucht"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The canyon leaves only a narrow way through. The water seems to have found it.",
+				"title": "Deep Canyon"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Schlucht lässt nur einen schmalen Weg frei. Das Wasser scheint ihn gefunden zu haben.",
+				"title": "Tiefe Schlucht"
+			}
+		},
+		"res://collections/levels/landscapes_08_landscapes_08.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Hier darf der Blick weiter werden. Der Weg hat Zeit, eine kleine Kurve zu machen.",
+				"title": "Weites Tal"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Here your gaze can wander further. The path has time for a little bend.",
+				"title": "Wide Valley"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Hier darf der Blick weiter werden. Der Weg hat Zeit, eine kleine Kurve zu machen.",
+				"title": "Weites Tal"
+			}
+		},
+		"res://collections/levels/landscapes_09_landscapes_09.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Schatten werden länger. Selbst die Wüste scheint sich auf einen ruhigeren Ton zu einigen.",
+				"title": "Wüste im Abendrot"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The shadows grow longer. Even the desert seems to settle on a quieter tone.",
+				"title": "Desert Afterglow"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Schatten werden länger. Selbst die Wüste scheint sich auf einen ruhigeren Ton zu einigen.",
+				"title": "Wüste im Abendrot"
+			}
+		},
+		"res://collections/levels/landscapes_10_landscapes_10.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Hügel legt sich hinter den nächsten. Der Horizont hat heute weiche Kanten.",
+				"title": "Goldene Dünen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "One hill settles behind the next. Today the horizon has soft edges.",
+				"title": "Golden Dunes"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Hügel legt sich hinter den nächsten. Der Horizont hat heute weiche Kanten.",
+				"title": "Goldene Dünen"
+			}
+		},
+		"res://collections/levels/landscapes_11_landscapes_11.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieser Zwischenstopp ist kein Umweg. Das Kamel würde die Sache vermutlich genauso sehen.",
+				"title": "Kamel am Wüstenbrunnen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "This stop is no detour. The camel would probably see it the same way.",
+				"title": "Camel at the Desert Well"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieser Zwischenstopp ist kein Umweg. Das Kamel würde die Sache vermutlich genauso sehen.",
+				"title": "Kamel am Wüstenbrunnen"
+			}
+		},
+		"res://collections/levels/landscapes_12_landscapes_12.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Baum spannt seinen grünen Schirm auf. Die Sonne braucht heute keinen Platz darunter.",
+				"title": "Sonnenuntergang in der Savanne"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A tree opens its green umbrella. Today the sun needs no place beneath it.",
+				"title": "Savanna Sunset"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Baum spannt seinen grünen Schirm auf. Die Sonne braucht heute keinen Platz darunter.",
+				"title": "Sonnenuntergang in der Savanne"
+			}
+		},
+		"res://collections/levels/landscapes_14_landscapes_14.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Palme hat keinen Urlaub gebucht. Sie sieht trotzdem aus, als wäre sie längst angekommen.",
+				"title": "Strand mit Palme"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The palm never booked a holiday. It still looks as if it has already arrived.",
+				"title": "Palm Beach"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Palme hat keinen Urlaub gebucht. Sie sieht trotzdem aus, als wäre sie längst angekommen.",
+				"title": "Strand mit Palme"
+			}
+		},
+		"res://collections/levels/landscapes_15_landscapes_15.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine Insel mit eigenem kleinen Feuer. Zum Glück bleibt es heute im Bild.",
+				"title": "Tropische Vulkaninsel"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "An island with a little fire of its own. Fortunately, today it stays in the picture.",
+				"title": "Tropical Volcano Island"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine Insel mit eigenem kleinen Feuer. Zum Glück bleibt es heute im Bild.",
+				"title": "Tropische Vulkaninsel"
+			}
+		},
+		"res://collections/levels/landscapes_16_landscapes_16.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Man muss nicht den ganzen Weg beleuchten. Manchmal reicht ein Licht, das sagt: Hier entlang.",
+				"title": "Leuchtturm auf der Klippe"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "You do not have to light the whole way. Sometimes one light saying “this way” is enough.",
+				"title": "Lighthouse on the Cliff"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Man muss nicht den ganzen Weg beleuchten. Manchmal reicht ein Licht, das sagt: Hier entlang.",
+				"title": "Leuchtturm auf der Klippe"
+			}
+		},
+		"res://collections/levels/landscapes_17_landscapes_17.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei kleine Hütten, zwei große Ferienpläne. Der wichtigste steht noch nicht im Kalender.",
+				"title": "Strandhütten im Sommer"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Two little huts, two big holiday plans. The most important one is not on the calendar yet.",
+				"title": "Summer Beach Huts"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei kleine Hütten, zwei große Ferienpläne. Der wichtigste steht noch nicht im Kalender.",
+				"title": "Strandhütten im Sommer"
+			}
+		},
+		"res://collections/levels/ocean_15_ocean_15.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieses Schiff hat Platz für viele Geschichten. Heute darf deine ein kleines Kapitel dazu bekommen.",
+				"title": "Ozeandampfer mit Schornsteinen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "This ship has room for many stories. Today yours can add a little chapter.",
+				"title": "Ocean Liner with Funnels"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieses Schiff hat Platz für viele Geschichten. Heute darf deine ein kleines Kapitel dazu bekommen.",
+				"title": "Ozeandampfer mit Schornsteinen"
+			}
+		},
+		"res://collections/levels/ocean_16_ocean_16.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Yacht liegt still. Auch ein schöner Aufbruch darf mit einer Pause beginnen.",
+				"title": "Yacht im Hafen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The yacht lies still. Even a lovely departure can begin with a pause.",
+				"title": "Yacht in the Harbour"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Yacht liegt still. Auch ein schöner Aufbruch darf mit einer Pause beginnen.",
+				"title": "Yacht im Hafen"
+			}
+		},
+		"res://collections/levels/ocean_20_ocean_20.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Sandbank zieht einen Bogen. Das Wasser darf in der Mitte einfach still sein.",
+				"title": "Blaue Lagune"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The sandbank forms an arc. The water in the middle can simply be still.",
+				"title": "Blue Lagoon"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Sandbank zieht einen Bogen. Das Wasser darf in der Mitte einfach still sein.",
+				"title": "Blaue Lagune"
+			}
+		},
+		"res://collections/levels/skylines_01_skylines_01.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwischen hohen Häusern bleibt ein Weg frei. Manchmal reicht es, den nächsten hellen Schritt zu sehen.",
+				"title": "Neonstraße zwischen Hochhäusern"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A path remains between the tall buildings. Sometimes seeing the next bright step is enough.",
+				"title": "Neon Street Between Towers"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwischen hohen Häusern bleibt ein Weg frei. Manchmal reicht es, den nächsten hellen Schritt zu sehen.",
+				"title": "Neonstraße zwischen Hochhäusern"
+			}
+		},
+		"res://collections/levels/skylines_02_skylines_02.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Am Hafen kommen Wege zusammen. Für einen Augenblick darf auch deine Reise hier anlegen.",
+				"title": "Blaue Hafenstadt"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Journeys meet at the harbour. For a moment, yours can dock here too.",
+				"title": "Blue Harbour City"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Am Hafen kommen Wege zusammen. Für einen Augenblick darf auch deine Reise hier anlegen.",
+				"title": "Blaue Hafenstadt"
+			}
+		},
+		"res://collections/levels/skylines_03_skylines_03.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Diese Türme tragen goldene Gedanken. Deiner darf gern dazwischen Platz nehmen.",
+				"title": "Goldene Kuppeltürme"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "These towers wear golden thoughts. Yours is welcome to settle among them.",
+				"title": "Golden Domed Towers"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Diese Türme tragen goldene Gedanken. Deiner darf gern dazwischen Platz nehmen.",
+				"title": "Goldene Kuppeltürme"
+			}
+		},
+		"res://collections/levels/skylines_04_skylines_04.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Kein Dach ist ganz wie das andere. Gerade deshalb passen sie so schön zusammen.",
+				"title": "Altstadt im Abendlicht"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "No roof is quite like another. That is precisely why they fit so beautifully together.",
+				"title": "Old Town at Dusk"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Kein Dach ist ganz wie das andere. Gerade deshalb passen sie so schön zusammen.",
+				"title": "Altstadt im Abendlicht"
+			}
+		},
+		"res://collections/levels/skylines_06_skylines_06.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine Brücke beginnt an zwei Ufern. Ein guter Gedanke darf auch einmal die Seite wechseln.",
+				"title": "Brücke über den Stadtfluss"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A bridge begins on two banks. A good thought can change sides now and then.",
+				"title": "Bridge Over the City River"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine Brücke beginnt an zwei Ufern. Ein guter Gedanke darf auch einmal die Seite wechseln.",
+				"title": "Brücke über den Stadtfluss"
+			}
+		},
+		"res://collections/levels/skylines_07_skylines_07.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Oben wird es schon hell. Unten darf der Tag noch ein bisschen Anlauf nehmen.",
+				"title": "Dächer im Morgenlicht"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "It is already getting light up above. Down below, the day can take its time.",
+				"title": "Rooftops in Morning Light"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Oben wird es schon hell. Unten darf der Tag noch ein bisschen Anlauf nehmen.",
+				"title": "Dächer im Morgenlicht"
+			}
+		},
+		"res://collections/levels/skylines_08_skylines_08.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Über den Bögen fährt die Nacht weiter. Für dich hält sie gerade einen kleinen Moment an.",
+				"title": "Stadtbahn bei Nacht"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Night travels on above the arches. For you, it pauses for a little moment.",
+				"title": "City Railway at Night"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Über den Bögen fährt die Nacht weiter. Für dich hält sie gerade einen kleinen Moment an.",
+				"title": "Stadtbahn bei Nacht"
+			}
+		},
+		"res://collections/levels/skylines_09_skylines_09.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Turm zeigt nach oben. Dein Erfolg braucht heute keine zusätzliche Höhe.",
+				"title": "Silberne Skyline"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A tower points upwards. Your success needs no extra height today.",
+				"title": "Silver Skyline"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Turm zeigt nach oben. Dein Erfolg braucht heute keine zusätzliche Höhe.",
+				"title": "Silberne Skyline"
+			}
+		},
+		"res://collections/levels/skylines_10_skylines_10.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Über den Dächern bleibt Platz für Fragen. Nicht jede davon muss heute eine Antwort bekommen.",
+				"title": "Sternwarte über der Stadt"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Above the rooftops there is room for questions. Not every one needs an answer today.",
+				"title": "Observatory Above the City"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Über den Dächern bleibt Platz für Fragen. Nicht jede davon muss heute eine Antwort bekommen.",
+				"title": "Sternwarte über der Stadt"
+			}
+		},
+		"res://collections/levels/skylines_11_skylines_11.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein kleines Schaufenster, ein großes Leuchten. Manchmal genügt ein einziger freundlicher Blick.",
+				"title": "Neonviertel"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A little shop window, a big glow. Sometimes one friendly glance is enough.",
+				"title": "Neon District"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein kleines Schaufenster, ein großes Leuchten. Manchmal genügt ein einziger freundlicher Blick.",
+				"title": "Neonviertel"
+			}
+		},
+		"res://collections/levels/skylines_12_skylines_12.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Häuser stehen, als wollten sie Segel setzen. Das Wasser übernimmt derweil die Bewegung.",
+				"title": "Hochhäuser am Wasser"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The buildings stand as if about to set sail. Meanwhile, the water does the moving.",
+				"title": "Towers by the Water"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Häuser stehen, als wollten sie Segel setzen. Das Wasser übernimmt derweil die Bewegung.",
+				"title": "Hochhäuser am Wasser"
+			}
+		},
+		"res://collections/levels/skylines_13_skylines_13.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Brunnen hat keine Einkaufsliste. Er steht einfach da und macht den Platz ein wenig schöner.",
+				"title": "Marktplatz im Sommer"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The fountain has no shopping list. It simply stands there, making the square a little lovelier.",
+				"title": "Summer Market Square"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Brunnen hat keine Einkaufsliste. Er steht einfach da und macht den Platz ein wenig schöner.",
+				"title": "Marktplatz im Sommer"
+			}
+		},
+		"res://collections/levels/skylines_14_skylines_14.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Schnee hat die Dächer leiser gemacht. Du darfst die Gedanken darunter kurz zur Ruhe legen.",
+				"title": "Winterliche Turmstadt"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Snow has quietened the rooftops. You can let the thoughts beneath them rest for a moment.",
+				"title": "Winter Tower City"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Schnee hat die Dächer leiser gemacht. Du darfst die Gedanken darunter kurz zur Ruhe legen.",
+				"title": "Winterliche Turmstadt"
+			}
+		},
+		"res://collections/levels/skylines_15_skylines_15.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Stufe für Stufe wird der Turm schmaler. Schritt für Schritt wurde dein Rätsel klarer.",
+				"title": "Türkis am Horizont"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Step by step the tower grows narrower. Step by step your puzzle grew clearer.",
+				"title": "Turquoise on the Horizon"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Stufe für Stufe wird der Turm schmaler. Schritt für Schritt wurde dein Rätsel klarer.",
+				"title": "Türkis am Horizont"
+			}
+		},
+		"res://collections/levels/skylines_16_skylines_16.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Rad kehrt immer wieder zurück. Der Blick von oben darf trotzdem jedes Mal neu sein.",
+				"title": "Riesenrad über der Stadt"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The wheel comes round again and again. The view from the top can still be new every time.",
+				"title": "Ferris Wheel Above the City"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Rad kehrt immer wieder zurück. Der Blick von oben darf trotzdem jedes Mal neu sein.",
+				"title": "Riesenrad über der Stadt"
+			}
+		},
+		"res://collections/levels/skylines_17_skylines_17.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei unterschiedliche Türme teilen sich eine Verbindung. Zusammen sieht die Sache gleich interessanter aus.",
+				"title": "Glas und Gold"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Two different towers share a connection. Together, the scene becomes more interesting.",
+				"title": "Glass and Gold"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei unterschiedliche Türme teilen sich eine Verbindung. Zusammen sieht die Sache gleich interessanter aus.",
+				"title": "Glas und Gold"
+			}
+		},
+		"res://collections/levels/skylines_18_skylines_18.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Dächer liegen unter einem kleinen Mond. Heute muss die Nacht nichts weiter erklären.",
+				"title": "Mitternachtsdächer"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The rooftops lie beneath a little moon. Tonight needs no further explanation.",
+				"title": "Midnight Rooftops"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Dächer liegen unter einem kleinen Mond. Heute muss die Nacht nichts weiter erklären.",
+				"title": "Mitternachtsdächer"
+			}
+		},
+		"res://collections/levels/skylines_19_skylines_19.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein buntes Viertel muss sich nicht auf eine Lieblingsfarbe einigen.",
+				"title": "Buntes Viertel am Kanal"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A colourful neighbourhood does not have to agree on one favourite colour.",
+				"title": "Colourful Canal Quarter"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein buntes Viertel muss sich nicht auf eine Lieblingsfarbe einigen.",
+				"title": "Buntes Viertel am Kanal"
+			}
+		},
+		"res://collections/levels/skylines_20_skylines_20.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Tor ist offen. Der nächste kleine Aufbruch darf warten, bis du bereit bist.",
+				"title": "Stadttor im Abendrot"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The gate is open. Your next little departure can wait until you are ready.",
+				"title": "City Gate in the Afterglow"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Tor ist offen. Der nächste kleine Aufbruch darf warten, bis du bereit bist.",
+				"title": "Stadttor im Abendrot"
+			}
+		},
+		"res://collections/levels/sports_01_sports_01.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Tor steht noch. Der Ball auch. Für einen kurzen Moment muss niemand hinterherlaufen.",
+				"title": "Fußball im Flutlicht"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The goal is still standing. So is the ball. For a moment, nobody has to chase it.",
+				"title": "Football Under the Floodlights"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Tor steht noch. Der Ball auch. Für einen kurzen Moment muss niemand hinterherlaufen.",
+				"title": "Fußball im Flutlicht"
+			}
+		},
+		"res://collections/levels/sports_02_sports_02.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Korb wartet geduldig. Er nimmt es nicht persönlich, wenn ein Wurf ein paar Anläufe braucht.",
+				"title": "Basketballtraining"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The hoop waits patiently. It never takes it personally when a shot needs a few attempts.",
+				"title": "Basketball Practice"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Korb wartet geduldig. Er nimmt es nicht persönlich, wenn ein Wurf ein paar Anläufe braucht.",
+				"title": "Basketballtraining"
+			}
+		},
+		"res://collections/levels/sports_03_sports_03.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Netz teilt den Strand. Den Spaß muss es glücklicherweise nicht halbieren.",
+				"title": "Volleyball am Strand"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The net divides the beach. Luckily, it does not have to divide the fun.",
+				"title": "Beach Volleyball"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Netz teilt den Strand. Den Spaß muss es glücklicherweise nicht halbieren.",
+				"title": "Volleyball am Strand"
+			}
+		},
+		"res://collections/levels/sports_04_sports_04.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "So viele Linien und trotzdem Platz für einen Überraschungsball.",
+				"title": "Tennisplatz von oben"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "So many lines, and still room for a surprise shot.",
+				"title": "Tennis Court from Above"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "So viele Linien und trotzdem Platz für einen Überraschungsball.",
+				"title": "Tennisplatz von oben"
+			}
+		},
+		"res://collections/levels/sports_05_sports_05.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Handschuh hat den Ball aufgefangen. Du hast die Pause dazwischen verdient.",
+				"title": "Baseball am Nachmittag"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The glove has caught the ball. You have earned the pause in between.",
+				"title": "Afternoon Baseball"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Der Handschuh hat den Ball aufgefangen. Du hast die Pause dazwischen verdient.",
+				"title": "Baseball am Nachmittag"
+			}
+		},
+		"res://collections/levels/sports_06_sports_06.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Alle Kegel stehen noch. Es ist die kleine Ruhe vor einem ziemlich vergnüglichen Durcheinander.",
+				"title": "Bowlingabend"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "All the pins are still standing. A little calm before a rather cheerful mess.",
+				"title": "Bowling Night"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Alle Kegel stehen noch. Es ist die kleine Ruhe vor einem ziemlich vergnüglichen Durcheinander.",
+				"title": "Bowlingabend"
+			}
+		},
+		"res://collections/levels/travel_08_travel_08.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Liege ist frei. Für die nächsten paar Gedanken ist kein Termin vorgesehen.",
+				"title": "Strandurlaub"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The deckchair is free. Your next few thoughts have no appointments.",
+				"title": "Beach Holiday"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Liege ist frei. Für die nächsten paar Gedanken ist kein Termin vorgesehen.",
+				"title": "Strandurlaub"
+			}
+		},
+		"res://collections/levels/travel_09_travel_09.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Viel Sand und ein kleines Stück Wasser. Plötzlich wirkt die ganze Landschaft freundlicher.",
+				"title": "Wüstenoase"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A lot of sand and a little patch of water. Suddenly the whole landscape feels friendlier.",
+				"title": "Desert Oasis"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Viel Sand und ein kleines Stück Wasser. Plötzlich wirkt die ganze Landschaft freundlicher.",
+				"title": "Wüstenoase"
+			}
+		},
+		"res://collections/levels/travel_11_travel_11.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Heute wurde kein Schatz ausgegraben. Dafür hast du dieses Schiff ans Licht gebracht.",
+				"title": "Piratenschiff unter Segeln"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "No treasure was dug up today. But you brought this ship to light.",
+				"title": "Pirate Ship Under Sail"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Heute wurde kein Schatz ausgegraben. Dafür hast du dieses Schiff ans Licht gebracht.",
+				"title": "Piratenschiff unter Segeln"
+			}
+		},
+		"res://collections/levels/variety_anchor.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Anker ist eine Einladung, einen Moment zu bleiben. Du musst nicht sofort weiter.",
+				"title": "Anker im Hafen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "An anchor is an invitation to stay a moment. You do not have to move on immediately.",
+				"title": "Harbour Anchor"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Anker ist eine Einladung, einen Moment zu bleiben. Du musst nicht sofort weiter.",
+				"title": "Anker im Hafen"
+			}
+		},
+		"res://collections/levels/variety_rail_bridge.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Oben fährt ein Zug, unten zieht das Wasser weiter. Zwei Reisen teilen sich einen stillen Augenblick.",
+				"title": "Zug auf der Bogenbrücke"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A train passes above; water moves on below. Two journeys share one quiet moment.",
+				"title": "Train on the Arch Bridge"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Oben fährt ein Zug, unten zieht das Wasser weiter. Zwei Reisen teilen sich einen stillen Augenblick.",
+				"title": "Zug auf der Bogenbrücke"
+			}
+		},
+		"res://collections/levels/variety_rail_tracks.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Linien nähern sich am Horizont. Manchmal sieht ein langer Weg von hier aus ganz klein aus.",
+				"title": "Gleise in die Ferne"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Two lines draw together on the horizon. Sometimes a long journey looks very small from here.",
+				"title": "Tracks into the Distance"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Linien nähern sich am Horizont. Manchmal sieht ein langer Weg von hier aus ganz klein aus.",
+				"title": "Gleise in die Ferne"
+			}
+		},
+		"res://collections/levels/vehicles_01_vehicles_01.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Stadt ist groß. Für diesen kleinen Flitzer findet sich bestimmt noch eine Lücke.",
+				"title": "Kleiner Stadtflitzer"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The city is big. There is bound to be a gap for this little runabout.",
+				"title": "Little City Runabout"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die Stadt ist groß. Für diesen kleinen Flitzer findet sich bestimmt noch eine Lücke.",
+				"title": "Kleiner Stadtflitzer"
+			}
+		},
+		"res://collections/levels/vehicles_02_vehicles_02.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Auch ein schneller Wagen darf stehen bleiben. Dieser Moment gehört dir.",
+				"title": "Sportwagen im Neonlicht"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Even a fast car can stand still. This moment is yours.",
+				"title": "Sports Car in Neon"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Auch ein schneller Wagen darf stehen bleiben. Dieser Moment gehört dir.",
+				"title": "Sportwagen im Neonlicht"
+			}
+		},
+		"res://collections/levels/vehicles_03_vehicles_03.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Taxi wartet. Du darfst dir das Ziel für den nächsten kleinen Ausflug aussuchen.",
+				"title": "Taxi in der Nacht"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "The taxi is waiting. You can choose the destination for your next little outing.",
+				"title": "Night Taxi"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Taxi wartet. Du darfst dir das Ziel für den nächsten kleinen Ausflug aussuchen.",
+				"title": "Taxi in der Nacht"
+			}
+		},
+		"res://collections/levels/vehicles_04_vehicles_04.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Heute braucht niemand eine Sirene. Ein gelöstes Rätsel darf auch leise gefeiert werden.",
+				"title": "Polizeiauto"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "No one needs a siren today. A solved puzzle can be celebrated quietly too.",
+				"title": "Police Car"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Heute braucht niemand eine Sirene. Ein gelöstes Rätsel darf auch leise gefeiert werden.",
+				"title": "Polizeiauto"
+			}
+		},
+		"res://collections/levels/vehicles_05_vehicles_05.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Platz machen, wenn Hilfe unterwegs ist. Platz lassen, wenn jemand eine Pause braucht.",
+				"title": "Rettungswagen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Make room when help is on the way. Leave room when someone needs a break.",
+				"title": "Ambulance"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Platz machen, wenn Hilfe unterwegs ist. Platz lassen, wenn jemand eine Pause braucht.",
+				"title": "Rettungswagen"
+			}
+		},
+		"res://collections/levels/vehicles_06_vehicles_06.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine Leiter reicht weiter, wenn unten jemand aufpasst. Gute Wege entstehen oft gemeinsam.",
+				"title": "Feuerwehrwagen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A ladder reaches further when someone looks after the bottom. Good routes often take teamwork.",
+				"title": "Fire Engine"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Eine Leiter reicht weiter, wenn unten jemand aufpasst. Gute Wege entstehen oft gemeinsam.",
+				"title": "Feuerwehrwagen"
+			}
+		},
+		"res://collections/levels/vehicles_07_vehicles_07.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "So viele Fenster, so viele mögliche Geschichten. Deine darf heute ein bisschen leuchten.",
+				"title": "Großer Reisebus"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "So many windows, so many possible stories. Today yours can shine a little.",
+				"title": "Coach"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "So viele Fenster, so viele mögliche Geschichten. Deine darf heute ein bisschen leuchten.",
+				"title": "Großer Reisebus"
+			}
+		},
+		"res://collections/levels/vehicles_08_vehicles_08.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Nicht jede wertvolle Ladung passt in eine Kiste. Geduld zum Beispiel.",
+				"title": "Lastwagen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Not every valuable load fits in a box. Patience, for instance.",
+				"title": "Lorry"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Nicht jede wertvolle Ladung passt in eine Kiste. Geduld zum Beispiel.",
+				"title": "Lastwagen"
+			}
+		},
+		"res://collections/levels/vehicles_09_vehicles_09.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Zuhause hat Räder bekommen. Der Kalender darf ein paar freie Felder behalten.",
+				"title": "Camper auf Reisen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Home has grown wheels. The calendar can keep a few empty spaces.",
+				"title": "Camper on the Road"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Das Zuhause hat Räder bekommen. Der Kalender darf ein paar freie Felder behalten.",
+				"title": "Camper auf Reisen"
+			}
+		},
+		"res://collections/levels/vehicles_10_vehicles_10.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein großes Rad, ein kleines Rad. Zum Vorankommen müssen nicht alle gleich aussehen.",
+				"title": "Traktor auf dem Feld"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "One big wheel, one little wheel. Moving forward does not mean everyone has to look alike.",
+				"title": "Tractor in the Field"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein großes Rad, ein kleines Rad. Zum Vorankommen müssen nicht alle gleich aussehen.",
+				"title": "Traktor auf dem Feld"
+			}
+		},
+		"res://collections/levels/vehicles_11_vehicles_11.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein.",
+				"title": "Fahrrad im Sommer"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Two wheels, a little departure. The next journey does not have to be far.",
+				"title": "Summer Bicycle"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein.",
+				"title": "Fahrrad im Sommer"
+			}
+		},
+		"res://collections/levels/vehicles_12_vehicles_12.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein.",
+				"title": "Motorradfreiheit"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Two wheels, a little departure. The next journey does not have to be far.",
+				"title": "Motorbike Freedom"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein.",
+				"title": "Motorradfreiheit"
+			}
+		},
+		"res://collections/levels/vehicles_13_vehicles_13.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein.",
+				"title": "Roller in der Stadt"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Two wheels, a little departure. The next journey does not have to be far.",
+				"title": "City Scooter"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Zwei Räder, ein kleiner Aufbruch. Der nächste Weg muss nicht weit sein.",
+				"title": "Roller in der Stadt"
+			}
+		},
+		"res://collections/levels/vehicles_14_vehicles_14.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden.",
+				"title": "Schnellzug"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A train follows its track. Today you found your own way through a little tangle.",
+				"title": "High-Speed Train"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden.",
+				"title": "Schnellzug"
+			}
+		},
+		"res://collections/levels/vehicles_15_vehicles_15.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden.",
+				"title": "Straßenbahn"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A train follows its track. Today you found your own way through a little tangle.",
+				"title": "Tram"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden.",
+				"title": "Straßenbahn"
+			}
+		},
+		"res://collections/levels/vehicles_16_vehicles_16.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden.",
+				"title": "Metroexpress"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A train follows its track. Today you found your own way through a little tangle.",
+				"title": "Metro Express"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Zug zieht seine Spur. Du hast heute deinen eigenen Weg durch ein kleines Durcheinander gefunden.",
+				"title": "Metroexpress"
+			}
+		},
+		"res://collections/levels/vehicles_17_vehicles_17.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Rotor zeichnet Kreise. Dein Weg durch das Rätsel ist gerade an seinem Ziel angekommen.",
+				"title": "Hubschrauber über Wolken"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A rotor draws circles. Your route through this puzzle has just reached its destination.",
+				"title": "Helicopter Above the Clouds"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein Rotor zeichnet Kreise. Dein Weg durch das Rätsel ist gerade an seinem Ziel angekommen.",
+				"title": "Hubschrauber über Wolken"
+			}
+		},
+		"res://collections/levels/vehicles_18_vehicles_18.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein heller Strich bleibt am Himmel zurück. Nicht jeder schöne Weg braucht ein Schild.",
+				"title": "Düsenjet mit Kondensstreifen"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "A bright line remains in the sky. Not every beautiful route needs a sign.",
+				"title": "Jet with a Vapour Trail"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Ein heller Strich bleibt am Himmel zurück. Nicht jeder schöne Weg braucht ein Schild.",
+				"title": "Düsenjet mit Kondensstreifen"
+			}
+		},
+		"res://collections/levels/vehicles_19_vehicles_19.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die langen Flügel tragen eine leise Reise. Der nächste Gedanke darf ruhig genauso leicht sein.",
+				"title": "Segelflug"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "Long wings carry a quiet journey. Your next thought can be just as light.",
+				"title": "Soaring"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Die langen Flügel tragen eine leise Reise. Der nächste Gedanke darf ruhig genauso leicht sein.",
+				"title": "Segelflug"
+			}
+		},
+		"res://collections/levels/vehicles_20_vehicles_20.json": {
+			"de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieses Flugzeug hat sich einen besonderen Parkplatz ausgesucht. Das Wasser scheint nichts dagegen zu haben.",
+				"title": "Wasserflugzeug"
+			},
+			"en": {
+				"kind": "A little thought",
+				"source": "",
+				"text": "This plane has chosen a rather special parking spot. The water seems happy with it.",
+				"title": "Seaplane"
+			},
+			"reviewed_de": {
+				"kind": "Ein kleiner Gedanke",
+				"source": "",
+				"text": "Dieses Flugzeug hat sich einen besonderen Parkplatz ausgesucht. Das Wasser scheint nichts dagegen zu haben.",
+				"title": "Wasserflugzeug"
+			}
+		}
+	},
+	"version": 1.0
+}

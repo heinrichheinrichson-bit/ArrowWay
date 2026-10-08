@@ -4487,12 +4487,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 10.0,
-        "edges": 144.0,
+        "depth": 15.0,
+        "edges": 103.0,
         "longest": 36.0,
-        "paths": 50.0,
+        "paths": 51.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 18.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4509,7 +4509,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Metropole in Pink"
+      "title": "Neonstraße zwischen Hochhäusern"
     },
     {
       "collection": {
@@ -4518,12 +4518,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 178.0,
-        "longest": 20.0,
-        "paths": 60.0,
+        "depth": 5.0,
+        "edges": 34.0,
+        "longest": 38.0,
+        "paths": 25.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4549,12 +4549,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 16.0,
-        "edges": 149.0,
-        "longest": 24.0,
-        "paths": 55.0,
+        "depth": 13.0,
+        "edges": 109.0,
+        "longest": 50.0,
+        "paths": 46.0,
         "solvable": true,
-        "starts": 8.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4571,7 +4571,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Goldene Türme"
+      "title": "Goldene Kuppeltürme"
     },
     {
       "collection": {
@@ -4581,11 +4581,11 @@
       },
       "design": {
         "depth": 13.0,
-        "edges": 168.0,
-        "longest": 22.0,
-        "paths": 56.0,
+        "edges": 133.0,
+        "longest": 38.0,
+        "paths": 49.0,
         "solvable": true,
-        "starts": 10.0
+        "starts": 13.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4602,7 +4602,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Violette Abendstadt"
+      "title": "Altstadt im Abendlicht"
     },
     {
       "collection": {
@@ -4642,12 +4642,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 18.0,
-        "edges": 225.0,
-        "longest": 20.0,
-        "paths": 61.0,
+        "depth": 12.0,
+        "edges": 80.0,
+        "longest": 49.0,
+        "paths": 34.0,
         "solvable": true,
-        "starts": 8.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4664,7 +4664,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Türme am Fluss"
+      "title": "Brücke über den Stadtfluss"
     },
     {
       "collection": {
@@ -4674,11 +4674,11 @@
       },
       "design": {
         "depth": 15.0,
-        "edges": 196.0,
-        "longest": 27.0,
-        "paths": 59.0,
+        "edges": 127.0,
+        "longest": 40.0,
+        "paths": 50.0,
         "solvable": true,
-        "starts": 7.0
+        "starts": 14.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4704,10 +4704,10 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 16.0,
-        "edges": 196.0,
-        "longest": 32.0,
-        "paths": 62.0,
+        "depth": 12.0,
+        "edges": 118.0,
+        "longest": 28.0,
+        "paths": 43.0,
         "solvable": true,
         "starts": 8.0
       },
@@ -4726,7 +4726,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Rote Nachtstadt"
+      "title": "Stadtbahn bei Nacht"
     },
     {
       "collection": {
@@ -4735,12 +4735,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 17.0,
-        "edges": 249.0,
-        "longest": 27.0,
-        "paths": 64.0,
+        "depth": 12.0,
+        "edges": 67.0,
+        "longest": 30.0,
+        "paths": 31.0,
         "solvable": true,
-        "starts": 7.0
+        "starts": 10.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4766,12 +4766,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 209.0,
-        "longest": 40.0,
-        "paths": 59.0,
+        "depth": 10.0,
+        "edges": 48.0,
+        "longest": 34.0,
+        "paths": 36.0,
         "solvable": true,
-        "starts": 7.0
+        "starts": 16.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4788,7 +4788,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Stadt unter Sternen"
+      "title": "Sternwarte über der Stadt"
     },
     {
       "collection": {
@@ -4797,12 +4797,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 16.0,
-        "edges": 162.0,
-        "longest": 40.0,
-        "paths": 48.0,
+        "depth": 11.0,
+        "edges": 143.0,
+        "longest": 35.0,
+        "paths": 53.0,
         "solvable": true,
-        "starts": 6.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4828,12 +4828,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 18.0,
-        "edges": 240.0,
-        "longest": 25.0,
-        "paths": 68.0,
+        "depth": 6.0,
+        "edges": 42.0,
+        "longest": 31.0,
+        "paths": 25.0,
         "solvable": true,
-        "starts": 9.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4859,12 +4859,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 15.0,
-        "edges": 219.0,
+        "depth": 12.0,
+        "edges": 80.0,
         "longest": 30.0,
-        "paths": 62.0,
+        "paths": 47.0,
         "solvable": true,
-        "starts": 9.0
+        "starts": 19.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4881,7 +4881,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Sommerliche Metropole"
+      "title": "Marktplatz im Sommer"
     },
     {
       "collection": {
@@ -4890,12 +4890,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 16.0,
-        "edges": 216.0,
-        "longest": 29.0,
-        "paths": 65.0,
+        "depth": 10.0,
+        "edges": 94.0,
+        "longest": 46.0,
+        "paths": 44.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 10.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4921,12 +4921,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 13.0,
-        "edges": 203.0,
-        "longest": 36.0,
-        "paths": 64.0,
+        "depth": 9.0,
+        "edges": 51.0,
+        "longest": 40.0,
+        "paths": 27.0,
         "solvable": true,
-        "starts": 7.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4952,12 +4952,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 17.0,
-        "edges": 162.0,
-        "longest": 32.0,
-        "paths": 51.0,
+        "depth": 10.0,
+        "edges": 126.0,
+        "longest": 48.0,
+        "paths": 62.0,
         "solvable": true,
-        "starts": 6.0
+        "starts": 19.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -4974,7 +4974,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Stadt der Lichter"
+      "title": "Riesenrad über der Stadt"
     },
     {
       "collection": {
@@ -4983,12 +4983,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 15.0,
-        "edges": 243.0,
-        "longest": 36.0,
-        "paths": 73.0,
+        "depth": 10.0,
+        "edges": 64.0,
+        "longest": 32.0,
+        "paths": 35.0,
         "solvable": true,
-        "starts": 14.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -5014,12 +5014,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 23.0,
-        "edges": 199.0,
-        "longest": 20.0,
-        "paths": 58.0,
+        "depth": 7.0,
+        "edges": 32.0,
+        "longest": 38.0,
+        "paths": 26.0,
         "solvable": true,
-        "starts": 6.0
+        "starts": 13.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -5045,12 +5045,12 @@
         "title": "Städte & Skylines"
       },
       "design": {
-        "depth": 16.0,
-        "edges": 154.0,
-        "longest": 25.0,
-        "paths": 52.0,
+        "depth": 11.0,
+        "edges": 173.0,
+        "longest": 44.0,
+        "paths": 60.0,
         "solvable": true,
-        "starts": 8.0
+        "starts": 14.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -5067,7 +5067,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Bunte Weltenstadt"
+      "title": "Buntes Viertel am Kanal"
     },
     {
       "collection": {
@@ -5077,11 +5077,11 @@
       },
       "design": {
         "depth": 15.0,
-        "edges": 176.0,
-        "longest": 26.0,
-        "paths": 58.0,
+        "edges": 123.0,
+        "longest": 38.0,
+        "paths": 41.0,
         "solvable": true,
-        "starts": 6.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "skylines",
@@ -5098,7 +5098,7 @@
         "category": "travel_06",
         "world": "travel"
       },
-      "title": "Stadt im Abendrot"
+      "title": "Stadttor im Abendrot"
     },
     {
       "collection": {
@@ -5727,12 +5727,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 7.0,
-        "edges": 43.0,
-        "longest": 56.0,
-        "paths": 32.0,
+        "depth": 12.0,
+        "edges": 92.0,
+        "longest": 64.0,
+        "paths": 37.0,
         "solvable": true,
-        "starts": 13.0
+        "starts": 9.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5757,12 +5757,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 56.0,
-        "longest": 55.0,
-        "paths": 35.0,
+        "depth": 10.0,
+        "edges": 130.0,
+        "longest": 31.0,
+        "paths": 46.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 13.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5787,12 +5787,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 9.0,
-        "edges": 66.0,
-        "longest": 35.0,
-        "paths": 37.0,
+        "depth": 15.0,
+        "edges": 134.0,
+        "longest": 21.0,
+        "paths": 49.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 9.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5817,12 +5817,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 10.0,
-        "edges": 57.0,
-        "longest": 52.0,
-        "paths": 32.0,
+        "depth": 14.0,
+        "edges": 94.0,
+        "longest": 29.0,
+        "paths": 37.0,
         "solvable": true,
-        "starts": 10.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5847,12 +5847,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 15.0,
-        "edges": 89.0,
-        "longest": 48.0,
-        "paths": 42.0,
+        "depth": 16.0,
+        "edges": 134.0,
+        "longest": 37.0,
+        "paths": 56.0,
         "solvable": true,
-        "starts": 9.0
+        "starts": 14.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5878,9 +5878,9 @@
       },
       "design": {
         "depth": 12.0,
-        "edges": 89.0,
-        "longest": 45.0,
-        "paths": 41.0,
+        "edges": 98.0,
+        "longest": 40.0,
+        "paths": 46.0,
         "solvable": true,
         "starts": 11.0
       },
@@ -5907,12 +5907,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 9.0,
-        "edges": 63.0,
-        "longest": 45.0,
-        "paths": 30.0,
+        "depth": 12.0,
+        "edges": 189.0,
+        "longest": 36.0,
+        "paths": 61.0,
         "solvable": true,
-        "starts": 7.0
+        "starts": 13.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5937,12 +5937,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 7.0,
-        "edges": 62.0,
-        "longest": 48.0,
-        "paths": 37.0,
+        "depth": 16.0,
+        "edges": 103.0,
+        "longest": 31.0,
+        "paths": 42.0,
         "solvable": true,
-        "starts": 10.0
+        "starts": 9.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5968,11 +5968,11 @@
       },
       "design": {
         "depth": 13.0,
-        "edges": 100.0,
-        "longest": 58.0,
-        "paths": 40.0,
+        "edges": 151.0,
+        "longest": 28.0,
+        "paths": 60.0,
         "solvable": true,
-        "starts": 9.0
+        "starts": 18.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -5997,12 +5997,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 67.0,
-        "longest": 42.0,
-        "paths": 37.0,
+        "depth": 10.0,
+        "edges": 102.0,
+        "longest": 31.0,
+        "paths": 50.0,
         "solvable": true,
-        "starts": 8.0
+        "starts": 17.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6027,12 +6027,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 121.0,
-        "longest": 24.0,
-        "paths": 48.0,
+        "depth": 10.0,
+        "edges": 108.0,
+        "longest": 23.0,
+        "paths": 46.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 12.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6057,12 +6057,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 11.0,
-        "edges": 121.0,
+        "depth": 9.0,
+        "edges": 61.0,
         "longest": 34.0,
-        "paths": 53.0,
+        "paths": 41.0,
         "solvable": true,
-        "starts": 13.0
+        "starts": 17.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6087,12 +6087,12 @@
         "title": "Straßenfahrzeuge"
       },
       "design": {
-        "depth": 9.0,
-        "edges": 92.0,
-        "longest": 26.0,
-        "paths": 41.0,
+        "depth": 8.0,
+        "edges": 72.0,
+        "longest": 36.0,
+        "paths": 37.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 12.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6117,12 +6117,12 @@
         "title": "Schienenverkehr"
       },
       "design": {
-        "depth": 11.0,
-        "edges": 66.0,
-        "longest": 35.0,
-        "paths": 36.0,
+        "depth": 9.0,
+        "edges": 60.0,
+        "longest": 59.0,
+        "paths": 32.0,
         "solvable": true,
-        "starts": 9.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6147,12 +6147,12 @@
         "title": "Schienenverkehr"
       },
       "design": {
-        "depth": 11.0,
-        "edges": 116.0,
-        "longest": 35.0,
-        "paths": 52.0,
+        "depth": 12.0,
+        "edges": 87.0,
+        "longest": 32.0,
+        "paths": 49.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 16.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6177,12 +6177,12 @@
         "title": "Schienenverkehr"
       },
       "design": {
-        "depth": 9.0,
-        "edges": 84.0,
-        "longest": 46.0,
-        "paths": 37.0,
+        "depth": 11.0,
+        "edges": 118.0,
+        "longest": 21.0,
+        "paths": 52.0,
         "solvable": true,
-        "starts": 7.0
+        "starts": 15.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6207,12 +6207,12 @@
         "title": "Fluggeräte"
       },
       "design": {
-        "depth": 8.0,
-        "edges": 67.0,
-        "longest": 27.0,
-        "paths": 31.0,
+        "depth": 10.0,
+        "edges": 69.0,
+        "longest": 40.0,
+        "paths": 38.0,
         "solvable": true,
-        "starts": 6.0
+        "starts": 14.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6228,7 +6228,7 @@
         "category": "travel_04",
         "world": "travel"
       },
-      "title": "Flugzeug über Wolken"
+      "title": "Hubschrauber über Wolken"
     },
     {
       "collection": {
@@ -6237,12 +6237,12 @@
         "title": "Fluggeräte"
       },
       "design": {
-        "depth": 10.0,
-        "edges": 59.0,
-        "longest": 33.0,
-        "paths": 33.0,
+        "depth": 7.0,
+        "edges": 67.0,
+        "longest": 24.0,
+        "paths": 45.0,
         "solvable": true,
-        "starts": 10.0
+        "starts": 17.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6258,7 +6258,7 @@
         "category": "travel_04",
         "world": "travel"
       },
-      "title": "Düsenjet"
+      "title": "Düsenjet mit Kondensstreifen"
     },
     {
       "collection": {
@@ -6267,12 +6267,12 @@
         "title": "Fluggeräte"
       },
       "design": {
-        "depth": 8.0,
-        "edges": 37.0,
-        "longest": 69.0,
-        "paths": 23.0,
+        "depth": 7.0,
+        "edges": 25.0,
+        "longest": 23.0,
+        "paths": 21.0,
         "solvable": true,
-        "starts": 8.0
+        "starts": 9.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6297,12 +6297,12 @@
         "title": "Fluggeräte"
       },
       "design": {
-        "depth": 9.0,
-        "edges": 80.0,
-        "longest": 27.0,
-        "paths": 33.0,
+        "depth": 12.0,
+        "edges": 113.0,
+        "longest": 32.0,
+        "paths": 46.0,
         "solvable": true,
-        "starts": 7.0
+        "starts": 10.0
       },
       "legacy_collection": {
         "id": "vehicles",
@@ -6761,12 +6761,12 @@
         "title": "Schiffe & Boote"
       },
       "design": {
-        "depth": 10.0,
-        "edges": 64.0,
-        "longest": 50.0,
-        "paths": 27.0,
+        "depth": 8.0,
+        "edges": 73.0,
+        "longest": 36.0,
+        "paths": 36.0,
         "solvable": true,
-        "starts": 6.0
+        "starts": 14.0
       },
       "legacy_collection": {
         "id": "ocean",
@@ -6783,7 +6783,7 @@
         "category": "travel_03",
         "world": "travel"
       },
-      "title": "Schiff auf See"
+      "title": "Ozeandampfer mit Schornsteinen"
     },
     {
       "collection": {
@@ -6792,12 +6792,12 @@
         "title": "Schiffe & Boote"
       },
       "design": {
-        "depth": 14.0,
-        "edges": 49.0,
-        "longest": 43.0,
-        "paths": 30.0,
+        "depth": 8.0,
+        "edges": 38.0,
+        "longest": 40.0,
+        "paths": 27.0,
         "solvable": true,
-        "starts": 9.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "ocean",
@@ -6917,11 +6917,11 @@
       },
       "design": {
         "depth": 9.0,
-        "edges": 65.0,
-        "longest": 43.0,
-        "paths": 39.0,
+        "edges": 110.0,
+        "longest": 39.0,
+        "paths": 46.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "ocean",
@@ -11228,11 +11228,11 @@
       },
       "design": {
         "depth": 9.0,
-        "edges": 94.0,
-        "longest": 38.0,
-        "paths": 47.0,
+        "edges": 130.0,
+        "longest": 33.0,
+        "paths": 60.0,
         "solvable": true,
-        "starts": 16.0
+        "starts": 13.0
       },
       "legacy_collection": {
         "id": "sports",
@@ -11256,12 +11256,12 @@
         "title": "Ballsport"
       },
       "design": {
-        "depth": 14.0,
-        "edges": 123.0,
-        "longest": 32.0,
-        "paths": 54.0,
+        "depth": 8.0,
+        "edges": 71.0,
+        "longest": 27.0,
+        "paths": 38.0,
         "solvable": true,
-        "starts": 17.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "sports",
@@ -11285,12 +11285,12 @@
         "title": "Ballsport"
       },
       "design": {
-        "depth": 14.0,
-        "edges": 99.0,
-        "longest": 32.0,
-        "paths": 49.0,
+        "depth": 11.0,
+        "edges": 95.0,
+        "longest": 22.0,
+        "paths": 44.0,
         "solvable": true,
-        "starts": 16.0
+        "starts": 12.0
       },
       "legacy_collection": {
         "id": "sports",
@@ -11314,12 +11314,12 @@
         "title": "Ballsport"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 135.0,
-        "longest": 46.0,
-        "paths": 57.0,
+        "depth": 14.0,
+        "edges": 243.0,
+        "longest": 27.0,
+        "paths": 64.0,
         "solvable": true,
-        "starts": 14.0
+        "starts": 8.0
       },
       "legacy_collection": {
         "id": "sports",
@@ -11334,7 +11334,7 @@
         "category": "leisure_02",
         "world": "leisure"
       },
-      "title": "Tennisball im Sommer"
+      "title": "Tennisplatz von oben"
     },
     {
       "collection": {
@@ -11343,12 +11343,12 @@
         "title": "Ballsport"
       },
       "design": {
-        "depth": 15.0,
-        "edges": 120.0,
-        "longest": 32.0,
-        "paths": 53.0,
+        "depth": 16.0,
+        "edges": 162.0,
+        "longest": 27.0,
+        "paths": 62.0,
         "solvable": true,
-        "starts": 17.0
+        "starts": 20.0
       },
       "legacy_collection": {
         "id": "sports",
@@ -11372,12 +11372,12 @@
         "title": "Ballsport"
       },
       "design": {
-        "depth": 15.0,
-        "edges": 115.0,
-        "longest": 41.0,
-        "paths": 52.0,
+        "depth": 13.0,
+        "edges": 74.0,
+        "longest": 25.0,
+        "paths": 41.0,
         "solvable": true,
-        "starts": 16.0
+        "starts": 10.0
       },
       "legacy_collection": {
         "id": "sports",
@@ -12617,12 +12617,12 @@
         "title": "Küsten & Inseln"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 67.0,
-        "longest": 38.0,
-        "paths": 39.0,
+        "depth": 14.0,
+        "edges": 81.0,
+        "longest": 32.0,
+        "paths": 42.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 13.0
       },
       "legacy_collection": {
         "id": "travel",
@@ -12647,12 +12647,12 @@
         "title": "Wüsten & Savannen"
       },
       "design": {
-        "depth": 16.0,
-        "edges": 135.0,
-        "longest": 27.0,
-        "paths": 59.0,
+        "depth": 10.0,
+        "edges": 78.0,
+        "longest": 25.0,
+        "paths": 43.0,
         "solvable": true,
-        "starts": 17.0
+        "starts": 15.0
       },
       "legacy_collection": {
         "id": "travel",
@@ -12707,12 +12707,12 @@
         "title": "Schiffe & Boote"
       },
       "design": {
-        "depth": 11.0,
-        "edges": 76.0,
-        "longest": 28.0,
-        "paths": 42.0,
+        "depth": 14.0,
+        "edges": 109.0,
+        "longest": 24.0,
+        "paths": 43.0,
         "solvable": true,
-        "starts": 15.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "travel",
@@ -12728,7 +12728,7 @@
         "category": "travel_03",
         "world": "travel"
       },
-      "title": "Segelurlaub"
+      "title": "Piratenschiff unter Segeln"
     },
     {
       "collection": {
@@ -13697,12 +13697,12 @@
         "title": "Küsten & Inseln"
       },
       "design": {
-        "depth": 15.0,
-        "edges": 110.0,
-        "longest": 52.0,
-        "paths": 46.0,
+        "depth": 23.0,
+        "edges": 231.0,
+        "longest": 36.0,
+        "paths": 73.0,
         "solvable": true,
-        "starts": 10.0
+        "starts": 15.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13727,12 +13727,12 @@
         "title": "Seen & Flüsse"
       },
       "design": {
-        "depth": 8.0,
-        "edges": 83.0,
-        "longest": 58.0,
-        "paths": 42.0,
+        "depth": 17.0,
+        "edges": 170.0,
+        "longest": 25.0,
+        "paths": 68.0,
         "solvable": true,
-        "starts": 13.0
+        "starts": 18.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13757,12 +13757,12 @@
         "title": "Seen & Flüsse"
       },
       "design": {
-        "depth": 12.0,
-        "edges": 125.0,
-        "longest": 33.0,
-        "paths": 51.0,
+        "depth": 11.0,
+        "edges": 165.0,
+        "longest": 39.0,
+        "paths": 76.0,
         "solvable": true,
-        "starts": 10.0
+        "starts": 22.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13787,12 +13787,12 @@
         "title": "Berge & Naturkräfte"
       },
       "design": {
-        "depth": 14.0,
-        "edges": 121.0,
-        "longest": 51.0,
-        "paths": 50.0,
+        "depth": 16.0,
+        "edges": 228.0,
+        "longest": 30.0,
+        "paths": 69.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 10.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13817,12 +13817,12 @@
         "title": "Berge & Naturkräfte"
       },
       "design": {
-        "depth": 13.0,
-        "edges": 75.0,
-        "longest": 68.0,
-        "paths": 40.0,
+        "depth": 12.0,
+        "edges": 131.0,
+        "longest": 35.0,
+        "paths": 59.0,
         "solvable": true,
-        "starts": 13.0
+        "starts": 14.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13847,10 +13847,10 @@
         "title": "Wüsten & Savannen"
       },
       "design": {
-        "depth": 7.0,
-        "edges": 65.0,
-        "longest": 38.0,
-        "paths": 34.0,
+        "depth": 9.0,
+        "edges": 85.0,
+        "longest": 58.0,
+        "paths": 39.0,
         "solvable": true,
         "starts": 12.0
       },
@@ -13877,12 +13877,12 @@
         "title": "Wüsten & Savannen"
       },
       "design": {
-        "depth": 7.0,
-        "edges": 56.0,
-        "longest": 28.0,
-        "paths": 33.0,
+        "depth": 12.0,
+        "edges": 108.0,
+        "longest": 42.0,
+        "paths": 52.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 15.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13907,12 +13907,12 @@
         "title": "Wüsten & Savannen"
       },
       "design": {
-        "depth": 8.0,
-        "edges": 96.0,
-        "longest": 27.0,
-        "paths": 55.0,
+        "depth": 11.0,
+        "edges": 60.0,
+        "longest": 32.0,
+        "paths": 37.0,
         "solvable": true,
-        "starts": 17.0
+        "starts": 13.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13928,7 +13928,7 @@
         "category": "nature_04",
         "world": "nature"
       },
-      "title": "Oase im Sand"
+      "title": "Kamel am Wüstenbrunnen"
     },
     {
       "collection": {
@@ -13937,12 +13937,12 @@
         "title": "Wüsten & Savannen"
       },
       "design": {
-        "depth": 10.0,
-        "edges": 52.0,
-        "longest": 40.0,
-        "paths": 32.0,
+        "depth": 5.0,
+        "edges": 30.0,
+        "longest": 51.0,
+        "paths": 31.0,
         "solvable": true,
-        "starts": 9.0
+        "starts": 16.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -13997,12 +13997,12 @@
         "title": "Küsten & Inseln"
       },
       "design": {
-        "depth": 9.0,
-        "edges": 59.0,
-        "longest": 37.0,
-        "paths": 36.0,
+        "depth": 7.0,
+        "edges": 78.0,
+        "longest": 28.0,
+        "paths": 42.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 19.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -14027,12 +14027,12 @@
         "title": "Küsten & Inseln"
       },
       "design": {
-        "depth": 11.0,
-        "edges": 62.0,
-        "longest": 46.0,
-        "paths": 40.0,
+        "depth": 13.0,
+        "edges": 83.0,
+        "longest": 43.0,
+        "paths": 42.0,
         "solvable": true,
-        "starts": 14.0
+        "starts": 12.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -14048,7 +14048,7 @@
         "category": "nature_03",
         "world": "nature"
       },
-      "title": "Kleine Tropeninsel"
+      "title": "Tropische Vulkaninsel"
     },
     {
       "collection": {
@@ -14057,12 +14057,12 @@
         "title": "Küsten & Inseln"
       },
       "design": {
-        "depth": 14.0,
-        "edges": 96.0,
-        "longest": 32.0,
-        "paths": 43.0,
+        "depth": 8.0,
+        "edges": 46.0,
+        "longest": 49.0,
+        "paths": 37.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 15.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -14078,7 +14078,7 @@
         "category": "nature_03",
         "world": "nature"
       },
-      "title": "Türkisblaue Lagune"
+      "title": "Leuchtturm auf der Klippe"
     },
     {
       "collection": {
@@ -14088,11 +14088,11 @@
       },
       "design": {
         "depth": 9.0,
-        "edges": 81.0,
-        "longest": 35.0,
-        "paths": 40.0,
+        "edges": 89.0,
+        "longest": 45.0,
+        "paths": 44.0,
         "solvable": true,
-        "starts": 12.0
+        "starts": 16.0
       },
       "legacy_collection": {
         "id": "landscapes",
@@ -14108,7 +14108,7 @@
         "category": "nature_03",
         "world": "nature"
       },
-      "title": "Küste im Sommer"
+      "title": "Strandhütten im Sommer"
     },
     {
       "collection": {
@@ -15953,24 +15953,18 @@
       "title": "Morgens am Waschbecken"
     },
     {
-      "attribution": {
-        "author": "lorc",
-        "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
-        "license": "CC BY 3.0",
-        "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/mouth-watering.svg"
-      },
       "collection": {
         "id": "dental",
         "title": "Zahnmedizin",
         "order": 3.0
       },
       "design": {
-        "depth": 12.0,
-        "edges": 33.0,
-        "longest": 16.0,
-        "paths": 26.0,
+        "depth": 10.0,
+        "edges": 70.0,
+        "longest": 27.0,
+        "paths": 46.0,
         "solvable": true,
-        "starts": 11.0
+        "starts": 18.0
       },
       "legacy_collection": {
         "id": "dental",
@@ -15986,7 +15980,7 @@
         "world": "medicine",
         "category": "medicine_05"
       },
-      "title": "Lächeln mit Zähnen"
+      "title": "Der Zahnarztspiegel"
     },
     {
       "attribution": {
@@ -22577,24 +22571,18 @@
       "title": "Doppeldecker"
     },
     {
-      "attribution": {
-        "author": "skoll",
-        "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths.",
-        "license": "CC BY 3.0",
-        "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/glider.svg"
-      },
       "collection": {
         "id": "aircraft",
         "title": "Fluggeräte",
         "order": 2.0
       },
       "design": {
-        "depth": 4.0,
-        "edges": 21.0,
-        "longest": 12.0,
-        "paths": 26.0,
+        "depth": 12.0,
+        "edges": 65.0,
+        "longest": 34.0,
+        "paths": 33.0,
         "solvable": true,
-        "starts": 14.0
+        "starts": 11.0
       },
       "legacy_collection": {
         "id": "aircraft",
@@ -22610,7 +22598,7 @@
         "world": "travel",
         "category": "travel_04"
       },
-      "title": "Segelflieger"
+      "title": "Papierflieger im Aufwind"
     },
     {
       "attribution": {
@@ -26463,6 +26451,78 @@
         "category": "history_07"
       },
       "title": "Torii"
+    },
+    {
+      "collection": {
+        "id": "ships",
+        "order": 815.0,
+        "title": "Schiffe & Boote"
+      },
+      "design": {
+        "depth": 6.0,
+        "edges": 50.0,
+        "longest": 34.0,
+        "paths": 32.0,
+        "solvable": true,
+        "starts": 16.0
+      },
+      "path": "res://collections/levels/variety_anchor.json",
+      "tags": [
+        "Schiffe & Wasserfahrzeuge"
+      ],
+      "taxonomy": {
+        "category": "Schiffe & Wasserfahrzeuge",
+        "world": "travel"
+      },
+      "title": "Anker im Hafen"
+    },
+    {
+      "collection": {
+        "id": "rail",
+        "order": 816.0,
+        "title": "Schienenverkehr"
+      },
+      "design": {
+        "depth": 12.0,
+        "edges": 75.0,
+        "longest": 33.0,
+        "paths": 41.0,
+        "solvable": true,
+        "starts": 9.0
+      },
+      "path": "res://collections/levels/variety_rail_tracks.json",
+      "tags": [
+        "Schienenverkehr"
+      ],
+      "taxonomy": {
+        "category": "Schienenverkehr",
+        "world": "travel"
+      },
+      "title": "Gleise in die Ferne"
+    },
+    {
+      "collection": {
+        "id": "rail",
+        "order": 817.0,
+        "title": "Schienenverkehr"
+      },
+      "design": {
+        "depth": 10.0,
+        "edges": 72.0,
+        "longest": 32.0,
+        "paths": 36.0,
+        "solvable": true,
+        "starts": 8.0
+      },
+      "path": "res://collections/levels/variety_rail_bridge.json",
+      "tags": [
+        "Schienenverkehr"
+      ],
+      "taxonomy": {
+        "category": "Schienenverkehr",
+        "world": "travel"
+      },
+      "title": "Zug auf der Bogenbrücke"
     }
   ],
   "version": 1

@@ -8,6 +8,23 @@ func generate() -> void:
 	if args.has("--source"): source_path=args[args.find("--source")+1]
 	if args.has("--output"): output_path=args[args.find("--output")+1]
 	var source = JSON.parse_string(FileAccess.get_file_as_string(source_path))
+	# Curated replacements override repetitive recipes, keeping stable public paths.
+	if FileAccess.file_exists("res://collections/variety_recipes.json"):
+		var curated:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/variety_recipes.json"))
+		var tax:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/taxonomy.json"))
+		for recipe in curated.entries:
+			var found:=false
+			for item in source:
+				var original_path:String=item.get("path","res://collections/levels/%s_%02d_%s.json" % [item.collection.id,item.collection.order,item.key])
+				if original_path != recipe.path: continue
+				item.motif=recipe.motif.duplicate(true); item.erase("attribution"); item["path"]=recipe.path
+				found=true; break
+			if found: continue
+			for assignment in tax.assignments:
+				if assignment.path != recipe.path: continue
+				var document:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(recipe.path))
+				source.append({"key":recipe.path.get_file().get_basename(),"path":recipe.path,"collection":document.collection,"tags":document.tags,"motif":recipe.motif.duplicate(true)})
+				break
 	if args.has("--limit"): source=source.slice(0,int(args[args.find("--limit")+1]))
 	var entries: Array = []
 	var previous_order := {}
@@ -22,7 +39,7 @@ func generate() -> void:
 		var item: Dictionary = source[index]
 		if not group_order.has(item.collection.id): group_order.append(item.collection.id)
 		var filename: String = "%s_%02d_%s.json" % [item.collection.id, item.collection.order, item.key]
-		var path := "res://collections/levels/" + filename
+		var path:String = item.get("path", "res://collections/levels/" + filename)
 		var source_hash := JSON.stringify(item).sha256_text()
 		var protection: Dictionary = protected.get(path.trim_prefix("res://"), {})
 		if protection.get("deleted", false): continue

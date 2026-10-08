@@ -291,6 +291,8 @@ def main():
   if path in protected and protected[path].get("deleted"):continue
   if path in protected:
    doc=read(path);counts.append((doc["title"],len(doc["motif"]["parts"])));continue
+  if read(path).get('art_revision')=='catalog-variety-1':
+   doc=read(path);counts.append((doc['title'],len(doc['motif']['parts'])));continue
   file=ROOT/path; before=file.read_bytes();doc=json.loads(before.decode('utf-8-sig')); oldpaint=json.dumps([doc['motif'],doc['paths']],sort_keys=True);oldpoints=[a['points'] for a in doc['paths']];oldcells={(x,y) for x,y,_ in doc['motif']['cells']}
   xs=[x for x,y in oldcells];ys=[y for x,y in oldcells];lo=(min(xs),min(ys));span=(max(1,max(xs)-lo[0]),max(1,max(ys)-lo[1]))
   roles=[profile['base']]+profile['regions']; regioncells={}

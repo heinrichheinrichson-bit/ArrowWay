@@ -852,7 +852,7 @@
         },
         {
           "title": "Schienenverkehr",
-          "existing_count": 3,
+          "existing_count": 5,
           "id": "travel_02",
           "status": "populated",
           "playable_groups": [
@@ -861,7 +861,7 @@
         },
         {
           "title": "Schiffe & Wasserfahrzeuge",
-          "existing_count": 6,
+          "existing_count": 7,
           "id": "travel_03",
           "status": "populated",
           "playable_groups": [
@@ -3738,7 +3738,7 @@
     },
     {
       "path": "res://collections/levels/skylines_01_skylines_01.json",
-      "title": "Metropole in Pink",
+      "title": "Neonstraße zwischen Hochhäusern",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -3772,7 +3772,7 @@
     },
     {
       "path": "res://collections/levels/skylines_03_skylines_03.json",
-      "title": "Goldene Türme",
+      "title": "Goldene Kuppeltürme",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -3789,7 +3789,7 @@
     },
     {
       "path": "res://collections/levels/skylines_04_skylines_04.json",
-      "title": "Violette Abendstadt",
+      "title": "Altstadt im Abendlicht",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -3823,7 +3823,7 @@
     },
     {
       "path": "res://collections/levels/skylines_06_skylines_06.json",
-      "title": "Türme am Fluss",
+      "title": "Brücke über den Stadtfluss",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -3857,7 +3857,7 @@
     },
     {
       "path": "res://collections/levels/skylines_08_skylines_08.json",
-      "title": "Rote Nachtstadt",
+      "title": "Stadtbahn bei Nacht",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -3891,7 +3891,7 @@
     },
     {
       "path": "res://collections/levels/skylines_10_skylines_10.json",
-      "title": "Stadt unter Sternen",
+      "title": "Sternwarte über der Stadt",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -3942,7 +3942,7 @@
     },
     {
       "path": "res://collections/levels/skylines_13_skylines_13.json",
-      "title": "Sommerliche Metropole",
+      "title": "Marktplatz im Sommer",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -3993,7 +3993,7 @@
     },
     {
       "path": "res://collections/levels/skylines_16_skylines_16.json",
-      "title": "Stadt der Lichter",
+      "title": "Riesenrad über der Stadt",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -4044,7 +4044,7 @@
     },
     {
       "path": "res://collections/levels/skylines_19_skylines_19.json",
-      "title": "Bunte Weltenstadt",
+      "title": "Buntes Viertel am Kanal",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -4061,7 +4061,7 @@
     },
     {
       "path": "res://collections/levels/skylines_20_skylines_20.json",
-      "title": "Stadt im Abendrot",
+      "title": "Stadttor im Abendrot",
       "old_collection": "skylines",
       "old_collection_title": "Skyline bei Nacht",
       "world": "travel",
@@ -4674,7 +4674,7 @@
     },
     {
       "path": "res://collections/levels/vehicles_17_vehicles_17.json",
-      "title": "Flugzeug über Wolken",
+      "title": "Hubschrauber über Wolken",
       "old_collection": "vehicles",
       "old_collection_title": "Unterwegs auf Rädern",
       "world": "travel",
@@ -4690,7 +4690,7 @@
     },
     {
       "path": "res://collections/levels/vehicles_18_vehicles_18.json",
-      "title": "Düsenjet",
+      "title": "Düsenjet mit Kondensstreifen",
       "old_collection": "vehicles",
       "old_collection_title": "Unterwegs auf Rädern",
       "world": "travel",
@@ -4976,7 +4976,7 @@
     },
     {
       "path": "res://collections/levels/ocean_15_ocean_15.json",
-      "title": "Schiff auf See",
+      "title": "Ozeandampfer mit Schornsteinen",
       "old_collection": "ocean",
       "old_collection_title": "Unter dem Meer",
       "world": "travel",
@@ -7443,7 +7443,7 @@
     },
     {
       "path": "res://collections/levels/sports_04_sports_04.json",
-      "title": "Tennisball im Sommer",
+      "title": "Tennisplatz von oben",
       "old_collection": "sports",
       "old_collection_title": "Sport und Bewegung",
       "world": "leisure",
@@ -8178,7 +8178,7 @@
     },
     {
       "path": "res://collections/levels/travel_11_travel_11.json",
-      "title": "Segelurlaub",
+      "title": "Piratenschiff unter Segeln",
       "old_collection": "travel",
       "old_collection_title": "Urlaub und Abenteuer",
       "world": "travel",
@@ -8818,7 +8818,7 @@
     },
     {
       "path": "res://collections/levels/landscapes_11_landscapes_11.json",
-      "title": "Oase im Sand",
+      "title": "Kamel am Wüstenbrunnen",
       "old_collection": "landscapes",
       "old_collection_title": "Landschaften und Fernweh",
       "world": "nature",
@@ -8882,7 +8882,7 @@
     },
     {
       "path": "res://collections/levels/landscapes_15_landscapes_15.json",
-      "title": "Kleine Tropeninsel",
+      "title": "Tropische Vulkaninsel",
       "old_collection": "landscapes",
       "old_collection_title": "Landschaften und Fernweh",
       "world": "nature",
@@ -8898,7 +8898,7 @@
     },
     {
       "path": "res://collections/levels/landscapes_16_landscapes_16.json",
-      "title": "Türkisblaue Lagune",
+      "title": "Leuchtturm auf der Klippe",
       "old_collection": "landscapes",
       "old_collection_title": "Landschaften und Fernweh",
       "world": "nature",
@@ -8914,7 +8914,7 @@
     },
     {
       "path": "res://collections/levels/landscapes_17_landscapes_17.json",
-      "title": "Küste im Sommer",
+      "title": "Strandhütten im Sommer",
       "old_collection": "landscapes",
       "old_collection_title": "Landschaften und Fernweh",
       "world": "nature",
@@ -9974,7 +9974,7 @@
     },
     {
       "path": "res://collections/levels/expanded_medicine_05_03_new_mouth_watering.json",
-      "title": "Lächeln mit Zähnen",
+      "title": "Der Zahnarztspiegel",
       "old_collection": "dental",
       "old_collection_title": "Zahnmedizin",
       "world": "medicine",
@@ -9986,13 +9986,7 @@
       "existing_tags": [
         "Zahnmedizin",
         "medicine"
-      ],
-      "attribution": {
-        "author": "lorc",
-        "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/lorc/mouth-watering.svg",
-        "license": "CC BY 3.0",
-        "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths."
-      }
+      ]
     },
     {
       "path": "res://collections/levels/expanded_medicine_06_01_new_rod_of_asclepius.json",
@@ -14022,7 +14016,7 @@
     },
     {
       "path": "res://collections/levels/expanded_travel_04_02_new_glider.json",
-      "title": "Segelflieger",
+      "title": "Papierflieger im Aufwind",
       "old_collection": "aircraft",
       "old_collection_title": "Fluggeräte",
       "world": "travel",
@@ -14034,13 +14028,7 @@
       "existing_tags": [
         "Fluggeräte",
         "travel"
-      ],
-      "attribution": {
-        "author": "skoll",
-        "source": "https://github.com/game-icons/icons/blob/82d948812bfe3f269ef8f731dcdb07b08160edc4/skoll/glider.svg",
-        "license": "CC BY 3.0",
-        "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths."
-      }
+      ]
     },
     {
       "path": "res://collections/levels/expanded_travel_04_03_new_hang_glider.json",
@@ -16395,6 +16383,55 @@
         "license": "Originalgestaltung",
         "changes": "Rasterized, simplified, colored and filled with solvable neon arrow paths."
       }
+    },
+    {
+      "category": "Schiffe & Wasserfahrzeuge",
+      "category_id": "travel_03",
+      "decision": "Eigenständiges neues Motiv",
+      "existing_tags": [
+        "Meer",
+        "Wasser",
+        "Tiere"
+      ],
+      "group": "ships",
+      "old_collection": "ocean",
+      "old_collection_title": "Unter dem Meer",
+      "path": "res://collections/levels/variety_anchor.json",
+      "title": "Anker im Hafen",
+      "world": "travel",
+      "world_title": "Unterwegs & Bauwerke"
+    },
+    {
+      "category": "Schienenverkehr",
+      "category_id": "travel_02",
+      "decision": "Eigenständiges neues Motiv",
+      "existing_tags": [
+        "Fahrzeuge",
+        "Verkehr"
+      ],
+      "group": "rail",
+      "old_collection": "vehicles",
+      "old_collection_title": "Unterwegs auf Rädern",
+      "path": "res://collections/levels/variety_rail_tracks.json",
+      "title": "Gleise in die Ferne",
+      "world": "travel",
+      "world_title": "Unterwegs & Bauwerke"
+    },
+    {
+      "category": "Schienenverkehr",
+      "category_id": "travel_02",
+      "decision": "Eigenständiges neues Motiv",
+      "existing_tags": [
+        "Fahrzeuge",
+        "Verkehr"
+      ],
+      "group": "rail",
+      "old_collection": "vehicles",
+      "old_collection_title": "Unterwegs auf Rädern",
+      "path": "res://collections/levels/variety_rail_bridge.json",
+      "title": "Zug auf der Bogenbrücke",
+      "world": "travel",
+      "world_title": "Unterwegs & Bauwerke"
     }
   ]
 }
