@@ -2541,6 +2541,8 @@
     "Schließen": "Close",
     "App-state recovery failed; refusing to overwrite the interrupted restore.": "App-state recovery failed; refusing to overwrite the interrupted restore.",
     "Gelöste Rätsel: %d · Lieblingsbilder: %d": "Solved puzzles: %d · Favorites: %d",
-    "Sicherung vom %s\n\nGelöste Rätsel: %d\nLieblingsbilder: %d\nAngefangene Rätsel: %d\n\nDieser Stand ersetzt deinen aktuellen App-Stand. Zuvor wird er automatisch gesichert.": "Backup from %s\n\nSolved puzzles: %d\nFavorite artworks: %d\nUnfinished puzzles: %d\n\nThis will replace your current app state. We will back it up first."
+    "Sicherung vom %s\n\nGelöste Rätsel: %d\nLieblingsbilder: %d\nAngefangene Rätsel: %d\n\nDieser Stand ersetzt deinen aktuellen App-Stand. Zuvor wird er automatisch gesichert.": "Backup from %s\n\nSolved puzzles: %d\nFavorite artworks: %d\nUnfinished puzzles: %d\n\nThis will replace your current app state. We will back it up first.",
+    "Datenschutz": "Privacy",
+    "Kontakt & Support": "Contact & support"
   }
 }

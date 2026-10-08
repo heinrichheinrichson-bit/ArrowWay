@@ -1,0 +1,17 @@
+Datenschutz · arrow.joy
+Stand: 8. Oktober 2026
+
+Verantwortlicher: Damien Weihs (Thinkheim), Bayerhofstraße 5, 8600 Bruck an der Mur, Österreich.
+Kontakt: thinkheim.support@gmail.com
+
+arrow.joy funktioniert ohne Benutzerkonto. Diese Testversion übermittelt keine Spiel- oder Nutzungsdaten an Server des Entwicklers. Sie enthält keine Analyse-, Tracking-, Werbe- oder Zahlungsdienste.
+
+Spielstände, Fortschritt, Favoriten, Statistiken, Einstellungen und laufende Rätsel werden lokal auf dem Gerät gespeichert. Die App fordert weder Standort noch Kontakte, Kamera oder Mikrofon an.
+
+Du kannst den vollständigen App-Stand freiwillig in eine Datei exportieren und später importieren. Die Datei enthält deine lokalen Spieldaten. Die App versendet diese Datei nicht selbstständig. Verwahre Sicherungen entsprechend deinen Wünschen. Die Android-Systemsicherung ist für diese App deaktiviert.
+
+Lokale Daten kannst du durch Löschen der App-Daten in den Android-Einstellungen oder durch Deinstallation entfernen. Exportierte Dateien musst du separat löschen.
+
+Wenn du Quellenlinks öffnest, wird dein Browser verwendet. Wenn du den Support kontaktierst, wird dein E-Mail-Programm geöffnet. Nur freiwillig gesendete Nachrichten und darin enthaltene Angaben erreichen den Support und werden zur Bearbeitung der Anfrage genutzt. Browser, E-Mail-Anbieter und Google Play haben eigene Datenschutzregeln.
+
+Die App verlangt keine persönlichen Angaben von Kindern. Änderungen, insbesondere eine spätere Integration echter Werbung, erfordern eine aktualisierte Erklärung und entsprechende Play-Console-Angaben.

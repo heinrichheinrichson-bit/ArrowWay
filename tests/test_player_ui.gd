@@ -80,12 +80,13 @@ func run() -> void:
 	require(scene.journey.screen=="album","Direct unsolved artwork requests reveal nothing")
 	# Solving the final intro puzzle records exactly one real milestone.
 	scene.close_journey(); scene.completed.clear()
-	for index in range(8): scene.completed.append(index)
-	scene.level=8; scene.reset()
+	var intro := JourneyProgress.indices(scene,"base")
+	for index in intro.slice(0,-1): scene.completed.append(index)
+	scene.level=intro.back(); scene.reset()
 	for arrow in ArrowPuzzle.solution(scene.arrows):
 		scene.click_at(scene.arrows[arrow].points[0]); scene._process(2.0)
 	require(scene.journey_reward.get("group","")=="base" and scene.journey_reward.get("next",-1)==1,"A full theme awards a group celebration and new-world light route")
-	scene.open_album(); scene.journey.open_artwork(8)
+	scene.open_album(); scene.journey.open_artwork(intro.back())
 	await tap(Vector2(scene.get_viewport_rect().size.x*0.6,scene.get_viewport_rect().size.y-50))
 	require(not is_instance_valid(scene.journey) and scene.win_time<0 and scene.cleared==0,"Replay resets the already completed current puzzle")
 	scene.open_journey(1); await process_frame

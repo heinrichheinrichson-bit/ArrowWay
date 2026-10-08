@@ -2,3 +2,9 @@
 builds/
 *.tmp
 *.log
+*.jks
+*.keystore
+*.aab
+*.apk
+work/
+tools/__pycache__/

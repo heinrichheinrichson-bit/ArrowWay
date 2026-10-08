@@ -192,6 +192,8 @@ func relayout() -> void:
 		build_settings()
 	elif screen == "backup":
 		build_backup()
+	elif screen == "privacy":
+		build_privacy()
 	else:
 		icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,AppLanguage.text("Zurück"))
 		if screen == "map": build_map()
@@ -225,6 +227,7 @@ func go_back() -> void:
 		screen="album"; scroller=null; relayout()
 	elif screen == "settings": navigate("home")
 	elif screen == "backup": navigate("settings")
+	elif screen == "privacy": navigate("settings")
 	else: game.close_home()
 
 func make_scroll(height: float, tint: Color) -> void:
@@ -530,9 +533,36 @@ func build_settings() -> void:
 		add_child(premium_toggle)
 		label(AppLanguage.text("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten"),Vector2(24,580),size.x-48,13,Color("#8fa8b7"))
 
-	action(AppLanguage.text("Bildquellen & Lizenzen"),Vector2(24,635),Vector2(size.x-48,48),show_art_credits)
-	var backup_button := action(AppLanguage.text("App-Stand"),Vector2(24,699),Vector2(size.x-48,48),func(): navigate("backup"))
+	var settings_y := 635 if OS.has_feature("debug") else 409
+	action(AppLanguage.text("Bildquellen & Lizenzen"),Vector2(24,settings_y),Vector2(size.x-48,48),show_art_credits)
+	var backup_button := action(AppLanguage.text("App-Stand"),Vector2(24,settings_y+64),Vector2(size.x-48,48),func(): navigate("backup"))
 	backup_button.name = "AppStateButton"
+	if not OS.has_feature("debug"):
+		action(AppLanguage.text("Datenschutz"),Vector2(24,537),Vector2(size.x-48,48),show_privacy)
+		action(AppLanguage.text("Kontakt & Support"),Vector2(24,601),Vector2(size.x-48,48),func(): OS.shell_open("mailto:thinkheim.support@gmail.com?subject=arrow.joy"))
+		label("arrow.joy · Thinkheim · "+str(ProjectSettings.get_setting("application/config/version")),Vector2(24,677),size.x-48,13,Color("#8fa8b7"))
+
+func show_privacy() -> void:
+	navigate("privacy")
+
+func build_privacy() -> void:
+	icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,AppLanguage.text("Zurück"))
+	label(AppLanguage.text("Datenschutz"),Vector2(24,104),size.x-48,28)
+	scroller = ScrollContainer.new()
+	scroller.name = "PrivacyScroll"
+	scroller.position = Vector2(24,175)
+	scroller.size = Vector2(size.x-48,maxf(120,size.y-205))
+	scroller.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroller.follow_focus = true
+	var content := RichTextLabel.new()
+	content.name = "PrivacyText"
+	content.custom_minimum_size = Vector2(size.x-72,0)
+	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	content.fit_content = true
+	content.add_theme_font_size_override("normal_font_size",18)
+	content.text = FileAccess.get_file_as_string("res://privacy/"+AppLanguage.locale+".txt")
+	scroller.add_child(content)
+	add_child(scroller)
 
 func show_art_credits() -> void:
 	var dialog := AcceptDialog.new()

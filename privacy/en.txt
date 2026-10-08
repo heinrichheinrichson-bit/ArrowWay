@@ -1,0 +1,17 @@
+Privacy · arrow.joy
+Last updated: 8 October 2026
+
+Controller: Damien Weihs (Thinkheim), Bayerhofstraße 5, 8600 Bruck an der Mur, Austria.
+Contact: thinkheim.support@gmail.com
+
+arrow.joy works without an account. This test version does not send gameplay or usage data to the developer's servers. It contains no analytics, tracking, advertising or payment services.
+
+Saved games, progress, favourites, statistics, settings and puzzles in progress are stored locally on your device. The app does not request location, contacts, camera or microphone access.
+
+You can voluntarily export your complete app state to a file and import it later. The file contains your local gameplay data. The app does not send it automatically. Keep exported backups wherever you choose. Android system backup is disabled for this app.
+
+You can erase local data by clearing app data in Android settings or uninstalling the app. Delete exported files separately.
+
+Source links open your browser. Contacting support opens your email app. Only messages you voluntarily send, and details included in them, reach support and are used to handle your request. Your browser, email provider and Google Play have their own privacy policies.
+
+The app does not ask children for personal information. Changes, especially a future integration of real advertising, require an updated policy and corresponding Play Console declarations.

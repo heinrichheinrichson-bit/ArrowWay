@@ -44,6 +44,7 @@ var play_atmosphere: ColorRect
 var home_menu: Control
 var journey: Control
 var journey_mode := not OS.get_cmdline_user_args().has("--test") and not OS.get_cmdline_user_args().has("--editor-tool")
+var last_back_request_ms := -1000
 var journey_index_revision := 0
 var journey_seen: Array[String] = []
 var journey_access_groups: Array[String] = []
@@ -248,7 +249,9 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 		for path in manifest.intro_paths:
 			if FileAccess.file_exists(path): level_files.append(path)
 	else:
-		for index in range(TITLES.size()): level_files.append(directory.path_join("%02d.json" % (index + 1)))
+		for index in range(TITLES.size()):
+			var path := directory.path_join("%02d.json" % (index + 1))
+			if FileAccess.file_exists(path): level_files.append(path)
 	base_level_count = level_files.size()
 	if include_user_exports and scan_user_exports and directory == "res://levels":
 		var catalog = JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json")) if FileAccess.file_exists("res://collections/catalog.json") else null
@@ -1108,22 +1111,32 @@ func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_CLOSE_REQUEST,NOTIFICATION_WM_GO_BACK_REQUEST] and is_instance_valid(session_store):
 		queue_session(); session_store.flush()
 	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not journey_mode: return
+	var back_time := Time.get_ticks_msec()
+	if back_time - last_back_request_ms < 250: return
+	last_back_request_ms = back_time
 	if is_instance_valid(ads) and ads.showing: ads.dismiss(); return
-	for child in get_children():
+	for child in find_children("*", "Window", true, false):
 		if child is Window and child.visible:
 			child.hide(); child.queue_free(); return
 	if is_instance_valid(journey): journey.go_back()
 	elif is_instance_valid(home_menu):
-		if home_menu.screen in ["settings","backup"]: home_menu.go_back()
+		if home_menu.screen in ["settings","backup","privacy"]: home_menu.go_back()
 		else: get_tree().quit()
 	else: open_current_journey()
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Android emits both an Escape key and a go-back notification for one press.
+	# Route its navigation through the notification only.
+	if OS.get_name() == "Android" and event is InputEventKey and event.keycode == KEY_ESCAPE:
+		get_viewport().set_input_as_handled()
+		return
 	if is_instance_valid(journey):
 		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE: journey.go_back()
 		return
 	if is_instance_valid(home_menu):
-		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE: close_home()
+		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+			if home_menu.screen in ["settings","backup","privacy"]: home_menu.go_back()
+			else: close_home()
 		return
 	if is_instance_valid(gallery) and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		close_gallery()

@@ -15,7 +15,7 @@ func run() -> void:
 	scene.storage_prefix = "user://test_mobile_"
 	root.add_child(scene)
 	await process_frame
-	for size in [Vector2i(540, 850), Vector2i(540, 1170), Vector2i(720, 960)]:
+	for size in [Vector2i(540, 850), Vector2i(540, 1170), Vector2i(720, 960), Vector2i(960, 720), Vector2i(1024, 768)]:
 		root.size = size
 		await process_frame
 		scene.update_play_layout()
