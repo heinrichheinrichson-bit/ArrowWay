@@ -29,6 +29,19 @@ def main():
         text = config.read_text(encoding='utf-8-sig')
         exclusions = ','.join(sorted(AUTHOR_FILES) + ['collections/editor_overrides.json', 'collections/workshop_trash.json', '*.cmd', '*.md'])
         text = re.sub(r'^exclude_filter=.*$', 'exclude_filter="' + exclusions + '"', text, flags=re.M)
+        # Keep the installed application identity stable when the display name changes.
+        android_options = {
+            'package/unique_name': '"com.example.arrowway"',
+            'package/name': '"arrow.joy"',
+            'launcher_icons/main_192x192': '"res://branding/icon.png"',
+            'launcher_icons/adaptive_foreground_432x432': '"res://branding/adaptive_foreground.png"',
+            'launcher_icons/adaptive_background_432x432': '"res://branding/adaptive_background.png"',
+            'launcher_icons/adaptive_monochrome_432x432': '"res://branding/adaptive_monochrome.png"',
+            'splash_screen/icon': '"res://branding/icon.png"',
+            'splash_screen/background_color': 'Color(0.027, 0.075, 0.176, 1)',
+        }
+        for key, value in android_options.items():
+            text = re.sub(r'^' + re.escape(key) + r'=.*$', key + '=' + value, text, flags=re.M)
         config.write_text(text, encoding='utf-8')
         subprocess.run([args.godot, '--headless', '--path', str(stage), '--editor', '--quit'], check=True, env=environment)
         subprocess.run([args.godot, '--headless', '--path', str(stage), '--export-debug', 'Android', str(output)], check=True, env=environment)

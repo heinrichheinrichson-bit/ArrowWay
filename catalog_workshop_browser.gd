@@ -21,7 +21,7 @@ var delete_button: Button
 var trash_button: Button
 var expected := {}
 func _ready() -> void:
-	title = "ArrowWay · Katalogwerkstatt"
+	title = "arrow.joy · Katalogwerkstatt"
 	size = Vector2i(1060, 800); min_size = size
 	store = load("res://catalog_workshop_store.gd").new(); store.root = studio.catalog_root
 	var margin := MarginContainer.new()

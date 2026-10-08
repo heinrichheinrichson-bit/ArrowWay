@@ -28,7 +28,7 @@ static func ensure_loaded() -> void:
 	if registered: return
 	var data = JSON.parse_string(FileAccess.get_file_as_string("res://localization/en.json"))
 	if not data is Dictionary or not data.get("messages") is Dictionary:
-		push_error("ArrowWay English translation catalogue is missing.")
+		push_error("arrow.joy English translation catalogue is missing.")
 		return
 	messages = data.messages
 	var translation := Translation.new()

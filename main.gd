@@ -89,7 +89,7 @@ func _ready() -> void:
 		var store: RefCounted = load("res://catalog_workshop_store.gd").new()
 		if not store.recover(): push_error(store.error)
 	if journey_mode: get_tree().quit_on_go_back=false
-	get_window().title = "ArrowWay · " + str(ProjectSettings.get_setting("application/config/version", "")) + (AppLanguage.text(" · Level-Werkzeug") if authoring else "")
+	get_window().title = "arrow.joy · " + str(ProjectSettings.get_setting("application/config/version", "")) + (AppLanguage.text(" · Level-Werkzeug") if authoring else "")
 	feedback = FeedbackAudio.new()
 	add_child(feedback)
 	var preferences := ConfigFile.new()
@@ -500,7 +500,7 @@ func open_home() -> void:
 	background.size = home_menu.size
 	home_menu.add_child(background)
 	var heading := Label.new()
-	heading.text = "ARROW WAY"
+	heading.text = "arrow.joy"
 	heading.add_theme_font_size_override("font_size", 36)
 	heading.position = Vector2(0, home_menu.size.y * 0.22)
 	heading.size.x = home_menu.size.x
@@ -1380,7 +1380,7 @@ func export_level() -> void:
 	var dialog := FileDialog.new()
 	dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
 	dialog.access = FileDialog.ACCESS_FILESYSTEM
-	dialog.filters = PackedStringArray(["*.json ; ArrowWay Level"])
+	dialog.filters = PackedStringArray(["*.json ; arrow.joy Level"])
 	dialog.current_dir = ProjectSettings.globalize_path("res://levels")
 	dialog.current_file = str(motif.get("title", AppLanguage.text("Eigenes Motiv"))).validate_filename() + ".json" if shape_index == 6 else "%02d.json" % (level + 1)
 	dialog.title = AppLanguage.text("Level für das Spiel exportieren")

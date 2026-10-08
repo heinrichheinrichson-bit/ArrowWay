@@ -10,11 +10,14 @@ config_version=5
 
 [application]
 
-config/name="ArrowWay"
-config/version="0.23.1-dev"
+config/name="arrow.joy"
+config/version="0.24.0-dev"
 run/main_scene="res://main.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="ArrowWay"
+config/icon="res://branding/icon.png"
+boot_splash/image="res://branding/icon.png"
+boot_splash/bg_color=Color(0.027, 0.075, 0.176, 1)
 config/features=PackedStringArray("4.7")
 
 [display]

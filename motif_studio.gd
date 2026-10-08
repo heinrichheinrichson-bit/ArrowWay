@@ -64,7 +64,7 @@ var undo_button: Button
 var color_dialogue: Window
 
 func _ready() -> void:
-	title = "ArrowWay · Motivwerkstatt · " + str(ProjectSettings.get_setting("application/config/version", ""))
+	title = "arrow.joy · Motivwerkstatt · " + str(ProjectSettings.get_setting("application/config/version", ""))
 	size = Vector2i(1040, 800)
 	min_size = size
 	unresizable = true
@@ -1160,7 +1160,7 @@ func choose_save_document() -> void:
 	dialog.title = "Motiventwurf speichern"
 	dialog.access = FileDialog.ACCESS_FILESYSTEM
 	dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE
-	dialog.filters = PackedStringArray(["*.json ; ArrowWay Motiventwurf"])
+	dialog.filters = PackedStringArray(["*.json ; arrow.joy Motiventwurf"])
 	dialog.current_dir = ProjectSettings.globalize_path("res://examples")
 	dialog.current_file = str(motif.get("title", "Mein Motiv")).validate_filename() + ".json"
 	add_child(dialog)
@@ -1443,7 +1443,7 @@ func choose_player_export() -> void:
 	var python := OS.get_environment("USERPROFILE").path_join(".cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe")
 	if not FileAccess.file_exists(python): notice.text = "Die Python-Laufzeit für den APK-Export wurde nicht gefunden."; return
 	var dialog := FileDialog.new(); dialog.title = "Spieler-APK erstellen"; dialog.access = FileDialog.ACCESS_FILESYSTEM; dialog.file_mode = FileDialog.FILE_MODE_SAVE_FILE; dialog.filters = PackedStringArray(["*.apk ; Android-Spieler"])
-	dialog.current_dir = ProjectSettings.globalize_path("res://.."); dialog.current_file = "ArrowWay-S22.apk"; add_child(dialog)
+	dialog.current_dir = ProjectSettings.globalize_path("res://.."); dialog.current_file = "arrow.joy-S22.apk"; add_child(dialog)
 	dialog.file_selected.connect(func(path: String):
 		var helper := ProjectSettings.globalize_path("res://tools/build_player.py")
 		var godot := OS.get_executable_path()

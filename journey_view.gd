@@ -396,7 +396,31 @@ func build_home() -> void:
 	var public_art := JourneyProgress.album_indices(game)
 	for index in game.completed:
 		if public_art.has(index): featured=index
-	label("ARROW WAY",Vector2(24,size.y*0.10),size.x-48,36).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	var brand := Control.new()
+	brand.name = "BrandHeader"
+	brand.position = Vector2((size.x-304)*0.5,size.y*0.10-8)
+	brand.size = Vector2(304,64)
+	brand.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(brand)
+	var symbol := TextureRect.new()
+	symbol.texture = load("res://branding/mark.svg")
+	symbol.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	symbol.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	symbol.size = Vector2(76,64)
+	symbol.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	brand.add_child(symbol)
+	var wordmark := RichTextLabel.new()
+	wordmark.name = "BrandWordmark"
+	wordmark.bbcode_enabled = true
+	wordmark.text = "[b]arrow[color=#ff35c9].[/color]joy[/b]"
+	wordmark.position = Vector2(90,7)
+	wordmark.size = Vector2(214,52)
+	wordmark.scroll_active = false
+	wordmark.add_theme_font_size_override("normal_font_size",40)
+	wordmark.add_theme_font_size_override("bold_font_size",40)
+	wordmark.add_theme_color_override("default_color",Color("#f4f3ff"))
+	wordmark.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	brand.add_child(wordmark)
 	label(AppLanguage.text("Kunstwerke aus Licht"),Vector2(24,size.y*0.10+53),size.x-48,15,Color("#a7a3c5")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	canvas=Control.new()
 	canvas.set_script(load("res://journey_canvas.gd"))
