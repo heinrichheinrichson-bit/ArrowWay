@@ -45,10 +45,10 @@ func _ready() -> void:
 	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(title)
 	var caption := Label.new()
-	caption.text = "Kunstwerk ansehen" if display_mode=="album" else ("Erneut spielen" if complete else ("Losspielen" if hero else "Spielen"))
-	if display_mode=="home_art": caption.text="Dein zuletzt entdecktes Kunstwerk"
+	caption.text = AppLanguage.text("Kunstwerk ansehen") if display_mode=="album" else (AppLanguage.text("Erneut spielen") if complete else (AppLanguage.text("Losspielen") if hero else AppLanguage.text("Spielen")))
+	if display_mode=="home_art": caption.text=AppLanguage.text("Dein zuletzt entdecktes Kunstwerk")
 	continuing = display_mode in ["puzzle","resume"] and index==game.level and game.session_in_progress and game.win_time<0
-	if continuing: caption.text="Fortsetzen"
+	if continuing: caption.text=AppLanguage.text("Fortsetzen")
 	caption.position = Vector2(12,size.y-31)
 	caption.size.x = size.x-24
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

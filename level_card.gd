@@ -38,7 +38,7 @@ func _draw() -> void:
 	while font.get_string_size(display_title, HORIZONTAL_ALIGNMENT_LEFT, -1, 16).x > size.x - 18 and display_title.length() > 2:
 		display_title = display_title.trim_suffix("…").left(display_title.trim_suffix("…").length() - 1) + "…"
 	draw_string(font, Vector2(0, 132), display_title, HORIZONTAL_ALIGNMENT_CENTER, size.x, 16, ink)
-	var state := "Gesperrt" if disabled else ("Geschafft" if complete else subtitle)
+	var state := AppLanguage.text("Gesperrt") if disabled else (AppLanguage.text("Geschafft") if complete else subtitle)
 	draw_string(font, Vector2(0, 154), state, HORIZONTAL_ALIGNMENT_CENTER, size.x, 12, Color(0.50, 0.72, 0.83, alpha))
 	if selected:
 		draw_rect(Rect2(Vector2(1, 1), size - Vector2(2, 2)), Color("#65e5ff"), false, 1.5)

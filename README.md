@@ -8,7 +8,9 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.20.1-dev
+## Aktueller Stand · 0.23.0-dev
+
+- **Deutsch / Englisch / Systemsprache**: Sprachwahl unter Einstellungen, standardmäßig Systemsprache. Oberfläche, Motive, Themen und Abschlusstexte werden offline übersetzt; der Wechsel erhält Rätsel, Zoom und Fortschritt. Die private Werkstatt arbeitet weiter mit den deutschen Originaldaten. [Übersetzungen pflegen](LOCALIZATION.md).
 
 - **Erweiterter Katalog**: 823 Motive (814 Katalogbilder und neun Einstiegsrätsel) in 17 spielbaren Themenwelten und 88 Sammlungen. 314 neue Bilder ergänzen unter anderem Medizin, Wissenschaft, Geschichte, Zuhause, Insekten, Reptilien und alte Technik. Alle 123 fachlichen Unterkategorien enthalten Motive. Jedes neue Bild hat einen Abschlusstext; neun neue Fakten sind mit Quellen belegt. Alle Bilder bleiben in der Motivwerkstatt bearbeitbar. [Neue Motive und Sammlungen](planning/MOTIVAUSBAU_AKTUELL.md).
 

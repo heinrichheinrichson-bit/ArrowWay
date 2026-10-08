@@ -16,7 +16,7 @@ func _ready() -> void:
 	style.content_margin_top=13; style.content_margin_bottom=13
 	add_theme_stylebox_override("panel",style)
 	heading=Label.new()
-	heading.text=data.get("kind","Ein kleiner Gedanke")
+	heading.text=data.get("kind",AppLanguage.text("Ein kleiner Gedanke"))
 	heading.add_theme_font_size_override("font_size",13)
 	heading.modulate=Color("#7fdfe4"); add_child(heading)
 	body=RichTextLabel.new(); body.text=data.text
@@ -26,7 +26,7 @@ func _ready() -> void:
 	body.add_theme_color_override("default_color",Color("#e4edf6"))
 	body.mouse_filter=Control.MOUSE_FILTER_IGNORE; add_child(body)
 	if not str(data.get("url","")).is_empty():
-		source=Button.new(); source.text="Quelle · "+str(data.get("source","Mehr erfahren"))
+		source=Button.new(); source.text=AppLanguage.text("Quelle · ")+str(data.get("source",AppLanguage.text("Mehr erfahren")))
 		source.flat=true; source.alignment=HORIZONTAL_ALIGNMENT_LEFT
 		source.custom_minimum_size.y=44
 		source.add_theme_font_size_override("font_size",13)
@@ -45,9 +45,9 @@ func layout() -> void:
 
 func show_source() -> void:
 	var dialog:=ConfirmationDialog.new()
-	dialog.title="Quelle öffnen?"
-	dialog.dialog_text=str(data.source)+"\nIm Browser weiterlesen."
-	dialog.ok_button_text="Quelle öffnen"; dialog.cancel_button_text="Zurück"
+	dialog.title=AppLanguage.text("Quelle öffnen?")
+	dialog.dialog_text=str(data.source)+AppLanguage.text("\nIm Browser weiterlesen.")
+	dialog.ok_button_text=AppLanguage.text("Quelle öffnen"); dialog.cancel_button_text=AppLanguage.text("Zurück")
 	dialog.confirmed.connect(func(): OS.shell_open(data.url); dialog.queue_free())
 	dialog.canceled.connect(dialog.queue_free)
 	game.add_child(dialog); dialog.popup_centered(Vector2i(360,170))

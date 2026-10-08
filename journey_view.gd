@@ -117,7 +117,7 @@ func _input(event: InputEvent) -> void:
 
 func label(text: String, position: Vector2, width: float, font_size: int, color: Color = Color("#edf4fc")) -> Label:
 	var item := Label.new()
-	item.text = text
+	item.text = AppLanguage.text(text)
 	item.position = position
 	item.size = Vector2(width,font_size*1.5)
 	item.add_theme_font_size_override("font_size",font_size)
@@ -191,7 +191,7 @@ func relayout() -> void:
 	elif screen == "settings":
 		build_settings()
 	else:
-		icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,"Zurück")
+		icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,AppLanguage.text("Zurück"))
 		if screen == "map": build_map()
 		elif screen == "album": build_album()
 		elif screen == "artwork": build_artwork()
@@ -268,7 +268,7 @@ func station(id: String, name_text: String, caption: String, icon: String, color
 	if available:
 		visible_station_ids.append(id)
 		node.pressed.connect(callback)
-	else: node.pressed.connect(func(): tell("Löse alle Rätsel der vorherigen Themenwelt."))
+	else: node.pressed.connect(func(): tell(AppLanguage.text("Löse alle Rätsel der vorherigen Themenwelt.")))
 	return node
 
 func focus_world(index: int) -> void:
@@ -277,8 +277,8 @@ func focus_world(index: int) -> void:
 	request_scroll(maxi(0,int(center.y-scroller.size.y*0.72)))
 
 func build_map() -> void:
-	label("DEINE NEONREISE",Vector2(88,29),size.x-110,12,Color("#83ada9"))
-	label("Dein Weg durch die Themen",Vector2(24,91),size.x-48,25)
+	label(AppLanguage.text("DEINE NEONREISE"),Vector2(88,29),size.x-110,12,Color("#83ada9"))
+	label(AppLanguage.text("Dein Weg durch die Themen"),Vector2(24,91),size.x-48,25)
 	if reward.is_empty() and not game.journey_reward.is_empty():
 		reward=game.journey_reward.duplicate(); reward_age=0.0; game.journey_reward.clear()
 	var worlds := JourneyProgress.worlds()
@@ -301,7 +301,7 @@ func build_map() -> void:
 		var center := world_centers[index]
 		var color := Color(data.color)
 		var recommended := JourneyProgress.next_group(game,index) if available else ""
-		var caption := "%d / %d Rätsel gelöst" % [JourneyProgress.world_done(game,index),JourneyProgress.world_total(game,index)] if available else "Noch gesperrt"
+		var caption := AppLanguage.text("%d / %d Rätsel gelöst") % [JourneyProgress.world_done(game,index),JourneyProgress.world_total(game,index)] if available else AppLanguage.text("Noch gesperrt")
 		station("world:"+data.id,data.title,caption,data.icon,color,center,available,JourneyProgress.world_complete(game,index),index==frontier,func(): focus_world(index),minf(300,size.x-48))
 		if index>0:
 			canvas.routes.append({"start":world_centers[index-1],"finish":center,"open":available and JourneyProgress.world_open(game,index-1),"color":color,"fresh":available and not seen.has("world:"+data.id),"opacity":0.65,"reward":reward.get("next",-1)==index,"guide":index==frontier})
@@ -318,7 +318,7 @@ func build_map() -> void:
 				var previous := center if row==0 else Vector2(size.x*0.5,center.y-230*row+95)
 				canvas.routes.append({"start":previous,"finish":junction,"open":true,"color":color,"opacity":0.8,"guide":item==recommended})
 			canvas.routes.append({"start":junction,"finish":point,"open":true,"color":branch_color,"fresh":not seen.has("group:"+item),"guide":item==recommended})
-			station("group:"+item,JourneyProgress.group_title(game,item),"%d / %d Rätsel gelöst" % [JourneyProgress.group_done(game,item),JourneyProgress.indices(game,item).size()],JourneyProgress.group_icon(item),branch_color,point,true,JourneyProgress.group_complete(game,item),item==recommended,func(): navigate("collection",index,item),minf(216,size.x*0.44))
+			station("group:"+item,JourneyProgress.group_title(game,item),AppLanguage.text("%d / %d Rätsel gelöst") % [JourneyProgress.group_done(game,item),JourneyProgress.indices(game,item).size()],JourneyProgress.group_icon(item),branch_color,point,true,JourneyProgress.group_complete(game,item),item==recommended,func(): navigate("collection",index,item),minf(216,size.x*0.44))
 	var selected := world if JourneyProgress.world_open(game,world) else frontier
 	var target := maxi(0,int(world_centers[selected].y-scroller.size.y*0.72))
 	var key := "map:%d::false" % world
@@ -327,9 +327,9 @@ func build_map() -> void:
 		animate_unlock(world_centers[int(reward.world)],target)
 	else: request_scroll(target)
 	if not reward.is_empty():
-		var message: String = "Themenwelt geschafft · Ein neuer Weg leuchtet!" if int(reward.get("next",-1))>=0 else "Sammlung geschafft · Alle Kunstwerke leuchten!"
+		var message: String = AppLanguage.text("Themenwelt geschafft · Ein neuer Weg leuchtet!") if int(reward.get("next",-1))>=0 else AppLanguage.text("Sammlung geschafft · Alle Kunstwerke leuchten!")
 		tell(message)
-	action("Nächstes Rätsel",Vector2(24,size.y-74),Vector2(size.x-48,54),func(): play_next(frontier),true)
+	action(AppLanguage.text("Nächstes Rätsel"),Vector2(24,size.y-74),Vector2(size.x-48,54),func(): play_next(frontier),true)
 
 func play_next(selected_world: int) -> void:
 	if JourneyProgress.world_index(game.level_collection(game.level).id)==selected_world and game.level_available(game.level) and not game.completed.has(game.level):
@@ -338,12 +338,12 @@ func play_next(selected_world: int) -> void:
 	for item in JourneyProgress.worlds()[selected_world].groups:
 		for index in JourneyProgress.indices(game,item):
 			if game.level_available(index) and not game.completed.has(index): game.start_journey_puzzle(index); return
-	tell("Du hast hier schon alle Kunstwerke entdeckt.")
+	tell(AppLanguage.text("Du hast hier schon alle Kunstwerke entdeckt."))
 
 func build_collection() -> void:
 	if world>=0: game.ads.opened_world(world)
 	var color := JourneyProgress.group_color(group)
-	var parent_title: String = "EIGENE MOTIVE" if world<0 else JourneyProgress.worlds()[world].title.to_upper()
+	var parent_title: String = AppLanguage.text("EIGENE MOTIVE") if world<0 else JourneyProgress.worlds()[world].title.to_upper()
 	label(parent_title,Vector2(88,29),size.x-110,12,Color(color,0.75))
 	label(JourneyProgress.group_title(game,group),Vector2(24,91),size.x-48,27)
 	# Keep a stable order; solved and unsolved puzzles are always together.
@@ -361,13 +361,13 @@ func build_collection() -> void:
 		canvas.add_child(card)
 	if displayed.is_empty():
 		var message := Label.new()
-		message.text="Hier warten bald deine eigenen Kunstwerke."
+		message.text=AppLanguage.text("Hier warten bald deine eigenen Kunstwerke.")
 		message.position=Vector2(24,120); message.size=Vector2(size.x-48,70)
 		message.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		message.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		message.modulate=Color("#a6bdca")
 		canvas.add_child(message)
-	label("%d / %d Rätsel gelöst" % [JourneyProgress.group_done(game,group),displayed.size()],Vector2(24,size.y-62),size.x-48,15,Color("#9db9c7")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	label(AppLanguage.text("%d / %d Rätsel gelöst") % [JourneyProgress.group_done(game,group),displayed.size()],Vector2(24,size.y-62),size.x-48,15,Color("#9db9c7")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var key := "collection:%d:%s:false" % [world,group]
 	request_scroll(int(scroll_positions.get(key,0)))
 
@@ -397,7 +397,7 @@ func build_home() -> void:
 	for index in game.completed:
 		if public_art.has(index): featured=index
 	label("ARROW WAY",Vector2(24,size.y*0.10),size.x-48,36).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	label("Kunstwerke aus Licht",Vector2(24,size.y*0.10+53),size.x-48,15,Color("#a7a3c5")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	label(AppLanguage.text("Kunstwerke aus Licht"),Vector2(24,size.y*0.10+53),size.x-48,15,Color("#a7a3c5")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	canvas=Control.new()
 	canvas.set_script(load("res://journey_canvas.gd"))
 	canvas.star_count=22
@@ -410,18 +410,18 @@ func build_home() -> void:
 	else:
 		art_card(resume,Vector2(32,top),Vector2(size.x-64,height),"resume",func(): game.start_journey_puzzle(resume))
 	var next_y := top+height+24
-	action("Erneut spielen" if game.completed.has(resume) else "Weiter spielen",Vector2(32,next_y),Vector2(size.x-64,58),func(): game.start_journey_puzzle(resume),true)
-	action("Deine Reise",Vector2(32,next_y+74),Vector2(size.x-64,54),func(): game.close_home(); game.open_journey())
-	action("Meine Kunstwerke",Vector2(32,next_y+142),Vector2(size.x-64,54),game.open_album)
-	icon_button("<circle cx='12' cy='12' r='4'/><path d='M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10l2 2M5 19l2-2M17 7l2-2'/>",Vector2(size.x-72,24),func(): navigate("settings"),"Einstellungen")
+	action(AppLanguage.text("Erneut spielen") if game.completed.has(resume) else AppLanguage.text("Weiter spielen"),Vector2(32,next_y),Vector2(size.x-64,58),func(): game.start_journey_puzzle(resume),true)
+	action(AppLanguage.text("Deine Reise"),Vector2(32,next_y+74),Vector2(size.x-64,54),func(): game.close_home(); game.open_journey())
+	action(AppLanguage.text("Meine Kunstwerke"),Vector2(32,next_y+142),Vector2(size.x-64,54),game.open_album)
+	icon_button("<circle cx='12' cy='12' r='4'/><path d='M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10l2 2M5 19l2-2M17 7l2-2'/>",Vector2(size.x-72,24),func(): navigate("settings"),AppLanguage.text("Einstellungen"))
 
 func build_album() -> void:
 	var all_art := JourneyProgress.album_indices(game)
-	label("DEIN ALBUM",Vector2(88,29),size.x-110,12,Color("#cca7e8"))
-	label("Meine Kunstwerke",Vector2(24,91),size.x-48,27)
+	label(AppLanguage.text("DEIN ALBUM"),Vector2(88,29),size.x-110,12,Color("#cca7e8"))
+	label(AppLanguage.text("Meine Kunstwerke"),Vector2(24,91),size.x-48,27)
 	var half := (size.x-60)*0.5
-	var all_button := action("Alle Kunstwerke",Vector2(24,145),Vector2(half,44),func(): favorites_only=false; page=0; scroller=null; relayout(),not favorites_only)
-	var hearts := action("Lieblingsbilder",Vector2(36+half,145),Vector2(half,44),func(): favorites_only=true; page=0; scroller=null; relayout(),favorites_only)
+	var all_button := action(AppLanguage.text("Alle Kunstwerke"),Vector2(24,145),Vector2(half,44),func(): favorites_only=false; page=0; scroller=null; relayout(),not favorites_only)
+	var hearts := action(AppLanguage.text("Lieblingsbilder"),Vector2(36+half,145),Vector2(half,44),func(): favorites_only=true; page=0; scroller=null; relayout(),favorites_only)
 	all_button.add_theme_font_size_override("font_size",14); hearts.add_theme_font_size_override("font_size",14)
 	var art := JourneyProgress.album_indices(game,favorites_only)
 	var page_count := maxi(1,ceili(art.size()/6.0))
@@ -433,21 +433,21 @@ func build_album() -> void:
 		var index: int=displayed[position]
 		art_card(index,Vector2(24+(position%2)*(half+12),8+floorf(position/2.0)*238),Vector2(half,224),"album",func(): open_artwork(index))
 	if displayed.is_empty():
-		var text := "Dein erstes Kunstwerk wartet auf dich.
-Löse ein Rätsel und bring es zum Leuchten." if all_art.is_empty() else "Deine Lieblingsbilder bekommen ein Herz.
-Öffne ein fertiges Kunstwerk und markiere es."
+		var text := AppLanguage.text("Dein erstes Kunstwerk wartet auf dich.
+Löse ein Rätsel und bring es zum Leuchten.") if all_art.is_empty() else AppLanguage.text("Deine Lieblingsbilder bekommen ein Herz.
+Öffne ein fertiges Kunstwerk und markiere es.")
 		var empty:=Label.new(); empty.text=text
 		empty.position=Vector2(32,100); empty.size=Vector2(size.x-64,130)
 		empty.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; empty.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		empty.add_theme_font_size_override("font_size",18); empty.modulate=Color("#c4b7d7")
 		canvas.add_child(empty)
 	if page_count>1:
-		var back:=action("Zurück",Vector2(24,size.y-74),Vector2(108,48),func(): page-=1; scroller=null; relayout())
-		var next:=action("Weiter",Vector2(size.x-132,size.y-74),Vector2(108,48),func(): page+=1; scroller=null; relayout())
+		var back:=action(AppLanguage.text("Zurück"),Vector2(24,size.y-74),Vector2(108,48),func(): page-=1; scroller=null; relayout())
+		var next:=action(AppLanguage.text("Weiter"),Vector2(size.x-132,size.y-74),Vector2(108,48),func(): page+=1; scroller=null; relayout())
 		back.disabled=page==0; next.disabled=page==page_count-1
 		label("%d / %d" % [page+1,page_count],Vector2(142,size.y-61),size.x-284,15).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	else:
-		label("%d Kunstwerke zum Leuchten gebracht" % all_art.size(),Vector2(24,size.y-62),size.x-48,14,Color("#a79bbb")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		label(AppLanguage.text("%d Kunstwerke zum Leuchten gebracht") % all_art.size(),Vector2(24,size.y-62),size.x-48,14,Color("#a79bbb")).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 
 func open_artwork(index: int) -> void:
 	if not JourneyProgress.album_indices(game).has(index): return
@@ -457,47 +457,57 @@ func build_artwork() -> void:
 	if not JourneyProgress.album_indices(game).has(selected_art):
 		screen="album"; build_album(); return
 	ui_accent=JourneyProgress.group_color(game.level_collection(selected_art).id)
-	label("DEIN KUNSTWERK",Vector2(88,29),size.x-110,12,ui_accent)
+	label(AppLanguage.text("DEIN KUNSTWERK"),Vector2(88,29),size.x-110,12,ui_accent)
 	label(game.level_title(selected_art),Vector2(24,91),size.x-48,27)
 	canvas=Control.new(); canvas.set_script(load("res://journey_canvas.gd")); canvas.star_count=22; canvas.size=size; canvas.mouse_filter=Control.MOUSE_FILTER_IGNORE; add_child(canvas)
 	art_card(selected_art,Vector2(24,153),Vector2(size.x-48,size.y-255),"display")
 	var favorite: bool=game.favorite_paths.has(game.level_path(selected_art))
 	var heart_path := "<path d='M12 21S3 15 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7-9 13-9 13z'"+(" fill='#ff8bbf'" if favorite else "")+"/>"
-	icon_button(heart_path,Vector2(24,size.y-74),func(): game.toggle_favorite(selected_art); relayout(),"Herz entfernen" if favorite else "Als Lieblingsbild merken")
-	action("Erneut spielen",Vector2(88,size.y-74),Vector2(size.x-112,48),func(): game.start_journey_puzzle(selected_art),true)
+	icon_button(heart_path,Vector2(24,size.y-74),func(): game.toggle_favorite(selected_art); relayout(),AppLanguage.text("Herz entfernen") if favorite else AppLanguage.text("Als Lieblingsbild merken"))
+	action(AppLanguage.text("Erneut spielen"),Vector2(88,size.y-74),Vector2(size.x-112,48),func(): game.start_journey_puzzle(selected_art),true)
 
 func build_settings() -> void:
-	icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,"Zurück")
-	label("Ganz in deinem Tempo",Vector2(24,104),size.x-48,28)
-	label("Einstellungen",Vector2(24,151),size.x-48,15,Color("#8fa8b7"))
+	icon_button("<path d='M15 5L8 12l7 7'/>",Vector2(24,24),go_back,AppLanguage.text("Zurück"))
+	label(AppLanguage.text("Ganz in deinem Tempo"),Vector2(24,104),size.x-48,28)
+	label(AppLanguage.text("Einstellungen"),Vector2(24,151),size.x-48,15,Color("#8fa8b7"))
+	label(AppLanguage.text("Sprache"),Vector2(24,207),size.x-48,15,Color("#8fa8b7"))
+	var language := OptionButton.new()
+	language.name = "LanguagePicker"
+	language.position = Vector2(24,238); language.size = Vector2(size.x-48,52)
+	language.add_theme_font_size_override("font_size",18)
+	var choices := ["system", "de", "en"]
+	for title in ["Systemsprache", "Deutsch", "Englisch"]: language.add_item(AppLanguage.text(title))
+	language.select(choices.find(AppLanguage.selection))
+	language.item_selected.connect(func(index: int): game.set_language.call_deferred(choices[index]))
+	add_child(language)
 	var toggle := CheckButton.new()
-	toggle.text="Soundeffekte"
-	toggle.position=Vector2(24,220); toggle.size=Vector2(size.x-48,64)
+	toggle.text=AppLanguage.text("Soundeffekte")
+	toggle.position=Vector2(24,310); toggle.size=Vector2(size.x-48,64)
 	toggle.button_pressed=game.feedback.enabled
 	toggle.add_theme_font_size_override("font_size",20)
 	toggle.toggled.connect(func(_enabled): game.toggle_sound())
 	add_child(toggle)
 	if OS.has_feature("debug"):
-		label("ENTWICKLERTEST · KEINE ECHTE WERBUNG",Vector2(24,319),size.x-48,12,Color("#8fa8b7"))
+		label(AppLanguage.text("ENTWICKLERTEST · KEINE ECHTE WERBUNG"),Vector2(24,409),size.x-48,12,Color("#8fa8b7"))
 		var ad_toggle := CheckButton.new()
-		ad_toggle.text="Testanzeigen aktivieren"
-		ad_toggle.position=Vector2(24,351); ad_toggle.size=Vector2(size.x-48,54)
+		ad_toggle.text=AppLanguage.text("Testanzeigen aktivieren")
+		ad_toggle.position=Vector2(24,441); ad_toggle.size=Vector2(size.x-48,54)
 		ad_toggle.button_pressed=game.ads.test_mode
 		ad_toggle.toggled.connect(game.ads.set_test_mode)
 		add_child(ad_toggle)
 		var premium_toggle := CheckButton.new()
-		premium_toggle.text="Werbefrei simulieren"
-		premium_toggle.position=Vector2(24,415); premium_toggle.size=Vector2(size.x-48,54)
+		premium_toggle.text=AppLanguage.text("Werbefrei simulieren")
+		premium_toggle.position=Vector2(24,505); premium_toggle.size=Vector2(size.x-48,54)
 		premium_toggle.button_pressed=game.ads.simulate_ad_free
 		premium_toggle.toggled.connect(game.ads.set_simulated_ad_free)
 		add_child(premium_toggle)
-		label("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten",Vector2(24,490),size.x-48,13,Color("#8fa8b7"))
+		label(AppLanguage.text("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten"),Vector2(24,580),size.x-48,13,Color("#8fa8b7"))
 
-	action("Bildquellen & Lizenzen",Vector2(24,545),Vector2(size.x-48,48),show_art_credits)
+	action(AppLanguage.text("Bildquellen & Lizenzen"),Vector2(24,635),Vector2(size.x-48,48),show_art_credits)
 
 func show_art_credits() -> void:
 	var dialog := AcceptDialog.new()
-	dialog.title="Bildquellen & Lizenzen"
+	dialog.title=AppLanguage.text("Bildquellen & Lizenzen")
 	dialog.dialog_text=""
 	var scroll := ScrollContainer.new()
 	scroll.custom_minimum_size=Vector2(280,350)
@@ -509,12 +519,12 @@ func show_art_credits() -> void:
 	credits.bbcode_enabled=true
 	credits.meta_clicked.connect(func(url): OS.shell_open(str(url)))
 	var published: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/art_credits.json"))
-	credits.text=str(published.notice)+"\n[url=https://creativecommons.org/licenses/by/3.0/]CC BY 3.0 – Lizenz ansehen[/url]\n\n"
+	credits.text=AppLanguage.text(str(published.notice))+"\n[url=https://creativecommons.org/licenses/by/3.0/]"+AppLanguage.text("CC BY 3.0 – Lizenz ansehen")+"[/url]\n\n"
 	var catalog: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collections/catalog.json"))
 	for entry in catalog.levels:
 		if not entry.has("attribution"): continue
 		var credit: Dictionary=entry.attribution
-		credits.text+=entry.title+"\n"+str(credit.author)+" · "+str(credit.license)+"\n"+"[url="+str(credit.source)+"]Originalquelle ansehen[/url]\n\n"
+		credits.text+=AppLanguage.text(entry.title)+"\n"+str(credit.author)+" · "+str(credit.license)+"\n"+"[url="+str(credit.source)+AppLanguage.text("]Originalquelle ansehen[/url]\n\n")
 	scroll.add_child(credits)
 	add_child(dialog)
 	dialog.confirmed.connect(dialog.queue_free)

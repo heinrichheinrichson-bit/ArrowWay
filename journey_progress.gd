@@ -9,6 +9,8 @@ static var group_indices := {}
 static var group_counts := {}
 static var legacy_groups: Array[String] = []
 static var cached_frontier := -1
+static var english_worlds: Array = []
+static var english_worlds_source: Array = []
 
 static func refresh(game: Node) -> void:
 	if owner_id != game.get_instance_id() or revision != game.journey_index_revision:
@@ -34,7 +36,12 @@ static func refresh(game: Node) -> void:
 
 static func worlds() -> Array:
 	if definition.is_empty(): definition = JSON.parse_string(FileAccess.get_file_as_string("res://collections/journey.json"))
-	return definition.worlds
+	if AppLanguage.locale != "en": return definition.worlds
+	if english_worlds.is_empty() or english_worlds_source != definition.worlds:
+		english_worlds.clear()
+		english_worlds_source = definition.worlds
+		for world: Dictionary in definition.worlds: english_worlds.append(AppLanguage.fields(world))
+	return english_worlds
 
 static func indices(game: Node, group: String) -> Array[int]:
 	refresh(game)
@@ -139,8 +146,8 @@ static func next_open(game: Node, index: int) -> int:
 	return -1
 
 static func group_title(game: Node, group: String) -> String:
-	if group == "base": return "Einstieg"
-	if group == "custom": return "Deine eigenen Motive"
+	if group == "base": return AppLanguage.text("Einstieg")
+	if group == "custom": return AppLanguage.text("Deine eigenen Motive")
 	var found := indices(game, group)
 	return game.level_collection(found[0]).title if not found.is_empty() else group
 

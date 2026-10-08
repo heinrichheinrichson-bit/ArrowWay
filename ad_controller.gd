@@ -40,7 +40,7 @@ func save() -> void:
 	file.store_string(JSON.stringify(state)); file.flush(); file.close()
 	if FileAccess.file_exists(path):
 		if DirAccess.copy_absolute(path,path+".bak")!=OK: return
-	if DirAccess.rename_absolute(path+".tmp",path)!=OK: push_warning("Werbezähler konnten nicht gespeichert werden.")
+	if DirAccess.rename_absolute(path+".tmp",path)!=OK: push_warning(AppLanguage.text("Werbezähler konnten nicht gespeichert werden."))
 
 func is_ad_free() -> bool: return policy.ad_free or simulate_ad_free
 
@@ -78,9 +78,9 @@ func transition(world: int, callback: Callable) -> void:
 		callback.call(); return
 	continuation=callback
 	dialog=AcceptDialog.new()
-	dialog.title="Testanzeige · keine echte Werbung"
-	dialog.dialog_text="Hier würde eine Werbeanzeige erscheinen.\n\nKeine Verbindung zu einem Werbedienst.\nMit Weiterreisen geht dein Spiel sofort weiter."
-	dialog.ok_button_text="Weiterreisen"
+	dialog.title=AppLanguage.text("Testanzeige · keine echte Werbung")
+	dialog.dialog_text=AppLanguage.text("Hier würde eine Werbeanzeige erscheinen.\n\nKeine Verbindung zu einem Werbedienst.\nMit Weiterreisen geht dein Spiel sofort weiter.")
+	dialog.ok_button_text=AppLanguage.text("Weiterreisen")
 	dialog.exclusive=true
 	dialog.confirmed.connect(dismiss)
 	dialog.canceled.connect(dismiss)

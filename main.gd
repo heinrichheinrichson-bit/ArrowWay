@@ -84,11 +84,12 @@ static func escape_distance(time: float) -> float:
 	return SPEED * (time - RAMP * 0.5)
 
 func _ready() -> void:
+	AppLanguage.initialize(storage_prefix, authoring)
 	if authoring:
 		var store: RefCounted = load("res://catalog_workshop_store.gd").new()
 		if not store.recover(): push_error(store.error)
 	if journey_mode: get_tree().quit_on_go_back=false
-	get_window().title = "ArrowWay · " + str(ProjectSettings.get_setting("application/config/version", "")) + (" · Level-Werkzeug" if authoring else "")
+	get_window().title = "ArrowWay · " + str(ProjectSettings.get_setting("application/config/version", "")) + (AppLanguage.text(" · Level-Werkzeug") if authoring else "")
 	feedback = FeedbackAudio.new()
 	add_child(feedback)
 	var preferences := ConfigFile.new()
@@ -270,10 +271,10 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 	completed = retained
 
 func level_title(index: int) -> String:
-	if catalog_metadata.has(level_path(index)): return str(catalog_metadata[level_path(index)].get("title", "Eigenes Motiv")).left(80)
+	if catalog_metadata.has(level_path(index)): return AppLanguage.text(str(catalog_metadata[level_path(index)].get("title", "Eigenes Motiv"))).left(80)
 	var fallback: String = TITLES[index] if index < TITLES.size() else level_path(index).get_file().get_basename()
 	var data = JSON.parse_string(FileAccess.get_file_as_string(level_path(index)))
-	return str(data.get("title", fallback)).left(80) if data is Dictionary else fallback
+	return AppLanguage.text(str(data.get("title", fallback))).left(80) if data is Dictionary else AppLanguage.text(fallback)
 
 func build_controls() -> void:
 	for c in controls:
@@ -283,19 +284,19 @@ func build_controls() -> void:
 	compact_buttons.clear()
 	discovery_card=null
 	next_button = null
-	sound_button = button("Ton: An" if feedback.enabled else "Ton: Aus", 402, 30, 108, toggle_sound)
+	sound_button = button(AppLanguage.text("Ton: An") if feedback.enabled else AppLanguage.text("Ton: Aus"), 402, 30, 108, toggle_sound)
 	if editor:
-		var studio_button := button("Bild & Flächen", 285, 73, 225, open_studio)
+		var studio_button := button(AppLanguage.text("Bild & Flächen"), 285, 73, 225, open_studio)
 		studio_button.size.y = 24
 		var shapes := OptionButton.new()
 		shapes.position = Vector2(30, 101)
 		shapes.size = Vector2(240, 38)
-		for name in ["Haus", "Weihnachtsbaum", "Herz", "Schmetterling", "Fisch", "Blume"]:
+		for name in [AppLanguage.text("Haus"), AppLanguage.text("Weihnachtsbaum"), AppLanguage.text("Herz"), AppLanguage.text("Schmetterling"), AppLanguage.text("Fisch"), AppLanguage.text("Blume")]:
 			shapes.add_item(name)
 		if shape_index == 6:
-			shapes.add_item("Eigenes Bildmotiv")
+			shapes.add_item(AppLanguage.text("Eigenes Bildmotiv"))
 		shapes.select(shape_index)
-		shapes.tooltip_text = "Neue Schablone auswählen; ersetzt die aktuellen Pfade."
+		shapes.tooltip_text = AppLanguage.text("Neue Schablone auswählen; ersetzt die aktuellen Pfade.")
 		shapes.item_selected.connect(func(index: int):
 			if index == 6:
 				open_studio()
@@ -305,21 +306,21 @@ func build_controls() -> void:
 			arrows.clear()
 			draft.clear()
 			selected = -1
-			status = "Neue Schablone. Zeichne Pfade oder drücke Füllen.")
+			status = AppLanguage.text("Neue Schablone. Zeichne Pfade oder drücke Füllen."))
 		panel.add_child(shapes)
 		controls.append(shapes)
-		button("Füllen", 290, 101, 105, fill_template)
-		button("Spiel", 415, 101, 95, leave_editor)
-		button("Zeichnen", 30, 741, 91, func(): draw_tool = true; selected = -1; status = "Rasterpunkte anklicken, dann Fertig drücken.")
-		button("Auswahl", 128, 741, 85, func(): draw_tool = false; draft.clear(); status = "Pfad anklicken, dann drehen oder löschen.")
-		button("Fertig", 220, 741, 65, finish_draft)
-		button("Drehen", 292, 741, 67, reverse_selected)
-		button("Zurück", 366, 741, 65, undo_edit)
-		button("Leer", 438, 741, 72, func(): arrows.clear(); draft.clear(); selected = -1; status = "Leere Schablone – zeichne deinen ersten Pfad.")
-		button("Prüfen", 30, 791, 90, check_editor)
-		button("Testen", 127, 791, 90, test_editor)
-		button("Speichern", 224, 791, 96, save_custom)
-		button("Laden", 327, 791, 82, load_custom)
+		button(AppLanguage.text("Füllen"), 290, 101, 105, fill_template)
+		button(AppLanguage.text("Spiel"), 415, 101, 95, leave_editor)
+		button(AppLanguage.text("Zeichnen"), 30, 741, 91, func(): draw_tool = true; selected = -1; status = AppLanguage.text("Rasterpunkte anklicken, dann Fertig drücken."))
+		button(AppLanguage.text("Auswahl"), 128, 741, 85, func(): draw_tool = false; draft.clear(); status = AppLanguage.text("Pfad anklicken, dann drehen oder löschen."))
+		button(AppLanguage.text("Fertig"), 220, 741, 65, finish_draft)
+		button(AppLanguage.text("Drehen"), 292, 741, 67, reverse_selected)
+		button(AppLanguage.text("Zurück"), 366, 741, 65, undo_edit)
+		button(AppLanguage.text("Leer"), 438, 741, 72, func(): arrows.clear(); draft.clear(); selected = -1; status = AppLanguage.text("Leere Schablone – zeichne deinen ersten Pfad."))
+		button(AppLanguage.text("Prüfen"), 30, 791, 90, check_editor)
+		button(AppLanguage.text("Testen"), 127, 791, 90, test_editor)
+		button(AppLanguage.text("Speichern"), 224, 791, 96, save_custom)
+		button(AppLanguage.text("Laden"), 327, 791, 82, load_custom)
 		button("Export", 416, 791, 94, export_level)
 	else:
 		var picker := OptionButton.new()
@@ -331,20 +332,20 @@ func build_controls() -> void:
 			picker.set_item_disabled(i, not level_available(i))
 		picker.select(level)
 		if testing and shape_index == 6:
-			picker.set_item_text(level, "Test / " + str(motif.get("title", "Eigenes Motiv")))
+			picker.set_item_text(level, "Test / " + str(motif.get("title", AppLanguage.text("Eigenes Motiv"))))
 		picker.item_selected.connect(func(index: int): level = index; testing = false; reset())
 		panel.add_child(picker)
 		controls.append(picker)
 		picker.size.x = 352
-		var gallery_button := button("Alle Levels", 394, 101, 116, open_gallery)
+		var gallery_button := button(AppLanguage.text("Alle Levels"), 394, 101, 116, open_gallery)
 		gallery_button.visible = not authoring
 		gallery_button.disabled = testing
-		button("Neustart", 90, 751, 165, reset)
-		button("Hinweis", 285, 751, 165, show_hint)
+		button(AppLanguage.text("Neustart"), 90, 751, 165, reset)
+		button(AppLanguage.text("Hinweis"), 285, 751, 165, show_hint)
 		if authoring:
-			button("Zum Level-Werkzeug", 140, 101, 260, enter_editor)
+			button(AppLanguage.text("Zum Level-Werkzeug"), 140, 101, 260, enter_editor)
 			picker.visible = false
-		next_button = button("Zurück zum Editor" if testing else "Nächstes Puzzle", 130, 805, 280, enter_editor if testing else advance)
+		next_button = button(AppLanguage.text("Zurück zum Editor") if testing else AppLanguage.text("Nächstes Puzzle"), 130, 805, 280, enter_editor if testing else advance)
 		next_button.visible = false
 	if compact_play():
 		for control in controls: control.hide()
@@ -373,10 +374,15 @@ func build_controls() -> void:
 		discovery_card.data=load("res://discoveries.gd").for_level(self)
 		panel.add_child(discovery_card)
 		controls.append(discovery_card)
-		compact_buttons[0].tooltip_text = "Dein Weg" if journey_mode else "Hauptmenü"
-		compact_buttons[1].tooltip_text = "Neu beginnen"
-		compact_buttons[2].tooltip_text = "Hinweis"
-		next_button.text = "Weiter"
+		compact_buttons[0].tooltip_text = AppLanguage.text("Dein Weg") if journey_mode else AppLanguage.text("Hauptmenü")
+		compact_buttons[1].tooltip_text = AppLanguage.text("Neu beginnen")
+		compact_buttons[2].tooltip_text = AppLanguage.text("Hinweis")
+		next_button.text = AppLanguage.text("Weiter")
+	# Menus must remain above newly rebuilt gameplay controls after a language
+	# change or layout refresh.
+	for overlay in [gallery, journey, home_menu]:
+		if is_instance_valid(overlay) and overlay.get_parent() == panel:
+			panel.move_child(overlay, panel.get_child_count() - 1)
 	update_play_layout()
 
 func compact_play() -> bool:
@@ -457,10 +463,10 @@ func request_restart() -> void:
 		reset()
 		return
 	var dialog := ConfirmationDialog.new()
-	dialog.title = "Neu beginnen?"
-	dialog.dialog_text = "Dieses Rätsel wird zurückgesetzt."
-	dialog.ok_button_text = "Neu beginnen"
-	dialog.cancel_button_text = "Weiter spielen"
+	dialog.title = AppLanguage.text("Neu beginnen?")
+	dialog.dialog_text = AppLanguage.text("Dieses Rätsel wird zurückgesetzt.")
+	dialog.ok_button_text = AppLanguage.text("Neu beginnen")
+	dialog.cancel_button_text = AppLanguage.text("Weiter spielen")
 	dialog.confirmed.connect(reset)
 	dialog.confirmed.connect(dialog.queue_free)
 	dialog.canceled.connect(dialog.queue_free)
@@ -501,7 +507,7 @@ func open_home() -> void:
 	heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	home_menu.add_child(heading)
 	var actions := [close_home, func(): close_home(); open_gallery(), open_settings]
-	var titles := ["Weiter spielen", "Motive entdecken", "Einstellungen"]
+	var titles := [AppLanguage.text("Weiter spielen"), AppLanguage.text("Motive entdecken"), AppLanguage.text("Einstellungen")]
 	for index in titles.size():
 		var item := Button.new()
 		item.text = titles[index]
@@ -512,14 +518,26 @@ func open_home() -> void:
 
 func open_settings() -> void:
 	var dialog := AcceptDialog.new()
-	dialog.title = "Einstellungen"
+	dialog.title = AppLanguage.text("Einstellungen")
 	dialog.dialog_text = ""
 	var toggle := CheckButton.new()
-	toggle.text = "Soundeffekte"
+	toggle.text = AppLanguage.text("Soundeffekte")
 	toggle.button_pressed = feedback.enabled
 	toggle.toggled.connect(func(_enabled): toggle_sound())
 	dialog.add_child(toggle)
-	dialog.min_size = Vector2i(300, 140)
+	var language := OptionButton.new()
+	language.name = "LanguagePicker"
+	language.position = Vector2(24, 88)
+	language.size = Vector2(260, 42)
+	var choices := ["system", "de", "en"]
+	for title in ["Systemsprache", "Deutsch", "Englisch"]: language.add_item(AppLanguage.text(title))
+	language.select(choices.find(AppLanguage.selection))
+	language.item_selected.connect(func(index: int):
+		set_language(choices[index])
+		dialog.queue_free()
+		open_settings.call_deferred())
+	dialog.add_child(language)
+	dialog.min_size = Vector2i(310, 195)
 	toggle.position = Vector2(24, 36)
 	dialog.confirmed.connect(dialog.queue_free)
 	dialog.canceled.connect(dialog.queue_free)
@@ -625,13 +643,13 @@ func open_gallery() -> void:
 	background.size = gallery.size
 	gallery.add_child(background)
 	var heading := Label.new()
-	heading.text = "DEINE ENTDECKUNGEN" if journey_mode else "MOTIVBIBLIOTHEK"
+	heading.text = AppLanguage.text("DEINE ENTDECKUNGEN") if journey_mode else AppLanguage.text("MOTIVBIBLIOTHEK")
 	heading.position = Vector2(30, 28)
 	heading.add_theme_font_size_override("font_size", 24)
 	gallery.add_child(heading)
 	var progress := Label.new()
-	progress.text = "%d / %d Puzzles geschafft · Dein Tempo zählt" % [completed.size(), level_count()]
-	if journey_mode: progress.text="Deine freigeschalteten Kunstwerke · Suche & Favoriten"
+	progress.text = AppLanguage.text("%d / %d Puzzles geschafft · Dein Tempo zählt") % [completed.size(), level_count()]
+	if journey_mode: progress.text=AppLanguage.text("Deine freigeschalteten Kunstwerke · Suche & Favoriten")
 	progress.position = Vector2(30, 73)
 	progress.add_theme_font_size_override("font_size", 14)
 	gallery.add_child(progress)
@@ -645,7 +663,7 @@ func open_gallery() -> void:
 	grid.add_theme_constant_override("h_separation", 12)
 	grid.add_theme_constant_override("v_separation", 12)
 	scroll.add_child(grid)
-	var collections := {"all":"Alle Motive", "base":"Erste Neonreise"}
+	var collections := {"all":AppLanguage.text("Alle Motive"), "base":AppLanguage.text("Erste Neonreise")}
 	for index in range(level_count()):
 		if journey_mode and not level_available(index): continue
 		var group := level_collection(index)
@@ -671,7 +689,7 @@ func open_gallery() -> void:
 	gallery.add_child(filters)
 	for offset in [-1,1]:
 		var navigation := Button.new()
-		navigation.text = "← Zurück" if offset < 0 else "Weiter →"
+		navigation.text = AppLanguage.text("← Zurück") if offset < 0 else AppLanguage.text("Weiter →")
 		navigation.position = Vector2(30 if offset < 0 else 350, 723)
 		navigation.size = Vector2(160, 36)
 		navigation.pressed.connect(func(): gallery_page += offset; refresh_gallery())
@@ -683,7 +701,7 @@ func open_gallery() -> void:
 	page_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	gallery.add_child(page_label)
 	var back := Button.new()
-	back.text = "Zur Reise" if journey_mode else "Weiter spielen"
+	back.text = AppLanguage.text("Zur Reise") if journey_mode else AppLanguage.text("Weiter spielen")
 	back.position = Vector2(150, 787)
 	back.size = Vector2(240, 40)
 	back.pressed.connect(func(): close_gallery(); open_journey()) if journey_mode else back.pressed.connect(close_gallery)
@@ -692,7 +710,7 @@ func open_gallery() -> void:
 	search.name = "LibrarySearch"
 	search.position = Vector2(30, 152)
 	search.size = Vector2(480, 36)
-	search.placeholder_text = "Motiv, Sammlung oder Thema suchen …"
+	search.placeholder_text = AppLanguage.text("Motiv, Sammlung oder Thema suchen …")
 	search.clear_button_enabled = true
 	search.text = library_query
 	search.text_changed.connect(func(value: String): library_query = value; refresh_gallery(true))
@@ -702,13 +720,13 @@ func open_gallery() -> void:
 	status_filter.position = Vector2(30, 196)
 	status_filter.size = Vector2(308, 34)
 	var status_ids := ["all", "open", "complete", "available"]
-	for label in ["Alle Fortschritte", "Noch nicht geschafft", "Geschafft", "Spielbar"]: status_filter.add_item(label)
+	for label in [AppLanguage.text("Alle Fortschritte"), AppLanguage.text("Noch nicht geschafft"), AppLanguage.text("Geschafft"), AppLanguage.text("Spielbar")]: status_filter.add_item(label)
 	status_filter.select(maxi(0, status_ids.find(library_status)))
 	status_filter.item_selected.connect(func(index: int): library_status = status_ids[index]; refresh_gallery(true))
 	gallery.add_child(status_filter)
 	var favorites := Button.new()
 	favorites.name = "LibraryFavorites"
-	favorites.text = "★ Favoriten"
+	favorites.text = AppLanguage.text("★ Favoriten")
 	favorites.toggle_mode = true
 	favorites.button_pressed = favorites_only
 	favorites.position = Vector2(350,196)
@@ -726,7 +744,7 @@ func open_gallery() -> void:
 		for tag in level_tags(index):
 			if not tag_ids.has(tag): tag_ids.append(tag)
 	tag_ids.sort()
-	for tag in tag_ids: tag_filter.add_item("Thema: " + ("Alle Themen" if tag.is_empty() else tag))
+	for tag in tag_ids: tag_filter.add_item(AppLanguage.text("Thema: ") + (AppLanguage.text("Alle Themen") if tag.is_empty() else tag))
 	if not tag_ids.has(library_tag): library_tag = ""
 	tag_filter.select(tag_ids.find(library_tag))
 	tag_filter.item_selected.connect(func(index: int): library_tag = tag_ids[index]; refresh_gallery(true))
@@ -740,7 +758,7 @@ func open_gallery() -> void:
 	gallery.add_child(empty)
 	var clear := Button.new()
 	clear.name = "LibraryReset"
-	clear.text = "Alles zeigen"
+	clear.text = AppLanguage.text("Alles zeigen")
 	clear.position = Vector2(410,238)
 	clear.size = Vector2(100,34)
 	clear.pressed.connect(func():
@@ -758,8 +776,10 @@ func library_view_key() -> String:
 
 func level_tags(index: int) -> Array[String]:
 	if index < base_level_count and index < SHAPES.size():
-		return LibraryIndex.tags(["Pflanzen", "Natur"] if SHAPES[index] in [1,5] else (["Tiere", "Natur"] if SHAPES[index] in [3,4] else (["Architektur"] if SHAPES[index] == 0 else ["Symbole"])))
-	return LibraryIndex.tags(catalog_metadata.get(level_path(index), {}).get("tags", []))
+		return LibraryIndex.tags([AppLanguage.text("Pflanzen"), AppLanguage.text("Natur")] if SHAPES[index] in [1,5] else ([AppLanguage.text("Tiere"), AppLanguage.text("Natur")] if SHAPES[index] in [3,4] else ([AppLanguage.text("Architektur")] if SHAPES[index] == 0 else [AppLanguage.text("Symbole")])))
+	var tags := LibraryIndex.tags(catalog_metadata.get(level_path(index), {}).get("tags", []))
+	for i in tags.size(): tags[i] = AppLanguage.text(tags[i])
+	return tags
 
 func matching_library_levels() -> Array[int]:
 	var result: Array[int] = []
@@ -797,7 +817,7 @@ func refresh_gallery(reset_page: bool = false) -> void:
 		card.number = index
 		card.title = level_title(index)
 		card.tooltip_text = card.title + "\n" + ", ".join(level_tags(index))
-		card.subtitle = MOODS[index] if index < MOODS.size() else level_collection(index).title
+		card.subtitle = AppLanguage.text(MOODS[index]) if index < MOODS.size() else level_collection(index).title
 		card.selected = index == level
 		card.complete = completed.has(index)
 		card.disabled = not level_available(index)
@@ -819,16 +839,16 @@ func refresh_gallery(reset_page: bool = false) -> void:
 		star.size = Vector2(38,32)
 		star.text = "★" if favorite_paths.has(level_path(index)) else "☆"
 		star.add_theme_color_override("font_color", Color("#ffe18a"))
-		star.tooltip_text = "Aus Favoriten entfernen" if favorite_paths.has(level_path(index)) else "Als Favorit merken"
+		star.tooltip_text = AppLanguage.text("Aus Favoriten entfernen") if favorite_paths.has(level_path(index)) else AppLanguage.text("Als Favorit merken")
 		star.pressed.connect(toggle_favorite.bind(index))
 		card.add_child(star)
 	scroll.scroll_vertical = 0
 	gallery.get_child(5).disabled = gallery_page == 0
 	gallery.get_child(6).disabled = gallery_page >= page_count - 1
-	gallery.get_child(7).text = "%d / %d · %d Motive" % [gallery_page+1,page_count,matching.size()]
+	gallery.get_child(7).text = AppLanguage.text("%d / %d · %d Motive") % [gallery_page+1,page_count,matching.size()]
 	var empty: Label = gallery.get_node("LibraryEmpty")
 	empty.visible = matching.is_empty()
-	empty.text = "Noch keine Favoriten.\nMerke dir Motive mit dem Stern auf ihrer Karte." if favorites_only and favorite_paths.is_empty() else "Keine passenden Motive.\nÄndere die Suche oder die Filter."
+	empty.text = AppLanguage.text("Noch keine Favoriten.\nMerke dir Motive mit dem Stern auf ihrer Karte.") if favorites_only and favorite_paths.is_empty() else AppLanguage.text("Keine passenden Motive.\nÄndere die Suche oder die Filter.")
 
 func load_library_preferences() -> void:
 	var config := ConfigFile.new()
@@ -873,8 +893,8 @@ func reset(resume_saved := false) -> void:
 	clock_time = 0.0
 	session_in_progress=not resume_saved
 	selected = -1
-	status = "Welche Spitze hat freie Bahn?"
-	detail = "Tippe auf einen Pfad. Er folgt seiner Linie nach draußen."
+	status = AppLanguage.text("Welche Spitze hat freie Bahn?")
+	detail = AppLanguage.text("Tippe auf einen Pfad. Er folgt seiner Linie nach draußen.")
 	build_controls()
 	known_free.clear()
 	for i in free_paths():
@@ -916,10 +936,36 @@ func save_progress() -> void:
 
 func toggle_sound() -> void:
 	feedback.set_enabled(not feedback.enabled)
-	sound_button.text = "Ton: An" if feedback.enabled else "Ton: Aus"
+	sound_button.text = AppLanguage.text("Ton: An") if feedback.enabled else AppLanguage.text("Ton: Aus")
 	var preferences := ConfigFile.new()
+	preferences.load(storage_prefix + "settings.cfg")
 	preferences.set_value("audio", "enabled", feedback.enabled)
 	preferences.save(storage_prefix + "settings.cfg")
+
+func set_language(choice: String) -> void:
+	if AppLanguage.choose(choice, storage_prefix) != OK:
+		push_error("Could not save language preference.")
+		return
+	refresh_language()
+
+func refresh_language() -> void:
+	# Rebuild presentation only. Arrow state, zoom, sessions and achievements stay
+	# in place, including an already completed puzzle's reveal timer.
+	var next_visible := is_instance_valid(next_button) and next_button.visible
+	var next_disabled := is_instance_valid(next_button) and next_button.disabled
+	var next_text := AppLanguage.original(next_button.text) if is_instance_valid(next_button) else "Weiter"
+	status = AppLanguage.text(AppLanguage.original(status))
+	detail = AppLanguage.text(AppLanguage.original(detail))
+	if win_time >= 0:
+		status = AppLanguage.text("Geschafft! Alle Wege sind frei.")
+		detail = AppLanguage.text("%d Pfade befreit · %d blockierte Versuche") % [cleared, mistakes]
+	build_controls()
+	if is_instance_valid(next_button):
+		next_button.visible = next_visible
+		next_button.disabled = next_disabled
+		next_button.text = AppLanguage.text(next_text)
+	if is_instance_valid(gallery): close_gallery(); open_gallery()
+	queue_redraw()
 
 func next_collection_level(index: int) -> int:
 	if journey_mode: return JourneyProgress.next_open(self,index)
@@ -992,14 +1038,14 @@ func finish_puzzle(restored := false) -> void:
 	win_time = 2.2 if restored else 0.0
 	board_navigation.reset_view()
 	if not restored: feedback.play("win")
-	status = "Geschafft! Alle Wege sind frei."
-	detail = "%d Pfade befreit · %d blockierte Versuche" % [cleared, mistakes]
+	status = AppLanguage.text("Geschafft! Alle Wege sind frei.")
+	detail = AppLanguage.text("%d Pfade befreit · %d blockierte Versuche") % [cleared, mistakes]
 	next_button.visible = true
 	next_button.disabled = not restored
 	if not testing:
 		if next_collection_level(level) < 0:
-			next_button.text = "Zur Levelübersicht"
-		if journey_mode: next_button.text = "Weiterreisen"
+			next_button.text = AppLanguage.text("Zur Levelübersicht")
+		if journey_mode: next_button.text = AppLanguage.text("Weiterreisen")
 		if not completed.has(level):
 			completed.append(level)
 			if not restored and journey_mode and not authoring and JourneyProgress.world_index(level_collection(level).id)>=0:
@@ -1033,12 +1079,14 @@ func mark_releases() -> void:
 	known_free.clear()
 	for i in free:
 		known_free[i] = true
-	if opened > 0 and not status.begins_with("Der weiß"):
-		status = "Ein neuer Weg ist jetzt frei." if opened == 1 else "%d neue Wege sind jetzt frei." % opened
-		detail = "Deine Auswahl öffnet weitere Möglichkeiten."
+	if opened > 0 and not status.begins_with(AppLanguage.text("Der weiß")):
+		status = AppLanguage.text("Ein neuer Weg ist jetzt frei.") if opened == 1 else AppLanguage.text("%d neue Wege sind jetzt frei.") % opened
+		detail = AppLanguage.text("Deine Auswahl öffnet weitere Möglichkeiten.")
 
 func _notification(what: int) -> void:
-	if what==NOTIFICATION_APPLICATION_RESUMED and is_instance_valid(board): update_play_layout.call_deferred()
+	if what==NOTIFICATION_APPLICATION_RESUMED and is_instance_valid(board):
+		if AppLanguage.refresh_system(): refresh_language.call_deferred()
+		else: update_play_layout.call_deferred()
 	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_CLOSE_REQUEST,NOTIFICATION_WM_GO_BACK_REQUEST] and is_instance_valid(session_store):
 		queue_session(); session_store.flush()
 	if what != NOTIFICATION_WM_GO_BACK_REQUEST or not journey_mode: return
@@ -1104,7 +1152,7 @@ func click_at(pos: Vector2) -> void:
 			add_draft(pos)
 		else:
 			selected = pick(pos)
-			status = "Pfad gewählt – Drehen oder Zurück zum Löschen." if selected >= 0 else "Kein Pfad getroffen."
+			status = AppLanguage.text("Pfad gewählt – Drehen oder Zurück zum Löschen.") if selected >= 0 else AppLanguage.text("Kein Pfad getroffen.")
 		return
 	var chosen := pick(pos)
 	if chosen < 0:
@@ -1114,15 +1162,15 @@ func click_at(pos: Vector2) -> void:
 		arrows[chosen].flash = 0.35
 		feedback.play("blocked")
 		mistakes += 1
-		status = "Noch blockiert. Schau in Richtung der Spitze."
-		detail = "Ein anderer Pfad versperrt diesen Weg."
+		status = AppLanguage.text("Noch blockiert. Schau in Richtung der Spitze.")
+		detail = AppLanguage.text("Ein anderer Pfad versperrt diesen Weg.")
 	else:
 		arrows[chosen].escaping = true
 		arrows[chosen].escape_duration = escape_duration(arrows[chosen])
 		arrows[chosen].escape_sound_id = chosen
 		feedback.play_escape(chosen, arrows[chosen].escape_duration)
-		status = "Freie Bahn!"
-		detail = "Du kannst während der Animation weiterspielen."
+		status = AppLanguage.text("Freie Bahn!")
+		detail = AppLanguage.text("Du kannst während der Animation weiterspielen.")
 	queue_session()
 
 func is_blocked(index: int) -> bool:
@@ -1138,9 +1186,9 @@ func show_hint() -> void:
 		if not arrows[i].removed and not arrows[i].escaping and not is_blocked(i):
 			arrows[i].hint = 2.5
 			feedback.play("hint")
-			status = "Der weiß leuchtende Pfad hat freie Bahn."
+			status = AppLanguage.text("Der weiß leuchtende Pfad hat freie Bahn.")
 			return
-	status = "Warte kurz, bis die laufenden Pfade draußen sind."
+	status = AppLanguage.text("Warte kurz, bis die laufenden Pfade draußen sind.")
 
 func enter_editor() -> void:
 	if not testing:
@@ -1151,8 +1199,8 @@ func enter_editor() -> void:
 	selected = -1
 	draft.clear()
 	draw_tool = true
-	status = "Zeichne auf der Schablone oder wähle einen Pfad."
-	detail = "Rasterpunkte → Fertig. Enter / Rücktaste funktionieren auch."
+	status = AppLanguage.text("Zeichne auf der Schablone oder wähle einen Pfad.")
+	detail = AppLanguage.text("Rasterpunkte → Fertig. Enter / Rücktaste funktionieren auch.")
 	build_controls()
 
 func open_studio() -> void:
@@ -1180,7 +1228,7 @@ func fill_template() -> void:
 	if generating:
 		return
 	generating = true
-	status = "Die Pfade werden gefüllt und miteinander verflochten …"
+	status = AppLanguage.text("Die Pfade werden gefüllt und miteinander verflochten …")
 	for control in controls:
 		if control is BaseButton:
 			control.disabled = true
@@ -1197,8 +1245,8 @@ func fill_template() -> void:
 			control.disabled = false
 	draft.clear()
 	selected = -1
-	status = "Keine vollständige Füllung gefunden. Korrigiere enge Stellen in Bild & Flächen." if filled.is_empty() else "Neue Füllung: %d verflochtene Pfade, lösbar." % arrows.size()
-	detail = "Du kannst einzelne Pfade auswählen, umdrehen und neu prüfen."
+	status = AppLanguage.text("Keine vollständige Füllung gefunden. Korrigiere enge Stellen in Bild & Flächen.") if filled.is_empty() else AppLanguage.text("Neue Füllung: %d verflochtene Pfade, lösbar.") % arrows.size()
+	detail = AppLanguage.text("Du kannst einzelne Pfade auswählen, umdrehen und neu prüfen.")
 
 func leave_editor() -> void:
 	editor = false
@@ -1210,7 +1258,7 @@ func add_draft(pos: Vector2) -> void:
 	var cell := ArrowPuzzle.grid(pos)
 	var allowed := ArrowPuzzle.mask(shape_index, motif)
 	if not allowed.has(cell):
-		status = "Bitte innerhalb der gepunkteten Form zeichnen."
+		status = AppLanguage.text("Bitte innerhalb der gepunkteten Form zeichnen.")
 		return
 	var addition := PackedVector2Array()
 	if draft.is_empty():
@@ -1225,37 +1273,37 @@ func add_draft(pos: Vector2) -> void:
 			addition.append(ArrowPuzzle.pixel(current))
 	for point in addition:
 		if shape_index == 6 and not draft.is_empty() and MotifBuilder.region(6, ArrowPuzzle.grid(point), motif) != MotifBuilder.region(6, ArrowPuzzle.grid(draft[0]), motif):
-			status = "Ein Pfeil bleibt innerhalb seiner Fläche."
+			status = AppLanguage.text("Ein Pfeil bleibt innerhalb seiner Fläche.")
 			return
 		if not allowed.has(ArrowPuzzle.grid(point)) or draft.has(point):
-			status = "Bleibe in der Form; der Pfad darf sich nicht kreuzen."
+			status = AppLanguage.text("Bleibe in der Form; der Pfad darf sich nicht kreuzen.")
 			return
 		for a in arrows:
 			if a.points.has(point):
-				status = "Dieser Rasterpunkt gehört bereits zu einem Pfad."
+				status = AppLanguage.text("Dieser Rasterpunkt gehört bereits zu einem Pfad.")
 				return
 	draft.append_array(addition)
-	status = "%d Rasterpunkte · Fertig schließt den Pfad ab." % draft.size()
+	status = AppLanguage.text("%d Rasterpunkte · Fertig schließt den Pfad ab.") % draft.size()
 
 func finish_draft() -> void:
 	if draft.size() < 2:
-		status = "Ein Pfad braucht mindestens zwei Rasterpunkte."
+		status = AppLanguage.text("Ein Pfad braucht mindestens zwei Rasterpunkte.")
 		return
 	arrows.append(ArrowPuzzle.make_arrow(draft.duplicate(), MotifBuilder.color_for(shape_index, MotifBuilder.region(shape_index, ArrowPuzzle.grid(draft[0]), motif), arrows.size(), motif)))
 	if shape_index == 6:
 		MotifColors.apply(motif, arrows)
 	selected = arrows.size() - 1
 	draft.clear()
-	status = "Pfad hinzugefügt. Zeichne weiter oder prüfe die Lösung."
+	status = AppLanguage.text("Pfad hinzugefügt. Zeichne weiter oder prüfe die Lösung.")
 
 func reverse_selected() -> void:
 	if selected >= 0 and selected < arrows.size():
 		var p: PackedVector2Array = arrows[selected].points
 		p.reverse()
 		arrows[selected].points = p
-		status = "Pfeilrichtung umgedreht. Prüfen testet die Lösung."
+		status = AppLanguage.text("Pfeilrichtung umgedreht. Prüfen testet die Lösung.")
 	else:
-		status = "Erst Auswahl drücken und einen Pfad anklicken."
+		status = AppLanguage.text("Erst Auswahl drücken und einen Pfad anklicken.")
 
 func undo_edit() -> void:
 	if not draft.is_empty():
@@ -1265,7 +1313,7 @@ func undo_edit() -> void:
 		selected = -1
 	elif not arrows.is_empty():
 		arrows.pop_back()
-	status = "Letzten Punkt oder Pfad entfernt."
+	status = AppLanguage.text("Letzten Punkt oder Pfad entfernt.")
 
 func check_editor() -> bool:
 	if shape_index == 6:
@@ -1274,19 +1322,19 @@ func check_editor() -> bool:
 			for point in arrow.points:
 				used[ArrowPuzzle.grid(point)] = true
 		if used.size() != motif.get("cells", {}).size():
-			status = "Das Bildmotiv ist noch nicht vollständig gefüllt. Nutze Bild & Flächen → Füllen."
+			status = AppLanguage.text("Das Bildmotiv ist noch nicht vollständig gefüllt. Nutze Bild & Flächen → Füllen.")
 			return false
 	if arrows.is_empty() or not draft.is_empty():
-		status = "Zeichne einen Pfad und schließe ihn mit Fertig ab."
+		status = AppLanguage.text("Zeichne einen Pfad und schließe ihn mit Fertig ab.")
 		return false
 	var order := ArrowPuzzle.solution(arrows)
 	if order.size() == arrows.size():
-		status = "Lösbar! Alle %d Pfade lassen sich entfernen." % arrows.size()
+		status = AppLanguage.text("Lösbar! Alle %d Pfade lassen sich entfernen.") % arrows.size()
 		var analysis := LevelDesign.metrics(arrows)
-		detail = "%d freie Startzüge · %d Freispielstufen · Testen startet das Puzzle." % [analysis.starts, analysis.depth]
+		detail = AppLanguage.text("%d freie Startzüge · %d Freispielstufen · Testen startet das Puzzle.") % [analysis.starts, analysis.depth]
 		return true
-	status = "Blockade: %d von %d Pfaden lassen sich entfernen." % [order.size(), arrows.size()]
-	detail = "Drehe oder entferne einen der rot markierten Pfade."
+	status = AppLanguage.text("Blockade: %d von %d Pfaden lassen sich entfernen.") % [order.size(), arrows.size()]
+	detail = AppLanguage.text("Drehe oder entferne einen der rot markierten Pfade.")
 	for i in range(arrows.size()):
 		if not order.has(i):
 			arrows[i].flash = 1.5
@@ -1311,7 +1359,7 @@ func level_document() -> Dictionary:
 	var document := {"version": 1, "shape": shape_index, "title": level_title(level), "paths": paths}
 	if shape_index == 6:
 		document.version = 2
-		document.title = motif.get("title", "Eigenes Motiv")
+		document.title = motif.get("title", AppLanguage.text("Eigenes Motiv"))
 		document["motif"] = CustomMotif.encode(motif)
 	return document
 
@@ -1320,11 +1368,11 @@ func save_custom() -> void:
 		return
 	var file := FileAccess.open(storage_prefix + "custom_puzzle.json", FileAccess.WRITE)
 	if file == null:
-		status = "Speichern fehlgeschlagen."
+		status = AppLanguage.text("Speichern fehlgeschlagen.")
 		return
 	file.store_string(JSON.stringify(level_document(), "\t"))
-	status = "Dein Puzzle ist lokal gespeichert."
-	detail = "Laden öffnet den Entwurf; Export schreibt eine Leveldatei."
+	status = AppLanguage.text("Dein Puzzle ist lokal gespeichert.")
+	detail = AppLanguage.text("Laden öffnet den Entwurf; Export schreibt eine Leveldatei.")
 
 func export_level() -> void:
 	if not check_editor():
@@ -1334,17 +1382,17 @@ func export_level() -> void:
 	dialog.access = FileDialog.ACCESS_FILESYSTEM
 	dialog.filters = PackedStringArray(["*.json ; ArrowWay Level"])
 	dialog.current_dir = ProjectSettings.globalize_path("res://levels")
-	dialog.current_file = str(motif.get("title", "Eigenes Motiv")).validate_filename() + ".json" if shape_index == 6 else "%02d.json" % (level + 1)
-	dialog.title = "Level für das Spiel exportieren"
+	dialog.current_file = str(motif.get("title", AppLanguage.text("Eigenes Motiv"))).validate_filename() + ".json" if shape_index == 6 else "%02d.json" % (level + 1)
+	dialog.title = AppLanguage.text("Level für das Spiel exportieren")
 	add_child(dialog)
 	dialog.file_selected.connect(func(path: String):
 		var file := FileAccess.open(path, FileAccess.WRITE)
 		if file != null:
 			file.store_string(JSON.stringify(level_document(), "\t"))
-			status = "Exportiert: " + path.get_file()
-			detail = "Im Spiel: Alle Levels → Eigenes Motiv. Die Übersicht liest neue Exporte automatisch ein." if path.get_base_dir() == ProjectSettings.globalize_path("res://levels").trim_suffix("/") else "Für das Spiel die JSON-Datei im Projektordner levels speichern."
+			status = AppLanguage.text("Exportiert: ") + path.get_file()
+			detail = AppLanguage.text("Im Spiel: Alle Levels → Eigenes Motiv. Die Übersicht liest neue Exporte automatisch ein.") if path.get_base_dir() == ProjectSettings.globalize_path("res://levels").trim_suffix("/") else AppLanguage.text("Für das Spiel die JSON-Datei im Projektordner levels speichern.")
 		else:
-			status = "Export fehlgeschlagen."
+			status = AppLanguage.text("Export fehlgeschlagen.")
 		dialog.queue_free())
 	dialog.canceled.connect(dialog.queue_free)
 	dialog.popup_centered(Vector2i(500, 650))
@@ -1353,10 +1401,10 @@ func read_custom(path: String = "") -> bool:
 	if path.is_empty():
 		path = storage_prefix + "custom_puzzle.json"
 	if not FileAccess.file_exists(path):
-		status = "Noch kein eigenes Puzzle gespeichert."
+		status = AppLanguage.text("Noch kein eigenes Puzzle gespeichert.")
 		return false
 	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
-	status = "Die Puzzle-Datei ist ungültig."
+	status = AppLanguage.text("Die Puzzle-Datei ist ungültig.")
 	if not data is Dictionary or (data.get("version") != 1 and data.get("version") != 2) or not data.get("shape") is float and not data.get("shape") is int:
 		return false
 	if not data.get("paths") is Array or data.paths.size() > 500 or int(data.shape) < 0 or int(data.shape) > 6 or float(data.shape) != int(data.shape):
@@ -1395,19 +1443,19 @@ func read_custom(path: String = "") -> bool:
 			return false
 		loaded.append(arrow)
 	if (shape == 6 and occupied.size() != allowed.size()) or loaded.is_empty() or ArrowPuzzle.solution(loaded).size() != loaded.size():
-		status = "Die gespeicherte Datei enthält kein lösbares Puzzle."
+		status = AppLanguage.text("Die gespeicherte Datei enthält kein lösbares Puzzle.")
 		return false
 	shape_index = shape
 	motif = imported
 	arrows = loaded
-	status = "Gespeichertes Puzzle geladen."
+	status = AppLanguage.text("Gespeichertes Puzzle geladen.")
 	return true
 
 func load_custom() -> void:
 	if read_custom():
 		draft.clear()
 		selected = -1
-		status = "Gespeichertes Puzzle geladen."
+		status = AppLanguage.text("Gespeichertes Puzzle geladen.")
 
 func play_custom() -> void:
 	if read_custom():
@@ -1499,8 +1547,8 @@ func _draw() -> void:
 	box.bg_color = Color("#080d18")
 	box.set_corner_radius_all(22)
 	draw_style_box(box, Rect2(20, 165, 500, 510))
-	text_at("ARROW / WAY", Vector2(30, 55), 30, Color("#eef5ff"))
-	text_at("LEVEL-WERKZEUG" if editor else "NEON TRAILS", Vector2(31, 79), 12, Color("#839ab8"))
+	text_at(AppLanguage.text("ARROW / WAY"), Vector2(30, 55), 30, Color("#eef5ff"))
+	text_at(AppLanguage.text("LEVEL-WERKZEUG") if editor else "NEON TRAILS", Vector2(31, 79), 12, Color("#839ab8"))
 	if not editor:
 		text_at("%d / %d" % [cleared, arrows.size()], Vector2(36, 658), 14, Color("#839ab8"))
 		var ratio := display_progress
@@ -1511,10 +1559,10 @@ func _draw() -> void:
 	text_at(detail, Vector2(20, 724), 12, Color("#8296b0"), 500)
 
 func level_collection(index: int) -> Dictionary:
-	if journey_mode and index >= base_level_count and level_path(index).begins_with("res://levels/") and not bool(catalog_metadata.get(level_path(index),{}).get("published",false)): return {"id":"custom","title":"Eigene Motive"}
-	if index < base_level_count: return {"id":"base","title":"Erste Neonreise"}
+	if journey_mode and index >= base_level_count and level_path(index).begins_with("res://levels/") and not bool(catalog_metadata.get(level_path(index),{}).get("published",false)): return {"id":"custom","title":AppLanguage.text("Eigene Motive")}
+	if index < base_level_count: return {"id":"base","title":AppLanguage.text("Erste Neonreise")}
 	var data: Dictionary = catalog_metadata.get(level_path(index), {})
 	var group: Dictionary = data.get("collection", {}) if data.get("collection", {}) is Dictionary else {}
 	if not group.get("id") is String or not group.get("title") is String:
-		return {"id":"custom","title":"Eigene Motive"}
-	return group
+		return {"id":"custom","title":AppLanguage.text("Eigene Motive")}
+	return AppLanguage.fields(group)
