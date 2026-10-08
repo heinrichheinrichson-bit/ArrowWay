@@ -65,7 +65,12 @@ def sources(include_head=False):
 
 if __name__=='__main__':
     messages=json.loads((ROOT/'localization/en.json').read_text(encoding='utf-8'))['messages']
-    missing=[s for s in sources() if s not in messages]
+    scoped=json.loads((ROOT/'localization/motifs.json').read_text(encoding='utf-8-sig')).get('entries',{}) if (ROOT/'localization/motifs.json').exists() else {}
+    covered={de for record in scoped.values() for field,de in record.get('de',{}).items() if record.get('en',{}).get(field,'').strip() and record.get('reviewed_de',{}).get(field)==de}
+    ui=set(SINGLES)
+    for name in PLAYER_SCRIPTS:
+        ui.update(decode(match.group()) for match in STRING.finditer((ROOT/name).read_text(encoding='utf-8-sig')) if human(decode(match.group())))
+    missing=[s for s in sources() if s not in messages and (s in ui or s not in covered)]
     print('Messages:',len(messages),'Missing:',len(missing))
     for s in missing: print(s)
     raise SystemExit(bool(missing))

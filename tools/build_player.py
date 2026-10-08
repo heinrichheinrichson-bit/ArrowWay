@@ -4,13 +4,18 @@ Uses the local, untracked export_presets.cfg; never changes it.
 """
 import argparse, json, os, re, shutil, subprocess, tempfile, zipfile
 from pathlib import Path
+from check_motif_languages import check_catalog
 ROOT = Path(__file__).resolve().parents[1]
-AUTHOR_FILES = {'motif_studio.gd', 'motif_canvas.gd', 'color_studio.gd', 'color_preview.gd', 'catalog_workshop_store.gd', 'catalog_workshop_browser.gd'}
+AUTHOR_FILES = {'motif_studio.gd', 'motif_canvas.gd', 'color_studio.gd', 'color_preview.gd', 'catalog_workshop_store.gd', 'catalog_workshop_browser.gd', 'workshop_language_service.gd', 'workshop_text_editor.gd'}
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--godot', required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
+    problems = check_catalog(ROOT)
+    if problems:
+        for item in problems: print(item['title'] + ': ' + '; '.join(item['issues']))
+        raise SystemExit('APK nicht gebaut: englische Texte bitte in der Werkstatt prüfen oder vervollständigen.')
     environment = os.environ.copy()
     java = Path('C:/Program Files/Android/Android Studio/jbr')
     if not environment.get('JAVA_HOME') and java.exists(): environment['JAVA_HOME'] = str(java)

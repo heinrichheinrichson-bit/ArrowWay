@@ -5,7 +5,7 @@ static var entries: Dictionary={}
 static func for_level(game: Node) -> Dictionary:
 	if entries.is_empty(): entries=JSON.parse_string(FileAccess.get_file_as_string("res://collections/discoveries.json")).entries
 	var path: String=game.level_path(game.level)
-	if entries.has(path): return AppLanguage.fields(entries[path])
+	if entries.has(path): return AppLanguage.motif_fields(entries[path],path)
 	var group: String=game.level_collection(game.level).id
 	var thoughts: Dictionary={
 		"winter":AppLanguage.text("Hier bleibt das Licht warm, auch wenn das Motiv nach kalten Fingern aussieht."),

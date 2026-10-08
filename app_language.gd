@@ -88,3 +88,27 @@ static func fields(data: Dictionary) -> Dictionary:
 	for field in ["title", "text", "kind", "source", "description", "subtitle"]:
 		if localized.get(field) is String: localized[field] = text(localized[field])
 	return localized
+
+static var motif_messages := {}
+static var motifs_loaded := false
+
+static func reload_motifs() -> void:
+	motif_messages.clear()
+	if FileAccess.file_exists("res://localization/motifs.json"):
+		var data=JSON.parse_string(FileAccess.get_file_as_string("res://localization/motifs.json"))
+		if data is Dictionary and data.get("entries") is Dictionary: motif_messages=data.entries
+	motifs_loaded=true
+
+static func motif_text(source: String, path: String, field: String) -> String:
+	if locale != "en": return source
+	if not motifs_loaded: reload_motifs()
+	var record:Dictionary=motif_messages.get(path,{})
+	var english:String=str(record.get("en",{}).get(field,""))
+	if not english.strip_edges().is_empty() and record.get("reviewed_de",{}).get(field,"")==source: return english
+	return text(source)
+
+static func motif_fields(data: Dictionary, path: String) -> Dictionary:
+	var result:=data.duplicate(true)
+	for field in ["title","text","kind","source"]:
+		if result.get(field) is String: result[field]=motif_text(result[field],path,field)
+	return result

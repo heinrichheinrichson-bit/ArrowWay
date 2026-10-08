@@ -2,7 +2,7 @@ extends RefCounted
 # Private author service. Public paths are stable identities; list indices are never identities.
 var root := "res://"
 var error := ""
-const FILES := ["collections/catalog.json", "collections/taxonomy.json", "collections/journey.json", "collections/discoveries.json", "collections/editor_overrides.json", "collections/workshop_manifest.json", "collections/workshop_trash.json"]
+const FILES := ["collections/catalog.json", "collections/taxonomy.json", "collections/journey.json", "collections/discoveries.json", "collections/editor_overrides.json", "collections/workshop_manifest.json", "collections/workshop_trash.json", "localization/motifs.json", "localization/en.json"]
 func read(path: String, fallback: Dictionary = {}) -> Dictionary:
 	if not FileAccess.file_exists(root + path): return fallback.duplicate(true)
 	var data = JSON.parse_string(FileAccess.get_file_as_string(root + path))
@@ -153,7 +153,7 @@ func change(path: String, operation: String, target: Dictionary = {}, expected: 
 	recount(state)
 	updates.merge(state_updates(state))
 	return commit(updates, expected)
-func publish(document: Dictionary, discovery: Dictionary, target: Dictionary, expected: Dictionary = {}) -> String:
+func publish(document: Dictionary, discovery: Dictionary, target: Dictionary, expected: Dictionary = {}, languages: Dictionary = {}) -> String:
 	if not recover(): return ""
 	var state := load_state()
 	if not state.journey.groups.has(target.get("group", "")): error = "Bitte eine Sammlung wählen."; return ""
@@ -176,4 +176,7 @@ func publish(document: Dictionary, discovery: Dictionary, target: Dictionary, ex
 	state.overrides.entries[path] = {"protected": true, "title": document.title, "discovery": discovery, "assignment": assignment, "collection": collection}
 	recount(state)
 	var updates := state_updates(state); updates[path] = document
+	if not languages.is_empty():
+		var helper:RefCounted=load("res://workshop_language_service.gd").new(); helper.root=root
+		updates[helper.FILE]=helper.with_record(path,languages)
 	return path if commit(updates, expected) else ""

@@ -76,13 +76,13 @@ func run() -> void:
 		var document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
 		var authored: String = str(document.get("title", ""))
 		if not authored.is_empty():
-			check(AppLanguage.messages.has(authored), "Every active puzzle title has a translation: " + authored)
-			check(game.level_title(index) == AppLanguage.text(authored).left(80), "Puzzle title getter displays English")
+			check(AppLanguage.messages.has(authored) or (AppLanguage.motif_messages.get(path,{}).get("reviewed_de",{}).get("title","")==authored and not str(AppLanguage.motif_messages.get(path,{}).get("en",{}).get("title","")).is_empty()), "Every active puzzle title has a translation: " + authored)
+			check(game.level_title(index) == AppLanguage.motif_text(authored,path,"title").left(80), "Puzzle title getter displays English")
 		if entries.has(path):
-			check(AppLanguage.messages.has(entries[path].text), "Every active completion text has a translation: " + path)
+			check(AppLanguage.messages.has(entries[path].text) or (AppLanguage.motif_messages.get(path,{}).get("reviewed_de",{}).get("text","")==entries[path].text and not str(AppLanguage.motif_messages.get(path,{}).get("en",{}).get("text","")).is_empty()), "Every active completion text has a translation: " + path)
 			game.level = index
 			var localized: Dictionary = load("res://discoveries.gd").for_level(game)
-			check(localized.text == AppLanguage.text(entries[path].text), "Completion text uses English")
+			check(localized.text == AppLanguage.motif_text(entries[path].text,path,"text"), "Completion text uses English")
 			check(localized.get("url", "") == entries[path].get("url", ""), "Translation preserves factual source URLs")
 		count += 1
 	for world: Dictionary in german_worlds:
@@ -107,7 +107,7 @@ func run() -> void:
 	check(game.win_time == reveal and game.completed == completed, "Language change preserves completed artwork reveal and achievements")
 	check(game.next_button.visible and not game.next_button.disabled and game.next_button.text == "Weiterreisen", "Completed artwork retains a usable, translated Continue button")
 	game.set_language("en"); await process_frame
-	check(game.discovery_card.body.text == AppLanguage.text(entries[game.level_path(game.level)].text), "Visible completion card refreshes in English")
+	check(game.discovery_card.body.text == AppLanguage.motif_text(entries[game.level_path(game.level)].text,game.level_path(game.level),"text"), "Visible completion card refreshes in English")
 	game.close_home(); game.discovery_card._process(0); await process_frame
 	await capture("en-completion")
 	AppLanguage.initialize(PREFIX)

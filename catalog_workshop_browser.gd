@@ -20,6 +20,8 @@ var move_button: Button
 var delete_button: Button
 var trash_button: Button
 var expected := {}
+var pending_filter: CheckButton
+var pending_only := false
 func _ready() -> void:
 	title = "arrow.joy · Katalogwerkstatt"
 	size = Vector2i(1060, 800); min_size = size
@@ -39,6 +41,8 @@ func _ready() -> void:
 	query = LineEdit.new(); query.placeholder_text = "Motivname oder Sammlung suchen …"; query.size_flags_horizontal = Control.SIZE_EXPAND_FILL; controls.add_child(query)
 	query.text_changed.connect(func(_text): page = 0; filter_entries())
 	collection_filter = OptionButton.new(); collection_filter.custom_minimum_size.x = 250; controls.add_child(collection_filter)
+	pending_filter=CheckButton.new(); pending_filter.text="Englisch offen"; controls.add_child(pending_filter)
+	pending_filter.toggled.connect(func(value:bool): pending_only=value; page=0; filter_entries())
 	collection_filter.item_selected.connect(func(_index): page = 0; filter_entries())
 	var body := HBoxContainer.new(); body.size_flags_vertical = Control.SIZE_EXPAND_FILL; body.add_theme_constant_override("separation", 18); box.add_child(body)
 	grid = GridContainer.new(); grid.columns = 3; grid.add_theme_constant_override("h_separation", 10); grid.add_theme_constant_override("v_separation", 10); body.add_child(grid)
@@ -77,6 +81,14 @@ func reload_entries() -> void:
 		entries = state.catalog.levels.duplicate(true)
 		for assignment in state.taxonomy.assignments:
 			if not entries.any(func(item): return item.path == assignment.path): entries.append({"path": assignment.path, "title": assignment.title, "collection": {"id": assignment.group, "title": state.journey.groups.get(assignment.group, {}).get("title", assignment.group)}})
+	if not trash_mode and not drafts_mode:
+		var helper:RefCounted=load("res://workshop_language_service.gd").new(); helper.root=studio.catalog_root
+		for entry in entries:
+			var german:Dictionary=helper.original_fields(str(entry.title),state.discoveries.entries.get(entry.path,{}))
+			var languages:Dictionary=helper.load_record(entry.path,german)
+			entry.language_issues=helper.issues(languages,german)
+			entry.english_title=languages.en.title
+	pending_filter.disabled=trash_mode or drafts_mode
 	expected = store.fingerprints()
 	collection_filter.clear(); collection_filter.add_item("Alle Sammlungen"); collection_filter.set_item_metadata(0, "")
 	var groups := {}
@@ -90,14 +102,14 @@ func reload_entries() -> void:
 func filter_entries() -> void:
 	var group: String = collection_filter.get_item_metadata(collection_filter.selected)
 	var text := query.text.strip_edges().to_lower()
-	filtered = entries.filter(func(item): return (group.is_empty() or item.collection.id == group) and (text.is_empty() or (str(item.title) + " " + str(item.collection.title)).to_lower().contains(text)))
+	filtered = entries.filter(func(item): return (not pending_only or trash_mode or drafts_mode or not item.get("language_issues",[]).is_empty()) and (group.is_empty() or item.collection.id == group) and (text.is_empty() or (str(item.title) + " " + str(item.get("english_title","")) + " " + str(item.collection.title)).to_lower().contains(text)))
 	render()
 func render() -> void:
 	for child in grid.get_children(): grid.remove_child(child); child.queue_free()
 	page = mini(page, maxi(0, ceili(filtered.size() / 9.0) - 1))
 	for entry in filtered.slice(page * 9, page * 9 + 9):
 		var card := Button.new(); card.set_script(load("res://level_card.gd")); card.custom_minimum_size = Vector2(230, 178)
-		card.number = page * 9 + grid.get_child_count(); card.tooltip_text = str(entry.title) + "\n" + str(entry.collection.title); card.title = entry.title; card.subtitle = entry.collection.title; card.selected = entry.path == selected_path
+		card.number = page * 9 + grid.get_child_count(); card.tooltip_text = str(entry.title) + "\n" + str(entry.collection.title); card.title = entry.title; card.subtitle = entry.collection.title + (" · EN offen" if not entry.get("language_issues",[]).is_empty() else ""); card.selected = entry.path == selected_path
 		var document: Dictionary = entry.get("document", store.read(str(entry.path).trim_prefix("res://")))
 		var motif := CustomMotif.decode(document.get("motif", {})) if int(document.get("shape", 6)) == 6 else CustomMotif.from_shape(int(document.get("shape", 0)))
 		card.paths = CustomMotif.decode_paths(document.get("paths", []), motif, false)
@@ -108,6 +120,7 @@ func render() -> void:
 	for entry in entries:
 		if entry.path == selected_path: chosen = entry
 	selection.text = "Wähle ein Motiv aus." if chosen.is_empty() else str(chosen.title) + "\n" + str(chosen.collection.title)
+	if not chosen.get("language_issues",[]).is_empty(): selection.text+="\n\n"+"\n".join(chosen.language_issues.map(func(item):return item.message))
 	open_button.text = "Motiv wiederherstellen" if trash_mode else "Motiv bearbeiten"
 	copy_button.disabled = trash_mode or chosen.is_empty(); open_button.disabled = chosen.is_empty(); move_button.disabled = trash_mode or drafts_mode or chosen.is_empty(); delete_button.disabled = trash_mode or drafts_mode or chosen.is_empty()
 func open_selected() -> void:

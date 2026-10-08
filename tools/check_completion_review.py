@@ -3,12 +3,15 @@ from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 m=json.loads((root/'localization/en.json').read_text(encoding='utf-8'))['messages']
 audit=json.loads((root/'localization/completion_review.json').read_text(encoding='utf-8'))
+scoped=json.loads((root/'localization/motifs.json').read_text(encoding='utf-8-sig')).get('entries',{}) if (root/'localization/motifs.json').exists() else {}
 entries=json.loads((root/'collections/discoveries.json').read_text(encoding='utf-8'))['entries']
 def check(source,record):
     assert hashlib.sha256(source.encode('utf-8')).hexdigest()==record['source_sha256'], 'German original changed: '+source
     assert source in m, 'Missing English text: '+source
     assert hashlib.sha256(m[source].encode('utf-8')).hexdigest()==record['english_sha256'], 'English text changed: '+source
 for path,entry in entries.items():
+    record=scoped.get(path,{})
+    if record.get('en',{}).get('text','').strip() and record.get('reviewed_de',{}).get('text')==entry['text']:continue
     assert path in audit['entries'], 'Not reviewed: '+path
     check(entry['text'],audit['entries'][path])
 for source,record in audit['fallbacks'].items():check(source,record)

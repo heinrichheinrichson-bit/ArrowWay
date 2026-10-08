@@ -45,3 +45,28 @@ mit den deutschen Originalen abgeglichen und sprachlich geprüft. Wortspiele und
 Gedanken sind sinngemäß formuliert. Dies war keine erneute externe Faktenrecherche.
 `localization/completion_review.json` dokumentiert die geprüften Textstände mit
 SHA-256-Prüfsummen; geänderte Originaltexte benötigen erneut eine Prüfung.
+
+## Zweisprachige Motivwerkstatt
+
+Unter **Bilddaten → Deutsch & Englisch bearbeiten …** stehen Original und
+Übersetzung nebeneinander. Bestehende englische Texte werden geladen. Änderungen
+an Pfeilen und Farben gelten für beide Sprachen. **Beide Sprachen speichern**
+übernimmt Namen und Texte gemeinsam am bisherigen Katalogplatz.
+
+Änderungen am deutschen Text markieren die zugehörige englische Fassung zur
+Prüfung. Englisch bleibt erhalten. Nach Bearbeitung oder bewusstem Abgleich
+bestätigt **Englisch geprüft** den aktuellen Stand. Die Vorschau zeigt beide
+Abschlussbilder. Entwürfe behalten beide Sprachen und Prüfmarkierungen.
+
+Der Katalogfilter **Englisch offen** findet unvollständige oder ungeprüfte Motive.
+Speichern ist auch mit offenen Texten möglich; ein APK-Bau wartet jedoch, bis
+alle veröffentlichten Motive vollständig geprüft sind. Es gibt keine automatische
+Online-Übersetzung.
+
+Motivübersetzungen liegen unter ihrem stabilen Dateipfad in
+`localization/motifs.json`; sie haben Vorrang vor der bisherigen allgemeinen
+Übersetzung. Gleiche deutsche Namen können dadurch unterschiedliche englische
+Fassungen erhalten. Die Werkstatt bleibt privat und wird nicht mitexportiert.
+
+Prüfung: `python tools/check_motif_languages.py` und
+`godot --headless --audio-driver Dummy --path . --script res://tests/test_workshop_languages.gd -- --test`.

@@ -13,6 +13,10 @@ var completion_text: TextEdit
 var completion_kind: LineEdit
 var completion_source: LineEdit
 var completion_url: LineEdit
+var english := {}
+var reviewed_german := {}
+var language_status: Label
+var text_editor: Window
 
 var game: Node2D
 var motif := {}
@@ -257,7 +261,13 @@ func _ready() -> void:
 		confirm_replace(func(): fill(true), "Eine komplette Neufüllung ersetzt auch deine eigenen Pfeile. Deine letzte Füllung wird zusätzlich gesichert."))
 	add_row_button(areas_page, "Letzte ersetzte Füllung wiederherstellen", restore_backup)
 	var data_page := make_page("Bilddaten")
-	add_label(data_page, "ABSCHLUSSTEXT")
+	language_status = Label.new()
+	language_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	language_status.custom_minimum_size=Vector2(300,42)
+	language_status.add_theme_font_size_override("font_size",14)
+	data_page.add_child(language_status)
+	add_row_button(data_page, "Deutsch & Englisch bearbeiten …", open_text_editor)
+	add_label(data_page, "DEUTSCHER ABSCHLUSSTEXT")
 	completion_text = TextEdit.new()
 	completion_text.custom_minimum_size.y = 150
 	completion_text.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
@@ -310,6 +320,7 @@ func _ready() -> void:
 	notice.add_theme_font_size_override("font_size", 14)
 	root.add_child(notice)
 	refresh()
+	load_motif_languages()
 	update_notice()
 
 func make_page(page_name: String) -> VBoxContainer:
@@ -698,6 +709,7 @@ func _process(_delta: float) -> void:
 		player_export_worker = null; set_busy(false)
 		if report.code == 0: notice.text = "Spieler-APK erstellt: " + str(report.path)
 		else: notice.text = "APK konnte nicht erstellt werden. Exportprotokoll: " + str(report.log)
+	refresh_language_status()
 	draft_clock += _delta
 	if draft_clock >= 2.0 and completion_text != null:
 		draft_clock = 0.0
@@ -735,6 +747,7 @@ func _process(_delta: float) -> void:
 			selected = motif.palettes.keys()[0]
 			activate_tool(8)
 			refresh()
+			if english.is_empty(): load_motif_languages()
 			update_notice()
 	canvas.refresh()
 
@@ -805,7 +818,7 @@ func drafts_directory() -> String:
 	return game.storage_prefix + "workshop_drafts/"
 
 func workshop_state() -> Dictionary:
-	return {"path": catalog_path, "document": catalog_document, "hashes": catalog_hashes, "baseline": catalog_baseline, "text": completion_text.text, "kind": completion_kind.text, "source": completion_source.text, "url": completion_url.text, "root": catalog_root, "draft_key": draft_key}
+	return {"path": catalog_path, "document": catalog_document, "hashes": catalog_hashes, "baseline": catalog_baseline, "text": completion_text.text, "kind": completion_kind.text, "source": completion_source.text, "url": completion_url.text, "root": catalog_root, "draft_key": draft_key, "english": english, "reviewed_german": reviewed_german}
 
 func restore_workshop_state(state: Dictionary) -> void:
 	draft_key = state.get("draft_key", "")
@@ -814,6 +827,9 @@ func restore_workshop_state(state: Dictionary) -> void:
 	completion_text.text = state.get("text", ""); completion_kind.text = state.get("kind", "Ein kleiner Gedanke")
 	completion_source.text = state.get("source", ""); completion_url.text = state.get("url", "")
 	catalog_root = state.get("root", "res://")
+	load_motif_languages()
+	if state.get("english") is Dictionary: english=state.english.duplicate(true); reviewed_german=state.get("reviewed_german",{}).duplicate(true)
+	refresh_language_status()
 
 func close_studio() -> void:
 	if busy:
@@ -1197,6 +1213,7 @@ func choose_open_document() -> void:
 			else:
 				var action := func():
 					catalog_path = ""; catalog_document = {}; draft_key = ""; completion_text.text = ""; completion_kind.text = "Ein kleiner Gedanke"; completion_source.text = ""; completion_url.text = ""
+					english.clear(); reviewed_german.clear()
 					source = image; analyze_image(true)
 				if paths.is_empty(): action.call()
 				else: confirm_replace(action, "Ein anderes Bild ersetzt den aktuellen Entwurf. Deine letzte Füllung wird zusätzlich gesichert.")
@@ -1243,6 +1260,7 @@ func open_document(path: String, replace_confirmed: bool = false) -> bool:
 	paths = restored
 	source = null
 	show_overview()
+	load_motif_languages()
 	notice.text = "Motiv geöffnet: " + path.get_file() + ". Auswählen bearbeitet Pfeile; Vorlage & Flächen ergänzt neue Flächen."
 	return true
 
@@ -1263,6 +1281,7 @@ func workshop_store() -> RefCounted:
 	return store
 
 func catalog_changed() -> void:
+	AppLanguage.reload_motifs()
 	load("res://discoveries.gd").entries = {}
 	JourneyProgress.definition = {}
 	game.discover_levels()
@@ -1277,7 +1296,7 @@ func new_workshop_motif() -> void:
 		catalog_path = ""; catalog_document = {}; draft_key = ""; history.clear()
 		motif = CustomMotif.from_shape(0); motif.cells.clear(); motif.title = "Neues Motiv"
 		paths.clear(); source = null; completion_text.text = ""; completion_kind.text = "Ein kleiner Gedanke"; completion_source.text = ""; completion_url.text = ""
-		show_overview(); activate_tool(1); notice.text = "Zeichne deine Flächen oder öffne eine Bildvorlage. Danach freie Flächen mit Pfeilen füllen.", "Neues Motiv beginnen? Dein aktueller Entwurf wird vorher gesichert.")
+		show_overview(); load_motif_languages(); activate_tool(1); notice.text = "Zeichne deine Flächen oder öffne eine Bildvorlage. Danach freie Flächen mit Pfeilen füllen.", "Neues Motiv beginnen? Dein aktueller Entwurf wird vorher gesichert.")
 
 func choose_workshop_target(action: Callable, initial_path: String = "") -> void:
 	var state: Dictionary = workshop_store().load_state()
@@ -1336,7 +1355,7 @@ func publish_catalog() -> void:
 	var store := workshop_store()
 	var expected: Dictionary = store.fingerprints()
 	choose_workshop_target(func(target: Dictionary):
-		var path: String = store.publish(document, discovery, target, expected)
+		var path: String = store.publish(document, discovery, target, expected, language_record())
 		if path.is_empty(): notice.text = store.error
 		else: catalog_changed(); bind_catalog(path); notice.text = "Neues Motiv im Katalog hinzugefügt: " + title_field.text)
 
@@ -1354,16 +1373,17 @@ func bind_catalog(path: String) -> void:
 	completion_kind.text = discovery.get("kind", "Ein kleiner Gedanke")
 	completion_source.text = discovery.get("source", "")
 	completion_url.text = discovery.get("url", "")
+	load_motif_languages()
 	catalog_hashes = catalog_fingerprints()
 	catalog_baseline = catalog_state()
 	notice.text = "Katalogmotiv geöffnet. Speichern aktualisiert dieses Rätsel an seinem bisherigen Platz."
 
 func catalog_state() -> String:
-	return JSON.stringify([CustomMotif.encode(motif), CustomMotif.encode_paths(paths), title_field.text, completion_text.text, completion_kind.text, completion_source.text, completion_url.text])
+	return JSON.stringify([CustomMotif.encode(motif), CustomMotif.encode_paths(paths), title_field.text, completion_text.text, completion_kind.text, completion_source.text, completion_url.text, english, reviewed_german])
 
 func catalog_fingerprints() -> Dictionary:
 	var result := {}
-	for path in [catalog_path, "collections/catalog.json", "collections/taxonomy.json", "collections/discoveries.json", "collections/editor_overrides.json", "collections/workshop_manifest.json", "collections/workshop_trash.json", "collections/journey.json"]:
+	for path in [catalog_path, "collections/catalog.json", "collections/taxonomy.json", "collections/discoveries.json", "collections/editor_overrides.json", "collections/workshop_manifest.json", "collections/workshop_trash.json", "collections/journey.json", "localization/motifs.json", "localization/en.json"]:
 		result[path] = FileAccess.get_sha256(catalog_root + path) if FileAccess.file_exists(catalog_root + path) else ""
 	return result
 
@@ -1381,8 +1401,8 @@ func save_catalog() -> void:
 		return
 	var new_title := title_field.text.strip_edges()
 	var text := completion_text.text.strip_edges()
-	if new_title.is_empty() or text.is_empty() or text.length() > 600:
-		notice.text = "Name und Abschlusstext sind erforderlich; der Text darf höchstens 600 Zeichen haben."
+	if new_title.is_empty() or text.is_empty() or text.length() > 600 or str(english.get("text","")).length()>600:
+		notice.text = "Name und deutscher Abschlusstext sind erforderlich. Beide Abschlusstexte dürfen höchstens 600 Zeichen haben."
 		return
 	var kind := completion_kind.text.strip_edges()
 	if kind.is_empty(): kind = "Ein kleiner Gedanke"
@@ -1426,6 +1446,8 @@ func save_catalog() -> void:
 	protection.merge({"protected": true, "title": new_title, "discovery": discovery}, true)
 	overrides.entries[catalog_path] = protection
 	var updates := {catalog_path: document, "collections/catalog.json": catalog, "collections/taxonomy.json": taxonomy, "collections/discoveries.json": discoveries, "collections/editor_overrides.json": overrides}
+	var language_helper:RefCounted=load("res://workshop_language_service.gd").new(); language_helper.root=catalog_root
+	updates[language_helper.FILE]=language_helper.with_record(catalog_path,language_record())
 	var store := workshop_store()
 	if not store.commit(updates, catalog_hashes):
 		notice.text = store.error
@@ -1433,12 +1455,17 @@ func save_catalog() -> void:
 	catalog_document = document
 	catalog_hashes = catalog_fingerprints()
 	catalog_baseline = catalog_state()
+	AppLanguage.reload_motifs()
 	load("res://discoveries.gd").entries = {}
 	game.discover_levels()
-	notice.text = "Im Katalog gespeichert: " + new_title + ". Vorherige Dateien wurden gesichert."
+	notice.text = "Im Katalog gespeichert: " + new_title + ". Deutsch und Englisch bleiben am selben Motivplatz."
+	if not language_issues().is_empty(): notice.text += " Englisch bitte vor dem APK-Bau vervollständigen oder prüfen."
 
 func choose_player_export() -> void:
 	if busy: return
+	if not catalog_path.is_empty() and catalog_state()!=catalog_baseline:
+		notice.text="Bitte das geöffnete Motiv zuerst speichern. Der APK-Bau übernimmt die gespeicherten Fassungen."; pages.current_tab=2; return
+	if not check_export_languages(): return
 	if catalog_root != "res://": notice.text = "APK-Export ist nur für das tatsächliche Projekt verfügbar."; return
 	var python := OS.get_environment("USERPROFILE").path_join(".cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe")
 	if not FileAccess.file_exists(python): notice.text = "Die Python-Laufzeit für den APK-Export wurde nicht gefunden."; return
@@ -1459,3 +1486,66 @@ func choose_player_export() -> void:
 			return {"code": result, "path": path, "log": log_path})
 		dialog.queue_free())
 	dialog.canceled.connect(dialog.queue_free); dialog.popup_centered(Vector2i(850, 650))
+
+func german_control(field: String) -> Control:
+	return {"title":title_field,"text":completion_text,"kind":completion_kind,"source":completion_source}[field]
+
+func german_fields() -> Dictionary:
+	var kind:=completion_kind.text.strip_edges()
+	return {"title":title_field.text.strip_edges(),"text":completion_text.text.strip_edges(),"kind":kind if not kind.is_empty() else "Ein kleiner Gedanke","source":completion_source.text.strip_edges()}
+
+func language_record() -> Dictionary:
+	var translated:=english.duplicate(true)
+	for field in translated: translated[field]=str(translated[field]).strip_edges()
+	return {"de":german_fields(),"en":translated,"reviewed_de":reviewed_german.duplicate(true)}
+
+func language_issues() -> Array:
+	var helper:RefCounted=load("res://workshop_language_service.gd").new()
+	return helper.issues(language_record(),german_fields())
+
+func load_motif_languages() -> void:
+	var helper:RefCounted=load("res://workshop_language_service.gd").new(); helper.root=catalog_root
+	var record:Dictionary=helper.load_record(catalog_path,german_fields())
+	english=record.en; reviewed_german=record.reviewed_de
+	refresh_language_status()
+
+func mark_english_reviewed() -> void:
+	var german:=german_fields()
+	for field in english:
+		if not str(english[field]).strip_edges().is_empty(): reviewed_german[field]=german[field]
+	refresh_language_status()
+
+func refresh_language_status() -> void:
+	if language_status==null: return
+	var problems:=language_issues()
+	language_status.text="Deutsch & Englisch bereit" if problems.is_empty() else " · ".join(problems.map(func(item):return item.message))
+	language_status.modulate=Color("#8ff0c3") if problems.is_empty() else Color("#ffd17c")
+
+func open_text_editor() -> void:
+	if busy: return
+	if is_instance_valid(text_editor): text_editor.popup_centered(); return
+	text_editor=Window.new(); text_editor.set_script(load("res://workshop_text_editor.gd"))
+	text_editor.studio=self; add_child(text_editor); text_editor.popup_centered()
+
+func check_export_languages() -> bool:
+	var helper:RefCounted=load("res://workshop_language_service.gd").new(); helper.root=catalog_root
+	var problems:Array=helper.catalog_issues()
+	if problems.is_empty(): return true
+	var dialog:=AcceptDialog.new(); dialog.title="Englische Texte noch offen"
+	dialog.dialog_text="Bei %d Motiven fehlt Englisch oder eine Änderung muss geprüft werden. Öffne diese Motive und nutze ›Deutsch & Englisch bearbeiten‹.
+
+" % problems.size()
+	for item in problems.slice(0,8): dialog.dialog_text+=item.title+": "+" · ".join(item.issues.map(func(issue):return issue.message))+"
+"
+	dialog.ok_button_text="Später prüfen"; add_child(dialog)
+	dialog.add_button("Offene Motive öffnen", false, "open_pending")
+	dialog.custom_action.connect(func(action:String):
+		if action != "open_pending": return
+		dialog.hide(); dialog.queue_free()
+		choose_catalog()
+		var browser:Window=get_child(get_child_count()-1)
+		browser.pending_filter.button_pressed=true)
+	dialog.confirmed.connect(dialog.queue_free); dialog.canceled.connect(dialog.queue_free)
+	dialog.popup_centered(Vector2i(750,440))
+	notice.text="APK noch nicht gebaut: %d Motive benötigen englische Texte oder eine Prüfung." % problems.size()
+	return false

@@ -288,10 +288,10 @@ func discover_levels(include_user_exports: bool = true, directory: String = "") 
 	completed = retained
 
 func level_title(index: int) -> String:
-	if catalog_metadata.has(level_path(index)): return AppLanguage.text(str(catalog_metadata[level_path(index)].get("title", "Eigenes Motiv"))).left(80)
+	if catalog_metadata.has(level_path(index)): return AppLanguage.motif_text(str(catalog_metadata[level_path(index)].get("title", "Eigenes Motiv")),level_path(index),"title").left(80)
 	var fallback: String = TITLES[index] if index < TITLES.size() else level_path(index).get_file().get_basename()
 	var data = JSON.parse_string(FileAccess.get_file_as_string(level_path(index)))
-	return AppLanguage.text(str(data.get("title", fallback))).left(80) if data is Dictionary else AppLanguage.text(fallback)
+	return AppLanguage.motif_text(str(data.get("title", fallback)),level_path(index),"title").left(80) if data is Dictionary else AppLanguage.motif_text(fallback,level_path(index),"title")
 
 func build_controls() -> void:
 	for c in controls:
