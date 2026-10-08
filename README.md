@@ -8,7 +8,7 @@ Ein spielbares Godot-Puzzle mit leuchtenden, gerundeten Pfeilpfaden. Die Motive 
 
 Godot **4.x Standard** verwenden; geprüft mit **4.7.2**, GDScript und Compatibility-Renderer. `project.godot` importieren und **F5** drücken. Die ausführliche deutsche Anleitung steht in [START.md](START.md).
 
-## Aktueller Stand · 0.23.0-dev
+## Aktueller Stand · 0.23.1-dev
 
 - **Deutsch / Englisch / Systemsprache**: Sprachwahl unter Einstellungen, standardmäßig Systemsprache. Oberfläche, Motive, Themen und Abschlusstexte werden offline übersetzt; der Wechsel erhält Rätsel, Zoom und Fortschritt. Die private Werkstatt arbeitet weiter mit den deutschen Originaldaten. [Übersetzungen pflegen](LOCALIZATION.md).
 

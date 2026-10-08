@@ -37,3 +37,11 @@ derselbe Test Bildschirmbilder für die visuelle Prüfung beider Sprachen.
 
 Die APK enthält die Übersetzungen. Das Spiel benötigt dafür weder Internet
 noch einen Übersetzungsdienst.
+
+## Redaktionelle Prüfung der Abschlusstexte
+
+Am 8. Oktober 2026 wurden sämtliche englischen Abschlusstexte und Ersatztexte
+mit den deutschen Originalen abgeglichen und sprachlich geprüft. Wortspiele und
+Gedanken sind sinngemäß formuliert. Dies war keine erneute externe Faktenrecherche.
+`localization/completion_review.json` dokumentiert die geprüften Textstände mit
+SHA-256-Prüfsummen; geänderte Originaltexte benötigen erneut eine Prüfung.
