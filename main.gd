@@ -38,6 +38,9 @@ var controls: Array[Control] = []
 var next_button: Button
 var level_picker: OptionButton
 var panel: Control
+var first_light_optional := false
+var force_first_light := false
+var first_light_guide: Control
 var play_guide: Control
 var board_navigation: Node
 var board_clip: Control
@@ -199,6 +202,10 @@ func _ready() -> void:
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(panel)
 	get_viewport().size_changed.connect(update_play_layout)
+	first_light_guide=Control.new()
+	first_light_guide.set_script(load("res://first_light_guide.gd"))
+	first_light_guide.game=self
+	panel.add_child(first_light_guide)
 	reset(true)
 	if authoring:
 		enter_editor()
@@ -446,6 +453,8 @@ func update_play_layout() -> void:
 	var header_y:=safe.position.y+16
 	var board_top:=header_y+60
 	var board_bottom:=safe.end.y-86
+	if is_instance_valid(first_light_guide) and first_light_guide.active and win_time<0:
+		board_bottom=minf(board_bottom,first_light_guide.prepare_layout(safe))
 	if is_instance_valid(discovery_card):
 		var card_width:=safe.size.x-48
 		var text_height:=ThemeDB.fallback_font.get_multiline_string_size(discovery_card.data.text,HORIZONTAL_ALIGNMENT_LEFT,card_width-40,18).y
@@ -485,7 +494,7 @@ func request_restart() -> void:
 		return
 	var dialog := ConfirmationDialog.new()
 	dialog.title = AppLanguage.text("Neu beginnen?")
-	dialog.dialog_text = AppLanguage.text("Dieses Rätsel wird zurückgesetzt.")
+	dialog.dialog_text = AppLanguage.text("Nur dieses Rätsel beginnt von vorn. Dein übriger Fortschritt bleibt erhalten.")
 	dialog.ok_button_text = AppLanguage.text("Neu beginnen")
 	dialog.cancel_button_text = AppLanguage.text("Weiter spielen")
 	dialog.confirmed.connect(reset)
@@ -578,6 +587,13 @@ func close_journey() -> void:
 func open_current_journey() -> void:
 	var group: String=level_collection(level).id
 	open_journey(JourneyProgress.world_index(group),group)
+	if group=="first_light" and cleared>0 and win_time<0:
+		var preferences:=ConfigFile.new()
+		preferences.load(storage_prefix+"settings.cfg")
+		if not bool(preferences.get_value("first_light","return_explained",false)):
+			journey.tell.call_deferred(AppLanguage.text("Dein Rätsel wird gespeichert. Du kannst es später fortsetzen."))
+			preferences.set_value("first_light","return_explained",true)
+			preferences.save(storage_prefix+"settings.cfg")
 
 func refresh_journey_catalog() -> void:
 	var previous_path:=level_path(level)
@@ -620,14 +636,19 @@ func remember_journey_stations(ids: Array[String]) -> void:
 		if not journey_seen.has(id): journey_seen.append(id); changed = true
 	if changed: save_progress()
 
-func start_journey_puzzle(index: int) -> void:
+func start_journey_puzzle(index: int, repeat_intro := false) -> void:
 	if not level_available(index): return
+	force_first_light=repeat_intro
 	close_journey()
 	close_home()
 	select_gallery_level(index)
+	if repeat_intro:
+		level=index; reset(false)
+	if is_instance_valid(first_light_guide):
+		first_light_guide.configure(repeat_intro)
+		update_play_layout()
 	session_in_progress=true
 	queue_session()
-	maybe_show_play_guide()
 
 func maybe_show_play_guide() -> void:
 	if not journey_mode or authoring: return
@@ -946,6 +967,9 @@ func reset(resume_saved := false) -> void:
 		session_store.configure()
 		if resume_saved: session_store.restore()
 		queue_session()
+	if is_instance_valid(first_light_guide):
+		first_light_guide.configure(force_first_light)
+		update_play_layout()
 
 func queue_session() -> void:
 	if is_instance_valid(session_store): session_store.capture()
@@ -954,7 +978,8 @@ func save_progress() -> int:
 	var config := ConfigFile.new()
 	config.load(storage_prefix + "progress.cfg")
 	JourneyProgress.remember_access(self)
-	config.set_value("game", "journey_version", 3)
+	config.set_value("game", "journey_version", 4)
+	config.set_value("game", "first_light_optional", first_light_optional)
 	config.set_value("game", "journey_access_groups", journey_access_groups)
 	config.set_value("game", "journey_seen", journey_seen)
 	config.set_value("game", "journey_legacy_paths", journey_legacy_paths)
@@ -999,6 +1024,7 @@ func refresh_language() -> void:
 		status = AppLanguage.text("Geschafft! Alle Wege sind frei.")
 		detail = AppLanguage.text("%d Pfade befreit · %d blockierte Versuche") % [cleared, mistakes]
 	build_controls()
+	if is_instance_valid(first_light_guide): first_light_guide.update_copy()
 	if is_instance_valid(next_button):
 		next_button.visible = next_visible
 		next_button.disabled = next_disabled
@@ -1020,6 +1046,15 @@ func advance() -> void:
 		var group: String = level_collection(level).id
 		var world := JourneyProgress.world_index(group)
 		var next := JourneyProgress.next_open(self,level)
+		if group=="first_light":
+			if force_first_light:
+				var lesson_indices:=JourneyProgress.indices(self,group)
+				var position:=lesson_indices.find(level)
+				if position+1<lesson_indices.size(): start_journey_puzzle(lesson_indices[position+1],true)
+				else: open_journey()
+			elif next>=0: start_journey_puzzle(next)
+			else: open_journey()
+			return
 		if group != "custom" and JourneyProgress.group_complete(self,group): open_journey()
 		elif next >= 0: ads.transition(world,func(): start_journey_puzzle(next))
 		else: open_journey(world,group)
@@ -1087,7 +1122,7 @@ func finish_puzzle(restored := false) -> void:
 		if journey_mode: next_button.text = AppLanguage.text("Weiterreisen")
 		if not completed.has(level):
 			completed.append(level)
-			if not restored and journey_mode and not authoring and JourneyProgress.world_index(level_collection(level).id)>=0:
+			if not restored and journey_mode and not authoring and level_collection(level).id!="first_light" and JourneyProgress.world_index(level_collection(level).id)>=0:
 				ads.completed(level_path(level),JourneyProgress.world_index(level_collection(level).id))
 			if journey_mode:
 				var group: String = level_collection(level).id
@@ -1236,6 +1271,7 @@ func show_hint() -> void:
 	for i in range(arrows.size()):
 		if not arrows[i].removed and not arrows[i].escaping and not is_blocked(i):
 			arrows[i].hint = 2.5
+			if is_instance_valid(first_light_guide): first_light_guide.hint_used()
 			feedback.play("hint")
 			status = AppLanguage.text("Der weiß leuchtende Pfad hat freie Bahn.")
 			return

@@ -3460,6 +3460,18 @@
     "res://collections/levels/variety_rail_bridge.json": {
       "kind": "Ein kleiner Gedanke",
       "text": "Oben fährt ein Zug, unten zieht das Wasser weiter. Zwei Reisen teilen sich einen stillen Augenblick."
+    },
+    "res://collections/levels/first_light_01_fish.json": {
+      "kind": "Ein kleiner Anfang",
+      "text": "Ein freier Weg kann vieles in Bewegung bringen."
+    },
+    "res://collections/levels/first_light_02_tulip.json": {
+      "kind": "Ein Licht im Frühling",
+      "text": "Blatt für Blatt, Pfeil für Pfeil: Deine Tulpe blüht auf."
+    },
+    "res://collections/levels/first_light_03_mushroom.json": {
+      "kind": "Eine kleine Entdeckung",
+      "text": "Ein Pilz aus Licht. Gefunden mit Geduld und freien Wegen."
     }
   }
 }

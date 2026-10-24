@@ -22,7 +22,7 @@ static func refresh(game: Node) -> void:
 				var ordered: Array[int] = []
 				group_indices[group] = ordered
 			group_indices[group].append(index)
-	var fingerprint: int = hash([game.completed,game.journey_legacy_paths])
+	var fingerprint: int = hash([game.completed,game.journey_legacy_paths,game.first_light_optional])
 	if completed_hash == fingerprint: return
 	completed_hash = fingerprint; cached_frontier = -1
 	group_counts.clear(); legacy_groups.clear()
@@ -80,7 +80,7 @@ static func frontier(game: Node) -> int:
 	refresh(game)
 	if cached_frontier >= 0: return cached_frontier
 	var result := 0
-	while result + 1 < worlds().size() and (world_total(game, result) == 0 or world_complete(game, result)): result += 1
+	while result + 1 < worlds().size() and (world_total(game, result) == 0 or world_complete(game, result) or (result==0 and game.first_light_optional and worlds()[0].id=="first_light")): result += 1
 	cached_frontier = result
 	return result
 
@@ -105,6 +105,15 @@ static func remember_access(game: Node) -> void:
 			if not game.journey_access_groups.has(group): game.journey_access_groups.append(group)
 
 static func migrate_access(game: Node, config: ConfigFile) -> void:
+	# Existing players keep their old frontier without marking unplayed lessons solved.
+	game.first_light_optional=bool(config.get_value("game","first_light_optional",false))
+	if int(config.get_value("game","journey_version",0))<4 and config.has_section("game"):
+		game.first_light_optional=true
+		cached_frontier=-1
+		var existing_frontier:=frontier(game)
+		for world in range(1,existing_frontier+1):
+			for group in worlds()[world].groups:
+				if not game.journey_access_groups.has(group): game.journey_access_groups.append(group)
 	for group in config.get_value("game","journey_access_groups",[]):
 		if group is String and world_index(group)>=0 and not game.journey_access_groups.has(group): game.journey_access_groups.append(group)
 	if int(config.get_value("game","journey_version",0))>=3 or not bool(config.get_value("game","journey_migrated",false)): return
@@ -135,6 +144,10 @@ static func level_open(game: Node, index: int) -> bool:
 	var group: String = game.level_collection(index).id
 	if group == "custom": return not game.journey_mode or game.authoring
 	if game.completed.has(index): return true
+	if group=="first_light" and not game.first_light_optional:
+		for previous in indices(game,group):
+			if previous==index: break
+			if not game.completed.has(previous): return false
 	return group_visible(game, game.level_collection(index).id)
 
 static func next_open(game: Node, index: int) -> int:
@@ -146,7 +159,7 @@ static func next_open(game: Node, index: int) -> int:
 	return -1
 
 static func group_title(game: Node, group: String) -> String:
-	if group == "base": return AppLanguage.text("Einstieg")
+	if group == "base": return AppLanguage.text("Erste Kunstwerke")
 	if group == "custom": return AppLanguage.text("Deine eigenen Motive")
 	var found := indices(game, group)
 	return game.level_collection(found[0]).title if not found.is_empty() else group
@@ -182,7 +195,9 @@ static func album_indices(game: Node, favorites_only := false) -> Array[int]:
 static func resume_index(game: Node) -> int:
 	if level_open(game,game.level) and game.session_in_progress and game.win_time<0: return game.level
 	if level_open(game,game.level) and not game.completed.has(game.level) and group_visible(game,game.level_collection(game.level).id): return game.level
-	for world in worlds().size():
+	var world_order: Array=range(worlds().size())
+	if game.first_light_optional and worlds()[0].id=="first_light": world_order=range(1,worlds().size())+[0]
+	for world in world_order:
 		for item in visible_groups(game,world):
 			for index in indices(game,item):
 				if not game.completed.has(index): return index

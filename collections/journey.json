@@ -2,8 +2,19 @@
   "version": 4,
   "worlds": [
     {
-      "id": "beginning",
+      "id": "first_light",
       "title": "Das erste Licht",
+      "subtitle": "Drei kleine Motive. Schritt für Schritt ins Spiel.",
+      "groups": [
+        "first_light"
+      ],
+      "icon": "spark",
+      "color": "83e6cc",
+      "ad_id": 17.0
+    },
+    {
+      "id": "beginning",
+      "title": "Die Reise beginnt",
       "subtitle": "Entdecke die Kunstwerke dieser Themenwelt",
       "icon": "spark",
       "color": "ffd17c",
@@ -876,6 +887,13 @@
       "icon": "music",
       "color": "dba0ff",
       "count": 6
+    },
+    "first_light": {
+      "id": "first_light",
+      "title": "Spielend entdecken",
+      "count": 3,
+      "color": "83e6cc",
+      "icon": "spark"
     }
   },
   "legacy_worlds": [

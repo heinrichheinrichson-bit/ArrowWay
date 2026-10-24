@@ -1379,6 +1379,66 @@
 				"text": "Dieses Flugzeug hat sich einen besonderen Parkplatz ausgesucht. Das Wasser scheint nichts dagegen zu haben.",
 				"title": "Wasserflugzeug"
 			}
+		},
+		"res://collections/levels/first_light_01_fish.json": {
+			"de": {
+				"title": "Kleiner Fisch",
+				"kind": "Ein kleiner Anfang",
+				"text": "Ein freier Weg kann vieles in Bewegung bringen.",
+				"source": ""
+			},
+			"reviewed_de": {
+				"title": "Kleiner Fisch",
+				"kind": "Ein kleiner Anfang",
+				"text": "Ein freier Weg kann vieles in Bewegung bringen.",
+				"source": ""
+			},
+			"en": {
+				"title": "Little fish",
+				"kind": "A little beginning",
+				"text": "One clear path can set so much in motion.",
+				"source": ""
+			}
+		},
+		"res://collections/levels/first_light_02_tulip.json": {
+			"de": {
+				"title": "Tulpe",
+				"kind": "Ein Licht im Frühling",
+				"text": "Blatt für Blatt, Pfeil für Pfeil: Deine Tulpe blüht auf.",
+				"source": ""
+			},
+			"reviewed_de": {
+				"title": "Tulpe",
+				"kind": "Ein Licht im Frühling",
+				"text": "Blatt für Blatt, Pfeil für Pfeil: Deine Tulpe blüht auf.",
+				"source": ""
+			},
+			"en": {
+				"title": "Tulip",
+				"kind": "A springtime glow",
+				"text": "Leaf by leaf, arrow by arrow: your tulip comes into bloom.",
+				"source": ""
+			}
+		},
+		"res://collections/levels/first_light_03_mushroom.json": {
+			"de": {
+				"title": "Kleiner Pilz",
+				"kind": "Eine kleine Entdeckung",
+				"text": "Ein Pilz aus Licht. Gefunden mit Geduld und freien Wegen.",
+				"source": ""
+			},
+			"reviewed_de": {
+				"title": "Kleiner Pilz",
+				"kind": "Eine kleine Entdeckung",
+				"text": "Ein Pilz aus Licht. Gefunden mit Geduld und freien Wegen.",
+				"source": ""
+			},
+			"en": {
+				"title": "Little mushroom",
+				"kind": "A little discovery",
+				"text": "A mushroom made of light. Found through patience and clear paths.",
+				"source": ""
+			}
 		}
 	},
 	"version": 1.0

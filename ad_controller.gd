@@ -75,6 +75,7 @@ func world_key(world: int) -> int:
 	return int(JourneyProgress.worlds()[world].ad_id)
 
 func opened_world(world: int) -> void:
+	if world>=0 and JourneyProgress.worlds()[world].id=="first_light": return
 	policy.open_world(world_key(world)); save()
 
 func transition(world: int, callback: Callable) -> void:

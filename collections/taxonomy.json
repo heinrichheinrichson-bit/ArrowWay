@@ -2,8 +2,23 @@
   "version": 2,
   "worlds": [
     {
-      "id": "intro",
+      "id": "first_light",
       "title": "Das erste Licht",
+      "categories": [
+        {
+          "id": "first_light_01",
+          "title": "Spielend entdecken",
+          "existing_count": 3,
+          "status": "populated",
+          "playable_groups": [
+            "first_light"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intro",
+      "title": "Die Reise beginnt",
       "categories": [
         {
           "title": "Einstieg",
@@ -1221,12 +1236,48 @@
   ],
   "assignments": [
     {
+      "path": "res://collections/levels/first_light_01_fish.json",
+      "title": "Kleiner Fisch",
+      "group": "first_light",
+      "world": "first_light",
+      "world_title": "Das erste Licht",
+      "category": "Spielend entdecken",
+      "category_id": "first_light_01",
+      "old_collection": "first_light",
+      "old_collection_title": "Spielend entdecken",
+      "decision": "neu"
+    },
+    {
+      "path": "res://collections/levels/first_light_02_tulip.json",
+      "title": "Tulpe",
+      "group": "first_light",
+      "world": "first_light",
+      "world_title": "Das erste Licht",
+      "category": "Spielend entdecken",
+      "category_id": "first_light_01",
+      "old_collection": "first_light",
+      "old_collection_title": "Spielend entdecken",
+      "decision": "neu"
+    },
+    {
+      "path": "res://collections/levels/first_light_03_mushroom.json",
+      "title": "Kleiner Pilz",
+      "group": "first_light",
+      "world": "first_light",
+      "world_title": "Das erste Licht",
+      "category": "Spielend entdecken",
+      "category_id": "first_light_01",
+      "old_collection": "first_light",
+      "old_collection_title": "Spielend entdecken",
+      "decision": "neu"
+    },
+    {
       "path": "res://levels/01.json",
       "title": "Erste Lichtung",
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1238,7 +1289,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1250,7 +1301,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1262,7 +1313,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1274,7 +1325,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1286,7 +1337,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1298,7 +1349,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1310,7 +1361,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",
@@ -1322,7 +1373,7 @@
       "old_collection": "base",
       "old_collection_title": "Einstieg",
       "world": "intro",
-      "world_title": "Das erste Licht",
+      "world_title": "Die Reise beginnt",
       "category": "Einstieg",
       "decision": "bleibt",
       "group": "base",

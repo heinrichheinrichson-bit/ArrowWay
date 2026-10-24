@@ -79,19 +79,20 @@ func run() -> void:
 		for group in world.groups:
 			require(not mapped.has(group),"A collection belongs to exactly one theme")
 			mapped.append(group)
-	require(mapped.size()==88,"All 87 collections plus introduction have a theme")
+	require(mapped.size()==89,"All existing collections plus the new introduction have a theme")
 	for index in scene.level_count():
 		var group: String = scene.level_collection(index).id
 		require(group=="custom" or mapped.has(group),"Every catalog entry has a map category")
 	require(JourneyProgress.frontier(scene)==0,"Fresh journey starts at the first light")
+	for index in JourneyProgress.indices(scene,"first_light"): solve(index)
 	var intro := JourneyProgress.indices(scene,"base")
 	for index in intro: require(scene.level_available(index),"All introduction puzzles are immediately in the collection")
 	var garden := JourneyProgress.indices(scene,"animals")
 	require(not scene.level_available(garden[0]),"Future-world puzzles cannot be selected")
 	scene.open_home(); await capture("home"); scene.close_home()
 	scene.open_journey(); await process_frame
-	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+1,"All major themes plus reached subcategory share a single canvas")
-	require(scene.journey.visible_station_ids==["world:beginning","group:base"],"Future themes have no subcategory nodes")
+	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+2,"All major themes plus reached subcategory share a single canvas")
+	require(scene.journey.visible_station_ids==["world:first_light","group:first_light","world:beginning","group:base"],"Future themes have no subcategory nodes")
 	await capture("map-new")
 	await swipe_map(); await swipe_map(true)
 	station_named("world:beginning").pressed.emit()
@@ -103,18 +104,18 @@ func run() -> void:
 	require(scene.journey.canvas.get_child_count()==intro.size(),"All introduction cards appear without a history expander")
 	await capture("motifs")
 	for index in range(3): solve(index)
-	require(JourneyProgress.frontier(scene)==0 and not JourneyProgress.world_complete(scene,0),"Three introductory completions do not unlock Nature or award a theme checkmark")
+	require(JourneyProgress.frontier(scene)==1 and not JourneyProgress.world_complete(scene,1),"Three introductory completions do not unlock Nature or award a theme checkmark")
 	for index in intro.slice(3,-1): solve(index)
-	require(JourneyProgress.frontier(scene)==0,"One missing introduction puzzle keeps Nature locked")
+	require(JourneyProgress.frontier(scene)==1,"One missing introduction puzzle keeps Nature locked")
 	solve(intro.back()); scene.advance()
-	require(scene.journey.screen=="map" and JourneyProgress.frontier(scene)==1,"All nine completions open Nature on the SAME map")
+	require(scene.journey.screen=="map" and JourneyProgress.frontier(scene)==2,"All nine completions open Nature on the SAME map")
 	require(station_named("world:beginning").achieved and not station_named("world:nature").achieved,"Only fully completed themes get checkmarks")
-	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+1+JourneyProgress.worlds()[1].groups.size(),"Tierwelt's child nodes join the original map")
+	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+2+JourneyProgress.worlds()[2].groups.size(),"Tierwelt's child nodes join the original map")
 	require(JourneyProgress.group_visible(scene,"animals") and JourneyProgress.group_visible(scene,"birds") and not JourneyProgress.group_visible(scene,"flowers"),"Only reached themes display their subcategory branches")
 	for group in ["animals","birds","ocean"]:
 		require(station_named("group:"+group)!=null,"Each Nature collection is connected on the same canvas")
 	await capture("map-progress")
-	scene.open_journey(1); await process_frame
+	scene.open_journey(2); await process_frame
 	await capture("nature-new")
 	station_named("group:animals").pressed.emit()
 	require(scene.journey.canvas.get_child_count()==garden.size(),"Collection displays solved and unsolved cards together")
@@ -136,24 +137,24 @@ func run() -> void:
 	await capture("nature-branches")
 	for index in garden:
 		if not scene.completed.has(index): scene.completed.append(index)
-	scene.open_journey(1)
+	scene.open_journey(2)
 	require(station_named("group:animals").achieved and not station_named("world:nature").achieved,"Completed subcategory never prematurely checks its parent theme")
-	require(JourneyProgress.frontier(scene)==1,"Completing one Nature category keeps next theme locked")
+	require(JourneyProgress.frontier(scene)==2,"Completing one Nature category keeps next theme locked")
 	await capture("nature-expanded")
 	var last := -1
-	for group in JourneyProgress.worlds()[1].groups:
+	for group in JourneyProgress.worlds()[2].groups:
 		for index in JourneyProgress.indices(scene,group):
 			if not scene.completed.has(index): scene.completed.append(index)
 			last=index
 	scene.completed.erase(last)
-	require(JourneyProgress.frontier(scene)==1 and not JourneyProgress.world_complete(scene,1),"One missing puzzle across ALL subcategories keeps next theme locked")
+	require(JourneyProgress.frontier(scene)==2 and not JourneyProgress.world_complete(scene,2),"One missing puzzle across ALL subcategories keeps next theme locked")
 	scene.completed.append(last)
-	require(JourneyProgress.frontier(scene)==2 and JourneyProgress.world_complete(scene,1),"Next major theme unlocks only after every Nature puzzle")
+	require(JourneyProgress.frontier(scene)==3 and JourneyProgress.world_complete(scene,2),"Next major theme unlocks only after every Nature puzzle")
 	# Old distant achievements remain replayable but do not bypass strict ordering.
 	var distant := JourneyProgress.indices(scene,"fantasy")[10]
 	scene.completed.append(distant)
-	require(scene.level_available(distant) and JourneyProgress.frontier(scene)==2 and not JourneyProgress.group_visible(scene,"fantasy"),"Old distant completion does not unlock unfinished ancestors")
-	scene.open_journey(2); root.size=Vector2i(540,1170); await process_frame
+	require(scene.level_available(distant) and JourneyProgress.frontier(scene)==3 and not JourneyProgress.group_visible(scene,"fantasy"),"Old distant completion does not unlock unfinished ancestors")
+	scene.open_journey(3); root.size=Vector2i(540,1170); await process_frame
 	require(scene.journey.size==scene.get_viewport_rect().size,"Shared map adapts to a tall phone display")
 	await capture("map-tall")
 	scene.save_progress()
@@ -162,7 +163,7 @@ func run() -> void:
 	scene=load("res://main.tscn").instantiate()
 	scene.storage_prefix="user://test_journey_"; scene.resume_enabled=false; scene.journey_mode=true; scene.scan_user_exports=true
 	root.add_child(scene); await process_frame
-	require(scene.completed==expected and JourneyProgress.frontier(scene)==2,"Strict progression and old achievements survive restart")
+	require(scene.completed==expected and JourneyProgress.frontier(scene)==3,"Strict progression and old achievements survive restart")
 	# Migrate an old unfinished puzzle without awarding themes or bypassing gates.
 	var legacy_path:String=scene.level_path(JourneyProgress.indices(scene,"technology")[7])
 	var legacy:=ConfigFile.new()
@@ -173,7 +174,7 @@ func run() -> void:
 	scene.storage_prefix="user://test_journey_"; scene.resume_enabled=false; scene.journey_mode=true; scene.scan_user_exports=true
 	root.add_child(scene); await process_frame
 	require(scene.journey_legacy_paths.has(legacy_path) and not scene.level_available(scene.level_files.find(legacy_path)),"Migration retains the legacy record without exposing an unfinished future puzzle")
-	require(JourneyProgress.frontier(scene)==0 and not JourneyProgress.group_visible(scene,"technology"),"Migration never bypasses theme completion")
+	require(JourneyProgress.frontier(scene)==1 and not JourneyProgress.group_visible(scene,"technology"),"Migration never bypasses theme completion")
 	scene.completed.clear(); scene.journey_legacy_paths.clear()
 	var additions:=0
 	for step in scene.level_count():

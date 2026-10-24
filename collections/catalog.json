@@ -1,6 +1,66 @@
 {
   "levels": [
     {
+      "path": "res://collections/levels/first_light_01_fish.json",
+      "title": "Kleiner Fisch",
+      "collection": {
+        "id": "first_light",
+        "title": "Spielend entdecken",
+        "order": 1
+      },
+      "tags": [
+        "Einführung"
+      ],
+      "taxonomy": {
+        "world": "first_light",
+        "category": "first_light_01"
+      },
+      "design": {
+        "paths": 7,
+        "solvable": true
+      }
+    },
+    {
+      "path": "res://collections/levels/first_light_02_tulip.json",
+      "title": "Tulpe",
+      "collection": {
+        "id": "first_light",
+        "title": "Spielend entdecken",
+        "order": 2
+      },
+      "tags": [
+        "Einführung"
+      ],
+      "taxonomy": {
+        "world": "first_light",
+        "category": "first_light_01"
+      },
+      "design": {
+        "paths": 8,
+        "solvable": true
+      }
+    },
+    {
+      "path": "res://collections/levels/first_light_03_mushroom.json",
+      "title": "Kleiner Pilz",
+      "collection": {
+        "id": "first_light",
+        "title": "Spielend entdecken",
+        "order": 3
+      },
+      "tags": [
+        "Einführung"
+      ],
+      "taxonomy": {
+        "world": "first_light",
+        "category": "first_light_01"
+      },
+      "design": {
+        "paths": 8,
+        "solvable": true
+      }
+    },
+    {
       "collection": {
         "id": "world",
         "order": 1.0,
