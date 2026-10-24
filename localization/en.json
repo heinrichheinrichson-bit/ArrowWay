@@ -2543,6 +2543,21 @@
     "Gelöste Rätsel: %d · Lieblingsbilder: %d": "Solved puzzles: %d · Favorites: %d",
     "Sicherung vom %s\n\nGelöste Rätsel: %d\nLieblingsbilder: %d\nAngefangene Rätsel: %d\n\nDieser Stand ersetzt deinen aktuellen App-Stand. Zuvor wird er automatisch gesichert.": "Backup from %s\n\nSolved puzzles: %d\nFavorite artworks: %d\nUnfinished puzzles: %d\n\nThis will replace your current app state. We will back it up first.",
     "Datenschutz": "Privacy",
-    "Kontakt & Support": "Contact & support"
+    "Kontakt & Support": "Contact & support",
+    "So spielst du": "How to play",
+    "Ein Bild aus Licht. Dein Weg dorthin.": "An artwork of light. Find your way.",
+    "Tippe auf den Pfeil. Ist sein Weg frei, fliegt er in Richtung seiner Spitze hinaus.": "Tap the arrow. If its path is clear, it flies out in the direction of its arrowhead.",
+    "Erst den Weg freimachen": "Clear the way first",
+    "Der rosa Pfeil ist blockiert. Entferne zuerst den blauen Pfeil, der vor seiner Spitze liegt. Probiere es hier aus.": "The pink arrow is blocked. First remove the blue arrow in front of its arrowhead. Try it here.",
+    "Ganz nah heran": "Take a closer look",
+    "Ziehe zwei Finger auseinander, um zu vergrößern. Im vergrößerten Bild kannst du mit einem Finger verschieben. Am Computer: Mausrad und Ziehen.": "Spread two fingers to zoom in. Once zoomed in, drag with one finger to move the artwork. On a computer: mouse wheel and drag.",
+    "Ein kleiner Lichtblick": "A little help",
+    "Die Glühbirne hebt einen freien Pfeil hervor. Mit dem Kreispfeil startest du nur das aktuelle Rätsel neu. Entferne alle Pfeile, um das Kunstwerk aufleuchten zu lassen.": "The light bulb highlights an arrow with a clear path. The circular arrow restarts only the current puzzle. Clear every arrow to see the artwork light up.",
+    "Überspringen": "Skip",
+    "Jederzeit unter Einstellungen → So spielst du.": "Always available in Settings → How to play.",
+    "Freier Weg": "Clear path",
+    "Blockiert": "Blocked",
+    "Geschafft – der Weg ist frei!": "Nice — the path is clear!",
+    "Hier ausprobieren": "Try it here"
   }
 }

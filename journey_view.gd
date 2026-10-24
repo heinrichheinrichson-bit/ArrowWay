@@ -85,6 +85,7 @@ func cancel_button_press() -> void:
 	canceling_gui=false
 
 func _input(event: InputEvent) -> void:
+	if is_instance_valid(game.play_guide): return
 	if event is InputEventScreenTouch and event.pressed or event is InputEventMouseButton and event.pressed:
 		if is_instance_valid(camera_tween): camera_tween.kill()
 	if canceling_gui or not is_instance_valid(scroller): return
@@ -517,30 +518,31 @@ func build_settings() -> void:
 	toggle.add_theme_font_size_override("font_size",20)
 	toggle.toggled.connect(func(_enabled): game.toggle_sound())
 	add_child(toggle)
+	action(AppLanguage.text("So spielst du"),Vector2(24,375),Vector2(size.x-48,40),func(): game.show_play_guide())
 	if OS.has_feature("debug"):
-		label(AppLanguage.text("ENTWICKLERTEST · KEINE ECHTE WERBUNG"),Vector2(24,409),size.x-48,12,Color("#8fa8b7"))
+		label(AppLanguage.text("ENTWICKLERTEST · KEINE ECHTE WERBUNG"),Vector2(24,437),size.x-48,12,Color("#8fa8b7"))
 		var ad_toggle := CheckButton.new()
 		ad_toggle.text=AppLanguage.text("Testanzeigen aktivieren")
-		ad_toggle.position=Vector2(24,441); ad_toggle.size=Vector2(size.x-48,54)
+		ad_toggle.position=Vector2(24,469); ad_toggle.size=Vector2(size.x-48,54)
 		ad_toggle.button_pressed=game.ads.test_mode
 		ad_toggle.toggled.connect(game.ads.set_test_mode)
 		add_child(ad_toggle)
 		var premium_toggle := CheckButton.new()
 		premium_toggle.text=AppLanguage.text("Werbefrei simulieren")
-		premium_toggle.position=Vector2(24,505); premium_toggle.size=Vector2(size.x-48,54)
+		premium_toggle.position=Vector2(24,533); premium_toggle.size=Vector2(size.x-48,54)
 		premium_toggle.button_pressed=game.ads.simulate_ad_free
 		premium_toggle.toggled.connect(game.ads.set_simulated_ad_free)
 		add_child(premium_toggle)
-		label(AppLanguage.text("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten"),Vector2(24,580),size.x-48,13,Color("#8fa8b7"))
+		label(AppLanguage.text("5 Rätsel frei · dann 4 Rätsel + 6 Spielminuten"),Vector2(24,608),size.x-48,13,Color("#8fa8b7"))
 
-	var settings_y := 635 if OS.has_feature("debug") else 409
+	var settings_y := 663 if OS.has_feature("debug") else 433
 	action(AppLanguage.text("Bildquellen & Lizenzen"),Vector2(24,settings_y),Vector2(size.x-48,48),show_art_credits)
 	var backup_button := action(AppLanguage.text("App-Stand"),Vector2(24,settings_y+64),Vector2(size.x-48,48),func(): navigate("backup"))
 	backup_button.name = "AppStateButton"
 	if not OS.has_feature("debug"):
-		action(AppLanguage.text("Datenschutz"),Vector2(24,537),Vector2(size.x-48,48),show_privacy)
-		action(AppLanguage.text("Kontakt & Support"),Vector2(24,601),Vector2(size.x-48,48),func(): OS.shell_open("mailto:thinkheim.support@gmail.com?subject=arrow.joy"))
-		label("arrow.joy · Thinkheim · "+str(ProjectSettings.get_setting("application/config/version")),Vector2(24,677),size.x-48,13,Color("#8fa8b7"))
+		action(AppLanguage.text("Datenschutz"),Vector2(24,561),Vector2(size.x-48,48),show_privacy)
+		action(AppLanguage.text("Kontakt & Support"),Vector2(24,625),Vector2(size.x-48,48),func(): OS.shell_open("mailto:thinkheim.support@gmail.com?subject=arrow.joy"))
+		label("arrow.joy · Thinkheim · "+str(ProjectSettings.get_setting("application/config/version")),Vector2(24,701),size.x-48,13,Color("#8fa8b7"))
 
 func show_privacy() -> void:
 	navigate("privacy")

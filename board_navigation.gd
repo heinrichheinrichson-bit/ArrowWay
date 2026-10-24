@@ -15,6 +15,7 @@ var mouse_down := false
 var previous_mouse := Vector2.ZERO
 
 func active() -> bool:
+	if is_instance_valid(game.play_guide): return false
 	for child in game.get_children():
 		if child is Window and child.visible: return false
 	return game.compact_play() and not game.generating and not is_instance_valid(game.home_menu) and not is_instance_valid(game.gallery) and not is_instance_valid(game.journey)

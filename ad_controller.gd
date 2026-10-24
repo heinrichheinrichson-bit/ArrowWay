@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 	var modal := false
 	for child in game.get_children():
 		if child is Window and child.visible: modal=true; break
-	var active: bool= focused and not modal and not showing and game.session_in_progress and game.win_time<0 and not game.editor and not game.authoring and not is_instance_valid(game.home_menu) and not is_instance_valid(game.journey) and not is_instance_valid(game.gallery)
+	var active: bool= focused and not is_instance_valid(game.play_guide) and not modal and not showing and game.session_in_progress and game.win_time<0 and not game.editor and not game.authoring and not is_instance_valid(game.home_menu) and not is_instance_valid(game.journey) and not is_instance_valid(game.gallery)
 	policy.tick(delta,active)
 	if active:
 		save_clock+=clampf(delta,0.0,1.0)

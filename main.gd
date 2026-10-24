@@ -38,6 +38,7 @@ var controls: Array[Control] = []
 var next_button: Button
 var level_picker: OptionButton
 var panel: Control
+var play_guide: Control
 var board_navigation: Node
 var board_clip: Control
 var play_atmosphere: ColorRect
@@ -626,6 +627,23 @@ func start_journey_puzzle(index: int) -> void:
 	select_gallery_level(index)
 	session_in_progress=true
 	queue_session()
+	maybe_show_play_guide()
+
+func maybe_show_play_guide() -> void:
+	if not journey_mode or authoring: return
+	var preferences := ConfigFile.new()
+	preferences.load(storage_prefix + "settings.cfg")
+	if not bool(preferences.get_value("guide", "seen", false)):
+		show_play_guide(true)
+
+func show_play_guide(first_time := false) -> void:
+	if is_instance_valid(play_guide): return
+	board_navigation.cancel_gesture()
+	play_guide = Control.new()
+	play_guide.set_script(load("res://play_guide.gd"))
+	play_guide.game = self
+	play_guide.first_time = first_time
+	panel.add_child(play_guide)
 
 func close_gallery() -> void:
 	if is_instance_valid(gallery):
@@ -1019,9 +1037,9 @@ func advance() -> void:
 	reset()
 
 func _process(delta: float) -> void:
-	var flight_paused: bool = (is_instance_valid(ads) and ads.showing) or is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey)
+	var flight_paused: bool = is_instance_valid(play_guide) or (is_instance_valid(ads) and ads.showing) or is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey)
 	feedback.pause_escape(flight_paused)
-	if is_instance_valid(ads) and ads.showing: return
+	if is_instance_valid(play_guide) or (is_instance_valid(ads) and ads.showing): return
 	if is_instance_valid(gallery) or is_instance_valid(home_menu) or is_instance_valid(journey):
 		return
 	clock_time += delta
@@ -1114,6 +1132,7 @@ func _notification(what: int) -> void:
 	var back_time := Time.get_ticks_msec()
 	if back_time - last_back_request_ms < 250: return
 	last_back_request_ms = back_time
+	if is_instance_valid(play_guide): play_guide.finish(); return
 	if is_instance_valid(ads) and ads.showing: ads.dismiss(); return
 	for child in find_children("*", "Window", true, false):
 		if child is Window and child.visible:
@@ -1125,6 +1144,7 @@ func _notification(what: int) -> void:
 	else: open_current_journey()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_instance_valid(play_guide): return
 	# Android emits both an Escape key and a go-back notification for one press.
 	# Route its navigation through the notification only.
 	if OS.get_name() == "Android" and event is InputEventKey and event.keycode == KEY_ESCAPE:
