@@ -32,6 +32,14 @@ func run() -> void:
 	check(game.level_available(lessons[0]) and not game.level_available(lessons[1]),"Lessons unlock sequentially")
 	check(not JourneyProgress.world_open(game,1),"Normal journey starts after the introduction")
 	game.open_journey()
+	var stations=game.journey.canvas.get_children().filter(func(n): return n.has_meta("station_id"))
+	check(stations.filter(func(n): return n.get_meta("station_id")=="group:first_light").size()==1,"Introduction is exactly one visible station")
+	check(not stations.any(func(n): return n.get_meta("station_id")=="world:first_light"),"No duplicate parent intro station")
+	var intro_node=stations.filter(func(n): return n.get_meta("station_id")=="group:first_light")[0]
+	check(intro_node.title=="Spielend entdecken","Single intro station uses requested name")
+	intro_node.pressed.emit()
+	check(game.journey.screen=="collection" and game.journey.group=="first_light","Single station opens puzzles directly")
+	game.open_journey()
 	await capture("reise")
 	game.start_journey_puzzle(lessons[0])
 	await process_frame

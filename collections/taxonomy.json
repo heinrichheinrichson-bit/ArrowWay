@@ -3,7 +3,7 @@
   "worlds": [
     {
       "id": "first_light",
-      "title": "Das erste Licht",
+      "title": "Spielend entdecken",
       "categories": [
         {
           "id": "first_light_01",
@@ -1240,7 +1240,7 @@
       "title": "Kleiner Fisch",
       "group": "first_light",
       "world": "first_light",
-      "world_title": "Das erste Licht",
+      "world_title": "Spielend entdecken",
       "category": "Spielend entdecken",
       "category_id": "first_light_01",
       "old_collection": "first_light",
@@ -1252,7 +1252,7 @@
       "title": "Tulpe",
       "group": "first_light",
       "world": "first_light",
-      "world_title": "Das erste Licht",
+      "world_title": "Spielend entdecken",
       "category": "Spielend entdecken",
       "category_id": "first_light_01",
       "old_collection": "first_light",
@@ -1264,7 +1264,7 @@
       "title": "Kleiner Pilz",
       "group": "first_light",
       "world": "first_light",
-      "world_title": "Das erste Licht",
+      "world_title": "Spielend entdecken",
       "category": "Spielend entdecken",
       "category_id": "first_light_01",
       "old_collection": "first_light",

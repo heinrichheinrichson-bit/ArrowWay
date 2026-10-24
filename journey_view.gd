@@ -295,7 +295,7 @@ func build_map() -> void:
 	var blocks: Array[Dictionary] = []
 	var offset := 170.0
 	for index in worlds.size():
-		var rows := ceili(JourneyProgress.visible_groups(game,index).size()/2.0)
+		var rows := 0 if worlds[index].id=="first_light" else ceili(JourneyProgress.visible_groups(game,index).size()/2.0)
 		blocks.append({"offset":offset,"rows":rows})
 		offset += 270.0+rows*230.0
 	var height := offset+30
@@ -309,10 +309,13 @@ func build_map() -> void:
 		var color := Color(data.color)
 		var recommended := JourneyProgress.next_group(game,index) if available else ""
 		var caption := AppLanguage.text("%d / %d Rätsel gelöst") % [JourneyProgress.world_done(game,index),JourneyProgress.world_total(game,index)] if available else AppLanguage.text("Noch gesperrt")
-		station("world:"+data.id,data.title,caption,data.icon,color,center,available,JourneyProgress.world_complete(game,index),index==frontier,func(): focus_world(index),minf(300,size.x-48))
+		if data.id=="first_light":
+			station("group:first_light",JourneyProgress.group_title(game,"first_light"),caption,data.icon,color,center,available,JourneyProgress.world_complete(game,index),index==frontier,func(): navigate("collection",index,"first_light"),minf(300,size.x-48))
+		else:
+			station("world:"+data.id,data.title,caption,data.icon,color,center,available,JourneyProgress.world_complete(game,index),index==frontier,func(): focus_world(index),minf(300,size.x-48))
 		if index>0:
 			canvas.routes.append({"start":world_centers[index-1],"finish":center,"open":available and JourneyProgress.world_open(game,index-1),"color":color,"fresh":available and not seen.has("world:"+data.id),"opacity":0.65,"reward":reward.get("next",-1)==index,"guide":index==frontier})
-		if not available: continue
+		if not available or data.id=="first_light": continue
 		var visible := JourneyProgress.visible_groups(game,index)
 		for position in visible.size():
 			var item: String = visible[position]
@@ -329,7 +332,7 @@ func build_map() -> void:
 	var selected := world if JourneyProgress.world_open(game,world) else frontier
 	var target := maxi(0,int(world_centers[selected].y-scroller.size.y*0.72))
 	var key := "map:%d::false" % world
-	if world<0 and seen.has("world:"+worlds[frontier].id): target=int(scroll_positions.get(key,target))
+	if world<0 and seen.has("group:first_light" if worlds[frontier].id=="first_light" else "world:"+worlds[frontier].id): target=int(scroll_positions.get(key,target))
 	if int(reward.get("next",-1))>int(reward.get("world",-1)) and int(reward.get("world",-1))>=0:
 		animate_unlock(world_centers[int(reward.world)],target)
 	else: request_scroll(target)
@@ -350,7 +353,7 @@ func play_next(selected_world: int) -> void:
 func build_collection() -> void:
 	if world>=0: game.ads.opened_world(world)
 	var color := JourneyProgress.group_color(group)
-	var parent_title: String = AppLanguage.text("EIGENE MOTIVE") if world<0 else JourneyProgress.worlds()[world].title.to_upper()
+	var parent_title: String = "" if group=="first_light" else (AppLanguage.text("EIGENE MOTIVE") if world<0 else JourneyProgress.worlds()[world].title.to_upper())
 	label(parent_title,Vector2(88,29),size.x-110,12,Color(color,0.75))
 	label(JourneyProgress.group_title(game,group),Vector2(24,91),size.x-48,27)
 	# Keep a stable order; solved and unsolved puzzles are always together.

@@ -91,8 +91,8 @@ func run() -> void:
 	require(not scene.level_available(garden[0]),"Future-world puzzles cannot be selected")
 	scene.open_home(); await capture("home"); scene.close_home()
 	scene.open_journey(); await process_frame
-	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+2,"All major themes plus reached subcategory share a single canvas")
-	require(scene.journey.visible_station_ids==["world:first_light","group:first_light","world:beginning","group:base"],"Future themes have no subcategory nodes")
+	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+1,"All major themes plus reached subcategory share a single canvas")
+	require(scene.journey.visible_station_ids==["group:first_light","world:beginning","group:base"],"Future themes have no subcategory nodes")
 	await capture("map-new")
 	await swipe_map(); await swipe_map(true)
 	station_named("world:beginning").pressed.emit()
@@ -110,7 +110,7 @@ func run() -> void:
 	solve(intro.back()); scene.advance()
 	require(scene.journey.screen=="map" and JourneyProgress.frontier(scene)==2,"All nine completions open Nature on the SAME map")
 	require(station_named("world:beginning").achieved and not station_named("world:nature").achieved,"Only fully completed themes get checkmarks")
-	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+2+JourneyProgress.worlds()[2].groups.size(),"Tierwelt's child nodes join the original map")
+	require(scene.journey.canvas.get_child_count()==JourneyProgress.worlds().size()+1+JourneyProgress.worlds()[2].groups.size(),"Tierwelt's child nodes join the original map")
 	require(JourneyProgress.group_visible(scene,"animals") and JourneyProgress.group_visible(scene,"birds") and not JourneyProgress.group_visible(scene,"flowers"),"Only reached themes display their subcategory branches")
 	for group in ["animals","birds","ocean"]:
 		require(station_named("group:"+group)!=null,"Each Nature collection is connected on the same canvas")
@@ -186,7 +186,7 @@ func run() -> void:
 	require(additions==scene.level_count()-JourneyProgress.indices(scene,"custom").size(),"All published catalog puzzles remain reachable; internal editor drafts are excluded")
 	scene.open_journey()
 	for wi in JourneyProgress.worlds().size():
-		require(station_named("world:"+JourneyProgress.worlds()[wi].id).achieved,"Each fully solved major theme receives its checkmark")
+		require(station_named("group:first_light" if JourneyProgress.worlds()[wi].id=="first_light" else "world:"+JourneyProgress.worlds()[wi].id).achieved,"Each fully solved station receives its checkmark")
 	scene.open_home()
 	var clock:float=scene.clock_time; scene._process(1)
 	require(scene.clock_time==clock,"Home pauses gameplay")
