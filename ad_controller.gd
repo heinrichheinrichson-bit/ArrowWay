@@ -10,6 +10,11 @@ var dialog: AcceptDialog
 var continuation: Callable
 var save_clock := 0.0
 var initialized := false
+var provider: Object
+var native_pending := false
+var request_token := 0
+var opened_token := -1
+var prepare_clock := 0.0
 
 func file_path() -> String: return game.storage_prefix+"ads.json"
 
@@ -29,6 +34,39 @@ func initialize() -> void:
 	test_mode=bool(state.get("test_mode",false)) and OS.has_feature("debug")
 	simulate_ad_free=bool(state.get("simulate_ad_free",false)) and OS.has_feature("debug")
 	initialized=true
+	if Engine.has_singleton("ArrowJoyAds") and not game.editor and not game.authoring:
+		setup_native.call_deferred()
+
+func setup_native() -> void:
+	if provider != null or not FileAccess.file_exists("res://admob_runtime.json"): return
+	var config = JSON.parse_string(FileAccess.get_file_as_string("res://admob_runtime.json"))
+	if not config is Dictionary or str(config.get("interstitial_id", "")).is_empty(): return
+	provider=Engine.get_singleton("ArrowJoyAds")
+	provider.connect("ad_opened",native_opened)
+	provider.connect("ad_finished",native_finished)
+	provider.connect("privacy_changed",refresh_privacy_page)
+	provider.call("setEnabled",not is_ad_free())
+	if not is_ad_free(): provider.call("start",str(config.interstitial_id))
+
+func privacy_required() -> bool:
+	return provider != null and bool(provider.call("privacyRequired"))
+
+func refresh_privacy_page() -> void:
+	if is_instance_valid(game.home_menu) and game.home_menu.screen=="privacy":
+		game.home_menu.relayout.call_deferred()
+
+func show_privacy_options() -> void:
+	if privacy_required(): provider.call("showPrivacy")
+
+func native_opened(token: int) -> void:
+	if not native_pending or token!=request_token or opened_token==token: return
+	opened_token=token
+	policy.ad_shown(); save()
+
+func native_finished(token: int, _shown: bool) -> void:
+	if not native_pending or token!=request_token: return
+	native_pending=false
+	dismiss()
 
 func save() -> int:
 	if not initialized: return OK
@@ -62,6 +100,10 @@ func _process(delta: float) -> void:
 		if child is Window and child.visible: modal=true; break
 	var active: bool= focused and not is_instance_valid(game.play_guide) and not modal and not showing and game.session_in_progress and game.win_time<0 and not game.editor and not game.authoring and not is_instance_valid(game.home_menu) and not is_instance_valid(game.journey) and not is_instance_valid(game.gallery)
 	policy.tick(delta,active)
+	if provider != null and focused and not showing and not is_ad_free():
+		prepare_clock+=delta
+		if prepare_clock>=60:
+			prepare_clock=0.0; provider.call("prepare")
 	if active:
 		save_clock+=clampf(delta,0.0,1.0)
 		if save_clock>=15: save_clock=0.0; save()
@@ -80,8 +122,15 @@ func opened_world(world: int) -> void:
 
 func transition(world: int, callback: Callable) -> void:
 	if showing: return
-	# This provider is deliberately offline. With no ready provider, continue now.
-	if is_ad_free() or not policy.eligible(true,world_key(world)) or not test_mode or not OS.has_feature("debug"):
+	if is_ad_free() or not policy.eligible(true,world_key(world)):
+		callback.call(); return
+	if provider != null:
+		continuation=callback; showing=true; native_pending=true
+		request_token+=1
+		provider.call("show",request_token)
+		return
+	# Desktop/developer simulation remains offline; a missing SDK never blocks play.
+	if not test_mode or not OS.has_feature("debug"):
 		callback.call(); return
 	continuation=callback
 	dialog=AcceptDialog.new()
@@ -97,6 +146,8 @@ func transition(world: int, callback: Callable) -> void:
 	policy.ad_shown(); save()
 
 func dismiss() -> void:
+	# Native ads own their close button. Android Back must not resume behind them.
+	if native_pending: return
 	if not showing: return
 	showing=false
 	if is_instance_valid(dialog): dialog.hide(); dialog.queue_free()
@@ -114,3 +165,4 @@ func set_simulated_ad_free(value: bool) -> void:
 func set_verified_ad_free(value: bool) -> void:
 	# Reserved for a future verified purchase/restore integration; no purchase UI yet.
 	policy.ad_free=value; save()
+	if provider != null: provider.call("setEnabled",not is_ad_free())

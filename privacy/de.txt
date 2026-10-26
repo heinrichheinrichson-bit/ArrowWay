@@ -1,17 +1,31 @@
 Datenschutz · arrow.joy
-Stand: 8. Oktober 2026
+Stand: 26. Oktober 2026 · Version mit AdMob ab 0.27.0
 
 Verantwortlicher: Damien Weihs (Thinkheim), Bayerhofstraße 5, 8600 Bruck an der Mur, Österreich.
 Kontakt: thinkheim.support@gmail.com
 
-arrow.joy funktioniert ohne Benutzerkonto. Diese Testversion übermittelt keine Spiel- oder Nutzungsdaten an Server des Entwicklers. Sie enthält keine Analyse-, Tracking-, Werbe- oder Zahlungsdienste.
+Spiel und lokale Daten
+arrow.joy funktioniert ohne Benutzerkonto. Spielstände, Fortschritt, Favoriten, Statistiken, Einstellungen und laufende Rätsel werden lokal auf dem Gerät gespeichert. Der Entwickler betreibt keinen Server für diese Spieldaten und setzt keine separate Analyseplattform ein. Rätsel können offline gespielt werden. Offline wird keine neue Werbung geladen.
 
-Spielstände, Fortschritt, Favoriten, Statistiken, Einstellungen und laufende Rätsel werden lokal auf dem Gerät gespeichert. Die App fordert weder Standort noch Kontakte, Kamera oder Mikrofon an.
+Du kannst den vollständigen App-Stand freiwillig in eine Datei exportieren und später importieren. Die App versendet diese Sicherungsdatei nicht selbstständig. Android-Systemsicherung ist deaktiviert. Durch Löschen der App-Daten oder Deinstallation entfernst du lokale Daten; exportierte Dateien sind separat zu löschen.
 
-Du kannst den vollständigen App-Stand freiwillig in eine Datei exportieren und später importieren. Die Datei enthält deine lokalen Spieldaten. Die App versendet diese Datei nicht selbstständig. Verwahre Sicherungen entsprechend deinen Wünschen. Die Android-Systemsicherung ist für diese App deaktiviert.
+Werbung
+Ab Version 0.27.0 verwendet die Android-App Google AdMob (Google Mobile Ads SDK) und die User Messaging Platform (UMP) von Google. Anbieter für Nutzer im EWR ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Ältere Testversionen bis 0.26.1-rc2 enthalten diese Dienste nicht.
 
-Lokale Daten kannst du durch Löschen der App-Daten in den Android-Einstellungen oder durch Deinstallation entfernen. Exportierte Dateien musst du separat löschen.
+Wir verwenden ausschließlich nicht personalisierte Anzeigen und aktivieren für alle Anfragen die Schutzbehandlung für Kinder sowie die strengste Anzeigen-Inhaltsstufe G. Die App fordert keine Altersangabe an. Die Berechtigungen für die Android-Werbe-ID und die Android-Ad-Services sind entfernt. Es gibt keine Vermittlung an zusätzliche Werbenetzwerk-SDKs, keine Banner und keine App-Start-Anzeigen.
 
-Wenn du Quellenlinks öffnest, wird dein Browser verwendet. Wenn du den Support kontaktierst, wird dein E-Mail-Programm geöffnet. Nur freiwillig gesendete Nachrichten und darin enthaltene Angaben erreichen den Support und werden zur Bearbeitung der Anfrage genutzt. Browser, E-Mail-Anbieter und Google Play haben eigene Datenschutzregeln.
+Auch nicht personalisierte Anzeigen benötigen technische Daten. Google verarbeitet insbesondere die IP-Adresse (daraus kann eine ungefähre Region abgeleitet werden), Anzeigen- und App-Interaktionen, technische Geräteinformationen und Diagnosedaten zur Bereitstellung, Messung und Absicherung der Werbung sowie Betrugsvermeidung. Je nach SDK-Konfiguration können technische Geräte- oder App-Kennungen verarbeitet werden; die Android-Werbe-ID wird von dieser App nicht angefordert. Die Übermittlung erfolgt verschlüsselt. Dein Rätsel-Fortschritt und deine Sicherungsdateien werden nicht an AdMob übertragen.
 
-Die App verlangt keine persönlichen Angaben von Kindern. Änderungen, insbesondere eine spätere Integration echter Werbung, erfordern eine aktualisierte Erklärung und entsprechende Play-Console-Angaben.
+UMP prüft beim App-Start den Datenschutzstatus mit der Einstellung für Nutzer unter dem Einwilligungsalter. Für diese Schutzbehandlung wird kein personalisiertes Werbeprofil angefordert. Wenn Google eine Datenschutz-Auswahl verlangt, wird sie vor Anzeigenanfragen angeboten. Soweit eine nachträgliche Auswahl erforderlich ist, ist sie unter Einstellungen → Datenschutz → Werbe-Datenschutzeinstellungen erreichbar. Bei fehlender Freigabe werden keine Anzeigen angefragt; das Spiel bleibt nutzbar.
+
+Soweit eine Einwilligung erforderlich ist, ist sie Grundlage der entsprechenden Verarbeitung. Technisch notwendige Verarbeitung für nicht personalisierte Werbung, Sicherheit und Missbrauchsschutz stützt sich, soweit zulässig, auf berechtigte Interessen. Google verarbeitet Daten nach seinen Datenschutzregeln, gegebenenfalls auch außerhalb des EWR unter den dort beschriebenen Schutzmaßnahmen und Aufbewahrungsfristen. Der Entwickler erhält keine individuellen Werbeprofile, sondern kann zusammengefasste Anzeigenberichte einsehen.
+
+Google-Datenschutz: https://policies.google.com/privacy
+Google-Partnerdienste: https://policies.google.com/technologies/partner-sites
+
+Weitere Kontakte und Rechte
+Die App fragt weder GPS-Standort noch Kontakte, Kamera oder Mikrofon ab und verlangt keine persönlichen Angaben von Kindern. Es gibt derzeit keine Zahlungsdienste oder In-App-Käufe.
+
+Quellenlinks öffnen den Browser. Kontakt zum Support öffnet dein E-Mail-Programm. Freiwillig gesendete Nachrichten werden nur zur Bearbeitung deiner Anfrage gespeichert und gelöscht, wenn sie dafür nicht mehr benötigt werden, soweit keine Aufbewahrungspflicht besteht. Browser, E-Mail-Anbieter und Google Play haben eigene Datenschutzregeln.
+
+Du kannst dich für Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit oder Widerspruch an den oben genannten Kontakt wenden, soweit diese Rechte anwendbar sind. Einwilligungen können für die Zukunft widerrufen werden. Du kannst dich bei einer Datenschutzaufsicht beschweren, insbesondere der österreichischen Datenschutzbehörde (https://www.dsb.gv.at). Lokale Spielstände liegen nur auf deinem Gerät; ohne von dir bereitgestellte Datei hat der Entwickler keinen Zugriff darauf.

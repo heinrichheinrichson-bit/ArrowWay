@@ -1,0 +1,9 @@
+{
+  "app_id": "ca-app-pub-2541162065593575~7616310644",
+  "interstitial_id": "ca-app-pub-2541162065593575/8737820629",
+  "test_app_id": "ca-app-pub-3940256099942544~3347511713",
+  "test_interstitial_id": "ca-app-pub-3940256099942544/1033173712",
+  "ads_sdk": "25.5.0",
+  "ump_sdk": "4.0.0",
+  "all_users_child_treatment": true
+}

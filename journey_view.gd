@@ -571,6 +571,10 @@ func build_privacy() -> void:
 	content.text = FileAccess.get_file_as_string("res://privacy/"+AppLanguage.locale+".txt")
 	scroller.add_child(content)
 	add_child(scroller)
+	if game.ads.privacy_required():
+		scroller.position.y=239
+		scroller.size.y=maxf(120,size.y-269)
+		action(AppLanguage.text("Werbe-Datenschutzeinstellungen"),Vector2(24,175),Vector2(size.x-48,48),game.ads.show_privacy_options)
 
 func show_art_credits() -> void:
 	var dialog := AcceptDialog.new()

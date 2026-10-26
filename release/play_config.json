@@ -2,8 +2,8 @@
   "package": "com.thinkheim.arrowjoy",
   "developer": "Thinkheim",
   "support": "thinkheim.support@gmail.com",
-  "version_name": "0.26.1-rc2",
-  "version_code": 26002,
+  "version_name": "0.27.0",
+  "version_code": 27001,
   "min_sdk": 24,
   "target_sdk": 36,
   "abis": [
@@ -11,5 +11,5 @@
     "arm64-v8a",
     "x86_64"
   ],
-  "real_ads": false
+  "real_ads": true
 }

@@ -6,6 +6,7 @@ Signing secrets are supplied through Godot's release-keystore environment variab
 import argparse, json, os, re, shutil, subprocess, tempfile, zipfile
 from pathlib import Path
 from check_motif_languages import check_catalog
+from android_ads import install as install_ads
 ROOT = Path(__file__).resolve().parents[1]
 AUTHOR_FILES = {'motif_studio.gd', 'motif_canvas.gd', 'color_studio.gd', 'color_preview.gd', 'catalog_workshop_store.gd', 'catalog_workshop_browser.gd', 'workshop_language_service.gd', 'workshop_text_editor.gd'}
 def main():
@@ -13,8 +14,11 @@ def main():
     parser.add_argument('--godot', required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--release', action='store_true')
+    parser.add_argument('--test-ads', action='store_true', help='Signed separate app with Google demo ad IDs only')
+    parser.add_argument('--ads-smoke', action='store_true', help='Test app only: automatically exercise one Google demo interstitial')
     parser.add_argument('--version-code', type=int)
     args = parser.parse_args()
+    if args.ads_smoke and not (args.release and args.test_ads): parser.error('--ads-smoke requires --release --test-ads')
     problems = check_catalog(ROOT)
     if problems:
         for item in problems: print(item['title'] + ': ' + '; '.join(item['issues']))
@@ -88,6 +92,14 @@ def main():
             settings.write_text(settings.read_text().replace("    plugins {", "    resolutionStrategy { eachPlugin { if (requested.id.id.startsWith('com.android.')) useModule('com.android.tools.build:gradle:8.13.2'); if (requested.id.id == 'org.jetbrains.kotlin.android') useModule('org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20') } }\n    plugins {"))
             wrapper = stage / 'android/build/gradle/wrapper/gradle-wrapper.properties'
             wrapper.write_text(wrapper.read_text().replace('gradle-8.11.1-bin.zip', 'gradle-8.14.3-all.zip'))
+            if release_config.get('real_ads', False):
+                install_ads(ROOT, stage, args.test_ads)
+                if args.test_ads:
+                    android_options['package/unique_name'] = '"com.thinkheim.arrowjoy.adstest"'
+                    android_options['package/name'] = '"arrow.joy · TEST ADS"'
+                if args.ads_smoke:
+                    shutil.copyfile(ROOT/'tests/android_ads_smoke.gd',stage/'android_ads_smoke.gd')
+                    project.write_text(project.read_text()+ '\n[autoload]\nAdsSmoke="*res://android_ads_smoke.gd"\n')
         for key, value in android_options.items():
             text = re.sub(r'^' + re.escape(key) + r'=.*$', key + '=' + value, text, flags=re.M)
         config.write_text(text, encoding='utf-8')
