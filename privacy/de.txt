@@ -1,31 +1,15 @@
 Datenschutz · arrow.joy
-Stand: 26. Oktober 2026 · Version mit AdMob ab 0.27.0
 
-Verantwortlicher: Damien Weihs (Thinkheim), Bayerhofstraße 5, 8600 Bruck an der Mur, Österreich.
-Kontakt: thinkheim.support@gmail.com
+Deine Spieldaten bleiben auf deinem Gerät.
+Du brauchst kein Konto. Fortschritt, Einstellungen und Rätsel werden lokal gespeichert. Du kannst deinen App-Stand selbst exportieren und wieder importieren. Die App versendet diese Sicherung nicht automatisch. Android-Systemsicherung ist deaktiviert. Beim Löschen der App-Daten oder Deinstallieren gehen lokale Daten verloren; exportierte Dateien bleiben separat erhalten.
 
-Spiel und lokale Daten
-arrow.joy funktioniert ohne Benutzerkonto. Spielstände, Fortschritt, Favoriten, Statistiken, Einstellungen und laufende Rätsel werden lokal auf dem Gerät gespeichert. Der Entwickler betreibt keinen Server für diese Spieldaten und setzt keine separate Analyseplattform ein. Rätsel können offline gespielt werden. Offline wird keine neue Werbung geladen.
+Werbung ohne Personalisierung
+Für gelegentliche Anzeigen verwenden wir Google AdMob. Alle Anzeigenanfragen erhalten die Schutzbehandlung für Kinder und die strengste Inhaltsstufe G. Google verarbeitet dafür technische Daten wie IP-Adresse, ungefähre Region, App- und Anzeigeninteraktionen, Geräteinformationen, technische Kennungen und Diagnosedaten. Die Übertragung ist verschlüsselt. Die App fordert keine Android-Werbe-ID an und übermittelt keine Spielstände oder Sicherungsdateien an AdMob. Offline wird keine neue Werbung geladen.
 
-Du kannst den vollständigen App-Stand freiwillig in eine Datei exportieren und später importieren. Die App versendet diese Sicherungsdatei nicht selbstständig. Android-Systemsicherung ist deaktiviert. Durch Löschen der App-Daten oder Deinstallation entfernst du lokale Daten; exportierte Dateien sind separat zu löschen.
+Alle Einzelheiten zu Anbieter, Datenverarbeitung und deinen Rechten findest du hier:
+[url=https://heinrichheinrichson-bit.github.io/PROJECT_LOGIC/arrowjoy-privacy.html]Vollständige Datenschutzerklärung öffnen ↗[/url]
+Der Link öffnet eine Webseite und benötigt Internetzugang.
 
-Werbung
-Ab Version 0.27.0 verwendet die Android-App Google AdMob (Google Mobile Ads SDK) und die User Messaging Platform (UMP) von Google. Anbieter für Nutzer im EWR ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Ältere Testversionen bis 0.26.1-rc2 enthalten diese Dienste nicht.
-
-Wir verwenden ausschließlich nicht personalisierte Anzeigen und aktivieren für alle Anfragen die Schutzbehandlung für Kinder sowie die strengste Anzeigen-Inhaltsstufe G. Die App fordert keine Altersangabe an. Die Berechtigungen für die Android-Werbe-ID und die Android-Ad-Services sind entfernt. Es gibt keine Vermittlung an zusätzliche Werbenetzwerk-SDKs, keine Banner und keine App-Start-Anzeigen.
-
-Auch nicht personalisierte Anzeigen benötigen technische Daten. Google verarbeitet insbesondere die IP-Adresse (daraus kann eine ungefähre Region abgeleitet werden), Anzeigen- und App-Interaktionen, technische Geräteinformationen und Diagnosedaten zur Bereitstellung, Messung und Absicherung der Werbung sowie Betrugsvermeidung. Je nach SDK-Konfiguration können technische Geräte- oder App-Kennungen verarbeitet werden; die Android-Werbe-ID wird von dieser App nicht angefordert. Die Übermittlung erfolgt verschlüsselt. Dein Rätsel-Fortschritt und deine Sicherungsdateien werden nicht an AdMob übertragen.
-
-UMP prüft beim App-Start den Datenschutzstatus mit der Einstellung für Nutzer unter dem Einwilligungsalter. Für diese Schutzbehandlung wird kein personalisiertes Werbeprofil angefordert. Wenn Google eine Datenschutz-Auswahl verlangt, wird sie vor Anzeigenanfragen angeboten. Soweit eine nachträgliche Auswahl erforderlich ist, ist sie unter Einstellungen → Datenschutz → Werbe-Datenschutzeinstellungen erreichbar. Bei fehlender Freigabe werden keine Anzeigen angefragt; das Spiel bleibt nutzbar.
-
-Soweit eine Einwilligung erforderlich ist, ist sie Grundlage der entsprechenden Verarbeitung. Technisch notwendige Verarbeitung für nicht personalisierte Werbung, Sicherheit und Missbrauchsschutz stützt sich, soweit zulässig, auf berechtigte Interessen. Google verarbeitet Daten nach seinen Datenschutzregeln, gegebenenfalls auch außerhalb des EWR unter den dort beschriebenen Schutzmaßnahmen und Aufbewahrungsfristen. Der Entwickler erhält keine individuellen Werbeprofile, sondern kann zusammengefasste Anzeigenberichte einsehen.
-
-Google-Datenschutz: https://policies.google.com/privacy
-Google-Partnerdienste: https://policies.google.com/technologies/partner-sites
-
-Weitere Kontakte und Rechte
-Die App fragt weder GPS-Standort noch Kontakte, Kamera oder Mikrofon ab und verlangt keine persönlichen Angaben von Kindern. Es gibt derzeit keine Zahlungsdienste oder In-App-Käufe.
-
-Quellenlinks öffnen den Browser. Kontakt zum Support öffnet dein E-Mail-Programm. Freiwillig gesendete Nachrichten werden nur zur Bearbeitung deiner Anfrage gespeichert und gelöscht, wenn sie dafür nicht mehr benötigt werden, soweit keine Aufbewahrungspflicht besteht. Browser, E-Mail-Anbieter und Google Play haben eigene Datenschutzregeln.
-
-Du kannst dich für Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit oder Widerspruch an den oben genannten Kontakt wenden, soweit diese Rechte anwendbar sind. Einwilligungen können für die Zukunft widerrufen werden. Du kannst dich bei einer Datenschutzaufsicht beschweren, insbesondere der österreichischen Datenschutzbehörde (https://www.dsb.gv.at). Lokale Spielstände liegen nur auf deinem Gerät; ohne von dir bereitgestellte Datei hat der Entwickler keinen Zugriff darauf.
+Fragen zum Datenschutz oder zum Spiel?
+[url=mailto:thinkheim.support@gmail.com?subject=arrow.joy]thinkheim.support@gmail.com[/url]
+Thinkheim · arrow.joy

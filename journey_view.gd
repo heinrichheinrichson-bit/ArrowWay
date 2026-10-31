@@ -564,6 +564,8 @@ func build_privacy() -> void:
 	scroller.follow_focus = true
 	var content := RichTextLabel.new()
 	content.name = "PrivacyText"
+	content.bbcode_enabled = true
+	content.meta_clicked.connect(func(url): OS.shell_open(str(url)))
 	content.custom_minimum_size = Vector2(size.x-72,0)
 	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	content.fit_content = true

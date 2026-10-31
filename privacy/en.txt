@@ -1,31 +1,15 @@
 Privacy · arrow.joy
-Last updated: 26 October 2026 · AdMob version from 0.27.0
 
-Controller: Damien Weihs (Thinkheim), Bayerhofstraße 5, 8600 Bruck an der Mur, Austria.
-Contact: thinkheim.support@gmail.com
+Your game data stays on your device.
+No account is needed. Progress, settings and puzzles are stored locally. You can export and import your app state yourself. The app never sends this backup automatically. Android system backup is disabled. Clearing app data or uninstalling removes local data; exported files remain separately.
 
-Game and local data
-arrow.joy works without an account. Saved games, progress, favourites, statistics, settings and puzzles in progress are stored locally on your device. The developer does not operate a server for this gameplay data or use a separate analytics platform. Puzzles can be played offline. No new advertising is loaded while offline.
+Non-personalized advertising
+We use Google AdMob for occasional ads. All ad requests use child age treatment and the strictest content rating, G. Google processes technical data such as IP address, approximate region, app and ad interactions, device information, technical identifiers and diagnostics. Data is encrypted in transit. The app does not request the Android advertising ID or send game progress or backup files to AdMob. No new ads are loaded while offline.
 
-You can voluntarily export your complete app state to a file and import it later. The app does not transmit this backup automatically. Android system backup is disabled. Clearing app data or uninstalling removes local data; exported files must be deleted separately.
+For full details about the provider, data processing and your rights:
+[url=https://heinrichheinrichson-bit.github.io/PROJECT_LOGIC/arrowjoy-privacy.html#english]Open the full privacy policy ↗[/url]
+This link opens a website and requires internet access.
 
-Advertising
-From version 0.27.0, the Android app uses Google AdMob (Google Mobile Ads SDK) and Google's User Messaging Platform (UMP). For EEA users the provider is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland. Earlier test versions up to 0.26.1-rc2 do not contain these services.
-
-We use non-personalized ads only and apply child age treatment and the strictest ad content rating, G, to all ad requests. The app does not ask for your age. Android advertising ID and Android Ad Services permissions are removed. There are no additional mediated ad-network SDKs, banners or app-open ads.
-
-Non-personalized ads still require technical data. Google processes information including the IP address (which can indicate an approximate region), ad and app interactions, technical device information and diagnostics to provide, measure and secure advertising and prevent fraud. Depending on SDK configuration, technical device or app identifiers may be processed; this app does not request the Android advertising ID. Data is encrypted in transit. Your puzzle progress and backup files are not sent to AdMob.
-
-UMP checks privacy status at app launch with the under-age-of-consent setting enabled. No personalized advertising profile is requested for this protected treatment. If Google requires a privacy choice, it is offered before ad requests. Where a subsequent choice is required, it is available under Settings → Privacy → Ad privacy settings. If ads are not permitted, no ads are requested and the game remains usable.
-
-Where consent is required, it is the basis for the corresponding processing. Where permitted, necessary processing for non-personalized advertising, security and abuse prevention relies on legitimate interests. Google processes data under its privacy policy, potentially outside the EEA using the safeguards and retention practices described there. The developer does not receive individual advertising profiles but can view aggregated advertising reports.
-
-Google privacy: https://policies.google.com/privacy
-Google partner services: https://policies.google.com/technologies/partner-sites
-
-Other contacts and your rights
-The app does not request GPS location, contacts, camera or microphone access or ask children for personal information. There are currently no payment services or in-app purchases.
-
-Source links open your browser. Contacting support opens your email app. Voluntarily sent messages are retained to handle your request and deleted when no longer needed, unless retention is legally required. Your browser, email provider and Google Play have their own privacy policies.
-
-You may contact the controller above to request access, correction, deletion, restriction, portability or to object, where applicable. Consent can be withdrawn for the future. You may complain to a data protection authority, particularly the Austrian Data Protection Authority (https://www.dsb.gv.at). Local saved games remain only on your device; the developer cannot access them unless you provide a file.
+Questions about privacy or the game?
+[url=mailto:thinkheim.support@gmail.com?subject=arrow.joy]thinkheim.support@gmail.com[/url]
+Thinkheim · arrow.joy
